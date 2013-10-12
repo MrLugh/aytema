@@ -1,0 +1,1 @@
+var ayTemaDs = angular.module('ayTema.directives',[]);

@@ -1,0 +1,1 @@
+var ayTemaSs = angular.module('ayTema.services',[]);
