@@ -50,6 +50,7 @@
 </head>
 
 <body>
+        <h1>AyTema!</h1>
 
         <div data-ng-app="ayTemaApp" ng-controller='indexCo'>
 
