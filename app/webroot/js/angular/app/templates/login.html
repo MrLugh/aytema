@@ -1,0 +1,50 @@
+<h1>Log in</h1>
+
+<form class="form-horizontal" ng-submit="login()" name="loginForm">
+
+    <div class="control-group">
+        <div class="controls">
+            <input type="text" data-ng-model="username" placeholder="Username" name="username" required autofocus>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <input type="password" data-ng-model="password" placeholder="Password" name="password" required autofocus>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <label class="checkbox" for="rememberme">
+                <input type="checkbox" data-ng-model="rememberme" name="rememberme">Remember me
+            </label>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <button class="btn" type="submit" data-ng-disabled="loginForm.$invalid">Log in
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<hr>
+
+<p> ... or use one of them fancy social logins:</p>
+<div class="btn-group">
+    <a class="btn" href="" data-ng-click="loginOauth('facebook')">
+        <i class="icon-facebook-sign"></i>FaceBook
+    </a>
+    <a class="btn" href="" data-ng-click="loginOauth('twitter')">
+        <i class="icon-twitter"></i>Twitter
+    </a>
+    <a class="btn" href="" data-ng-click="loginOauth('google')">
+        <i class="icon-google-plus-sign"></i>Google
+    </a>
+    <a class="btn" href="" data-ng-click="loginOauth('linkedin')">
+        <i class="icon-linkedin"></i>Linkedin
+    </a>
+</div>
