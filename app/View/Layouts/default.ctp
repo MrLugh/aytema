@@ -36,12 +36,6 @@
     echo $this->Html->script('angular/lib/angular-cookies.js');
     ?>
 
-    <!-- Routing -->
-    <?php
-    echo $this->Html->script('angular/app/routingConfig.js');
-    ?>
-
-
     <!-- Filters -->
     <?php
     echo $this->Html->script('angular/app/filters/filters.js');
@@ -50,19 +44,11 @@
     <!-- Services -->
     <?php
     echo $this->Html->script('angular/app/services/services.js');
-    echo $this->Html->script('angular/app/services/auth.js');
-    echo $this->Html->script('angular/app/services/user.js');
     ?>
 
     <!-- Controllers -->
     <?php
     echo $this->Html->script('angular/app/controllers/controllers.js');
-    echo $this->Html->script('angular/app/controllers/nav.js');
-    echo $this->Html->script('angular/app/controllers/login.js');
-    echo $this->Html->script('angular/app/controllers/home.js');
-    echo $this->Html->script('angular/app/controllers/register.js');
-    echo $this->Html->script('angular/app/controllers/private.js');
-    echo $this->Html->script('angular/app/controllers/admin.js');
     ?>
 
     <!-- Apps -->
@@ -73,7 +59,6 @@
     <!-- Directives -->
     <?php
     echo $this->Html->script('angular/app/directives/directives.js');
-    echo $this->Html->script('angular/app/directives/nav.js');
     ?>
 
     <script type="text/javascript"> 
@@ -86,7 +71,7 @@
 
 <body data-ng-cloak>
 
-<div class="navbar" data-ng-controller="NavCtrl">
+<div class="navbar">
     <div class="navbar-inner">
         <div class="container-fluid">
             <ul class="nav">
