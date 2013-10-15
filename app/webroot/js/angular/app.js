@@ -14,13 +14,3 @@ function getPath(key) {
 
 
 var ayTemaApp = angular.module('ayTemaApp',['ayTema.controllers','ayTema.services','ayTema.directives','ayTema.filters','ngRoute','ngAnimate','ngLocale','ngSanitize','ngTouch','ngCookies']);
-
-ayTemaApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
-
-
-}]);
-
-ayTemaApp.run(['$rootScope', '$location', function ($rootScope, $location, Auth) {
-
-
-}]);
