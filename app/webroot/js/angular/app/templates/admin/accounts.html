@@ -1,0 +1,40 @@
+<div>
+
+	<h1>Accounts</h1>
+
+	<h2>Add:</h2>
+	<ul>
+		<li ng-repeat="(key,network) in networks" ng-click="syncAccount(key)">
+			{{network.brand}}
+		</li>
+	</ul>	
+
+	<h2>Filter by:</h2>
+
+	<input type="text" ng-model="search" placeholder="Search"/>
+
+	<ul>
+		<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="getFilterStyle(key)">
+			{{network.brand}} {{countByNetwork(network.network)}}
+		</li>
+	</ul>
+
+	{{list.length}}	of {{accounts.length}}
+	<ul>
+		<li ng-repeat="account in list" ng-class="{{account.network}}">
+
+			<h3>{{account.network}}</h3>
+
+			<h4>{{account.login}}</h4>
+
+			<a href="{{account.profile_url}}" target="_blank" title="Go to {{account.network}} page">{{account.network}}</a>
+
+			<img ng-src="{{account.profile_image}}" style="height:60px;" />
+
+			<a href="" ng-click="delete($index)" title="delete this account">x</a>
+			
+		</li>
+	</ul>
+
+
+</div>

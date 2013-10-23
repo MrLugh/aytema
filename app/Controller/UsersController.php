@@ -15,13 +15,15 @@ class UsersController extends AppController {
     public function login() {
 
 		if ($this->request->is('post')) {
+
 		    if ($this->Auth->login()) {
 		    	$this->User->id = $this->Auth->user('id');
             	$this->User->saveField('last_login', date('Y-m-d H:i:s') );
-		        //return $this->redirect(array('controller'=>'Socialnets','action'=> 'index'));
+                die("Logged");
 		    }
-		    //$this->Session->setFlash(__('Invalid username or password, try again'),'flash/error');
 		}
+        throw new ForbiddenException("You are not authorized to access that location.");
+        
     }
 
     public function logout() {
@@ -42,7 +44,7 @@ class UsersController extends AppController {
         	if ($this->data['User']['password'] === $this->data['User']['password_confirm']) {
 	            $this->User->create();
             	if($this->User->save($this->data)) {
-            		//$this->redirect('/');
+            		$this->redirect('/');
             	}
             }
     	}

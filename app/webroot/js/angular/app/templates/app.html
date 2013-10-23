@@ -1,0 +1,43 @@
+ <div id="container">
+
+ 	<div id="header">
+
+ 		<ul>
+ 			<li ng-click="activateStep(1)">Step 1 - Accounts</li>
+
+ 			<li ng-click="activateStep(2)">Step 2 - Themes</li>
+
+ 			<li ng-click="activateStep(3)">Step 3 - Comunicate</li>
+ 		</ul>
+
+ 	</div>
+
+ 	<div id="content">
+
+ 		<div ng-if="steps.1" class="step_1">
+
+ 			<p>Step 1</p>
+ 			<admin-accounts></admin-accounts>
+
+ 		</div>
+
+ 		<div ng-if="steps.2" class="step_2">
+
+ 			<p>Step 2</p>
+
+ 		</div>
+
+ 		<div ng-if="steps.3" class="step_3">
+
+ 			<p>Step 3</p>
+
+ 		</div>
+
+ 	</div>
+
+ 	<div id="footer">
+
+
+ 	</div>
+
+ </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-ng-app="ayTemaApp">
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -12,6 +12,7 @@
     <?php
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
+    echo $this->Html->css('app');
     ?>
 
     <!-- Js -->
@@ -20,6 +21,11 @@
     echo $this->Html->script('modernizr.min.js');
     echo $this->Html->script('bootstrap.min');
     echo $this->Html->script('underscore.min');
+    ?>
+
+    <!-- Config -->
+    <?php
+    echo $this->Html->script('angular/config.js');
     ?>
 
     <!-- Angular -->
@@ -34,11 +40,6 @@
     echo $this->Html->script('angular/lib/angular-cookies.js');
     ?>
 
-    <!-- Angular plugins -->
-    <?php
-    echo $this->Html->script('angular/plugins/angular-ui-router.js');
-    ?>
-
     <!-- Filters -->
     <?php
     echo $this->Html->script('angular/app/filters/filters.js');
@@ -47,11 +48,17 @@
     <!-- Services -->
     <?php
     echo $this->Html->script('angular/app/services/services.js');
+    echo $this->Html->script('angular/app/services/app.js');
+    echo $this->Html->script('angular/app/services/user.js');
     ?>
 
     <!-- Controllers -->
     <?php
     echo $this->Html->script('angular/app/controllers/controllers.js');
+    echo $this->Html->script('angular/app/controllers/app.js');
+    echo $this->Html->script('angular/app/controllers/login.js');
+    echo $this->Html->script('angular/app/controllers/aytema.js');
+    echo $this->Html->script('angular/app/controllers/admin/accounts.js');
     ?>
 
     <!-- Apps -->
@@ -62,36 +69,23 @@
     <!-- Directives -->
     <?php
     echo $this->Html->script('angular/app/directives/directives.js');
+    echo $this->Html->script('angular/app/directives/login.js');
+    echo $this->Html->script('angular/app/directives/aytema.js');
+    echo $this->Html->script('angular/app/directives/admin/accounts.js');
     ?>
 
-    <script type="text/javascript"> 
-        if (window.location.href.indexOf('#_=_') > 0) {
-            window.location = window.location.href.replace(/#.*/, '');
-        }
-    </script>
 
 </head>
 
 <body>
 
-    <div id="container">
-
-        <div id="header">
-
-        </div>
-
-        <div id="content">
-            <?php echo $this->fetch('content'); ?>
-        </div>
-
-        <div id="footer">
-
-        </div>
-
+    <div data-ng-app="ayTemaApp" controller='appCo'>
+        <ng-view></ng-view>
     </div>
 
     <?php echo $this->element('sql_dump'); ?>
 
+    <?php echo $this->fetch('content'); ?>
 
 </body>
 </html>
