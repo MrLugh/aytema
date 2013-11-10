@@ -9,7 +9,7 @@ function aytemaCo($scope,userSv) {
 			$scope.steps[x] = false;
 		}
 		$scope.steps[step] = true;
-	}	
+	}
 
 
 }

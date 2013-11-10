@@ -13,13 +13,14 @@
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('app');
+    echo $this->Html->css('themes');    
     ?>
 
     <!-- Js -->
     <?php
-    echo $this->Html->script('jquery');   
+    echo $this->Html->script('jquery');
     echo $this->Html->script('modernizr.min.js');
-    echo $this->Html->script('bootstrap.min');
+    echo $this->Html->script('bootstrap');
     echo $this->Html->script('underscore.min');
     ?>
 
@@ -50,6 +51,7 @@
     echo $this->Html->script('angular/app/services/services.js');
     echo $this->Html->script('angular/app/services/app.js');
     echo $this->Html->script('angular/app/services/user.js');
+    echo $this->Html->script('angular/app/services/content.js');
     ?>
 
     <!-- Controllers -->
@@ -59,6 +61,12 @@
     echo $this->Html->script('angular/app/controllers/login.js');
     echo $this->Html->script('angular/app/controllers/aytema.js');
     echo $this->Html->script('angular/app/controllers/admin/accounts.js');
+    echo $this->Html->script('angular/app/controllers/admin/themes.js');
+    echo $this->Html->script('angular/app/controllers/admin/themes.js');
+    echo $this->Html->script('angular/app/controllers/themes.js');
+
+        // Themes
+    echo $this->Html->script('angular/app/controllers/themes/digest.js');
     ?>
 
     <!-- Apps -->
@@ -72,6 +80,7 @@
     echo $this->Html->script('angular/app/directives/login.js');
     echo $this->Html->script('angular/app/directives/aytema.js');
     echo $this->Html->script('angular/app/directives/admin/accounts.js');
+    echo $this->Html->script('angular/app/directives/admin/themes.js');
     ?>
 
 
@@ -79,7 +88,7 @@
 
 <body>
 
-    <div data-ng-app="ayTemaApp" controller='appCo'>
+    <div data-ng-app="ayTemaApp" controller='appCo' resize>
         <ng-view></ng-view>
     </div>
 

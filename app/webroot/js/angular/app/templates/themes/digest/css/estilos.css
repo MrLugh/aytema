@@ -1,0 +1,208 @@
+/* gral */
+  
+body 
+{ 
+    background-color:#000000; 
+    font-family: 'Playfair Display', serif; 
+    color: #fff; 
+    margin: 30px 15px 0; 
+} 
+  
+a 
+{ 
+    text-decoration:none; 
+    color: #fff!important; 
+    outline: none; 
+} 
+a:hover 
+{ 
+    text-decoration: none; 
+    opacity: 0.8; 
+} 
+  
+.container { 
+    max-width: 940px; 
+} 
+  
+.navbar { 
+        background: url("../img/bg_nav.png") repeat 0 0 transparent!important; 
+    border: none; 
+    margin-bottom: 0; 
+} 
+.navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus { 
+    background-color: transparent; 
+    color: #fff!important; 
+} 
+.navbar-toggle { 
+    margin-top: 76px; 
+} 
+.navbar-toggle:hover, 
+.navbar-toggle:focus { 
+  background-color: transparent; 
+} 
+  
+/*menu*/
+  
+h1 { 
+    background: none repeat scroll 0 0 transparent; 
+    color: #FFFFFF; 
+    float: left; 
+    font-family: 'Playfair Display SC',serif; 
+    font-size: 41px!important; 
+    font-weight: 900; 
+    text-transform: uppercase; 
+    width: 130px; 
+} 
+h1 a { 
+    line-height: 37px!important; 
+    font-size: 41px!important; 
+} 
+  
+h2 { 
+    font-family: 'Playfair Display SC',serif; 
+    font-size: 18px; 
+    font-weight: 900; 
+    line-height: 18px; 
+    margin-top: 10px; 
+    text-align: right; 
+    text-transform: uppercase; 
+} 
+  
+p { 
+    color: #999999; 
+    font-size: 14px; 
+    font-style: italic; 
+    font-weight: 500; 
+    line-height: 16px; 
+    margin-top: 10px; 
+    text-align: right; 
+} 
+p a { 
+    color: #D1D1D1; 
+    line-height: 16px; 
+} 
+  
+  
+.navbar ul { 
+    float: right; 
+    margin-top: 75px; 
+} 
+.navbar ul li { 
+    float: left; 
+    margin-left: 32px; 
+    font-family: 'Playfair Display SC',serif; 
+    font-size: 20px; 
+    font-weight: 900; 
+    text-transform: uppercase; 
+} 
+  
+/*mazonry*/
+#container { 
+    clear: both; 
+    margin: 136px auto 0; 
+    max-width: 960px; 
+    padding-bottom: 300px; 
+} 
+#container .item { 
+    border-bottom: 1px dotted #999999; 
+    float: left; 
+    height: auto; 
+    padding: 0 0 15px; 
+    margin: 0 0 20px; 
+} 
+  
+/*sizes modulos */
+  
+#container .small { 
+    width: 215px; 
+} 
+#container .medium { 
+    width: 456px; 
+} 
+#container .large { 
+    width: 698px; 
+} 
+  
+/*images*/
+  
+.imagenBox img { 
+    display: block; 
+    width: 100%; 
+} 
+  
+.twitterBox img { 
+    display: block; 
+    height: auto; 
+} 
+  
+/*videos*/
+  
+.video_embed { 
+    background: url("../img/loading.gif") no-repeat scroll 50% 50% #000; 
+    overflow: hidden; 
+} 
+.video_embed iframe { 
+    position: relative; 
+    z-index: 0 !important; 
+} 
+  
+.video_embed object, .video_embed embed, .video_embed iframe { 
+    display: block; 
+} 
+  
+/*twitterBox*/
+  
+.twitterBox .datos_twitter { 
+    float: left; 
+    width: 72%; 
+} 
+.datos_twitter a { 
+    float: right !important; 
+} 
+.twitterBox a { 
+    float: left; 
+    font-size: 14px; 
+    font-weight: 600; 
+} 
+  
+.twitterBox span { 
+    clear: both; 
+    display: block; 
+    text-align: right; 
+    font-style: italic; 
+    font-size: 13px; 
+} 
+.twitterBox p { 
+    clear: both; 
+    margin-top: 65px; 
+} 
+  
+.twitterBox p a { 
+    float: none; 
+} 
+  
+  
+/* Responsive */
+  
+@media (min-width: 217px) and (max-width: 500px){ 
+  
+    #container .medium { 
+        width: 215px; 
+    } 
+    #container .medium iframe { 
+        width: 215px; 
+        height: 145px; 
+    } 
+    h1 a { 
+        font-size: 35px !important; 
+        line-height: 32px !important; 
+        margin-top: 11px; 
+    } 
+    .navbar ul { 
+        margin-top: 0px; 
+    }     
+  
+  
+  
+  
+}

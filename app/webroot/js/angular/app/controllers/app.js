@@ -1,4 +1,4 @@
-function appCo($scope,userSv) {
+function appCo($scope,appSv,userSv) {
 
 
 	$scope.user = userSv.getUser();
@@ -6,4 +6,9 @@ function appCo($scope,userSv) {
 	$scope.isLogged = function() {
 		return userSv.isLogged();
 	}
+
+    $scope.$watchCollection('[winW,winH]',function(sizes){
+        appSv.setWidth(sizes[0]);
+        appSv.setHeight(sizes[1]);
+    })	
 }

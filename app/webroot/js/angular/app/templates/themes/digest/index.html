@@ -1,0 +1,50 @@
+<!--<div class="navbar navbar-default navbar-fixed-top">-->
+<div class="navbar navbar-default both">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<h1><a class="navbar-brand" href="#">Digest Theme</a></h1>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Events</a></li>
+				<li><a href="#about">Photos</a></li>
+				<li><a href="#contact">Videos</a></li>
+				<li><a href="#contact">News</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':40,'isAnimated':false}" class="masonry">
+
+	<div ng-repeat="content in list" masonry-item class="item">
+
+		<div ng-switch="content.Content.concept" class="{{content.Content.concept}} {{content.Content.network}}">
+
+			<admin-theme ng-if="isLogged"></admin-theme>
+
+			<div class="stats both">
+				<ul>
+					<li ng-repeat="(key,stat) in content.Content.stats" title="{{key}}: {{stat}}">
+						<div ng-if="canShowStat(stat)" >
+							<i ng-class="statIcon(key)"></i> {{stat}}
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		    <content-video ng-switch-when='video'></content-video>
+		    <content-photo ng-switch-when='photo'></content-photo>
+		    <content-track ng-switch-when='track'></content-track>
+		    <content-post  ng-switch-when='post' ></content-post>
+
+		</div>
+
+	</div>
+
+</div>

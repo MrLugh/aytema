@@ -44,3 +44,7 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+
+Router::mapResources('contents');
+Router::mapResources('socialnets');
+Router::parseExtensions('json');

@@ -1,4 +1,90 @@
+a {
+	cursor: pointer;
+}
+
 ul {
 	list-style-type: none;
-	
+	padding: 0;
+	margin: 0;
+}
+
+.center {
+	text-align: center;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.both {
+	clear: both;
+}
+
+.hide {
+	display: none;
+}
+
+/* Menu */
+#menu li {
+	display: inline-block;
+}
+
+
+/* Accounts */
+
+.accountsContainer .addList li ,.accountsContainer .filterList li, .accountsContainer .list li {
+	display: inline-block;
+}
+
+.accountsContainer .addList {
+	float: left;
+}
+
+.accountsContainer .filterList {
+	float: right;
+}
+
+.accountsContainer .list {
+	clear: both;
+	text-align: center;
+}
+
+.accountsContainer .addList li {
+	margin-left:10px;
+}
+
+.accountsContainer .filterList li {
+	margin-left:20px;
+}
+
+.accountsContainer .socialIcon {
+	width: 20px;
+}
+
+.accountsContainer .profileImage {
+	height:60px;
+}
+
+.accountsContainer .account {
+	width: 200px;
+	margin: 15px;
+	padding: 15px;
+	outline: 1px solid black;
+	text-align: left;
+}
+
+.accountsContainer .stats {
+	overflow: auto;
+	height: 100px;
+	width: 70%;
+	float: right;
+	text-align: left;	
+}
+
+.accountsContainer .stats li {
+	margin:4px;
 }

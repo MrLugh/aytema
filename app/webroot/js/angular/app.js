@@ -7,7 +7,7 @@ ayTemaApp.config(['$routeProvider','$httpProvider', function($routeProvider,$htt
     	templateUrl: getPath('tpl')+'/index.html', controller: appCo
     });
     
-    $routeProvider.otherwise({redirectTo: '/'});    
+    $routeProvider.otherwise({redirectTo: '/'});
 }]);
 
 ayTemaApp.run([function(){}]);

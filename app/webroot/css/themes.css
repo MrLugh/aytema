@@ -1,0 +1,25 @@
+.themesContainer .list li {
+	display: inline-block;
+}
+
+.themesContainer .filterList {
+	float: right;
+}
+
+.themesContainer .list {
+	clear: both;
+	text-align: center;
+}
+
+.themesContainer .theme {
+	width: 200px;
+	margin: 15px;
+	padding: 15px;
+	outline: 1px solid black;
+	text-align: left;
+}
+
+.themesContainer .theme .themeThumbnail {
+	width: 150px;
+	cursor: pointer;
+}

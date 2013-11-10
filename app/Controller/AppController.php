@@ -38,8 +38,8 @@ class AppController extends Controller {
 		'RequestHandler',
 		'Cookie',
         'Auth' => array(
-        	//'loginRedirect'	=> array('controller' => 'index', 'action' => 'home'),
-			//'logoutRedirect'=> array('controller' => 'index', 'action' => 'home'),
+        	'loginRedirect'	=> array('controller' => 'index', 'action' => 'home'),
+			'logoutRedirect'=> array('controller' => 'index', 'action' => 'home'),
 				'authenticate'	=> array(
 				'Form' => array(
 					'fields'	=> array('username' => 'username', 'password' => 'password', 'status' => 'enabled'),

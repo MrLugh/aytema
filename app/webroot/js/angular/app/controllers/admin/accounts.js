@@ -1,9 +1,9 @@
-function adminAccountsCo($scope,userSv,appSv) {
+function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	$scope.user 	= userSv.getUser();
 	$scope.networks = appSv.getNetworks();
 
-	$scope.accounts = $scope.list = userSv.getAccounts();
+	$scope.accounts = [];
 
 	$scope.search 	= '';
 	$scope.filters 	= {};
@@ -19,13 +19,14 @@ function adminAccountsCo($scope,userSv,appSv) {
 
 	}
 	$scope.initFilters();
+	$scope.list = userSv.loadAccounts();
 
 	$scope.setList = function() {
 
 		var list= [];
 		for (x in $scope.accounts) {
 
-			account = $scope.accounts[x];
+			account = $scope.accounts[x]['Socialnet'];
 			if ($scope.filters.networks.indexOf(account.network) != -1)	{
 
 				if ($scope.matchBySearch(account)) {
@@ -34,9 +35,9 @@ function adminAccountsCo($scope,userSv,appSv) {
 
 			}
 		}
-
-		$scope.list = list;
-
+		if (!angular.equals($scope.list, list)) {
+			$scope.list = list;			
+		}
 	}
 
 	$scope.filter = function(index) {
@@ -54,7 +55,7 @@ function adminAccountsCo($scope,userSv,appSv) {
 
 	}
 
-	$scope.getFilterStyle = function(network) {
+	$scope.filterStyle = function(network) {
 		var ixNetwork = $scope.filters.networks.indexOf(network);
 		if (ixNetwork == -1 ) {
 			return {"opacity":"0.3"};
@@ -72,8 +73,7 @@ function adminAccountsCo($scope,userSv,appSv) {
 
 		if (account.login.toLowerCase().indexOf(search) != -1 || 
 			account.external_user_id.toLowerCase().indexOf(search) != -1 || 
-			account.type.toLowerCase().indexOf(search) != -1 ||
-			account.network.toLowerCase().indexOf(search) != -1
+			account.type.toLowerCase().indexOf(search) != -1
 			) {
 
 			return true;
@@ -83,12 +83,8 @@ function adminAccountsCo($scope,userSv,appSv) {
 	}
 
 	$scope.delete = function(index) {
-		console.log("delete");
-		userSv.deleteAccount(index);
-	}
-
-	$scope.syncAccount = function(network) {
-		console.log("syncAccount ",network);
+		userSv.deleteAccount($scope.list[index]);
+		return false;
 	}
 
 	$scope.countByNetwork = function(network) {
@@ -106,9 +102,26 @@ function adminAccountsCo($scope,userSv,appSv) {
 	},true);
 
 	$scope.$watch('userSv.getAccounts()', function(value) {
-		console.log("watch userSv.getAccounts()");
-		console.log(value);
 		$scope.accounts = value;
 		$scope.setList();
 	},true);
+
+	$scope.networkIcon = function(network) {
+		return "img/socialnet/icons/ce_"+network+".png";
+	}
+
+	$scope.canShowStat = function(stat) {
+		return (parseInt(stat) != 0) ? true : false;
+	}
+
+	$scope.statIcon = function(stat_name) {
+		return contentSv.getStatIcon(stat_name);
+	}
+
+	$scope.addAccount = function(network) {
+		var href = "/"+network+"/addAccount?action=start";
+		var command = network+"win = window.open(href,'mywindow','status=0,menubar=0,resizable=0,location=0,width=910,height=550');";
+		eval(command);
+	}
+
 }
