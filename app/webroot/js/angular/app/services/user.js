@@ -75,8 +75,6 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 			url +="?"+vars.join("&");
 		}
 
-		console.log(url);
-
 	    $http({method: 'GET', url: url,data:params}).
 	    success(function(data, status, headers, config) {
 	    	console.log('success');
@@ -147,6 +145,15 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 				}
 			}
 			return count;
+		},
+
+		getAccountById: function(id) {
+			for (var x in accounts) {
+				if (accounts[x].id == id) {
+					return accounts[x]['Socialnet'];
+				}
+			}
+			return false;
 		},
 
 		login:login,

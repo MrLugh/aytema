@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 a {
 	cursor: pointer;
 }
@@ -28,8 +32,17 @@ ul {
 	display: none;
 }
 
+.next {
+    float: right;
+}
+
+.prev {
+    float: left;
+}
+
+
 /* Menu */
-#menu li {
+#header li {
 	display: inline-block;
 }
 
@@ -87,4 +100,125 @@ ul {
 
 .accountsContainer .stats li {
 	margin:4px;
+}
+
+#accountList {
+    height: 300px!important;
+	overflow: auto;
+}
+
+/* Account Content List */
+
+#accountPageHeader .stats {
+    width: auto;
+    height: auto;
+    float: left;
+}
+
+#accountPageHeader .stats li {
+   float: left;
+   margin-left: 10px;
+}
+
+#accountPageList {
+    clear: both; 
+    display: block;
+    margin: 0 auto ;
+
+    height: 300px!important;
+    overflow: auto;
+    width: 100%;
+}
+
+#accountPageList .item {
+    border-bottom: 1px dotted #999999; 
+    float: left; 
+    height: auto; 
+    padding: 0 0 15px; 
+    margin: 0 0 20px;
+}
+
+#accountPageList .stats {
+    width: auto;
+    height: auto;
+}
+
+#accountPageList .stats li {
+	margin:4px;
+}
+  
+/*sizes modulos */
+  
+#accountPageList .small {
+    width: 215px; 
+} 
+#accountPageList .medium { 
+    width: 456px; 
+} 
+#accountPageList .large { 
+    width: 698px; 
+}
+
+/* stats */
+#accountPageList .stats {
+    width: 100%;
+}
+
+#accountPageList .stats li {
+    margin-left:4px;
+    float: left;
+}
+  
+/*images*/
+  
+#accountPageList .photoBox img {
+    display: block; 
+    width: 100%; 
+} 
+  
+#accountPageList .twitterBox img { 
+    display: block; 
+    height: auto; 
+} 
+  
+/*videos*/
+  
+#accountPageList .video_embed iframe { 
+    position: relative; 
+    z-index: 0 !important; 
+} 
+  
+#accountPageList .video_embed object, .video_embed embed, .video_embed iframe { 
+    display: block; 
+} 
+  
+/*twitterBox*/
+  
+#accountPageList .twitterBox .datos_twitter {
+    float: left; 
+    width: 72%; 
+} 
+#accountPageList .datos_twitter a { 
+    float: right !important; 
+} 
+#accountPageList .twitterBox a { 
+    float: left; 
+    font-size: 14px; 
+    font-weight: 600; 
+} 
+  
+#accountPageList .twitterBox span { 
+    clear: both; 
+    display: block; 
+    text-align: right; 
+    font-style: italic; 
+    font-size: 13px; 
+} 
+#accountPageList .twitterBox p { 
+    clear: both; 
+    margin-top: 65px; 
+} 
+  
+#accountPageList .twitterBox p a { 
+    float: none; 
 }

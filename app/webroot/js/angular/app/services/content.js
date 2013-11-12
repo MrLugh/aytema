@@ -1,11 +1,108 @@
-ayTemaSs.factory('contentSv',['$q', '$http', 'userSv',function($q,$http,userSv){
+ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,userSv,appSv){
 
 	var user 		= userSv.getUser();
 	var dicContent	= [];
+
+	/* content networks and concept lists 
+	lists = {
+		networks : {
+			facebook: {
+				all	: [],
+				concepts	: {
+					photo	: [],
+					video	: [],
+					track	: [],
+					post	: [],
+				}
+			},
+			...
+		},
+		concepts	: {photo:[],video:[],track:[],post:[],...}
+	};
+	*/
+
+	var lists 		= false;
+
 	var offset		= 0;
 	var limit		= 8;
-	var filters		= [];
 	var loading		= false;
+
+
+	var generateLists = function() {
+
+		lists = {'networks':{},'concepts':{}};
+
+		var networksData = appSv.getNetworks();
+		for (var x in networksData) {
+			var networkData = networksData[x];
+			if (!angular.isDefined(lists['networks'][networkData.network])) {
+				lists['networks'][networkData.network] = {all:[],concepts:{}};
+			}
+
+			for (var y in networkData.concepts) {
+
+				var concept = networkData.concepts[y];
+
+				if (!angular.isDefined(lists['networks'][networkData.network]['concepts'][concept])) {
+					lists['networks'][networkData.network]['concepts'][concept] = [];
+				}
+
+				if (!angular.isDefined(lists['concepts'][concept])) {
+					lists['concepts'][concept] = [];
+				}
+
+			}
+
+		}
+	}
+	
+	var addToLists = function(indexOfDic,content) {
+
+		if (!lists) {
+			generateLists();
+		}
+
+		var index = lists['networks'][content.network]['all'].indexOf(indexOfDic);
+		if (index === -1) {
+			lists['networks'][content.network]['all'].push(indexOfDic);
+		}
+
+		index = lists['networks'][content.network]['concepts'][content.concept].indexOf(indexOfDic);
+		if (index === -1) {
+			lists['networks'][content.network]['concepts'][content.concept].push(indexOfDic);
+		}
+
+		index = lists['concepts'][content.concept].indexOf(indexOfDic);
+		if (index === -1) {
+			lists['concepts'][content.concept].push(indexOfDic);
+		}
+
+	}
+
+	var processContent = function(contents) {
+		//dicContent = contents;
+
+		for (var x in contents) {
+			var content = contents[x].Content;
+
+			// dicContent
+			var index 	= dicContent.indexOf(content);
+			if (index === -1) {
+				//Adding content
+				dicContent.push(content);
+				index = dicContent.length -1;
+			} else {
+				//Updating content
+				for (var key in content) {
+					(!angular.isDefined(dicContent[index][key])) ? dicContent[index][key] = "" : null;
+					dicContent[index][key] = content[key];
+				}
+			}
+
+			addToLists(index,content);
+		}
+
+	}
 
 	var loadContent = function(params) {
 
@@ -25,6 +122,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv',function($q,$http,userSv){
 		params['offset']	= offset;
 		params['limit']		= limit;
 
+		// TODO: Needs changed by data json
 		var vars = [];
 		for (x in params) {
 			vars.push(x+"="+params[x]);
@@ -37,7 +135,9 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv',function($q,$http,userSv){
 
 	    $http({method: 'GET', url: url,data:params}).
 	    success(function(data, status, headers, config) {
-	    	dicContent 	= data.contents;
+
+	    	processContent(data.contents);
+
 	    	offset		+= limit;
 	    	loading 	= false;
 	    	deferred.resolve();
@@ -109,16 +209,74 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv',function($q,$http,userSv){
 		    icon_class= "icon-star";
 		}
 
-		return icon_class;		
+		return icon_class;
 	};
+
+	var getConceptIcon = function(concept) {
+
+		var icon_class = "";
+
+        if (concept == 'video') {
+        	icon_class= "icon-facetime-video";
+        } else if (concept == 'track') {
+        	icon_class= "icon-music";
+        } else if (concept == 'photo') {
+        	icon_class= "icon-camera";
+        } else if (concept == 'post') {
+        	icon_class= "icon-font";
+        } else if (concept == 'quote') {
+        	icon_class= "icon-quote-left";
+        }
+
+		return icon_class;        
+	}
+
+	var getListsByNetwork = function(network) {
+		if (!lists || !angular.isDefined(lists['networks']) || !angular.isDefined(lists['networks'][network])) {
+			return [];
+		}
+		return lists['networks'][network];
+	}
+
+	var getListsByConcept = function(concept) {
+		if (!lists || !angular.isDefined(lists['concepts']) || !angular.isDefined(lists['concepts'][concept])) {
+			return [];
+		}
+		return lists['concepts'][concept];
+	}	
+
+	var deleteContent = function(content) {
+
+		//TODO: Delete on backend side, and run next code on then function
+
+		var index = dicContent.indexOf(content);
+
+		delete lists['concepts'][content.concept][lists['concepts'][content.concept].indexOf(index)];
+		delete lists['networks'][content.network]['all'][lists['networks'][content.network]['all'].indexOf(index)];
+		delete lists['networks'][content.network]['concepts'][content.concept][lists['networks'][content.network]['concepts'][content.concept].indexOf(index)];
+		delete dicContent[index];
+
+    	deferred.resolve();
+	}
+
 
 	return {
 		getDicContent: function() {
 			return dicContent;
 		},
+		getDicContentByKey: function(key) {
+			if (!angular.isDefined(dicContent[key])) {
+				return [];
+			}
+			return dicContent[key];
+		},
 		cleanSource:cleanSource,
 		loadContent:loadContent,
+		getListsByConcept:getListsByConcept,
+		getListsByNetwork:getListsByNetwork,
 		getStatIcon:getStatIcon,
+		getConceptIcon:getConceptIcon,
+		deleteContent:deleteContent,
 
 	};
 

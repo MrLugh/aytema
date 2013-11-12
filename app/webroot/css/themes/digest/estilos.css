@@ -4,7 +4,7 @@ body
     background-color:#000000;
     font-family: 'Playfair Display', serif; 
     color: #fff; 
-    margin: 30px 15px 0; 
+    margin: 30px 15px 0;
     overflow: hidden;
 }
 
@@ -124,7 +124,7 @@ p a {
     text-transform: uppercase; 
 } 
   
-/*mazonry*/
+/*masonry*/
 #container { 
     clear: both; 
     display: block;

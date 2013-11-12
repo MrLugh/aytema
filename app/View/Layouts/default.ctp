@@ -22,6 +22,8 @@
     echo $this->Html->script('modernizr.min.js');
     echo $this->Html->script('bootstrap');
     echo $this->Html->script('underscore.min');
+    echo $this->Html->script('masonry.pkgd');
+    echo $this->Html->script('imagesloaded.pkgd');
     ?>
 
     <!-- Config -->
@@ -61,7 +63,8 @@
     echo $this->Html->script('angular/app/controllers/login.js');
     echo $this->Html->script('angular/app/controllers/aytema.js');
     echo $this->Html->script('angular/app/controllers/admin/accounts.js');
-    echo $this->Html->script('angular/app/controllers/admin/themes.js');
+    echo $this->Html->script('angular/app/controllers/admin/account.js');
+    echo $this->Html->script('angular/app/controllers/admin/content.js');
     echo $this->Html->script('angular/app/controllers/admin/themes.js');
     echo $this->Html->script('angular/app/controllers/themes.js');
 
@@ -80,9 +83,11 @@
     echo $this->Html->script('angular/app/directives/login.js');
     echo $this->Html->script('angular/app/directives/aytema.js');
     echo $this->Html->script('angular/app/directives/admin/accounts.js');
+    echo $this->Html->script('angular/app/directives/admin/account.js');
+    echo $this->Html->script('angular/app/directives/admin/content.js');   
     echo $this->Html->script('angular/app/directives/admin/themes.js');
     ?>
-
+    
 
 </head>
 

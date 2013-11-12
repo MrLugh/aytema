@@ -1,14 +1,10 @@
-function contentVideoCo($scope,$sce,contentSv) {
+function adminContentVideoCo($scope,$sce,contentSv) {
 
 	$scope.player	= "";
 	$scope.thumbnail= "";
 
 	$scope.loadPlayer	= false;
 	$scope.loadThumbnail= false;
-
-	$scope.getScrollTop = function() {
-		
-	}
 
 	$scope.getPlayer = function() {
 
@@ -137,11 +133,12 @@ function contentVideoCo($scope,$sce,contentSv) {
 }
 
 
-function contentPhotoCo($scope,contentSv) {
+function adminContentPhotoCo($scope,contentSv) {
 
 	$scope.photolist	= [];
 	$scope.current 		= {};
 	$scope.currentPos	= 0;
+
 
 	$scope.setCurrent = function() {
 		$scope.current = $scope.photolist[$scope.currentPos];
@@ -231,7 +228,7 @@ function contentPhotoCo($scope,contentSv) {
 
 }
 
-function contentTrackCo($scope,$sce,contentSv) {
+function adminContentTrackCo($scope,$sce,contentSv) {
 
 	//console.log($scope.content);
 

@@ -24,13 +24,13 @@
 
 	<div ng-repeat="content in list" masonry-item class="item">
 
-		<div ng-switch="content.Content.concept" class="{{content.Content.concept}} {{content.Content.network}}">
+		<div ng-switch="content.concept" class="{{content.concept}} {{content.network}}">
 
 			<admin-theme ng-if="isLogged"></admin-theme>
 
 			<div class="stats both">
 				<ul>
-					<li ng-repeat="(key,stat) in content.Content.stats" title="{{key}}: {{stat}}">
+					<li ng-repeat="(key,stat) in content.stats" title="{{key}}: {{stat}}">
 						<div ng-if="canShowStat(stat)" >
 							<i ng-class="statIcon(key)"></i> {{stat}}
 						</div>

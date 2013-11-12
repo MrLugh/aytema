@@ -1,0 +1,7 @@
+<div class="photoBox small">
+	<strong ng-if="moreThanOne()" ng-click="move(1)"  class="next">></strong>
+	<strong ng-if="moreThanOne()" ng-click="move(-1)" class="prev"><</strong>
+	<img ng-src="{{current.src}}" />
+	<h2>{{getTitle()}}</h2>
+	<p>{{getDescription()}}</p>
+</div>

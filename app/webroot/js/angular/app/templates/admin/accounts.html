@@ -1,66 +1,76 @@
 <div class="accountsContainer">
 
-	<ul class="addList">
-		<li>
-			<h2>Add:</h2>
-		</li>
+	<div ng-if="showingAccount">
 
-		<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)">
-			<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
-		</li>
-	</ul>
+		<strong ng-click="closeAccount()">Close</strong>
+		<admin-account></admin-account>
 
-	<ul class="filterList">
-		
-		{{list.length}}	of {{accounts.length}}
-
-		<li>
-			<h2>Filter by:</h2>
-		</li>
-
-		<li>
-			<input type="text" ng-model="search" placeholder="Search" />
-		</li>
-
-		<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)" >
-			<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
-			{{countByNetwork(network.network)}}
-		</li>
-
-	</ul>
-
-	<div class="both">
-
-		<ul class="list">
-
-			<li ng-repeat="account in list" ng-class="{{account.network}}" class="account">
-
-				<strong ng-click="delete($index)" class="right">X</strong>
-
-				<div class="stats right">
-					<ul>
-						<li ng-repeat="(key,stat) in account.stats" title="{{key}}: {{stat}}">
-							<div ng-if="canShowStat(stat)" >
-								<i ng-class="statIcon(key)"></i> {{stat}}
-							</div>
-						</li>
-					</ul>
-				</div>
-
-				<img ng-src="{{networkIcon(account.network)}}" class="socialIcon" />
-
-				<div class="both">
-
-					<img ng-src="{{account.profile_image}}" class="profileImage img-circle" />
-
-				</div>
-
-				<div class="both">
-					<a href="{{account.profile_url}}" target="_blank" class="both">{{account.login}}</a>
-				</div>				
-
-			</li>
-		</ul>
 	</div>
 
+	<div ng-hide="showingAccount">
+
+		<ul class="addList">
+			<li>
+				<h2>Add:</h2>
+			</li>
+
+			<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)">
+				<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
+			</li>
+		</ul>
+
+		<ul class="filterList">
+			
+			{{list.length}}	of {{accounts.length}}
+
+			<li>
+				<h2>Filter by:</h2>
+			</li>
+
+			<li>
+				<input type="text" ng-model="search" placeholder="Search" />
+			</li>
+
+			<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)" >
+				<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
+				{{countByNetwork(network.network)}}
+			</li>
+
+		</ul>
+
+		<div class="both">
+
+			<ul id="accountList" class="list" infinite-scroll="moreAccounts()" ng-style="getStyle()" get-offset-top>
+
+				<li ng-repeat="account in list" ng-class="{{account.network}}" class="account">
+
+					<strong ng-click="delete($index)" class="right">X</strong>
+
+					<div class="stats right">
+						<ul>
+							<li ng-repeat="(key,stat) in account.stats" title="{{key}}: {{stat}}">
+								<div ng-if="canShowStat(stat)" >
+									<i ng-class="statIcon(key)"></i> {{stat}}
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<img ng-src="{{networkIcon(account.network)}}" class="socialIcon" />
+
+					<div class="both">
+
+						<img ng-src="{{account.profile_image}}" class="profileImage img-circle" ng-click="showAccount($index)"/>
+
+					</div>
+
+					<div class="both">
+						<a href="{{account.profile_url}}" target="_blank" class="both">{{account.login}}</a>
+					</div>				
+
+				</li>
+			</ul>
+		</div>
+
+	</div>
 </div>

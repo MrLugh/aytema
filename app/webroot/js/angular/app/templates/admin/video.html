@@ -1,0 +1,9 @@
+<div class="videoBox medium">
+	<div ng-if="canShowThumbnail()" class="video_embed">
+		<img ng-src="{{getThumbnail()}}" />
+	</div>	
+	<div ng-if="canShowPlayer()" class="video_embed" ng-bind-html="getPlayer()"></div>
+	<div ng-if="isEmpty()">EMPTY</div>
+	<h2>{{getTitle()}}</h2>
+	<p>{{getDescription()}}</p>
+</div>

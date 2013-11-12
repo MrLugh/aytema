@@ -23,6 +23,8 @@ class ContentsController extends AppController {
         isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
         isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
 
+        $params['Content.status'] = 'enabled';
+
         if (count($selected_networks)) {
             $params['Content.network'] = $selected_networks;
         }
@@ -56,6 +58,28 @@ class ContentsController extends AppController {
         ));
 
     }
+
+    public function delete() {
+
+        isset($this->request->query['id']) ? $id = $this->request->query['id'] : $id = null;
+
+        $content = $this->Content->findById($id+1000);
+
+        if (count($content) && isset($content['content'])) {
+
+            $content['Content']['status'] = 'disabled';
+            $update = new Socialnet();
+            $update = $update->save($content['Content']);
+            $message = 'Deleted';
+        } else {
+            $message = 'Error';
+        }
+
+        $this->set(array(
+            'message' => $message,
+            '_serialize' => array('message')
+        ));
+    }    
 
     public function collect() {
 

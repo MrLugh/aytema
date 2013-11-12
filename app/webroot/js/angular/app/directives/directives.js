@@ -56,6 +56,7 @@ function ($timeout) {
 
         element.ready(function(){
             $timeout(function(){
+                if(scope.$last===true) console.log("Scope ",scope);
                 var masonry = scope.$parent.masonry;
                 imagesLoaded( masonry.element, function() {
                     masonry.appended(element[0]);
@@ -64,5 +65,16 @@ function ($timeout) {
             },0);
         });
 
+    }
+}]);
+
+
+ayTemaDs.directive('getOffsetTop',[
+function () {
+    return function(scope,element,attrs) {
+        scope.getOffsetTop = function() {
+            return element[0].offsetTop;
+        }
+        scope.$apply();
     }
 }]);

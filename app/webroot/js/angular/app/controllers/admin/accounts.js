@@ -8,6 +8,11 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.search 	= '';
 	$scope.filters 	= {};
 	
+
+	$scope.showingAccount	= false;
+	$scope.account			= {};
+
+
 	$scope.initFilters = function() {
 
 		$scope.filters = {'networks':[]};
@@ -87,6 +92,10 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		return false;
 	}
 
+	$scope.getStyle = function() {
+		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() + 'px'};
+	}	
+
 	$scope.countByNetwork = function(network) {
 		return userSv.countByNetwork(network);
 	}
@@ -106,6 +115,12 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		$scope.setList();
 	},true);
 
+	$scope.$watchCollection('[winW,winH]',function(sizes){
+        appSv.setWidth(sizes[0]);
+        appSv.setHeight(sizes[1]);
+       	$scope.getStyle();        	
+    });
+
 	$scope.networkIcon = function(network) {
 		return "img/socialnet/icons/ce_"+network+".png";
 	}
@@ -122,6 +137,16 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		var href = "/"+network+"/addAccount?action=start";
 		var command = network+"win = window.open(href,'mywindow','status=0,menubar=0,resizable=0,location=0,width=910,height=550');";
 		eval(command);
+	}
+
+	$scope.showAccount = function(index) {
+		$scope.account 			= $scope.list[index];
+		$scope.showingAccount 	= true;
+	}
+
+	$scope.closeAccount = function() {
+		$scope.account 			= {};
+		$scope.showingAccount 	= false;
 	}
 
 }
