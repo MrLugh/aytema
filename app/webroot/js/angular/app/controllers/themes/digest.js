@@ -39,7 +39,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.getStyle = function() {
-		return {'min-height':appSv.getHeight()+ 'px'};
+		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() + 'px'};
 	}
 
 	$scope.$watch("contentSv.getDicContent()",function(contents){
