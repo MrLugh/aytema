@@ -103,7 +103,7 @@ ul {
 }
 
 #accountList {
-    height: 1000px!important;
+    height: 300px!important;
 	overflow: auto;
 }
 
@@ -125,7 +125,7 @@ ul {
     display: block;
     margin: 0 auto ;
 
-    height: 1000px!important;
+    height: 300px!important;
     overflow: auto;
     width: 100%;
 }
@@ -134,7 +134,7 @@ ul {
     border-bottom: 1px dotted #999999; 
     float: left; 
     height: auto; 
-    padding: 0 0 15px; 
+    padding: 0 0 15px;
     margin: 0 0 20px;
 }
 

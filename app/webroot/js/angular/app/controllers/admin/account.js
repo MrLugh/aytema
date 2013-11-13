@@ -3,8 +3,13 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.accountContentList	= [];
 	$scope.concepts				= [];
 
+	$scope.offset 	= 0;
+	$scope.limit	= 10;
+	$scope.filters	= {'concepts':[],'networks':[$scope.account.network]};
+
 	$scope.generateConceptsList = function() {
 
+		console.log("generateConceptsList");
 		for (var x in $scope.networks[$scope.account.network]['concepts']){
 			concept = $scope.networks[$scope.account.network]['concepts'][x];
 			$scope.concepts.push(concept);
@@ -13,46 +18,72 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.initFilters = function() {
 
-		$scope.filters = {'concepts':[]};
+		console.log("initFilters");
+		var filters	= {'concepts':[],'networks':[$scope.account.network]};
 
 		for (var x in $scope.concepts){
 			concept = $scope.concepts[x];
-			$scope.filters['concepts'].push(concept);
+			filters['concepts'].push(concept);
 		}
+
+		$scope.filters = filters;
 
 	}
 	$scope.generateConceptsList();
 	$scope.initFilters();
 
-	// TODO
-	contentSv.loadContent();
-
 	$scope.setList = function() {
 
-		var contents = contentSv.getListsByNetwork($scope.account.network).all;
+		if (!contentSv.isLoading()) {
+			console.log("Pido para: ");
+			var params = jQuery.extend( false, $scope.filters, {'offset':$scope.offset,'limit':$scope.limit} );
+			contentSv.getContentsByFilters(params).then(
+				function(data) {
+					console.log('Success: ',data);
+					var contents = data.contents;
 
-		var list= [];
-		for (var x in contents) {
+					var list = $scope.offset == 0 ? [] : $scope.accountContentList;
 
-			content = contentSv.getDicContentByKey(contents[x]);
-			if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
-				list.push(content);
-			}
+					for (var x in contents) {
+
+						content = contents[x].Content;
+						if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
+							list.push(content);
+						}
+					}
+					if (!angular.equals($scope.accountContentList, list)) {
+						$scope.accountContentList = list;
+					}
+				},
+				function(reason) {
+					console.log('Failed: ', reason);
+				},
+				function(update) {
+					console.log('Got notification: ', update);
+				}
+			);
+
 		}
-		if (!angular.equals($scope.accountContentList, list)) {
-			$scope.accountContentList = list;
-		}
-		//console.log("setList");
-		//console.log(contents);
-		//console.log($scope.accountContentList);
+
 	}
 
 	$scope.filter = function(concept) {
 
+		console.log("filter by ",concept);
 		var ixConcept = $scope.filters.concepts.indexOf(concept);
 
 		if (ixConcept != -1) {
-			delete $scope.filters.concepts[ixConcept];
+			var filters = [];
+			for (var x in $scope.filters.concepts ) {
+
+				if (concept != $scope.filters.concepts[x]) {
+					filters.push($scope.filters.concepts[x]);
+				}				
+			}
+			if (filters.length) {
+				$scope.filters.concepts = filters;
+			}
+
 		} else {
 			$scope.filters.concepts.push(concept);
 		}
@@ -60,10 +91,14 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		contentSv.loadContent();
+		console.log("moreContent");
+		$scope.offset += $scope.limit;
+		$scope.setList();
+		//contentSv.loadContent();
 	}	
 
 	$scope.filterStyle = function(concept) {
+		console.log("filterStyle");
 		var ixConcept = $scope.filters.concepts.indexOf(concept);
 		if (ixConcept == -1 ) {
 			return {"opacity":"0.3"};
@@ -86,12 +121,9 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.contentSv= contentSv;
 
 	$scope.$watch('filters', function(value) {
-		//console.log("Watch filters");
-		$scope.setList();
-	},true);
-
-	$scope.$watch('contentSv.getDicContent()', function(value) {
-		//console.log("Watch getDicContent");
+		console.log("Watch filters ",value);
+		$scope.offset	= 0;
+		$scope.limit	= 10;
 		$scope.setList();
 	},true);
 

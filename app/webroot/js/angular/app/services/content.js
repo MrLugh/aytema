@@ -261,6 +261,48 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
     	deferred.resolve();
 	}
 
+	var getContentsByFilters = function(params) {
+
+		var deferred= $q.defer();
+
+		if (loading) {
+			deferred.resolve({});
+			return;
+		}
+
+		loading = true;
+
+		if (!angular.isDefined(params)) {
+			var params = [];
+		}
+
+		params['user_id']	= user.id;
+
+		// TODO: Needs changed by data json
+		var vars = [];
+		for (x in params) {
+			vars.push(x+"="+params[x]);
+		}
+
+		var url = '/contents/index.json';
+		if (vars.length) {
+			url +="?"+vars.join("&");
+		}
+
+		console.log(url);
+
+	    $http({method: 'GET', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	loading 	= false;
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	loading 	= false;
+	    	deferred.resolve(data);
+	    });
+
+	    return deferred.promise;
+	};
 
 	return {
 		getDicContent: function() {
@@ -272,14 +314,17 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 			return dicContent[key];
 		},
+		isLoading: function() {
+			return loading;
+		},
 		cleanSource:cleanSource,
 		loadContent:loadContent,
 		getListsByConcept:getListsByConcept,
 		getListsByNetwork:getListsByNetwork,
+		getContentsByFilters:getContentsByFilters,
 		getStatIcon:getStatIcon,
 		getConceptIcon:getConceptIcon,
 		deleteContent:deleteContent,
-
 	};
 
 }]);

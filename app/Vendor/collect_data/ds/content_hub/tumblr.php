@@ -74,6 +74,12 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 			$collected_data = array_merge($collected_data,$photos);
 		}
 
+		$quotes	= $this->getQuotes($account, $params);
+		if (!empty($quotes))
+		{
+			$collected_data = array_merge($collected_data,$quotes);
+		}
+
 		/*
 		$tracks	= $this->getTracks($account, $params);
 		if (!empty($tracks))
