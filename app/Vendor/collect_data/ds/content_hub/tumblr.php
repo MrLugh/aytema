@@ -10,7 +10,7 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 
 	protected static $network 	= "tumblr";
 
-	protected function get_last_concept_for_network( $external_user_id, $concept ) {
+	protected function get_first_concept_for_network( $external_user_id, $concept ) {
 
 		$params = array(
 			'Content.network'			=> self::$network,
@@ -22,7 +22,7 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 
         $contents = $content->find('all', array(
             'conditions'=> $params,
-            'order'     => array('Content.creation_date' => 'desc'),
+            'order'     => array('Content.creation_date' => 'asc'),
             'limit'     => '1',
             )
         );
@@ -126,13 +126,16 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 		$data 	= array();
 		$concept= 'photo';
 
-		if (!isset($params['offset']))
-		{
-			$params['offset'] = '0';
-		}
-
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$photos	= $mo_socialnet->getPhotos($account,$params);
+
+		if (!isset($params['offset'])) {
+			$first_concept= $this->get_first_concept_for_network($account['external_user_id'],'photo');
+			(!is_null($first_concept)) ? $params['before_id'] = $first_concept["external_id"] : null;
+			$photos = array_merge($photos,$mo_socialnet->getPhotos($account,$params));
+		}		
+
+
 		if ($photos['meta']['status'] == 200 && count($photos['response']['posts']) > 0)
 		{
 			foreach ($photos['response']['posts'] as $k=>$photo)

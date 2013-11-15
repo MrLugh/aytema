@@ -18,12 +18,17 @@ class ContentsController extends AppController {
 
         $user_id = $this->Auth->user('id');
 
+        isset($this->request->query['external_user_id']) ? $external_user_id = $this->request->query['external_user_id'] : $external_user_id = null;
         isset($this->request->query['networks']) ? $selected_networks = $this->request->query['networks'] : $selected_networks = null;
         isset($this->request->query['content_types']) ? $selected_types = $this->request->query['content_types'] : $selected_types = null;
         isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
         isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
 
         $params['Content.status'] = 'enabled';
+
+        if (!empty($external_user_id)) {
+            $params['Content.external_user_id'] = $external_user_id;
+        }
 
         if (count($selected_networks)) {
             $params['Content.network'] = $selected_networks;

@@ -104,7 +104,8 @@ Class TumblrSocialnet {
 		(isset($params['method'])) ? $method = $params['method'] : $method = 'GET';
 
 		(isset($params['offset'])) ? $path .= '&offset='.$params['offset'] : '';
-	
+		(isset($params['before_id'])) ? $path .= '&before_id='.$params['before_id'] : '';
+
 		$this->oauth->fetch($path, null, OAUTH_HTTP_METHOD_GET);
 		$response = $this->oauth->getLastResponseInfo();
 

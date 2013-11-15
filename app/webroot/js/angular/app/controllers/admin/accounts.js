@@ -7,11 +7,10 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	$scope.search 	= '';
 	$scope.filters 	= {};
-	
 
 	$scope.showingAccount	= false;
 	$scope.account			= {};
-
+	$scope.current			= false;
 
 	$scope.initFilters = function() {
 
@@ -92,7 +91,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		return false;
 	}
 
-	$scope.getStyle = function() {
+	$scope.getContainerStyle = function() {
 		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() + 'px'};
 	}	
 
@@ -115,11 +114,11 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		$scope.setList();
 	},true);
 
+	/*
 	$scope.$watchCollection('[winW,winH]',function(sizes){
-        appSv.setWidth(sizes[0]);
-        appSv.setHeight(sizes[1]);
-       	$scope.getStyle();        	
+       	$scope.getContainerStyle();        	
     });
+	*/
 
 	$scope.networkIcon = function(network) {
 		return "img/socialnet/icons/ce_"+network+".png";
@@ -140,13 +139,32 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.showAccount = function(index) {
-		$scope.account 			= $scope.list[index];
+		$scope.current			= index;
+		$scope.account 			= $scope.list[$scope.current];
 		$scope.showingAccount 	= true;
 	}
 
 	$scope.closeAccount = function() {
 		$scope.account 			= {};
 		$scope.showingAccount 	= false;
+		$scope.current			= false;
+	}
+
+	$scope.move = function(direction) {
+		$scope.showingAccount 	= false;
+		if (direction > 0) {
+			$scope.current++;
+		} else {
+			$scope.current--;		
+		}
+
+		if ($scope.current == $scope.list.length) {
+			$scope.current = 0;
+		}
+		if ($scope.current < 0) {		
+			$scope.current = $scope.list.length - 1;
+		}
+		$scope.showAccount($scope.current);
 	}
 
 }

@@ -1,9 +1,15 @@
 body {
-    overflow: hidden;
+  overflow: hidden;
+  font-family: "Josefin Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
 }
 
 a {
 	cursor: pointer;
+}
+
+*[ ng-click ] {
+    cursor: pointer ;
 }
 
 ul {
@@ -33,21 +39,30 @@ ul {
 }
 
 .next {
-    float: right;
+  float: right;
 }
 
 .prev {
-    float: left;
+  float: left;
 }
 
 
 /* Menu */
+#header {
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
 #header li {
 	display: inline-block;
 }
 
-
 /* Accounts */
+
+.accountsContainer {
+  position: relative;
+}
 
 .accountsContainer .addList li ,.accountsContainer .filterList li, .accountsContainer .list li {
 	display: inline-block;
@@ -102,123 +117,266 @@ ul {
 	margin:4px;
 }
 
-#accountList {
-    height: 300px!important;
-	overflow: auto;
-}
-
 /* Account Content List */
 
-#accountPageHeader .stats {
-    width: auto;
-    height: auto;
-    float: left;
+#accountList {
+  height: 300px!important;
+  overflow: auto;
 }
 
-#accountPageHeader .stats li {
+.modalAccount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100%;
+  height: 100%;
+  background-color: #F7F7F7;
+}
+
+.accountPageHeader .stats {
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+.accountPageHeader .stats li {
    float: left;
    margin-left: 10px;
 }
 
 #accountPageList {
-    clear: both; 
-    display: block;
-    margin: 0 auto ;
+  clear: both; 
+  display: block;
+  margin: 0 auto ;
 
-    height: 300px!important;
-    overflow: auto;
-    width: 100%;
+  height: 300px!important;
+  overflow: auto;
+  width: 100%;
+  text-align: center;
 }
 
-#accountPageList .item {
-    border-bottom: 1px dotted #999999; 
-    float: left; 
-    height: auto; 
-    padding: 0 0 15px;
-    margin: 0 0 20px;
-}
 
 #accountPageList .stats {
-    width: auto;
-    height: auto;
+  width: auto;
+  height: auto;
 }
 
 #accountPageList .stats li {
 	margin:4px;
 }
   
-/*sizes modulos */
-  
-#accountPageList .small {
-    width: 215px; 
-} 
-#accountPageList .medium { 
-    width: 456px; 
-} 
-#accountPageList .large { 
-    width: 698px; 
-}
-
+ 
 /* stats */
 #accountPageList .stats {
-    width: 100%;
+  width: 100%;
 }
 
 #accountPageList .stats li {
-    margin-left:4px;
-    float: left;
+  margin-left:4px;
+  float: left;
 }
-  
-/*images*/
-  
-#accountPageList .photoBox img {
-    display: block; 
-    width: 100%; 
-} 
-  
-#accountPageList .twitterBox img { 
-    display: block; 
-    height: auto; 
-} 
-  
-/*videos*/
-  
-#accountPageList .video_embed iframe { 
-    position: relative; 
-    z-index: 0 !important; 
-} 
-  
-#accountPageList .video_embed object, .video_embed embed, .video_embed iframe { 
-    display: block; 
-} 
-  
-/*twitterBox*/
-  
-#accountPageList .twitterBox .datos_twitter {
-    float: left; 
-    width: 72%; 
-} 
-#accountPageList .datos_twitter a { 
-    float: right !important; 
-} 
-#accountPageList .twitterBox a { 
-    float: left; 
-    font-size: 14px; 
-    font-weight: 600; 
-} 
-  
-#accountPageList .twitterBox span { 
-    clear: both; 
-    display: block; 
-    text-align: right; 
-    font-style: italic; 
-    font-size: 13px; 
-} 
-#accountPageList .twitterBox p { 
-    clear: both; 
-    margin-top: 65px; 
-} 
-  
-#accountPageList .twitterBox p a { 
-    float: none; 
+
+.adminContent {
+  display: inline-block;
+  height: auto;
+}
+
+.adminContent h2 {
+  font-size: 20px;
+}
+
+/* Masonry */
+.masonry,
+.masonry .adminAccount {
+  -webkit-transition-duration: 0.7s;
+   -moz-transition-duration: 0.7s;
+    -ms-transition-duration: 0.7s;
+     -o-transition-duration: 0.7s;
+      transition-duration: 0.7s;
+}
+
+.masonry {
+  -webkit-transition-property: height, width;
+   -moz-transition-property: height, width;
+    -ms-transition-property: height, width;
+     -o-transition-property: height, width;
+      transition-property: height, width;
+}
+
+.masonry .adminAccount {
+  -webkit-transition-property: left, right, top;
+   -moz-transition-property: left, right, top;
+    -ms-transition-property: left, right, top;
+     -o-transition-property: left, right, top;
+      transition-property: left, right, top;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+
+  #accountPageList .small {
+    width: 100%;
+  }
+  #accountPageList .medium {
+    width: 100%;
+  }
+  #accountPageList .large {
+    width: 100%;
+  }
+  #accountPageList .xlarge {
+    width: 100%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+  #accountPageList .small {
+    width: 32.3%;
+  }
+  #accountPageList .medium {
+    width: 65.6%;
+  }
+  #accountPageList .large {
+    width: 99%;
+  }
+  #accountPageList .xlarge {
+    width: 99%;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  #accountPageList .small {
+      width: 23%;
+  }
+  #accountPageList .medium {
+      width: 48%;
+  }
+  #accountPageList .large {
+      width: 73%;
+  }
+  #accountPageList .xlarge {
+      width: 98%;
+  }
+
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  #accountPageList .small {
+      width: 18%;
+  }
+  #accountPageList .medium {
+      width: 38%;
+  }
+  #accountPageList .medium iframe {
+      width: 98%;
+  }    
+  #accountPageList .large {
+      width: 58%;
+  }
+  #accountPageList .xlarge {
+      width: 78%;
+  }
+
+}
+
+@media all and (max-width: 2048px) and (min-width: 1201px) {
+
+  #accountPageList .small {
+      width: 14%;
+  }
+  #accountPageList .medium {
+      width: 28%;
+  }
+
+  #accountPageList .large {
+      width: 43%;
+  }
+  #accountPageList .xlarge {
+      width: 57%;
+  }
+}
+
+.adminContent img, .adminContent img, .adminContent .track img {
+  width: 100%;
+  height: auto;
+  margin:0 auto;
+  display: block;
+}
+
+.accountPageHeader {
+  display: block;
+  width:100%;
+  padding:10px;
+  overflow: hidden;
+}
+
+.facebookAccountPageHeader, .facebookAccount {
+  background-color: #00549e;
+  color:#fff;
+}
+
+.facebookAccountPageHeader a, .facebookAccount a {
+  color:#fff;
+}
+
+.soundcloudAccountPageHeader, .soundcloudAccount {
+  background-color: #ff200f;
+  color:#000;
+}
+
+.soundcloudAccountPageHeader a, .soundcloudAccount a {
+  color:#000;
+}
+
+
+.tumblrAccountPageHeader, .tumblrAccount {
+  background-color: #48576d;
+  color:#fff;
+}
+
+.tumblrAccountPageHeader a, .tumblrAccount a {
+  color:#fff;
+}
+
+.twitterAccountPageHeader, .twitterAccount {
+  background-color: #2aa9e0;
+  color:#fff;  
+}
+
+.twitterAccountPageHeader a, .twitterAccount a {
+  color:#fff;  
+}
+
+.youtubeAccountPageHeader, .youtubeAccount {
+  background-color: #f4001c;
+  color:#fff;
+}
+
+.youtubeAccountPageHeader a, .youtubeAccount a {
+  color:#fff;
+}
+
+.vimeoAccountPageHeader, .vimeoAccount {
+  background-color:#3d3d3d;
+  color:#fff;
+}
+
+.vimeoAccountPageHeader a, .vimeoAccount a {
+  color:#fff;
+}
+
+.mixcloudAccountPageHeader, .mixcloudAccount {
+  background-color: #6d6e71;
+  color:#fff;
+}
+
+.mixcloudAccountPageHeader a, .mixcloudAccount a {
+  color:#fff;
 }

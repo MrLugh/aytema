@@ -1,10 +1,17 @@
 <div class="accountPage {{account.network}}AccountPage">
 
-	<div id="accountPageHeader" class="both">
+	<div class="accountPageHeader {{account.network}}AccountPageHeader both">
+
+		<div class="both">
+			<span ng-click="move(-1)">Prev</span>
+			<span ng-click="closeAccount()">Close</span>
+			<span ng-click="move(1)">Next</span>
+		</div>
 
 		<img ng-src="{{account.profile_image}}" class="left profileImage img-circle" />
+		<p><strong>{{account.login}}</strong></p>
 
-		<ul class="stats left">
+		<ul class="stats">
 			<li ng-repeat="(key,stat) in account.stats" title="{{key}}: {{stat}}">
 				<div ng-if="canShowStat(stat)" >
 					<i ng-class="statIcon(key)"></i> {{stat}}
@@ -24,42 +31,41 @@
 
 		</ul>
 
+		<span ng-click="moreContent()" class="both left">More Content</span>
+
 	</div>
 
 	<div class="both">
 
-		<strong ng-click="moreContent()">More Content</strong>
-
 		<!--
-		<ul class="accountPageList" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':40,'isAnimated':false}" class="masonry">
+		<ul id="accountPageList" infinite-scroll="moreContent()" ng-style="getContainerStyle()" get-offset-top class="masonry" masonry="{'columnWidth':10,'gutter':10,'isAnimated':false,'itemSelector':'.adminContent'}">
 		-->
-		<ul id="accountPageList" infinite-scroll="moreContent()" ng-style="getStyle()" get-offset-top>
+		<ul id="accountPageList" infinite-scroll="moreContent()" ng-style="getContainerStyle()" get-offset-top>
 
 			<!--
-			<li ng-repeat="content in accountContentList" masonry-item class="item">
+			<li ng-repeat="content in accountContentList" class="well adminContent" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item>
 			-->
-			<li ng-repeat="content in accountContentList">
+			<li ng-repeat="content in accountContentList" class="well adminContent" ng-class="getContentSize($index)" ng-switch="content.concept">
 
-				<div ng-switch="content.concept" class="item">
+			    <admin-content-video ng-switch-when='video'></admin-content-video>
+			    <admin-content-photo ng-switch-when='photo'></admin-content-photo>
+			    <admin-content-track ng-switch-when='track'></admin-content-track>
+			    <admin-content-post  ng-switch-when='post' ></admin-content-post>
+			    <admin-content-quote ng-switch-when='quote'></admin-content-quote>
+			    <admin-content-chat  ng-switch-when='chat' ></admin-content-chat>
 
-					<strong ng-click="delete($index)" class="right">X</strong>
-
-					<div class="stats right">
-						<ul>
-							<li ng-repeat="(key,stat) in content.stats" title="{{key}}: {{stat}}">
-								<div ng-if="canShowStat(stat)" >
-									<i ng-class="statIcon(key)"></i> {{stat}}
-								</div>
-							</li>
-						</ul>
-					</div>
-
-				    <admin-content-video ng-switch-when='video'></admin-content-video>
-				    <admin-content-photo ng-switch-when='photo'></admin-content-photo>
-				    <admin-content-track ng-switch-when='track'></admin-content-track>
-				    <admin-content-post  ng-switch-when='post' ></admin-content-post>
-
+				<div class="stats left">
+					<ul>
+						<li ng-repeat="(key,stat) in content.stats" title="{{key}}:{{stat}}">
+							<div ng-if="canShowStat(stat)" >
+								<i ng-class="statIcon(key)"></i> {{stat}}
+							</div>
+						</li>
+					</ul>
 				</div>
+
+				<i ng-click="delete($index)" class="icon-trash right"></i>
+
 
 			</li>
 

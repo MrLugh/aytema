@@ -133,8 +133,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			url +="?"+vars.join("&");
 		}
 
-		console.log(vars.join("&"));
-
 	    $http({method: 'GET', url: url,data:params}).
 	    success(function(data, status, headers, config) {
 
@@ -288,8 +286,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if (vars.length) {
 			url +="?"+vars.join("&");
 		}
-
-		console.log(url);
 
 	    $http({method: 'GET', url: url,data:params}).
 	    success(function(data, status, headers, config) {

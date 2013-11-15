@@ -1,13 +1,12 @@
 <div class="accountsContainer">
 
-	<div ng-if="showingAccount">
-
-		<strong ng-click="closeAccount()">Close</strong>
+	<div ng-if="showingAccount" class="modalAccount">
+		<fb app-id='211895592326072'></fb>
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<admin-account></admin-account>
-
 	</div>
 
-	<div ng-hide="showingAccount">
+	<div>
 
 		<ul class="addList">
 			<li>
@@ -40,11 +39,11 @@
 
 		<div class="both">
 
-			<ul id="accountList" class="list" infinite-scroll="moreAccounts()" ng-style="getStyle()" get-offset-top>
+			<ul id="accountList" class="list" infinite-scroll="moreAccounts()" ng-style="getContainerStyle()" get-offset-top>
 
-				<li ng-repeat="account in list" ng-class="{{account.network}}" class="account">
+				<li ng-repeat="account in list" class="account {{account.network}}Account">
 
-					<strong ng-click="delete($index)" class="right">X</strong>
+					<i ng-click="delete($index)" class="icon-trash right"></i>
 
 					<div class="stats right">
 						<ul>

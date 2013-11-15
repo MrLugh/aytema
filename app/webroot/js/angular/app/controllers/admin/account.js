@@ -4,21 +4,23 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.concepts				= [];
 
 	$scope.offset 	= 0;
-	$scope.limit	= 10;
+	$scope.limit	= 8;
 	$scope.filters	= {'concepts':[],'networks':[$scope.account.network]};
+	$scope.concepts = [];
 
 	$scope.generateConceptsList = function() {
 
-		console.log("generateConceptsList");
+		var concepts = [];
 		for (var x in $scope.networks[$scope.account.network]['concepts']){
 			concept = $scope.networks[$scope.account.network]['concepts'][x];
-			$scope.concepts.push(concept);
+			concepts.push(concept);
 		}
+
+		$scope.concepts = concepts;
 	}
 
 	$scope.initFilters = function() {
 
-		console.log("initFilters");
 		var filters	= {'concepts':[],'networks':[$scope.account.network]};
 
 		for (var x in $scope.concepts){
@@ -35,11 +37,14 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.setList = function() {
 
 		if (!contentSv.isLoading()) {
-			console.log("Pido para: ");
-			var params = jQuery.extend( false, $scope.filters, {'offset':$scope.offset,'limit':$scope.limit} );
+
+			var params					= JSON.parse(JSON.stringify($scope.filters));
+			params['offset']			= $scope.offset;
+			params['limit']				= $scope.limit;
+			params['external_user_id']	= $scope.account.external_user_id;
+
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
-					console.log('Success: ',data);
 					var contents = data.contents;
 
 					var list = $scope.offset == 0 ? [] : $scope.accountContentList;
@@ -52,6 +57,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 						}
 					}
 					if (!angular.equals($scope.accountContentList, list)) {
+						//$scope.reinitMasonry();
 						$scope.accountContentList = list;
 					}
 				},
@@ -69,7 +75,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.filter = function(concept) {
 
-		console.log("filter by ",concept);
 		var ixConcept = $scope.filters.concepts.indexOf(concept);
 
 		if (ixConcept != -1) {
@@ -91,14 +96,11 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		console.log("moreContent");
 		$scope.offset += $scope.limit;
 		$scope.setList();
-		//contentSv.loadContent();
 	}	
 
 	$scope.filterStyle = function(concept) {
-		console.log("filterStyle");
 		var ixConcept = $scope.filters.concepts.indexOf(concept);
 		if (ixConcept == -1 ) {
 			return {"opacity":"0.3"};
@@ -112,29 +114,65 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		return false;
 	}
 
-	$scope.getStyle = function() {
-
+	$scope.getContainerStyle = function() {
 		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() + 'px'};
 	}
+
+	$scope.getContentSize = function(index) {
+		var small 		= ['post','quote','chat'];
+		var medium 		= ['video','track','photo'];
+		var large 		= [];
+		var extralarge 	= [];
+		var concept = $scope.accountContentList[index].concept;
+
+		if (small.indexOf(concept) != -1 ) {
+			if (concept == 'post' && $scope.account.network == 'facebook') {
+				return 'xlarge';
+			}
+			if (concept == 'post' && $scope.account.network == 'twitter') {
+				return 'medium';
+			}			
+			return 'small';
+		}
+		if (medium.indexOf(concept) != -1 ) {
+			return 'medium';
+		}
+		if (large.indexOf(concept) != -1 ) {
+			return 'large';
+		}
+		if (extralarge.indexOf(concept) != -1 ) {
+			return 'xlarge';
+		}
+
+	}
+
+	$scope.move = function(direction) {
+		$scope.$parent.move(direction);
+	}
+
+	$scope.closeAccount = function() {
+		$scope.$parent.closeAccount();
+	}	
 
 	$scope.userSv	= userSv;
 	$scope.contentSv= contentSv;
 
 	$scope.$watch('filters', function(value) {
-		console.log("Watch filters ",value);
 		$scope.offset	= 0;
-		$scope.limit	= 10;
 		$scope.setList();
 	},true);
 
-	$scope.$watchCollection('[winW,winH]',function(sizes){
-        appSv.setWidth(sizes[0]);
-        appSv.setHeight(sizes[1]);
-        $scope.getStyle();	
-    });
+	$scope.$watch('account', function(value) {
+		//$scope.reinitMasonry();
+		$scope.offset = 0;
+		$scope.accountContentList = [];
+		$scope.generateConceptsList();
+		$scope.initFilters();
+		$scope.setList();
+	},true);
 
 	$scope.conceptIcon = function(concept) {
 		return contentSv.getConceptIcon(concept);
 	}
-
+	
 }

@@ -364,3 +364,114 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 	}
 
 }
+
+function adminContentPostCo($scope,contentSv,$sce) {
+
+	//console.log($scope.content);
+
+	$scope.href	= '';
+
+	$scope.isFromNetwork = function(network) {
+		return $scope.content.network == network;
+	}
+
+	if ($scope.isFromNetwork('facebook')) {
+		/*
+		if (!angular.isDefined($scope.content['data']['story'])) {
+			console.log("A");
+			if (angular.isDefined($scope.content['data']['link'])) {
+				console.log("B");
+				$scope.href = $scope.content['data']['link'];
+			} else {
+				console.log("C");
+				$scope.href = "";
+			}
+		} else {
+			*/
+			$scope.href = "https://www.facebook.com/"+$scope.content['external_user_name']+"/posts/"+$scope.content['external_atomic_id'];
+		/*			
+		}
+		*/
+		console.log($scope.href);
+	}
+
+
+	$scope.getEmbed = function() {
+
+		if ($scope.content.network == 'twitter') {
+			if (angular.isDefined($scope.content.data['embed'])) {
+				return $sce.trustAsHtml($scope.content.data['embed']);
+			}
+		}		
+	}
+
+	$scope.getTitle = function() {
+
+		if ($scope.content.network == 'tumblr') {
+			if (angular.isDefined($scope.content.data['source_title'])) {
+				return $scope.content.data['source_title'];
+			}
+		}
+
+		return '';
+	}
+
+	$scope.getDescription = function() {	
+
+		if ($scope.current.description.length) {
+			return $scope.current.description;
+		}
+
+		return '';
+	}
+
+}
+
+function adminContentChatCo($scope,contentSv) {
+
+
+	$scope.getTitle = function() {
+
+		if ($scope.content.network == 'tumblr') {
+			if (angular.isDefined($scope.content.data['source_title'])) {
+				return $scope.content.data['source_title'];
+			}
+		}
+
+		return '';
+	}
+
+	$scope.getDescription = function() {	
+
+		if ($scope.current.description.length) {
+			return $scope.current.description;
+		}
+
+		return '';
+	}
+
+}
+
+function adminContentQuoteCo($scope,contentSv) {
+
+	$scope.getTitle = function() {
+
+		if ($scope.content.network == 'tumblr') {
+			if (angular.isDefined($scope.content.data['source_title'])) {
+				return $scope.content.data['source_title'];
+			}
+		}
+
+		return '';
+	}
+
+	$scope.getDescription = function() {	
+
+		if ($scope.current.description.length) {
+			return $scope.current.description;
+		}
+
+		return '';
+	}
+
+}
