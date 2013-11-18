@@ -12,6 +12,12 @@ class ThemesController extends AppController {
     public function index() {
 
         $this->layout = "/themes/digest/index";
+
+    	$user = array(
+    		'id'		=> $this->Auth->user('id'),
+    		'username'	=> $this->Auth->user('username')
+    	);
+    	$this->set('user',"{'id':".$this->Auth->user('id').",'username':'".$this->Auth->user('username')."'}");        
     }
 
 }

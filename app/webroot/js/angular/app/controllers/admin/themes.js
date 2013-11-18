@@ -1,6 +1,7 @@
-function adminThemesCo($scope,appSv) {
+function adminThemesCo($scope,appSv,userSv) {
 
-	$scope.themes = appSv.getThemes();
+	$scope.themes	= appSv.getThemes();
+	$scope.user		= userSv.getUser();
 
 	$scope.setList = function() {
 

@@ -91,7 +91,7 @@
 
 <body>
 
-    <div data-ng-app="ayTemaThemeApp" controller='themeDigestCo' resize style="text-align:center;margin-left:auto;margin-right:auto;">
+    <div data-ng-app="ayTemaThemeApp" controller='themeDigestCo'  user="<?php echo $user; ?>"  resize style="text-align:center;margin-left:auto;margin-right:auto;">
         <ng-view></ng-view>
     </div>
 

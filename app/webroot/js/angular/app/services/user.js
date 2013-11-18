@@ -1,20 +1,6 @@
 ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
-	//var user = false;
-	var user = {
-
-		// Account information
-		id 				: 1,
-		username		: 'mrlugh',
-
-		steps			: {
-			1:false,
-			2:false,
-			3:false
-		}
-		
-	};
-
+	var user = false;
 	var accounts = [];
 
 	var login = function(data) {
@@ -156,11 +142,19 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 			return false;
 		},
 
+		setUser: function(data) { // From user directive
+			console.log(data);
+
+			user =  data;
+			user['steps'] = {1:false,2:false,3:false};
+			user['theme'] = 'digest';
+			console.log(user);
+		},
+
 		login:login,
 		loadAccounts:loadAccounts,
 		getAccounts:getAccounts,
 		deleteAccount:deleteAccount,
-
 	}
 
 }]);

@@ -14,7 +14,7 @@
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('app');
-    echo $this->Html->css('themes');    
+    echo $this->Html->css('themes');
     ?>
 
     <!-- Js -->
@@ -94,7 +94,7 @@
 
 <body>
 
-    <div data-ng-app="ayTemaApp" controller='appCo' resize>
+    <div data-ng-app="ayTemaApp" user="<?php echo $user; ?>" controller='appCo' resize>
         <ng-view></ng-view>
     </div>
 

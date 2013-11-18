@@ -8,3 +8,13 @@ ayTemaDs.directive('aytema',[function(){
     }
 
 }]);
+
+ayTemaDs.directive('user',['userSv',
+function($userSv) {
+    return function(scope, elm, attrs) {
+
+        var user = attrs.user;
+        user =  eval("(function(){return " + user + ";})()");
+        $userSv.setUser(user);
+    }
+}]);
