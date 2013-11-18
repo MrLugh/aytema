@@ -32,7 +32,7 @@ class TumblrContentHubDs extends AbstractContentHubDs {
         	return $content['Content'];
         }
 
-		return array('creation_date'=> date("Y-m-d H:i:s",strtotime("now ".self::COLLECT_INTERVAL)));
+		return null;
 	}	
 
 	protected function processFetchParams ( $params ) {
@@ -131,8 +131,13 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 
 		if (!isset($params['offset'])) {
 			$first_concept= $this->get_first_concept_for_network($account['external_user_id'],'photo');
-			(!is_null($first_concept)) ? $params['before_id'] = $first_concept["external_id"] : null;
-			$photos = array_merge($photos,$mo_socialnet->getPhotos($account,$params));
+			if (!is_null($first_concept)) {
+				$params['before_id'] = $first_concept["external_id"];
+				$old_photos = $mo_socialnet->getPhotos($account,$params);
+				if ($photos['meta']['status'] == 200 && $old_photos['meta']['status'] == 200) {
+					$photos['response']['posts'] = array_merge($photos['response']['posts'],$old_photos['response']['posts']);
+				}
+			}
 		}		
 
 
