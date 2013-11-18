@@ -175,13 +175,21 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 		$data 	= array();
 		$concept= 'quote';
 
-		if (!isset($params['offset']))
-		{
-			$params['offset'] = '0';
-		}
-
 		$mo_socialnet = Socialnet::Factory(self::$network);
-		$quotes	= $mo_socialnet->getQuotes($account,$params);
+		$quotes	= $mo_socialnet->getPhotos($account,$params);
+
+		if (!isset($params['offset'])) {
+			$first_concept= $this->get_first_concept_for_network($account['external_user_id'],'quote');
+			if (!is_null($first_concept)) {
+				$params['before_id'] = $first_concept["external_id"];
+				$old_quotes = $mo_socialnet->getPhotos($account,$params);
+				if ($quotes['meta']['status'] == 200 && $old_quotes['meta']['status'] == 200) {
+					$quotes['response']['posts'] = array_merge($quotes['response']['posts'],$old_quotes['response']['posts']);
+				}
+			}
+		}		
+
+
 		if ($quotes['meta']['status'] == 200 && count($quotes['response']['posts']) > 0)
 		{
 			foreach ($quotes['response']['posts'] as $k=>$quote)
