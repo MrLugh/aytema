@@ -1,7 +1,9 @@
 ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
-	var user = false;
-	var accounts = [];
+	var user 		= false;
+	var accounts 	= [];
+	var themeConfig = {};
+	var loading		= false;
 
 	var login = function(data) {
 
@@ -47,6 +49,12 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 	var loadAccounts = function() {
 
+		if (loading) {
+			return;
+		}
+
+		loading = true;		
+
 		var deferred = $q.defer();
 
 		var params = {user_id:user.id};
@@ -65,7 +73,8 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    success(function(data, status, headers, config) {
 	    	console.log('success');
 
-	    	accounts = data.socialnets;
+	    	accounts= data.socialnets;
+	    	loading	= false;
 	    	deferred.resolve();
 	    }).
 	    error(function(data, status, headers, config) {
@@ -102,15 +111,45 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    error(function(data, status, headers, config) {
 	    	console.log('error');
 
-	    	deferred.resolve();	    	
+	    	deferred.resolve();
 	    });
 
-	    return deferred.promise;		
+	    return deferred.promise;
 	}	
 
 	var getAccounts = function() {
 
 		return accounts;
+	}
+
+	var loadThemeConfig = function(theme) {
+
+		if (themeConfig && themeConfig.theme == theme) {
+			return themeConfig;
+		}
+
+		var deferred = $q.defer();
+
+		var params = {'type':theme};
+
+	    $http({method: 'GET', url: '/themes/getConfig.json',data:params}).
+	    success(function(data, status, headers, config) {
+
+	    	themeConfig = {'default':data.config,'custom':data.config};
+	    	deferred.resolve();
+	    }).
+	    error(function(data, status, headers, config) {
+	    	console.log('error');
+
+	    	deferred.resolve();
+	    });
+
+	    return deferred.promise;
+
+	}
+
+	var getThemeConfig = function() {
+		return themeConfig;
 	}
 
 	return {
@@ -143,18 +182,21 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		},
 
 		setUser: function(data) { // From user directive
-			console.log(data);
-
 			user =  data;
 			user['steps'] = {1:false,2:false,3:false};
 			user['theme'] = 'digest';
-			console.log(user);
 		},
+		
+		isLoading: function() {
+			return loading;
+		},		
 
+		loadThemeConfig:loadThemeConfig,
 		login:login,
 		loadAccounts:loadAccounts,
 		getAccounts:getAccounts,
 		deleteAccount:deleteAccount,
+		getThemeConfig:getThemeConfig,
 	}
 
 }]);

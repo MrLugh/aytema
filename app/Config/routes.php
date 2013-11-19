@@ -47,5 +47,5 @@
 
 Router::mapResources('contents');
 Router::mapResources('socialnets');
-Router::mapResources('users');
+Router::mapResources('themes');
 Router::parseExtensions('json');

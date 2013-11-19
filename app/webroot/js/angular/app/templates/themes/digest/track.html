@@ -1,5 +1,5 @@
-<div class="trackBox medium">
-	<div ng-if="canShowThumbnail()" class="track_embed">
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="track">
+	<div ng-if="canShowThumbnail()">
 		<img ng-src="{{getThumbnail()}}" />
 	</div>	
 	<div ng-if="canShowPlayer()" class="track_embed" ng-bind-html="getPlayer()"></div>

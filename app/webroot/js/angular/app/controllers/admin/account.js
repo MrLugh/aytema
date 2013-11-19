@@ -96,9 +96,11 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		$scope.offset += $scope.limit;
-		$scope.setList();
-	}	
+		if (!contentSv.isLoading()) {
+			$scope.offset += $scope.limit;
+			$scope.setList();
+		}
+	}
 
 	$scope.filterStyle = function(concept) {
 		var ixConcept = $scope.filters.concepts.indexOf(concept);

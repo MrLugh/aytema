@@ -20,7 +20,7 @@ class ContentsController extends AppController {
 
         isset($this->request->query['external_user_id']) ? $external_user_id = $this->request->query['external_user_id'] : $external_user_id = null;
         isset($this->request->query['networks']) ? $selected_networks = $this->request->query['networks'] : $selected_networks = null;
-        isset($this->request->query['content_types']) ? $selected_types = $this->request->query['content_types'] : $selected_types = null;
+        isset($this->request->query['concepts']) ? $selected_types = $this->request->query['concepts'] : $selected_types = null;
         isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
         isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
 

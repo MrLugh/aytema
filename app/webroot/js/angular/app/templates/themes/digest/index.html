@@ -1,4 +1,6 @@
-<!--<div class="navbar navbar-default navbar-fixed-top">-->
+<fb app-id='211895592326072'></fb>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <div class="navbar navbar-default both">
 	<div class="container">
 		<div class="navbar-header">
@@ -10,41 +12,38 @@
 			<h1><a class="navbar-brand" href="#">Digest Theme</a></h1>
 		</div>
 		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Events</a></li>
-				<li><a href="#about">Photos</a></li>
-				<li><a href="#contact">Videos</a></li>
-				<li><a href="#contact">News</a></li>
+			<ul ng-if="configLoaded" class="nav navbar-nav">
+				<li ng-repeat="(key,filter) in config.custom.filters" ng-click="setCurrent('{{key}}')" ng-class="getMenuItemClass({{key}})">{{key}}</li>
 			</ul>
 		</div>
 	</div>
 </div>
 
-<div id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':40,'isAnimated':false}" class="masonry" get-offset-top>
+<ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':40,'isAnimated':false}" class="masonry" get-offset-top>
 
-	<div ng-repeat="content in list" masonry-item class="item">
+	<admin-theme ng-if="isLogged"></admin-theme>
 
-		<div ng-switch="content.concept" class="{{content.concept}} {{content.network}}">
+	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item>
 
-			<admin-theme ng-if="isLogged"></admin-theme>
+	    <content-video ng-switch-when='video'></content-video>
+	    <content-photo ng-switch-when='photo'></content-photo>
+	    <content-track ng-switch-when='track'></content-track>
+	    <content-post  ng-switch-when='post' ></content-post>
+	    <content-quote ng-switch-when='quote'></content-quote>
+	    <content-chat  ng-switch-when='chat' ></content-chat>
 
-			<div class="stats both">
-				<ul>
-					<li ng-repeat="(key,stat) in content.stats" title="{{key}}: {{stat}}">
-						<div ng-if="canShowStat(stat)" >
-							<i ng-class="statIcon(key)"></i> {{stat}}
-						</div>
-					</li>
-				</ul>
-			</div>
-
-		    <content-video ng-switch-when='video'></content-video>
-		    <content-photo ng-switch-when='photo'></content-photo>
-		    <content-track ng-switch-when='track'></content-track>
-		    <content-post  ng-switch-when='post' ></content-post>
-
+		<div class="stats left">
+			<ul>
+				<li ng-repeat="(key,stat) in content.stats" title="{{key}}:{{stat}}">
+					<div ng-if="canShowStat(stat)" >
+						<i ng-class="statIcon(key)"></i> {{stat}}
+					</div>
+				</li>
+			</ul>
 		</div>
 
-	</div>
+		<i ng-if="isLogged()" ng-click="delete($index)" class="icon-trash right"></i>
 
-</div>
+	</li>
+
+</ul>

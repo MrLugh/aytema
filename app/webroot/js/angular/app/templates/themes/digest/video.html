@@ -1,5 +1,5 @@
-<div class="videoBox medium">
-	<div ng-if="canShowThumbnail()" class="video_embed">
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="video">
+	<div ng-if="canShowThumbnail()">
 		<img ng-src="{{getThumbnail()}}" />
 	</div>	
 	<div ng-if="canShowPlayer()" class="video_embed" ng-bind-html="getPlayer()"></div>

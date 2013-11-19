@@ -5,21 +5,85 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.user = userSv.getUser();
 
 	$scope.list 	= [];
+	$scope.offset 	= 0;
+	$scope.limit	= 8;
 
 	$scope.scroll   = 0;
 
-	$scope.setList = function(contents) {
+	$scope.config	= {};
+	$scope.configLoaded = false;
 
-		for (x in contents) {
-			var content = contents[x];
-			var index 	= $scope.list.indexOf(content);
+	$scope.current	= 'home';
 
-			if( index == -1) {
-				$scope.list.push(content);
-			} else if (!angular.equals($scope.list[index], content)) {
-				$scope.list[index] = content;
+	userSv.loadThemeConfig($scope.user.theme);
+
+	$scope.getFilters = function() {
+
+		var filters	= {'concepts':[],'networks':[]};
+
+		var accounts= userSv.getAccounts();
+
+		if (!accounts.length && !userSv.isLoading()) {
+			userSv.loadAccounts();
+			return filters;
+		}
+
+		var networks= appSv.getNetworks();
+		var concepts = $scope.config.custom.filters[$scope.current].concepts;
+
+		for (var x in concepts) {
+			var concept = concepts[x];
+			for (var y in accounts) {
+				var network = accounts[y].Socialnet.network;
+				if (concept == 'all' || networks[network].concepts.indexOf(concept) != -1) {
+					if (concept != 'all' && filters.concepts.indexOf(concept) == -1) {
+						filters.concepts.push(concept);
+					}
+					if (filters.networks.indexOf(network) == -1) {
+						filters.networks.push(network);
+					}
+				}
 			}
 		}
+		return filters;
+	}
+
+	$scope.setList = function() {
+
+		if (!contentSv.isLoading() && $scope.configLoaded) {
+			console.log("setList");
+			var filters = $scope.getFilters();
+			if (!filters.concepts.length && !filters.networks.length) {
+				return;
+			}
+
+			var params			= JSON.parse(JSON.stringify(filters));
+			params['offset']	= $scope.offset;
+			params['limit']		= $scope.limit;
+
+			console.log("params ",params);
+			contentSv.getContentsByFilters(params).then(
+				function(data) {
+					console.log("contents ",data.contents);
+					var contents = data.contents;
+					var list = $scope.offset == 0 ? [] : $scope.list;
+					for (var x in contents) {
+						content = contents[x].Content;
+						list.push(content);
+					}
+					if (!angular.equals($scope.list, list)) {
+						//$scope.reinitMasonry();
+						$scope.list = list;
+					}
+				},
+				function(reason) {
+					console.log('Failed: ', reason);
+				},
+				function(update) {
+					console.log('Got notification: ', update);
+				}
+			);
+		}		
 	}
 
 	$scope.isLogged = function() {
@@ -35,22 +99,74 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		contentSv.loadContent();
+		if (!contentSv.isLoading()) {
+			$scope.offset += $scope.limit;
+			$scope.setList();
+		}
 	}
 
 	$scope.getStyle = function() {
 		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() + 'px'};
 	}
 
-	$scope.$watch("contentSv.getDicContent()",function(contents){
-		$scope.setList(contents);
+	$scope.getMenuItemClass = function(page) {
+		return ($scope.current == page) ? 'active':'';
+	}
+
+	$scope.setCurrent = function(page) {
+		$scope.offset 	= 0;
+		$scope.limit	= 8;
+		$scope.current = page;
+	}
+
+	$scope.getContentSize = function(index) {
+		var small 		= ['post','quote','chat'];
+		var medium 		= ['video','track','photo'];
+		var large 		= [];
+		var extralarge 	= [];
+		var content = $scope.list[index];
+
+		if (small.indexOf(content.concept) != -1 ) {
+			if (content.concept == 'post' && content.network == 'facebook') {
+				return 'xlarge';
+			}
+			if (content.concept == 'post' && content.network == 'twitter') {
+				return 'medium';
+			}			
+			return 'small';
+		}
+		if (medium.indexOf(content.concept) != -1 ) {
+			return 'medium';
+		}
+		if (large.indexOf(content.concept) != -1 ) {
+			return 'large';
+		}
+		if (extralarge.indexOf(content.concept) != -1 ) {
+			return 'xlarge';
+		}
+
+	}	
+
+	$scope.userSv = userSv;
+	$scope.$watch("userSv.getThemeConfig()",function(config){
+		if (!angular.equals($scope.config, config)) {
+			$scope.config		= config;
+			$scope.configLoaded = true;
+			$scope.setList();
+		}		
 	},true);
+
+	$scope.$watch("userSv.getAccounts()",function(accounts){
+		$scope.setList();
+	},true);
+
+	$scope.$watch("current",function(current){
+		$scope.setList();
+	});
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
         $scope.getStyle();	
     });
-
-	contentSv.loadContent();
 }

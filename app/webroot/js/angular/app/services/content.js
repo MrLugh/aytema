@@ -278,8 +278,18 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		// TODO: Needs changed by data json
 		var vars = [];
-		for (x in params) {
-			vars.push(x+"="+params[x]);
+		for (var x in params) {
+
+			var param = params[x];
+
+			if (!angular.isArray(param)) {
+				vars.push(x+"="+params[x]);	
+			} else {
+				for (var y in param) {
+					vars.push(x+"[]="+param[y]);
+				}
+			}
+			
 		}
 
 		var url = '/contents/index.json';
