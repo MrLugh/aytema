@@ -17,6 +17,9 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	userSv.loadThemeConfig($scope.user.theme);
 
+    $scope.tag = '';
+    $scope.showConfig = false;
+
 	$scope.getFilters = function() {
 
 		var filters	= {'concepts':[],'networks':[]};
@@ -28,9 +31,39 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			return filters;
 		}
 
-		var networks= appSv.getNetworks();
-		var concepts = $scope.config.custom.filters[$scope.current].concepts;
+		//var networks= appSv.getNetworks();
+		var allConcepts = [];
+		var networks 	= [];
+		for (var x in accounts) {
+			var network = accounts[x].Socialnet.network;
 
+
+			if (filters.networks.indexOf(network) == -1 && (
+				!angular.isDefined($scope.config.custom.filters[$scope.current]['networks']) ||
+				angular.isDefined($scope.config.custom.filters[$scope.current]['networks']) && 
+				$scope.config.custom.filters[$scope.current]['networks'].indexOf(network) != -1
+				)) {
+				filters.networks.push(network);
+			}
+
+			for (var y in appSv.getNetworks()[network].concepts) {
+				var concept = appSv.getNetworks()[network].concepts[y];
+				if (allConcepts.indexOf(concept) == -1) {
+					allConcepts.push(concept);
+				}
+			}
+		}
+
+		var concepts = $scope.config.custom.filters[$scope.current].concepts;
+		if (concepts.length == 1 && concepts[0] == 'all' ) {
+			filters.concepts = allConcepts;
+		} else {
+			filters.concepts = concepts;
+		}
+
+
+
+		/*
 		for (var x in concepts) {
 			var concept = concepts[x];
 			for (var y in accounts) {
@@ -39,21 +72,28 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 					if (concept != 'all' && filters.concepts.indexOf(concept) == -1) {
 						filters.concepts.push(concept);
 					}
-					if (filters.networks.indexOf(network) == -1) {
+
+					if (filters.networks.indexOf(network) == -1 && (
+						!angular.isDefined($scope.config.custom.filters[$scope.current]['networks']) ||
+						angular.isDefined($scope.config.custom.filters[$scope.current]['networks']) && 
+						$scope.config.custom.filters[$scope.current]['networks'].indexOf(network) != -1
+						)) {
 						filters.networks.push(network);
 					}
 				}
 			}
 		}
+		*/
+
 		return filters;
 	}
 
 	$scope.setList = function() {
 
 		if (!contentSv.isLoading() && $scope.configLoaded) {
-			console.log("setList");
 			var filters = $scope.getFilters();
 			if (!filters.concepts.length && !filters.networks.length) {
+				$scope.list = [];
 				return;
 			}
 
@@ -61,10 +101,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			params['offset']	= $scope.offset;
 			params['limit']		= $scope.limit;
 
-			console.log("params ",params);
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
-					console.log("contents ",data.contents);
 					var contents = data.contents;
 					var list = $scope.offset == 0 ? [] : $scope.list;
 					for (var x in contents) {
@@ -145,15 +183,20 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			return 'xlarge';
 		}
 
-	}	
+	}
 
 	$scope.userSv = userSv;
 	$scope.$watch("userSv.getThemeConfig()",function(config){
+
 		if (!angular.equals($scope.config, config)) {
 			$scope.config		= config;
 			$scope.configLoaded = true;
+		}
+
+		if ($scope.configLoaded) {
 			$scope.setList();
-		}		
+		}
+
 	},true);
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
@@ -167,6 +210,16 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
-        $scope.getStyle();	
+        $scope.getStyle();
     });
+
+    $scope.showDirective = function(tag) {
+    	$scope.tag = tag;
+    	$scope.showConfig = true;
+    }
+
+    $scope.hideDirective = function() {
+    	$scope.tag = "";
+    	$scope.showConfig = false;
+    }
 }

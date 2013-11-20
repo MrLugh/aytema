@@ -62,7 +62,7 @@
     echo $this->Html->script('angular/app/controllers/aytema.js');
     echo $this->Html->script('angular/app/controllers/admin/accounts.js');
     echo $this->Html->script('angular/app/controllers/admin/themes.js');
-    echo $this->Html->script('angular/app/controllers/admin/themes.js');
+    echo $this->Html->script('angular/app/controllers/admin/pagefilter.js');
     echo $this->Html->script('angular/app/controllers/themes.js');
 
         // Themes
@@ -82,6 +82,7 @@
     echo $this->Html->script('angular/app/directives/aytema.js');
     echo $this->Html->script('angular/app/directives/admin/accounts.js');
     echo $this->Html->script('angular/app/directives/admin/themes.js');
+    echo $this->Html->script('angular/app/directives/admin/pagefilter.js');    
 
         // Themes
         echo $this->Html->script('angular/app/directives/themes/digest/content.js');
@@ -91,7 +92,7 @@
 
 <body>
 
-    <div data-ng-app="ayTemaThemeApp" controller='themeDigestCo'  user="<?php echo $user; ?>"  resize style="text-align:center;margin-left:auto;margin-right:auto;">
+    <div data-ng-app="ayTemaThemeApp" controller='themeDigestCo' user="<?php echo $user; ?>"  resize style="text-align:center;margin-left:auto;margin-right:auto;">
         <ng-view></ng-view>
     </div>
 

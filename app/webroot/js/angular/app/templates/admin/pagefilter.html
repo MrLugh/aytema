@@ -1,0 +1,19 @@
+<div style="background-color:red;z-index:1040;text-align:left;" class="pagefilter">
+
+	<ul class="both">
+		<li ng-repeat="page in pages" ng-click="changePage($index)" class="inline" ng-class="getClassPage($index)">{{page}}</li>
+	</ul>
+
+	<ul class="both">
+		<li ng-repeat="network in filters.networks" ng-click="filterNetwork(network)" ng-style="filterStyle(network)" class="inline">
+			 <img ng-src="{{networkIcon(network)}}" class="socialIcon"/>
+		</li>
+	</ul>		
+
+	<ul class="both">
+		<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterStyle(concept)" class="inline">
+			<i ng-class="conceptIcon(concept)"></i>
+		</li>
+	</ul>
+
+</div>

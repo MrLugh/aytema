@@ -24,6 +24,30 @@ body
     clear: both;
 }
 
+.inline {
+  display: inline-block;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.next {
+  float: right;
+}
+
+.prev {
+  float: left;
+}
+
 ul {
     list-style-type: none;
 }
@@ -68,7 +92,38 @@ a:hover
 .navbar-toggle:focus { 
   background-color: transparent; 
 } 
-  
+
+/* Admin */
+.socialIcon {
+  width: 20px;
+}
+
+.adminThemeMenu {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1040;
+  display:inline-block;
+  width:auto;
+  height:auto;
+  overflow:hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.adminThemeMenu .active {
+  border-bottom: 1px solid white;
+}
+
+.pagefilter ul {
+  padding: 0;
+  margin: 0;
+}
+
+.pagefilter li {
+  padding: 4px;
+}
+
 /*menu*/
   
 h1 { 

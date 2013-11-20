@@ -1,7 +1,17 @@
 <fb app-id='211895592326072'></fb>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+<div ng-if="isLogged()">
+	<div class="adminThemeMenu">
+		<div ng-switch="tag" ng-if="showConfig">
+			<strong ng-click="hideDirective()" class="right">Close</strong>			
+			<admin-pagefilter ng-switch-when='admin-pagefilter'></admin-pagefilter>
+		</div>
+	</div>
+</div>
+
 <div class="navbar navbar-default both">
+
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,16 +22,18 @@
 			<h1><a class="navbar-brand" href="#">Digest Theme</a></h1>
 		</div>
 		<div class="navbar-collapse collapse">
+
 			<ul ng-if="configLoaded" class="nav navbar-nav">
-				<li ng-repeat="(key,filter) in config.custom.filters" ng-click="setCurrent('{{key}}')" ng-class="getMenuItemClass({{key}})">{{key}}</li>
+				<li ng-repeat="(key,filter) in config.custom.filters" ng-class="getMenuItemClass({{key}})">
+					<span ng-click="setCurrent('{{key}}')">{{key}}</span>
+				</li>
+				<span ng-if="isLogged()" class="both right" title="Edit menu filters" style="margin-left:4px;">Filters <i ng-click="showDirective('admin-pagefilter')" class="icon-cogs"></i></span>				
 			</ul>
 		</div>
 	</div>
 </div>
 
 <ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':40,'isAnimated':false}" class="masonry" get-offset-top>
-
-	<admin-theme ng-if="isLogged"></admin-theme>
 
 	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item>
 
