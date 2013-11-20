@@ -1,7 +1,7 @@
 <div style="background-color:red;z-index:1040;text-align:left;" class="pagefilter">
 
 	<ul class="both">
-		<li ng-repeat="page in pages" ng-click="changePage($index)" class="inline" ng-class="getClassPage($index)">{{page}}</li>
+		<li ng-repeat="page in pages" ng-click="changePage(page)" class="inline" ng-class="getClassPage(page)">{{page}}</li>
 	</ul>
 
 	<ul class="both">

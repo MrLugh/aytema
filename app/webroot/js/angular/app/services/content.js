@@ -140,11 +140,11 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	    	offset		+= limit;
 	    	loading 	= false;
-	    	deferred.resolve();
+	    	deferred.resolve(data);
 	    }).
 	    error(function(data, status, headers, config) {
 	    	loading 	= false;
-	    	deferred.resolve();	    	
+	    	deferred.resolve(data);	    	
 	    });
 
 	    return deferred.promise;		
@@ -245,18 +245,33 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		return lists['concepts'][concept];
 	}	
 
-	var deleteContent = function(content) {
+	var deleteContent = function(id) {
+		var deferred= $q.defer();
 
-		//TODO: Delete on backend side, and run next code on then function
+		var params = [];
 
-		var index = dicContent.indexOf(content);
+		params['id'] = id;
 
-		delete lists['concepts'][content.concept][lists['concepts'][content.concept].indexOf(index)];
-		delete lists['networks'][content.network]['all'][lists['networks'][content.network]['all'].indexOf(index)];
-		delete lists['networks'][content.network]['concepts'][content.concept][lists['networks'][content.network]['concepts'][content.concept].indexOf(index)];
-		delete dicContent[index];
+		// TODO: Needs changed by data json
+		var vars = [];
+		for (x in params) {
+			vars.push(x+"="+params[x]);
+		}
 
-    	deferred.resolve();
+		var url = '/contents/delete.json';
+		if (vars.length) {
+			url +="?"+vars.join("&");
+		}
+
+	    $http({method: 'GET', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	deferred.resolve(data);   	
+	    });
+
+	    return deferred.promise;		
 	}
 
 	var getContentsByFilters = function(params) {

@@ -68,13 +68,13 @@ class ContentsController extends AppController {
 
         isset($this->request->query['id']) ? $id = $this->request->query['id'] : $id = null;
 
-        $content = $this->Content->findById($id+1000);
+        $content = $this->Content->findById($id);
 
-        if (count($content) && isset($content['content'])) {
-
-            $content['Content']['status'] = 'disabled';
-            $update = new Socialnet();
-            $update = $update->save($content['Content']);
+        if (is_array($content) && isset($content['Content'])) {
+            $save = $content['Content'];
+            $save['status'] = 'disabled';
+            $content = new Content();
+            $content = $content->save($save);            
             $message = 'Deleted';
         } else {
             $message = 'Error';

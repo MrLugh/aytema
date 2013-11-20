@@ -1,10 +1,12 @@
 function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 
+	console.log($scope);
+
 	$scope.showConfig = false;
 
 	$scope.user 	= userSv.getUser();
 	$scope.pages 	= [];
-	$scope.current	= 0;
+	$scope.current	= $scope.$parent.current;
 
 	$scope.config	= {};
 	$scope.configLoaded = false;
@@ -53,7 +55,7 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 		$scope.filters	= $scope.getFilters();
 
 		var concepts= [];
-		var config 	= $scope.config.custom.filters[$scope.pages[$scope.current]];
+		var config 	= $scope.config.custom.filters[$scope.current];
 		//console.log("config ",config);
 		for (var x in $scope.filters.concepts) {
 			var concept = $scope.filters.concepts[x];
@@ -133,7 +135,7 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 		$scope.networks = networks;
 		$scope.concepts = concepts;
 
-		userSv.setThemeConfig($scope.pages[$scope.current],{'concepts':$scope.concepts,'networks':$scope.networks});
+		userSv.setThemeConfig($scope.current,{'concepts':$scope.concepts,'networks':$scope.networks});
 		$scope.setList();
 	}
 
@@ -142,16 +144,16 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 		$scope.showConfig = !$scope.showConfig;
 	}
 
-	$scope.changePage = function(index) {
-		$scope.current = index;
+	$scope.changePage = function(page) {
+		$scope.current = page;
 		if ($scope.configLoaded && $scope.accountsLoaded) {
 			$scope.setList();
 		}
-		$scope.$parent.setCurrent($scope.pages[$scope.current]);
+		$scope.$parent.setCurrent(page);
 	}
 
-	$scope.getClassPage = function(index) {
-		return $scope.current == index ? 'active' : '';
+	$scope.getClassPage = function(page) {
+		return $scope.current == page ? 'active' : '';
 	}
 
 	$scope.userSv = userSv;
@@ -165,6 +167,10 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 		}
 
 	},true);
+
+	$scope.$watch("$parent.current",function(page){
+		$scope.changePage(page);
+	},true);	
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 		//console.log("Watch accounts ",accounts);
