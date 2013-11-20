@@ -82,7 +82,6 @@ function ($timeout) {
     }
 }]);
 
-
 ayTemaDs.directive('getOffsetTop',[
 function () {
     return function(scope,element,attrs) {
@@ -90,6 +89,10 @@ function () {
             return element[0].offsetTop;
         }
         scope.$apply();
+        scope.$watch('getOffsetTop()', function(newValue, oldValue, scope) {
+            console.log(newValue);
+        },true);
+        scope.$apply();        
     }
 }]);
 

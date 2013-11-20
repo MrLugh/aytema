@@ -61,30 +61,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			filters.concepts = concepts;
 		}
 
-
-
-		/*
-		for (var x in concepts) {
-			var concept = concepts[x];
-			for (var y in accounts) {
-				var network = accounts[y].Socialnet.network;
-				if (concept == 'all' || networks[network].concepts.indexOf(concept) != -1) {
-					if (concept != 'all' && filters.concepts.indexOf(concept) == -1) {
-						filters.concepts.push(concept);
-					}
-
-					if (filters.networks.indexOf(network) == -1 && (
-						!angular.isDefined($scope.config.custom.filters[$scope.current]['networks']) ||
-						angular.isDefined($scope.config.custom.filters[$scope.current]['networks']) && 
-						$scope.config.custom.filters[$scope.current]['networks'].indexOf(network) != -1
-						)) {
-						filters.networks.push(network);
-					}
-				}
-			}
-		}
-		*/
-
 		return filters;
 	}
 
@@ -110,7 +86,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 						list.push(content);
 					}
 					if (!angular.equals($scope.list, list)) {
-						//$scope.reinitMasonry();
+						$scope.reinitMasonry();
 						$scope.list = list;
 					}
 				},

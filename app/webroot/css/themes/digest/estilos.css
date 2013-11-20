@@ -1,27 +1,26 @@
 /* gral */
-body 
-{ 
-    background-color:#000000;
-    font-family: 'Playfair Display', serif; 
-    color: #fff; 
-    margin: 30px 15px 0;
-    overflow: hidden;
+body { 
+  background-color:#000000;
+  font-family: 'Playfair Display', serif; 
+  color: #fff; 
+  margin: 30px 15px 0;
+  overflow: hidden;
 }
 
 *[ ng-click ] {
-    cursor: pointer ;
+  cursor: pointer;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
 .both {
-    clear: both;
+  clear: both;
 }
 
 .inline {
@@ -49,44 +48,42 @@ body
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .next {
-    float: right;
+  float: right;
 }
 
 .prev {
-    float: left;
+  float: left;
 }
 
-a 
-{ 
-    text-decoration:none; 
-    color: #fff!important; 
-    outline: none; 
+a { 
+  text-decoration:none; 
+  color: #fff!important; 
+  outline: none; 
 } 
-a:hover 
-{ 
-    text-decoration: none; 
-    opacity: 0.8; 
+a:hover { 
+  text-decoration: none; 
+  opacity: 0.8; 
 } 
  
 .container {
-    max-width: 940px;
+  max-width: 940px;
 } 
   
 .navbar { 
-        background: url("../img/bg_nav.png") repeat 0 0 transparent!important; 
-    border: none; 
-    margin-bottom: 0; 
+  background: url("../img/bg_nav.png") repeat 0 0 transparent!important;
+  border: none; 
+  margin-bottom: 0; 
 } 
 .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus { 
-    background-color: transparent; 
-    color: #fff!important; 
+  background-color: transparent; 
+  color: #fff!important; 
 } 
-.navbar-toggle { 
-    margin-top: 76px; 
+.navbar-toggle {
+  margin-top: 76px; 
 } 
 .navbar-toggle:hover, 
 .navbar-toggle:focus { 
@@ -127,66 +124,66 @@ a:hover
 /*menu*/
   
 h1 { 
-    background: none repeat scroll 0 0 transparent; 
-    color: #FFFFFF; 
-    float: left; 
-    font-family: 'Playfair Display SC',serif; 
-    font-size: 41px!important; 
-    font-weight: 900; 
-    text-transform: uppercase; 
-    width: 130px; 
+  background: none repeat scroll 0 0 transparent; 
+  color: #FFFFFF; 
+  float: left; 
+  font-family: 'Playfair Display SC',serif; 
+  font-size: 41px!important; 
+  font-weight: 900; 
+  text-transform: uppercase; 
+  width: 130px; 
 } 
 h1 a { 
-    line-height: 37px!important; 
-    font-size: 41px!important; 
+  line-height: 37px!important; 
+  font-size: 41px!important; 
 } 
   
 h2 { 
-    font-family: 'Playfair Display SC',serif; 
-    font-size: 18px; 
-    font-weight: 900; 
-    line-height: 18px; 
-    margin-top: 10px; 
-    text-align: right; 
-    text-transform: uppercase; 
+  font-family: 'Playfair Display SC',serif; 
+  font-size: 18px; 
+  font-weight: 900; 
+  line-height: 18px; 
+  margin-top: 10px; 
+  text-align: right; 
+  text-transform: uppercase; 
 } 
   
 p { 
-    color: #999999; 
-    font-size: 14px; 
-    font-style: italic; 
-    font-weight: 500; 
-    line-height: 16px; 
-    margin-top: 10px; 
-    text-align: right; 
+  color: #999999; 
+  font-size: 14px; 
+  font-style: italic; 
+  font-weight: 500; 
+  line-height: 16px; 
+  margin-top: 10px; 
+  text-align: right; 
 } 
 p a { 
-    color: #D1D1D1; 
-    line-height: 16px; 
+  color: #D1D1D1; 
+  line-height: 16px; 
 } 
   
   
 .navbar ul { 
-    float: right; 
-    margin-top: 75px; 
+  float: right; 
+  margin-top: 75px; 
 } 
 .navbar ul li { 
-    float: left; 
-    margin-left: 32px; 
-    font-family: 'Playfair Display SC',serif; 
-    font-size: 20px; 
-    font-weight: 900; 
-    text-transform: uppercase; 
+  float: left; 
+  margin-left: 32px; 
+  font-family: 'Playfair Display SC',serif; 
+  font-size: 20px; 
+  font-weight: 900; 
+  text-transform: uppercase; 
 } 
   
 #container {
-    clear: both;
-    display: block;
-    height: 300px !important;
-    margin: 0 auto;
-    overflow: auto;
-    text-align: center;
-    width: 100%;
+  clear: both;
+  display: block;
+  height: 300px !important;
+  margin: 0 auto;
+  overflow: auto;
+  text-align: center;
+  width: 100%;
 }
 
 /* Masonry */
@@ -305,13 +302,13 @@ p a {
 }
 
 .content {
-    display: inline-block;
-    height: auto;    
+  display: inline-block;
+  height: auto;
 }
 
 .content img {
-    width: 100%;
-    height: auto;
-    margin:0 auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  margin:0 auto;
+  display: block;
 }
