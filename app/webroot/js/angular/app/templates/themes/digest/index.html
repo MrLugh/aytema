@@ -1,6 +1,24 @@
 <fb app-id='211895592326072'></fb>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+<div ng-if="showingContent" class="modalContent" ng-switch="content.concept">
+
+	<div class="both">
+		<span ng-click="move(-1)">Prev</span>
+		<span ng-click="closeContent()">Close</span>
+		<span ng-click="move(1)">Next</span>
+	</div>
+
+	<content-video ng-switch-when='video'></content-video>
+	<content-photo ng-switch-when='photo'></content-photo>
+	<content-track ng-switch-when='track'></content-track>
+	<content-post  ng-switch-when='post' ></content-post>
+	<content-quote ng-switch-when='quote'></content-quote>
+	<content-chat  ng-switch-when='chat' ></content-chat>
+
+</div>
+
+
 <div ng-if="isLogged()">
 	<div class="adminThemeMenu">
 		<div ng-switch="tag" ng-if="showConfig">
@@ -39,7 +57,7 @@
 
 	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item>
 
-		<div class="stats">
+		<div class="stats both">
 			<ul>
 				<li ng-repeat="(key,stat) in content.stats" title="{{key}}:{{stat}}">
 					<div ng-if="canShowStat(stat)" >
@@ -51,14 +69,18 @@
 
 		<i ng-if="isLogged()" ng-click="delete($index)" class="icon-trash right"></i>
 
-	    <content-video ng-switch-when='video'></content-video>
-	    <content-photo ng-switch-when='photo'></content-photo>
-	    <content-track ng-switch-when='track'></content-track>
-	    <content-post  ng-switch-when='post' ></content-post>
-	    <content-quote ng-switch-when='quote'></content-quote>
-	    <content-chat  ng-switch-when='chat' ></content-chat>
+		<div class="both" ng-click="showContent($index)">
 
-		<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="img/themes/digest/{{content.network}}.png" alt=""><p> / {{content.external_user_name}}</p></a></span>
+		    <content-video ng-switch-when='video'></content-video>
+		    <content-photo ng-switch-when='photo'></content-photo>
+		    <content-track ng-switch-when='track'></content-track>
+		    <content-post  ng-switch-when='post' ></content-post>
+		    <content-quote ng-switch-when='quote'></content-quote>
+		    <content-chat  ng-switch-when='chat' ></content-chat>
+
+			<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="img/themes/digest/{{content.network}}.png" alt=""><p> / {{content.external_user_name}}</p></a></span>
+
+		</div>
 
 	</li>
 

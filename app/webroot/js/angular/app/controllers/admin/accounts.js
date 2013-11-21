@@ -134,8 +134,18 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	$scope.addAccount = function(network) {
 		var href = "/"+network+"/addAccount?action=start";
-		var command = network+"win = window.open(href,'mywindow','status=0,menubar=0,resizable=0,location=0,width=910,height=550');";
+		$scope.popupAccount = false;
+
+		var command = '$scope.popupAccount = window.open(href,"mywindow","status=0,menubar=0,resizable=0,location=0,width=910,height=550");';
 		eval(command);
+
+		var timer = setInterval(function() {   
+		    if($scope.popupAccount.closed) {  
+		        clearInterval(timer);
+				console.log("popup closed");
+				userSv.loadAccounts();
+		    }  
+		}, 1000);
 	}
 
 	$scope.showAccount = function(index) {

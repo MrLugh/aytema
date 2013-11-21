@@ -13,9 +13,17 @@ class SocialnetsController extends AppController {
 
     }
 
-    public function index() { 
+    public function index() {
+
+        $conditions = array();
+        $status = isset($this->request->query['status']) ? $this->request->query['status'] : '';
+
+        if (!empty($status)) {
+            $conditions['Socialnet.status'] = $status;
+        }
 
         $socialnets = $this->Socialnet->find('all',array(
+            'conditions' => $conditions,
             'order'     => array('Socialnet.created' => 'desc'),
         ));
         foreach ($socialnets as $key => $socialnet) {

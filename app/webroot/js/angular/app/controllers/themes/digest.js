@@ -20,6 +20,10 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
     $scope.tag = '';
     $scope.showConfig = false;
 
+	$scope.showingContent	= false;
+	$scope.content			= {};
+	$scope.currentContent	= false;    
+
 	$scope.getFilters = function() {
 
 		var filters	= {'concepts':[],'networks':[]};
@@ -139,6 +143,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.setCurrent = function(page) {
+		$scope.list 	= [];
+		$scope.reinitMasonry();		
 		$scope.offset 	= 0;
 		$scope.limit	= 8;
 		$scope.current = page;
@@ -171,6 +177,47 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}
 
 	}
+
+	$scope.showContent = function(index) {
+		$scope.currentContent	= index;
+		$scope.content 			= $scope.list[index];
+		$scope.showingContent 	= true;
+	}	
+
+	$scope.closeContent = function() {
+		$scope.content 			= {};
+		$scope.showingContent 	= false;
+		$scope.currentContent	= false;
+	}
+
+	$scope.move = function(direction) {
+		$scope.showingContent 	= false;
+		if (direction > 0) {
+			$scope.currentContent++;
+		} else {
+			$scope.currentContent--;		
+		}
+
+		if ($scope.currentContent == $scope.list.length) {
+			$scope.currentContent = 0;
+		}
+		if ($scope.currentContent < 0) {		
+			$scope.currentContent = $scope.list.length - 1;
+		}
+		$scope.showContent($scope.currentContent);
+	}
+
+	$scope.delete = function(index) {
+		contentSv.deleteContent($scope.list[index].id).
+		then(function(data){
+			if (data.message == "Deleted") {
+				$scope.list		= [];
+				$scope.offset	= 0;
+				$scope.setList();
+			}
+		});
+
+	}	
 
 	$scope.userSv = userSv;
 	$scope.$watch("userSv.getThemeConfig()",function(config){

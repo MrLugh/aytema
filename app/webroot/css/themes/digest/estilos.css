@@ -1,26 +1,26 @@
 /* gral */
 body 
 { 
-    background: url("../../../img/themes/digest/bg.png") repeat 0 0 #fff;
-    font-family: 'Playfair Display', serif; 
-    color: #000; 
-    overflow: hidden;
+  background: url("../../../img/themes/digest/bg.png") repeat 0 0 #fff;
+  font-family: 'Playfair Display', serif; 
+  color: #000; 
+  overflow: hidden;
 }
 
 *[ ng-click ] {
-    cursor: pointer ;
+  cursor: pointer ;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
 .both {
-    clear: both;
+  clear: both;
 }
 
 .inline {
@@ -28,44 +28,44 @@ body
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .next {
-    float: right;
+  float: right;
 }
 
 .prev {
-    float: left;
+  float: left;
 }
 
 a 
 { 
-    text-decoration:none; 
-    color: #000!important;
-    outline: none; 
+  text-decoration:none; 
+  color: #000!important;
+  outline: none; 
 } 
 a:hover 
 { 
-    text-decoration: none; 
-    opacity: 0.8; 
+  text-decoration: none; 
+  opacity: 0.8; 
 } 
  
 .container {
-    max-width: 940px;
+  max-width: 940px;
 } 
   
 .navbar { 
-     background: url("../../../img/themes/digest/bg_nav.png") repeat 0 0 #000!important;
-    border: none; 
-    margin-bottom: 0; 
+   background: url("../../../img/themes/digest/bg_nav.png") repeat 0 0 #000!important;
+  border: none; 
+  margin-bottom: 0; 
 } 
 .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus { 
-    background-color: #0E0E0E;
-    color: #FDE200 !important;
+  background-color: #0E0E0E;
+  color: #FDE200 !important;
 } 
 .navbar-toggle { 
-    margin-top: 76px; 
+  margin-top: 76px; 
 } 
 .navbar-toggle:hover, 
 .navbar-toggle:focus { 
@@ -75,39 +75,39 @@ a:hover
 /*menu*/
   
 h1 {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    color: #FFFFFF;
-    float: left;
-    font-family: 'Playfair Display SC',serif;
-    font-size: 41px !important;
-    font-weight: 900;
-    margin: 0 0 0 20px;
-    text-transform: uppercase;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  color: #FFFFFF;
+  float: left;
+  font-family: 'Playfair Display SC',serif;
+  font-size: 41px !important;
+  font-weight: 900;
+  margin: 0 0 0 20px;
+  text-transform: uppercase;
 }
 h1 a {
-    color: #FFFFFF !important;
-    font-size: 41px !important;
-    line-height: 37px !important;
+  color: #FFFFFF !important;
+  font-size: 41px !important;
+  line-height: 37px !important;
 }
 
 h2 {
-    font-family: 'Playfair Display SC',serif;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 18px;
-    margin-top: 10px;
-    text-align: right;
-    text-transform: uppercase;
+  font-family: 'Playfair Display SC',serif;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 18px;
+  margin-top: 10px;
+  text-align: right;
+  text-transform: uppercase;
 }
 
 p {
 
-    font-size: 14px;
-    font-style: italic;
-    font-weight: 500;
-    line-height: 16px;
-    margin-top: 10px;
-    text-align: right;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 16px;
+  margin-top: 10px;
+  text-align: right;
 }
 p a {
   background-color: #FDE200;
@@ -116,51 +116,51 @@ p a {
 
 
 .navbar ul { 
-    float: right; 
-    margin-top: 17px; 
+  float: right; 
+  margin-top: 17px; 
 } 
 .navbar ul li {
-    float: left;
-    margin-left: 10px;
-    font-family: 'Playfair Display SC',serif;
-    font-size: 20px;
-    font-weight: 900;
+  float: left;
+  margin-left: 10px;
+  font-family: 'Playfair Display SC',serif;
+  font-size: 20px;
+  font-weight: 900;
 
 
 }
 .nav > li > a {
-    background-color: #191919;
-    border-radius: 2px;
-    color: #FFFFFF !important;
-    font-family: Playfair Display;
-    font-size: 16px;
-    font-style: italic;
-    font-weight: 600;
-    padding: 3px 0 3px 20px;
+  background-color: #191919;
+  border-radius: 2px;
+  color: #FFFFFF !important;
+  font-family: Playfair Display;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 600;
+  padding: 3px 0 3px 20px;
 
 }
 .nav > li > a:hover {
-    background-color: #fde200!important;
-    color: #000!important;    
+  background-color: #fde200!important;
+  color: #000!important;  
 }
 .nav > li > a span {
-    color: #000000;
-    font-family: 'Raleway',sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    margin-left: 12px;
+  color: #000000;
+  font-family: 'Raleway',sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  margin-left: 12px;
 }
 .navbar-default {
-    border-bottom: 2px solid #FDE200 !important;
-    box-shadow: 0 0 10px #000000;
+  border-bottom: 2px solid #FDE200 !important;
+  box-shadow: 0 0 10px #000000;
 }
 .nav > li.active > a {
-    background-color: #000;
-    color: #FDE200 !important;  
+  background-color: #000;
+  color: #FDE200 !important;  
 
 }
 .nav > li.active > a:hover {
-    color: #000 !important;  
+  color: #000 !important;  
 
 }
 
@@ -177,6 +177,7 @@ p a {
   overflow: auto;
   text-align: center;
   width: 100%;
+  padding-top:20px;
 }
 #container .content {
   border-bottom: 3px solid #000000;
@@ -190,14 +191,13 @@ p a {
 }
 
 .content .stats {
-    float: left;
-    height: auto;
-    width: auto;  
+  height: auto;
+  width: auto;  
 }
 
 .content .stats li {
-    float: left;
-    margin-left: 10px;
+  float: left;
+  margin-left: 10px;
 }
 
 /*images users */
@@ -221,25 +221,25 @@ p a {
 .masonry .content {
   -webkit-transition-duration: 0.7s;
    -moz-transition-duration: 0.7s;
-    -ms-transition-duration: 0.7s;
-     -o-transition-duration: 0.7s;
-      transition-duration: 0.7s;
+  -ms-transition-duration: 0.7s;
+   -o-transition-duration: 0.7s;
+    transition-duration: 0.7s;
 }
 
 .masonry {
   -webkit-transition-property: height, width;
    -moz-transition-property: height, width;
-    -ms-transition-property: height, width;
-     -o-transition-property: height, width;
-      transition-property: height, width;
+  -ms-transition-property: height, width;
+   -o-transition-property: height, width;
+    transition-property: height, width;
 }
 
 .masonry .content {
   -webkit-transition-property: left, right, top;
    -moz-transition-property: left, right, top;
-    -ms-transition-property: left, right, top;
-     -o-transition-property: left, right, top;
-      transition-property: left, right, top;
+  -ms-transition-property: left, right, top;
+   -o-transition-property: left, right, top;
+    transition-property: left, right, top;
 }
 
 /* Responsive */
@@ -247,32 +247,32 @@ p a {
 @media (max-width: 480px) {
 
   #container .small {
-    width: 100%;
+  width: 100%;
   }
   #container .medium {
-    width: 100%;
+  width: 100%;
   }
   #container .large {
-    width: 100%;
+  width: 100%;
   }
   #container .xlarge {
-    width: 100%;
+  width: 100%;
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
 
   #container .small {
-    width: 32.3%;
+  width: 32.3%;
   }
   #container .medium {
-    width: 65.6%;
+  width: 65.6%;
   }
   #container .large {
-    width: 99%;
+  width: 99%;
   }
   #container .xlarge {
-    width: 99%;
+  width: 99%;
   }
 }
 
@@ -280,16 +280,16 @@ p a {
 @media (min-width: 769px) and (max-width: 1024px) {
 
   #container .small {
-      width: 23%;
+    width: 23%;
   }
   #container .medium {
-      width: 48%;
+    width: 48%;
   }
   #container .large {
-      width: 73%;
+    width: 73%;
   }
   #container .xlarge {
-      width: 98%;
+    width: 98%;
   }
 
 }
@@ -297,19 +297,19 @@ p a {
 @media (min-width: 1025px) and (max-width: 1200px) {
 
   #container .small {
-      width: 18%;
+    width: 18%;
   }
   #container .medium {
-      width: 38%;
+    width: 38%;
   }
   #container .medium iframe {
-      width: 98%;
-  }    
+    width: 98%;
+  }  
   #container .large {
-      width: 58%;
+    width: 58%;
   }
   #container .xlarge {
-      width: 78%;
+    width: 78%;
   }
 
 }
@@ -317,28 +317,40 @@ p a {
 @media all and (max-width: 2048px) and (min-width: 1201px) {
 
   #container .small {
-      width: 14%;
+    width: 14%;
   }
   #container .medium {
-      width: 28%;
+    width: 28%;
   }
 
   #container .large {
-      width: 43%;
+    width: 43%;
   }
   #container .xlarge {
-      width: 57%;
+    width: 57%;
   }
 }
 
 .content {
-    display: inline-block;
-    height: auto;    
+  display: inline-block;
+  height: auto;  
 }
 
 .content img {
-    width: 100%;
-    height: auto;
-    margin:0 auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  margin:0 auto;
+  display: block;
+}
+
+.modalContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100%;
+  height: 100%;
+  background-color: #F7F7F7;
 }

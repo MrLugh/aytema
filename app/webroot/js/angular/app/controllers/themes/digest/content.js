@@ -454,21 +454,27 @@ function contentChatCo($scope,contentSv) {
 
 function contentQuoteCo($scope,contentSv) {
 
-	$scope.getTitle = function() {
+	if (!angular.isDefined($scope.content.data['text']) || !angular.isDefined($scope.content.data['source'])) {
+		console.log($scope.content.data);
+	}
+
+	$scope.getQuoteText = function() {
 
 		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['source_title'])) {
-				return $scope.content.data['source_title'];
+			if (angular.isDefined($scope.content.data['text'])) {
+				return $scope.content.data['text'];
 			}
 		}
 
 		return '';
 	}
 
-	$scope.getDescription = function() {	
+	$scope.getQuoteSource = function() {
 
-		if ($scope.current.description.length) {
-			return $scope.current.description;
+		if ($scope.content.network == 'tumblr') {
+			if (angular.isDefined($scope.content.data['source'])) {
+				return $scope.content.data['source'];
+			}
 		}
 
 		return '';

@@ -35,16 +35,11 @@
 		echo $this->fetch('meta');
 
 		echo $this->fetch('css');
-		echo $this->Html->css('colorbox');
 		echo $this->Html->css('bootstrap');
-		echo $this->Html->css('font-awesome.min');
-		echo $this->Html->css('bootstrap-bootswatch-custom');
 
 		echo $this->fetch('script');
-		echo $this->Html->script('jquery');
-		echo $this->Html->script('jquery.colorbox-min');
-		echo $this->Html->script('bootstrap-min');
-		echo $this->Html->script('bootstrap-bootswatch-custom');
+	    echo $this->Html->script('jquery');
+	    echo $this->Html->script('bootstrap');
 	?>
 </head>
 <body>

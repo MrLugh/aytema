@@ -10,11 +10,14 @@ Class Theme extends AppModel {
             'videos'    => array(
                 'concepts'  => array('video'),
             ),
+            'tracks'    => array(
+                'concepts'  => array('track'),
+            ),            
             'photos'    => array(
                 'concepts'  => array('photo'),
             ),
             'posts'     => array(
-                'concepts'  => array('post'),
+                'concepts'  => array('post','quote','chat'),
             )
         )
     );	

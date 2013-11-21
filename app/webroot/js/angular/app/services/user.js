@@ -19,7 +19,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 		var deferred = $q.defer();
 
-		var params = {user_id:user.id};
+		var params = {user_id:user.id,status:'Allowed'};
 
 		var vars = [];
 		for (x in params) {
