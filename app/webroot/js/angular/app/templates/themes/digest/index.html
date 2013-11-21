@@ -11,7 +11,6 @@
 </div>
 
 <div class="navbar navbar-default both">
-
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -19,16 +18,19 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<h1><a class="navbar-brand" href="#">Digest Theme</a></h1>
+			<h1><a class="navbar-brand" href="#/">Digest Theme</a></h1>
 		</div>
 		<div class="navbar-collapse collapse">
 
 			<ul ng-if="configLoaded" class="nav navbar-nav">
-				<li ng-repeat="(key,filter) in config.custom.filters" ng-class="getMenuItemClass({{key}})">
-					<span ng-click="setCurrent('{{key}}')">{{key}}</span>
+				<li ng-repeat="(key,filter) in config.custom.filters" ng-class="getMenuItemClass('{{key}}')">
+					<a href="#/" ng-click="setCurrent('{{key}}')" skip-default>{{key}} <span ng-class="getMenuItemClass('{{key}}')">x<span></a>
 				</li>
-				<span ng-if="isLogged()" class="both right" title="Edit menu filters" style="margin-left:4px;">Filters <i ng-click="showDirective('admin-pagefilter')" class="icon-cogs"></i></span>				
+
+				<span ng-if="isLogged()" class="both right" title="Edit menu filters" style="margin-left:4px;color:white;">Filters <i ng-click="showDirective('admin-pagefilter')" class="icon-cogs"></i></span>
+
 			</ul>
+
 		</div>
 	</div>
 </div>
@@ -37,14 +39,7 @@
 
 	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item>
 
-	    <content-video ng-switch-when='video'></content-video>
-	    <content-photo ng-switch-when='photo'></content-photo>
-	    <content-track ng-switch-when='track'></content-track>
-	    <content-post  ng-switch-when='post' ></content-post>
-	    <content-quote ng-switch-when='quote'></content-quote>
-	    <content-chat  ng-switch-when='chat' ></content-chat>
-
-		<div class="stats left">
+		<div class="stats">
 			<ul>
 				<li ng-repeat="(key,stat) in content.stats" title="{{key}}:{{stat}}">
 					<div ng-if="canShowStat(stat)" >
@@ -55,6 +50,15 @@
 		</div>
 
 		<i ng-if="isLogged()" ng-click="delete($index)" class="icon-trash right"></i>
+
+	    <content-video ng-switch-when='video'></content-video>
+	    <content-photo ng-switch-when='photo'></content-photo>
+	    <content-track ng-switch-when='track'></content-track>
+	    <content-post  ng-switch-when='post' ></content-post>
+	    <content-quote ng-switch-when='quote'></content-quote>
+	    <content-chat  ng-switch-when='chat' ></content-chat>
+
+		<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="img/themes/digest/{{content.network}}.png" alt=""><p> / {{content.external_user_name}}</p></a></span>
 
 	</li>
 

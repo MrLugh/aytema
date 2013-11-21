@@ -111,16 +111,11 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.delete = function(index) {
-		/*
-		contentSv.deleteContent($scope.accountContentList[index]);
-		$scope.setList();
-		return false;
-		*/
 		contentSv.deleteContent($scope.accountContentList[index].id).
 		then(function(data){
 			if (data.message == "Deleted") {
 				$scope.accountContentList = [];
-				//$scope.offset	= 0;
+				$scope.offset	= 0;
 				$scope.setList();
 			}
 		});

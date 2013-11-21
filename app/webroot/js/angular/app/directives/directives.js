@@ -20,6 +20,15 @@ function ($window) {
     };
 }]);
 
+ayTemaDs.directive('skipDefault',[
+function() {
+    return function(scope, element) {
+        $(element).click(function(event) {
+            event.preventDefault();
+        });
+    }
+}]);
+
 ayTemaDs.directive('infiniteScroll',[
 function() {
     return function(scope, elm, attr) {

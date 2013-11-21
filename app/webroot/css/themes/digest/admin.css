@@ -1,3 +1,35 @@
+*[ ng-click ] {
+    cursor: pointer ;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.both {
+  clear: both;
+}
+
+.hide {
+  display: none;
+}
+
+.next {
+  float: right;
+}
+
+.prev {
+  float: left;
+}
+
 /* Admin */
 .socialIcon {
   width: 20px;
@@ -14,6 +46,7 @@
   overflow:hidden;
   padding: 0;
   margin: 0;
+  color:white;
 }
 
 .adminThemeMenu .active {

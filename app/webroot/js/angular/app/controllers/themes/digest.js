@@ -127,6 +127,17 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		return ($scope.current == page) ? 'active':'';
 	}
 
+	$scope.getAccountLink = function(index,external_user_id) {
+		for (var x in userSv.getAccounts()) {
+			var account = userSv.getAccounts()[x].Socialnet;
+			if (account.external_user_id == external_user_id && 
+				account.network == $scope.list[index].network ) {
+				return account.profile_url;
+			}
+		}
+		return '';
+	}
+
 	$scope.setCurrent = function(page) {
 		$scope.offset 	= 0;
 		$scope.limit	= 8;
