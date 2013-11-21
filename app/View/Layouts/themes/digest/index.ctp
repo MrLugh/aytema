@@ -12,6 +12,7 @@
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('themes/digest/estilos');
+    echo $this->Html->css('themes/digest/admin');
     ?>
 
     <!-- Js -->
