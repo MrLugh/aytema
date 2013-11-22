@@ -1,5 +1,7 @@
 function adminContentVideoCo($scope,$sce,contentSv) {
 
+	//console.log($scope.content);
+
 	$scope.player	= "";
 	$scope.thumbnail= "";
 
@@ -10,6 +12,7 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 
 		if ($scope.loadPlayer) {
 			return $sce.trustAsHtml(contentSv.cleanSource($scope.player));
+			//return contentSv.cleanSource($scope.player);
 		}
 
 		var source = "";
@@ -77,7 +80,8 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 			}
 
 			if (angular.isDefined($scope.content.data['slug'])) {
-				return $sce.trustAsHtml($scope.content.data['slug']);
+				//return $sce.trustAsHtml($scope.content.data['slug']);
+				return $scope.content.data['slug'];
 			}			
 		}
 
@@ -130,7 +134,8 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 		return !$scope.hasThumbnail() && !$scope.hasPlayer();
 	}
 
-	$scope.$watch("content",function(){
+	$scope.$watch("content",function(value){
+		//console.log("Watch video content ",value.id,$scope.content.id);
 		$scope.player	= "";
 		$scope.thumbnail= "";
 
@@ -142,6 +147,8 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 
 
 function adminContentPhotoCo($scope,contentSv) {
+
+	//console.log($scope.content);
 
 	$scope.photolist	= [];
 	$scope.current 		= {};
@@ -212,7 +219,7 @@ function adminContentPhotoCo($scope,contentSv) {
 
 	$scope.move = function(direction) {
 
-		console.log("content move");
+		//console.log("content move");
 
 		var currentPos = $scope.currentPos;
 
@@ -233,13 +240,18 @@ function adminContentPhotoCo($scope,contentSv) {
 		$scope.setCurrent();
 	});
 
-	$scope.$watch("content",function(){
+	/*
+	$scope.$watch("content",function(value){
+		console.log("Watch photo content ",value.id,$scope.content.id);		
 		$scope.photolist	= [];
 		$scope.current 		= {};
 		$scope.currentPos	= 0;
 		$scope.setList();
 		$scope.setCurrent();
 	});
+	*/
+	$scope.setList();
+	$scope.setCurrent();
 
 }
 
@@ -257,6 +269,7 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 
 		if ($scope.loadPlayer) {
 			return $sce.trustAsHtml(contentSv.cleanSource($scope.player));
+			//return contentSv.cleanSource($scope.player);
 		}
 
 		var source = "";
@@ -271,8 +284,9 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 		}
 
 		if ($scope.content.network == 'soundcloud') {
+			console.log($scope.content.data);
 			url = $scope.content.data['permalink_url'];
-			source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'&show_user=true&show_artwork=true&download=true"></iframe>';
+			source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'&show_artwork=true&auto_play=true&buying=false&download=true&legacy_fallback=false&liking=false&sharing=true&show_comments=true&show_playcount=true"></iframe>';
 		}
 
 		if ($scope.content.network == 'mixcloud') {
@@ -332,7 +346,8 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 			}
 
 			if (angular.isDefined($scope.content.data['slug'])) {
-				return $sce.trustAsHtml($scope.content.data['slug']);
+				//return $sce.trustAsHtml($scope.content.data['slug']);
+				return $scope.content.data['slug'];
 			}			
 		}
 
@@ -378,7 +393,8 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 		return !$scope.hasThumbnail() && !$scope.hasPlayer();
 	}
 
-	$scope.$watch("content",function(){
+	$scope.$watch("content",function(value){
+		//console.log("Watch track content ",value.id,$scope.content.id);		
 		$scope.player	= "";
 		$scope.thumbnail= "";
 
@@ -401,12 +417,12 @@ function adminContentPostCo($scope,contentSv,$sce) {
 	if ($scope.isFromNetwork('facebook')) {
 		/*
 		if (!angular.isDefined($scope.content['data']['story'])) {
-			console.log("A");
+			//console.log("A");
 			if (angular.isDefined($scope.content['data']['link'])) {
-				console.log("B");
+				//console.log("B");
 				$scope.href = $scope.content['data']['link'];
 			} else {
-				console.log("C");
+				//console.log("C");
 				$scope.href = "";
 			}
 		} else {
@@ -415,7 +431,7 @@ function adminContentPostCo($scope,contentSv,$sce) {
 		/*			
 		}
 		*/
-		console.log($scope.href);
+		//console.log($scope.href);
 	}
 
 
@@ -423,7 +439,8 @@ function adminContentPostCo($scope,contentSv,$sce) {
 
 		if ($scope.content.network == 'twitter') {
 			if (angular.isDefined($scope.content.data['embed'])) {
-				return $sce.trustAsHtml($scope.content.data['embed']);
+				//return $sce.trustAsHtml($scope.content.data['embed']);
+				return $scope.content.data['embed'];
 			}
 		}		
 	}
@@ -431,8 +448,8 @@ function adminContentPostCo($scope,contentSv,$sce) {
 	$scope.getTitle = function() {
 
 		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['source_title'])) {
-				return $scope.content.data['source_title'];
+			if (angular.isDefined($scope.content.data['title'])) {
+				return $scope.content.data['title'];
 			}
 		}
 
@@ -441,45 +458,59 @@ function adminContentPostCo($scope,contentSv,$sce) {
 
 	$scope.getDescription = function() {	
 
+		if ($scope.content.network == 'tumblr') {
+			if (angular.isDefined($scope.content.data['body'])) {
+				//return $sce.trustAsHtml($scope.content.data['body']);
+				return $scope.content.data['body'];
+			}
+		}
+
 		if ($scope.current.description.length) {
 			return $scope.current.description;
 		}
 
 		return '';
 	}
+
+	$scope.$watch("content",function(value){
+		//console.log("Watch post content ",value.id,$scope.content.id);		
+	});
 
 }
 
 function adminContentChatCo($scope,contentSv) {
 
+	//console.log($scope.content);
 
 	$scope.getTitle = function() {
 
 		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['source_title'])) {
-				return $scope.content.data['source_title'];
+			if (angular.isDefined($scope.content.data['title'])) {
+				return $scope.content.data['title'];
 			}
 		}
 
 		return '';
 	}
 
-	$scope.getDescription = function() {	
+	$scope.getDialogues = function() {
 
-		if ($scope.current.description.length) {
-			return $scope.current.description;
+		if ($scope.content.network == 'tumblr') {
+			if (angular.isDefined($scope.content.data['dialogue'])) {
+				return $scope.content.data['dialogue'];
+			}
 		}
 
 		return '';
 	}
 
+	$scope.$watch("content",function(value){
+		//console.log("Watch chat content ",value.id,$scope.content.id);		
+	});	
+
 }
 
 function adminContentQuoteCo($scope,contentSv) {
-
-	if (!angular.isDefined($scope.content.data['text']) || !angular.isDefined($scope.content.data['source'])) {
-		console.log($scope.content.data);
-	}
 
 	$scope.getQuoteText = function() {
 
@@ -502,5 +533,9 @@ function adminContentQuoteCo($scope,contentSv) {
 
 		return '';
 	}
+
+	$scope.$watch("content",function(value){
+		//console.log("Watch quote content ",value.id,$scope.content.id);
+	});	
 
 }
