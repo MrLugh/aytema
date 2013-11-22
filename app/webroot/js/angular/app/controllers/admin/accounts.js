@@ -3,6 +3,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.user 	= userSv.getUser();
 	$scope.networks = appSv.getNetworks();
 
+	$scope.list		= [];
 	$scope.accounts = [];
 
 	$scope.search 	= '';
@@ -14,33 +15,31 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	$scope.initFilters = function() {
 
-		$scope.filters = {'networks':[]};
+		var filters = {'networks':[]};
+
+		filters = {'networks':[]};
 
 		for (x in $scope.networks){
 			network = $scope.networks[x];
-			$scope.filters['networks'].push(x);
+			filters['networks'].push(x);
 		}
+
+		$scope.filters = filters;
 
 	}
 	$scope.initFilters();
-	$scope.list = userSv.loadAccounts();
+	userSv.loadAccounts();
 
 	$scope.setList = function() {
 
-		var list= [];
+		$scope.list = [];
 		for (x in $scope.accounts) {
-
-			account = $scope.accounts[x]['Socialnet'];
+			var account = $scope.accounts[x]['Socialnet'];
 			if ($scope.filters.networks.indexOf(account.network) != -1)	{
-
 				if ($scope.matchBySearch(account)) {
-					list.push(account);
+					$scope.list.push(account);
 				}
-
 			}
-		}
-		if (!angular.equals($scope.list, list)) {
-			$scope.list = list;			
 		}
 	}
 
@@ -57,6 +56,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 			$scope.filters.networks.push(account.network);
 		}
 
+		$scope.setList();
 	}
 
 	$scope.filterStyle = function(network) {
@@ -105,20 +105,12 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		$scope.setList();
 	});
 
-	$scope.$watch('filters', function(value) {
-		$scope.setList();
-	},true);
-
 	$scope.$watch('userSv.getAccounts()', function(value) {
-		$scope.accounts = value;
-		$scope.setList();
+		if (value.length) {
+			$scope.accounts = value;
+			$scope.setList();
+		}
 	},true);
-
-	/*
-	$scope.$watchCollection('[winW,winH]',function(sizes){
-       	$scope.getContainerStyle();        	
-    });
-	*/
 
 	$scope.networkIcon = function(network) {
 		return "img/socialnet/icons/ce_"+network+".png";
@@ -142,7 +134,6 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		var timer = setInterval(function() {   
 		    if($scope.popupAccount.closed) {  
 		        clearInterval(timer);
-				console.log("popup closed");
 				userSv.loadAccounts();
 		    }  
 		}, 1000);
@@ -176,5 +167,4 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		}
 		$scope.showAccount($scope.current);
 	}
-
 }

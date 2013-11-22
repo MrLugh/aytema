@@ -92,7 +92,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 						list.push(content);
 					}
 					if (!angular.equals($scope.list, list)) {
-						//$scope.reinitMasonry();
+						$scope.reinitMasonry();
 						$scope.list = list;
 					}
 				},
@@ -146,7 +146,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.setCurrent = function(page) {
 		$scope.list 	= [];
-		//$scope.reinitMasonry();		
+		$scope.reinitMasonry();		
 		$scope.offset 	= 0;
 		$scope.current = page;
 	}
