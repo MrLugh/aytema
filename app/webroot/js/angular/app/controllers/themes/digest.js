@@ -21,7 +21,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
     $scope.showConfig = false;
 
 	$scope.showingContent	= false;
-	$scope.content			= {};
+	$scope.contentModal		= [];
 	$scope.currentContent	= false;    
 
 	$scope.getFilters = function() {
@@ -81,6 +81,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			params['offset']	= $scope.offset;
 			params['limit']		= $scope.limit;
 
+			console.log("DIGEST SET LIST!!!!!!!!!!!!!!!!!!!!!!!");
+
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
 					var contents = data.contents;
@@ -90,7 +92,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 						list.push(content);
 					}
 					if (!angular.equals($scope.list, list)) {
-						$scope.reinitMasonry();
+						//$scope.reinitMasonry();
 						$scope.list = list;
 					}
 				},
@@ -144,9 +146,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.setCurrent = function(page) {
 		$scope.list 	= [];
-		$scope.reinitMasonry();		
+		//$scope.reinitMasonry();		
 		$scope.offset 	= 0;
-		$scope.limit	= 8;
 		$scope.current = page;
 	}
 
@@ -179,18 +180,21 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.showContent = function(index) {
+		console.log("showing content ",index,$scope.list[index].concept);
+		$scope.contentModal		= [];
 		$scope.currentContent	= index;
-		$scope.content 			= $scope.list[index];
+		$scope.contentModal		= [$scope.list[index]];
 		$scope.showingContent 	= true;
 	}	
 
 	$scope.closeContent = function() {
-		$scope.content 			= {};
+		$scope.contentModal		= [];
 		$scope.showingContent 	= false;
 		$scope.currentContent	= false;
 	}
 
 	$scope.move = function(direction) {
+
 		$scope.showingContent 	= false;
 		if (direction > 0) {
 			$scope.currentContent++;
@@ -206,6 +210,49 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}
 		$scope.showContent($scope.currentContent);
 	}
+
+	$scope.getNavigatorClass = function(direction) {
+
+		var current = $scope.currentContent;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;		
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		var content = $scope.list[current];
+
+		return content.network+"_bg "+content.network+"_color";
+	}
+
+	$scope.getNavigatorTitle = function(direction) {
+
+		var current = $scope.currentContent;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		var content = $scope.list[current];
+		return content.network+" "+content.external_user_name+" "+content.concept;
+	}	
 
 	$scope.delete = function(index) {
 		contentSv.deleteContent($scope.list[index].id).

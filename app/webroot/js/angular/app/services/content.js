@@ -226,6 +226,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
         	icon_class= "icon-font";
         } else if (concept == 'quote') {
         	icon_class= "icon-quote-left";
+        } else if (concept == 'chat') {
+        	icon_class= "icon-book";
         }
 
 		return icon_class;        

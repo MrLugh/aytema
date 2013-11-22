@@ -127,8 +127,8 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.getContentSize = function(index) {
-		var small 		= ['post','quote','chat'];
-		var medium 		= ['video','track','photo'];
+		var small 		= ['post','quote','chat','photo'];
+		var medium 		= ['video','track'];
 		var large 		= [];
 		var extralarge 	= [];
 		var concept = $scope.accountContentList[index].concept;

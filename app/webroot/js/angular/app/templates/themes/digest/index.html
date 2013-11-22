@@ -1,20 +1,25 @@
 <fb app-id='211895592326072'></fb>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<div ng-if="showingContent" class="modalContent" ng-switch="content.concept">
+<div ng-if="showingContent" class="modalContent">
 
-	<div class="both">
-		<span ng-click="move(-1)">Prev</span>
-		<span ng-click="closeContent()">Close</span>
-		<span ng-click="move(1)">Next</span>
+	<span ng-click="closeContent()">Close</span>
+	<div class="both" style="height:100%;">
+
+		<div class="navigatorContent inline left" ng-click="move(-1)" ng-class="getNavigatorClass(-1)" title="{{getNavigatorTitle(-1)}}"><</div>
+
+		<div ng-repeat="content in contentModal" class="left" ng-switch="content.concept" style="width:98%;">
+			<content-video ng-switch-when='video'></content-video>
+			<content-photo ng-switch-when='photo'></content-photo>
+			<content-track ng-switch-when='track'></content-track>
+			<content-post  ng-switch-when='post' ></content-post>
+			<content-quote ng-switch-when='quote'></content-quote>
+			<content-chat  ng-switch-when='chat' ></content-chat>
+		</div>
+
+		<div class="navigatorContent inline right" ng-click="move(1)" ng-class="getNavigatorClass(1)" title="{{getNavigatorTitle(1)}}">></div>
+
 	</div>
-
-	<content-video ng-switch-when='video'></content-video>
-	<content-photo ng-switch-when='photo'></content-photo>
-	<content-track ng-switch-when='track'></content-track>
-	<content-post  ng-switch-when='post' ></content-post>
-	<content-quote ng-switch-when='quote'></content-quote>
-	<content-chat  ng-switch-when='chat' ></content-chat>
 
 </div>
 
@@ -53,9 +58,15 @@
 	</div>
 </div>
 
+<!--
 <ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':40,'isAnimated':false}" class="masonry" get-offset-top>
+-->
+<ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" get-offset-top>
 
+	<!--
 	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item>
+	-->
+	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept">
 
 		<div class="stats both">
 			<ul>
@@ -78,7 +89,8 @@
 		    <content-quote ng-switch-when='quote'></content-quote>
 		    <content-chat  ng-switch-when='chat' ></content-chat>
 
-			<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="img/themes/digest/{{content.network}}.png" alt=""><p> / {{content.external_user_name}}</p></a></span>
+		    {{content.id}}
+			<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon"><p> / {{content.external_user_name}}</p></a></span>
 
 		</div>
 

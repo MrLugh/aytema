@@ -80,6 +80,18 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 			$collected_data = array_merge($collected_data,$quotes);
 		}
 
+		$chats	= $this->getChats($account, $params);
+		if (!empty($chats))
+		{
+			$collected_data = array_merge($collected_data,$chats);
+		}
+
+		$posts	= $this->getPosts($account, $params);
+		if (!empty($posts))
+		{
+			$collected_data = array_merge($collected_data,$posts);
+		}
+
 		/*
 		$tracks	= $this->getTracks($account, $params);
 		if (!empty($tracks))
@@ -93,28 +105,10 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 			$collected_data = array_merge($collected_data,$videos);
 		}
 
-		$quotes	= $this->getQuotes($account, $params);
-		if (!empty($quotes))
-		{
-			$collected_data = array_merge($collected_data,$quotes);
-		}
-
 		$links	= $this->getLinks($account, $params);
 		if (!empty($links))
 		{
 			$collected_data = array_merge($collected_data,$links);
-		}
-
-		$chats	= $this->getChats($account, $params);
-		if (!empty($chats))
-		{
-			$collected_data = array_merge($collected_data,$chats);
-		}
-
-		$posts	= $this->getPosts($account, $params);
-		if (!empty($posts))
-		{
-			$collected_data = array_merge($collected_data,$posts);
 		}
 		*/
 
@@ -138,7 +132,7 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 					$photos['response']['posts'] = array_merge($photos['response']['posts'],$old_photos['response']['posts']);
 				}
 			}
-		}		
+		}
 
 
 		if ($photos['meta']['status'] == 200 && count($photos['response']['posts']) > 0)
@@ -267,13 +261,20 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 		$data 	= array();
 		$concept= 'post';
 
-		if (!isset($params['offset']))
-		{
-			$params['offset'] = '0';
-		}
-
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$posts	= $mo_socialnet->getPosts($account,$params);
+
+		if (!isset($params['offset'])) {
+			$first_concept= $this->get_first_concept_for_network($account['external_user_id'],'post');
+			if (!is_null($first_concept)) {
+				$params['before_id'] = $first_concept["external_id"];
+				$old_posts = $mo_socialnet->getPosts($account,$params);
+				if ($posts['meta']['status'] == 200 && $old_posts['meta']['status'] == 200) {
+					$posts['response']['posts'] = array_merge($posts['response']['posts'],$old_posts['response']['posts']);
+				}
+			}
+		}
+
 		if ($posts['meta']['status'] == 200 && count($posts['response']['posts']) > 0)
 		{
 			foreach ($posts['response']['posts'] as $k=>$post)
@@ -392,13 +393,20 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 		$data 	= array();
 		$concept= 'chat';
 
-		if (!isset($params['offset']))
-		{
-			$params['offset'] = '0';
-		}
-
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$chats	= $mo_socialnet->getChats($account,$params);
+
+		if (!isset($params['offset'])) {
+			$first_concept= $this->get_first_concept_for_network($account['external_user_id'],'chat');
+			if (!is_null($first_concept)) {
+				$params['before_id'] = $first_concept["external_id"];
+				$old_chats = $mo_socialnet->getChats($account,$params);
+				if ($chats['meta']['status'] == 200 && $old_chats['meta']['status'] == 200) {
+					$chats['response']['posts'] = array_merge($chats['response']['posts'],$old_chats['response']['posts']);
+				}
+			}
+		}
+
 		if ($chats['meta']['status'] == 200 && count($chats['response']['posts']) > 0)
 		{
 			foreach ($chats['response']['posts'] as $k=>$chat)

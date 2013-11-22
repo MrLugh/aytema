@@ -130,6 +130,14 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 		return !$scope.hasThumbnail() && !$scope.hasPlayer();
 	}
 
+	$scope.$watch("content",function(){
+		$scope.player	= "";
+		$scope.thumbnail= "";
+
+		$scope.loadPlayer	= false;
+		$scope.loadThumbnail= false;
+	});	
+
 }
 
 
@@ -138,7 +146,6 @@ function adminContentPhotoCo($scope,contentSv) {
 	$scope.photolist	= [];
 	$scope.current 		= {};
 	$scope.currentPos	= 0;
-
 
 	$scope.setCurrent = function() {
 		$scope.current = $scope.photolist[$scope.currentPos];
@@ -178,8 +185,6 @@ function adminContentPhotoCo($scope,contentSv) {
 
 		return '';
 	}
-	$scope.setList();
-	$scope.setCurrent();
 
 	$scope.moreThanOne = function() {
 		return $scope.photolist.length > 1;
@@ -207,6 +212,8 @@ function adminContentPhotoCo($scope,contentSv) {
 
 	$scope.move = function(direction) {
 
+		console.log("content move");
+
 		var currentPos = $scope.currentPos;
 
         if (direction > 0) {currentPos++;} else {currentPos--;}
@@ -223,6 +230,14 @@ function adminContentPhotoCo($scope,contentSv) {
 	}
 
 	$scope.$watch("currentPos",function(){
+		$scope.setCurrent();
+	});
+
+	$scope.$watch("content",function(){
+		$scope.photolist	= [];
+		$scope.current 		= {};
+		$scope.currentPos	= 0;
+		$scope.setList();
 		$scope.setCurrent();
 	});
 
@@ -257,7 +272,7 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 
 		if ($scope.content.network == 'soundcloud') {
 			url = $scope.content.data['permalink_url'];
-			source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'"></iframe>';
+			source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'&show_user=true&show_artwork=true&download=true"></iframe>';
 		}
 
 		if ($scope.content.network == 'mixcloud') {
@@ -363,6 +378,14 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 		return !$scope.hasThumbnail() && !$scope.hasPlayer();
 	}
 
+	$scope.$watch("content",function(){
+		$scope.player	= "";
+		$scope.thumbnail= "";
+
+		$scope.loadPlayer	= false;
+		$scope.loadThumbnail= false;
+	});	
+
 }
 
 function adminContentPostCo($scope,contentSv,$sce) {
@@ -454,21 +477,27 @@ function adminContentChatCo($scope,contentSv) {
 
 function adminContentQuoteCo($scope,contentSv) {
 
-	$scope.getTitle = function() {
+	if (!angular.isDefined($scope.content.data['text']) || !angular.isDefined($scope.content.data['source'])) {
+		console.log($scope.content.data);
+	}
+
+	$scope.getQuoteText = function() {
 
 		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['source_title'])) {
-				return $scope.content.data['source_title'];
+			if (angular.isDefined($scope.content.data['text'])) {
+				return $scope.content.data['text'];
 			}
 		}
 
 		return '';
 	}
 
-	$scope.getDescription = function() {	
+	$scope.getQuoteSource = function() {
 
-		if ($scope.current.description.length) {
-			return $scope.current.description;
+		if ($scope.content.network == 'tumblr') {
+			if (angular.isDefined($scope.content.data['source'])) {
+				return $scope.content.data['source'];
+			}
 		}
 
 		return '';
