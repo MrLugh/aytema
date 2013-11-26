@@ -47,18 +47,15 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 				function(data) {
 					var contents = data.contents;
 
-					var list = $scope.offset == 0 ? [] : $scope.accountContentList;
+					if (contents.length) {
+						for (var x in contents) {
 
-					for (var x in contents) {
-
-						content = contents[x].Content;
-						if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
-							list.push(content);
+							content = contents[x].Content;
+							if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
+								$scope.accountContentList.push(content);
+							}
 						}
-					}
-					if (!angular.equals($scope.accountContentList, list)) {
-						//$scope.reinitMasonry();
-						$scope.accountContentList = list;
+						$scope.offset += $scope.limit;
 					}
 				},
 				function(reason) {
@@ -93,11 +90,13 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			$scope.filters.concepts.push(concept);
 		}
 
+		$scope.offset	= 0;
+		$scope.accountContentList = [];
+		$scope.setList();
 	}
 
 	$scope.moreContent = function() {
 		if (!contentSv.isLoading()) {
-			$scope.offset += $scope.limit;
 			$scope.setList();
 		}
 	}
@@ -114,12 +113,10 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		contentSv.deleteContent($scope.accountContentList[index].id).
 		then(function(data){
 			if (data.message == "Deleted") {
-				$scope.accountContentList = [];
-				$scope.offset	= 0;
-				$scope.setList();
+				//$scope.removeFromMasonry($scope.accountContentList[index]);
+				$scope.accountContentList.splice(index,1);
 			}
 		});
-
 	}
 
 	$scope.getContainerStyle = function() {
@@ -165,22 +162,24 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.userSv	= userSv;
 	$scope.contentSv= contentSv;
 
-	$scope.$watch('filters', function(value) {
-		$scope.offset	= 0;
-		$scope.setList();
-	},true);
+	$scope.$watch('account', function(oldValue,newValue) {
+		if (oldValue.id != newValue.id) {
+			//$scope.reinitMasonry();
+			$scope.offset = 0;
+			$scope.accountContentList = [];
+			$scope.generateConceptsList();
+			$scope.initFilters();
+			$scope.setList();
+		}
 
-	$scope.$watch('account', function(value) {
-		//$scope.reinitMasonry();
-		$scope.offset = 0;
-		$scope.accountContentList = [];
-		$scope.generateConceptsList();
-		$scope.initFilters();
-		$scope.setList();
-	},true);
+	});
 
 	$scope.conceptIcon = function(concept) {
 		return contentSv.getConceptIcon(concept);
 	}
+
+	$scope.generateConceptsList();
+	$scope.initFilters();
+	$scope.setList();
 	
 }

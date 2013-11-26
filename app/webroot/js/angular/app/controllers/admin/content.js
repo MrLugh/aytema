@@ -284,7 +284,6 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 		}
 
 		if ($scope.content.network == 'soundcloud') {
-			console.log($scope.content.data);
 			url = $scope.content.data['permalink_url'];
 			source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'&show_artwork=true&auto_play=true&buying=false&download=true&legacy_fallback=false&liking=false&sharing=true&show_comments=true&show_playcount=true"></iframe>';
 		}

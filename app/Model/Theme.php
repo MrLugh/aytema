@@ -20,7 +20,7 @@ Class Theme extends AppModel {
                 'concepts'  => array('post','quote','chat'),
             )
         )
-    );	
+    );
 
 	public function getThemeConfig($theme,$user_id) {
 

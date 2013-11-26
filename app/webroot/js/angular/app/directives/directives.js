@@ -37,7 +37,6 @@ function() {
             if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight*.9) {
                 scope.scroll = raw.scrollTop + raw.offsetHeight;
                 scope.$apply(attr.infiniteScroll);
-                scope.$apply();
             }
         });
     };
@@ -47,16 +46,12 @@ ayTemaDs.directive('masonry',[
 function () {
     return function (scope, element, attrs) {
 
-        // TODO: Need to check if attrs.masonry exists
-        // Add css transitions!
-
         var options = attrs.masonry;
         options =  eval("(function(){return " + options + ";})()");
 
         if (!angular.isDefined(options)) {
             options = {columnWidth:10,gutter:10,isAnimated:false,itemSelector:'.adminContent'};
         }
-
 
         var container = element[0];
         scope.masonry = new Masonry(container,options);
@@ -66,7 +61,11 @@ function () {
             scope.masonry = new Masonry(container,options);
         }
 
-        scope.$apply();
+        scope.removeFromMasonry = function(obj) {
+            scope.masonry.remove(obj);
+            //scope.masonry.reloadItems();
+            scope.masonry.layout();
+        }        
     }
 }]);
 
@@ -83,7 +82,6 @@ function ($timeout) {
                         masonry.reloadItems();
                         masonry.layout();
                     }
-                    scope.$apply();
                 });
             },0);
         });
@@ -97,7 +95,6 @@ function () {
         scope.getOffsetTop = function() {
             return element[0].offsetTop;
         }
-        scope.$apply();
     }
 }]);
 

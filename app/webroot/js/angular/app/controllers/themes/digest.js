@@ -86,14 +86,12 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
 					var contents = data.contents;
-					var list = $scope.offset == 0 ? [] : $scope.list;
-					for (var x in contents) {
-						content = contents[x].Content;
-						list.push(content);
-					}
-					if (!angular.equals($scope.list, list)) {
-						$scope.reinitMasonry();
-						$scope.list = list;
+					if (data.contents.length) {
+						for (var x in contents) {
+							content = contents[x].Content;
+							$scope.list.push(content);
+						}
+						$scope.offset += $scope.limit;
 					}
 				},
 				function(reason) {
@@ -120,7 +118,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.moreContent = function() {
 		if (!contentSv.isLoading()) {
-			$scope.offset += $scope.limit;
 			$scope.setList();
 		}
 	}
@@ -146,14 +143,14 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.setCurrent = function(page) {
 		$scope.list 	= [];
-		$scope.reinitMasonry();		
+		$scope.reinitMasonry();
 		$scope.offset 	= 0;
 		$scope.current = page;
 	}
 
 	$scope.getContentSize = function(index) {
-		var small 		= ['post','quote','chat'];
-		var medium 		= ['video','track','photo'];
+		var small 		= ['post','quote','chat','photo'];
+		var medium 		= ['video','track'];
 		var large 		= [];
 		var extralarge 	= [];
 		var content = $scope.list[index];
@@ -258,9 +255,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		contentSv.deleteContent($scope.list[index].id).
 		then(function(data){
 			if (data.message == "Deleted") {
-				$scope.list		= [];
-				$scope.offset	= 0;
-				$scope.setList();
+				$scope.removeFromMasonry($scope.list[index]);
+				$scope.list.splice(index,1);
 			}
 		});
 
