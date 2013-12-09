@@ -136,6 +136,57 @@ class ContentsController extends AppController {
 
     }    
 
+    public function relateds() {
+
+        $params = array();
+
+        $user_id = $this->Auth->user('id');
+
+        isset($this->request->query['id']) ? $id = $this->request->query['id'] : $id = null;
+        isset($this->request->query['network']) ? $network = $this->request->query['network'] : $network = null;
+        isset($this->request->query['concept']) ? $concept = $this->request->query['concept'] : $concept = null;
+        isset($this->request->query['external_user_id']) ? $external_user_id = $this->request->query['external_user_id'] : $external_user_id = null;
+        isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
+        isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
+
+        $params['Content.status'] = 'enabled';
+
+        if (!empty($id)) {
+            $params['Content.id !='] = $id;
+        }
+
+        if (count($network)) {
+            $params['Content.network'] = $network;
+        }
+
+        if (count($concept)) {
+            $params['Content.concept'] = $concept;
+        }
+
+        if (count($external_user_id)) {
+            $params['Content.external_user_id'] = $external_user_id;
+        }
+
+        $contents = $this->Content->find('all', array(
+            'conditions'=> $params,
+            'order'     => array('Content.creation_date' => 'desc'),
+            'limit'     => $limit,
+            'offset'    => $offset,
+            )
+        );
+
+        foreach ($contents as $key => $content) {
+            $contents[$key]['Content']['data'] = unserialize($content['Content']['data']);
+            $contents[$key]['Content']['stats']= unserialize($content['Content']['stats']);
+        }
+
+        $this->set(array(
+            'contents'  => $contents,
+            '_serialize'=> array('contents')
+        ));
+
+    }
+
 }
 
 ?>

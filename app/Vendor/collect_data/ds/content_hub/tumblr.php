@@ -92,7 +92,6 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 			$collected_data = array_merge($collected_data,$posts);
 		}
 
-		/*
 		$tracks	= $this->getTracks($account, $params);
 		if (!empty($tracks))
 		{
@@ -110,7 +109,6 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 		{
 			$collected_data = array_merge($collected_data,$links);
 		}
-		*/
 
 		return $collected_data;
 	}
@@ -219,13 +217,21 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 		$data 	= array();
 		$concept= 'track';
 
-		if (!isset($params['offset']))
-		{
-			$params['offset'] = '0';
-		}
-
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$tracks	= $mo_socialnet->getTracks($account,$params);
+
+		if (!isset($params['offset'])) {
+			$first_concept= $this->get_first_concept_for_network($account['external_user_id'],'track');
+			if (!is_null($first_concept)) {
+				$params['before_id'] = $first_concept["external_id"];
+				$old_tracks = $mo_socialnet->getTracks($account,$params);
+				if ($tracks['meta']['status'] == 200 && $old_tracks['meta']['status'] == 200) {
+					$tracks['response']['posts'] = array_merge($tracks['response']['posts'],$old_tracks['response']['posts']);
+				}
+			}
+		}
+
+
 		if ($tracks['meta']['status'] == 200 && count($tracks['response']['posts']) > 0)
 		{
 			foreach ($tracks['response']['posts'] as $k=>$track)
@@ -310,13 +316,21 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 		$data 	= array();
 		$concept= 'video';
 
-		if (!isset($params['offset']))
-		{
-			$params['offset'] = '0';
-		}
-
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$videos	= $mo_socialnet->getVideos($account,$params);
+
+		if (!isset($params['offset'])) {
+			$first_concept= $this->get_first_concept_for_network($account['external_user_id'],'video');
+			if (!is_null($first_concept)) {
+				$params['before_id'] = $first_concept["external_id"];
+				$old_videos = $mo_socialnet->getVideos($account,$params);
+				if ($videos['meta']['status'] == 200 && $old_videos['meta']['status'] == 200) {
+					$videos['response']['posts'] = array_merge($videos['response']['posts'],$old_videos['response']['posts']);
+				}
+			}
+		}
+
+
 		if ($videos['meta']['status'] == 200 && count($videos['response']['posts']) > 0)
 		{
 			foreach ($videos['response']['posts'] as $k=>$video)
@@ -351,13 +365,21 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 		$data 	= array();
 		$concept= 'link';
 
-		if (!isset($params['offset']))
-		{
-			$params['offset'] = '0';
-		}
-
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$links	= $mo_socialnet->getLinks($account,$params);
+
+		if (!isset($params['offset'])) {
+			$first_concept= $this->get_first_concept_for_network($account['external_user_id'],'link');
+			if (!is_null($first_concept)) {
+				$params['before_id'] = $first_concept["external_id"];
+				$old_links = $mo_socialnet->getLinks($account,$params);
+				if ($links['meta']['status'] == 200 && $old_links['meta']['status'] == 200) {
+					$links['response']['posts'] = array_merge($links['response']['posts'],$old_links['response']['posts']);
+				}
+			}
+		}
+
+
 		if ($links['meta']['status'] == 200 && count($links['response']['posts']) > 0)
 		{
 			foreach ($links['response']['posts'] as $k=>$link)

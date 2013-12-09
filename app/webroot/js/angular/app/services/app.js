@@ -1,7 +1,7 @@
 ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 
     var winW = 0;
-    var winH = 0;	
+    var winH = 0;
 
 	var networks = {
 		'facebook' : {
@@ -40,6 +40,8 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['video']
 		},
 	};
+
+	var sizes = ['small','medium','large','xlarge'];
 
 	var appIds = {
 		'facebook' : {
@@ -118,6 +120,9 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
     	getAppIds: function(network,typeId) {
     		//console.log("getAppIds ",network,typeId,appIds);
     		return appIds[network][typeId];
+    	},
+    	getContentSizes: function() {
+    		return sizes;
     	}
 	}
 

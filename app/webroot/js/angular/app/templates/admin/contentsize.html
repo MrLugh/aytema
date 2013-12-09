@@ -1,0 +1,44 @@
+<div class="contentsize">
+
+	<p class="both">Content size admin</p>
+
+	<ul class="both">
+
+		<li ng-repeat="network in networks" class="inline">
+			
+			<img ng-src="{{networkIcon(network)}}" class="socialIcon" ng-click="showNetworkSizeConfig($index)" ng-style="getNetworkStyle($index)"/>
+
+		</li>
+
+	</ul>
+
+
+	<ul>
+
+		<li ng-repeat="network in networks" ng-show="isNetworkActive($index)">
+			
+			<ul>
+
+				<li ng-repeat="(concept,size) in config.custom.contentsizes[network]">
+
+					<i ng-class="conceptIcon(concept)"></i>
+
+					<ul class="right">
+						
+						<li ng-repeat="size in sizes" class="inline">
+			
+							<span ng-style="getNetworkConceptStyle(network,concept,size)" ng-click="setConceptSize(network,concept,size)">{{size}}</span>
+			
+						</li>
+
+					</ul>
+
+				</li>
+
+			</ul>
+
+		</li>
+
+	</ul>
+
+</div>

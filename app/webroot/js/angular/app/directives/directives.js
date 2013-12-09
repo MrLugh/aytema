@@ -138,3 +138,75 @@ function($FB) {
         }
     };
 }]);
+
+ayTemaDs.directive('hoverShadow',['$timeout',
+function ($timeout) {
+    return function (scope, element, attrs) {
+
+        element.ready(function(){
+
+            $(element).hover(
+                function(e){
+                    scope.timeoutShadow = $timeout(function(){
+                        $(element[0]).css('z-index',100);
+                        $(element[0]).addClass('content_shadow');
+                        $(".overlay_content").css('z-index',99);
+                        $(".overlay_content").css('opacity',1);
+                        },1500);
+                },
+                function(e){
+                    $(element[0]).css('z-index','');
+                    $(element[0]).removeClass('content_shadow');
+                    $(".overlay_content").css('z-index','');
+                    $(".overlay_content").css('opacity',0);
+                    $timeout.cancel(scope.timeoutShadow);
+                }
+            );
+
+        });
+
+    }
+}]);
+
+ayTemaDs.directive('restrictsize',[
+function () {
+    return function (scope, element, attrs) {
+
+        element.bind("load" , function(event) {
+
+            var size = attrs.restrictsize;
+            var currW= element[0].naturalWidth;
+            var currH= element[0].naturalHeight;
+            var ratio= 0;
+
+            var ratio = currH / currW;
+            if(currW >= size && ratio <= 1){
+                currW = size;
+                currH = Math.ceil(currW * ratio);
+            } else if(currH >= size){
+                currH = size;
+                currW = Math.ceil(currH / ratio);
+            }
+
+            element.css('position','relative');
+            element.css('top',(size == currH) ? 0 : parseInt((size - currH)/2))+'px';
+            element.css('width',currW + 'px');
+            element.css('height',currH + 'px');
+        });
+
+    }
+}]);
+
+ayTemaDs.directive('caroufredsel',[
+function () {
+    return function (scope, element, attrs) {
+
+        element.ready(function(){
+            var options = attrs.caroufredsel;
+            options =  eval("(function(){return " + options + ";})()");
+            if (scope.$last === true) {
+                jQuery(options.selector).carouFredSel(options);
+            }
+        });
+    }
+}]);

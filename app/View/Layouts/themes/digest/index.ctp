@@ -13,80 +13,85 @@
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('themes/digest/admin');
     echo $this->Html->css('themes/digest/estilos');
+    echo $this->Html->css('themes/digest/detalle');
     ?>
 
     <!-- Js -->
     <?php
     echo $this->Html->script('jquery');
-    echo $this->Html->script('modernizr.min.js');
+    echo $this->Html->script('modernizr.min');
     echo $this->Html->script('bootstrap');
     echo $this->Html->script('underscore.min');
     echo $this->Html->script('masonry.pkgd');
     echo $this->Html->script('imagesloaded.pkgd');
+    echo $this->Html->script('carouFredSel');
+    echo $this->Html->script('touchSwipe.min');
     ?>
 
     <!-- Config -->
     <?php
-    echo $this->Html->script('angular/config.js');
+    echo $this->Html->script('angular/config');
     ?>
 
     <!-- Angular -->
     <?php
-    echo $this->Html->script('angular/lib/angular.js');
-    echo $this->Html->script('angular/lib/angular-route.js');
-    echo $this->Html->script('angular/lib/angular-animate.js');
-    echo $this->Html->script('angular/lib/angular-resource.js');
-    echo $this->Html->script('angular/lib/angular-sanitize.js');
-    echo $this->Html->script('angular/lib/angular-route.js');
-    echo $this->Html->script('angular/lib/angular-touch.js');
-    echo $this->Html->script('angular/lib/angular-cookies.js');
+    echo $this->Html->script('angular/lib/angular');
+    echo $this->Html->script('angular/lib/angular-route');
+    echo $this->Html->script('angular/lib/angular-animate');
+    echo $this->Html->script('angular/lib/angular-resource');
+    echo $this->Html->script('angular/lib/angular-sanitize');
+    echo $this->Html->script('angular/lib/angular-route');
+    echo $this->Html->script('angular/lib/angular-touch');
+    echo $this->Html->script('angular/lib/angular-cookies');
     ?>
 
     <!-- Filters -->
     <?php
-    echo $this->Html->script('angular/app/filters/filters.js');
+    echo $this->Html->script('angular/app/filters/filters');
     ?>
 
     <!-- Services -->
     <?php
-    echo $this->Html->script('angular/app/services/services.js');
-    echo $this->Html->script('angular/app/services/app.js');
-    echo $this->Html->script('angular/app/services/user.js');
-    echo $this->Html->script('angular/app/services/content.js');
+    echo $this->Html->script('angular/app/services/services');
+    echo $this->Html->script('angular/app/services/app');
+    echo $this->Html->script('angular/app/services/user');
+    echo $this->Html->script('angular/app/services/content');
     ?>
 
     <!-- Controllers -->
     <?php
-    echo $this->Html->script('angular/app/controllers/controllers.js');
-    echo $this->Html->script('angular/app/controllers/app.js');
-    echo $this->Html->script('angular/app/controllers/login.js');
-    echo $this->Html->script('angular/app/controllers/aytema.js');
-    echo $this->Html->script('angular/app/controllers/admin/accounts.js');
-    echo $this->Html->script('angular/app/controllers/admin/themes.js');
-    echo $this->Html->script('angular/app/controllers/admin/pagefilter.js');
-    echo $this->Html->script('angular/app/controllers/themes.js');
+    echo $this->Html->script('angular/app/controllers/controllers');
+    echo $this->Html->script('angular/app/controllers/app');
+    echo $this->Html->script('angular/app/controllers/login');
+    echo $this->Html->script('angular/app/controllers/aytema');
+    echo $this->Html->script('angular/app/controllers/admin/accounts');
+    echo $this->Html->script('angular/app/controllers/admin/themes');
+    echo $this->Html->script('angular/app/controllers/admin/pagefilter');
+    echo $this->Html->script('angular/app/controllers/admin/contentsize');    
+    echo $this->Html->script('angular/app/controllers/themes');
 
         // Themes
-        echo $this->Html->script('angular/app/controllers/themes/digest.js');
-        echo $this->Html->script('angular/app/controllers/themes/digest/content.js');      
+        echo $this->Html->script('angular/app/controllers/themes/digest');
+        echo $this->Html->script('angular/app/controllers/themes/digest/content');      
     ?>
 
     <!-- Apps -->
     <?php
-    echo $this->Html->script('angular/theme.js');
+    echo $this->Html->script('angular/theme');
     ?>
 
     <!-- Directives -->
     <?php
-    echo $this->Html->script('angular/app/directives/directives.js');
-    echo $this->Html->script('angular/app/directives/login.js');
-    echo $this->Html->script('angular/app/directives/aytema.js');
-    echo $this->Html->script('angular/app/directives/admin/accounts.js');
-    echo $this->Html->script('angular/app/directives/admin/themes.js');
-    echo $this->Html->script('angular/app/directives/admin/pagefilter.js');    
+    echo $this->Html->script('angular/app/directives/directives');
+    echo $this->Html->script('angular/app/directives/login');
+    echo $this->Html->script('angular/app/directives/aytema');
+    echo $this->Html->script('angular/app/directives/admin/accounts');
+    echo $this->Html->script('angular/app/directives/admin/themes');
+    echo $this->Html->script('angular/app/directives/admin/pagefilter');
+    echo $this->Html->script('angular/app/directives/admin/contentsize');
 
         // Themes
-        echo $this->Html->script('angular/app/directives/themes/digest/content.js');
+        echo $this->Html->script('angular/app/directives/themes/digest/content');
     ?>
 
 </head>

@@ -37,6 +37,10 @@ function contentVideoCo($scope,$sce,contentSv) {
 			}
 		}
 
+		if ($scope.content.network == 'youtube') {
+			source = '<iframe src="//www.youtube.com/embed/'+$scope.content.external_id+'" frameborder="0" allowfullscreen></iframe>';
+		}		
+
 		$scope.player		= source
 		$scope.loadPlayer	= true;
 

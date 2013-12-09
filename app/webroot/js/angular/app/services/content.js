@@ -3,7 +3,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var user 		= userSv.getUser();
 	var dicContent	= [];
 
-	/* content networks and concept lists 
+	/* content networks and concept lists
 	lists = {
 		networks : {
 			facebook: {
@@ -327,6 +327,117 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    return deferred.promise;
 	};
 
+	var getRelatedContent = function(params) {
+
+		var deferred= $q.defer();
+
+		if (loading) {
+			deferred.resolve({});
+			return;
+		}
+
+		loading = true;
+
+		if (!angular.isDefined(params)) {
+			var params = [];
+		}
+
+		params['user_id']	= user.id;
+
+		// TODO: Needs changed by data json
+		var vars = [];
+		for (var x in params) {
+
+			var param = params[x];
+
+			if (!angular.isArray(param)) {
+				vars.push(x+"="+params[x]);	
+			} else {
+				for (var y in param) {
+					vars.push(x+"[]="+param[y]);
+				}
+			}
+			
+		}
+
+		var url = '/contents/relateds.json';
+		if (vars.length) {
+			url +="?"+vars.join("&");
+		}
+
+	    $http({method: 'GET', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	loading 	= false;
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	loading 	= false;
+	    	deferred.resolve(data);
+	    });
+
+	    return deferred.promise;
+	};	
+
+	var getThumbnail = function(content) {
+
+		var source = '';
+
+		if (content.concept == 'video') {
+
+			if (content.network == 'vimeo') {
+				source = content.data.thumbnails.thumbnail[1]['_content'];
+			}
+
+			if (content.network == 'youtube') {
+				source = content.data.thumbnail;
+			}
+
+			if (content.network == 'tumblr') {
+				if (angular.isDefined(content.data['thumbnail_url'])) {
+					source = content.data['thumbnail_url'];
+				}
+			}
+
+		}
+
+		if (content.concept == 'track') {
+			if (content.network == 'tumblr') {
+				if (angular.isDefined(content.data['thumbnail_url'])) {
+					source = content.data['thumbnail_url'];
+				}
+				if (angular.isDefined(content.data['album_art'])) {
+					source = content.data['album_art'];
+				}
+			}
+
+			if (content.network == 'soundcloud') {
+				if (angular.isDefined(content.data['artwork_url']) &&
+					typeof content.data['artwork_url'] == 'string') {
+					source = content.data['artwork_url'];
+				}
+			}
+
+			if (content.network == 'mixcloud') {
+				if (angular.isDefined(content.data['pictures'])) {
+					source = content.data['pictures']['medium'];
+				}
+			}
+		}
+
+		if (content.concept == 'photo')	{
+
+			if (content.network == 'tumblr') {
+				source = content.data.photos[0].original_size.url;
+			}
+
+			if (content.network == 'facebook') {
+				source = content.data.picture;
+			}
+		}
+
+		return source;
+	}
+
 	return {
 		getDicContent: function() {
 			return dicContent;
@@ -348,6 +459,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getStatIcon:getStatIcon,
 		getConceptIcon:getConceptIcon,
 		deleteContent:deleteContent,
+		getThumbnail:getThumbnail,
+		getRelatedContent:getRelatedContent
 	};
 
 }]);

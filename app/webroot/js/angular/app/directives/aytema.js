@@ -4,6 +4,7 @@ ayTemaDs.directive('aytema',[function(){
         templateUrl : getPath('tpl')+'/app.html',
         restrict : 'E',
         replace : true,
+        scope: true,
         controller:'aytemaCo',
     }
 

@@ -19,6 +19,35 @@ Class Theme extends AppModel {
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),
             )
+        ),
+        'contentsizes' => array(
+            'facebook' => array(
+                'photo'=>'medium',
+                'post'=>'xlarge',
+                'video'=>'xlarge',
+            ),
+            'twitter' => array(
+                'post'=>'medium',
+            ),
+            'tumblr' => array(
+                'photo'=>'small',
+                'post'=>'xlarge',
+                'chat'=>'small',
+                'quote'=>'medium',
+                'video'=>'medium',
+            ),
+            'soundcloud' => array(
+                'track'=>'small',
+            ),
+            'mixcloud' => array(
+                'track'=>'small',
+            ),
+            'youtube' => array(
+                'video'=>'medium',
+            ),
+            'vimeo' => array(
+                'video'=>'medium',
+            ),
         )
     );
 

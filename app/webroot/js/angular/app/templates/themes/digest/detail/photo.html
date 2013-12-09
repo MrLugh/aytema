@@ -1,16 +1,16 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="photo">
 
-	<img ng-src="{{current.src}}" />
 	<h2>{{getTitle()}}</h2>
 	<p>{{getDescription()}}</p>
+	<img ng-src="{{current.src}}" />	
 
-	<div ng-if="moreThanOne()" style="position:absolute;top:35%;width:10%;" class="{{content.network}}_bg">
+	<div ng-if="moreThanOne()" style="position:absolute;top:50%;width:10%;" class="{{content.network}}_bg">
 		<a href="#/" skip-default ng-click="move(-1)">
 	 		<img src="img/themes/digest/arrow-left.png" alt="Previous photo" />
 	 	</a>
 	</div>
 
-	<div ng-if="moreThanOne()" style="position:absolute;top:35%;width:10%;right:3%;" class="{{content.network}}_bg">
+	<div ng-if="moreThanOne()" style="position:absolute;top:50%;width:10%;right:0;" class="{{content.network}}_bg">
 		<a href="#/" skip-default ng-click="move(1)">
 			<img src="img/themes/digest/arrow-right.png" alt="Next photo" />
 		</a>

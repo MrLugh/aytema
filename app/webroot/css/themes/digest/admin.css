@@ -47,17 +47,19 @@
   padding: 0;
   margin: 0;
   color:white;
+  background-color:grey;
+  text-align:left;
 }
 
 .adminThemeMenu .active {
   border-bottom: 1px solid white;
 }
 
-.pagefilter ul {
+.pagefilter ul, .contentsize ul {
   padding: 0;
   margin: 0;
 }
 
-.pagefilter li {
+.pagefilter li, .contentsize li {
   padding: 4px;
 }

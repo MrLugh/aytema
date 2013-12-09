@@ -6,23 +6,26 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.list 	= [];
 	$scope.offset 	= 0;
-	$scope.limit	= 8;
+	$scope.limit	= 15;
 
 	$scope.scroll   = 0;
 
 	$scope.config	= {};
 	$scope.configLoaded = false;
 
-	$scope.current	= 'home';
+	$scope.current	= 'photos';
+	$scope.pages 	= [];
 
 	userSv.loadThemeConfig($scope.user.theme);
 
-    $scope.tag = '';
     $scope.showConfig = false;
 
 	$scope.showingContent	= false;
 	$scope.contentModal		= [];
-	$scope.currentContent	= false;    
+	$scope.currentContent	= false;
+	$scope.relateds			= [];
+
+	$scope.contentShadow = false;
 
 	$scope.getFilters = function() {
 
@@ -80,8 +83,12 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			var params			= JSON.parse(JSON.stringify(filters));
 			params['offset']	= $scope.offset;
 			params['limit']		= $scope.limit;
+			params['external_user_id'] = [];
 
-			console.log("DIGEST SET LIST!!!!!!!!!!!!!!!!!!!!!!!");
+			for (var x in userSv.getAccounts()) {
+				var account = userSv.getAccounts()[x].Socialnet;
+				params['external_user_id'].push(account['external_user_id']);
+			}
 
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
@@ -92,6 +99,16 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 							$scope.list.push(content);
 						}
 						$scope.offset += $scope.limit;
+
+						if ($scope.list.length) {
+							$scope.contentModal		= [];
+							$scope.currentContent	= 0;
+							$scope.contentModal		= [$scope.list[$scope.currentContent]];
+						} else {
+							$scope.showingContent	= false;
+							$scope.contentModal		= [];
+							$scope.currentContent	= false;
+						}
 					}
 				},
 				function(reason) {
@@ -141,48 +158,127 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		return '';
 	}
 
+	$scope.getProfileImg = function() {
+		var external_user_id = $scope.list[$scope.currentContent].external_user_id;
+		for (var x in userSv.getAccounts()) {
+			var account = userSv.getAccounts()[x].Socialnet;
+			if (account.external_user_id == external_user_id && 
+				account.network == $scope.list[$scope.currentContent].network ) {
+				return account.profile_image;
+			}
+		}
+		return '';
+	}
+
+	$scope.getCurrentProperty = function(key) {
+		return $scope.list[$scope.currentContent][key];
+	}
+
 	$scope.setCurrent = function(page) {
 		$scope.list 	= [];
 		$scope.reinitMasonry();
 		$scope.offset 	= 0;
 		$scope.current = page;
+		$scope.showingContent 	= false;
 	}
 
+	$scope.movePage = function(direction) {
+
+		var indexCurrent = $scope.pages.indexOf($scope.current);
+
+		if (direction > 0) {
+			indexCurrent++;
+		} else {
+			indexCurrent--;
+		}
+
+		if (indexCurrent == $scope.pages.length) {
+			indexCurrent = 0;
+		}
+		if (indexCurrent < 0) {		
+			indexCurrent = $scope.pages.length - 1;
+		}
+
+		$scope.setCurrent($scope.pages[indexCurrent]);
+	}
+
+	$scope.getPageArrowTitle = function(direction) {
+
+		var indexCurrent = $scope.pages.indexOf($scope.current);
+
+		if (direction > 0) {
+			indexCurrent++;
+		} else {
+			indexCurrent--;
+		}
+
+		if (indexCurrent == $scope.pages.length) {
+			indexCurrent = 0;
+		}
+		if (indexCurrent < 0) {		
+			indexCurrent = $scope.pages.length - 1;
+		}
+
+		return $scope.pages[indexCurrent];
+	}	
+
 	$scope.getContentSize = function(index) {
-		var small 		= ['post','quote','chat','photo'];
-		var medium 		= ['video','track'];
-		var large 		= [];
-		var extralarge 	= [];
+
 		var content = $scope.list[index];
 
-		if (small.indexOf(content.concept) != -1 ) {
-			if (content.concept == 'post' && content.network == 'facebook') {
-				return 'xlarge';
+		if (angular.isDefined($scope.config.custom.contentsizes[content.network][content.concept])) {
+			return $scope.config.custom.contentsizes[content.network][content.concept];
+		}
+
+		if (angular.isDefined($scope.config.default.contentsizes[content.network][content.concept])) {
+			return $scope.config.default.contentsizes[content.network][content.concept];
+		}
+
+		return 'small';
+	}
+
+	$scope.loadRelatedContent = function(content) {
+
+		$scope.relateds			= [];
+
+		var params = [];
+		params['id']		= content.id;
+		params['network']	= content.network;
+		params['external_user_id'] = content.external_user_id;
+
+		contentSv.getRelatedContent(params).then(
+			function(data) {
+				var contents = data.contents;
+				if (data.contents.length) {
+					for (var x in contents) {
+						content = contents[x].Content;
+						$scope.relateds.push(content);
+					}
+				}
+			},
+			function(reason) {
+				console.log('Failed: ', reason);
+			},
+			function(update) {
+				console.log('Got notification: ', update);
 			}
-			if (content.concept == 'post' && content.network == 'twitter') {
-				return 'medium';
-			}			
-			return 'small';
-		}
-		if (medium.indexOf(content.concept) != -1 ) {
-			return 'medium';
-		}
-		if (large.indexOf(content.concept) != -1 ) {
-			return 'large';
-		}
-		if (extralarge.indexOf(content.concept) != -1 ) {
-			return 'xlarge';
-		}
+		);		
 
 	}
 
 	$scope.showContent = function(index) {
-		console.log("showing content ",index,$scope.list[index].concept);
-		$scope.contentModal		= [];
 		$scope.currentContent	= index;
 		$scope.contentModal		= [$scope.list[index]];
 		$scope.showingContent 	= true;
-	}	
+		$scope.relateds			= [];
+		$scope.loadRelatedContent($scope.list[index]);
+	}
+
+	$scope.showRelated = function(index) {
+		$scope.contentModal		= [$scope.relateds[index]];
+		$scope.showingContent 	= true;
+		$scope.loadRelatedContent($scope.relateds[index]);
+	}
 
 	$scope.closeContent = function() {
 		$scope.contentModal		= [];
@@ -249,6 +345,84 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 		var content = $scope.list[current];
 		return content.network+" "+content.external_user_name+" "+content.concept;
+	}
+
+	$scope.getNavigatorNetwork = function(direction) {
+
+		var current = $scope.currentContent;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		var content = $scope.list[current];
+		return content.network;
+	}
+
+	$scope.getNavigatorThumbnail = function(direction) {
+
+		var current = $scope.currentContent;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		var content = $scope.list[current];
+
+		if (angular.isDefined(content)) {
+			return contentSv.getThumbnail(content);
+		}
+
+		return '';
+	}
+
+	$scope.getRelatedThumbnail = function(index) {
+		var content = $scope.relateds[index];
+		return contentSv.getThumbnail(content);
+	}
+
+	$scope.getNavigatorConceptIcon = function(direction) {
+
+		var current = $scope.currentContent;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		var content = $scope.list[current];
+
+		if (angular.isDefined(content)) {
+			return contentSv.getConceptIcon(content.concept);
+		}
+
+		return '';
 	}	
 
 	$scope.delete = function(index) {
@@ -271,6 +445,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}
 
 		if ($scope.configLoaded) {
+
+			$scope.list = [];
+			$scope.offset = 0;
+			$scope.pages = [];
+			for (var x in $scope.config.custom.filters) {
+				$scope.pages.push(x);
+			}
 			$scope.setList();
 		}
 
@@ -282,6 +463,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.$watch("current",function(current){
 		$scope.setList();
+		$scope.getNavigatorThumbnail(-1);
+		$scope.getNavigatorThumbnail(1);
 	});
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
@@ -290,13 +473,11 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
         $scope.getStyle();
     });
 
-    $scope.showDirective = function(tag) {
-    	$scope.tag = tag;
+    $scope.showAdminTheme = function() {
     	$scope.showConfig = true;
     }
 
     $scope.hideDirective = function() {
-    	$scope.tag = "";
     	$scope.showConfig = false;
     }
 }

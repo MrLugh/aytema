@@ -112,8 +112,12 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		return themeConfig;
 	}
 
-	var setThemeConfig = function(page,config) {
+	var setThemeConfigFilters = function(page,config) {
 		themeConfig.custom.filters[page] = config;
+	}
+
+	var setThemeConfigContentsizes = function(config) {
+		themeConfig.custom.contentsizes = config;
 	}
 
 	return {
@@ -161,7 +165,8 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		getAccounts:getAccounts,
 		deleteAccount:deleteAccount,
 		getThemeConfig:getThemeConfig,
-		setThemeConfig:setThemeConfig,
+		setThemeConfigFilters:setThemeConfigFilters,
+		setThemeConfigContentsizes:setThemeConfigContentsizes,
 	}
 
 }]);

@@ -4,6 +4,7 @@ ayTemaDs.directive('adminPagefilter',[function(){
         templateUrl : getPath('tpl')+'/admin/pagefilter.html',
         restrict : 'E',
         replace : true,
+        scope: true,
         controller:'adminPagefilterCo'
     }
 

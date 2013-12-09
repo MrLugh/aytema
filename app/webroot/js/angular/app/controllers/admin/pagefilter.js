@@ -1,7 +1,5 @@
 function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 
-	console.log($scope);
-
 	$scope.showConfig = false;
 
 	$scope.user 	= userSv.getUser();
@@ -56,7 +54,6 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 
 		var concepts= [];
 		var config 	= $scope.config.custom.filters[$scope.current];
-		//console.log("config ",config);
 		for (var x in $scope.filters.concepts) {
 			var concept = $scope.filters.concepts[x];
 			if (config.concepts.indexOf(concept) != -1 || config.concepts.length == 1 && config.concepts[0]=='all') {
@@ -135,7 +132,7 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 		$scope.networks = networks;
 		$scope.concepts = concepts;
 
-		userSv.setThemeConfig($scope.current,{'concepts':$scope.concepts,'networks':$scope.networks});
+		userSv.setThemeConfigFilters($scope.current,{'concepts':$scope.concepts,'networks':$scope.networks});
 		$scope.setList();
 	}
 
@@ -158,9 +155,8 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 
 	$scope.userSv = userSv;
 	$scope.$watch("userSv.getThemeConfig()",function(config){
-		//console.log("watch pagefilter config",$scope.config,config);
 		$scope.configLoaded = true;
-		$scope.config = config;
+		$scope.config = userSv.getThemeConfig();
 
 		if ($scope.configLoaded && $scope.accountsLoaded) {
 			$scope.setList();
@@ -169,11 +165,13 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 	},true);
 
 	$scope.$watch("$parent.current",function(page){
-		$scope.changePage(page);
+
+		if (page != $scope.current) {
+			$scope.changePage(page);
+		}
 	},true);	
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
-		//console.log("Watch accounts ",accounts);
 		$scope.accounts = accounts;
 		
 		if (accounts.length) {

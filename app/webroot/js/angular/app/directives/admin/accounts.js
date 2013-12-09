@@ -4,6 +4,7 @@ ayTemaDs.directive('adminAccounts',[function(){
         templateUrl : getPath('tpl')+'/admin/accounts.html',
         restrict : 'E',
         replace : true,
+        scope: true,
         controller:'adminAccountsCo'
     }
 

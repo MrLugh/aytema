@@ -5,7 +5,7 @@ ayTemaDs.directive('adminContentVideo',[function(){
         restrict : 'E',
         replace : true,
         controller:'adminContentVideoCo',
-        scope: false
+        scope: true
     }
 
 }]);
@@ -18,7 +18,7 @@ ayTemaDs.directive('adminContentPhoto',[function(){
         restrict : 'E',
         replace : true,
         controller:'adminContentPhotoCo',
-        scope: false        
+        scope: true        
     }
 
 }]);
@@ -30,7 +30,7 @@ ayTemaDs.directive('adminContentTrack',[function(){
         restrict : 'E',
         replace : true,
         controller:'adminContentTrackCo',
-        scope: false        
+        scope: true        
     }
 
 }]);
@@ -42,7 +42,7 @@ ayTemaDs.directive('adminContentChat',[function(){
         restrict : 'E',
         replace : true,
         controller:'adminContentChatCo',
-        scope: false        
+        scope: true        
     }
 
 }]);
@@ -54,7 +54,7 @@ ayTemaDs.directive('adminContentQuote',[function(){
         restrict : 'E',
         replace : true,
         controller:'adminContentQuoteCo',
-        scope: false        
+        scope: true        
     }
 
 }]);
@@ -66,7 +66,7 @@ function($FB,$timeout){
         restrict : 'E',
         replace : true,
         controller:'adminContentPostCo',
-        scope: false,
+        scope: true,
         link: function(scope,element,attrs) {
 
             if (scope.isFromNetwork('facebook')) {
