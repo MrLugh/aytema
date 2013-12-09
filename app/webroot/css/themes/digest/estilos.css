@@ -197,7 +197,6 @@ p a {
   overflow: hidden;
   background-color:white;
   padding: 10px;
-  transition:all 0.66s ease 0s;
 }
 
 .content .stats {

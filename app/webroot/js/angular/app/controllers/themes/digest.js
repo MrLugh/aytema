@@ -6,14 +6,14 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.list 	= [];
 	$scope.offset 	= 0;
-	$scope.limit	= 15;
+	$scope.limit	= 4;
 
 	$scope.scroll   = 0;
 
 	$scope.config	= {};
 	$scope.configLoaded = false;
 
-	$scope.current	= 'photos';
+	$scope.current	= 'videos';
 	$scope.pages 	= [];
 
 	userSv.loadThemeConfig($scope.user.theme);

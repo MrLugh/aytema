@@ -431,7 +431,65 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'facebook') {
-				source = content.data.picture;
+				console.log(content.data);
+				source = content.data.picture.replace(/_s./g,'_n.');
+			}
+		}
+
+		return source;
+	}
+
+	var getPlayer = function(content) {
+
+		var source = '';
+
+		if (content.concept == 'video') {
+
+			if (content.network == 'tumblr') {
+				if (angular.isDefined(content.data['player'])) {
+					if (angular.isArray(content.data['player'])) {
+						source = content.data['player'][0]['embed_code'];
+					}
+				}
+			}
+
+			if (content.network == 'vimeo') {
+				var id = content.external_id;
+				source = '<iframe src="http://player.vimeo.com/video/'+id+'" width="250" height="188" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+			}
+
+			if (content.network == 'facebook') {
+				if (angular.isDefined(content.data['source'])) {
+					source = content.data['source'];
+					source =  '<iframe src="'+source+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+				}
+			}
+
+			if (content.network == 'youtube') {
+				source = '<iframe src="//www.youtube.com/embed/'+content.external_id+'" frameborder="0" allowfullscreen></iframe>';
+			}
+
+		}
+
+		if (content.concept == 'track') {
+			if (content.network == 'tumblr') {
+				if (angular.isDefined(content.data['embed'])) {
+					source = content.data['embed'];
+				}
+				if (angular.isDefined(content.data['player'])) {
+					source = content.data['player'];
+				}
+			}
+
+			if (content.network == 'soundcloud') {
+				url = content.data['permalink_url'];
+				source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'&show_artwork=true&auto_play=true&buying=false&download=true&legacy_fallback=false&liking=false&sharing=true&show_comments=true&show_playcount=true"></iframe>';
+			}
+
+			if (content.network == 'mixcloud') {
+				if (angular.isDefined(content.data['embed'])) {
+					source = content.data['embed'];
+				}
 			}
 		}
 
@@ -460,6 +518,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getConceptIcon:getConceptIcon,
 		deleteContent:deleteContent,
 		getThumbnail:getThumbnail,
+		getPlayer:getPlayer,
 		getRelatedContent:getRelatedContent
 	};
 

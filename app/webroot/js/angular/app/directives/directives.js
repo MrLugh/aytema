@@ -76,13 +76,37 @@ function ($timeout) {
         element.ready(function(){
             $timeout(function(){
                 var masonry = scope.$parent.masonry;
-                imagesLoaded( masonry.element, function() {
-                    masonry.appended(element[0]);
-                    if(scope.$last===true) {
-                        masonry.reloadItems();
-                        masonry.layout();
+
+                var iframes = element.find("iframe");
+                iframes = (iframes.length == 1) ? [iframes] : iframes;
+                var count   = 0;
+
+                if (iframes.length) {
+                    for (var x in iframes) {
+                        $(iframes[x]).bind('load',function(event){
+                            count++;
+                            if (count == iframes.length) {
+                                imagesLoaded( masonry.element, function() {
+                                    masonry.appended(element[0]);
+                                    if(scope.$last===true) {
+                                        masonry.reloadItems();
+                                        masonry.layout();
+                                    }
+                                });
+                            }
+                        });
                     }
-                });
+                } else {
+                    imagesLoaded( masonry.element, function() {
+                        masonry.appended(element[0]);
+                        if(scope.$last===true) {
+                            masonry.reloadItems();
+                            masonry.layout();
+                        }
+                    });
+                }
+
+
             },0);
         });
 
@@ -148,6 +172,7 @@ function ($timeout) {
             $(element).hover(
                 function(e){
                     scope.timeoutShadow = $timeout(function(){
+                        $(element[0]).css('transition','all 0.66s ease 0s');
                         $(element[0]).css('z-index',100);
                         $(element[0]).addClass('content_shadow');
                         $(".overlay_content").css('z-index',99);
@@ -160,6 +185,7 @@ function ($timeout) {
                     $(".overlay_content").css('z-index','');
                     $(".overlay_content").css('opacity',0);
                     $timeout.cancel(scope.timeoutShadow);
+                    $(element[0]).css('transition','');
                 }
             );
 

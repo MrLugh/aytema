@@ -30,17 +30,18 @@ Class Theme extends AppModel {
                 'post'=>'medium',
             ),
             'tumblr' => array(
-                'photo'=>'small',
+                'photo'=>'medium',
                 'post'=>'xlarge',
                 'chat'=>'small',
                 'quote'=>'medium',
                 'video'=>'medium',
+                'track'=>'medium',                
             ),
             'soundcloud' => array(
-                'track'=>'small',
+                'track'=>'medium',
             ),
             'mixcloud' => array(
-                'track'=>'small',
+                'track'=>'medium',
             ),
             'youtube' => array(
                 'video'=>'medium',

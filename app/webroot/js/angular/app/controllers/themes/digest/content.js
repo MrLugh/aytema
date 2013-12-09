@@ -15,31 +15,7 @@ function contentVideoCo($scope,$sce,contentSv) {
 			//return contentSv.cleanSource($scope.player);
 		}
 
-		var source = "";
-
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['player'])) {
-				if (angular.isArray($scope.content.data['player'])) {
-					source = $scope.content.data['player'][0]['embed_code'];
-				}
-			}
-		}
-
-		if ($scope.content.network == 'vimeo') {
-			var id = $scope.content.external_id;
-			source = '<iframe src="http://player.vimeo.com/video/'+id+'" width="250" height="188" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
-		}
-
-		if ($scope.content.network == 'facebook') {
-			if (angular.isDefined($scope.content.data['source'])) {
-				source = $scope.content.data['source'];
-				source =  '<iframe src="'+source+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
-			}
-		}
-
-		if ($scope.content.network == 'youtube') {
-			source = '<iframe src="//www.youtube.com/embed/'+$scope.content.external_id+'" frameborder="0" allowfullscreen></iframe>';
-		}		
+		var source = contentSv.getPlayer($scope.content);
 
 		$scope.player		= source
 		$scope.loadPlayer	= true;
@@ -53,21 +29,7 @@ function contentVideoCo($scope,$sce,contentSv) {
 			return $scope.thumbnail;
 		}		
 
-		var source = "";
-
-		if ($scope.content.network == 'vimeo') {
-			source = $scope.content.data.thumbnails.thumbnail[1]['_content'];
-		}
-
-		if ($scope.content.network == 'youtube') {
-			source = $scope.content.data.thumbnail;
-		}
-
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['thumbnail_url'])) {
-				source = $scope.content.data['thumbnail_url'];
-			}
-		}
+		var source = contentSv.getThumbnail($scope.content);
 
 		$scope.thumbnail	= source;
 		$scope.loadThumbnail= true;
@@ -187,7 +149,7 @@ function contentPhotoCo($scope,contentSv) {
 			}			
 
 			var photo = {
-				src 		: element.picture,
+				src 		: element.picture.replace(/_s./g,'_n.'),
 				description : caption,
 			};
 
@@ -276,27 +238,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 			//return contentSv.cleanSource($scope.player);
 		}
 
-		var source = "";
-
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['embed'])) {
-				source = $scope.content.data['embed'];
-			}
-			if (angular.isDefined($scope.content.data['player'])) {
-				source = $scope.content.data['player'];
-			}
-		}
-
-		if ($scope.content.network == 'soundcloud') {
-			url = $scope.content.data['permalink_url'];
-			source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'&show_artwork=true&auto_play=true&buying=false&download=true&legacy_fallback=false&liking=false&sharing=true&show_comments=true&show_playcount=true"></iframe>';
-		}
-
-		if ($scope.content.network == 'mixcloud') {
-			if (angular.isDefined($scope.content.data['embed'])) {
-				source = $scope.content.data['embed'];
-			}
-		}
+		var source = contentSv.getPlayer($scope.content);
 
 		$scope.player		= source
 		$scope.loadPlayer	= true;
@@ -310,29 +252,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 			return $scope.thumbnail;
 		}
 
-		var source = "";
-
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['thumbnail_url'])) {
-				source = $scope.content.data['thumbnail_url'];
-			}
-			if (angular.isDefined($scope.content.data['album_art'])) {
-				source = $scope.content.data['album_art'];
-			}
-		}
-
-		if ($scope.content.network == 'soundcloud') {
-			if (angular.isDefined($scope.content.data['artwork_url']) &&
-				typeof $scope.content.data['artwork_url'] == 'string') {
-				source = $scope.content.data['artwork_url'];
-			}
-		}
-
-		if ($scope.content.network == 'mixcloud') {
-			if (angular.isDefined($scope.content.data['pictures'])) {
-				source = $scope.content.data['pictures']['medium'];
-			}
-		}
+		var source = contentSv.getThumbnail($scope.content);
 
 		$scope.thumbnail	= source;
 		$scope.loadThumbnail= true;
@@ -442,8 +362,7 @@ function contentPostCo($scope,contentSv,$sce) {
 
 		if ($scope.content.network == 'twitter') {
 			if (angular.isDefined($scope.content.data['embed'])) {
-				//return $sce.trustAsHtml($scope.content.data['embed']);
-				return $scope.content.data['embed'];
+				return $sce.trustAsHtml($scope.content.data['embed']);
 			}
 		}		
 	}
