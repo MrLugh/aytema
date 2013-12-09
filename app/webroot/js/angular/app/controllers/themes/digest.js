@@ -244,6 +244,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		var params = [];
 		params['id']		= content.id;
 		params['network']	= content.network;
+		params['concept']	= content.concept;
 		params['external_user_id'] = content.external_user_id;
 
 		contentSv.getRelatedContent(params).then(
