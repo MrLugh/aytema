@@ -50,7 +50,7 @@
 						<ul id="foo2">
 							<li ng-repeat="related in relateds" caroufredsel="{'selector':'#foo2', 'auto':false,'prev':'#prev2','next':'#next2','pagination':'#pager2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
 								<a href="#/" ng-click="showRelated($index)" skip-default>
-									<img alt="" ng-src="{{getRelatedThumbnail($index)}}">
+									<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">
 								</a>
 							</li>
 						</ul>
