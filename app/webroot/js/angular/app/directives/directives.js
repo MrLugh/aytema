@@ -73,6 +73,8 @@ ayTemaDs.directive('masonryItem',['$timeout',
 function ($timeout) {
     return function (scope, element, attrs) {
 
+        $(element[0]).css('opacity','0.1');
+
         element.ready(function(){
             $timeout(function(){
                 var masonry = scope.$parent.masonry;
@@ -87,27 +89,28 @@ function ($timeout) {
                             count++;
                             if (count == iframes.length) {
                                 imagesLoaded( masonry.element, function() {
+                                    $(element[0]).css('opacity',1);
                                     masonry.appended(element[0]);
-                                    if(scope.$last===true) {
+                                    //if(scope.$last===true) {
                                         masonry.reloadItems();
                                         masonry.layout();
-                                    }
+                                    //}
                                 });
                             }
                         });
                     }
                 } else {
                     imagesLoaded( masonry.element, function() {
+                        $(element[0]).css('opacity',1);
                         masonry.appended(element[0]);
-                        if(scope.$last===true) {
+                        //if(scope.$last===true) {
                             masonry.reloadItems();
                             masonry.layout();
-                        }
+                        //}
                     });
                 }
 
-
-            },0);
+            },500);
         });
 
     }
@@ -118,7 +121,7 @@ function () {
     return function(scope,element,attrs) {
         scope.getOffsetTop = function() {
             return element[0].offsetTop;
-        }
+        };
     }
 }]);
 
@@ -198,6 +201,8 @@ ayTemaDs.directive('restrictsize',[
 function () {
     return function (scope, element, attrs) {
 
+        element.css('opacity','0');
+
         element.bind("load" , function(event) {
 
             var size = attrs.restrictsize;
@@ -218,6 +223,8 @@ function () {
             element.css('top',(size == currH) ? 0 : parseInt((size - currH)/2))+'px';
             element.css('width',currW + 'px');
             element.css('height',currH + 'px');
+            element.css('opacity','1');
+
         });
 
     }

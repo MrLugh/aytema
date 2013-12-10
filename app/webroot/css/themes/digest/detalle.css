@@ -30,7 +30,7 @@
     top: 45%;
 }
 
-.modalContent .more-user {
+.modalContent .more-user, .modalContent .more-user img {
     transition: all 0.56s ease;
 }
 

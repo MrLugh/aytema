@@ -67,7 +67,14 @@ function adminContentsizeCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.userSv = userSv;
+
 	$scope.$watch("userSv.getThemeConfig()",function(config){
+		$scope.configLoaded = true;
+		$scope.config = userSv.getThemeConfig();
+	},true);
+
+
+	$scope.$watch("userSv.getThemeConfig().config.custom.contentsizes",function(config){
 		$scope.configLoaded = true;
 		$scope.config = userSv.getThemeConfig();
 

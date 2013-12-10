@@ -1,4 +1,4 @@
-function contentVideoCo($scope,$sce,contentSv) {
+function adminContentVideoCo($scope,$sce,contentSv) {
 
 	//console.log($scope.content);
 
@@ -112,7 +112,7 @@ function contentVideoCo($scope,$sce,contentSv) {
 }
 
 
-function contentPhotoCo($scope,contentSv) {
+function adminContentPhotoCo($scope,contentSv) {
 
 	//console.log($scope.content);
 
@@ -221,7 +221,7 @@ function contentPhotoCo($scope,contentSv) {
 
 }
 
-function contentTrackCo($scope,$sce,contentSv) {
+function adminContentTrackCo($scope,$sce,contentSv) {
 
 	//console.log($scope.content);
 
@@ -327,7 +327,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 
 }
 
-function contentPostCo($scope,contentSv,$sce) {
+function adminContentPostCo($scope,contentSv,$sce) {
 
 	//console.log($scope.content);
 
@@ -400,7 +400,7 @@ function contentPostCo($scope,contentSv,$sce) {
 
 }
 
-function contentChatCo($scope,contentSv) {
+function adminContentChatCo($scope,contentSv) {
 
 	//console.log($scope.content);
 
@@ -432,7 +432,7 @@ function contentChatCo($scope,contentSv) {
 
 }
 
-function contentQuoteCo($scope,contentSv) {
+function adminContentQuoteCo($scope,contentSv) {
 
 	$scope.getQuoteText = function() {
 

@@ -37,15 +37,9 @@
 
 	<div class="both">
 
-		<!--
-		<ul id="accountPageList" infinite-scroll="moreContent()" ng-style="getContainerStyle()" get-offset-top class="masonry" masonry="{'columnWidth':10,'gutter':10,'isAnimated':false,'itemSelector':'.adminContent'}">
-		-->
-		<ul id="accountPageList" infinite-scroll="moreContent()" ng-style="getContainerStyle()" get-offset-top>
+		<ul id="accountPageList" infinite-scroll="moreContent()" ng-style="getContainerStyle()" get-offset-top class="masonry" masonry="{'columnWidth':10,'gutter':5,'isAnimated':false,'itemSelector':'.adminContent'}">
 
-			<!--
 			<li ng-repeat="content in accountContentList" class="well adminContent" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item>
-			-->
-			<li ng-repeat="content in accountContentList" class="well adminContent" ng-class="getContentSize($index)" ng-switch="content.concept">
 
 			    <admin-content-video ng-switch-when='video'></admin-content-video>
 			    <admin-content-photo ng-switch-when='photo'></admin-content-photo>

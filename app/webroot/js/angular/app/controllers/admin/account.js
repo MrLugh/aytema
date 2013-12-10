@@ -4,7 +4,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.concepts				= [];
 
 	$scope.offset 	= 0;
-	$scope.limit	= 8;
+	$scope.limit	= 10;
 	$scope.filters	= {'concepts':[],'networks':[$scope.account.network]};
 	$scope.concepts = [];
 

@@ -6,14 +6,14 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.list 	= [];
 	$scope.offset 	= 0;
-	$scope.limit	= 4;
+	$scope.limit	= 10;
 
 	$scope.scroll   = 0;
 
 	$scope.config	= {};
 	$scope.configLoaded = false;
 
-	$scope.current	= 'videos';
+	$scope.current	= 'home';
 	$scope.pages 	= [];
 
 	userSv.loadThemeConfig($scope.user.theme);
@@ -388,7 +388,9 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 		var content = $scope.list[current];
 
+		console.log(content);
 		if (angular.isDefined(content)) {
+			console.log(contentSv.getThumbnail(content));
 			return contentSv.getThumbnail(content);
 		}
 

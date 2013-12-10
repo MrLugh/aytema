@@ -102,7 +102,7 @@
 	<a href="#/" ng-click="move(-1)" title="{{getNavigatorTitle(-1)}}" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)">
 		<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
 		<div class="more-user">
-			<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
+			<img ng-show="getNavigatorThumbnail(1).length" src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
 		</div>
 		<img class="arrow" src="img/themes/digest/arrow-left.png" alt="">
 		<img class="social-media" ng-src="img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
@@ -111,7 +111,7 @@
 	<a href="#/" ng-click="move(1)" title="{{getNavigatorTitle(1)}}" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)">
 		<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
 		<div class="more-user">
-			<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
+			<img ng-show="getNavigatorThumbnail(1).length" src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
 		</div>
 		<img class="arrow" src="img/themes/digest/arrow-right.png" alt="">
 		<img class="social-media" ng-src="img/themes/digest/{{getNavigatorNetwork(1)}}-big.png" alt="">
@@ -151,7 +151,7 @@
 	</div>
 </div>
 
-<ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':3,'isAnimated':false}" class="masonry" get-offset-top>
+<ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':5,'isAnimated':false}" class="masonry" get-offset-top>
 
 	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow>
 
