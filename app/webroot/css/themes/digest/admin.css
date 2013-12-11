@@ -42,6 +42,7 @@
     z-index: 9000;
     transition:all 0.66s ease 0s;
     text-align: left;
+    left:-300px;
 }
 
 #config .control {
