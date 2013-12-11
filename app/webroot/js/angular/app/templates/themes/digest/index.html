@@ -3,9 +3,15 @@
 
 <div class="overlay_content"></div>
 
-<span ng-if="isLogged()" ng-click="showAdminTheme()" class="both right" title="Edit theme" style="position:fixed;top:0;left:0;z-index:2000;color:white;">
-	<i class="icon-cogs"></i>
-</span>
+<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
+	<a href="#/" class="control" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default>Edit <i class="icon-cogs"></i></a>
+
+	<div class="inside">
+		<admin-contentsize></admin-contentsize>
+		<admin-pagefilter></admin-pagefilter>			
+	</div>
+
+</div>
 
 <div ng-if="showingContent" class="modalContent">
 
@@ -101,8 +107,8 @@
 
 	<a href="#/" ng-click="move(-1)" title="{{getNavigatorTitle(-1)}}" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)">
 		<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
-		<div class="more-user">
-			<img ng-show="getNavigatorThumbnail(1).length" src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
+		<div class="more-user" ng-show="getNavigatorThumbnail(1).length">
+			<img src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
 		</div>
 		<img class="arrow" src="img/themes/digest/arrow-left.png" alt="">
 		<img class="social-media" ng-src="img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
@@ -110,23 +116,13 @@
 
 	<a href="#/" ng-click="move(1)" title="{{getNavigatorTitle(1)}}" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)">
 		<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
-		<div class="more-user">
-			<img ng-show="getNavigatorThumbnail(1).length" src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
+		<div class="more-user" ng-show="getNavigatorThumbnail(1).length">
+			<img src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
 		</div>
 		<img class="arrow" src="img/themes/digest/arrow-right.png" alt="">
 		<img class="social-media" ng-src="img/themes/digest/{{getNavigatorNetwork(1)}}-big.png" alt="">
 	</a>
 
-</div>
-
-<div ng-if="isLogged()">
-	<div class="adminThemeMenu">
-		<div ng-if="showConfig">
-			<strong ng-click="hideDirective()" class="right">Close</strong>
-			<admin-contentsize></admin-contentsize>
-			<admin-pagefilter></admin-pagefilter>			
-		</div>
-	</div>
 </div>
 
 <div class="navbar navbar-default both">

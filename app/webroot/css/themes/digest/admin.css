@@ -30,29 +30,45 @@
   float: left;
 }
 
+
+#config {
+    background: none repeat scroll 0 0 #F9F9F9;
+    color: #213442 !important;
+    font-size: 12px;
+    line-height: 21px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 20%;
+    z-index: 9000;
+    transition:all 0.66s ease 0s;
+    text-align: left;
+}
+
+#config .control {
+    background: url("../../../img/config.png") no-repeat scroll center center #F9F9F9;
+    display: block;
+    height: 51px;
+    position: absolute;
+    text-indent: -9999px;
+    top: 20%;
+    width: 51px;
+    outline: none;
+    border: none;
+}
+
+#config .inside {
+  padding: 10px;
+  width: 300px;
+}
+
+
 /* Admin */
 .socialIcon {
   width: 20px;
 }
 
-.adminThemeMenu {
-  position:absolute;
-  top:0;
-  left:0;
-  z-index:1040;
-  display:inline-block;
-  width:auto;
-  height:auto;
-  overflow:hidden;
-  padding: 0;
-  margin: 0;
-  color:white;
-  background-color:grey;
-  text-align:left;
-}
-
-.adminThemeMenu .active {
-  border-bottom: 1px solid white;
+.active {
+  border-bottom: 1px solid black;
 }
 
 .pagefilter ul, .contentsize ul {
@@ -61,5 +77,6 @@
 }
 
 .pagefilter li, .contentsize li {
-  padding: 4px;
+  padding: 10px 10px 10px 0;
 }
+

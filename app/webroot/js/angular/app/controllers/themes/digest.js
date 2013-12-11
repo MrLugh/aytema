@@ -175,6 +175,11 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.setCurrent = function(page) {
+
+		if ($scope.current == page) {
+			return;
+		}
+
 		$scope.list 	= [];
 		$scope.reinitMasonry();
 		$scope.offset 	= 0;
@@ -388,9 +393,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 		var content = $scope.list[current];
 
-		console.log(content);
 		if (angular.isDefined(content)) {
-			console.log(contentSv.getThumbnail(content));
 			return contentSv.getThumbnail(content);
 		}
 
@@ -476,11 +479,22 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
         $scope.getStyle();
     });
 
-    $scope.showAdminTheme = function() {
-    	$scope.showConfig = true;
-    }
+    $scope.adminTheme = function() {
+    	$scope.showConfig = !$scope.showConfig;
+    };
 
-    $scope.hideDirective = function() {
-    	$scope.showConfig = false;
-    }
+    $scope.getConfigStyle = function() {
+	   	if ($scope.showConfig == true) {
+	   		return {'left':'0'};
+    	}
+	   	return {'left':'-300px'};
+    };
+
+    $scope.getConfigButtonStyle = function() {
+	   	if ($scope.showConfig == true) {
+	   		return {'left':'300px'};
+    	}
+	   	return {'left':'300px'};
+    };
+
 }

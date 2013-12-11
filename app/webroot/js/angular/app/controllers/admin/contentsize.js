@@ -47,7 +47,7 @@ function adminContentsizeCo($scope,userSv,appSv,contentSv) {
 	}	
 
 	$scope.getNetworkConceptStyle = function(network,concept,size) {
-		return $scope.config.custom.contentsizes[network][concept] == size ? {"opacity":"1"} : {"opacity":"0.7"};
+		return $scope.config.custom.contentsizes[network][concept] == size ? {"opacity":"1"} : {"opacity":"0.3"};
 	}
 
 	$scope.setConceptSize = function(network,concept,size) {
