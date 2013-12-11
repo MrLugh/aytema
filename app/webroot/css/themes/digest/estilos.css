@@ -1,9 +1,11 @@
 /* gral */
-body { 
+body {
   background: url("../../../img/themes/digest/bg.png") repeat 0 0 #fff;
   font-family: 'Playfair Display', serif; 
   color: #000; 
   overflow: hidden;
+  transition:all 0.66s ease 0s;
+  background-color: #F7F7F7;
 }
 
 * {
@@ -220,7 +222,6 @@ p a {
   margin: 0 0 20px;
   display: block;  
   overflow: hidden;
-  background-color:white;
   padding: 10px;
 }
 
@@ -436,9 +437,9 @@ p a {
   z-index: 1040;
   width: 100%;
   height: 100%;
-  background-color: #F7F7F7;
   overflow: auto;
-  background: url("../../../img/themes/digest/bg.png") repeat 0 0 #fff;  
+  background: url("../../../img/themes/digest/bg.png") repeat 0 0 #fff;
+  background-color: #F7F7F7;
 }
 
 
@@ -512,7 +513,6 @@ p a {
   position: absolute;
   top: 0;
   left:0;
-  background-color: rgba(255,255,255,0.9);
   opacity: 0;
   width: 100%;
   height: 100%;

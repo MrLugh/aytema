@@ -243,3 +243,18 @@ function () {
         });
     }
 }]);
+
+ayTemaDs.directive('minicolor',[
+function () {
+    return function (scope, element, attrs) {
+
+        element.ready(function(){
+            $(element[0]).minicolors({
+                letterCase: 'uppercase',
+                change: function(hex) {
+                    scope.setColor(attrs.name,hex);
+                }
+            });
+        });
+    }
+}]);

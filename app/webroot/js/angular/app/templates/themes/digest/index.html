@@ -8,12 +8,13 @@
 
 	<div class="inside">
 		<admin-contentsize></admin-contentsize>
-		<admin-pagefilter></admin-pagefilter>			
+		<admin-pagefilter></admin-pagefilter>
+		<admin-colors></admin-colors>
 	</div>
 
 </div>
 
-<div ng-if="showingContent" class="modalContent">
+<div ng-if="showingContent" class="modalContent" ng-style="getModalBackgroundStyle()">
 
 	<span ng-click="closeContent()">Close</span>
 
@@ -149,7 +150,7 @@
 
 <ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':5,'isAnimated':false}" class="masonry" get-offset-top>
 
-	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow>
+	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow ng-style="getContentStyle()">
 
 		<div class="stats both">
 			<ul>

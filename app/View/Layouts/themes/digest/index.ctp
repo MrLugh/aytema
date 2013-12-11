@@ -11,9 +11,10 @@
     <?php
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
+    echo $this->Html->css('minicolors');
     echo $this->Html->css('themes/digest/estilos');
     echo $this->Html->css('themes/digest/detalle');
-    echo $this->Html->css('themes/digest/admin');    
+    echo $this->Html->css('themes/digest/admin');
     ?>
 
     <!-- Js -->
@@ -22,6 +23,7 @@
     echo $this->Html->script('modernizr.min');
     echo $this->Html->script('bootstrap');
     echo $this->Html->script('underscore.min');
+    echo $this->Html->script('minicolors');
     echo $this->Html->script('masonry.pkgd');
     echo $this->Html->script('imagesloaded.pkgd');
     echo $this->Html->script('carouFredSel');
@@ -67,7 +69,8 @@
     echo $this->Html->script('angular/app/controllers/admin/accounts');
     echo $this->Html->script('angular/app/controllers/admin/themes');
     echo $this->Html->script('angular/app/controllers/admin/pagefilter');
-    echo $this->Html->script('angular/app/controllers/admin/contentsize');    
+    echo $this->Html->script('angular/app/controllers/admin/contentsize');
+    echo $this->Html->script('angular/app/controllers/admin/colors');
     echo $this->Html->script('angular/app/controllers/themes');
 
         // Themes
@@ -89,6 +92,7 @@
     echo $this->Html->script('angular/app/directives/admin/themes');
     echo $this->Html->script('angular/app/directives/admin/pagefilter');
     echo $this->Html->script('angular/app/directives/admin/contentsize');
+    echo $this->Html->script('angular/app/directives/admin/colors');
 
         // Themes
         echo $this->Html->script('angular/app/directives/themes/digest/content');

@@ -6,14 +6,14 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.list 	= [];
 	$scope.offset 	= 0;
-	$scope.limit	= 10;
+	$scope.limit	= 1;
 
 	$scope.scroll   = 0;
 
 	$scope.config	= {};
 	$scope.configLoaded = false;
 
-	$scope.current	= 'videos';
+	$scope.current	= 'photos';
 	$scope.pages 	= [];
 
 	userSv.loadThemeConfig($scope.user.theme);
@@ -439,19 +439,35 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 				$scope.list.splice(index,1);
 			}
 		});
+	}
 
+	$scope.getModalBackgroundStyle = function() {
+		return {'background-color':$scope.config.custom.colors.background.value};
+	}
+
+	$scope.getContentStyle = function() {
+		return {
+			'background-color':$scope.config.custom.colors.contentBackground.value,
+			'color':$scope.config.custom.colors.contentText.value
+		};
+	}
+
+	$scope.setBackgroundColor = function() {
+
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 	}	
 
 	$scope.userSv = userSv;
 	$scope.$watch("userSv.getThemeConfig()",function(config){
-
 		if (!angular.equals($scope.config, config)) {
 			$scope.config		= config;
 			$scope.configLoaded = true;
 		}
+	},true);
 
+	$scope.$watch("userSv.getThemeConfig().custom.filters",function(config){
 		if ($scope.configLoaded) {
-
 			$scope.list = [];
 			$scope.offset = 0;
 			$scope.pages = [];
@@ -461,6 +477,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			$scope.setList();
 		}
 
+	},true);	
+
+	$scope.$watch("userSv.getThemeConfig().custom.colors",function(colors){
+		if (angular.isDefined(colors)) {
+			$scope.config.custom.colors = colors;
+			$scope.setBackgroundColor();
+		}		
 	},true);
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
@@ -469,8 +492,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.$watch("current",function(current){
 		$scope.setList();
-		$scope.getNavigatorThumbnail(-1);
-		$scope.getNavigatorThumbnail(1);
 	});
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){

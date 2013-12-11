@@ -95,7 +95,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    $http({method: 'GET', url: '/themes/getConfig.json',data:params}).
 	    success(function(data, status, headers, config) {
 
-	    	themeConfig = {'default':data.config,'custom':data.config};
+	    	themeConfig = {'default':JSON.parse(JSON.stringify(data.config)),'custom':data.config};
 	    	deferred.resolve();
 	    }).
 	    error(function(data, status, headers, config) {
@@ -119,6 +119,10 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	var setThemeConfigContentsizes = function(config) {
 		themeConfig.custom.contentsizes = config;
 	}
+
+	var setThemeConfigColors = function(config) {
+		themeConfig.custom.colors = config;
+	}	
 
 	return {
 
@@ -167,6 +171,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		getThemeConfig:getThemeConfig,
 		setThemeConfigFilters:setThemeConfigFilters,
 		setThemeConfigContentsizes:setThemeConfigContentsizes,
+		setThemeConfigColors:setThemeConfigColors
 	}
 
 }]);

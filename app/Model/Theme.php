@@ -49,7 +49,21 @@ Class Theme extends AppModel {
             'vimeo' => array(
                 'video'=>'medium',
             ),
-        )
+        ),
+        'colors' => array(
+            'background' => array(
+                'value' => '#F7F7F7',
+                'label' => 'Body background',
+            ),
+            'contentBackground' => array(
+                'value' => '#ffffff',
+                'label' => 'Content background',
+            ),
+            'contentText' => array(
+                'value' => '#000000',
+                'label' => 'Content text',
+            ),
+        ),
     );
 
 	public function getThemeConfig($theme,$user_id) {
