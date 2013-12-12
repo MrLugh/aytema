@@ -2,6 +2,7 @@
 
 /* ONLY FOR TEST  */
 App::import('Vendor', 'CollectData', array('file' => 'collect_data/collect_data.php'));
+App::import('model','Socialnet');
 
 class ContentsController extends AppController {
 
@@ -10,6 +11,7 @@ class ContentsController extends AppController {
     public function beforeFilter() {
 
         $this->Auth->allow('index');
+        $this->loadModel('Socialnet');
     }    
 
     public function index() {
@@ -18,7 +20,7 @@ class ContentsController extends AppController {
 
         $user_id = $this->Auth->user('id');
 
-        isset($this->request->query['external_user_id']) ? $external_user_id = $this->request->query['external_user_id'] : $external_user_id = null;
+        isset($this->request->query['accounts']) ? $accounts = $this->request->query['accounts'] : $accounts = null;
         isset($this->request->query['networks']) ? $selected_networks = $this->request->query['networks'] : $selected_networks = null;
         isset($this->request->query['concepts']) ? $selected_types = $this->request->query['concepts'] : $selected_types = null;
         isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
@@ -26,8 +28,17 @@ class ContentsController extends AppController {
 
         $params['Content.status'] = 'enabled';
 
-        if (!empty($external_user_id)) {
-            $params['Content.external_user_id'] = $external_user_id;
+        if (!empty($accounts)) {
+            $socialnets = $this->Socialnet->find('all', array(
+                'conditions'=> array('Socialnet.id'=>$accounts),
+                )
+            );
+            foreach ($socialnets as $key => $account) {
+                $params['OR'][] = array(
+                    'Content.network'=>$account['Socialnet']['network'],
+                    'Content.external_user_id'=> $account['Socialnet']['external_user_id']
+                );
+            }
         }
 
         if (count($selected_networks)) {
