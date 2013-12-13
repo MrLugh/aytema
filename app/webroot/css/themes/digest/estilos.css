@@ -418,7 +418,8 @@ p a {
 
 .content {
   display: inline-block;
-  height: auto;  
+  height: auto;
+  position: relative;
 }
 
 .content img {

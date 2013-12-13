@@ -1,9 +1,12 @@
 /* detalle */
 .content_detalle {
-    width: 60%!important;
-    clear: both;
-    margin: 0 auto;
-    overflow: hidden;
+  clear: both;
+  display: block;
+  height: 300px !important;
+  margin: 0 auto;
+  overflow: auto;
+  text-align: center;
+  width: 88%!important;    
 }
 
 .content_detalle .user_info {
@@ -110,16 +113,15 @@ border-bottom-left-radius: 60px;
     width: 50%;
 }
 .right-column {
-    float: right;
-    width: 48%;
+    float: left;
     margin-left: 2%;
 }
 .content_detalle h2, .content_detalle p  {
     text-align: left;
 }
 .content_detalle h2 {
-    font-size: 34px;
-    line-height: 38px;
+    font-size: 22px;
+    line-height: 28px;
     margin-top: 0;
     width: 66%;
 }
@@ -276,12 +278,4 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     background-color: #999;
     height: 6px;
     width: 0px;
-}
-
-
-/* Detalle específico */
-
-.content_detalle .photo img {
-    display: block;
-    width: 100%;
 }

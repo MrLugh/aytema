@@ -18,9 +18,9 @@
 
 	<span ng-click="closeContent()">Close</span>
 
-	<div class="content_detalle">
+	<div class="content_detalle" ng-style="getStyle()">
 
-		<div class="left-column" style="position:relative;">
+		<div class="left-column" ng-style="getContentStyle()" style="padding:10px;text-align:center;margin:0 auto;">
 			<div class="section content" ng-repeat="content in contentModal" ng-switch="content.concept">
 				<content-detail-video ng-switch-when='video'></content-detail-video>
 				<content-detail-photo ng-switch-when='photo'></content-detail-photo>

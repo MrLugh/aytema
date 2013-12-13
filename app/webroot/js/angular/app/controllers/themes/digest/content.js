@@ -329,7 +329,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 
 function contentPostCo($scope,contentSv,$sce) {
 
-	//console.log($scope.content);
+	console.log($scope.content);
 
 	$scope.href	= '';
 
@@ -351,7 +351,7 @@ function contentPostCo($scope,contentSv,$sce) {
 		} else {
 			*/
 			$scope.href = "https://www.facebook.com/"+$scope.content['external_user_name']+"/posts/"+$scope.content['external_atomic_id'];
-		/*			
+		/*
 		}
 		*/
 		//console.log($scope.href);
