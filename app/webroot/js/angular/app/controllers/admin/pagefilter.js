@@ -6,14 +6,8 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 	$scope.pages 	= [];
 	$scope.current	= $scope.$parent.current;
 
-	$scope.config	= {};
-	$scope.configLoaded = false;
-
-	$scope.accounts	= {};
-	$scope.accountsLoaded = false;
-
-	userSv.loadThemeConfig($scope.user.theme);
-	userSv.loadAccounts();
+	$scope.config	= $scope.$parent.config;
+	$scope.accounts	= $scope.$parent.accounts;
 
 	$scope.concepts = [];
 	$scope.networks	= [];
@@ -143,9 +137,7 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 
 	$scope.changePage = function(page) {
 		$scope.current = page;
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
-		}
+		$scope.setList();
 		$scope.$parent.setCurrent(page);
 	}
 
@@ -153,48 +145,20 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 		return $scope.current == page ? 'active' : '';
 	}
 
-	$scope.userSv = userSv;
-	$scope.$watch("userSv.getThemeConfig()",function(config){
-		$scope.configLoaded = true;
-		$scope.config = userSv.getThemeConfig();
-
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
-		}
-
-	},true);
-
 	$scope.$watch("$parent.current",function(page){
-
 		if (page != $scope.current) {
 			$scope.changePage(page);
 		}
 	},true);	
 
-	$scope.$watch("userSv.getAccounts()",function(accounts){
-		$scope.accounts = accounts;
-		
-		if (accounts.length) {
-			$scope.accountsLoaded = true;			
-		}
-
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
-		}
-	},true);
-
 	$scope.$watch("current",function(current){
 		$scope.networks = [];
 		$scope.concepts = [];		
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
-		}
+		$scope.setList();
 	},true);
 
 	$scope.$watch("showConfig",function(show){
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
-		}
+		$scope.setList();
 	},true);	
 
 	$scope.conceptIcon = function(concept) {

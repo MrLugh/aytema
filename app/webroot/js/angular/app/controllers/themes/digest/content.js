@@ -329,8 +329,6 @@ function contentTrackCo($scope,$sce,contentSv) {
 
 function contentPostCo($scope,contentSv,$sce) {
 
-	console.log($scope.content);
-
 	$scope.href	= '';
 
 	$scope.isFromNetwork = function(network) {

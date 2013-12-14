@@ -1,12 +1,19 @@
 function adminAccountCo($scope,userSv,appSv,contentSv) {
 
-	$scope.accountContentList	= [];
-	$scope.concepts				= [];
+	$scope.list		= [];
+	$scope.concepts	= [];
+
+	$scope.masonryLoading = false;
 
 	$scope.offset 	= 0;
 	$scope.limit	= 10;
 	$scope.filters	= {'concepts':[],'networks':[$scope.account.network]};
 	$scope.concepts = [];
+
+	$scope.getListLength = function() {
+		return $scope.list.length;
+	}
+
 
 	$scope.generateConceptsList = function() {
 
@@ -34,14 +41,19 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.generateConceptsList();
 	$scope.initFilters();
 
+	$scope.clearList = function() {
+		$scope.list = [];
+	}
+
 	$scope.setList = function() {
 
 		if (!contentSv.isLoading()) {
 
-			var params					= JSON.parse(JSON.stringify($scope.filters));
-			params['offset']			= $scope.offset;
-			params['limit']				= $scope.limit;
-			params['external_user_id']	= $scope.account.external_user_id;
+			var params			= [];
+			params['concepts']	= JSON.parse(JSON.stringify($scope.filters.concepts));
+			params['offset']	= $scope.offset;
+			params['limit']		= $scope.limit;
+			params['accounts'] = [$scope.account.id];
 
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
@@ -52,7 +64,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 							content = contents[x].Content;
 							if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
-								$scope.accountContentList.push(content);
+								$scope.list.push(content);
 							}
 						}
 						$scope.offset += $scope.limit;
@@ -91,8 +103,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		}
 
 		$scope.offset	= 0;
-		$scope.accountContentList = [];
-		$scope.setList();
+		$scope.reinitMasonry();
 	}
 
 	$scope.moreContent = function() {
@@ -109,14 +120,32 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		return {"opacity":"1"};
 	}
 
+	$scope.getContentStyle = function(content) {
+		return {
+			'opacity':(contentSv.isContentEnabled(content)) ? '1' : '0.3',
+			'border-color':(contentSv.isContentEnabled(content)) ? 'none' : 'black'
+		};
+
+	}	
+
 	$scope.delete = function(index) {
-		contentSv.deleteContent($scope.accountContentList[index].id).
+
+		contentSv.deleteContent($scope.list[index].id).
 		then(function(data){
 			if (data.message == "Deleted") {
-				//$scope.removeFromMasonry($scope.accountContentList[index]);
-				$scope.accountContentList.splice(index,1);
+				$scope.list[index].status = "disabled";
 			}
 		});
+
+		/*
+		contentSv.deleteContent($scope.list[index].id).
+		then(function(data){
+			if (data.message == "Deleted") {
+				$scope.removeFromMasonry(index);
+				$scope.list.splice(index,1);
+			}
+		});
+		*/
 	}
 
 	$scope.getContainerStyle = function() {
@@ -128,7 +157,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		var medium 		= ['video','track'];
 		var large 		= [];
 		var extralarge 	= [];
-		var concept = $scope.accountContentList[index].concept;
+		var concept = $scope.list[index].concept;
 
 		if (small.indexOf(concept) != -1 ) {
 			if (concept == 'post' && $scope.account.network == 'facebook') {
@@ -164,12 +193,10 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.$watch('account', function(oldValue,newValue) {
 		if (oldValue.id != newValue.id) {
-			//$scope.reinitMasonry();
-			$scope.offset = 0;
-			$scope.accountContentList = [];
 			$scope.generateConceptsList();
 			$scope.initFilters();
-			$scope.setList();
+			$scope.offset = 0;
+			$scope.reinitMasonry();
 		}
 
 	});

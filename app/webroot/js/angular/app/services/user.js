@@ -95,7 +95,8 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    $http({method: 'GET', url: '/themes/getConfig.json',data:params}).
 	    success(function(data, status, headers, config) {
 
-	    	themeConfig = {'default':JSON.parse(JSON.stringify(data.config)),'custom':data.config};
+	    	//themeConfig = {'default':JSON.parse(JSON.stringify(data.config)),'custom':data.config};
+	    	themeConfig = {'default':data.config,'custom':data.config};
 	    	deferred.resolve();
 	    }).
 	    error(function(data, status, headers, config) {

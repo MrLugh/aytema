@@ -320,6 +320,7 @@ p a {
 }
 
 .masonry .content {
+  opacity: 1;
   -webkit-transition-property: left, right, top;
    -moz-transition-property: left, right, top;
   -ms-transition-property: left, right, top;

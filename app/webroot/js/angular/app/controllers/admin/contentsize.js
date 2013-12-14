@@ -4,14 +4,8 @@ function adminContentsizeCo($scope,userSv,appSv,contentSv) {
 
 	$scope.sizes = appSv.getContentSizes();
 
-	$scope.config		= {};
-	$scope.configLoaded = false;
-
-	$scope.accounts	= {};
-	$scope.accountsLoaded = false;
-
-	userSv.loadThemeConfig($scope.user.theme);
-	userSv.loadAccounts();
+	$scope.config	= $scope.$parent.config;
+	$scope.accounts	= $scope.$parent.accounts;
 
 	$scope.currentNetwork = -1;
 
@@ -33,6 +27,7 @@ function adminContentsizeCo($scope,userSv,appSv,contentSv) {
 			$scope.currentNetwork = 0;
 		}
 	}
+	$scope.setList();
 
 	$scope.isNetworkActive = function(index) {
 		return $scope.currentNetwork == index;
@@ -65,37 +60,6 @@ function adminContentsizeCo($scope,userSv,appSv,contentSv) {
 	$scope.save = function() {
 		userSv.setThemeConfigContentsizes($scope.config.custom.contentsizes);
 	}
-
-	$scope.userSv = userSv;
-
-	$scope.$watch("userSv.getThemeConfig()",function(config){
-		$scope.configLoaded = true;
-		$scope.config = userSv.getThemeConfig();
-	},true);
-
-
-	$scope.$watch("userSv.getThemeConfig().config.custom.contentsizes",function(config){
-		$scope.configLoaded = true;
-		$scope.config = userSv.getThemeConfig();
-
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
-		}
-
-	},true);
-
-	$scope.$watch("userSv.getAccounts()",function(accounts){	
-		$scope.accounts = accounts;
-		
-		if (accounts.length) {
-			$scope.accountsLoaded = true;			
-		}
-
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
-		}
-	},true);
-	
 
 	$scope.conceptIcon = function(concept) {
 		return contentSv.getConceptIcon(concept);

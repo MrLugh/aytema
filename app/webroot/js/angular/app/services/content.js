@@ -526,6 +526,9 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		isLoading: function() {
 			return loading;
 		},
+		isContentEnabled: function(content) {
+			return content.status == "enabled";
+		},		
 		cleanSource:cleanSource,
 		loadContent:loadContent,
 		getListsByConcept:getListsByConcept,

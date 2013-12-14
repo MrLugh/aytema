@@ -15,6 +15,7 @@ Class Theme extends AppModel {
             ),            
             'photos'    => array(
                 'concepts'  => array('photo'),
+                'neworks'   => array('tumblr')
             ),
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),
@@ -30,7 +31,7 @@ Class Theme extends AppModel {
                 'post'=>'medium',
             ),
             'tumblr' => array(
-                'photo'=>'medium',
+                'photo'=>'small',
                 'post'=>'xlarge',
                 'chat'=>'small',
                 'quote'=>'medium',
