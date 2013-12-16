@@ -16,7 +16,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.config	= {};
 	$scope.configLoaded = false;
 
-	$scope.current	= 'posts';
+	$scope.current	= 'home';
 	$scope.pages 	= [];
 
 	userSv.loadThemeConfig($scope.user.theme);
@@ -487,6 +487,9 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 		var element = angular.element(document.querySelector('body'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+
+		var element = angular.element(document.querySelector('.overlay_content'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);		
 	}	
 
 	$scope.enableMasonry = function() {

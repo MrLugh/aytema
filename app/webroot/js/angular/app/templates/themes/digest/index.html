@@ -1,5 +1,5 @@
 <fb app-id='211895592326072'></fb>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <div class="overlay_content"></div>
 
@@ -14,6 +14,7 @@
 
 </div>
 
+
 <div ng-if="showingContent" class="modalContent" ng-style="getModalBackgroundStyle()">
 
 	<span ng-click="closeContent()">Close</span>
@@ -22,7 +23,7 @@
 
 		<div class="left-column">
 
-			<div class="section content" ng-repeat="content in contentModal" ng-switch="content.concept" ng-style="getContentStyle(content)" style="padding:10px;text-align:center;margin:0 auto;">
+			<div class="section content well" ng-repeat="content in contentModal" ng-switch="content.concept" ng-style="getContentStyle(content)" style="padding:10px;text-align:center;margin:0 auto;">
 
 				<div ng-if="isLogged()">{{content.status}}</div>
 
@@ -35,7 +36,7 @@
 			</div>
 		</div>
 
-		<div class="right-column">
+		<div class="right-column well" ng-style="getContentStyle(content)">
 
 			<span class="user_info">
 				<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">

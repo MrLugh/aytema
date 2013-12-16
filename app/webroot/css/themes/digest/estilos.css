@@ -210,8 +210,7 @@ p a {
   display: block;
   height: 300px !important;
   margin: 0 auto;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
   text-align: center;
   width: 88%;
 }
@@ -224,6 +223,7 @@ p a {
   display: block;  
   overflow: hidden;
   padding: 10px;
+  opacity: 1;
 }
 
 .content .stats {
@@ -321,7 +321,6 @@ p a {
 }
 
 .masonry .content {
-  opacity: 1;
   -webkit-transition-property: left, right, top;
    -moz-transition-property: left, right, top;
   -ms-transition-property: left, right, top;

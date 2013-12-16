@@ -117,7 +117,9 @@ function ($timeout) {
 
             imagesLoaded(elm[0], function(){
                 jQuery.when(scope.masonry.appended(elm[0])).done(function(event) {
-                    $(elm[0]).css('opacity','1');
+                    imagesLoaded(document.querySelector('body'), function(){
+                        $(elm[0]).css('opacity','1');
+                    });
                     if (scope.getListLength() == scope.masonry.getItemElements().length) {
                         scope.masonry.layout();
                         imagesLoaded(document.querySelector('body'), function(){
@@ -252,7 +254,7 @@ function ($timeout) {
                         $(element[0]).css('z-index',100);
                         $(element[0]).addClass('content_shadow');
                         $(".overlay_content").css('z-index',99);
-                        $(".overlay_content").css('opacity',1);
+                        $(".overlay_content").css('opacity',0.9);
                         },1500);
                 },
                 function(e){

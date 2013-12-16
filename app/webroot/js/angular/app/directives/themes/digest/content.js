@@ -1,24 +1,43 @@
-ayTemaDs.directive('contentVideo',[function(){
-    
+ayTemaDs.directive('contentVideo',['$FB','$timeout',
+function($FB,$timeout){    
     return {
         templateUrl : getPath('tpl')+'/themes/digest/video.html',
         restrict : 'E',
         replace : true,
         controller:'contentVideoCo',
-        scope: true
+        scope: true,
+        link: function(scope,element,attrs) {
+
+            if (scope.isFromNetwork('facebook')) {
+                element.ready(function(){
+                    $timeout(function(){
+                        scope.$FB = $FB;
+                        scope.$apply();
+                        scope.$watch('$FB.loaded',function(value) {
+                            // It needs authentication, this won't work.
+                            if(value){
+                                if (typeof $FB  != "undefined"){
+                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
+                                }
+                            }
+                        },true);
+                        scope.$apply();
+                    },0);
+                });
+            }
+        } 
     }
 
 }]);
 
-
-ayTemaDs.directive('contentPhoto',[function(){
-    
+ayTemaDs.directive('contentPhoto',[
+function(){
     return {
         templateUrl : getPath('tpl')+'/themes/digest/photo.html',
         restrict : 'E',
         replace : true,
         controller:'contentPhotoCo',
-        scope: true        
+        scope: true
     }
 
 }]);

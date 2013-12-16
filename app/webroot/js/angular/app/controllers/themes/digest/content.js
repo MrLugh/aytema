@@ -8,6 +8,15 @@ function contentVideoCo($scope,$sce,contentSv) {
 	$scope.loadPlayer	= false;
 	$scope.loadThumbnail= false;
 
+	$scope.isFromNetwork = function(network) {
+		return $scope.content.network == network;
+	}
+
+	$scope.getFbPostHref = function() {
+		
+		return "https://www.facebook.com/"+$scope.content['external_user_name']+"/posts/"+$scope.content['external_atomic_id'];
+	}
+
 	$scope.getPlayer = function() {
 
 		if ($scope.loadPlayer) {
@@ -329,32 +338,14 @@ function contentTrackCo($scope,$sce,contentSv) {
 
 function contentPostCo($scope,contentSv,$sce) {
 
-	$scope.href	= '';
-
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
 	}
 
-	if ($scope.isFromNetwork('facebook')) {
-		/*
-		if (!angular.isDefined($scope.content['data']['story'])) {
-			//console.log("A");
-			if (angular.isDefined($scope.content['data']['link'])) {
-				//console.log("B");
-				$scope.href = $scope.content['data']['link'];
-			} else {
-				//console.log("C");
-				$scope.href = "";
-			}
-		} else {
-			*/
-			$scope.href = "https://www.facebook.com/"+$scope.content['external_user_name']+"/posts/"+$scope.content['external_atomic_id'];
-		/*
-		}
-		*/
-		//console.log($scope.href);
+	$scope.getFbPostHref = function() {
+				
+		return "https://www.facebook.com/"+$scope.content['external_user_name']+"/posts/"+$scope.content['external_atomic_id'];
 	}
-
 
 	$scope.getEmbed = function() {
 
