@@ -33,6 +33,7 @@ ayTemaDs.directive('infiniteScroll',[
 function() {
     return function(scope, elm, attr) {
         var raw = elm[0];
+
         elm.bind('scroll', function() {
             if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight*.9) {
                 scope.scroll = raw.scrollTop + raw.offsetHeight;
@@ -42,69 +43,131 @@ function() {
     };
 }]);
 
+ayTemaDs.directive("masonry2", function () {
+    var NGREPEAT_SOURCE_RE = '<!-- ngRepeat: ((.*) in ((.*?)( track by (.*))?)) -->';
+    return {
+        compile: function(element, attrs) {
+            // auto add animation to brick element
+            var animation = attrs.ngAnimate || "'masonry'";
+            var $brick = element.children();
+            $brick.attr("ng-animate", animation);
+            
+            // generate item selector (exclude leaving items)
+            var type = $brick.prop('tagName');
+            var itemSelector = type+":not([class$='-leave-active'])";
+            
+            return function (scope, element, attrs) {
+                var options = angular.extend({
+                    itemSelector: itemSelector
+                }, scope.$eval(attrs.masonry));
+                
+                // try to infer model from ngRepeat
+                if (!options.model) { 
+                    var ngRepeatMatch = element.html().match(NGREPEAT_SOURCE_RE);
+                    if (ngRepeatMatch) {
+                        options.model = ngRepeatMatch[4];
+                    }
+                }
+                
+                // initial animation
+                element.addClass('masonry');
+                
+                // Wait inside directives to render
+                setTimeout(function () {
+                    element.masonry(options);
+                    
+                    element.on("$destroy", function () {
+                        element.masonry('destroy')
+                    });
+                    
+                    if (options.model) {
+                        scope.$apply(function() {
+                            scope.$watchCollection(options.model, function (_new, _old) {
+                                if(_new == _old) return;
+                                
+                                // Wait inside directives to render
+                                setTimeout(function () {
+                                    element.masonry("layout");
+                                });
+                            });
+                        });
+                    }
+                });
+            };
+        }
+    };
+})
+
 ayTemaDs.directive('masonry',['$timeout',
 function ($timeout) {
     return function (scope, element, attrs) {
 
-        var options = attrs.masonry;
-        options =  eval("(function(){return " + options + ";})()");
+        var options = scope.$eval(attrs.masonry);
 
         if (!angular.isDefined(options)) {
             options = {columnWidth:10,gutter:10,isAnimated:false,itemSelector:'.adminContent'};
         }
 
-        var container = element[0];
-        scope.masonry = new Masonry(container,options);
+        scope.createMasonry = function() {
+            var container = element[0];
+            scope.masonry = new Masonry(container,options);
+        }
 
         scope.addToMasonry = function(elm) {
-            
-            console.log("adding to masonry after loading ");
+
             imagesLoaded(elm[0], function(){
                 jQuery.when(scope.masonry.appended(elm[0])).done(function(event) {
-                        $(elm[0]).css('opacity','1');
-                        console.log("added ",scope.getListLength(),scope.masonry.getItemElements().length);
-                        if (scope.getListLength() == scope.masonry.getItemElements().length) {
-                            console.log("last inserted");
+                    $(elm[0]).css('opacity','1');
+                    if (scope.getListLength() == scope.masonry.getItemElements().length) {
+                        scope.masonry.layout();
+                        imagesLoaded(document.querySelector('body'), function(){
+                            console.log("last loaded");
+                            scope.enableMasonry();
+                            scope.masonry.reloadItems();
                             scope.masonry.layout();
-                            imagesLoaded(document.querySelector('body'), function(){
-                                console.log("last loaded");
-                                console.log(elm);
-                                console.log(elm[0]);                              
-                                console.log(elm.find('img').length);
-                                scope.masonry.layout();
-                                //Timeout is not contentSv.isLoading!!!
-                                scope.enableMasonry();
-                                console.log("ACTIVE!!!!!!!!!");
-                                
-                            });
-                        }
+                        });
+                    }
                 });
             });
-        }        
+
+        }   
+
+        scope.removeFromMasonry = function(elm) {
+            jQuery.when( scope.masonry.remove(elm) ).done(function(event) {
+                $(elm).css('opacity','0');
+                jQuery.when( $(elm).remove() ).done(function(event) {
+                    if (!scope.masonry.getItemElements().length) {
+                        scope.masonryLoading = true;
+                        scope.setList();
+                    }
+                });
+            });
+        }       
 
         scope.reinitMasonry = function() {
 
-            console.log(scope.masonryLoading,scope.masonry.getItemElements().length,scope.getListLength());
-
             if (scope.getListLength() == 0 && !scope.masonryLoading) {
-                console.log("ENTRO");
-                scope.masonryLoading = false;           
+                scope.masonryLoading = false;
                 scope.setList();
                 return;
             }
-            scope.masonryLoading = true;            
             scope.clearList();
+
+            var items = [];
+            for (var x in scope.masonry.items) {
+                items.push(scope.masonry.items[x].element);
+            }
+            for (var x in items) {
+                scope.removeFromMasonry(items[x]);
+            }                
         }
 
-        scope.removeFromMasonry = function(index) {
+        scope.$on("FB.render", function(event){
+            scope.masonry.reloadItems();
+            scope.masonry.layout();
+        });        
 
-            var obj = scope.masonry.getItemElements()[index];
-            console.log(obj);
-            console.log("REMOVE ",scope.masonry.getItemElements().length,scope.getListLength());
-            jQuery.when( scope.masonry.remove(element) ).done(function(event) {
-                scope.masonry.layout();
-            });
-        }
+        scope.createMasonry();
     }
 }]);
 
@@ -116,65 +179,9 @@ function ($timeout) {
         var parent  = scope.$parent;
         $(element[0]).css('opacity','0');
 
-        if (scope.$last === true) {
-            console.log("LAST ITEM STARTING");
-            console.log(element);
-            console.log(element.find('img').length);
-        }
-
         element.ready(function(){
-
-            //$timeout(function(){
-
-                var iframes = element.find("iframe");
-                iframes = (iframes.length == 1) ? [iframes] : iframes;
-                var count   = 0;
-
-                if (iframes.length) {
-                    for (var x in iframes) {
-                        $(iframes[x]).bind('load',function(event){
-                            count++;
-                            if (count == iframes.length) {
-                                if (scope.$last === true) {
-                                    console.log("LAST ITEM TO ADD");
-                                    console.log(element);
-                                }
-                                scope.$parent.addToMasonry(element);
-                            }
-                        });
-                    }
-                } else {
-                    scope.$parent.addToMasonry(element);
-                }
-
-            //},30);
-
-                if (scope.$last === true) {
-
-                    /*
-                    $timeout(function(){
-                        imagesLoaded( document.querySelector('body'),function() {
-                            console.log("once");
-                            scope.masonry.layout();
-                            //scope.masonry.reloadItems();
-                            parent.masonryLoading = false;
-                        });
-                    },10000);
-                    */
-                }
+            scope.$parent.addToMasonry(element);
         });
-
-        var destroy = function() {
-            jQuery.when( masonry.remove(element) ).done(function(event) {
-                console.log("destroy ",masonry.getItemElements().length);
-                if (masonry.getItemElements().length == 0) {
-                    console.log("last destroyed, setList");
-                    parent.setList();
-                }
-            });
-        }
-
-        element.bind('$destroy', destroy);
     }
 }]);
 
@@ -186,7 +193,6 @@ function () {
         };
     }
 }]);
-
 
 ayTemaDs.directive('fb', ['$FB',
 function($FB) {
@@ -213,6 +219,11 @@ function($FB) {
                         if('fbInit' in iAttrs) {
                             iAttrs.fbInit();
                         }
+
+                        $FB.Event.subscribe("xfbml.render", function () {
+                            scope.$emit("FB.render");
+                        });
+
                     };
 
                     (function(d, s, id, fbAppId) {

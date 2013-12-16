@@ -8,7 +8,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.list 	= [];
 	$scope.offset 	= 0;
-	$scope.limit	= 4;
+	$scope.limit	= 10;
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
@@ -16,7 +16,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.config	= {};
 	$scope.configLoaded = false;
 
-	$scope.current	= 'photos';
+	$scope.current	= 'posts';
 	$scope.pages 	= [];
 
 	userSv.loadThemeConfig($scope.user.theme);
@@ -108,13 +108,11 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 				function(data) {
 					var contents = data.contents;
 					if (data.contents.length) {
-						//console.log("PUSHING DATA ON LIST");
 						for (var x in contents) {
 							content = contents[x].Content;
 							$scope.list.push(content);
 						}
 						$scope.offset += $scope.limit;
-						//console.log("PUSHING DATA ON LIST ENDED!");
 
 						/*
 						if ($scope.list.length) {
@@ -198,26 +196,18 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			return;
 		}
 
-		console.log("SET CURRENT ?");
 		if (!$scope.masonryLoading) {
-			console.log("NO SET CURRENT");
 			return;
 		}		
 
 		$scope.offset 	= 0;
-		//if (!$scope.masonryLoading) {
-			$scope.reinitMasonry();	
-		//}
-		//$scope.list 	= [];
 		$scope.current = page;
 		$scope.showingContent 	= false;
 	}
 
 	$scope.movePage = function(direction) {
 
-		console.log("MUEVO PAGE ?");
 		if (!$scope.masonryLoading) {
-			console.log("NO MUEVO PAGE");
 			return;
 		}
 
@@ -488,7 +478,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.getContentStyle = function(content) {
 		var style = $scope.contentStyle();
 		if (!contentSv.isContentEnabled(content)) {
-			console.log("no habilitado");
 			style['opacity'] = '0.3';	
 		}
 		return style;
@@ -501,14 +490,14 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}	
 
 	$scope.enableMasonry = function() {
-		console.log("Activando....");
-		$scope.masonryLoading = !$scope.masonryLoading;
+		if (!$scope.masonryLoading) {
+			$scope.masonryLoading = true;	
+		}		
 	}
 
 	$scope.userSv = userSv;
 	$scope.$watch("userSv.getThemeConfig()",function(configNew,configOld){
 		if (!angular.equals(configNew, configOld)) {
-			//console.log("userSv.getThemeConfig()",configNew);
 
 			$scope.config		= userSv.getThemeConfig();
 			$scope.configLoaded = true;
@@ -535,26 +524,18 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.$watch("userSv.getThemeConfig().custom.filters",function(filters){
 		if ($scope.configLoaded && $scope.accountsLoaded) {
-			//console.log("userSv.getThemeConfig().custom.filters",filters);			
 			$scope.offset = 0;
 			$scope.pages = [];
 			for (var x in $scope.config.custom.filters) {
 				$scope.pages.push(x);
 			}
-			//console.log("userSv.getThemeConfig().custom.filters masonryLoading ",$scope.masonryLoading);
-			//if (!$scope.masonryLoading) {
-				$scope.reinitMasonry();	
-			//}
-			
-			//$scope.list = [];
-			//$scope.setList();
+			$scope.reinitMasonry();	
 		}
 
 	},true);
 
 	$scope.$watch("userSv.getThemeConfig().custom.colors",function(colors){
 		if (angular.isDefined(colors)) {
-			//console.log("userSv.getThemeConfig().custom.colors",colors);
 			$scope.config.custom.colors = colors;
 			$scope.setBackgroundColor();
 		}		
@@ -562,20 +543,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.$watch("userSv.getThemeConfig().custom.contentsizes",function(sizes){
 		if (angular.isDefined(sizes)) {
-			//console.log("userSv.getThemeConfig().custom.contentsizes",sizes);
 			$scope.offset 	= 0;
-			//console.log("userSv.getThemeConfig().custom.contentsizes masonryLoading ",$scope.masonryLoading);
-			//if (!$scope.masonryLoading) {
-				$scope.reinitMasonry();	
-			//}
-			//$scope.list 	= [];
-			//$scope.setList();
+			$scope.reinitMasonry();	
 		}
 	},true);
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 		$scope.accounts = accounts;
-		//console.log("userSv.getAccounts()",accounts);
 		if (accounts.length) {
 			$scope.accountsLoaded = true;			
 		}
@@ -598,22 +572,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}
 
 		if ($scope.configLoaded && $scope.accountsLoaded) {
-			//console.log("userSv.getAccounts() masonryLoading ",$scope.masonryLoading);						
-			//if (!$scope.masonryLoading) {
-				$scope.reinitMasonry();	
-			//}			
-			//$scope.setList();
+			$scope.reinitMasonry();	
 		}
 	},true);
 
 	$scope.$watch("current",function(current){
-		//console.log("current",current);
 		if ($scope.configLoaded && $scope.accountsLoaded) {
-			//console.log("current masonryLoading ",$scope.masonryLoading);
-			//if (!$scope.masonryLoading) {
-				$scope.reinitMasonry();	
-			//}			
-			//$scope.setList();
+			$scope.reinitMasonry();	
 		}
 	});
 

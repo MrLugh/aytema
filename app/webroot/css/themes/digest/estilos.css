@@ -192,7 +192,7 @@ p a {
 }
 .nav > li.active > a {
     background-color: #000;
-    color: #FDE200 !important;  
+    color: #FDE200 !important;
 
 }
 .nav > li.active > a:hover {
@@ -210,7 +210,8 @@ p a {
   display: block;
   height: 300px !important;
   margin: 0 auto;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   text-align: center;
   width: 88%;
 }
