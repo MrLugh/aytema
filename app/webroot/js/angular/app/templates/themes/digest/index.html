@@ -14,7 +14,6 @@
 
 </div>
 
-
 <div ng-if="showingContent" class="modalContent" ng-style="getModalBackgroundStyle()">
 
 	<span ng-click="closeContent()">Close</span>
@@ -201,4 +200,9 @@
 	<a href="#/" skip-default ng-click="movePage(1)" title="{{getPageArrowTitle(1)}}">
 		<img class="arrow" src="img/themes/digest/arrow-right.png" alt="Next page">
 	</a>
+</div>
+
+<div class="both well user_message" ng-style="getUserMessageStyle()">
+	<img alt="loading" class="loading" ng-src="img/themes/digest/ajax-loader.gif">
+	<span class="text_message">{{userMessage}}</span>	
 </div>

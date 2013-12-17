@@ -113,17 +113,22 @@ function ($timeout) {
             scope.masonry = new Masonry(container,options);
         }
 
-        scope.addToMasonry = function(elm) {
+        scope.addToMasonry = function(elm,index) {
 
+            scope.userMessage = "Adding "+(index) +" of "+scope.getListLength();
             imagesLoaded(elm[0], function(){
                 jQuery.when(scope.masonry.appended(elm[0])).done(function(event) {
+                    scope.userMessage = "Adding "+(index) +" of "+scope.getListLength();
+                    scope.userMessage = "Waiting images/iframes ";
                     imagesLoaded(document.querySelector('body'), function(){
                         $(elm[0]).css('opacity','1');
                     });
+                    scope.userMessage = "Waiting images/iframes "+scope.getListLength()+", "+scope.masonry.getItemElements().length;
                     if (scope.getListLength() == scope.masonry.getItemElements().length) {
+                        scope.userMessage = "Last loaded! Finishing...";
                         scope.masonry.layout();
                         imagesLoaded(document.querySelector('body'), function(){
-                            console.log("last loaded");
+                            scope.userMessage = "";                            
                             scope.enableMasonry();
                             scope.masonry.reloadItems();
                             scope.masonry.layout();
@@ -144,7 +149,7 @@ function ($timeout) {
                     }
                 });
             });
-        }       
+        }
 
         scope.reinitMasonry = function() {
 
@@ -160,6 +165,7 @@ function ($timeout) {
                 items.push(scope.masonry.items[x].element);
             }
             for (var x in items) {
+                scope.userMessage = "Deleting "+x+" of "+items.length;
                 scope.removeFromMasonry(items[x]);
             }                
         }
@@ -182,7 +188,13 @@ function ($timeout) {
         $(element[0]).css('opacity','0');
 
         element.ready(function(){
-            scope.$parent.addToMasonry(element);
+            if (scope.$last === true) {
+                scope.userMessage = "Adding last...";
+            } else {
+                scope.userMessage = "Adding "+(scope.$index + 1)+" of "+scope.$parent.getListLength();
+            }
+
+            scope.$parent.addToMasonry(element,scope.$index+1);
         });
     }
 }]);
@@ -193,6 +205,29 @@ function () {
         scope.getOffsetTop = function() {
             return element[0].offsetTop;
         };
+    }
+}]);
+
+
+ayTemaDs.directive('user_message', [
+function() {
+    return {
+        restrict: "C",
+        replace: true,
+        compile: function(tElem, tAttrs) {
+            return function(scope,element,attrs) {
+                scope.getMessagePosition = function() {
+                    console.log(element[0]);
+                    return  {
+                        top:element[0].offsetTop,
+                        height:element[0].clientHeight,
+                        width:element[0].clientWidth,
+                        left:element[0].clientLeft
+                    }
+                };
+                scope.getPosition();
+            }
+        }        
     }
 }]);
 
@@ -255,6 +290,8 @@ function ($timeout) {
                         $(element[0]).addClass('content_shadow');
                         $(".overlay_content").css('z-index',99);
                         $(".overlay_content").css('opacity',0.9);
+                        scope.$parent.showOverlay = true;
+                        scope.$parent.indexOverlay = scope.$index;
                         },1500);
                 },
                 function(e){
@@ -264,6 +301,8 @@ function ($timeout) {
                     $(".overlay_content").css('opacity',0);
                     $timeout.cancel(scope.timeoutShadow);
                     $(element[0]).css('transition','');
+                    scope.$parent.showOverlay = false;
+                    scope.$parent.indexOverlay = scope.$index;
                 }
             );
 

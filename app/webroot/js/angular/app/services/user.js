@@ -11,12 +11,6 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 	var loadAccounts = function() {
 
-		if (loading) {
-			return;
-		}
-
-		loading = true;		
-
 		var deferred = $q.defer();
 
 		var params = {user_id:user.id,status:'Allowed'};
@@ -34,12 +28,9 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    $http({method: 'GET', url: url,data:params}).
 	    success(function(data, status, headers, config) {
 	    	accounts= data.socialnets;
-	    	loading	= false;
-	    	deferred.resolve();
 	    }).
 	    error(function(data, status, headers, config) {
 	    	console.log('error');
-
 	    	deferred.resolve();	    	
 	    });
 

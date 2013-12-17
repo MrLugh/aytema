@@ -3,6 +3,11 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.contentSv = contentSv;
 	$scope.user = userSv.getUser();
 
+	$scope.userMessage	= '';
+
+	$scope.showOverlay = false;
+	$scope.indexOverlay = true;
+
 	$scope.masonry = {};
 	$scope.masonryLoading = false;
 
@@ -78,7 +83,12 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		return filters;
 	}
 
+	$scope.showMessage = function(message) {
+		$scope.userMessage = message;
+	}
+
 	$scope.clearList = function() {
+		$scope.showMessage('Deleting...');
 		$scope.list = [];
 	}
 
@@ -90,6 +100,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 				$scope.list = [];
 				return;
 			}
+
+			$scope.showMessage('Getting content...');
 
 			var params			= [];
 			params['concepts']	= JSON.parse(JSON.stringify(filters.concepts));
@@ -125,6 +137,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 							$scope.currentContent	= false;
 						}
 						*/
+					} else {
+						$scope.showMessage('There is no content :(');
 					}
 				},
 				function(reason) {
@@ -150,7 +164,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		if (!contentSv.isLoading()) {
+		if (!contentSv.isLoading() && !$scope.masonryLoading) {
 			$scope.setList();
 		}
 	}
@@ -196,9 +210,11 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			return;
 		}
 
+		/*
 		if (!$scope.masonryLoading) {
 			return;
-		}		
+		}
+		*/
 
 		$scope.offset 	= 0;
 		$scope.current = page;
@@ -476,8 +492,9 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.getContentStyle = function(content) {
+
 		var style = $scope.contentStyle();
-		if (!contentSv.isContentEnabled(content)) {
+		if (angular.isDefined(content) && !contentSv.isContentEnabled(content)) {
 			style['opacity'] = '0.3';	
 		}
 		return style;
@@ -581,8 +598,12 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.$watch("current",function(current){
 		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.reinitMasonry();	
+			$scope.reinitMasonry();
 		}
+	});
+
+	$scope.$watch("userMessage",function(current){
+		$scope.getUserMessageStyle();	
 	});
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
@@ -594,6 +615,20 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
     $scope.adminTheme = function() {
     	$scope.showConfig = !$scope.showConfig;
     };
+
+    $scope.getUserMessageStyle = function() {
+    	//var style = $scope.getMessagePosition();
+    	//console.log(style);
+    	var style = {'top':'75%','left':'75%'};
+	   	if ($scope.userMessage.length > 0 ) {
+	   		style['z-index'] = '99';
+	   		style['opacity'] = '1';
+	   		return style;	   		
+    	}
+   		style['z-index'] = '1';
+   		style['opacity'] = '0';
+	   	return style;
+    }
 
     $scope.getConfigStyle = function() {
 	   	if ($scope.showConfig == true) {

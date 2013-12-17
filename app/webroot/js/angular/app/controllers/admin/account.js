@@ -47,39 +47,34 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.setList = function() {
 
-		if (!contentSv.isLoading()) {
+		var params			= [];
+		params['concepts']	= JSON.parse(JSON.stringify($scope.filters.concepts));
+		params['offset']	= $scope.offset;
+		params['limit']		= $scope.limit;
+		params['accounts'] = [$scope.account.id];
 
-			var params			= [];
-			params['concepts']	= JSON.parse(JSON.stringify($scope.filters.concepts));
-			params['offset']	= $scope.offset;
-			params['limit']		= $scope.limit;
-			params['accounts'] = [$scope.account.id];
+		contentSv.getContentsByFilters(params).then(
+			function(data) {
+				var contents = data.contents;
 
-			contentSv.getContentsByFilters(params).then(
-				function(data) {
-					var contents = data.contents;
+				if (contents.length) {
+					for (var x in contents) {
 
-					if (contents.length) {
-						for (var x in contents) {
-
-							content = contents[x].Content;
-							if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
-								$scope.list.push(content);
-							}
+						content = contents[x].Content;
+						if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
+							$scope.list.push(content);
 						}
-						$scope.offset += $scope.limit;
 					}
-				},
-				function(reason) {
-					console.log('Failed: ', reason);
-				},
-				function(update) {
-					console.log('Got notification: ', update);
+					$scope.offset += $scope.limit;
 				}
-			);
-
-		}
-
+			},
+			function(reason) {
+				console.log('Failed: ', reason);
+			},
+			function(update) {
+				console.log('Got notification: ', update);
+			}
+		);
 	}
 
 	$scope.filter = function(concept) {
@@ -107,9 +102,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		if (!contentSv.isLoading()) {
-			$scope.setList();
-		}
+		$scope.setList();
 	}
 
 	$scope.filterStyle = function(concept) {

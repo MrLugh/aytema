@@ -524,3 +524,9 @@ p a {
 .content_shadow {
   box-shadow: 0 3px 5px #444444;
 }
+
+.user_message {
+  position: absolute;
+  transition:all 0.66s ease 0s;
+}
+
