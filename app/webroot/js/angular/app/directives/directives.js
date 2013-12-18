@@ -120,7 +120,7 @@ function ($timeout) {
                 jQuery.when(scope.masonry.appended(elm[0])).done(function(event) {
                     scope.userMessage = "Adding "+(index) +" of "+scope.getListLength();
                     imagesLoaded(document.querySelector('body'), function(){
-                        //$(elm[0]).css('opacity','1');
+                        $(elm[0]).css('opacity','1');
                     });
                     scope.userMessage = "Waiting images/iframes "+scope.getListLength()+", "+scope.masonry.getItemElements().length;
                     if (scope.getListLength() == scope.masonry.getItemElements().length) {
@@ -129,7 +129,7 @@ function ($timeout) {
                         scope.masonry.layout();
                         imagesLoaded(document.querySelector('body'), function(){
                             scope.userMessage = "";                          
-                            //scope.masonry.layout();
+                            scope.masonry.layout();
                         });
                     }
                 });
