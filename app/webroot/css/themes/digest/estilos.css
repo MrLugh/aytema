@@ -210,7 +210,7 @@ p a {
   display: block;
   height: 300px !important;
   margin: 0 auto;
-  overflow: auto;
+  overflow-y: auto;
   text-align: center;
   width: 88%;
 }
@@ -301,7 +301,8 @@ p a {
   height: 37px!important;
   float: left;
 }
-/* Masonry */
+
+/* Masonry 
 .masonry,
 .masonry .content {
   -webkit-transition-duration: 0.7s;
