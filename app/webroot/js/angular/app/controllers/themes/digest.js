@@ -223,9 +223,11 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.movePage = function(direction) {
 
+		/*
 		if (!$scope.masonryLoading) {
 			return;
 		}
+		*/
 
 		var indexCurrent = $scope.pages.indexOf($scope.current);
 
@@ -510,9 +512,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}	
 
 	$scope.enableMasonry = function() {
-		if (!$scope.masonryLoading) {
-			$scope.masonryLoading = true;	
-		}		
+		$scope.masonryLoading = false;
 	}
 
 	$scope.userSv = userSv;
@@ -596,7 +596,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}
 	},true);
 
-	$scope.$watch("current",function(current){
+	$scope.$watch("current",function(current,oldCurrent){
 		if ($scope.configLoaded && $scope.accountsLoaded) {
 			$scope.reinitMasonry();
 		}

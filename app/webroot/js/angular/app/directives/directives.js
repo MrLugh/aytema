@@ -129,8 +129,6 @@ function ($timeout) {
                         scope.masonry.layout();
                         imagesLoaded(document.querySelector('body'), function(){
                             scope.userMessage = "";                            
-                            scope.enableMasonry();
-                            scope.masonry.reloadItems();
                             scope.masonry.layout();
                         });
                     }
@@ -158,6 +156,7 @@ function ($timeout) {
                 scope.setList();
                 return;
             }
+            scope.masonryLoading = true;
             scope.clearList();
 
             var items = [];
@@ -171,11 +170,22 @@ function ($timeout) {
         }
 
         scope.$on("FB.render", function(event){
-            scope.masonry.reloadItems();
+            scope.masonry.layout();
+        });
+
+        scope.$on("TW.render", function(event){
             scope.masonry.layout();
         });        
 
         scope.createMasonry();
+
+        scope.layout = function() {
+            if (!scope.masonryLoading) {
+                scope.masonry.layout();
+            }
+        }
+
+        setInterval(function(){scope.layout();},3000);
     }
 }]);
 
@@ -189,6 +199,7 @@ function ($timeout) {
 
         element.ready(function(){
             if (scope.$last === true) {
+                scope.$parent.enableMasonry();
                 scope.userMessage = "Adding last...";
             } else {
                 scope.userMessage = "Adding "+(scope.$index + 1)+" of "+scope.$parent.getListLength();
@@ -217,7 +228,6 @@ function() {
         compile: function(tElem, tAttrs) {
             return function(scope,element,attrs) {
                 scope.getMessagePosition = function() {
-                    console.log(element[0]);
                     return  {
                         top:element[0].offsetTop,
                         height:element[0].clientHeight,

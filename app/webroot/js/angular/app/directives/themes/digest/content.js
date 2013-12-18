@@ -105,6 +105,38 @@ function($FB,$timeout){
                     },0);
                 });
             }
+
+            if (scope.isFromNetwork('twitter')) {
+
+                if (!window.twttr) {
+                    window.twttr = (function (d,s,id) {
+                      var t, js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+                      js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+                      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+                    }(document, "script", "twitter-wjs"));
+                }
+
+                twttr.ready(function(){
+
+                    /*
+                    twttr.events.bind('rendered', function (twElement) {
+                        scope.$emit("TW.render");
+                    });
+                    */
+
+                    twttr.widgets.createTweet(
+                        scope.content.external_id,
+                        element[0],
+                        function (el) {
+                            scope.$emit("TW.render");
+                        },
+                        {}
+                    );
+
+                });
+                
+            }
         } 
     }
 
