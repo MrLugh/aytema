@@ -4,8 +4,24 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Digest Theme</title>
+    <!--
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    -->
+    <script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Playfair+Display:400,400italic,700,700italic:latin', 'Open+Sans:400,400italic,700,700italic:latin', 'Josefin+Sans:400,400italic,700,700italic:latin', 'Asap:400,400italic,700,700italic:latin', 'Ubuntu:400,400italic,700,700italic:latin', 'Raleway:400,700:latin', 'Lora:400,400italic,700,700italic:latin', 'Montserrat:400,700:latin', 'Arvo:400,400italic,700,700italic:latin', 'Junge::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
 
     <!-- Css -->
     <?php
@@ -71,6 +87,7 @@
     echo $this->Html->script('angular/app/controllers/admin/pagefilter');
     echo $this->Html->script('angular/app/controllers/admin/contentsize');
     echo $this->Html->script('angular/app/controllers/admin/colors');
+    echo $this->Html->script('angular/app/controllers/admin/fonts');
     echo $this->Html->script('angular/app/controllers/themes');
 
         // Themes
@@ -93,6 +110,7 @@
     echo $this->Html->script('angular/app/directives/admin/pagefilter');
     echo $this->Html->script('angular/app/directives/admin/contentsize');
     echo $this->Html->script('angular/app/directives/admin/colors');
+    echo $this->Html->script('angular/app/directives/admin/fonts');
 
         // Themes
         echo $this->Html->script('angular/app/directives/themes/digest/content');

@@ -509,6 +509,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 		var element = angular.element(document.querySelector('.overlay_content'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);		
+	}
+
+	$scope.setFont = function() {
+
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('font-family',$scope.config.custom.fonts.selected.family);
+		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
 	}	
 
 	$scope.enableMasonry = function() {
@@ -560,6 +567,17 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			$scope.setBackgroundColor();
 		}		
 	},true);
+
+	$scope.$watch("userSv.getThemeConfig().custom.fonts",function(fonts){
+		if (angular.isDefined(fonts)) {
+			$scope.config.custom.fonts = fonts;
+
+			//SAVE CONFIG!
+			//userSv.setThemeConfigFonts($scope.config.custom.fonts);
+			
+			$scope.setFont();
+		}		
+	},true);	
 
 	$scope.$watch("userSv.getThemeConfig().custom.contentsizes",function(sizes){
 		if (angular.isDefined(sizes)) {

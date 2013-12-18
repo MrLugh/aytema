@@ -1,5 +1,7 @@
 <?php
 
+App::import('model','YoutubeSocialnet');
+
 Class Theme extends AppModel {
 
     static $config = array(
@@ -65,6 +67,24 @@ Class Theme extends AppModel {
                 'label' => 'Content text',
             ),
         ),
+        'fonts' => array(
+            'selected' => array(
+                'family'=> "'Playfair Display', serif",
+                'size'  => '13px',
+            ),
+            'list' => array(
+                'Playfair Display' => "'Playfair Display', serif",
+                'Open Sans' => "'Open Sans', sans-serif",
+                'Josefin Sans' => "'Josefin Sans', sans-serif",
+                'Asap' => "'Asap', sans-serif",
+                'Ubuntu' => "'Ubuntu', sans-serif",
+                'Raleway' => "'Raleway', sans-serif",
+                'Lora' => "'Lora', serif",
+                'Montserrat' => "'Montserrat', sans-serif",
+                'Arvo' => "'Arvo', serif",
+                'Junge' => "'Junge', serif"
+            ),
+        )
     );
 
 	public function getThemeConfig($theme,$user_id) {

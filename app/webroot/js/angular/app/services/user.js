@@ -114,8 +114,12 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 	var setThemeConfigColors = function(config) {
 		themeConfig.custom.colors = config;
-	}	
+	}
 
+
+	var setThemeConfigFonts = function(fonts) {
+		themeConfig.custom.fonts = fonts;
+	}
 	return {
 
 		isLogged: function() {
@@ -163,7 +167,8 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		getThemeConfig:getThemeConfig,
 		setThemeConfigFilters:setThemeConfigFilters,
 		setThemeConfigContentsizes:setThemeConfigContentsizes,
-		setThemeConfigColors:setThemeConfigColors
+		setThemeConfigColors:setThemeConfigColors,
+		setThemeConfigFonts:setThemeConfigFonts
 	}
 
 }]);

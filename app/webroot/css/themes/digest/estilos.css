@@ -16,6 +16,7 @@ body {
     scrollbar-darkshadow-color: #2D2C4D;  
     scrollbar-track-color: #7D7E94;  
     scrollbar-arrow-color: #C1C1D1;
+    outline: none;    
 }
 
 *::-webkit-scrollbar {

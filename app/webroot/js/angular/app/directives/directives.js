@@ -160,6 +160,13 @@ function ($timeout) {
             scope.clearList();
 
             var items = [];
+
+            if (items.length == 0) {
+                scope.masonryLoading = false;
+                scope.setList();
+                return;
+            }
+
             for (var x in scope.masonry.items) {
                 items.push(scope.masonry.items[x].element);
             }
