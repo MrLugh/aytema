@@ -119,17 +119,17 @@ function ($timeout) {
             imagesLoaded(elm[0], function(){
                 jQuery.when(scope.masonry.appended(elm[0])).done(function(event) {
                     scope.userMessage = "Adding "+(index) +" of "+scope.getListLength();
-                    scope.userMessage = "Waiting images/iframes ";
                     imagesLoaded(document.querySelector('body'), function(){
-                        $(elm[0]).css('opacity','1');
+                        //$(elm[0]).css('opacity','1');
                     });
                     scope.userMessage = "Waiting images/iframes "+scope.getListLength()+", "+scope.masonry.getItemElements().length;
                     if (scope.getListLength() == scope.masonry.getItemElements().length) {
                         scope.userMessage = "Last loaded! Finishing...";
+                        scope.enableMasonry();
                         scope.masonry.layout();
                         imagesLoaded(document.querySelector('body'), function(){
-                            scope.userMessage = "";                            
-                            scope.masonry.layout();
+                            scope.userMessage = "";                          
+                            //scope.masonry.layout();
                         });
                     }
                 });
@@ -182,6 +182,7 @@ function ($timeout) {
         scope.layout = function() {
             if (!scope.masonryLoading) {
                 scope.masonry.layout();
+                scope.userMessage = "";
             }
         }
 

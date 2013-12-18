@@ -221,9 +221,7 @@ p a {
   height: auto;
   margin: 0 0 20px;
   display: block;  
-  overflow: hidden;
   padding: 10px;
-  opacity: 1;
 }
 
 .content .stats {
