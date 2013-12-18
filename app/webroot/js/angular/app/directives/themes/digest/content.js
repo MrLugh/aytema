@@ -106,6 +106,7 @@ function($FB,$timeout){
                 });
             }
 
+            /*
             if (scope.isFromNetwork('twitter')) {
 
                 if (!window.twttr) {
@@ -119,11 +120,9 @@ function($FB,$timeout){
 
                 twttr.ready(function(){
 
-                    /*
                     twttr.events.bind('rendered', function (twElement) {
                         scope.$emit("TW.render");
                     });
-                    */
 
                     twttr.widgets.createTweet(
                         scope.content.external_id,
@@ -137,6 +136,7 @@ function($FB,$timeout){
                 });
                 
             }
+            */
         } 
     }
 

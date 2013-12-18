@@ -2,11 +2,9 @@
 	<div ng-if="isFromNetwork('facebook')">
 		<div class="fb-post" data-href="{{href}}"></div>
 	</div>
-	<!--
 	<div ng-if="isFromNetwork('twitter')">
 		<div ng-bind-html="getEmbed()"></div>
 	</div>
-	-->
 	<div ng-if="!isFromNetwork('facebook') && !isFromNetwork('twitter')">
 		<h2>{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>
