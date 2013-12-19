@@ -170,7 +170,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.getStyle = function() {
-		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() + 'px'};
+		/*
+		console.log("$scope.getStyle");
+		console.log(appSv.getHeight());
+		console.log($scope.menuHeight);
+		console.log('min-height',appSv.getHeight() - $scope.menuHeight + 'px');
+		*/
+		return {'min-height':appSv.getHeight() - $scope.menuHeight + 'px'};
 	}
 
 	$scope.getMenuItemClass = function(page) {

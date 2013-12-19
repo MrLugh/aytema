@@ -198,6 +198,10 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		return contentSv.getConceptIcon(concept);
 	}
 
+	$scope.enableMasonry = function() {
+		$scope.masonryLoading = false;
+	}
+
 	$scope.generateConceptsList();
 	$scope.initFilters();
 	$scope.setList();

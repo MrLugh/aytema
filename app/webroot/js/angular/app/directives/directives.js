@@ -7,6 +7,7 @@ function ($window) {
             scope.$apply(function () {
                 scope.winW = $window.innerWidth;
                 scope.winH = $window.innerHeight;
+                scope.$emit("W.resize");
             });
         };
         var destroy = function(){
@@ -218,6 +219,43 @@ function ($timeout) {
     }
 }]);
 
+ayTemaDs.directive('getMenuHeight',[
+function () {
+    return function(scope,element,attrs) {
+
+        scope.getMenuHeight = function() {
+            return element.height();
+        };
+        scope.initMenuHeight= scope.getMenuHeight();
+        scope.menuHeight    = scope.getMenuHeight();
+
+        scope.$watch('getMenuHeight()', function(newValue, oldValue, scope) {
+            scope.menuHeight = scope.getMenuHeight();            
+        });
+
+        $(document).on('shown.bs.collapse',function(elm){
+            scope.$apply(function(){
+                scope.menuHeight = scope.getMenuHeight();
+            });
+        });
+
+        $(document).on('hidden.bs.collapse',function(elm){
+            scope.$apply(function(){
+                scope.menuHeight = scope.getMenuHeight();
+            });
+        });
+
+        $(document).on('show.bs.collapse',function(elm){
+            console.log("show ",scope.getMenuHeight());
+        });
+
+        $(document).on('hide.bs.collapse',function(elm){
+            console.log("hide ",scope.getMenuHeight());
+        });
+
+    }
+}]);
+
 ayTemaDs.directive('getOffsetTop',[
 function () {
     return function(scope,element,attrs) {
@@ -226,7 +264,6 @@ function () {
         };
     }
 }]);
-
 
 ayTemaDs.directive('user_message', [
 function() {

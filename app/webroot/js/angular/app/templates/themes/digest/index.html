@@ -15,124 +15,7 @@
 
 </div>
 
-<div ng-if="showingContent" class="modalContent" ng-style="getModalBackgroundStyle()">
-
-	<span ng-click="closeContent()">Close</span>
-
-	<div class="content_detalle" ng-style="getStyle()">
-
-		<div class="left-column">
-
-			<div class="section content well" ng-repeat="content in contentModal" ng-switch="content.concept" ng-style="getContentStyle(content)" style="padding:10px;text-align:center;margin:0 auto;">
-
-				<div ng-if="isLogged()">{{content.status}}</div>
-
-				<content-detail-video ng-switch-when='video'></content-detail-video>
-				<content-detail-photo ng-switch-when='photo'></content-detail-photo>
-				<content-detail-track ng-switch-when='track'></content-detail-track>
-				<content-detail-post  ng-switch-when='post' ></content-detail-post>
-				<content-detail-quote ng-switch-when='quote'></content-detail-quote>
-				<content-detail-chat  ng-switch-when='chat' ></content-detail-chat>
-			</div>
-		</div>
-
-		<div class="right-column well" ng-style="getContentStyle(content)">
-
-			<span class="user_info">
-				<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">
-					<img class="profile" ng-src="{{getProfileImg()}}" alt="Go to profile">
-				</a>
-				<div>
-					<h3> {{getCurrentProperty('external_user_name')}}</h3>
-					<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">
-						<img alt="" ng-src="img/themes/digest/{{getCurrentProperty('network')}}.png">
-						<p> / {{getCurrentProperty('external_user_name')}}</p>
-					</a>
-				</div>
-			</span>
-
-
-			<div class="more_user_info">
-				<h3>More about {{getCurrentProperty('external_user_name')}}</h3>
-
-				<div class="wrapper">
-					<div class="list_carousel" ng-if="relateds.length">
-						<a id="prev2" class="prev" href="#/"><img alt="" src="img/themes/digest/arrow-left.png"></a>
-						<a id="next2" class="next" href="#/"><img alt="" src="img/themes/digest/arrow-right.png"></a>
-						<ul id="foo2">
-							<li ng-repeat="related in relateds" caroufredsel="{'selector':'#foo2', 'auto':false,'prev':'#prev2','next':'#next2','pagination':'#pager2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-								<a href="#/" ng-click="showRelated($index)" skip-default >
-									<i ng-hide="getRelatedThumbnail($index).length" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
-									<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">
-								</a>
-							</li>
-						</ul>
-						<div class="clearfix"></div>
-					<!--<div id="pager2" class="pager"></div>-->
-					</div>
-				</div>
-				<div ng-if="!relateds.length">There are not related contents</div>
-			</div>
-
-			<div class="share">
-	 		 	 <h3>Compartir</h3>
-	              <ul class="list-unstyled pull-left">
-	                <li><a href="#"><img src="img/themes/digest/twitter.png" alt="Twitter"></a></li>
-	                <li><a href="#about"><img src="img/themes/digest/facebook.png" alt="Facebook"></a></li>
-	                <li><a href="#contact"><img src="img/themes/digest/tumblr.png" alt="Tumblr"></a></li>
-	                <li><a href="#contact"><img src="img/themes/digest/rss.png" alt="rss"></a></li>
-	              </ul>
-		    </div>
-
-		    <div class="big_pin_box">
-	            <div class="pin-sub-header">
-	                <div class="navbar-inner">
-	                    <a href="#" id="toggleComments">
-	                        <p class="pull-left">Comments (0) - Be the first to comment!</p>
-	                        <span class="pull-right">Show/hide Comments</span>
-	                    </a>
-	                    <div class="clearfix"></div>
-	                </div>
-	            </div>
-	            <div class="comments" style="display:none;">
-	                <div id="alert-nocomments">There are no comments on this pin yet, be the first one to say something about it.</div>
-	                <form method="post" action="/comment/post?pinId=9702369" class="comment">
-	                    <div class="picture">
-	                        <img width="60" height="60" src="img/default_profile_thumb.png">
-	                    </div>
-	                    <div class="text">
-	                        <textarea>Write a Comment</textarea>
-	                    </div>
-	                    <div class="clearfix"></div>
-	                </form>
-	            </div>
-			</div>
-
-		</div>
-
-	</div>
-
-	<a href="#/" ng-click="move(-1)" title="{{getNavigatorTitle(-1)}}" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)">
-		<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
-		<div class="more-user" ng-show="getNavigatorThumbnail(-1).length">
-			<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
-		</div>
-		<img class="arrow" src="img/themes/digest/arrow-left.png" alt="">
-		<img class="social-media" ng-src="img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
-	</a>
-
-	<a href="#/" ng-click="move(1)" title="{{getNavigatorTitle(1)}}" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)">
-		<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
-		<div class="more-user" ng-show="getNavigatorThumbnail(1).length">
-			<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
-		</div>
-		<img class="arrow" src="img/themes/digest/arrow-right.png" alt="">
-		<img class="social-media" ng-src="img/themes/digest/{{getNavigatorNetwork(1)}}-big.png" alt="">
-	</a>
-
-</div>
-
-<div class="navbar navbar-default both">
+<div class="navbar navbar-default both" get-menu-height>
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -154,55 +37,176 @@
 	</div>
 </div>
 
-<ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':5,'isAnimated':false,'itemSelector':'.content'}" class="masonry" get-offset-top>
+<div style="position:relative;">
 
-	<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow ng-style="getContentStyle(content)">
+	<div ng-if="showingContent" class="modalContent" ng-style="getModalBackgroundStyle()">
 
-		<div ng-if="isLogged()" class="left">{{content.status}}</div>
-		<i ng-if="isLogged()" ng-click="delete($index)" class="icon-trash right"></i>
+		<div class="content_detalle" ng-style="getStyle()">
 
-		<div class="stats both">
-			<ul>
-				<li ng-repeat="(key,stat) in content.stats" title="{{key}}:{{stat}}">
-					<div ng-if="canShowStat(stat)" >
-						<i ng-class="statIcon(key)"></i> {{stat}}
+			<div class="left-column">
+
+				<div class="section content well" ng-repeat="content in contentModal" ng-switch="content.concept" ng-style="getContentStyle(content)" style="padding:10px;text-align:center;margin:0 auto;">
+
+					<div ng-if="isLogged()">{{content.status}}</div>
+
+					<content-detail-video ng-switch-when='video'></content-detail-video>
+					<content-detail-photo ng-switch-when='photo'></content-detail-photo>
+					<content-detail-track ng-switch-when='track'></content-detail-track>
+					<content-detail-post  ng-switch-when='post' ></content-detail-post>
+					<content-detail-quote ng-switch-when='quote'></content-detail-quote>
+					<content-detail-chat  ng-switch-when='chat' ></content-detail-chat>
+				</div>
+			</div>
+
+			<div class="right-column well" ng-style="getContentStyle(content)">
+
+				<span ng-click="closeContent()">Close</span>
+
+				<span class="user_info">
+					<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">
+						<img class="profile" ng-src="{{getProfileImg()}}" alt="Go to profile">
+					</a>
+					<div>
+						<h3> {{getCurrentProperty('external_user_name')}}</h3>
+						<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">
+							<img alt="" ng-src="img/themes/digest/{{getCurrentProperty('network')}}.png">
+							<p> / {{getCurrentProperty('external_user_name')}}</p>
+						</a>
 					</div>
-				</li>
-			</ul>
+				</span>
+
+
+				<div class="more_user_info">
+					<h3>More about {{getCurrentProperty('external_user_name')}}</h3>
+
+					<div class="wrapper">
+						<div class="list_carousel" ng-if="relateds.length">
+							<a id="prev2" class="prev" href="#/"><img alt="" src="img/themes/digest/arrow-left.png"></a>
+							<a id="next2" class="next" href="#/"><img alt="" src="img/themes/digest/arrow-right.png"></a>
+							<ul id="foo2">
+								<li ng-repeat="related in relateds" caroufredsel="{'selector':'#foo2', 'auto':false,'prev':'#prev2','next':'#next2','pagination':'#pager2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+									<a href="#/" ng-click="showRelated($index)" skip-default >
+										<i ng-hide="getRelatedThumbnail($index).length" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
+										<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">
+									</a>
+								</li>
+							</ul>
+							<div class="clearfix"></div>
+						<!--<div id="pager2" class="pager"></div>-->
+						</div>
+					</div>
+					<div ng-if="!relateds.length">There are not related contents</div>
+				</div>
+
+				<div class="share">
+		 		 	 <h3>Compartir</h3>
+		              <ul class="list-unstyled pull-left">
+		                <li><a href="#"><img src="img/themes/digest/twitter.png" alt="Twitter"></a></li>
+		                <li><a href="#about"><img src="img/themes/digest/facebook.png" alt="Facebook"></a></li>
+		                <li><a href="#contact"><img src="img/themes/digest/tumblr.png" alt="Tumblr"></a></li>
+		                <li><a href="#contact"><img src="img/themes/digest/rss.png" alt="rss"></a></li>
+		              </ul>
+			    </div>
+
+			    <div class="big_pin_box">
+		            <div class="pin-sub-header">
+		                <div class="navbar-inner">
+		                    <a href="#" id="toggleComments">
+		                        <p class="pull-left">Comments (0) - Be the first to comment!</p>
+		                        <span class="pull-right">Show/hide Comments</span>
+		                    </a>
+		                    <div class="clearfix"></div>
+		                </div>
+		            </div>
+		            <div class="comments" style="display:none;">
+		                <div id="alert-nocomments">There are no comments on this pin yet, be the first one to say something about it.</div>
+		                <form method="post" action="/comment/post?pinId=9702369" class="comment">
+		                    <div class="picture">
+		                        <img width="60" height="60" src="img/default_profile_thumb.png">
+		                    </div>
+		                    <div class="text">
+		                        <textarea>Write a Comment</textarea>
+		                    </div>
+		                    <div class="clearfix"></div>
+		                </form>
+		            </div>
+				</div>
+
+			</div>
+
 		</div>
 
-		<div class="both">
+		<a href="#/" ng-click="move(-1)" title="{{getNavigatorTitle(-1)}}" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)">
+			<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
+			<div class="more-user" ng-show="getNavigatorThumbnail(-1).length">
+				<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
+			</div>
+			<img class="arrow" src="img/themes/digest/arrow-left.png" alt="">
+			<img class="social-media" ng-src="img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
+		</a>
 
-		    <content-video ng-switch-when='video'></content-video>
-		    <content-photo ng-switch-when='photo'></content-photo>
-		    <content-track ng-switch-when='track'></content-track>
-		    <content-post  ng-switch-when='post' ></content-post>
-		    <content-quote ng-switch-when='quote'></content-quote>
-		    <content-chat  ng-switch-when='chat' ></content-chat>
+		<a href="#/" ng-click="move(1)" title="{{getNavigatorTitle(1)}}" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)">
+			<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
+			<div class="more-user" ng-show="getNavigatorThumbnail(1).length">
+				<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
+			</div>
+			<img class="arrow" src="img/themes/digest/arrow-right.png" alt="">
+			<img class="social-media" ng-src="img/themes/digest/{{getNavigatorNetwork(1)}}-big.png" alt="">
+		</a>
 
-			<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon"><p> / {{content.external_user_name}}</p></a></span>
+	</div>
 
-		</div>
+	<div class="arrows arrows_home arrow_left">
+	 	<a href="#/" skip-default ng-click="movePage(-1)" title="{{getPageArrowTitle(-1)}}">
+	 		<img class="arrow" src="img/themes/digest/arrow-left.png" alt="Previous page">
+	 	</a>
+	 </div>
 
-		<strong ng-click="showContent($index)">View</strong>
+	<ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':5,'isAnimated':false,'itemSelector':'.content'}" class="masonry">
 
-	</li>
+		<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow ng-style="getContentStyle(content)">
 
-</ul>
+			<div ng-if="isLogged()" class="left">{{content.status}}</div>
+			<i ng-if="isLogged()" ng-click="delete($index)" class="icon-trash right"></i>
 
-<div class="arrows arrows_home arrow_left">
- 	<a href="#/" skip-default ng-click="movePage(-1)" title="{{getPageArrowTitle(-1)}}">
- 		<img class="arrow" src="img/themes/digest/arrow-left.png" alt="Previous page">
- 	</a>
- </div>
+			<div class="stats both">
+				<ul>
+					<li ng-repeat="(key,stat) in content.stats" title="{{key}}:{{stat}}">
+						<div ng-if="canShowStat(stat)" >
+							<i ng-class="statIcon(key)"></i> {{stat}}
+						</div>
+					</li>
+				</ul>
+			</div>
 
-<div class="arrows arrows_home arrow_right">
-	<a href="#/" skip-default ng-click="movePage(1)" title="{{getPageArrowTitle(1)}}">
-		<img class="arrow" src="img/themes/digest/arrow-right.png" alt="Next page">
-	</a>
-</div>
+			<div class="both">
 
-<div class="both well user_message" ng-style="getUserMessageStyle()">
-	<img alt="loading" class="loading" ng-src="img/themes/digest/ajax-loader.gif">
-	<span class="text_message">{{userMessage}}</span>	
+			    <content-video ng-switch-when='video'></content-video>
+			    <content-photo ng-switch-when='photo'></content-photo>
+			    <content-track ng-switch-when='track'></content-track>
+			    <content-post  ng-switch-when='post' ></content-post>
+			    <content-quote ng-switch-when='quote'></content-quote>
+			    <content-chat  ng-switch-when='chat' ></content-chat>
+
+				<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon"><p> / {{content.external_user_name}}</p></a></span>
+
+			</div>
+
+			<strong ng-click="showContent($index)">View</strong>
+
+		</li>
+
+	</ul>
+
+	<div class="arrows arrows_home arrow_right">
+		<a href="#/" skip-default ng-click="movePage(1)" title="{{getPageArrowTitle(1)}}">
+			<img class="arrow" src="img/themes/digest/arrow-right.png" alt="Next page">
+		</a>
+	</div>
+
+	<div class="both well user_message" ng-style="getUserMessageStyle()">
+		<img alt="loading" class="loading" ng-src="img/themes/digest/ajax-loader.gif">
+		<span class="text_message">{{userMessage}}</span>	
+	</div>
+
 </div>

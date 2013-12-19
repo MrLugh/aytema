@@ -217,8 +217,7 @@ ul {
 
 /* Masonry */
 
-.masonry,
-.masonry .adminAccount {
+.masonry {
   -webkit-transition-duration: 0.7s;
    -moz-transition-duration: 0.7s;
     -ms-transition-duration: 0.7s;
@@ -232,14 +231,6 @@ ul {
     -ms-transition-property: height, width;
      -o-transition-property: height, width;
       transition-property: height, width;
-}
-
-.masonry .adminAccount {
-  -webkit-transition-property: left, right, top;
-   -moz-transition-property: left, right, top;
-    -ms-transition-property: left, right, top;
-     -o-transition-property: left, right, top;
-      transition-property: left, right, top;
 }
 
 /* Responsive */

@@ -214,6 +214,9 @@ p a {
   overflow-y: auto;
   text-align: center;
   width: 88%;
+  z-index: 1;
+  position: absolute!important;
+  left: 6%;
 }
 
 #container .content {
@@ -432,17 +435,14 @@ p a {
 }
 
 .modalContent {
-  position: absolute;
-  top: 65px;
-  right: 0;
-  bottom: 0;
+  position: relative;
   left: 0;
-  z-index: 1040;
   width: 100%;
   height: 100%;
   overflow: auto;
   background: url("../../../img/themes/digest/bg.png") repeat 0 0 #fff;
   background-color: #F7F7F7;
+  z-index: 2;
 }
 
 
@@ -513,7 +513,7 @@ p a {
 }
 
 .overlay_content {
-  position: absolute;
+  position: relative;
   top: 0;
   left:0;
   opacity: 0;
