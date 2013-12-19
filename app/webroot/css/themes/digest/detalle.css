@@ -115,6 +115,7 @@ border-bottom-left-radius: 60px;
 .left-column {
     float: left;
     width: 50%;
+    margin-right: 10px;
 }
 .right-column {
     float: left;
