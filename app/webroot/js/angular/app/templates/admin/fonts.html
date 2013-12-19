@@ -3,16 +3,16 @@
 	<h4 class="both">fonts</h4>
 
 	<div class="both">
-		<span>Family</span>
+		<span class="left">Family</span>
 		<select 
 			ng-model="config.custom.fonts.selected.family" 
-			ng-options="name for (name,font) in config.custom.fonts.list">
+			ng-options="name for (name,font) in config.custom.fonts.list" class="right">
 		</select>
 	</div>
 
 	<div class="both">
-		<span>Size</span>
-		<input type="text" name="size" ng-model="config.custom.fonts.selected.size" maxlength="5" size="5" />
+		<span class="left">Size</span>
+		<input type="text" name="size" ng-model="config.custom.fonts.selected.size" maxlength="5" size="5" class="right" />
 	</div>
 
 </div>

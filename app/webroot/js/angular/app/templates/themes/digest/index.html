@@ -1,8 +1,6 @@
 <fb app-id='211895592326072'></fb>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<div class="overlay_content"></div>
-
 <div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
 	<a href="#/" class="control" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default>Edit <i class="icon-cogs"></i></a>
 
@@ -37,7 +35,7 @@
 	</div>
 </div>
 
-<div style="position:relative;">
+<div style="position:relative;" ng-style="getStyle()">
 
 	<div ng-if="showingContent" class="modalContent" ng-style="getModalBackgroundStyle()">
 

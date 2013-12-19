@@ -244,15 +244,6 @@ function () {
                 scope.menuHeight = scope.getMenuHeight();
             });
         });
-
-        $(document).on('show.bs.collapse',function(elm){
-            console.log("show ",scope.getMenuHeight());
-        });
-
-        $(document).on('hide.bs.collapse',function(elm){
-            console.log("hide ",scope.getMenuHeight());
-        });
-
     }
 }]);
 
@@ -334,30 +325,26 @@ function($FB) {
 ayTemaDs.directive('hoverShadow',['$timeout',
 function ($timeout) {
     return function (scope, element, attrs) {
-
         element.ready(function(){
 
             $(element).hover(
                 function(e){
                     scope.timeoutShadow = $timeout(function(){
-                        $(element[0]).css('transition','all 0.66s ease 0s');
-                        $(element[0]).css('z-index',100);
                         $(element[0]).addClass('content_shadow');
-                        $(".overlay_content").css('z-index',99);
-                        $(".overlay_content").css('opacity',0.9);
-                        scope.$parent.showOverlay = true;
-                        scope.$parent.indexOverlay = scope.$index;
+                        $(".overlay_content").css('opacity',1);
+                        scope.$parent.$apply(function(){
+                            scope.$parent.showOverlay = true;
+                            scope.$parent.indexOverlay = scope.$index;
+                        });
                         },1500);
                 },
                 function(e){
-                    $(element[0]).css('z-index','');
                     $(element[0]).removeClass('content_shadow');
-                    $(".overlay_content").css('z-index','');
-                    $(".overlay_content").css('opacity',0);
                     $timeout.cancel(scope.timeoutShadow);
-                    $(element[0]).css('transition','');
-                    scope.$parent.showOverlay = false;
-                    scope.$parent.indexOverlay = scope.$index;
+                    scope.$parent.$apply(function(){
+                        scope.$parent.showOverlay = false;
+                        scope.$parent.indexOverlay = -1;
+                    });
                 }
             );
 

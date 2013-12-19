@@ -6,7 +6,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.userMessage	= '';
 
 	$scope.showOverlay = false;
-	$scope.indexOverlay = true;
+	$scope.indexOverlay = -1;
 
 	$scope.masonry = {};
 	$scope.masonryLoading = false;
@@ -502,9 +502,21 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.getContentStyle = function(content) {
 
 		var style = $scope.contentStyle();
-		if (angular.isDefined(content) && !contentSv.isContentEnabled(content)) {
-			style['opacity'] = '0.3';	
+
+		if ($scope.showOverlay == true) {
+			if ($scope.indexOverlay == $scope.list.indexOf(content)) {
+				style['opacity'] = '1';
+				return style;
+			}
+			style['opacity'] = '0.3';
+			return style;
 		}
+
+		if (angular.isDefined(content) && !contentSv.isContentEnabled(content)) {
+			style['opacity'] = '0.3';
+			return style;
+		}
+		style['opacity'] = '1';
 		return style;
 	}
 
@@ -629,6 +641,15 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.$watch("userMessage",function(current){
 		$scope.getUserMessageStyle();	
 	});
+
+	/*
+	$scope.$watch("showOverlay",function(showOverlay){
+		console.log(showOverlay);
+		for (var x in $scope.list) {
+			$scope.getContentStyle($scope.list[x]);
+		}
+	});
+	*/
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);

@@ -3,7 +3,7 @@
 	<h4 class="both">Colors</h4>
 
 	<ul class="both">
-		<li ng-repeat="(color,settings) in config.custom.colors" class="minicolors">
+		<li ng-repeat="(color,settings) in config.custom.colors" class="minicolors both">
 			<div class="left">{{settings.label}}:</div>
 			<div class="right">
 				<input minicolor name="{{color}}" maxlength="7" type="text" size="6" ng-model="custom.config.colors.color.value"/>

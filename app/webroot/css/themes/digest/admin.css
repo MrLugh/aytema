@@ -72,7 +72,7 @@
   border-bottom: 1px solid black;
 }
 
-.pagefilter ul, .contentsize ul {
+#config ul {
   padding: 0;
   margin: 0;
 }
