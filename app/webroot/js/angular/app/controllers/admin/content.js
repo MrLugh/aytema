@@ -1,4 +1,4 @@
-	VideoCo($scope,$sce,contentSv) {
+function adminContentVideoCo($scope,$sce,contentSv) {
 
 	//console.log($scope.content);
 
