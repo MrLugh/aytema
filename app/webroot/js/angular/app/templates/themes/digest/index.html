@@ -139,7 +139,7 @@
 	 	</a>
 	 </div>
 
-	<ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':5,'isAnimated':false,'itemSelector':'.content'}" class="masonry">
+	<ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':5,'isAnimated':true,'itemSelector':'.content'}" class="masonry">
 
 		<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow ng-style="getContentStyle(content)">
 
