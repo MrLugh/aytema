@@ -39,11 +39,14 @@
 
 	<div ng-if="showingContent" class="modalContent" ng-style="getModalBackgroundStyle()">
 
-		<div class="content_detalle" ng-style="getStyle()">
+		<div ng-repeat="content in contentModal" ng-switch="content.concept" class="content_detalle" ng-style="getStyle()">
 
 			<div class="left-column">
 
-				<div class="section content well" ng-repeat="content in contentModal" ng-switch="content.concept" ng-style="getContentStyle(content)" style="padding:10px;text-align:center;margin:0 auto;">
+				<div class="section content well" ng-style="getContentStyle(content)" style="padding:10px;text-align:center;margin:0 auto;">
+
+
+					<span class="right" ng-click="closeContent()">Close</span>
 
 					<div ng-if="isLogged()">{{content.status}}</div>
 
@@ -57,8 +60,6 @@
 			</div>
 
 			<div class="right-column well" ng-style="getContentStyle(content)">
-
-				<span ng-click="closeContent()">Close</span>
 
 				<span class="user_info">
 					<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">
@@ -106,29 +107,7 @@
 		              </ul>
 			    </div>
 
-			    <div class="big_pin_box">
-		            <div class="pin-sub-header">
-		                <div class="navbar-inner">
-		                    <a href="#" id="toggleComments">
-		                        <p class="pull-left">Comments (0) - Be the first to comment!</p>
-		                        <span class="pull-right">Show/hide Comments</span>
-		                    </a>
-		                    <div class="clearfix"></div>
-		                </div>
-		            </div>
-		            <div class="comments" style="display:none;">
-		                <div id="alert-nocomments">There are no comments on this pin yet, be the first one to say something about it.</div>
-		                <form method="post" action="/comment/post?pinId=9702369" class="comment">
-		                    <div class="picture">
-		                        <img width="60" height="60" src="img/default_profile_thumb.png">
-		                    </div>
-		                    <div class="text">
-		                        <textarea>Write a Comment</textarea>
-		                    </div>
-		                    <div class="clearfix"></div>
-		                </form>
-		            </div>
-				</div>
+			    <fb-comments data-href="{{getContentCommentsHash()}}"></fb-comments>
 
 			</div>
 

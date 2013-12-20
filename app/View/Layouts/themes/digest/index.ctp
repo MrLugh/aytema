@@ -3,6 +3,12 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta property="fb:app_id" content="211895592326072">
+    <meta property="og:title" content="Ay Tema"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="aytema.com"/>
+
     <title>Digest Theme</title>
     <!--
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>

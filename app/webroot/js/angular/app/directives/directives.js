@@ -309,6 +309,7 @@ function($FB) {
 
                     };
 
+                    /*
                     (function(d, s, id, fbAppId) {
                         var js, fjs = d.getElementsByTagName(s)[0];
                         if (d.getElementById(id)) return;
@@ -316,6 +317,17 @@ function($FB) {
                         js.src = "//connect.facebook.net/en_US/all.js";
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk', fbAppId));
+                    */
+
+
+                    (function(d, s, id, fbAppId) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId="+fbAppId;
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk', fbAppId));
+
                 }
             }
         }
@@ -413,4 +425,41 @@ function () {
             });
         });
     }
+}]);
+
+ayTemaDs.directive('fbComments',['$FB','$timeout',
+function($FB,$timeout){
+    return {
+        templateUrl : getPath('tpl')+'/themes/digest/comments.html',
+        restrict : 'E',
+        replace : true,
+        link: function(scope,element,attrs) {
+
+            element.ready(function(){
+                $timeout(function(){
+                    scope.$FB = $FB;
+                    scope.commentsUrl       = attrs.href;
+                    scope.commentsNumposts  = attrs.dataNumposts || 5 ;
+                    scope.commentsColor     = attrs.dataColorscheme || 'light';
+                    scope.hideComments      = true;
+                    scope.showComments = function()  {
+                        scope.hideComments = !scope.hideComments;
+                    }
+
+                    scope.$watch('$FB.loaded',function(value) {
+                        if(value){
+                            if (typeof $FB  != "undefined"){
+                                $FB.XFBML.parse($('.fb-comments .fb_iframe_widget').get(0));
+                                $FB.XFBML.parse($('.fb-comments-count .fb_iframe_widget').get(0));
+                            }
+                        }
+                    },true);
+
+                    scope.$apply();
+                },0);
+            });
+
+        } 
+    }
+
 }]);

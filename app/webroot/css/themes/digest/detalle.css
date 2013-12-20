@@ -162,8 +162,8 @@ border-bottom-left-radius: 60px;
 }
 
 .big_pin_box .comments {
-    display: none;
-    padding: 20px 30px;
+    /*display: none;*/
+    padding-top: 10px;
 }
 
 .big_pin_box .comments #alert-nocomments {
@@ -282,4 +282,12 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     background-color: #999;
     height: 6px;
     width: 0px;
+}
+
+
+/* fb-comments */
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget iframe[style] {
+    width: 100%!important;
 }
