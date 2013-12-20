@@ -1,4 +1,4 @@
-function adminContentVideoCo($scope,$sce,contentSv) {
+	VideoCo($scope,$sce,contentSv) {
 
 	//console.log($scope.content);
 
@@ -7,6 +7,18 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 
 	$scope.loadPlayer	= false;
 	$scope.loadThumbnail= false;
+
+	$scope.isFromNetwork = function(network) {
+		return $scope.content.network == network;
+	}
+
+	$scope.canEmbedFb = function() {
+		return $scope.content.data.type != 'status';
+	}
+
+	$scope.getFbPostHref = function() {
+		return contentSv.getFacebookContentHrefEmbed($scope.content);
+	}
 
 	$scope.getPlayer = function() {
 
@@ -329,34 +341,17 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 
 function adminContentPostCo($scope,contentSv,$sce) {
 
-	//console.log($scope.content);
-
-	$scope.href	= '';
-
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
 	}
 
-	if ($scope.isFromNetwork('facebook')) {
-		/*
-		if (!angular.isDefined($scope.content['data']['story'])) {
-			//console.log("A");
-			if (angular.isDefined($scope.content['data']['link'])) {
-				//console.log("B");
-				$scope.href = $scope.content['data']['link'];
-			} else {
-				//console.log("C");
-				$scope.href = "";
-			}
-		} else {
-			*/
-			$scope.href = "https://www.facebook.com/"+$scope.content['external_user_name']+"/posts/"+$scope.content['external_atomic_id'];
-		/*			
-		}
-		*/
-		//console.log($scope.href);
+	$scope.getFbPostHref = function() {
+		return contentSv.getFacebookContentHrefEmbed($scope.content);
 	}
 
+	$scope.canEmbedFb = function() {
+		return $scope.content.data.type != 'status';
+	}	
 
 	$scope.getEmbed = function() {
 
@@ -386,6 +381,10 @@ function adminContentPostCo($scope,contentSv,$sce) {
 				return $scope.content.data['body'];
 			}
 		}
+
+		if ($scope.content.network == 'facebook') {
+			return $scope.content.data['story'];
+		}		
 
 		if ($scope.current.description.length) {
 			return $scope.current.description;

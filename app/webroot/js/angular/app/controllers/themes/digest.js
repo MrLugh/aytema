@@ -314,7 +314,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			function(update) {
 				//console.log('Got notification: ', update);
 			}
-		);		
+		);
 
 	}
 

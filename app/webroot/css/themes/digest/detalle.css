@@ -206,9 +206,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     display: block;
     overflow: hidden;
 }
-#toggleComments span {
-    margin-top: 8px;
-}
+
 /* carousel */
 
 .wrapper {

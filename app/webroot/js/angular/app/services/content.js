@@ -381,6 +381,21 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    return deferred.promise;
 	};	
 
+	var getFacebookContentHrefEmbed = function(content) {
+	
+		var href = "https://www.facebook.com/"+content['external_user_name']+"/posts/"+content['external_atomic_id'];
+
+		/*
+		if (angular.isDefined(content['data']['story'])) {
+			if (angular.isDefined(content['data']['link'])) {
+				href = content['data']['link'];				
+			}
+		}
+		*/
+
+		return href;
+	}
+
 	var getThumbnail = function(content) {
 
 		var source = '';
@@ -537,6 +552,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getStatIcon:getStatIcon,
 		getConceptIcon:getConceptIcon,
 		deleteContent:deleteContent,
+		getFacebookContentHrefEmbed:getFacebookContentHrefEmbed,
 		getThumbnail:getThumbnail,
 		getPlayer:getPlayer,
 		getRelatedContent:getRelatedContent

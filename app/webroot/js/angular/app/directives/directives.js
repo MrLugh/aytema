@@ -445,6 +445,9 @@ function($FB,$timeout){
                     scope.showComments = function()  {
                         scope.hideComments = !scope.hideComments;
                     }
+                    scope.textComment = function() {
+                        return scope.hideComments ? 'Show' : 'Hide';
+                    }
 
                     scope.$watch('$FB.loaded',function(value) {
                         if(value){

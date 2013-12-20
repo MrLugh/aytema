@@ -12,9 +12,12 @@ function contentVideoCo($scope,$sce,contentSv) {
 		return $scope.content.network == network;
 	}
 
+	$scope.canEmbedFb = function() {
+		return $scope.content.data.type != 'status';
+	}
+
 	$scope.getFbPostHref = function() {
-		
-		return "https://www.facebook.com/"+$scope.content['external_user_name']+"/posts/"+$scope.content['external_atomic_id'];
+		return contentSv.getFacebookContentHrefEmbed($scope.content);
 	}
 
 	$scope.getPlayer = function() {
@@ -343,9 +346,12 @@ function contentPostCo($scope,contentSv,$sce) {
 	}
 
 	$scope.getFbPostHref = function() {
-				
-		return "https://www.facebook.com/"+$scope.content['external_user_name']+"/posts/"+$scope.content['external_atomic_id'];
+		return contentSv.getFacebookContentHrefEmbed($scope.content);
 	}
+
+	$scope.canEmbedFb = function() {
+		return $scope.content.data.type != 'status';
+	}	
 
 	$scope.getEmbed = function() {
 
@@ -375,6 +381,10 @@ function contentPostCo($scope,contentSv,$sce) {
 				return $scope.content.data['body'];
 			}
 		}
+
+		if ($scope.content.network == 'facebook') {
+			return $scope.content.data['story'];
+		}		
 
 		if ($scope.current.description.length) {
 			return $scope.current.description;
