@@ -2,6 +2,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 
     var winW = 0;
     var winH = 0;
+    var myWH = 0;
 
 	var networks = {
 		'facebook' : {
@@ -123,6 +124,12 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
     	},
     	getContentSizes: function() {
     		return sizes;
+    	},
+    	setMyWH: function(height) {
+    		myWH = height;
+    	},
+    	getMyWH: function() {
+    		return myWH;
     	}
 	}
 

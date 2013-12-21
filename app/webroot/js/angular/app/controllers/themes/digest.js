@@ -13,7 +13,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.list 	= [];
 	$scope.offset 	= 0;
-	$scope.limit	= 10;
+	$scope.limit	= 20;
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
@@ -21,7 +21,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.config	= {};
 	$scope.configLoaded = false;
 
-	$scope.current	= 'home';
+	$scope.current	= 'photos';
 	$scope.pages 	= [];
 
 	userSv.loadThemeConfig($scope.user.theme);
@@ -176,6 +176,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		console.log($scope.menuHeight);
 		console.log('min-height',appSv.getHeight() - $scope.menuHeight + 'px');
 		*/
+		appSv.setMyWH(appSv.getHeight() - $scope.menuHeight);
 		return {'min-height':appSv.getHeight() - $scope.menuHeight + 'px'};
 	}
 

@@ -155,14 +155,116 @@ ayTemaDs.directive('contentDetailVideo',[function(){
 }]);
 
 
-ayTemaDs.directive('contentDetailPhoto',[function(){
-    
+ayTemaDs.directive('contentDetailPhoto',['appSv',
+function (appSv) { 
     return {
         templateUrl : getPath('tpl')+'/themes/digest/detail/photo.html',
         restrict : 'E',
         replace : true,
         controller:'contentPhotoCo',
-        scope: true        
+        scope: true,
+        link: function(scope,element,attrs) {
+
+            scope.resizeContent = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+
+                var toResize   = angular.element(
+                    element[0].querySelector('img.content_photo') || element[0].querySelector('iframe')
+                );
+                $(toResize[0]).css('width','').css('height','');
+                $(container.parent()).css('width','').css('height','');
+
+                var myWidth = angular.element(document.querySelector('.content_detalle')).width();
+
+                var padding = parseInt($(container[0]).css('padding').replace('px',''));
+                //var myHeight= appSv.getMyWH() - padding;
+                var myHeight= appSv.getMyWH();
+
+                if (myHeight > container.height() && myWidth > container.width()) {
+                    console.log("Entra perfecto!");
+                    return;
+                }
+
+                $(toResize[0]).css('opacity',0);
+
+                console.log("Trato de resizear");
+
+                console.log("MyWindow ",myWidth,myHeight);
+                console.log("Container ",container.width(),container.height(),container.offsetHeight);
+                console.log("Element ",element.width(),element.height());
+
+                console.log("toResize ",toResize.width(),toResize.height(),toResize[0].offsetTop);
+
+                var size = myHeight - toResize[0].offsetTop -padding -2;
+
+                console.log("Restrict height to ",size);
+
+                var currW= toResize.width();
+                var currH= toResize.height();
+                var ratio= 0;
+
+                var ratio = currH / currW;
+                if(currH >= size) {
+                    currH = size;
+                    currW = Math.ceil(currH / ratio);
+
+                    var maxW = (currW > container.width()) ? currW : container.width() ; 
+                    $(container.parent()[0]).css('width',maxW);
+                    $(toResize[0]).css('width','auto');
+                    $(toResize[0]).css('height',currH + 'px');
+                } else if(currW >= size && ratio <= 1){
+                    currW = size;
+                    currH = Math.ceil(currW * ratio);
+
+                    var maxH = (currH > container.height()) ? currH : container.height() ;
+                    $(container.parent()[0]).css('height',maxH);
+                    $(toResize[0]).css('width',currW + 'px');
+                    $(toResize[0]).css('height','auto');
+                }
+
+                $(toResize[0]).css('opacity',1);
+                console.log("End ",currW,currH);
+            }
+
+            scope.appSv = appSv;
+            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent()
+                });
+            });
+
+            scope.$watch('current', function(newValue, oldValue) {
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent()
+                });
+            });
+
+
+
+            /*
+            var size = attrs.restrictsize;
+            var currW= element[0].naturalWidth;
+            var currH= element[0].naturalHeight;
+            var ratio= 0;
+
+            var ratio = currH / currW;
+            if(currW >= size && ratio <= 1){
+                currW = size;
+                currH = Math.ceil(currW * ratio);
+            } else if(currH >= size){
+                currH = size;
+                currW = Math.ceil(currH / ratio);
+            }
+
+            element.css('position','relative');
+            element.css('top',(size == currH) ? 0 : parseInt((size - currH)/2))+'px';
+            element.css('width',currW + 'px');
+            element.css('height',currH + 'px');
+            */
+
+
+        }         
     }
 
 }]);

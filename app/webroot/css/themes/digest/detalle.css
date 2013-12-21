@@ -4,7 +4,7 @@
   display: block;
   height: 300px !important;
   margin: 0 auto;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
   text-align: center;
   width: 88%!important;
 }
@@ -114,11 +114,16 @@ border-bottom-left-radius: 60px;
 }
 .left-column {
     float: left;
-    width: 50%;
+    width: 55%;
+    text-align: left;
     margin-right: 10px;
 }
 .right-column {
     float: left;
+    text-align: left;
+    overflow-y:auto;
+    overflow-x:hidden;
+    width: 40%;    
 }
 .content_detalle h2, .content_detalle p  {
     text-align: left;
@@ -284,8 +289,8 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 
 /* fb-comments */
-.fb_iframe_widget,
-.fb_iframe_widget span,
-.fb_iframe_widget iframe[style] {
+.content_detalle .fb_iframe_widget,
+.content_detalle .fb_iframe_widget span,
+.content_detalle .fb_iframe_widget iframe[style] {
     width: 100%!important;
 }
