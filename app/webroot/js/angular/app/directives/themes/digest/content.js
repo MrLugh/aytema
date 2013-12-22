@@ -197,7 +197,7 @@ function (appSv) {
                 console.log(myHeight,toResize[0].offsetTop,padding,2);
                 console.log("toResize ",toResize.width(),toResize.height(),toResize[0].offsetTop);
 
-                var size = myHeight - toResize[0].offsetTop -padding -2;
+                var size = myHeight - toResize[0].offsetTop -2*padding;
 
                 console.log("Restrict height to ",size);
 
