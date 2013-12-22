@@ -240,30 +240,6 @@ function (appSv) {
                 });
             });
 
-
-
-            /*
-            var size = attrs.restrictsize;
-            var currW= element[0].naturalWidth;
-            var currH= element[0].naturalHeight;
-            var ratio= 0;
-
-            var ratio = currH / currW;
-            if(currW >= size && ratio <= 1){
-                currW = size;
-                currH = Math.ceil(currW * ratio);
-            } else if(currH >= size){
-                currH = size;
-                currW = Math.ceil(currH / ratio);
-            }
-
-            element.css('position','relative');
-            element.css('top',(size == currH) ? 0 : parseInt((size - currH)/2))+'px';
-            element.css('width',currW + 'px');
-            element.css('height',currH + 'px');
-            */
-
-
         }         
     }
 
