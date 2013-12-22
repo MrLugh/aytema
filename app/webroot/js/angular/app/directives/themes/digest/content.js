@@ -184,22 +184,22 @@ function (appSv) {
 
                 if (myHeight > container.height() && myWidth > container.width()) {
                     $(toResize[0]).css('width','100%');
-                    console.log("Entra perfecto!");
+                    //console.log("Entra perfecto!");
                     return;
                 }
 
-                console.log("Trato de resizear");
+                //console.log("Trato de resizear");
 
-                console.log("MyWindow ",myWidth,myHeight);
-                console.log("Container ",container.width(),container.height(),container[0].offsetHeight);
-                console.log("Element ",element.width(),element.height());
+                //console.log("MyWindow ",myWidth,myHeight);
+                //console.log("Container ",container.width(),container.height(),container[0].offsetHeight);
+                //console.log("Element ",element.width(),element.height());
 
-                console.log(myHeight,toResize[0].offsetTop,padding,2);
-                console.log("toResize ",toResize.width(),toResize.height(),toResize[0].offsetTop);
+                //console.log(myHeight,toResize[0].offsetTop,padding,2);
+                //console.log("toResize ",toResize.width(),toResize.height(),toResize[0].offsetTop);
 
-                var size = myHeight - toResize[0].offsetTop -2*padding;
+                var size = myHeight - toResize[0].offsetTop -padding -2;
 
-                console.log("Restrict height to ",size);
+                //console.log("Restrict height to ",size);
 
                 var currW= toResize.width();
                 var currH= toResize.height();
@@ -224,7 +224,7 @@ function (appSv) {
                     $(toResize[0]).css('height','auto');
                 }
 
-                console.log("End ",currW,currH);
+                //console.log("End ",currW,currH);
             }
 
             scope.appSv = appSv;

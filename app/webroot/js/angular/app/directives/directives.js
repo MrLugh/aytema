@@ -398,17 +398,26 @@ function () {
     }
 }]);
 
-ayTemaDs.directive('caroufredsel',[
-function () {
+ayTemaDs.directive('caroufredsel',['$window',
+function ($window) {
     return function (scope, element, attrs) {
 
-        element.ready(function(){
+        scope.caroufredsel = function() {
+            if (scope.$last !== true) {
+                return;
+            }
+            console.log("caroufredsel");
             var options = attrs.caroufredsel;
             options =  eval("(function(){return " + options + ";})()");
-            if (scope.$last === true) {
-                jQuery(options.selector).carouFredSel(options);
-            }
+            jQuery(options.selector).carouFredSel(options);            
+        }
+
+        element.ready(function(){
+            scope.caroufredsel();
         });
+
+        angular.element($window).bind('resize', scope.caroufredsel);
+
     }
 }]);
 

@@ -229,10 +229,8 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     width: 100%;
 }
 .list_carousel li {
-    width: 109px;
-    height: 109px;
     padding: 0;
-    margin: 6px 6px 0 5px;
+    margin: 0px 6px 0 5px;
     display: block;
     float: left;
 }
@@ -250,25 +248,24 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     float: none;
     clear: both;
 }
-.prev {
+.content_detalle .prev {
     background-color: #FDE200;
     display: block;
     float: left;
     height: 109px;
-    margin-left: 10px;
-    margin-top: 7px;
-    padding-top: 5px;
     width: 15%;
 }
-.next {
+.content_detalle .next {
     background-color: #FDE200;
     float: right;
     height: 109px;
-    margin-right: -44px;
-    margin-top: 7px;
-    padding-top: 8px;
     width: 15%;
 }
+
+.content_detalle .prev, .content_detalle .next {
+    position: relative;
+}
+
 .pager {
     float: left;
     width: 300px;
@@ -293,4 +290,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .content_detalle .fb_iframe_widget span,
 .content_detalle .fb_iframe_widget iframe[style] {
     width: 100%!important;
+}
+
+
+.content_detalle .track iframe {
+    width: 100%;
 }

@@ -82,14 +82,16 @@
 						<div class="list_carousel" ng-if="relateds.length">
 							<a id="prev2" class="prev" href="#/"><img alt="" src="img/themes/digest/arrow-left.png"></a>
 							<a id="next2" class="next" href="#/"><img alt="" src="img/themes/digest/arrow-right.png"></a>
-							<ul id="foo2">
-								<li ng-repeat="related in relateds" caroufredsel="{'selector':'#foo2', 'auto':false,'prev':'#prev2','next':'#next2','pagination':'#pager2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-									<a href="#/" ng-click="showRelated($index)" skip-default >
-										<i ng-hide="getRelatedThumbnail($index).length" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
-										<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">
-									</a>
-								</li>
-							</ul>
+							<div style="width:70%;float:left;">
+								<ul id="carousel">
+									<li ng-repeat="related in relateds" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','pagination':'#pager2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+										<a href="#/" ng-click="showRelated($index)" skip-default >
+											<i ng-hide="getRelatedThumbnail($index).length" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
+											<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">
+										</a>
+									</li>
+								</ul>
+							</div>
 							<div class="clearfix"></div>
 						</div>
 					</div>
