@@ -177,23 +177,24 @@ function (appSv) {
 
                 var myWidth = angular.element(document.querySelector('.content_detalle')).width();
 
-                var padding = parseInt($(container[0]).css('padding').replace('px',''));
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+
                 //var myHeight= appSv.getMyWH() - padding;
                 var myHeight= appSv.getMyWH();
 
                 if (myHeight > container.height() && myWidth > container.width()) {
+                    $(toResize[0]).css('width','100%');
                     console.log("Entra perfecto!");
                     return;
                 }
 
-                $(toResize[0]).css('opacity',0);
-
                 console.log("Trato de resizear");
 
                 console.log("MyWindow ",myWidth,myHeight);
-                console.log("Container ",container.width(),container.height(),container.offsetHeight);
+                console.log("Container ",container.width(),container.height(),container[0].offsetHeight);
                 console.log("Element ",element.width(),element.height());
 
+                console.log(myHeight,toResize[0].offsetTop,padding,2);
                 console.log("toResize ",toResize.width(),toResize.height(),toResize[0].offsetTop);
 
                 var size = myHeight - toResize[0].offsetTop -padding -2;
@@ -223,7 +224,6 @@ function (appSv) {
                     $(toResize[0]).css('height','auto');
                 }
 
-                $(toResize[0]).css('opacity',1);
                 console.log("End ",currW,currH);
             }
 

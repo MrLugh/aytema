@@ -13,7 +13,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.list 	= [];
 	$scope.offset 	= 0;
-	$scope.limit	= 20;
+	$scope.limit	= 10;
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
