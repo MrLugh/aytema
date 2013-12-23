@@ -103,7 +103,7 @@ border-bottom-left-radius: 60px;
 
 }*/
 
-.icon_more {
+.content_detalle .icon_more {
     color: #000000;
     font-family: 'Raleway',sans-serif;
     font-size: 40px!important;
@@ -112,13 +112,13 @@ border-bottom-left-radius: 60px;
     padding-right: 5px;
     font-style: normal!important;
 }
-.left-column {
+.content_detalle .left-column {
     float: left;
     width: 55%;
     text-align: left;
     margin-right: 10px;
 }
-.right-column {
+.content_detalle .right-column {
     float: left;
     text-align: left;
     overflow-y:auto;
@@ -134,22 +134,22 @@ border-bottom-left-radius: 60px;
     margin-top: 0;
     width: 66%;
 }
-.share {
+.content_detalle .share {
     overflow: hidden;
 }
-.share > h3 {
+.content_detalle .share > h3 {
     float: left;
 }
-.share ul {
+.content_detalle .share ul {
     margin: 9px 20px 0;
 }
-.share ul li {
+.content_detalle .share ul li {
     display: inline;
 }
-.share a {
+.content_detalle .share a {
     margin-left: 5px;
 }
-.share a {
+.content_detalle .share a {
     margin-left: 5px;
 }
 
@@ -166,12 +166,12 @@ border-bottom-left-radius: 60px;
     width: 70px !important;
 }
 
-.big_pin_box .comments {
+.content_detalle .big_pin_box .comments {
     /*display: none;*/
     padding-top: 10px;
 }
 
-.big_pin_box .comments #alert-nocomments {
+.content_detalle .big_pin_box .comments #alert-nocomments {
     background-color: #D9EDF7;
     border: 1px solid #BCE8F1;
     border-radius: 4px;
@@ -181,19 +181,19 @@ border-bottom-left-radius: 60px;
     text-align: center;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
-.big_pin_box .comment {
+.content_detalle .big_pin_box .comment {
     padding-top: 10px;
 }
-.big_pin_box .comment .picture {
+.content_detalle .big_pin_box .comment .picture {
     float: left;
     margin-right: 10px;
     width: 60px;
 }
-.big_pin_box .comment .text {
+.content_detalle .big_pin_box .comment .text {
     margin-left: 70px;
     overflow: hidden;
 }
-.big_pin_box .comment textarea {
+.content_detalle .big_pin_box .comment textarea {
     background: none repeat scroll 0 0 #FCF9F9;
     height: 50px;
     resize: none;
@@ -205,7 +205,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 }    
-.pin-sub-header {
+.content_detalle .pin-sub-header {
     border-bottom: 3px solid #000000;
     border-top: 1px dotted #000000;
     display: block;
@@ -214,37 +214,44 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 /* carousel */
 
-.wrapper {
+.content_detalle .wrapper {
     margin: 2% 0;
     width: 86%;
 }
-.list_carousel {
+
+.content_detalle .carousel_container {
+    width:80%;
+    float:left;
+}
+
+.content_detalle .list_carousel {
     width: 100%;
 }
-.list_carousel ul {
+.content_detalle .list_carousel ul {
     margin: 0;
     padding: 0;
     list-style: none;
     display: block;
     width: 100%;
 }
-.list_carousel li {
+.content_detalle .list_carousel li {
     padding: 0;
     margin: 0px 6px 0 5px;
     display: block;
     float: left;
+    width: 109px;
+    height: 109px;
 }
-.list_carousel li img {
+.content_detalle .list_carousel li img {
     width: 109px;
     height: 109px;
 }
 
-
-.list_carousel.responsive {
+.content_detalle .list_carousel.responsive {
     width: auto;
     margin-left: 0;
 }
-.clearfix {
+.content_detalle .clearfix {
     float: none;
     clear: both;
 }
@@ -253,37 +260,42 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     display: block;
     float: left;
     height: 109px;
-    width: 15%;
+    width: 10%;
 }
 .content_detalle .next {
     background-color: #FDE200;
     float: right;
     height: 109px;
-    width: 15%;
+    width: 10%;
 }
 
 .content_detalle .prev, .content_detalle .next {
     position: relative;
 }
 
-.pager {
+.content_detalle .prev img, .content_detalle .next img{
+    width: 100%;
+    top:35%;
+    position: absolute;
+}
+
+.content_detalle .pager {
     float: left;
     width: 300px;
     text-align: center;
 }
-.pager a {
+.content_detalle .pager a {
     margin: 0 5px;
     text-decoration: none;
 }
-.pager a.selected {
+.content_detalle .pager a.selected {
     text-decoration: underline;
 }
-.timer {
+.content_detalle .timer {
     background-color: #999;
     height: 6px;
     width: 0px;
 }
-
 
 /* fb-comments */
 .content_detalle .fb_iframe_widget,
@@ -291,7 +303,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .content_detalle .fb_iframe_widget iframe[style] {
     width: 100%!important;
 }
-
 
 .content_detalle .track iframe {
     width: 100%;

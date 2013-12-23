@@ -4,13 +4,13 @@
 	<p>{{getDescription()}}</p>
 	<img ng-src="{{current.src}}" class="content_photo" style="width:0;heigth:0;" />
 
-	<div ng-if="moreThanOne()" style="position:absolute;top:50%;width:10%;" class="{{content.network}}_bg">
+	<div ng-if="moreThanOne()" style="position:absolute;top:45%;width:10%;left:0;">
 		<a href="#/" skip-default ng-click="move(-1)">
 	 		<img src="img/themes/digest/arrow-left.png" alt="Previous photo" />
 	 	</a>
 	</div>
 
-	<div ng-if="moreThanOne()" style="position:absolute;top:50%;width:10%;right:0;" class="{{content.network}}_bg">
+	<div ng-if="moreThanOne()" style="position:absolute;top:45%;width:10%;right:0;">
 		<a href="#/" skip-default ng-click="move(1)">
 			<img src="img/themes/digest/arrow-right.png" alt="Next photo" />
 		</a>

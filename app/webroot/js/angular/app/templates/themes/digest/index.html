@@ -45,10 +45,10 @@
 
 				<div class="section content well" ng-style="getContentStyle(content)" style="text-align:center;margin:0 auto;">
 
-
-					<i class="icon-remove-circle right" ng-click="closeContent()"></i>
-
-					<div ng-if="isLogged()">{{content.status}}</div>
+					<div class="both">
+						<i class="icon-remove-circle right" ng-click="closeContent()"></i>
+						<div ng-if="isLogged()">{{content.status}}</div>
+					</div>
 
 					<content-detail-video ng-switch-when='video'></content-detail-video>
 					<content-detail-photo ng-switch-when='photo'></content-detail-photo>
@@ -82,7 +82,7 @@
 						<div class="list_carousel" ng-if="relateds.length">
 							<a id="prev2" class="prev" href="#/"><img alt="" src="img/themes/digest/arrow-left.png"></a>
 							<a id="next2" class="next" href="#/"><img alt="" src="img/themes/digest/arrow-right.png"></a>
-							<div style="width:70%;float:left;">
+							<div class="carousel_container">
 								<ul id="carousel">
 									<li ng-repeat="related in relateds" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','pagination':'#pager2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
 										<a href="#/" ng-click="showRelated($index)" skip-default >

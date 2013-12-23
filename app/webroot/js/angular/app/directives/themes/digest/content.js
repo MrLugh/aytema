@@ -230,15 +230,16 @@ function (appSv) {
             scope.appSv = appSv;
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
                 imagesLoaded(element[0],function(){
-                    scope.resizeContent()
+                    scope.resizeContent();
                 });
             });
 
-            scope.$watch('current', function(newValue, oldValue) {
+            scope.$watch('current.src', function(newValue, oldValue) {
+                console.log('current',newValue,oldValue);
                 imagesLoaded(element[0],function(){
-                    scope.resizeContent()
+                    scope.resizeContent();
                 });
-            });
+            },true);
 
         }         
     }

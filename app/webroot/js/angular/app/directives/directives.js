@@ -406,7 +406,6 @@ function ($window) {
             if (scope.$last !== true) {
                 return;
             }
-            console.log("caroufredsel");
             var options = attrs.caroufredsel;
             options =  eval("(function(){return " + options + ";})()");
             jQuery(options.selector).carouFredSel(options);            
