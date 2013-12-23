@@ -21,7 +21,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.config	= {};
 	$scope.configLoaded = false;
 
-	$scope.current	= 'photos';
+	$scope.current	= 'tracks';
 	$scope.pages 	= [];
 
 	userSv.loadThemeConfig($scope.user.theme);
@@ -324,6 +324,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		$scope.contentModal		= [$scope.list[index]];
 		$scope.showingContent 	= true;
 		$scope.relateds			= [];
+		console.log($scope.list[index]);
 		$scope.loadRelatedContent($scope.list[index]);
 	}
 
