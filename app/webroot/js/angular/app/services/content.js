@@ -152,7 +152,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	var cleanSource = function(source) {
 
-		/*
 		source = source.replace(/maxwidth="*"/g,'');
 		source = source.replace(/maxwidth='*'/g,'');
 		source = source.replace(/max-width="*"/g,'');
@@ -165,7 +164,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		source = source.replace(/max-height='*'/g,'');
 		source = source.replace(/height="*"/g,'');
 		source = source.replace(/height='*'/g,'');
-		*/
 		
 		source = source.replace('autoplay=1','autoplay=0');
 		source = source.replace('auto_play=true','auto_play=false');
