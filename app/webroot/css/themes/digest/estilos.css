@@ -209,7 +209,7 @@ p a {
 #container {
   clear: both;
   display: block;
-  height: 1500px !important;
+  height: 300px !important;
   margin: 0 auto;
   padding: 0;
   overflow-y: auto;
