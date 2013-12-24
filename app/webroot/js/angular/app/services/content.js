@@ -443,7 +443,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 			if (content.network == 'mixcloud') {
 				if (angular.isDefined(content.data['pictures'])) {
-					source = content.data['pictures']['medium'];
+					source = content.data['pictures']['extra_large'];
+					;
 				}
 			}
 		}

@@ -304,6 +304,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     width: 100%!important;
 }
 
-.content_detalle .track iframe {
-    width: 100%;
+.content_detalle iframe {
+    width: 100%!important;
 }

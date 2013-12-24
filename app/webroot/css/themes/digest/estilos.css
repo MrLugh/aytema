@@ -211,8 +211,8 @@ p a {
   display: block;
   height: 300px !important;
   margin: 0 auto;
+  padding: 0;
   overflow-y: auto;
-  text-align: center;
   width: 88%;
   z-index: 1;
   position: absolute!important;
@@ -222,9 +222,7 @@ p a {
 #container .content {
   border-bottom: 3px solid #000000;
   float: left;
-  height: auto;
   margin: 0 0 20px;
-  display: block;
   padding: 10px;
   overflow: hidden;
   z-index: 1;
@@ -405,14 +403,14 @@ p a {
 @media all and (max-width: 2048px) and (min-width: 1201px) {
 
   #container .small {
-    width: 14%;
+    width: 24%;
   }
   #container .medium {
-    width: 28%;
+    width: 32%;
   }
 
   #container .large {
-    width: 43%;
+    width: 49%;
   }
   #container .xlarge {
     width: 57%;
@@ -420,10 +418,8 @@ p a {
 }
 
 .content img {
-  width: 100%;
-  height: auto;
-  margin:0 auto;
-  display: block;
+  width: auto;
+  max-width: 100%;
 }
 
 .modalContent {
