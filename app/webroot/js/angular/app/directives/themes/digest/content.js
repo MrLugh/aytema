@@ -142,7 +142,8 @@ function($FB,$timeout){
 
 }]);
 
-ayTemaDs.directive('contentDetailVideo',[function(){
+ayTemaDs.directive('contentDetailVideo',['appSv',
+function(appSv){
     
     return {
         templateUrl : getPath('tpl')+'/themes/digest/detail/video.html',
@@ -156,52 +157,25 @@ ayTemaDs.directive('contentDetailVideo',[function(){
 
                 var container = angular.element(document.querySelector('.content_detalle .section'));
 
-                var toResize   = angular.element(element[0].querySelector('iframe'));
-                $(toResize[0]).css('width','').css('height','');
-                $(container.parent()).css('width','').css('height','');
+                var toResize    = angular.element(element[0].querySelector('iframe'));
+                var player      = angular.element(element[0].querySelector('.player'));
+                $(player[0]).css('opacity','0');
 
                 var myWidth = angular.element(document.querySelector('.content_detalle')).width();
-
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
-                //var myHeight= appSv.getMyWH() - padding;
-                var myHeight= appSv.getMyWH();
-
-                if (myHeight > container.height() && myWidth > container.width()) {
-                    $(toResize[0]).css('max-width','100%');
-                    $(toResize[0]).css('width','auto');
-                    //console.log("Entra perfecto!");
-                    return;
-                }
-
-                var size = myHeight - toResize[0].offsetTop -padding -2;
-
-                //console.log("Restrict height to ",size);
+                var myHeight= appSv.getMyWH() - padding;
+                var size = myHeight - player[0].offsetTop -padding -2;                
 
                 var currW= toResize.width();
                 var currH= toResize.height();
-                var ratio= 0;
-
                 var ratio = currH / currW;
-                if(currH >= size) {
-                    currH = size;
-                    currW = Math.ceil(currH / ratio);
 
-                    var maxW = (currW > container.width()) ? currW : container.width() ; 
-                    $(container.parent()[0]).css('width',maxW);
-                    $(toResize[0]).css('width','auto');
-                    $(toResize[0]).css('height',currH + 'px');
-                } else if(currW >= size && ratio <= 1){
-                    currW = size;
-                    currH = Math.ceil(currW * ratio);
+                currH = size;
+                currW = Math.ceil(currH / ratio);
+                var maxW = (currW > container.width()) ? currW : container.width() ;
+                $(player[0]).css('height',currH + 'px').css('width','100%').css('opacity','1');
 
-                    var maxH = (currH > container.height()) ? currH : container.height() ;
-                    $(container.parent()[0]).css('height',maxH);
-                    $(toResize[0]).css('width',currW + 'px');
-                    $(toResize[0]).css('height','auto');
-                }
-
-                //console.log("End ",currW,currH);
             }
 
             scope.appSv = appSv;
@@ -219,7 +193,7 @@ ayTemaDs.directive('contentDetailVideo',[function(){
                 }
             },true);
 
-        }        
+        }
     }
 
 }]);
@@ -249,23 +223,18 @@ function (appSv) {
 
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
-                //var myHeight= appSv.getMyWH() - padding;
-                var myHeight= appSv.getMyWH();
+                var myHeight= appSv.getMyWH() - padding;
 
                 if (myHeight > container.height() && myWidth > container.width()) {
                     $(toResize[0]).css('max-width','100%');
                     $(toResize[0]).css('width','auto');
-                    //console.log("Entra perfecto!");
                     return;
                 }
 
                 var size = myHeight - toResize[0].offsetTop -padding -2;
 
-                //console.log("Restrict height to ",size);
-
                 var currW= toResize.width();
                 var currH= toResize.height();
-                var ratio= 0;
 
                 var ratio = currH / currW;
                 if(currH >= size) {
@@ -286,7 +255,6 @@ function (appSv) {
                     $(toResize[0]).css('height','auto');
                 }
 
-                //console.log("End ",currW,currH);
             }
 
             scope.appSv = appSv;
@@ -309,14 +277,57 @@ function (appSv) {
 
 }]);
 
-ayTemaDs.directive('contentDetailTrack',[function(){
+ayTemaDs.directive('contentDetailTrack',['appSv',
+function(appSv){
     
     return {
         templateUrl : getPath('tpl')+'/themes/digest/detail/track.html',
         restrict : 'E',
         replace : true,
         controller:'contentTrackCo',
-        scope: true        
+        scope: true,
+        link: function(scope,element,attrs) {
+
+            scope.resizeContent = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+
+                var toResize    = angular.element(element[0].querySelector('iframe'));
+                var player      = angular.element(element[0].querySelector('.player'));
+                $(player[0]).css('opacity','0');
+
+                var myWidth = angular.element(document.querySelector('.content_detalle')).width();
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+
+                var myHeight= appSv.getMyWH() - padding;
+                var size = myHeight - player[0].offsetTop -padding -2;                
+
+                var currW= toResize.width();
+                var currH= toResize.height();
+                var ratio = currH / currW;
+
+                currH = size;
+                currW = Math.ceil(currH / ratio);
+                var maxW = (currW > container.width()) ? currW : container.width() ;
+                $(player[0]).css('height',currH + 'px').css('width','100%').css('opacity','1');
+            }
+
+            scope.appSv = appSv;
+            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                });
+            });
+
+            scope.$watch('current.src', function(newValue, oldValue) {
+                if (!angular.equals(newValue,oldValue)) {
+                    imagesLoaded(element[0],function(){
+                        scope.resizeContent();
+                    });
+                }
+            },true);
+
+        }
     }
 
 }]);
@@ -387,23 +398,18 @@ function($FB,$timeout,appSv){
 
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
-                //var myHeight= appSv.getMyWH() - padding;
-                var myHeight= appSv.getMyWH();
+                var myHeight= appSv.getMyWH() - padding;
 
                 if (myHeight > container.height() && myWidth > container.width()) {
                     $(toResize[0]).css('max-width','100%');
                     $(toResize[0]).css('width','auto');
-                    //console.log("Entra perfecto!");
                     return;
                 }
 
                 var size = myHeight - toResize[0].offsetTop -padding -2;
 
-                //console.log("Restrict height to ",size);
-
                 var currW= toResize.width();
                 var currH= toResize.height();
-                var ratio= 0;
 
                 var ratio = currH / currW;
                 if(currH >= size) {
@@ -424,23 +430,24 @@ function($FB,$timeout,appSv){
                     $(toResize[0]).css('height','auto');
                 }
 
-                //console.log("End ",currW,currH);
             }
 
-            scope.appSv = appSv;
-            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
-                imagesLoaded(element[0],function(){
-                    scope.resizeContent();
-                });
-            });
-
-            scope.$watch('current.src', function(newValue, oldValue) {
-                if (!angular.equals(newValue,oldValue)) {
+            if (!scope.isFromNetwork('facebook')) {
+                scope.appSv = appSv;
+                scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
                     imagesLoaded(element[0],function(){
                         scope.resizeContent();
                     });
-                }
-            },true);
+                });
+
+                scope.$watch('current.src', function(newValue, oldValue) {
+                    if (!angular.equals(newValue,oldValue)) {
+                        imagesLoaded(element[0],function(){
+                            scope.resizeContent();
+                        });
+                    }
+                },true);
+            }
 
 
         } 

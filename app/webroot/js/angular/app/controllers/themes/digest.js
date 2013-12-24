@@ -21,7 +21,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.config	= {};
 	$scope.configLoaded = false;
 
-	$scope.current	= 'tracks';
+	$scope.current	= 'home';
 	$scope.pages 	= [];
 
 	userSv.loadThemeConfig($scope.user.theme);

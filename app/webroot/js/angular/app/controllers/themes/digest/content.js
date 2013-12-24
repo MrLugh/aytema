@@ -243,6 +243,10 @@ function contentTrackCo($scope,$sce,contentSv) {
 	$scope.loadPlayer	= false;
 	$scope.loadThumbnail= false;	
 
+	$scope.isFromNetwork = function(network) {
+		return $scope.content.network == network;
+	}
+
 	$scope.getPlayer = function() {
 
 		if ($scope.loadPlayer) {
@@ -383,7 +387,7 @@ function contentPostCo($scope,contentSv,$sce) {
 		}
 
 		if ($scope.content.network == 'facebook') {
-			return $scope.content.data['story'];
+			return $scope.content.data['story'] || $scope.content.data['message'];
 		}		
 
 		if ($scope.current.description.length) {
