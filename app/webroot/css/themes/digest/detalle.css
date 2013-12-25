@@ -344,18 +344,29 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     }
 
     .content_detalle .player {
-        height: auto!important;
+        height: 100%!important;
+        overflow: auto;
     }
 
-    .content_detalle .player iframe,
-    .content_detalle .player object,
-    .content_detalle .player embed {
+    .content_detalle .video .player iframe,
+    .content_detalle .video .player object,
+    .content_detalle .video .player embed {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .content_detalle .track .player iframe,
+    .content_detalle .track .player object,
+    .content_detalle .track .player embed {
         position: relative;
         top: 0;
         left: 0;
         width: 100%;
         height: auto;
-    }
+    }    
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
