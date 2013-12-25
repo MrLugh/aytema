@@ -315,8 +315,10 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
         line-height: 20px;
     }
     .content_detalle .left-column {
-        width: 100%;
-        float: none;        
+        width: 100%!important;
+        float: none;
+        text-align: center;
+        margin: 0 auto;
     }
     .content_detalle .right-column {
         text-align: left;
@@ -328,7 +330,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     }
     .content_detalle h2 {
         font-size: 12px;
-        line-height: 8px;
+        line-height: 14px;
         margin-top: 0;
         width: 100%;
     }
@@ -339,6 +341,20 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
         margin: 10px 1% 10px 0;
         right: 0;
         width: 45px !important;
+    }
+
+    .content_detalle .player {
+        height: auto!important;
+    }
+
+    .content_detalle .player iframe,
+    .content_detalle .player object,
+    .content_detalle .player embed {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -352,7 +368,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
     .content_detalle h2 {
         font-size: 20px;
-        line-height: 14px;
+        line-height: 20px;
         margin-top: 0;
         width: 100%;
     }

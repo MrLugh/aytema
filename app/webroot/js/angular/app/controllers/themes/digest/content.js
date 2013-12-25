@@ -377,7 +377,7 @@ function contentPostCo($scope,contentSv,$sce) {
 		return '';
 	}
 
-	$scope.getDescription = function() {	
+	$scope.getDescription = function() {
 
 		if ($scope.content.network == 'tumblr') {
 			if (angular.isDefined($scope.content.data['body'])) {

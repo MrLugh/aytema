@@ -35,7 +35,7 @@
 	</div>
 </div>
 
-<div style="position:relative;" ng-style="getStyle()">
+<div style="position:relative;">
 
 	<div ng-if="showingContent" class="modalContent" ng-style="getModalBackgroundStyle()">
 
@@ -142,7 +142,7 @@
 	 	</a>
 	 </div>
 
-	<ul id="container" infinite-scroll="moreContent()" ng-style="getStyle()" masonry="{'columnWidth':10,'gutter':5,'isAnimated':true,'itemSelector':'.content'}" class="masonry">
+	<ul id="container" infinite-scroll="moreContent()" ng-style="getMasonryStyle()" masonry="{'columnWidth':10,'gutter':5,'isAnimated':true,'itemSelector':'.content'}" class="masonry">
 
 		<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow ng-style="getContentStyle(content)">
 

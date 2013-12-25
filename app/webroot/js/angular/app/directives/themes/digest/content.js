@@ -142,8 +142,8 @@ function($FB,$timeout){
 
 }]);
 
-ayTemaDs.directive('contentDetailVideo',['appSv',
-function(appSv){
+ayTemaDs.directive('contentDetailVideo',['appSv','$window',
+function(appSv,$window){
     
     return {
         templateUrl : getPath('tpl')+'/themes/digest/detail/video.html',
@@ -159,6 +159,11 @@ function(appSv){
 
                 var toResize    = angular.element(element[0].querySelector('iframe'));
                 var player      = angular.element(element[0].querySelector('.player'));
+
+                if ($window.innerWidth <= 480) {
+                    return;
+                }
+
                 $(player[0]).css('opacity','0');
 
                 var myWidth = angular.element(document.querySelector('.content_detalle')).width();
@@ -199,8 +204,8 @@ function(appSv){
 }]);
 
 
-ayTemaDs.directive('contentDetailPhoto',['appSv',
-function (appSv) { 
+ayTemaDs.directive('contentDetailPhoto',['appSv','$window',
+function (appSv,$window) { 
     return {
         templateUrl : getPath('tpl')+'/themes/digest/detail/photo.html',
         restrict : 'E',
@@ -216,6 +221,11 @@ function (appSv) {
                 var toResize   = angular.element(
                     element[0].querySelector('img.content_photo') || element[0].querySelector('iframe')
                 );
+
+                if ($window.innerWidth <= 480) {
+                    return;
+                }
+
                 $(toResize[0]).css('width','').css('height','');
                 $(container.parent()).css('width','').css('height','');
 
@@ -277,8 +287,8 @@ function (appSv) {
 
 }]);
 
-ayTemaDs.directive('contentDetailTrack',['appSv',
-function(appSv){
+ayTemaDs.directive('contentDetailTrack',['appSv','$window',
+function(appSv,$window){
     
     return {
         templateUrl : getPath('tpl')+'/themes/digest/detail/track.html',
@@ -294,6 +304,11 @@ function(appSv){
 
                 var toResize    = angular.element(element[0].querySelector('iframe'));
                 var player      = angular.element(element[0].querySelector('.player'));
+
+                if ($window.innerWidth <= 480) {
+                    return;
+                }
+
                 $(player[0]).css('opacity','0');
 
                 var myWidth = angular.element(document.querySelector('.content_detalle')).width();
@@ -356,8 +371,8 @@ ayTemaDs.directive('contentDetailQuote',[function(){
 
 }]);
 
-ayTemaDs.directive('contentDetailPost',['$FB','$timeout','appSv',
-function($FB,$timeout,appSv){
+ayTemaDs.directive('contentDetailPost',['$FB','$timeout','appSv','$window',
+function($FB,$timeout,appSv,$window){
     return {
         templateUrl : getPath('tpl')+'/themes/digest/detail/post.html',
         restrict : 'E',
@@ -391,6 +406,11 @@ function($FB,$timeout,appSv){
                 var toResize   = angular.element(
                     element[0].querySelector('img') || element[0].querySelector('iframe')
                 );
+
+                if ($window.innerWidth <= 480) {
+                    return;
+                }
+
                 $(toResize[0]).css('width','').css('height','');
                 $(container.parent()).css('width','').css('height','');
 

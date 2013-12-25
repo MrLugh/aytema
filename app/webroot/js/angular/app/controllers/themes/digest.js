@@ -170,14 +170,17 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.getStyle = function() {
-		/*
-		console.log("$scope.getStyle");
-		console.log(appSv.getHeight());
-		console.log($scope.menuHeight);
-		console.log('min-height',appSv.getHeight() - $scope.menuHeight + 'px');
-		*/
 		appSv.setMyWH(appSv.getHeight() - $scope.menuHeight);
 		return {'min-height':appSv.getHeight() - $scope.menuHeight + 'px'};
+	}
+
+	$scope.getMasonryStyle = function() {
+		var style = $scope.getStyle();
+		style['opacity'] = 1;
+		if ($scope.showingContent) {
+			style['opacity'] = 0;
+		}
+		return style;
 	}
 
 	$scope.getMenuItemClass = function(page) {
@@ -656,6 +659,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
+        $scope.getMasonryStyle();
         $scope.getStyle();
     });
 
