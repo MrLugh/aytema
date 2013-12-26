@@ -83,8 +83,8 @@ function($FB,$timeout,appSv,$window){
 
 }]);
 
-ayTemaDs.directive('contentPhoto',['appSv','$window',
-function(appSv,$window){
+ayTemaDs.directive('contentPhoto',['appSv','$window','$timeout',
+function(appSv,$window,$timeout){
     return {
         templateUrl : getPath('tpl')+'/themes/digest/photo.html',
         restrict : 'E',
