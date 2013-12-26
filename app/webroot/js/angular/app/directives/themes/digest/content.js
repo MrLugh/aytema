@@ -159,26 +159,40 @@ function(appSv,$window){
 
                 var toResize    = angular.element(
                     element[0].querySelector('iframe')  || 
-                    element[0].querySelector('object')   ||
+                    element[0].querySelector('object')  ||
                     element[0].querySelector('embed')
                 );
+
                 var player      = angular.element(element[0].querySelector('.player'));
                 $(toResize[0]).css('opacity','0').css('height','').css('width','');
+
+                console.log(toResize.width(),toResize.height());
 
                 var myWidth = element.width();
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
                 if ($window.innerWidth <= 480) {
-                    var myHeight = toResize.height() +2*padding +2;
+                    console.log("WIDTH");
+                    //var myHeight = toResize.height() +2*padding +2;
+                    var myHeight = toResize.height();
                     var currW= toResize.width();
                     var currH= toResize.height();
-                    var ratio = currW / currH;
+                    var ratio = currH / currW;
                     var myRatio = myWidth / myHeight ;
 
                     currW = myWidth;
-                    currH = currW / myRatio;
+                    if(ratio <= 1){
+                        currH = Math.ceil(currW * ratio);
+                    } else {
+                        currH = Math.ceil(currW / ratio);
+                    }
+
+                    console.log("myW ",myWidth,myHeight);
+                    console.log("original ratio ",ratio,toResize.width(),toResize.height());
+                    console.log("END ",currW / currH,currW,currH);
 
                 } else {
+                    console.log("HEIGHT");
                     var myHeight= appSv.getMyWH() - toResize[0].offsetTop - 2*padding -2;
                     var currW= toResize.width();
                     var currH= toResize.height();
@@ -187,10 +201,11 @@ function(appSv,$window){
 
                     currH = myHeight;
                     currW = currH / myRatio;
-                }
 
-                console.log("myW ",myWidth,myHeight);
-                console.log("original ratio ",ratio,currW,currH);
+                    console.log("myW ",myWidth,myHeight);
+                    console.log("original ratio ",ratio,toResize.width(),toResize.height());
+                    console.log("END ",currH / currW,currW,currH);                    
+                }
 
                 $(toResize[0]).css('height',currH+'px').css('width',currW+'px').css('opacity','1');
                 //$(player[0]).css('height',myHeight+'px');
