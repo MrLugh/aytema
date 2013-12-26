@@ -103,7 +103,7 @@ h3, h4 {
     color: #FDE200 !important;
 }
 .navbar-toggle {
-    margin-top: 76px;
+    margin-top: 10px;
 }
 .navbar-toggle:hover,
 .navbar-toggle:focus {
@@ -345,6 +345,11 @@ p a {
   }
   #container .xlarge {
   width: 97%;
+  }
+
+  h1 a {
+    font-size: 22px!important;
+    line-height: 18px!important;
   }
 }
 
