@@ -160,7 +160,7 @@ function(appSv,$window){
                 $(right[0]).css('height','');
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
                 var myHeight= appSv.getMyWH() - padding -1;
-                console.log("RESIZERIGHT!!!!!! ",$window.innerWidth,right.height(),myHeight);
+
 
                 if ($window.innerWidth > 480) {
                     $(right[0]).css('height',myHeight+'px');
@@ -180,13 +180,10 @@ function(appSv,$window){
                 var player      = angular.element(element[0].querySelector('.player'));
                 $(toResize[0]).css('opacity','0').css('height','').css('width','');
 
-                console.log(toResize.width(),toResize.height());
-
                 var myWidth = element.width();
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
                 if ($window.innerWidth <= 480) {
-                    console.log("WIDTH");
                     //var myHeight = toResize.height() +2*padding +2;
                     var myHeight = toResize.height();
                     var currW= toResize.width();
@@ -201,12 +198,7 @@ function(appSv,$window){
                         currH = Math.ceil(currW / ratio);
                     }
 
-                    console.log("myW ",myWidth,myHeight);
-                    console.log("original ratio ",ratio,toResize.width(),toResize.height());
-                    console.log("END ",currW / currH,currW,currH);
-
                 } else {
-                    console.log("HEIGHT");
                     var myHeight= appSv.getMyWH() - toResize[0].offsetTop - 2*padding -2;
                     var currW= toResize.width();
                     var currH= toResize.height();
@@ -215,10 +207,6 @@ function(appSv,$window){
 
                     currH = myHeight;
                     currW = currH / myRatio;
-
-                    console.log("myW ",myWidth,myHeight);
-                    console.log("original ratio ",ratio,toResize.width(),toResize.height());
-                    console.log("END ",currH / currW,currW,currH);                    
                 }
 
                 $(toResize[0]).css('height',currH+'px').css('width',currW+'px').css('opacity','1');
@@ -256,6 +244,20 @@ function (appSv,$window) {
         controller:'contentPhotoCo',
         scope: true,
         link: function(scope,element,attrs) {
+
+            scope.resizeRight = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var right = angular.element(document.querySelector('.content_detalle .right-column'));
+                $(right[0]).css('height','');
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - padding -1;
+
+
+                if ($window.innerWidth > 480) {
+                    $(right[0]).css('height',myHeight+'px');
+                }
+            }            
 
             scope.resizeContent = function() {
 
@@ -317,6 +319,7 @@ function (appSv,$window) {
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
+                    scope.resizeRight();
                 });
             });
 
@@ -324,6 +327,7 @@ function (appSv,$window) {
                 if (!angular.equals(newValue,oldValue)) {
                     imagesLoaded(element[0],function(){
                         scope.resizeContent();
+                        scope.resizeRight();
                     });
                 }
             },true);
@@ -344,6 +348,20 @@ function(appSv,$window){
         scope: true,
         link: function(scope,element,attrs) {
 
+            scope.resizeRight = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var right = angular.element(document.querySelector('.content_detalle .right-column'));
+                $(right[0]).css('height','');
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - padding -1;
+
+
+                if ($window.innerWidth > 480) {
+                    $(right[0]).css('height',myHeight+'px');
+                }
+            }            
+
             scope.resizeContent = function() {
 
                 var container = angular.element(document.querySelector('.content_detalle .section'));
@@ -357,13 +375,10 @@ function(appSv,$window){
                 var player      = angular.element(element[0].querySelector('.player'));
                 $(toResize[0]).css('opacity','0').css('height','').css('width','');
 
-                console.log(toResize.width(),toResize.height());
-
                 var myWidth = element.width();
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
                 if ($window.innerWidth <= 480) {
-                    console.log("WIDTH");
                     //var myHeight = toResize.height() +2*padding +2;
                     var myHeight = toResize.height();
                     var currW= toResize.width();
@@ -378,12 +393,7 @@ function(appSv,$window){
                         currH = Math.ceil(currW / ratio);
                     }
 
-                    console.log("myW ",myWidth,myHeight);
-                    console.log("original ratio ",ratio,toResize.width(),toResize.height());
-                    console.log("END ",currW / currH,currW,currH);
-
                 } else {
-                    console.log("HEIGHT");
                     var myHeight= appSv.getMyWH() - toResize[0].offsetTop - 2*padding -2;
                     var currW= toResize.width();
                     var currH= toResize.height();
@@ -392,10 +402,6 @@ function(appSv,$window){
 
                     currH = myHeight;
                     currW = currH / myRatio;
-
-                    console.log("myW ",myWidth,myHeight);
-                    console.log("original ratio ",ratio,toResize.width(),toResize.height());
-                    console.log("END ",currH / currW,currW,currH);                    
                 }
 
                 $(toResize[0]).css('height',currH+'px').css('width',currW+'px').css('opacity','1');
@@ -406,6 +412,7 @@ function(appSv,$window){
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
+                    scope.resizeRight();
                 });
             });
 
@@ -413,6 +420,7 @@ function(appSv,$window){
                 if (!angular.equals(newValue,oldValue)) {
                     imagesLoaded(element[0],function(){
                         scope.resizeContent();
+                        scope.resizeRight();
                     });
                 }
             },true);
@@ -422,39 +430,30 @@ function(appSv,$window){
 
 }]);
 
-ayTemaDs.directive('contentDetailChat',[function(){
+ayTemaDs.directive('contentDetailChat',['appSv','$window',
+function(appSv,$window){
     
     return {
         templateUrl : getPath('tpl')+'/themes/digest/detail/chat.html',
         restrict : 'E',
         replace : true,
         controller:'contentChatCo',
-        scope: true        
-    }
-
-}]);
-
-ayTemaDs.directive('contentDetailQuote',[function(){
-    
-    return {
-        templateUrl : getPath('tpl')+'/themes/digest/detail/quote.html',
-        restrict : 'E',
-        replace : true,
-        controller:'contentQuoteCo',
-        scope: true        
-    }
-
-}]);
-
-ayTemaDs.directive('contentDetailPost',['$FB','$timeout','appSv','$window',
-function($FB,$timeout,appSv,$window){
-    return {
-        templateUrl : getPath('tpl')+'/themes/digest/detail/post.html',
-        restrict : 'E',
-        replace : true,
-        controller:'contentPostCo',
         scope: true,
         link: function(scope,element,attrs) {
+
+            scope.resizeRight = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var right = angular.element(document.querySelector('.content_detalle .right-column'));
+                $(right[0]).css('height','');
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - padding -1;
+
+
+                if ($window.innerWidth > 480) {
+                    $(right[0]).css('height',myHeight+'px');
+                }
+            }
 
             if (scope.isFromNetwork('facebook')) {
                 element.ready(function(){
@@ -476,6 +475,10 @@ function($FB,$timeout,appSv,$window){
 
             scope.resizeContent = function() {
 
+                if (scope.isFromNetwork('facebook') || scope.isFromNetwork('twitter')) {
+                    return;
+                }
+
                 var container = angular.element(document.querySelector('.content_detalle .section'));
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
                 var myHeight= appSv.getMyWH() - 2*padding -2;
@@ -492,23 +495,192 @@ function($FB,$timeout,appSv,$window){
                 }
             }
 
-            if (!scope.isFromNetwork('facebook')) {
-                scope.appSv = appSv;
-                scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+            scope.appSv = appSv;
+            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                    scope.resizeRight();
+                });
+            });
+
+            scope.$watch('current.src', function(newValue, oldValue) {
+                if (!angular.equals(newValue,oldValue)) {
                     imagesLoaded(element[0],function(){
                         scope.resizeContent();
+                        scope.resizeRight();
                     });
-                });
+                }
+            },true);
 
-                scope.$watch('current.src', function(newValue, oldValue) {
-                    if (!angular.equals(newValue,oldValue)) {
-                        imagesLoaded(element[0],function(){
-                            scope.resizeContent();
-                        });
-                    }
-                },true);
+        }        
+    }
+
+}]);
+
+ayTemaDs.directive('contentDetailQuote',[function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/themes/digest/detail/quote.html',
+        restrict : 'E',
+        replace : true,
+        controller:'contentQuoteCo',
+        scope: true,
+        link: function(scope,element,attrs) {
+            scope.resizeRight = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var right = angular.element(document.querySelector('.content_detalle .right-column'));
+                $(right[0]).css('height','');
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - padding -1;
+
+
+                if ($window.innerWidth > 480) {
+                    $(right[0]).css('height',myHeight+'px');
+                }
             }
 
+            if (scope.isFromNetwork('facebook')) {
+                element.ready(function(){
+                    $timeout(function(){
+                        scope.$FB = $FB;
+                        scope.$apply();
+                        scope.$watch('$FB.loaded',function(value) {
+                            // It needs authentication, this won't work.
+                            if(value){
+                                if (typeof $FB  != "undefined"){
+                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
+                                }
+                            }
+                        },true);
+                        scope.$apply();
+                    },0);
+                });
+            }
+
+            scope.resizeContent = function() {
+
+                if (scope.isFromNetwork('facebook') || scope.isFromNetwork('twitter')) {
+                    return;
+                }
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - 2*padding -2;
+
+                $(element[0]).css('height','').css('overflow-y','');
+
+                if ($window.innerWidth <= 480) {
+                    return;
+                }
+
+                if (element.height() > myHeight) {
+                    $(element[0]).css('height',myHeight+'px');
+                    $(element[0]).css('overflow-y','auto');
+                }
+            }
+
+            scope.appSv = appSv;
+            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                    scope.resizeRight();
+                });
+            });
+
+            scope.$watch('current.src', function(newValue, oldValue) {
+                if (!angular.equals(newValue,oldValue)) {
+                    imagesLoaded(element[0],function(){
+                        scope.resizeContent();
+                        scope.resizeRight();
+                    });
+                }
+            },true);
+        }
+    }
+
+}]);
+
+ayTemaDs.directive('contentDetailPost',['$FB','$timeout','appSv','$window',
+function($FB,$timeout,appSv,$window){
+    return {
+        templateUrl : getPath('tpl')+'/themes/digest/detail/post.html',
+        restrict : 'E',
+        replace : true,
+        controller:'contentPostCo',
+        scope: true,
+        link: function(scope,element,attrs) {
+
+            scope.resizeRight = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var right = angular.element(document.querySelector('.content_detalle .right-column'));
+                $(right[0]).css('height','');
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - padding -1;
+
+
+                if ($window.innerWidth > 480) {
+                    $(right[0]).css('height',myHeight+'px');
+                }
+            }
+
+            if (scope.isFromNetwork('facebook')) {
+                element.ready(function(){
+                    $timeout(function(){
+                        scope.$FB = $FB;
+                        scope.$apply();
+                        scope.$watch('$FB.loaded',function(value) {
+                            // It needs authentication, this won't work.
+                            if(value){
+                                if (typeof $FB  != "undefined"){
+                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
+                                }
+                            }
+                        },true);
+                        scope.$apply();
+                    },0);
+                });
+            }
+
+            scope.resizeContent = function() {
+
+                if (scope.isFromNetwork('facebook') || scope.isFromNetwork('twitter')) {
+                    return;
+                }
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - 2*padding -2;
+
+                $(element[0]).css('height','').css('overflow-y','');
+
+                if ($window.innerWidth <= 480) {
+                    return;
+                }
+
+                if (element.height() > myHeight) {
+                    $(element[0]).css('height',myHeight+'px');
+                    $(element[0]).css('overflow-y','auto');
+                }
+            }
+
+            scope.appSv = appSv;
+            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                    scope.resizeRight();
+                });
+            });
+
+            scope.$watch('current.src', function(newValue, oldValue) {
+                if (!angular.equals(newValue,oldValue)) {
+                    imagesLoaded(element[0],function(){
+                        scope.resizeContent();
+                        scope.resizeRight();
+                    });
+                }
+            },true);
 
         } 
     }

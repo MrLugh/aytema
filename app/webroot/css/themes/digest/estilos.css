@@ -213,6 +213,7 @@ p a {
   margin: 0 auto;
   padding: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   width: 88%;
   z-index: 1;
   position: absolute!important;
@@ -413,10 +414,10 @@ p a {
   }
 
   #container .large {
-    width: 49%;
+    width: 42%;
   }
   #container .xlarge {
-    width: 57%;
+    width: 49.5%;
   }
 }
 

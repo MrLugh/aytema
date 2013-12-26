@@ -308,6 +308,13 @@ function($FB) {
                             scope.$emit("FB.render");
                         });
 
+                        $FB.Event.subscribe('comment.create', function(response) {
+                            console.log("FB.comment");
+                            scope.$emit("FB.comment");
+                            $FB.XFBML.parse($('.fb-comments .fb_iframe_widget').get(0));
+                            $FB.XFBML.parse($('.fb-comments-count .fb_iframe_widget').get(0));
+                        });
+
                     };
 
                     /*
@@ -450,24 +457,10 @@ function($FB,$timeout){
                     scope.commentsUrl       = attrs.href;
                     scope.commentsNumposts  = attrs.dataNumposts || 5 ;
                     scope.commentsColor     = attrs.dataColorscheme || 'light';
-                    scope.hideComments      = false;
-                    scope.showComments = function()  {
-                        scope.hideComments = !scope.hideComments;
-                    }
-                    scope.textComment = function() {
-                        return scope.hideComments ? 'Show' : 'Hide';
-                    }
 
                     scope.$watch('$FB.loaded',function(value) {
                         if(value){
                             if (typeof $FB  != "undefined"){
-                                $FB.Event.subscribe('comment.create', function(response) {
-                                    console.log("FB.comment");
-                                    scope.$emit("FB.comment");
-                                    $FB.XFBML.parse($('.fb-comments .fb_iframe_widget').get(0));
-                                    $FB.XFBML.parse($('.fb-comments-count .fb_iframe_widget').get(0));
-                                });
-
                                 $FB.XFBML.parse($('.fb-comments .fb_iframe_widget').get(0));
                                 $FB.XFBML.parse($('.fb-comments-count .fb_iframe_widget').get(0));                                
                             }
