@@ -60,7 +60,7 @@ function contentVideoCo($scope,$sce,contentSv) {
 			if (angular.isDefined($scope.content.data['slug'])) {
 				//return $sce.trustAsHtml($scope.content.data['slug']);
 				return $scope.content.data['slug'];
-			}			
+			}
 		}
 
 		if ($scope.content.network == 'vimeo') {
@@ -76,15 +76,25 @@ function contentVideoCo($scope,$sce,contentSv) {
 
 	$scope.getDescription = function() {
 
+		var description = '';
+
 		if ($scope.content.network == 'vimeo') {
-			return $scope.content.data.description;
+			description = $scope.content.data.description;
 		}
 
 		if ($scope.content.network == 'youtube') {
-			return $scope.content.data['content'];
+			description = $scope.content.data['content'];
 		}
 
-		return '';
+		if ($scope.content.network == 'tumblr') {
+
+			if (angular.isDefined($scope.content.data['caption'])) {
+				description = $scope.content.data['caption'];
+			}
+
+		}		
+
+		return $sce.trustAsHtml(description);
 	}
 
 	$scope.hasThumbnail = function() {
