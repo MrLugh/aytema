@@ -256,27 +256,6 @@ function () {
     }
 }]);
 
-ayTemaDs.directive('user_message', [
-function() {
-    return {
-        restrict: "C",
-        replace: true,
-        compile: function(tElem, tAttrs) {
-            return function(scope,element,attrs) {
-                scope.getMessagePosition = function() {
-                    return  {
-                        top:element[0].offsetTop,
-                        height:element[0].clientHeight,
-                        width:element[0].clientWidth,
-                        left:element[0].clientLeft
-                    }
-                };
-                scope.getPosition();
-            }
-        }        
-    }
-}]);
-
 ayTemaDs.directive('fb', ['$FB',
 function($FB) {
     return {

@@ -668,9 +668,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
     };
 
     $scope.getUserMessageStyle = function() {
-    	//var style = $scope.getMessagePosition();
-    	//console.log(style);
-    	var style = {'top':'75%','left':'75%'};
+    	var style = {'width':'100%','position':'relative'};
 	   	if ($scope.userMessage.length > 0 ) {
 	   		style['z-index'] = '2';
 	   		style['opacity'] = '1';
