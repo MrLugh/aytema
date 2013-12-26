@@ -282,18 +282,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     width: 100%!important;
 }
 
-.content_detalle iframe,
-.content_detalle embed,
-.content_detalle object {
-    width: 100%;
-}
-
-.content_detalle .track iframe,
-.content_detalle .track embed,
-.content_detalle .track object {
-    height: 100%;
-}
-
 @media (max-width: 480px) {
 
     .content_detalle {
@@ -333,12 +321,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
         right: 0;
         width: 45px !important;
     }
-
-    .content_detalle .track iframe,
-    .content_detalle .track embed,
-    .content_detalle .track object {
-        height: auto;
-    }    
 
 }
 
