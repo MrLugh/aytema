@@ -514,4 +514,5 @@ p a {
 
 .soundcloud_track iframe, .soundcloud_audio_player {
   height: auto!important;
+  width: 100%;
 }
