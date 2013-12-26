@@ -510,3 +510,7 @@ p a {
 .user_message {
   position: absolute;
 }
+
+.soundcloud_track iframe, .soundcloud_audio_player {
+  height: auto!important;
+}

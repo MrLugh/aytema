@@ -335,38 +335,56 @@ function(appSv,$window){
 
                 var toResize    = angular.element(
                     element[0].querySelector('iframe')  || 
-                    element[0].querySelector('object')   ||
+                    element[0].querySelector('object')  ||
                     element[0].querySelector('embed')
                 );
+
                 var player      = angular.element(element[0].querySelector('.player'));
-                $(toResize[0]).css('width','').css('height','');
-                $(player[0]).css('width','').css('height','');                
-                console.log(toResize.width(),toResize.height(),toResize[0].offsetTop);
+                $(toResize[0]).css('opacity','0').css('height','').css('width','');
 
-                $(player[0]).css('opacity','0');
+                console.log(toResize.width(),toResize.height());
 
-                var myWidth = angular.element(document.querySelector('.content_detalle')).width();
+                var myWidth = element.width();
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
-                var myHeight= appSv.getMyWH() - padding;
-
-                var size = myHeight - toResize[0].offsetTop -padding -2;
-
                 if ($window.innerWidth <= 480) {
-                    size = toResize[0].offsetTop + toResize.height() -padding -2;
+                    console.log("WIDTH");
+                    //var myHeight = toResize.height() +2*padding +2;
+                    var myHeight = toResize.height();
+                    var currW= toResize.width();
+                    var currH= toResize.height();
+                    var ratio = currH / currW;
+                    var myRatio = myWidth / myHeight ;
+
+                    currW = myWidth;
+                    if(ratio <= 1){
+                        currH = Math.ceil(currW * ratio);
+                    } else {
+                        currH = Math.ceil(currW / ratio);
+                    }
+
+                    console.log("myW ",myWidth,myHeight);
+                    console.log("original ratio ",ratio,toResize.width(),toResize.height());
+                    console.log("END ",currW / currH,currW,currH);
+
+                } else {
+                    console.log("HEIGHT");
+                    var myHeight= appSv.getMyWH() - toResize[0].offsetTop - 2*padding -2;
+                    var currW= toResize.width();
+                    var currH= toResize.height();
+                    var ratio = currH / currW;
+                    var myRatio = myHeight / myWidth;
+
+                    currH = myHeight;
+                    currW = currH / myRatio;
+
+                    console.log("myW ",myWidth,myHeight);
+                    console.log("original ratio ",ratio,toResize.width(),toResize.height());
+                    console.log("END ",currH / currW,currW,currH);                    
                 }
 
-                var currW= toResize.width();
-                var currH= toResize.height();
-                var ratio = currH / currW;
-
-                console.log(myHeight,size);
-
-                currH = size;
-                currW = Math.ceil(currH / ratio);
-                var maxW = (currW > container.width()) ? currW : container.width() ;
-                $(toResize[0]).css('height','100%').css('width','100%');
-                $(player[0]).css('height',currH + 'px').css('opacity','1');
+                $(toResize[0]).css('height',currH+'px').css('width',currW+'px').css('opacity','1');
+                //$(player[0]).css('height',myHeight+'px');
             }
 
             scope.appSv = appSv;
