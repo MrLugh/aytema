@@ -167,6 +167,7 @@ function(appSv,$window,$timeout){
                 });
             });
             */
+
         }         
     }
 
@@ -446,6 +447,15 @@ function (appSv,$window) {
                 scope.resizeContent();
                 scope.resizeRight();
             });
+
+            scope.$watch('current.src', function(newValue, oldValue) {
+                if (!angular.equals(newValue,oldValue)) {
+                    imagesLoaded(element[0],function(){
+                        scope.resizeContent();
+                        scope.resizeRight();
+                    });
+                }
+            },true);            
 
             element.ready(function(){
                 imagesLoaded(element[0],function(){
