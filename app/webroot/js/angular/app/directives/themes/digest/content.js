@@ -1,5 +1,5 @@
-ayTemaDs.directive('contentVideo',['$FB','$timeout',
-function($FB,$timeout){    
+ayTemaDs.directive('contentVideo',['$FB','$timeout','appSv','$window',
+function($FB,$timeout,appSv,$window){
     return {
         templateUrl : getPath('tpl')+'/themes/digest/video.html',
         restrict : 'E',
@@ -25,19 +25,149 @@ function($FB,$timeout){
                     },0);
                 });
             }
+
+            scope.resizeContent = function() {
+
+                if (scope.isFromNetwork('facebook') || scope.isFromNetwork('twitter')) {
+                    return;
+                }
+
+                var maxheight = 300;
+
+                var container = element;
+
+                var toResize    = angular.element(
+                    element[0].querySelector('iframe')  ||
+                    element[0].querySelector('object')  ||
+                    element[0].querySelector('embed')
+                );
+
+                if (toResize.length == 0) {
+                    return;
+                }
+
+                var originalW = toResize.width();
+                var originalH = toResize.height();
+                $(toResize[0]).css('opacity','0').css('height','0px').css('width','0px');
+
+                var myWidth = element.width();
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+
+                var myHeight= maxheight - (element.find('h2')[0].offsetTop || 0) - 2*padding -2;
+                var currW= originalW;
+                var currH= originalH;
+                var ratio = currH / currW;
+                var myRatio = myWidth / myHeight ;
+
+                currW = myWidth;
+                if(ratio <= 1){
+                    currH = Math.ceil(currW * ratio);
+                } else {
+                    currH = Math.ceil(currW / ratio);
+                }
+                $(toResize[0]).css('height',currH+'px').css('width',currW+'px').css('opacity','1');
+            }
+
+            scope.appSv = appSv;
+            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                scope.resizeContent();
+            });
+
+            element.ready(function(){
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                });
+            });
         } 
     }
 
 }]);
 
-ayTemaDs.directive('contentPhoto',[
-function(){
+ayTemaDs.directive('contentPhoto',['appSv','$window',
+function(appSv,$window){
     return {
         templateUrl : getPath('tpl')+'/themes/digest/photo.html',
         restrict : 'E',
         replace : true,
         controller:'contentPhotoCo',
-        scope: true
+        scope: true,
+        link: function(scope,element,attrs) {
+
+            if (scope.isFromNetwork('facebook')) {
+                element.ready(function(){
+                    $timeout(function(){
+                        scope.$FB = $FB;
+                        scope.$apply();
+                        scope.$watch('$FB.loaded',function(value) {
+                            // It needs authentication, this won't work.
+                            if(value){
+                                if (typeof $FB  != "undefined"){
+                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
+                                }
+                            }
+                        },true);
+                        scope.$apply();
+                    },0);
+                });
+            }
+
+            scope.resizeContent = function() {
+
+                var maxheight = 300;
+
+                var container = element;
+
+                var toResize    = angular.element(element[0].querySelector('img'));
+
+                if (toResize.length == 0) {
+                    return;
+                }
+
+                var originalW = toResize.width();
+                var originalH = toResize.height();
+                $(toResize[0]).css('opacity','0').css('height','0px').css('width','0px');
+
+                var myWidth = element.width();
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+
+                var myHeight= maxheight - (element.find('h2')[0].offsetTop || 0) - 2*padding -2;
+                var currW= originalW;
+                var currH= originalH;
+                var ratio = currH / currW;
+                var myRatio = myWidth / myHeight ;
+
+                currW = myWidth;
+                if(ratio <= 1){
+                    currH = Math.ceil(currW * ratio);
+                } else {
+                    currH = Math.ceil(currW / ratio);
+                }
+                $(toResize[0]).css('height',currH+'px').css('width','auto').css('opacity','1');
+            }
+
+            /*
+            scope.appSv = appSv;
+            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                });
+            });
+
+            scope.$watch('current.src', function(newValue, oldValue) {
+                if (!angular.equals(newValue,oldValue)) {
+                    imagesLoaded(element[0],function(){
+                        scope.resizeContent();
+                    });
+                }
+            },true);
+
+            element.ready(function(){
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                });
+            });
+            */
+        }         
     }
 
 }]);
@@ -215,20 +345,16 @@ function(appSv,$window){
 
             scope.appSv = appSv;
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                scope.resizeContent();
+                scope.resizeRight();
+            });
+
+            element.ready(function(){
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
                     scope.resizeRight();
                 });
             });
-
-            scope.$watch('current.src', function(newValue, oldValue) {
-                if (!angular.equals(newValue,oldValue)) {
-                    imagesLoaded(element[0],function(){
-                        scope.resizeContent();
-                        scope.resizeRight();
-                    });
-                }
-            },true);
         }
     }
 
@@ -317,20 +443,16 @@ function (appSv,$window) {
 
             scope.appSv = appSv;
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                scope.resizeContent();
+                scope.resizeRight();
+            });
+
+            element.ready(function(){
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
                     scope.resizeRight();
                 });
             });
-
-            scope.$watch('current.src', function(newValue, oldValue) {
-                if (!angular.equals(newValue,oldValue)) {
-                    imagesLoaded(element[0],function(){
-                        scope.resizeContent();
-                        scope.resizeRight();
-                    });
-                }
-            },true);
 
         }
     }
@@ -410,20 +532,16 @@ function(appSv,$window){
 
             scope.appSv = appSv;
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                scope.resizeContent();
+                scope.resizeRight();
+            });
+
+            element.ready(function(){
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
                     scope.resizeRight();
                 });
             });
-
-            scope.$watch('current.src', function(newValue, oldValue) {
-                if (!angular.equals(newValue,oldValue)) {
-                    imagesLoaded(element[0],function(){
-                        scope.resizeContent();
-                        scope.resizeRight();
-                    });
-                }
-            },true);
 
         }
     }
@@ -475,10 +593,6 @@ function(appSv,$window){
 
             scope.resizeContent = function() {
 
-                if (scope.isFromNetwork('facebook') || scope.isFromNetwork('twitter')) {
-                    return;
-                }
-
                 var container = angular.element(document.querySelector('.content_detalle .section'));
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
                 var myHeight= appSv.getMyWH() - 2*padding -2;
@@ -497,22 +611,18 @@ function(appSv,$window){
 
             scope.appSv = appSv;
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                scope.resizeContent();
+                scope.resizeRight();
+            });
+
+            element.ready(function(){
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
                     scope.resizeRight();
                 });
             });
 
-            scope.$watch('current.src', function(newValue, oldValue) {
-                if (!angular.equals(newValue,oldValue)) {
-                    imagesLoaded(element[0],function(){
-                        scope.resizeContent();
-                        scope.resizeRight();
-                    });
-                }
-            },true);
-
-        }        
+        }  
     }
 
 }]);
@@ -560,10 +670,6 @@ ayTemaDs.directive('contentDetailQuote',[function(){
 
             scope.resizeContent = function() {
 
-                if (scope.isFromNetwork('facebook') || scope.isFromNetwork('twitter')) {
-                    return;
-                }
-
                 var container = angular.element(document.querySelector('.content_detalle .section'));
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
                 var myHeight= appSv.getMyWH() - 2*padding -2;
@@ -582,20 +688,16 @@ ayTemaDs.directive('contentDetailQuote',[function(){
 
             scope.appSv = appSv;
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                scope.resizeContent();
+                scope.resizeRight();
+            });
+
+            element.ready(function(){
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
                     scope.resizeRight();
                 });
-            });
-
-            scope.$watch('current.src', function(newValue, oldValue) {
-                if (!angular.equals(newValue,oldValue)) {
-                    imagesLoaded(element[0],function(){
-                        scope.resizeContent();
-                        scope.resizeRight();
-                    });
-                }
-            },true);
+            });            
         }
     }
 
@@ -667,20 +769,16 @@ function($FB,$timeout,appSv,$window){
 
             scope.appSv = appSv;
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+                scope.resizeContent();
+                scope.resizeRight();
+            });
+
+            element.ready(function(){
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
                     scope.resizeRight();
                 });
             });
-
-            scope.$watch('current.src', function(newValue, oldValue) {
-                if (!angular.equals(newValue,oldValue)) {
-                    imagesLoaded(element[0],function(){
-                        scope.resizeContent();
-                        scope.resizeRight();
-                    });
-                }
-            },true);
 
         } 
     }

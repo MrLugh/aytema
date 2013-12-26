@@ -86,13 +86,15 @@ function contentVideoCo($scope,$sce,contentSv) {
 			description = $scope.content.data['content'];
 		}
 
+		/*
 		if ($scope.content.network == 'tumblr') {
 
 			if (angular.isDefined($scope.content.data['caption'])) {
 				description = $scope.content.data['caption'];
 			}
 
-		}		
+		}
+		*/
 
 		return $sce.trustAsHtml(description);
 	}
@@ -141,6 +143,10 @@ function contentPhotoCo($scope,contentSv) {
 	$scope.photolist	= [];
 	$scope.current 		= {};
 	$scope.currentPos	= 0;
+
+	$scope.isFromNetwork = function(network) {
+		return $scope.content.network == network;
+	}
 
 	$scope.setCurrent = function() {
 		$scope.current = $scope.photolist[$scope.currentPos];

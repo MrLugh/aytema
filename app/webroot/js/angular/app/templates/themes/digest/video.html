@@ -9,7 +9,7 @@
 		<div ng-if="canShowThumbnail()">
 			<img ng-src="{{getThumbnail()}}" />
 		</div>	
-		<div ng-if="canShowPlayer()" class="video_embed" ng-bind-html="getPlayer()"></div>
+		<div ng-if="canShowPlayer()" class="player" ng-bind-html="getPlayer()"></div>
 		<div ng-if="isEmpty()">EMPTY</div>
 		<h2>{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>

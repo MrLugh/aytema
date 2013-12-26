@@ -512,14 +512,6 @@ p a {
   position: absolute;
 }
 
-
-
-#container iframe,
-#container object,
-#container embed {
-  width: 100%!important;
-}
-
 .soundcloud_track iframe, .soundcloud_audio_player {
   height: auto!important;
 }
