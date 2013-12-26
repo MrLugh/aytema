@@ -153,6 +153,20 @@ function(appSv,$window){
         scope: true,
         link: function(scope,element,attrs) {
 
+            scope.resizeRight = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var right = angular.element(document.querySelector('.content_detalle .right-column'));
+                $(right[0]).css('height','');
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - padding -1;
+                console.log("RESIZERIGHT!!!!!! ",$window.innerWidth,right.height(),myHeight);
+
+                if ($window.innerWidth > 480) {
+                    $(right[0]).css('height',myHeight+'px');
+                }
+            }
+
             scope.resizeContent = function() {
 
                 var container = angular.element(document.querySelector('.content_detalle .section'));
@@ -215,6 +229,7 @@ function(appSv,$window){
             scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
+                    scope.resizeRight();
                 });
             });
 
@@ -222,10 +237,10 @@ function(appSv,$window){
                 if (!angular.equals(newValue,oldValue)) {
                     imagesLoaded(element[0],function(){
                         scope.resizeContent();
+                        scope.resizeRight();
                     });
                 }
             },true);
-
         }
     }
 
@@ -462,57 +477,19 @@ function($FB,$timeout,appSv,$window){
             scope.resizeContent = function() {
 
                 var container = angular.element(document.querySelector('.content_detalle .section'));
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - 2*padding -2;
 
-                var toResize    = angular.element(
-                    element[0].querySelector('img')  ||
-                    element[0].querySelector('iframe')  || 
-                    element[0].querySelector('object')   ||
-                    element[0].querySelector('embed')
-                );
+                $(element[0]).css('height','').css('overflow-y','');
 
                 if ($window.innerWidth <= 480) {
                     return;
                 }
 
-                $(toResize[0]).css('width','').css('height','');
-                $(container.parent()).css('width','').css('height','');
-
-                var myWidth = angular.element(document.querySelector('.content_detalle')).width();
-
-                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
-
-                var myHeight= appSv.getMyWH() - padding;
-
-                if (myHeight > container.height() && myWidth > container.width()) {
-                    $(toResize[0]).css('max-width','100%');
-                    $(toResize[0]).css('width','auto');
-                    return;
+                if (element.height() > myHeight) {
+                    $(element[0]).css('height',myHeight+'px');
+                    $(element[0]).css('overflow-y','auto');
                 }
-
-                var size = myHeight - toResize[0].offsetTop -padding -2;
-
-                var currW= toResize.width();
-                var currH= toResize.height();
-
-                var ratio = currH / currW;
-                if(currH >= size) {
-                    currH = size;
-                    currW = Math.ceil(currH / ratio);
-
-                    var maxW = (currW > container.width()) ? currW : container.width() ; 
-                    $(container.parent()[0]).css('width',maxW);
-                    $(toResize[0]).css('width','auto');
-                    $(toResize[0]).css('height',currH + 'px');
-                } else if(currW >= size && ratio <= 1){
-                    currW = size;
-                    currH = Math.ceil(currW * ratio);
-
-                    var maxH = (currH > container.height()) ? currH : container.height() ;
-                    $(container.parent()[0]).css('height',maxH);
-                    $(toResize[0]).css('width',currW + 'px');
-                    $(toResize[0]).css('height','auto');
-                }
-
             }
 
             if (!scope.isFromNetwork('facebook')) {
