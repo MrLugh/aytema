@@ -230,7 +230,7 @@ p a {
 
 .content .stats {
   height: auto;
-  width: auto;  
+  width: auto;
 }
 
 .content .stats li {
@@ -243,10 +243,9 @@ p a {
 .arrows {
     transition:all 0.66s ease 0s;
     float: left;
-    height: 100%;
-    position: fixed;
-    top: 64px;
+    position: absolute;
     width: 6%;
+    top:0;
 }
 .arrows:hover {
     opacity: 1;

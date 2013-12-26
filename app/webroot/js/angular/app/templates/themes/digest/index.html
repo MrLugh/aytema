@@ -115,7 +115,7 @@
 
 		</div>
 
-		<a href="#/" ng-click="move(-1)" title="{{getNavigatorTitle(-1)}}" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)">
+		<a href="#/" ng-click="move(-1)" title="{{getNavigatorTitle(-1)}}" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)" ng-style="getStyle()">
 			<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
 			<div class="more-user" ng-show="getNavigatorThumbnail(-1).length">
 				<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
@@ -124,7 +124,7 @@
 			<img class="social-media" ng-src="img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
 		</a>
 
-		<a href="#/" ng-click="move(1)" title="{{getNavigatorTitle(1)}}" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)">
+		<a href="#/" ng-click="move(1)" title="{{getNavigatorTitle(1)}}" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)" ng-style="getStyle()">
 			<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
 			<div class="more-user" ng-show="getNavigatorThumbnail(1).length">
 				<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
@@ -135,7 +135,7 @@
 
 	</div>
 
-	<div class="arrows arrows_home arrow_left">
+	<div class="arrows arrows_home arrow_left" ng-style="getStyle()">
 	 	<a href="#/" skip-default ng-click="movePage(-1)" title="{{getPageArrowTitle(-1)}}">
 	 		<img class="arrow" src="img/themes/digest/arrow-left.png" alt="Previous page">
 	 	</a>
@@ -177,7 +177,7 @@
 
 	</ul>
 
-	<div class="arrows arrows_home arrow_right">
+	<div class="arrows arrows_home arrow_right" ng-style="getStyle()">
 		<a href="#/" skip-default ng-click="movePage(1)" title="{{getPageArrowTitle(1)}}">
 			<img class="arrow" src="img/themes/digest/arrow-right.png" alt="Next page">
 		</a>
