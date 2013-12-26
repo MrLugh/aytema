@@ -1,4 +1,4 @@
-<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}_detail" class="chat">
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}_detail" class="chat {{content.network}}_{{content.concept}}">
 	<h2>{{getTitle()}}</h2>
 	<ul ng-repeat="dialogue in getDialogues()">
 		<li><strong>{{dialogue.label}}</strong> {{dialogue.phrase}}</li>

@@ -282,24 +282,15 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     width: 100%!important;
 }
 
-.content_detalle .player {
-    position: relative;
-    overflow: hidden;
-
-    /*
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    height: 0;
-    */
+.content_detalle iframe,
+.content_detalle embed,
+.content_detalle object {
+    width: 100%;
 }
 
-.content_detalle .player iframe,
-.content_detalle .player object,
-.content_detalle .player embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.content_detalle .track iframe,
+.content_detalle .track embed,
+.content_detalle .track object {
     height: 100%;
 }
 
@@ -343,30 +334,12 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
         width: 45px !important;
     }
 
-    .content_detalle .player {
-        height: 100%!important;
-        overflow: auto;
-    }
-
-    .content_detalle .video .player iframe,
-    .content_detalle .video .player object,
-    .content_detalle .video .player embed {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .content_detalle .track .player iframe,
-    .content_detalle .track .player object,
-    .content_detalle .track .player embed {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
+    .content_detalle .track iframe,
+    .content_detalle .track embed,
+    .content_detalle .track object {
         height: auto;
     }    
+
 }
 
 @media (min-width: 481px) and (max-width: 768px) {

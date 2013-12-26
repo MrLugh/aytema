@@ -157,12 +157,14 @@ function(appSv,$window){
 
                 var container = angular.element(document.querySelector('.content_detalle .section'));
 
-                var toResize    = angular.element(element[0].querySelector('iframe'));
+                var toResize    = angular.element(
+                    element[0].querySelector('iframe')  || 
+                    element[0].querySelector('embed')   ||
+                    element[0].querySelector('object')
+                );
                 var player      = angular.element(element[0].querySelector('.player'));
-
-                if ($window.innerWidth <= 480) {
-                    return;
-                }
+                $(toResize[0]).css('width','').css('height','');
+                console.log(toResize.width(),toResize.height(),toResize[0].offsetTop);
 
                 $(player[0]).css('opacity','0');
 
@@ -170,17 +172,24 @@ function(appSv,$window){
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
                 var myHeight= appSv.getMyWH() - padding;
-                var size = myHeight - player[0].offsetTop -padding -2;                
+
+                var size = myHeight - toResize[0].offsetTop -padding -2;
+
+                if ($window.innerWidth <= 480) {
+                    size = toResize[0].offsetTop + toResize.height() -padding -2;
+                }
 
                 var currW= toResize.width();
                 var currH= toResize.height();
                 var ratio = currH / currW;
 
+                console.log(myHeight,size);
+
                 currH = size;
                 currW = Math.ceil(currH / ratio);
                 var maxW = (currW > container.width()) ? currW : container.width() ;
-                $(player[0]).css('height',currH + 'px').css('width','100%').css('opacity','1');
-
+                $(toResize[0]).css('height','100%').css('width','100%');
+                $(player[0]).css('height',currH + 'px').css('opacity','1');
             }
 
             scope.appSv = appSv;
@@ -218,8 +227,11 @@ function (appSv,$window) {
 
                 var container = angular.element(document.querySelector('.content_detalle .section'));
 
-                var toResize   = angular.element(
-                    element[0].querySelector('img.content_photo') || element[0].querySelector('iframe')
+                var toResize    = angular.element(
+                    element[0].querySelector('img.content_photo')  ||
+                    element[0].querySelector('iframe')  || 
+                    element[0].querySelector('embed')   ||
+                    element[0].querySelector('object')
                 );
 
                 if ($window.innerWidth <= 480) {
@@ -302,12 +314,15 @@ function(appSv,$window){
 
                 var container = angular.element(document.querySelector('.content_detalle .section'));
 
-                var toResize    = angular.element(element[0].querySelector('iframe'));
+                var toResize    = angular.element(
+                    element[0].querySelector('iframe')  || 
+                    element[0].querySelector('embed')   ||
+                    element[0].querySelector('object')
+                );
                 var player      = angular.element(element[0].querySelector('.player'));
-
-                if ($window.innerWidth <= 480) {
-                    return;
-                }
+                $(toResize[0]).css('width','').css('height','');
+                $(player[0]).css('width','').css('height','');                
+                console.log(toResize.width(),toResize.height(),toResize[0].offsetTop);
 
                 $(player[0]).css('opacity','0');
 
@@ -315,16 +330,24 @@ function(appSv,$window){
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
                 var myHeight= appSv.getMyWH() - padding;
-                var size = myHeight - player[0].offsetTop -padding -2;                
+
+                var size = myHeight - toResize[0].offsetTop -padding -2;
+
+                if ($window.innerWidth <= 480) {
+                    size = toResize[0].offsetTop + toResize.height() -padding -2;
+                }
 
                 var currW= toResize.width();
                 var currH= toResize.height();
                 var ratio = currH / currW;
 
+                console.log(myHeight,size);
+
                 currH = size;
                 currW = Math.ceil(currH / ratio);
                 var maxW = (currW > container.width()) ? currW : container.width() ;
-                $(player[0]).css('height',currH + 'px').css('width','100%').css('opacity','1');
+                $(toResize[0]).css('height','100%').css('width','100%');
+                $(player[0]).css('height',currH + 'px').css('opacity','1');
             }
 
             scope.appSv = appSv;
@@ -403,8 +426,11 @@ function($FB,$timeout,appSv,$window){
 
                 var container = angular.element(document.querySelector('.content_detalle .section'));
 
-                var toResize   = angular.element(
-                    element[0].querySelector('img') || element[0].querySelector('iframe')
+                var toResize    = angular.element(
+                    element[0].querySelector('img')  ||
+                    element[0].querySelector('iframe')  || 
+                    element[0].querySelector('embed')   ||
+                    element[0].querySelector('object')
                 );
 
                 if ($window.innerWidth <= 480) {
