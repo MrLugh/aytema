@@ -12,6 +12,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.showingAccount	= false;
 	$scope.account			= {};
 	$scope.current			= false;
+	$scope.currentAccount 	= [];
 
 	$scope.initFilters = function() {
 
@@ -142,6 +143,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.showAccount = function(index) {
 		$scope.current			= index;
 		$scope.account 			= $scope.list[$scope.current];
+		$scope.currentAccount   = [$scope.list[$scope.current]];
 		$scope.showingAccount 	= true;
 	}
 
@@ -149,6 +151,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		$scope.account 			= {};
 		$scope.showingAccount 	= false;
 		$scope.current			= false;
+		$scope.currentAccount	= []
 	}
 
 	$scope.move = function(direction) {
