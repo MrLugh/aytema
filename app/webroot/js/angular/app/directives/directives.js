@@ -35,7 +35,17 @@ function() {
     return function(scope, elm, attr) {
         var raw = elm[0];
 
+        scope.showUp = false;
+
+        scope.scrollToTop = function() {
+            scope.showUp = false;
+            $(elm[0]).animate({scrollTop: elm.offset().top}, "slow");
+        }
+
         elm.bind('scroll', function() {
+
+            scope.showUp = (raw.scrollTop > raw.offsetHeight) ? true : false;
+
             if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight*.9) {
                 scope.scroll = raw.scrollTop + raw.offsetHeight;
                 scope.$apply(attr.infiniteScroll);

@@ -424,7 +424,7 @@ p a {
     width: 42%;
   }
   #container .xlarge {
-    width: 49.5%;
+    width: 50%;
   }
 }
 
@@ -535,4 +535,17 @@ p a {
 #container .quote {
   position: relative;
   text-align: center;
+}
+
+
+.scrollToTop {
+  position: absolute;
+  left:80%;
+  top:100%;
+  transition:all 0.66s ease 0s;
+}
+
+.scrollToTop img {
+  width: 40px;
+  height: auto;
 }

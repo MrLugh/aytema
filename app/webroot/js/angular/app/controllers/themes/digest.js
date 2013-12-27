@@ -681,6 +681,20 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	   	return style;
     }
 
+    $scope.getScrollTopStyle = function() {
+    	var style = {};
+	   	if ($scope.showUp == true ) {
+	   		style['top'] = '70%';
+	   		style['z-index'] = '2';
+	   		style['opacity'] = '1';
+	   		return style;	   		
+    	}
+	   	style['top'] = '100%';
+   		style['z-index'] = '1';
+   		style['opacity'] = '0';
+	   	return style;
+    }    
+
     $scope.getConfigStyle = function() {
 	   	if ($scope.showConfig == true) {
 	   		return {'left':'0'};

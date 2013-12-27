@@ -27,7 +27,7 @@
 
 			<ul ng-if="configLoaded" class="nav navbar-nav">
 				<li ng-repeat="page in pages" ng-class="getMenuItemClass('{{page}}')">
-					<a href="#/" ng-click="setCurrent('{{page}}')" skip-default>{{page}} <span ng-class="getMenuItemClass('{{page}}')">x<span></a>
+					<a href="#/" ng-click="setCurrent('{{page}}')" skip-default>{{page}} <span ng-class="getMenuItemClass('{{page}}')">x</span></a>
 				</li>
 			</ul>
 
@@ -192,3 +192,7 @@
 	<img alt="loading" class="loading" ng-src="img/themes/digest/ajax-loader.gif">
 	<span class="text_message">{{userMessage}}</span>	
 </div>
+
+<a href="#/" ng-show="showUp" ng-click="scrollToTop()" class="scrollToTop" ng-style="getScrollTopStyle()" skip-default>
+	<img src="img/themes/digest/scrollTop.png" />
+</a>
