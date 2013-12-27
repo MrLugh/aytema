@@ -124,7 +124,8 @@ border-bottom-left-radius: 60px;
     text-align: left;
     overflow-y:auto;
     overflow-x:hidden;
-    width: 40%;    
+    width: 40%;
+    position: relative;   
 }
 .content_detalle h2, .content_detalle p  {
     text-align: left;
@@ -351,7 +352,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 
-.content_detalle .content {
+.content_detalle .content, .content_detalle .right-column {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -381,4 +382,22 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 .content_detalle .content.ng-leave.ng-leave-active {
     left: -100%;
+}
+
+
+
+.content_detalle .right-column.ng-enter {
+    right:-100%;
+}
+
+.content_detalle .right-column.ng-enter.ng-enter-active {
+    right: 0;
+}
+
+.content_detalle .right-column.ng-leave {
+    right: 0;
+}
+
+.content_detalle .right-column.ng-leave.ng-leave-active {
+    right: -100%;
 }

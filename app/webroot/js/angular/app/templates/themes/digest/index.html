@@ -95,7 +95,7 @@
 							<a id="next2" class="next" href="#/"><img alt="" src="img/themes/digest/arrow-right.png"></a>
 							<div class="carousel_container">
 								<ul id="carousel">
-									<li ng-repeat="related in relateds" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','pagination':'#pager2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+									<li ng-repeat="related in relateds" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
 										<a href="#/" ng-click="showRelated($index)" skip-default >
 											<i ng-hide="getRelatedThumbnail($index).length" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
 											<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">

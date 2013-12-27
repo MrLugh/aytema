@@ -385,22 +385,24 @@ function () {
     }
 }]);
 
-ayTemaDs.directive('caroufredsel',['$window',
-function ($window) {
+ayTemaDs.directive('caroufredsel',['$window','$timeout',
+function ($window,$timeout) {
     return function (scope, element, attrs) {
 
         scope.caroufredsel = function() {
             if (scope.$last !== true) {
                 return;
             }
-            var options = attrs.caroufredsel;
-            options =  eval("(function(){return " + options + ";})()");
-            jQuery(options.selector).carouFredSel(options);            
+            element.ready(function(){
+                $timeout(function(){
+                    var options = attrs.caroufredsel;
+                    options =  eval("(function(){return " + options + ";})()");
+                    jQuery(options.selector).carouFredSel(options);
+                },100);
+            });            
         }
 
-        element.ready(function(){
-            scope.caroufredsel();
-        });
+        scope.caroufredsel();
 
         angular.element($window).bind('resize', scope.caroufredsel);
 
