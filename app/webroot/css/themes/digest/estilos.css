@@ -429,8 +429,10 @@ p a {
 }
 
 .content img {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  /*max-width: 100%;
+  width:auto;
+  */
 }
 
 .modalContent {
