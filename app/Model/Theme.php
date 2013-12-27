@@ -33,7 +33,7 @@ Class Theme extends AppModel {
                 'post'=>'medium',
             ),
             'tumblr' => array(
-                'photo'=>'small',
+                'photo'=>'medium',
                 'post'=>'xlarge',
                 'chat'=>'small',
                 'quote'=>'medium',

@@ -612,7 +612,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 		$scope.accounts = accounts;
 		if (accounts.length) {
-			$scope.accountsLoaded = true;			
+			$scope.accountsLoaded = true;		
 		}
 
 		if ($scope.configLoaded) {

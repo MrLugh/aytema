@@ -360,11 +360,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     -ms-user-select: none;
     user-select: none;
     
-    -webkit-transition: all 200ms cubic-bezier(0.745, 0.200, 0.315, 1);
-    -webkit-transition: all 200ms cubic-bezier(0.745, 0.200, 0.315, 1.395); 
-    -moz-transition: all 200ms cubic-bezier(0.745, 0.200, 0.315, 1.395); 
-     -o-transition: all 200ms cubic-bezier(0.745, 0.200, 0.315, 1.395); 
-        transition: all 200ms cubic-bezier(0.745, 0.200, 0.315, 1.395);
+    -webkit-transition: all 400ms cubic-bezier(0.745, 0.200, 0.315, 1);
+    -webkit-transition: all 400ms cubic-bezier(0.745, 0.200, 0.315, 1.395); 
+    -moz-transition: all 400ms cubic-bezier(0.745, 0.200, 0.315, 1.395); 
+     -o-transition: all 400ms cubic-bezier(0.745, 0.200, 0.315, 1.395); 
+        transition: all 400ms cubic-bezier(0.745, 0.200, 0.315, 1.395);
 }
 
 

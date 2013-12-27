@@ -46,35 +46,36 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.setList = function() {
+		if (!contentSv.isLoading()) {
+			var params			= [];
+			params['concepts']	= JSON.parse(JSON.stringify($scope.filters.concepts));
+			params['offset']	= $scope.offset;
+			params['limit']		= $scope.limit;
+			params['accounts'] = [$scope.account.id];
 
-		var params			= [];
-		params['concepts']	= JSON.parse(JSON.stringify($scope.filters.concepts));
-		params['offset']	= $scope.offset;
-		params['limit']		= $scope.limit;
-		params['accounts'] = [$scope.account.id];
+			contentSv.getContentsByFilters(params).then(
+				function(data) {
+					var contents = data.contents;
 
-		contentSv.getContentsByFilters(params).then(
-			function(data) {
-				var contents = data.contents;
+					if (contents.length) {
+						for (var x in contents) {
 
-				if (contents.length) {
-					for (var x in contents) {
-
-						content = contents[x].Content;
-						if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
-							$scope.list.push(content);
+							content = contents[x].Content;
+							if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
+								$scope.list.push(content);
+							}
 						}
+						$scope.offset += $scope.limit;
 					}
-					$scope.offset += $scope.limit;
+				},
+				function(reason) {
+					console.log('Failed: ', reason);
+				},
+				function(update) {
+					console.log('Got notification: ', update);
 				}
-			},
-			function(reason) {
-				console.log('Failed: ', reason);
-			},
-			function(update) {
-				console.log('Got notification: ', update);
-			}
-		);
+			);
+		}
 	}
 
 	$scope.filter = function(concept) {
@@ -102,7 +103,9 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		$scope.setList();
+		if (!contentSv.isLoading() && !$scope.masonryLoading) {
+			$scope.setList();
+		}
 	}
 
 	$scope.filterStyle = function(concept) {
@@ -146,8 +149,8 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.getContentSize = function(index) {
-		var small 		= ['post','quote','chat','photo'];
-		var medium 		= ['video','track'];
+		var small 		= ['quote','chat','photo','post'];
+		var medium 		= ['video','track','video'];
 		var large 		= [];
 		var extralarge 	= [];
 		var concept = $scope.list[index].concept;
@@ -185,12 +188,12 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.contentSv= contentSv;
 
 	$scope.$watch('account', function(oldValue,newValue) {
-		if (oldValue.id != newValue.id) {
+		//if (oldValue.id != newValue.id) {
 			$scope.generateConceptsList();
 			$scope.initFilters();
 			$scope.offset = 0;
 			$scope.reinitMasonry();
-		}
+		//}
 
 	});
 
@@ -204,6 +207,5 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.generateConceptsList();
 	$scope.initFilters();
-	$scope.setList();
 	
 }

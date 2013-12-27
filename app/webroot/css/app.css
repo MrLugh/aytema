@@ -208,8 +208,11 @@ ul {
 }
 
 .adminContent {
-  display: inline-block;
-  height: auto;
+  float: left;
+  margin: 0 0 20px;
+  padding: 10px;
+  z-index: 1;
+  background-color: white;
 }
 
 .adminContent h2 {
@@ -239,49 +242,48 @@ ul {
 @media (max-width: 480px) {
 
   #accountPageList .small {
-    width: 100%;
+  width: 97%;
   }
   #accountPageList .medium {
-    width: 100%;
+  width: 97%;
   }
   #accountPageList .large {
-    width: 100%;
+  width: 97%;
   }
   #accountPageList .xlarge {
-    width: 100%;
+  width: 97%;
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
 
   #accountPageList .small {
-    width: 32.3%;
+  width: 22%%;
   }
   #accountPageList .medium {
-    width: 65.6%;
+  width: 47%;
   }
   #accountPageList .large {
-    width: 99%;
+  width: 72%;
   }
   #accountPageList .xlarge {
-    width: 99%;
+  width: 97%;
   }
 }
-
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
   #accountPageList .small {
-      width: 23%;
+    width: 22%;
   }
   #accountPageList .medium {
-      width: 48%;
+    width: 47%;
   }
   #accountPageList .large {
-      width: 73%;
+    width: 72%;
   }
   #accountPageList .xlarge {
-      width: 98%;
+    width: 97%;
   }
 
 }
@@ -289,19 +291,16 @@ ul {
 @media (min-width: 1025px) and (max-width: 1200px) {
 
   #accountPageList .small {
-      width: 18%;
+    width: 22%;
   }
   #accountPageList .medium {
-      width: 38%;
+    width: 47%;
   }
-  #accountPageList .medium iframe {
-      width: 98%;
-  }    
   #accountPageList .large {
-      width: 58%;
+    width: 72%;
   }
   #accountPageList .xlarge {
-      width: 78%;
+    width: 97%;
   }
 
 }
@@ -309,25 +308,23 @@ ul {
 @media all and (max-width: 2048px) and (min-width: 1201px) {
 
   #accountPageList .small {
-      width: 14%;
+    width: 24%;
   }
   #accountPageList .medium {
-      width: 28%;
+    width: 32%;
   }
 
   #accountPageList .large {
-      width: 43%;
+    width: 42%;
   }
   #accountPageList .xlarge {
-      width: 57%;
+    width: 49.5%;
   }
 }
 
 .adminContent img {
-  width: 100%;
-  height: auto;
-  margin:0 auto;
-  display: block;
+  width: auto;
+  max-width: 100%;
 }
 
 .accountPageHeader {

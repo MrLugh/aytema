@@ -60,7 +60,7 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 			if (angular.isDefined($scope.content.data['slug'])) {
 				//return $sce.trustAsHtml($scope.content.data['slug']);
 				return $scope.content.data['slug'];
-			}			
+			}
 		}
 
 		if ($scope.content.network == 'vimeo') {
@@ -76,15 +76,27 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 
 	$scope.getDescription = function() {
 
+		var description = '';
+
 		if ($scope.content.network == 'vimeo') {
-			return $scope.content.data.description;
+			description = $scope.content.data.description;
 		}
 
 		if ($scope.content.network == 'youtube') {
-			return $scope.content.data['content'];
+			description = $scope.content.data['content'];
 		}
 
-		return '';
+		/*
+		if ($scope.content.network == 'tumblr') {
+
+			if (angular.isDefined($scope.content.data['caption'])) {
+				description = $scope.content.data['caption'];
+			}
+
+		}
+		*/
+
+		return $sce.trustAsHtml(description);
 	}
 
 	$scope.hasThumbnail = function() {
@@ -131,6 +143,10 @@ function adminContentPhotoCo($scope,contentSv) {
 	$scope.photolist	= [];
 	$scope.current 		= {};
 	$scope.currentPos	= 0;
+
+	$scope.isFromNetwork = function(network) {
+		return $scope.content.network == network;
+	}
 
 	$scope.setCurrent = function() {
 		$scope.current = $scope.photolist[$scope.currentPos];
@@ -242,6 +258,10 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 
 	$scope.loadPlayer	= false;
 	$scope.loadThumbnail= false;	
+
+	$scope.isFromNetwork = function(network) {
+		return $scope.content.network == network;
+	}
 
 	$scope.getPlayer = function() {
 
@@ -373,7 +393,7 @@ function adminContentPostCo($scope,contentSv,$sce) {
 		return '';
 	}
 
-	$scope.getDescription = function() {	
+	$scope.getDescription = function() {
 
 		if ($scope.content.network == 'tumblr') {
 			if (angular.isDefined($scope.content.data['body'])) {
@@ -383,7 +403,7 @@ function adminContentPostCo($scope,contentSv,$sce) {
 		}
 
 		if ($scope.content.network == 'facebook') {
-			return $scope.content.data['story'];
+			return $scope.content.data['story'] || $scope.content.data['message'];
 		}		
 
 		if ($scope.current.description.length) {
