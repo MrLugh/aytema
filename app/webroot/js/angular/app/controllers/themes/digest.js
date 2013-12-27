@@ -668,12 +668,14 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
     };
 
     $scope.getUserMessageStyle = function() {
-    	var style = {'width':'100%','position':'relative'};
+    	var style = {};
 	   	if ($scope.userMessage.length > 0 ) {
+	   		style['top'] = '70%';
 	   		style['z-index'] = '2';
 	   		style['opacity'] = '1';
 	   		return style;	   		
     	}
+	   	style['top'] = '100%';
    		style['z-index'] = '1';
    		style['opacity'] = '0';
 	   	return style;

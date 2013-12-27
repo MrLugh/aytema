@@ -39,11 +39,11 @@
 
 	<div ng-if="showingContent" class="modalContent" ng-style="getModalBackgroundStyle()">
 
-		<div ng-repeat="content in contentModal" ng-switch="content.concept" class="content_detalle" ng-style="getStyle()">
+		<div class="content_detalle" ng-style="getStyle()">
 
 			<div class="left-column">
 
-				<div class="section content well" ng-style="getContentStyle(content)" style="text-align:center;margin:0 auto;">
+				<div class="section content well" ng-style="getContentStyle(content)" ng-repeat="content in contentModal" ng-switch="content.concept">
 
 					<div class="both">
 						<i class="icon-remove-circle right" ng-click="closeContent()"></i>
@@ -59,7 +59,7 @@
 				</div>
 			</div>
 
-			<div class="right-column well" ng-style="getContentStyle(content)">
+			<div class="right-column well" ng-style="getContentStyle(content)" ng-repeat="content in contentModal">
 
 				<span class="user_info">
 					<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">
@@ -112,7 +112,6 @@
 			    <fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true"></fb-comments>
 
 			</div>
-
 
 		</div>
 
@@ -184,9 +183,10 @@
 		</a>
 	</div>
 
-	<div class="both well user_message" ng-style="getUserMessageStyle()">
-		<img alt="loading" class="loading" ng-src="img/themes/digest/ajax-loader.gif">
-		<span class="text_message">{{userMessage}}</span>	
-	</div>
+</div>
 
+
+<div class="both well user_message" ng-style="getUserMessageStyle()">
+	<img alt="loading" class="loading" ng-src="img/themes/digest/ajax-loader.gif">
+	<span class="text_message">{{userMessage}}</span>	
 </div>
