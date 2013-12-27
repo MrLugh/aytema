@@ -227,7 +227,7 @@ p a {
   padding: 10px;
   overflow: hidden;
   z-index: 1;
-  
+
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -525,4 +525,14 @@ p a {
 .soundcloud_track iframe, .soundcloud_audio_player {
   height: auto!important;
   width: 100%;
+}
+
+#container .photo,
+#container .post,
+#container .track,
+#container .video,
+#container .chat,
+#container .quote {
+  position: relative;
+  text-align: center;
 }
