@@ -213,6 +213,13 @@ ul {
   padding: 10px;
   z-index: 1;
   background-color: white;
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  box-shadow: 0 1px 3px rgba(34,25,25,0.4);    
 }
 
 .adminContent h2 {
