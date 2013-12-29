@@ -151,7 +151,7 @@
 		<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow ng-style="getContentStyle(content)">
 
 			<div ng-if="isLogged()" class="left">{{content.status}}</div>
-			<i ng-if="isLogged()" ng-click="delete($index)" class="icon-trash right"></i>
+			<i ng-if="isLogged()" ng-click="manageContent($index)" class="right" ng-class="getManageContentIconClass($index)"></i>
 
 			<div class="stats both">
 				<ul>
@@ -196,10 +196,9 @@
 	<span class="text_message">{{userMessage}}</span>	
 </div>
 
-<a href="#/" ng-show="showUp" ng-click="scrollToTop()" class="scrollToTop" ng-style="getScrollTopStyle()" skip-default>
+<a href="#/" ng-show="showUp" ng-hide="showingContent" ng-click="scrollToTop()" class="scrollToTop" ng-style="getScrollTopStyle()" skip-default>
 	<img src="img/themes/digest/scrollTop.png" />
 </a>
-
 
 
 </div>

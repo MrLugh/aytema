@@ -282,6 +282,35 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    return deferred.promise;		
 	}
 
+	var activateContent = function(id) {
+		var deferred= $q.defer();
+
+		var params = [];
+
+		params['id'] = id;
+
+		// TODO: Needs changed by data json
+		var vars = [];
+		for (x in params) {
+			vars.push(x+"="+params[x]);
+		}
+
+		var url = '/contents/activate.json';
+		if (vars.length) {
+			url +="?"+vars.join("&");
+		}
+
+	    $http({method: 'GET', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	deferred.resolve(data);   	
+	    });
+
+	    return deferred.promise;		
+	}	
+
 	var getContentsByFilters = function(params) {
 
 		var deferred= $q.defer();
@@ -556,6 +585,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getStatIcon:getStatIcon,
 		getConceptIcon:getConceptIcon,
 		deleteContent:deleteContent,
+		activateContent:activateContent,
 		getFacebookContentHrefEmbed:getFacebookContentHrefEmbed,
 		getThumbnail:getThumbnail,
 		getPlayer:getPlayer,

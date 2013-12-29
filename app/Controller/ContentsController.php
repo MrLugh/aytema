@@ -95,7 +95,29 @@ class ContentsController extends AppController {
             'message' => $message,
             '_serialize' => array('message')
         ));
-    }    
+    }
+
+    public function activate() {
+
+        isset($this->request->query['id']) ? $id = $this->request->query['id'] : $id = null;
+
+        $content = $this->Content->findById($id);
+
+        if (is_array($content) && isset($content['Content'])) {
+            $save = $content['Content'];
+            $save['status'] = 'enabled';
+            $content = new Content();
+            $content = $content->save($save);            
+            $message = 'Activated';
+        } else {
+            $message = 'Error';
+        }
+
+        $this->set(array(
+            'message' => $message,
+            '_serialize' => array('message')
+        ));
+    }        
 
     public function collect() {
 

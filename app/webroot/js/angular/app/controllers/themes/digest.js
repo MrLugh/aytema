@@ -493,6 +493,35 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	}
 
+	$scope.activate = function(index) {
+
+		contentSv.activateContent($scope.list[index].id).
+		then(function(data){
+			if (data.message == "Activated") {
+				$scope.list[index].status = "enabled";
+			}
+		});
+	}	
+
+	$scope.manageContent = function(index) {
+
+		if ($scope.list[index].status == "enabled") {
+			$scope.delete(index);
+			return;
+		}
+
+		$scope.activate(index);
+	}
+
+	$scope.getManageContentIconClass = function(index) {
+		if ($scope.list[index].status == "enabled") {
+			return 'icon-lock';
+		}
+
+		return 'icon-unlock';
+	}
+	
+
 	$scope.getModalBackgroundStyle = function() {
 		return {'background-color':$scope.config.custom.colors.background.value};
 	}
