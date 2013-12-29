@@ -37,6 +37,12 @@ body {
   cursor: pointer ;
 }
 
+.app {
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
 .hide {
   display: none;
 }

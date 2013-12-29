@@ -609,6 +609,16 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}
 	},true);
 
+	$scope.$watch("userSv.getThemeConfig().custom.width",function(width){
+		if (angular.isDefined(width)) {
+			$scope.config.custom.width = width;
+			$scope.getAppStyle();
+
+			//SAVE CONFIG!
+			//userSv.setThemeConfigWidth($scope.config.custom.width);
+		}		
+	},true);	
+
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 		$scope.accounts = accounts;
 		if (accounts.length) {
@@ -666,6 +676,10 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
     $scope.adminTheme = function() {
     	$scope.showConfig = !$scope.showConfig;
     };
+
+    $scope.getAppStyle = function() {
+    	return {'width':$scope.config.custom.width || "100%"};
+    }
 
     $scope.getUserMessageStyle = function() {
     	var style = {};

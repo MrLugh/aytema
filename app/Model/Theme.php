@@ -84,7 +84,8 @@ Class Theme extends AppModel {
                 'Arvo' => "'Arvo', serif",
                 'Junge' => "'Junge', serif"
             ),
-        )
+        ),
+        'width' => '100%'
     );
 
 	public function getThemeConfig($theme,$user_id) {
