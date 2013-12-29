@@ -257,6 +257,21 @@ function () {
     }
 }]);
 
+ayTemaDs.directive('getFooterHeight',[
+function () {
+    return function(scope,element,attrs) {
+
+        scope.getFooterHeight = function() {
+            return element.height();
+        };
+        scope.footerHeight = scope.getFooterHeight();
+
+        scope.$watch('getFooterHeight()', function(newValue, oldValue, scope) {
+            scope.footerHeight = scope.getFooterHeight();
+        });
+    }
+}]);
+
 ayTemaDs.directive('getOffsetTop',[
 function () {
     return function(scope,element,attrs) {

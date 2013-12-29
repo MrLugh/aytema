@@ -682,18 +682,9 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}
 	});
 
-	$scope.$watch("userMessage",function(current){
-		$scope.getUserMessageStyle();	
+	$scope.$watchCollection("[userMessage,showUp]",function(values){
+		$scope.getFooterStyle();
 	});
-
-	/*
-	$scope.$watch("showOverlay",function(showOverlay){
-		console.log(showOverlay);
-		for (var x in $scope.list) {
-			$scope.getContentStyle($scope.list[x]);
-		}
-	});
-	*/
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
@@ -717,33 +708,19 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
     	return '';
     }
 
-    $scope.getUserMessageStyle = function() {
-    	var style = {};
-	   	if ($scope.userMessage.length > 0 ) {
-	   		style['top'] = '70%';
+    $scope.getFooterStyle = function() {
+    	var style = {'width':$scope.config.custom.width || "100%"};
+	   	if ($scope.userMessage.length > 0 || $scope.showUp == true) {
+	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
 	   		style['z-index'] = '2';
 	   		style['opacity'] = '1';
 	   		return style;	   		
     	}
-	   	style['top'] = '100%';
+    	style['top'] = '100%';
    		style['z-index'] = '1';
    		style['opacity'] = '0';
 	   	return style;
     }
-
-    $scope.getScrollTopStyle = function() {
-    	var style = {};
-	   	if ($scope.showUp == true ) {
-	   		style['top'] = '70%';
-	   		style['z-index'] = '2';
-	   		style['opacity'] = '1';
-	   		return style;	   		
-    	}
-	   	style['top'] = '100%';
-   		style['z-index'] = '1';
-   		style['opacity'] = '0';
-	   	return style;
-    }    
 
     $scope.getConfigStyle = function() {
 	   	if ($scope.showConfig == true) {

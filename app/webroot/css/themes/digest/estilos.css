@@ -436,9 +436,16 @@ p a {
 
 .content img {
   width: 100%;
-  /*max-width: 100%;
+  height: auto;
+  /*
+  max-width: 100%;
   width:auto;
   */
+}
+
+.post img {
+  max-width: 100%;
+  width:auto;  
 }
 
 .modalContent {
@@ -523,13 +530,6 @@ p a {
   box-shadow: 0 3px 5px #444444;
 }
 
-.user_message {
-  position: absolute;
-  left:30%;
-  top:100%;
-  transition:all 0.66s ease 0s;
-}
-
 .soundcloud_track iframe, .soundcloud_audio_player {
   height: auto!important;
   width: 100%;
@@ -545,11 +545,23 @@ p a {
   text-align: center;
 }
 
+.boxed {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+}
 
-.scrollToTop {
-  position: absolute;
-  left:80%;
-  top:100%;
+.footer {
+  position: fixed;
+  display: block;
+  transition:all 0.66s ease 0s;
+}
+
+.scrollToTop, .user_message {
+  position: relative;
   transition:all 0.66s ease 0s;
 }
 
@@ -558,12 +570,10 @@ p a {
   height: auto;
 }
 
-
-.boxed {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+.user_message {
+  background-color: #EFEFEF;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;  
+  padding:14px;
 }
