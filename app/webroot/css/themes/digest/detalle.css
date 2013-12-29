@@ -50,7 +50,7 @@
 
 .modalContent .arrow_left .more-user, .modalContent .arrow_right .more-user {
     opacity: 0;
-    position: fixed;
+    position: absolute;
     top: 100%;
 }
 .modalContent .arrow_left .more-user {
@@ -58,14 +58,14 @@
 }
 .modalContent .arrow_left:hover .more-user {
     opacity: 1;
-    top: 45%;
+    top: 35%;
 }
 .modalContent .arrow_right .more-user  {
     right: 6%;
 }
 .modalContent .arrow_right:hover .more-user {
     opacity: 1;
-    top: 45%;
+    top: 35%;
 }
 
 .modalContent .arrow_left .more-user img {

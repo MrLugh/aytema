@@ -607,7 +607,7 @@ function(appSv,$window){
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
                 var myHeight= appSv.getMyWH() - 2*padding -2;
 
-                $(element[0]).css('height','').css('overflow-y','');
+                $(element[0]).css('height','').css('overflow-y','hidden');
 
                 if ($window.innerWidth <= 480) {
                     return;

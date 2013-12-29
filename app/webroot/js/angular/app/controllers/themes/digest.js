@@ -698,18 +698,34 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
     };
 
     $scope.getAppStyle = function() {
-    	return {'width':$scope.config.custom.width || "100%"};
+    	var width = "100%";
+    	if (!angular.equals({},$scope.config)) {
+    		width = $scope.config.custom.width;
+    	}
+
+    	return {'width':width};
     }
 
     $scope.getAppClass = function() {
-    	if ($scope.config.custom.width != "100%")	{
+
+    	if (angular.equals({},$scope.config)) {
+    		return '';
+    	}
+
+    	if ($scope.config.custom.width != "100%") {
     		return 'boxed';
     	}
     	return '';
     }
 
     $scope.getFooterStyle = function() {
-    	var style = {'width':$scope.config.custom.width || "100%"};
+
+    	var width = "100%";
+    	if (!angular.equals({},$scope.config)) {
+    		width = $scope.config.custom.width;
+    	}
+
+    	var style = {'width':width};
 	   	if ($scope.userMessage.length > 0 || $scope.showUp == true) {
 	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
 	   		style['z-index'] = '2';
