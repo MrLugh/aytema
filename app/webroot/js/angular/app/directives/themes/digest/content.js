@@ -69,7 +69,7 @@ function($FB,$timeout,appSv,$window){
             }
 
             scope.appSv = appSv;
-            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
                 scope.resizeContent();
             });
 
@@ -147,7 +147,7 @@ function(appSv,$window,$timeout){
 
             /*
             scope.appSv = appSv;
-            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
                 imagesLoaded(element[0],function(){
                     scope.resizeContent();
                 });
@@ -345,7 +345,7 @@ function(appSv,$window){
             }
 
             scope.appSv = appSv;
-            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
                 scope.resizeContent();
                 scope.resizeRight();
             });
@@ -443,7 +443,7 @@ function (appSv,$window) {
             }
 
             scope.appSv = appSv;
-            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
                 scope.resizeContent();
                 scope.resizeRight();
             });
@@ -541,7 +541,7 @@ function(appSv,$window){
             }
 
             scope.appSv = appSv;
-            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
                 scope.resizeContent();
                 scope.resizeRight();
             });
@@ -620,7 +620,7 @@ function(appSv,$window){
             }
 
             scope.appSv = appSv;
-            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
                 scope.resizeContent();
                 scope.resizeRight();
             });
@@ -697,7 +697,7 @@ ayTemaDs.directive('contentDetailQuote',[function(){
             }
 
             scope.appSv = appSv;
-            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
                 scope.resizeContent();
                 scope.resizeRight();
             });
@@ -778,7 +778,7 @@ function($FB,$timeout,appSv,$window){
             }
 
             scope.appSv = appSv;
-            scope.$watch('appSv.getMyWH()', function(newValue, oldValue) {
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
                 scope.resizeContent();
                 scope.resizeRight();
             });
