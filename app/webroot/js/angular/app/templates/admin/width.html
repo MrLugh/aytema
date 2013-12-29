@@ -1,10 +1,12 @@
 <div class="width">
 
-	<h4 class="both right">width</h4>
+	<h4 class="both right">Width</h4>
 
 	<div class="both">
-		<span class="left">Width</span>
-		<input type="text" name="width" ng-model="config.custom.width" maxlength="5" size="5" class="right" />
+		<select 
+			ng-model="config.custom.width" 
+			ng-options="name for (name,width) in options" class="right">
+		</select>
 	</div>
 
 </div>

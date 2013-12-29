@@ -4,14 +4,12 @@ function adminWidthCo($scope,userSv,appSv,contentSv) {
 	$scope.user 	= userSv.getUser();
 	$scope.config	= $scope.$parent.config;
 
+	$scope.options  = {
+		'Full Width': '100%',
+		'Boxed'		: '80%'
+	};
+
 	$scope.save = function() {
 		userSv.setThemeConfigWidth($scope.config.custom.width);
 	}
-
-	$scope.setWidth = function(width) {
-		$scope.config.custom.width = width;
-		$scope.save();
-	}	
-
-	
 }

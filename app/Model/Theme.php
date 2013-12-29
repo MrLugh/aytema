@@ -85,7 +85,7 @@ Class Theme extends AppModel {
                 'Junge' => "'Junge', serif"
             ),
         ),
-        'width' => '100%'
+        'width' => '80%'
     );
 
 	public function getThemeConfig($theme,$user_id) {

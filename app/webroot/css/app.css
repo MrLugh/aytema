@@ -423,7 +423,6 @@ ul {
 
 
 .account.ng-enter {
-  top: 100%;
   opacity: 0;
 }
 

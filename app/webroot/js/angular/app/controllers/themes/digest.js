@@ -681,6 +681,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
     	return {'width':$scope.config.custom.width || "100%"};
     }
 
+    $scope.getAppClass = function() {
+    	if ($scope.config.custom.width != "100%")	{
+    		return 'boxed';
+    	}
+    	return '';
+    }
+
     $scope.getUserMessageStyle = function() {
     	var style = {};
 	   	if ($scope.userMessage.length > 0 ) {
