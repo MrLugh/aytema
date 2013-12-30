@@ -308,12 +308,10 @@ function($FB) {
                         }
 
                         $FB.Event.subscribe("xfbml.render", function () {
-                            console.log("FB.render");
                             scope.$emit("FB.render");
                         });
 
                         $FB.Event.subscribe('comment.create', function(response) {
-                            console.log("FB.comment");
                             scope.$emit("FB.comment");
                             $FB.XFBML.parse($('.fb-comments .fb_iframe_widget').get(0));
                             $FB.XFBML.parse($('.fb-comments-count .fb_iframe_widget').get(0));
@@ -523,15 +521,13 @@ function (contentSv) {
         var options= contentSv.getTumblrShareOptions(content);
 
         $(element[0]).click(function(event) {
+
             var url    = attrs.href;
             if (content.concept == 'photo' || content.concept == 'video') {
                 url+="/"+content.concept;
             } else if (content.concept == 'track') {
                 url+="/audio";
                 options.push("url="+encodeURIComponent(contentSv.getTrackUrl(content)));
-            } else {
-                options.push("u="+encodeURIComponent(this.href));
-                options.push("v=3");
             }
 
             window.open(url+"?"+options.join("&"), 'tumblr');
