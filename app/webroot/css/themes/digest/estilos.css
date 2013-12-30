@@ -563,11 +563,13 @@ p a {
 .footer {
   position: fixed;
   display: block;
+  top:100%;
   transition:all 0.66s ease 0s;
 }
 
 .scrollToTop, .user_message {
   position: relative;
+  top:-100%;
   transition:all 0.66s ease 0s;
 }
 
