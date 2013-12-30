@@ -11,7 +11,6 @@ function adminColorsCo($scope,userSv,appSv,contentSv) {
 	$scope.setColor = function(color,value) {
 		$scope.config.custom.colors[color].value = value;
 		$scope.save();
-	}	
-
+	}
 	
 }

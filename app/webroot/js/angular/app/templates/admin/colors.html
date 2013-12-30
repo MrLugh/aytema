@@ -6,7 +6,7 @@
 		<li ng-repeat="(color,settings) in config.custom.colors" class="minicolors both">
 			<div class="left">{{settings.label}}:</div>
 			<div class="right">
-				<input minicolor name="{{color}}" maxlength="7" type="text" size="6" ng-model="custom.config.colors.color.value"/>
+				<input minicolor name="{{color}}" maxlength="7" type="text" size="6" ng-model="config.custom.colors[color].value"/>	
 			</div>
 		</li>
 	</ul>
