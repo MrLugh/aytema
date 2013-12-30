@@ -229,6 +229,7 @@ p a {
   height: 300px !important;
   margin: 0 auto;
   padding: 0;
+  padding-top: 20px;
   overflow-y: auto;
   overflow-x: hidden;
   width: 88%;
