@@ -434,17 +434,19 @@ function ($window,$timeout) {
     }
 }]);
 
-ayTemaDs.directive('minicolor',[
-function () {
+ayTemaDs.directive('minicolor',['$timeout',
+function ($timeout) {
     return function (scope, element, attrs) {
 
         element.ready(function(){
-            $(element[0]).minicolors({
-                letterCase: 'uppercase',
-                change: function(hex) {
-                    scope.setColor(attrs.name,hex);
-                }
-            });
+            $timeout(function(){
+                $(element[0]).minicolors({
+                    letterCase: 'uppercase',
+                    change: function(hex) {
+                        scope.setColor(attrs.name,hex);
+                    }
+                });
+            },0);
         });
     }
 }]);
