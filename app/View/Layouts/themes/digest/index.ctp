@@ -42,8 +42,8 @@
     <!-- Js -->
     <?php
     echo $this->Html->script('jquery');
-    echo $this->Html->script('modernizr.min');
     echo $this->Html->script('bootstrap');
+    echo $this->Html->script('modernizr.min');
     echo $this->Html->script('underscore.min');
     echo $this->Html->script('minicolors');
     echo $this->Html->script('masonry.pkgd');
@@ -102,6 +102,12 @@
         echo $this->Html->script('angular/app/controllers/themes/digest/content');      
     ?>
 
+    <!-- Plugins -->
+    <?php
+    echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap');
+    echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap-tpls');
+    ?>
+
     <!-- Apps -->
     <?php
     echo $this->Html->script('angular/theme');
@@ -122,6 +128,7 @@
         // Themes
         echo $this->Html->script('angular/app/directives/themes/digest/content');
     ?>
+
 
 </head>
 

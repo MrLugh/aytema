@@ -6,13 +6,20 @@
 <div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
 	<a href="#/" class="control" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default>Edit <i class="icon-cogs"></i></a>
 
-	<div class="inside" ng-if="showConfig">
-		<admin-pagefilter></admin-pagefilter>
-		<admin-colors></admin-colors>
-		<admin-fonts></admin-fonts>
-		<admin-width></admin-width>
-		<admin-contentsize></admin-contentsize>
-	</div>
+	<tabset ng-if="showConfig">
+
+		<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+			<div ng-switch="tab.key" class="inside">
+				<admin-pagefilter ng-switch-when='pagefilter'></admin-pagefilter>
+				<admin-contentsize ng-switch-when='contentsize'></admin-contentsize>
+				<admin-colors ng-switch-when='colors'></admin-colors>
+				<admin-fonts ng-switch-when='fonts'></admin-fonts>
+				<admin-width ng-switch-when='width'></admin-width>
+			</div>
+		</tab>
+
+	</tabset>
+
 
 </div>
 

@@ -36,6 +36,15 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.contentShadow = false;
 
+	$scope.tabs = [
+		{ title:"Pages Filters",key:"pagefilter", active: true },
+		{ title:"Content Sizes", key:"contentsize" },
+		{ title:"Colors", key:"colors" },
+		{ title:"Fonts", key:"fonts" },
+		{ title:"Width", key:"width" },
+	];
+	$scope.activeAdminTab = 'pagefilter';
+
 	$scope.getListLength = function() {
 		return $scope.list.length;
 	}
@@ -742,19 +751,27 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	   	if ($scope.showConfig == true) {
 	   		return {'left':'0'};
     	}
-	   	return {'left':'-300px'};
+	   	return {'left':'0'};
     };
 
     $scope.getConfigButtonStyle = function() {
 	   	if ($scope.showConfig == true) {
-	   		return {'left':'300px'};
+	   		return {'left':'100%'};
     	}
-	   	return {'left':'300px'};
+	   	return {'left':'0'};
     };
 
     $scope.getContentCommentsHash = function() {
     	var c = $scope.contentModal[0];
     	return "http://aytema.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
+    }
+
+    $scope.activateTab = function(tab) {
+    	$scope.activeAdminTab = tab;
+    }
+
+    $scope.isActiveTab = function(tab) {
+    	return $scope.activeAdminTab == tab;
     }
 
 }

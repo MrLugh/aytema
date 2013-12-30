@@ -10,7 +10,8 @@ var ayTemaApp = angular.module('ayTemaApp',[
 	'ngLocale',
 	'ngSanitize',
 	'ngTouch',
-	'ngCookies'
+	'ngCookies',
+	'ui.bootstrap',
 ]);
 
 ayTemaApp.config(['$routeProvider','$httpProvider', function($routeProvider,$httpProvider) {

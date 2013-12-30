@@ -38,10 +38,9 @@
     line-height: 21px;
     position: absolute;
     text-transform: uppercase;
-    top: 10%;
+    top: 20%;
     z-index: 9000;
     text-align: left;
-    left:-300px;
     font-family: 'Playfair Display', serif;
     text-transform: none;
 }
@@ -58,10 +57,10 @@
 }
 
 #config .inside {
-  padding: 10px;
-  width: 300px;
+  width: 100%;
+  min-height: 150px;
+  padding: 20px;
 }
-
 
 /* Admin */
 .socialIcon {

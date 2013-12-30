@@ -20,8 +20,8 @@
     <!-- Js -->
     <?php
     echo $this->Html->script('jquery');
-    echo $this->Html->script('modernizr.min.js');
     echo $this->Html->script('bootstrap');
+    echo $this->Html->script('modernizr.min.js');
     echo $this->Html->script('underscore.min');
     echo $this->Html->script('masonry.pkgd');
     echo $this->Html->script('imagesloaded.pkgd');
@@ -73,6 +73,12 @@
     echo $this->Html->script('angular/app/controllers/themes/digest.js');
     ?>
 
+    <!-- Plugins -->
+    <?php
+    echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap');
+    echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap-tpls');
+    ?>    
+
     <!-- Apps -->
     <?php
     echo $this->Html->script('angular/app.js');
@@ -88,7 +94,7 @@
     echo $this->Html->script('angular/app/directives/admin/content.js');   
     echo $this->Html->script('angular/app/directives/admin/themes.js');
     ?>
-    
+
 
 </head>
 
