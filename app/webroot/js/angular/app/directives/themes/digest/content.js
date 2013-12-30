@@ -273,6 +273,68 @@ function($FB,$timeout){
 
 }]);
 
+ayTemaDs.directive('contentLink',['appSv','$window',
+function(appSv,$window){
+    
+    return {
+        templateUrl : getPath('tpl')+'/themes/digest/link.html',
+        restrict : 'E',
+        replace : true,
+        controller:'contentLinkCo',
+        scope: true,
+        link: function(scope,element,attrs) {
+
+            scope.resizeRight = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var right = angular.element(document.querySelector('.content_detalle .right-column'));
+                $(right[0]).css('height','');
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - padding -1;
+
+
+                if ($window.innerWidth > 480) {
+                    $(right[0]).css('height',myHeight+'px');
+                }
+            }
+
+            scope.resizeContent = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - 2*padding -2;
+
+                $(element[0]).css('height','').css('overflow-y','hidden');
+
+                if ($window.innerWidth <= 480) {
+                    return;
+                }
+
+                if (element.height() > myHeight) {
+                    $(element[0]).css('height',myHeight+'px');
+                    $(element[0]).css('overflow-y','auto');
+                }
+            }
+
+            scope.appSv = appSv;
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
+                scope.resizeContent();
+                scope.resizeRight();
+            });
+
+            element.ready(function(){
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                    scope.resizeRight();
+                });
+            });
+
+        }  
+    }
+
+}]);
+
+
 ayTemaDs.directive('contentDetailVideo',['appSv','$window',
 function(appSv,$window){
     
@@ -791,6 +853,67 @@ function($FB,$timeout,appSv,$window){
             });
 
         } 
+    }
+
+}]);
+
+ayTemaDs.directive('contentDetailLink',['appSv','$window',
+function(appSv,$window){
+    
+    return {
+        templateUrl : getPath('tpl')+'/themes/digest/detail/link.html',
+        restrict : 'E',
+        replace : true,
+        controller:'contentLinkCo',
+        scope: true,
+        link: function(scope,element,attrs) {
+
+            scope.resizeRight = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var right = angular.element(document.querySelector('.content_detalle .right-column'));
+                $(right[0]).css('height','');
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - padding -1;
+
+
+                if ($window.innerWidth > 480) {
+                    $(right[0]).css('height',myHeight+'px');
+                }
+            }
+
+            scope.resizeContent = function() {
+
+                var container = angular.element(document.querySelector('.content_detalle .section'));
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+                var myHeight= appSv.getMyWH() - 2*padding -2;
+
+                $(element[0]).css('height','').css('overflow-y','hidden');
+
+                if ($window.innerWidth <= 480) {
+                    return;
+                }
+
+                if (element.height() > myHeight) {
+                    $(element[0]).css('height',myHeight+'px');
+                    $(element[0]).css('overflow-y','auto');
+                }
+            }
+
+            scope.appSv = appSv;
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
+                scope.resizeContent();
+                scope.resizeRight();
+            });
+
+            element.ready(function(){
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                    scope.resizeRight();
+                });
+            });
+
+        }  
     }
 
 }]);

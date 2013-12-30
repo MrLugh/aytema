@@ -2,6 +2,7 @@
 
 <fb app-id='211895592326072'></fb>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="http://platform.tumblr.com/v1/share.js"></script>
 
 <div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
 	<a href="#/" class="control" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default>Edit <i class="icon-cogs"></i></a>
@@ -66,6 +67,7 @@
 					<content-detail-post  ng-switch-when='post' ></content-detail-post>
 					<content-detail-quote ng-switch-when='quote'></content-detail-quote>
 					<content-detail-chat  ng-switch-when='chat' ></content-detail-chat>
+					<content-detail-link  ng-switch-when='link' ></content-detail-link>
 				</div>
 			</div>
 
@@ -85,12 +87,23 @@
 
 
 					<div>
-			              <ul>
-			                <li class="left inline"><a href="#"><img src="img/themes/digest/twitter.png" alt="Twitter"></a></li>
-			                <li class="left inline"><a href="#about"><img src="img/themes/digest/facebook.png" alt="Facebook"></a></li>
-			                <li class="left inline"><a href="#contact"><img src="img/themes/digest/tumblr.png" alt="Tumblr"></a></li>
-			                <li class="left inline"><a href="#contact"><img src="img/themes/digest/rss.png" alt="rss"></a></li>
-			              </ul>
+						<ul>
+							<li class="left inline">
+			                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
+			                		<img src="img/themes/digest/twitter.png" alt="Twitter">
+			                	</a>
+			                </li>
+			                <li class="left inline">
+			                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
+			                		<img src="img/themes/digest/facebook.png" alt="Facebook">
+			                	</a>
+			                </li>
+			                <li class="left inline">
+			                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
+			                		<img src="img/themes/digest/tumblr.png" alt="Tumblr">
+			                	</a>
+			                </li>
+			            </ul>
 				    </div>
 
 				</span>
@@ -178,6 +191,7 @@
 			    <content-post  ng-switch-when='post' ></content-post>
 			    <content-quote ng-switch-when='quote'></content-quote>
 			    <content-chat  ng-switch-when='chat' ></content-chat>
+			    <content-link  ng-switch-when='link' ></content-link>
 
 				<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon"><p> / {{content.external_user_name}}</p></a></span>
 

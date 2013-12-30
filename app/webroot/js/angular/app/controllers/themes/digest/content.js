@@ -480,3 +480,34 @@ function contentQuoteCo($scope,contentSv) {
 	});	
 
 }
+
+function contentLinkCo($scope,contentSv,$sce) {
+
+	console.log($scope.content);
+
+	$scope.getUrl = function() {
+
+		if ($scope.content.network == 'tumblr') {
+			if (angular.isDefined($scope.content.data['url'])) {
+				return $scope.content.data['url'];
+			}
+		}
+
+		return '';
+	}
+
+	$scope.getDescription = function() {
+
+		var description = '';
+
+		if ($scope.content.network == 'tumblr') {
+
+			if (angular.isDefined($scope.content.data['description'])) {
+				description = $scope.content.data['description'];
+			}
+
+		}
+
+		return $sce.trustAsHtml(description);
+	}
+}

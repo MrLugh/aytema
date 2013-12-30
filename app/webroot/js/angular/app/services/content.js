@@ -234,6 +234,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
         	icon_class= "icon-quote-left";
         } else if (concept == 'chat') {
         	icon_class= "icon-book";
+        } else if (concept == 'link') {
+        	icon_class = "icon-external-link";
         }
 
 		return icon_class;        
@@ -561,6 +563,61 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		return source;
 	}
 
+	var getTwitterShareOptions = function(content) {
+		var options = [];
+		options.push("status=1");
+		return options;
+	}
+
+	var getFacebookShareOptions = function(content) {
+		var options = [];
+		var thumbnail = this.getThumbnail(content);
+		if (thumbnail.length > 0){
+			options.push("p[images][0]="+thumbnail);
+		}
+		
+		return options;
+	}
+
+	var getTumblrShareOptions = function(content) {
+		var options = [];
+
+		var thumbnail = this.getThumbnail(content);
+		if ( content.concept == 'photo' && thumbnail.length > 0){
+			options.push("source="+encodeURIComponent(thumbnail));
+		}
+		var player = this.getPlayer(content);
+		if ( content.concept == 'video' && player.length > 0){
+			options.push("embed="+encodeURIComponent(player));
+		}
+		
+		return options;
+	}
+
+
+	var getTrackUrl = function(content) {
+
+		var source = '';
+
+
+		if (content.network == 'tumblr') {
+			if (angular.isDefined(content.data['source_url'])) {
+				source = content.data['source_url'];
+			}
+		}
+
+		if (content.network == 'soundcloud') {
+			source = content.data['permalink_url'];
+		}
+
+		if (content.network == 'mixcloud') {
+			source = content.data['url'];
+		}
+
+		return source;
+
+	}
+
 	return {
 		getDicContent: function() {
 			return dicContent;
@@ -581,15 +638,27 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		loadContent:loadContent,
 		getListsByConcept:getListsByConcept,
 		getListsByNetwork:getListsByNetwork,
+		
 		getContentsByFilters:getContentsByFilters,
+		
 		getStatIcon:getStatIcon,
 		getConceptIcon:getConceptIcon,
+		
 		deleteContent:deleteContent,
 		activateContent:activateContent,
+
 		getFacebookContentHrefEmbed:getFacebookContentHrefEmbed,
+
 		getThumbnail:getThumbnail,
 		getPlayer:getPlayer,
-		getRelatedContent:getRelatedContent
+		getRelatedContent:getRelatedContent,
+
+		getTwitterShareOptions:getTwitterShareOptions,
+		getFacebookShareOptions:getFacebookShareOptions,
+		getTumblrShareOptions:getTumblrShareOptions,
+
+		getTrackUrl:getTrackUrl
+
 	};
 
 }]);

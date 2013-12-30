@@ -38,7 +38,8 @@ Class Theme extends AppModel {
                 'chat'=>'small',
                 'quote'=>'medium',
                 'video'=>'large',
-                'track'=>'large',                
+                'track'=>'large',
+                'link'=>'medium',
             ),
             'soundcloud' => array(
                 'track'=>'large',

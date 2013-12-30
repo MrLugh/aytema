@@ -18,7 +18,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 		'tumblr' : {
 			network : 'tumblr',			
 			brand	:'Tumblr',
-			concepts: ['photo','video','track','post','quote','chat']
+			concepts: ['photo','video','track','post','quote','chat','link']
 		},
 		'soundcloud' : {
 			network : 'soundcloud',			

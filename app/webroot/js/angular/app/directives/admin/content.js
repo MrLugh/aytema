@@ -272,3 +272,16 @@ function($FB,$timeout){
     }
 
 }]);
+
+ayTemaDs.directive('adminContentLink',[
+function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/admin/link.html',
+        restrict : 'E',
+        replace : true,
+        controller:'adminContentLinkCo',
+        scope: true
+    }
+
+}]);
