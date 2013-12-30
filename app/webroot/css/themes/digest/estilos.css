@@ -233,7 +233,7 @@ p a {
 }
 
 #container .content {
-  border-bottom: 3px solid #000000;
+  /*border-bottom: 3px solid #000000;*/
   float: left;
   margin: 0 0 20px;
   padding: 10px;
@@ -376,7 +376,7 @@ p a {
 @media (min-width: 481px) and (max-width: 768px) {
 
   #container .small {
-  width: 22%%;
+  width: 47%;
   }
   #container .medium {
   width: 47%;
@@ -392,7 +392,7 @@ p a {
 @media (min-width: 769px) and (max-width: 1024px) {
 
   #container .small {
-    width: 22%;
+    width: 47%;
   }
   #container .medium {
     width: 47%;
@@ -406,38 +406,21 @@ p a {
 
 }
 
-@media (min-width: 1025px) and (max-width: 1200px) {
+@media (min-width: 1025px) and (max-width: 2048px) {
 
   #container .small {
-    width: 22%;
+    width: 15%;
   }
   #container .medium {
-    width: 47%;
-  }
-  #container .large {
-    width: 72%;
-  }
-  #container .xlarge {
-    width: 97%;
-  }
-
-}
-
-@media all and (max-width: 2048px) and (min-width: 1201px) {
-
-  #container .small {
     width: 24%;
   }
-  #container .medium {
+  #container .large {
     width: 32%;
   }
-
-  #container .large {
-    width: 42%;
-  }
   #container .xlarge {
-    width: 50%;
+    width: 49%;
   }
+
 }
 
 .content img {

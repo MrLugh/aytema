@@ -30,27 +30,27 @@ Class Theme extends AppModel {
                 'video'=>'xlarge',
             ),
             'twitter' => array(
-                'post'=>'medium',
+                'post'=>'large',
             ),
             'tumblr' => array(
                 'photo'=>'medium',
-                'post'=>'xlarge',
+                'post'=>'medium',
                 'chat'=>'small',
                 'quote'=>'medium',
-                'video'=>'medium',
-                'track'=>'medium',                
+                'video'=>'large',
+                'track'=>'large',                
             ),
             'soundcloud' => array(
-                'track'=>'medium',
+                'track'=>'large',
             ),
             'mixcloud' => array(
-                'track'=>'medium',
+                'track'=>'large',
             ),
             'youtube' => array(
-                'video'=>'medium',
+                'video'=>'large',
             ),
             'vimeo' => array(
-                'video'=>'medium',
+                'video'=>'large',
             ),
         ),
         'colors' => array(
