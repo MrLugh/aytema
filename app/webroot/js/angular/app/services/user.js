@@ -86,8 +86,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    $http({method: 'GET', url: '/themes/getConfig.json',data:params}).
 	    success(function(data, status, headers, config) {
 
-	    	//themeConfig = {'default':JSON.parse(JSON.stringify(data.config)),'custom':data.config};
-	    	themeConfig = {'default':data.config,'custom':data.config};
+	    	themeConfig = {'default':data.config,'custom':JSON.parse(JSON.stringify(data.config))};
 	    	deferred.resolve();
 	    }).
 	    error(function(data, status, headers, config) {
@@ -98,6 +97,30 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 	    return deferred.promise;
 
+	}
+
+
+	var saveThemeConfig = function() {
+
+		var deferred = $q.defer();
+
+		var params = {'type':themeConfig.custom.type,'config':themeConfig.custom};
+
+	    $http({method: 'PUT', url: '/themes/setConfig.json',data:params}).
+	    success(function(data, status, headers, config) {
+	    	themeConfig = {'default':data.config,'custom':JSON.parse(JSON.stringify(data.config))};
+	    	deferred.resolve();
+	    }).
+	    error(function(data, status, headers, config) {
+	    	deferred.resolve();
+	    });
+
+	    return deferred.promise;
+
+	}
+
+	var restoreConfig = function() {
+		themeConfig.custom = JSON.parse(JSON.stringify(themeConfig.default));
 	}
 
 	var getThemeConfig = function() {
@@ -165,6 +188,8 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		},		
 
 		loadThemeConfig:loadThemeConfig,
+		saveThemeConfig:saveThemeConfig,
+		restoreConfig:restoreConfig,
 		login:login,
 		loadAccounts:loadAccounts,
 		getAccounts:getAccounts,

@@ -67,5 +67,14 @@ function adminContentsizeCo($scope,userSv,appSv,contentSv) {
 
 	$scope.networkIcon = function(network) {
 		return "img/socialnet/icons/ce_"+network+".png";
+	}
+
+	$scope.saveConfig = function() {
+		userSv.saveThemeConfig();
+	}
+
+	$scope.restoreConfig = function() {
+		userSv.restoreConfig();
+		$scope.setList();
 	}	
 }

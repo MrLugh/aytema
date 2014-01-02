@@ -34,14 +34,20 @@ class ThemesController extends AppController {
         $this->set(array(
             'config' => $config,
             '_serialize' => array('config')
-        ));        
+        ));
     }
 
     public function setConfig() {
 
-        $type   = isset($this->request->query['type'])  ? $this->request->query['type']     : self::$theme;
-        $default= "Themes{$type}Controller";
-        $config = isset($this->request->query['config'])? $this->request->query['config']   : $default::$config;
+        $user_id= $this->Auth->user('id');
+        $type   = isset($this->request->data['type'])  ? $this->request->data['type']     : self::$theme;
+        $config = isset($this->request->data['config'])? $this->request->data['config']   : null;
+        $theme  = new Theme();
+        $config = $theme->setThemeConfig($type,$user_id,$config);
+        $this->set(array(
+            'config' => $config,
+            '_serialize' => array('config')
+        ));        
     }    
 
 }

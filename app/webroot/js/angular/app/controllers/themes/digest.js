@@ -632,10 +632,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.$watch("userSv.getThemeConfig().custom.fonts",function(fonts){
 		if (angular.isDefined(fonts)) {
 			$scope.config.custom.fonts = fonts;
-
-			//SAVE CONFIG!
-			//userSv.setThemeConfigFonts($scope.config.custom.fonts);
-			
 			$scope.setFont();
 		}		
 	},true);	
@@ -651,9 +647,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		if (angular.isDefined(width)) {
 			$scope.config.custom.width = width;
 			$scope.getAppStyle();
-
-			//SAVE CONFIG!
-			//userSv.setThemeConfigWidth($scope.config.custom.width);
 		}		
 	},true);	
 

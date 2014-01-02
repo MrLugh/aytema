@@ -12,4 +12,12 @@ function adminWidthCo($scope,userSv,appSv,contentSv) {
 	$scope.save = function() {
 		userSv.setThemeConfigWidth($scope.config.custom.width);
 	}
+
+	$scope.saveConfig = function() {
+		userSv.saveThemeConfig();
+	}
+
+	$scope.restoreConfig = function() {
+		userSv.restoreConfig();
+	}	
 }

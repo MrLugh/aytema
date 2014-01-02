@@ -101,9 +101,13 @@ Class Theme extends AppModel {
 
 	        if (empty($config)) {
 	        	$config = self::$config;
-	        	$config['user'] = $user_id;
-	        	$config['type'] = $theme;
-	        }
+	        } else {
+                $config = unserialize($config[0]['Theme']['data']);
+            }
+
+            $config['user'] = $user_id;
+            $config['type'] = $theme;
+
 	        return $config;
 
 		} catch(Exeption $e) {
@@ -111,6 +115,33 @@ Class Theme extends AppModel {
 		}
 
 	}
+
+    public function setThemeConfig($theme,$user_id,$config) {
+
+        try {
+
+            $save = $this->find('all', array(
+                'conditions'=> array('type'=>$theme,'user_id'=>$user_id),
+                'limit'     => 1,
+                )
+            );
+
+            if (!empty($save)) {
+                $update                 = array_shift($save);
+                $save['id']             = $update['Theme']['id'];
+            }
+            $save['data']   = serialize($config);
+            $save['user_id']= $user_id;
+            $save['type']   = $theme;
+
+            $new = new Theme();
+            $new->save($save);
+            return $this->getThemeConfig($theme,$user_id);
+
+        } catch(Exeption $e) {
+
+        }
+    }
 
 
 }
