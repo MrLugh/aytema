@@ -81,9 +81,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 		var deferred = $q.defer();
 
-		var params = {'type':theme};
-
-	    $http({method: 'GET', url: '/themes/getConfig.json',data:params}).
+	    $http({method: 'GET', url: '/themes/view/'+theme+'/'+user.username+'.json'}).
 	    success(function(data, status, headers, config) {
 
 	    	themeConfig = {'default':data.config,'custom':JSON.parse(JSON.stringify(data.config))};
@@ -151,7 +149,8 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	return {
 
 		isLogged: function() {
-			return Boolean(user);
+			//return Boolean(user);
+			return angular.isDefined(user['id']);
 		},
 
 		getUser: function() {

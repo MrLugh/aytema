@@ -134,7 +134,7 @@
 
 <body>
 
-    <div data-ng-app="ayTemaThemeApp" controller='themeDigestCo' user="<?php echo $user; ?>"  resize>
+    <div data-ng-app="ayTemaThemeApp" controller='themeDigestCo' user='<?php echo $user; ?>'  resize>
         <ng-view></ng-view>
     </div>
 
