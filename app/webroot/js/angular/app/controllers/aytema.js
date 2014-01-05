@@ -1,8 +1,20 @@
 function aytemaCo($scope,userSv) {
 
 	$scope.user = userSv.getUser();
-
 	$scope.steps= $scope.user.steps;
+
+	$scope.userSearch= '';
+	$scope.usersList = [];
+
+	$scope.searchUsers = function() {
+		console.log($scope.userSearch);
+		userSv.search($scope.userSearch).then(function(data){
+			for (var x in data.users) {
+				var user = data.users[x];
+				$scope.usersList.push(user['User']);
+			}
+		});
+	}
 
 	$scope.activateStep = function(step) {
 		for (x in $scope.steps) {
@@ -11,5 +23,15 @@ function aytemaCo($scope,userSv) {
 		$scope.steps[step] = true;
 	}
 
+	$scope.getTemplate = function(tpl) {
+		return 'app/webroot/js/angular/app/templates/'+tpl;
+	}
+
+	$scope.$watch('userSearch', function(value) {
+		$scope.usersList = [];
+		if (value.length > 0) {
+			$scope.searchUsers();
+		}
+	});
 
 }

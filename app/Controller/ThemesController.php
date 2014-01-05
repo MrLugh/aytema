@@ -16,7 +16,7 @@ class ThemesController extends AppController {
 
     public function index() {
 
-        $type = isset($this->request->query['type']) ? $this->request->query['type'] : self::$theme;
+        $type = isset($this->request->query['type']) ? $this->request->query['type'] : Theme::$default;
         $username = isset($this->request->query['username']) ? $this->request->query['username'] : null;
 
         $user = array('username'=>$username);
@@ -45,7 +45,7 @@ class ThemesController extends AppController {
     public function setConfig() {
 
         $user_id= $this->Auth->user('id');
-        $type   = isset($this->request->data['type'])  ? $this->request->data['type']     : self::$theme;
+        $type   = isset($this->request->data['type'])  ? $this->request->data['type']     : Theme::$default;
         $config = isset($this->request->data['config'])? $this->request->data['config']   : null;
         $theme  = new Theme();
         $config = $theme->setThemeConfig($type,$user_id,$config);
@@ -53,6 +53,6 @@ class ThemesController extends AppController {
             'config' => $config,
             '_serialize' => array('config')
         ));        
-    }    
+    }
 
 }

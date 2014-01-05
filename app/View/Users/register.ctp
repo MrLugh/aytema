@@ -10,7 +10,7 @@
 
 	<?php
 		echo $this->form->create('User',array(
-			'action'=> 'Register',
+			'action'=> 'register',
 			'class'	=>'bs-example form-horizontal'
 			)
 		);

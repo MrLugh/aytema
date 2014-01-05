@@ -1,9 +1,10 @@
-<div>
-<!--<form action="/users/login"  ng-submit="login()" method="post" accept-charset="utf-8">-->
+<div class="right">
+<!--<form action="#/login" ng-submit="login()" onsubmit="return false;" method="post" accept-charset="utf-8">-->
 	<input type="hidden" name="_method" value="POST"/>
-	<input type="text" name="data[User][username]" ng-model="username" maxlength="50" placeholder="username" required/>
-	<input type="password" name="data[User][password]" ng-model="password" placeholder="password" maxlength="8" required/>
+	<input type="text" name="username" ng-model="username" maxlength="50" placeholder="username" required/>
+	<input type="password" name="password" ng-model="password" placeholder="password" maxlength="8" required/>
 	<input type="submit" value="Login" ng-click="login()"/>
+	<a href="/users/register">Sign up</a>
+	{{loginMessage}}
 <!--</form>-->
-<a href="/users/register">Sign up</a>
 </div>

@@ -95,9 +95,9 @@
     echo $this->Html->script('angular/app/controllers/admin/colors');
     echo $this->Html->script('angular/app/controllers/admin/fonts');
     echo $this->Html->script('angular/app/controllers/admin/width');
-    echo $this->Html->script('angular/app/controllers/themes');
 
         // Themes
+        echo $this->Html->script('angular/app/controllers/themes');
         echo $this->Html->script('angular/app/controllers/themes/digest');
         echo $this->Html->script('angular/app/controllers/themes/digest/content');      
     ?>
@@ -126,6 +126,7 @@
     echo $this->Html->script('angular/app/directives/admin/fonts');
     echo $this->Html->script('angular/app/directives/admin/width');
         // Themes
+        echo $this->Html->script('angular/app/directives/themes/digest/index');
         echo $this->Html->script('angular/app/directives/themes/digest/content');
     ?>
 
@@ -134,7 +135,7 @@
 
 <body>
 
-    <div data-ng-app="ayTemaThemeApp" controller='themeDigestCo' user='<?php echo $user; ?>'  resize>
+    <div data-ng-app="ayTemaThemeApp" controller='themeDigestCo' user='<?php echo $user; ?>' resize>
         <ng-view></ng-view>
     </div>
 

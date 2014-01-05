@@ -1,16 +1,39 @@
  <div id="container">
 
- 	<div id="header">
+	 <div id="header">
+	 	<ul>
+	 		<li ng-if="isLogged()">
+	 			<a ng-click="activateStep(1)" href="#/accounts" skip-default>Accounts</a>
+	 		</li>
+	 		
+	 		<li ng-if="isLogged()">
+	 			<a ng-click="activateStep(2)" href="#/themes" skip-default>Themes</a>
+	 		</li>
+	 		
+	 		<li ng-if="isLogged()">
+	 			<a ng-click="activateStep(3)" href="#/share" skip-default>Share</a>
+	 		</li>
+	 		
+	 		<li ng-if="isLogged()">
+	 			<a href="/users/logout">LogOut</a>
+	 		</li>
 
- 		<ul>
- 			<li ng-click="activateStep(1)">#1 Accounts</li>
+			<li ng-if="!isLogged()" class="right"><login></login></li>
 
- 			<li ng-click="activateStep(2)">#2 Themes</li>
+	 		<li class="right" style="position:relative;">
+	 			<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" />
+	 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
+	 				<ul>
+	 					<li ng-repeat="userFind in usersList">
+	 						<a href="/users/{{userFind.username}}">{{userFind.username}}</a>
+	 					</li>
+	 				</ul>
 
- 			<li ng-click="activateStep(3)">#3 Share</li>
- 		</ul>
+	 			</div>
+	 		</li>
 
- 	</div>
+	 	</ul>
+	 </div>
 
  	<div id="content">
 

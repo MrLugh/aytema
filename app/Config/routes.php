@@ -28,6 +28,14 @@
  */
 	//Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/', array('controller' => 'index', 'action' => 'home'));
+	Router::connect('/users/login', array('controller' => 'users', 'action' => 'login'));
+	Router::connect('/users/logout', array('controller' => 'users', 'action' => 'logout'));
+	Router::connect('/users/register', array('controller' => 'users', 'action' => 'register'));
+	Router::connect('/users/index', array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/users/:username',
+		array('controller' => 'users', 'action' => 'view'),
+		array('pass'=>array('username'))
+	);
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
@@ -48,4 +56,5 @@
 Router::mapResources('contents');
 Router::mapResources('socialnets');
 Router::mapResources('themes');
+Router::mapResources('users');
 Router::parseExtensions('json');

@@ -2,7 +2,6 @@
 <html>
 <head>
 
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>AyTema</title>
@@ -100,7 +99,7 @@
 
 <body>
 
-    <div data-ng-app="ayTemaApp" user="<?php echo $user; ?>" controller='appCo' resize>
+    <div data-ng-app="ayTemaApp" user='<?php echo $user; ?>' controller='appCo' resize>
         <ng-view></ng-view>
     </div>
 

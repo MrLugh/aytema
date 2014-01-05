@@ -2,6 +2,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.contentSv = contentSv;
 	$scope.user = userSv.getUser();
+	$scope.user.theme = 'digest';
 
 	$scope.userMessage	= '';
 

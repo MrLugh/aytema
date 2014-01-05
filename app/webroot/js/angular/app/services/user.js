@@ -1,12 +1,34 @@
 ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
-	var user 		= false;
+	var user 		= {};
 	var accounts 	= [];
 	var themeConfig = {};
 	var loading		= false;
 
-	var login = function() {
-		
+	var setUser = function(data) {
+		user =  data;
+		user['steps'] = {1:false,2:false,3:false};
+		user['theme'] = 'digest';
+	}
+
+	var login = function(params) {
+		var deferred = $q.defer();
+
+		var url = '/users/login.json';
+
+	    $http({method: 'POST', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	console.log('success');
+	    	setUser(data.user);
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	console.log('error');
+	    	user = {};
+	    	deferred.resolve(data);
+	    });
+
+	    return deferred.promise;		
 	}
 
 	var loadAccounts = function() {
@@ -28,14 +50,41 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    $http({method: 'GET', url: url,data:params}).
 	    success(function(data, status, headers, config) {
 	    	accounts= data.socialnets;
+	    	deferred.resolve(data);
 	    }).
 	    error(function(data, status, headers, config) {
 	    	console.log('error');
 	    	deferred.resolve();	    	
 	    });
 
-	    return deferred.promise;		
+	    return deferred.promise;
 	}
+
+	var search = function(username) {
+
+		var deferred = $q.defer();
+
+		var params = {username:username};
+		var vars = [];
+		for (x in params) {
+			vars.push(x+"="+params[x]);
+		}		
+		var url = '/users/index.json';
+		if (vars.length) {
+			url +="?"+vars.join("&");
+		}		
+
+	    $http({method: 'GET', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	console.log('error');
+	    	deferred.resolve();
+	    });
+
+	    return deferred.promise;
+	}	
 
 	var deleteAccount = function(account) {
 
@@ -61,7 +110,6 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    }).
 	    error(function(data, status, headers, config) {
 	    	console.log('error');
-
 	    	deferred.resolve();
 	    });
 
@@ -89,7 +137,6 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    }).
 	    error(function(data, status, headers, config) {
 	    	console.log('error');
-
 	    	deferred.resolve();
 	    });
 
@@ -149,7 +196,9 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	return {
 
 		isLogged: function() {
-			//return Boolean(user);
+			if (angular.equals(user, {})) {
+				return false;
+			}
 			return angular.isDefined(user['id']);
 		},
 
@@ -176,12 +225,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 			return false;
 		},
 
-		setUser: function(data) { // From user directive
-			user =  data;
-			user['steps'] = {1:false,2:false,3:false};
-			user['theme'] = 'digest';
-		},
-		
+	
 		isLoading: function() {
 			return loading;
 		},		
@@ -190,6 +234,8 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		saveThemeConfig:saveThemeConfig,
 		restoreConfig:restoreConfig,
 		login:login,
+		setUser:setUser,
+		search:search,
 		loadAccounts:loadAccounts,
 		getAccounts:getAccounts,
 		deleteAccount:deleteAccount,

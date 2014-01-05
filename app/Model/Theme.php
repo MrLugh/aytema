@@ -4,6 +4,8 @@ App::import('model','YoutubeSocialnet');
 
 Class Theme extends AppModel {
 
+    static $default = 'digest';
+
     static $config = array(
         'filters' => array(
             'home'      => array(
