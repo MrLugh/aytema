@@ -48,6 +48,9 @@ class ThemesController extends AppController {
         $type   = isset($this->request->data['type'])  ? $this->request->data['type']     : Theme::$default;
         $config = isset($this->request->data['config'])? $this->request->data['config']   : null;
         $theme  = new Theme();
+        $this->User->id = $user_id;
+        $this->User->saveField('theme', $type );
+        $theme->removeUserConfig($type,$user_id);
         $config = $theme->setThemeConfig($type,$user_id,$config);
         $this->set(array(
             'config' => $config,

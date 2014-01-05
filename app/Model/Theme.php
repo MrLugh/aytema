@@ -96,7 +96,7 @@ Class Theme extends AppModel {
 		try {
 
 	        $config = $this->find('all', array(
-	            'conditions'=> array('type'=>$theme,'user_id'=>$user_id),
+	            'conditions'=> array('Theme.type'=>$theme,'Theme.user_id'=>$user_id),
 	            'limit'     => 1,
 	            )
 	        );
@@ -120,10 +120,10 @@ Class Theme extends AppModel {
 
     public function setThemeConfig($theme,$user_id,$config) {
 
-        try {
+        //try {
 
             $save = $this->find('all', array(
-                'conditions'=> array('type'=>$theme,'user_id'=>$user_id),
+                'conditions'=> array('Theme.type'=>$theme,'Theme.user_id'=>$user_id),
                 'limit'     => 1,
                 )
             );
@@ -140,10 +140,21 @@ Class Theme extends AppModel {
             $new->save($save);
             return $this->getThemeConfig($theme,$user_id);
 
-        } catch(Exeption $e) {
+        //} catch(Exeption $e) {
 
-        }
+        //}
     }
+
+    public function removeUserConfig($type,$user_id) {
+
+        //try {
+
+            $delete = $this->deleteAll(array('Theme.user_id'=>$user_id,'Theme.type !='=>$type));
+
+        //} catch(Exeption $e) {
+
+        //}
+    }    
 
 
 }

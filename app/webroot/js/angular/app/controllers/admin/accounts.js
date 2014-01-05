@@ -114,7 +114,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	},true);
 
 	$scope.networkIcon = function(network) {
-		return "img/socialnet/icons/ce_"+network+".png";
+		return "http://aytema.com/img/socialnet/icons/ce_"+network+".png";
 	}
 
 	$scope.canShowStat = function(stat) {
