@@ -23,7 +23,7 @@
 	 		<li class="right" style="position:relative;">
 	 			<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" />
 	 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
-	 				<ul>
+	 				<ul class="usersSearch">
 	 					<li ng-repeat="userFind in usersList">
 	 						<a href="/users/{{userFind.username}}">{{userFind.username}}</a>
 	 					</li>

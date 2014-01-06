@@ -328,8 +328,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			var params = [];
 		}
 
-		params['user_id']	= user.id;
-
 		// TODO: Needs changed by data json
 		var vars = [];
 		for (var x in params) {
@@ -378,8 +376,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if (!angular.isDefined(params)) {
 			var params = [];
 		}
-
-		params['user_id']	= user.id;
 
 		// TODO: Needs changed by data json
 		var vars = [];

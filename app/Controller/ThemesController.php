@@ -11,7 +11,6 @@ class ThemesController extends AppController {
 
 		$this->Auth->allow('index','view');
         $this->loadModel('User');
-
     }
 
     public function index() {

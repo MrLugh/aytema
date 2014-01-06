@@ -83,6 +83,10 @@ ul {
 	display: inline-block;
 }
 
+.usersSearch li {
+  display: block!important;
+}
+
 /* Accounts */
 
 .accountsContainer {

@@ -10,15 +10,13 @@ class ContentsController extends AppController {
 
     public function beforeFilter() {
 
-        $this->Auth->allow('index','view');
+        $this->Auth->allow('index','view','relateds');
         $this->loadModel('Socialnet');
     }    
 
     public function index() {
 
         $params = array();
-
-        $user_id = $this->Auth->user('id');
 
         isset($this->request->query['accounts']) ? $accounts = $this->request->query['accounts'] : $accounts = null;
         isset($this->request->query['networks']) ? $selected_networks = $this->request->query['networks'] : $selected_networks = null;
@@ -172,8 +170,6 @@ class ContentsController extends AppController {
     public function relateds() {
 
         $params = array();
-
-        $user_id = $this->Auth->user('id');
 
         isset($this->request->query['id']) ? $id = $this->request->query['id'] : $id = null;
         isset($this->request->query['network']) ? $network = $this->request->query['network'] : $network = null;

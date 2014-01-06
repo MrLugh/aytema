@@ -98,7 +98,6 @@ class UsersController extends AppController {
                 $data = $this->data;
                 $data['User']['theme'] = Theme::$default;
                 if($this->User->save($data)) {
-                    $this->Session->setFlash("Account created!",'flash/success');
                     $this->redirect('/');
                 }
             }

@@ -54,14 +54,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 		var filters	= {'concepts':[],'networks':[]};
 
-		var accounts= userSv.getAccounts();
+		var accounts= $scope.accounts;
 
 		if (!accounts.length && !userSv.isLoading()) {
 			userSv.loadAccounts();
 			return filters;
 		}
 
-		//var networks= appSv.getNetworks();
 		var allConcepts = [];
 		var networks 	= [];
 		for (var x in accounts) {
@@ -119,8 +118,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			params['limit']		= $scope.limit;
 			params['accounts'] = [];
 
-			for (var x in userSv.getAccounts()) {
-				var account = userSv.getAccounts()[x].Socialnet;
+			for (var x in $scope.accounts) {
+				var account = $scope.accounts[x].Socialnet;
 				if (filters.networks.indexOf(account.network) != -1) {
 					params['accounts'].push(account.id);
 				}
@@ -147,6 +146,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 							$scope.currentContent	= false;
 						}
 						*/
+
 					} else {
 						$scope.showMessage('There is no content :(');
 					}
@@ -198,8 +198,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.getAccountLink = function(index,external_user_id) {
-		for (var x in userSv.getAccounts()) {
-			var account = userSv.getAccounts()[x].Socialnet;
+		for (var x in $scope.accounts) {
+			var account = $scope.accounts[x].Socialnet;
 			if (account.external_user_id == external_user_id && 
 				account.network == $scope.list[index].network ) {
 				return account.profile_url;
@@ -210,8 +210,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.getProfileImg = function() {
 		var external_user_id = $scope.list[$scope.currentContent].external_user_id;
-		for (var x in userSv.getAccounts()) {
-			var account = userSv.getAccounts()[x].Socialnet;
+		for (var x in $scope.accounts) {
+			var account = $scope.accounts[x].Socialnet;
 			if (account.external_user_id == external_user_id && 
 				account.network == $scope.list[$scope.currentContent].network ) {
 				return account.profile_image;
@@ -230,24 +230,12 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			return;
 		}
 
-		/*
-		if (!$scope.masonryLoading) {
-			return;
-		}
-		*/
-
 		$scope.offset 	= 0;
 		$scope.current = page;
 		$scope.showingContent 	= false;
 	}
 
 	$scope.movePage = function(direction) {
-
-		/*
-		if (!$scope.masonryLoading) {
-			return;
-		}
-		*/
 
 		var indexCurrent = $scope.pages.indexOf($scope.current);
 
@@ -337,7 +325,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		$scope.contentModal		= [$scope.list[index]];
 		$scope.showingContent 	= true;
 		$scope.relateds			= [];
-		console.log($scope.list[index]);
 		$scope.loadRelatedContent($scope.list[index]);
 	}
 
@@ -584,35 +571,38 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		$scope.masonryLoading = false;
 	}
 
+	$scope.initFilters = function() {
+
+		for (var x in $scope.config.custom.filters) {
+
+			if (!angular.isDefined($scope.config.custom.filters[x]['networks'])) {
+				var networks = [];
+				for (var y in $scope.accounts) {
+					var network = $scope.accounts[y].Socialnet.network;
+					if (networks.indexOf(network) == -1) {
+						networks.push(network);
+					}
+				}
+				$scope.config.custom.filters[x]['networks'] = networks;
+			}
+		}
+
+	}
+
 	$scope.userSv = userSv;
 	$scope.$watch("userSv.getThemeConfig()",function(configNew,configOld){
 		if (!angular.equals(configNew, configOld)) {
-
-			$scope.config		= userSv.getThemeConfig();
+			$scope.config = configNew;
 			$scope.configLoaded = true;
-
-			if ($scope.accountsLoaded) {
-
-				for (var x in $scope.config.custom.filters) {
-
-					if (!angular.isDefined($scope.config.custom.filters[x]['networks'])) {
-						var networks = [];
-						for (var y in userSv.getAccounts()) {
-							var network = userSv.getAccounts()[y].Socialnet.network;
-							if (networks.indexOf(network) == -1) {
-								networks.push(network);
-							}
-						}
-						$scope.config.custom.filters[x]['networks'] = networks;
-					}
-				}
-			}
-
 		}
 	});
 
 	$scope.$watch("userSv.getThemeConfig().custom.filters",function(filters){
+		if (angular.isDefined(filters)) {
+			$scope.config.custom.filters = filters;
+		}
 		if ($scope.configLoaded && $scope.accountsLoaded) {
+			$scope.initFilters();
 			$scope.offset = 0;
 			$scope.pages = [];
 			for (var x in $scope.config.custom.filters) {
@@ -620,7 +610,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			}
 			$scope.reinitMasonry();	
 		}
-
 	},true);
 
 	$scope.$watch("userSv.getThemeConfig().custom.colors",function(colors){
@@ -639,6 +628,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.$watch("userSv.getThemeConfig().custom.contentsizes",function(sizes){
 		if (angular.isDefined(sizes)) {
+			$scope.config.custom.contentsizes = sizes;
 			$scope.offset 	= 0;
 			$scope.reinitMasonry();	
 		}
@@ -652,28 +642,14 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	},true);	
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
-		$scope.accounts = accounts;
-		if (accounts.length) {
-			$scope.accountsLoaded = true;		
-		}
 
+		if (accounts.length > 0) {
+			$scope.accounts = accounts;
+			$scope.accountsLoaded = true;
+		}
 		if ($scope.configLoaded) {
-
-			for (var x in $scope.config.custom.filters) {
-
-				if (!angular.isDefined($scope.config.custom.filters[x]['networks'])) {
-					var networks = [];
-					for (var y in userSv.getAccounts()) {
-						var network = userSv.getAccounts()[y].Socialnet.network;
-						if (networks.indexOf(network) == -1) {
-							networks.push(network);
-						}
-					}
-					$scope.config.custom.filters[x]['networks'] = networks;
-				}
-			}
+			$scope.initFilters();
 		}
-
 		if ($scope.configLoaded && $scope.accountsLoaded) {
 			$scope.reinitMasonry();	
 		}
@@ -681,6 +657,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.$watch("current",function(current,oldCurrent){
 		if ($scope.configLoaded && $scope.accountsLoaded) {
+			$scope.current = current;
 			$scope.reinitMasonry();
 		}
 	});

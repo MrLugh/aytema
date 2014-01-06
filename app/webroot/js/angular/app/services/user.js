@@ -35,7 +35,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 		var deferred = $q.defer();
 
-		var params = {user_id:user.id,status:'Allowed'};
+		var params = {username:user.username,status:'Allowed'};
 
 		var vars = [];
 		for (x in params) {
@@ -122,10 +122,6 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	}
 
 	var loadThemeConfig = function(theme) {
-
-		if (themeConfig && themeConfig.theme == theme) {
-			return themeConfig;
-		}
 
 		var deferred = $q.defer();
 
