@@ -595,6 +595,10 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			$scope.config = configNew;
 			$scope.configLoaded = true;
 		}
+
+		if ($scope.configLoaded && $scope.accountsLoaded) {
+			$scope.initFilters();
+		}
 	});
 
 	$scope.$watch("userSv.getThemeConfig().custom.filters",function(filters){
@@ -647,10 +651,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			$scope.accounts = accounts;
 			$scope.accountsLoaded = true;
 		}
-		if ($scope.configLoaded) {
-			$scope.initFilters();
-		}
 		if ($scope.configLoaded && $scope.accountsLoaded) {
+			$scope.initFilters();
 			$scope.reinitMasonry();	
 		}
 	},true);
