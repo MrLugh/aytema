@@ -573,6 +573,12 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.initFilters = function() {
 
+		$scope.offset = 0;
+		$scope.pages = [];
+		for (var x in $scope.config.custom.filters) {
+			$scope.pages.push(x);
+		}
+
 		for (var x in $scope.config.custom.filters) {
 
 			if (!angular.isDefined($scope.config.custom.filters[x]['networks'])) {
@@ -607,11 +613,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}
 		if ($scope.configLoaded && $scope.accountsLoaded) {
 			$scope.initFilters();
-			$scope.offset = 0;
-			$scope.pages = [];
-			for (var x in $scope.config.custom.filters) {
-				$scope.pages.push(x);
-			}
 			$scope.reinitMasonry();	
 		}
 	},true);
@@ -643,15 +644,16 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			$scope.config.custom.width = width;
 			$scope.getAppStyle();
 		}		
-	},true);	
+	},true);
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
-
 		if (accounts.length > 0) {
 			$scope.accounts = accounts;
 			$scope.accountsLoaded = true;
 		}
+
 		if ($scope.configLoaded && $scope.accountsLoaded) {
+			console.log("init");
 			$scope.initFilters();
 			$scope.reinitMasonry();	
 		}
