@@ -653,7 +653,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}
 
 		if ($scope.configLoaded && $scope.accountsLoaded) {
-			console.log("init");
 			$scope.initFilters();
 			$scope.reinitMasonry();	
 		}

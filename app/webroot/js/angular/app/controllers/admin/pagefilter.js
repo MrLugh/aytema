@@ -5,6 +5,7 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 	$scope.user 	= userSv.getUser();
 	$scope.pages 	= [];
 	$scope.current	= $scope.$parent.current;
+	$scope.newPage	= '';
 
 	$scope.config	= $scope.$parent.config;
 	$scope.accounts	= $scope.$parent.accounts;
@@ -14,10 +15,9 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 
 	$scope.getFilters = function() {
 
-		if (!$scope.pages.length) {
-			for (var x in $scope.config.custom.filters) {
-				$scope.pages.push(x);
-			}
+		$scope.pages = [];
+		for (var x in $scope.config.custom.filters) {
+			$scope.pages.push(x);
 		}
 
 		var concepts= [];
@@ -48,6 +48,7 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 
 		var concepts= [];
 		var config 	= $scope.config.custom.filters[$scope.current];
+		console.log(config);
 		for (var x in $scope.filters.concepts) {
 			var concept = $scope.filters.concepts[x];
 			if (config.concepts.indexOf(concept) != -1 || config.concepts.length == 1 && config.concepts[0]=='all') {
@@ -109,6 +110,32 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 			$scope.concepts.push(concept);
 		}
 		$scope.save();
+	}
+
+	$scope.canAdd = function() {
+		if ($scope.newPage.length>0 && $scope.pages.indexOf($scope.newPage) == -1 ) {
+			return true;
+		}
+		return false;
+	}
+
+	$scope.addPage = function() {
+
+		if (!angular.isDefined($scope.config.custom.filters[$scope.newPage])) {
+			$scope.config.custom.filters[$scope.newPage] = $scope.getFilters();
+			$scope.changePage($scope.newPage);
+		}
+	}
+
+	$scope.deletePage = function() {
+		delete $scope.config.custom.filters[$scope.current];
+		for (var x in $scope.pages) {
+			if ($scope.pages[x] != $scope.current) {
+				$scope.changePage($scope.pages[x]);
+				break;
+			}
+		}
+		$scope.setList();
 	}
 
 	$scope.save = function() {

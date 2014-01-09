@@ -16,6 +16,16 @@
 		</li>
 	</ul>
 
+
+	<div class="both">
+		<a href="#/" ng-click="deletePage()">Delete {{current}}</a>
+	</div>
+	
+	<div class="both">
+		<input type="text" ng-model="newPage" placeholder="New page">
+		<a ng-if="canAdd()" href="#/" ng-click="addPage()">Add</a>
+	</div>
+
 	<div class="both">
 		<a href="#/" ng-click="restoreConfig()" skip-default>Restore!</a>
 		<a href="#/" ng-click="saveConfig()" skip-default>Save as my theme</a>
