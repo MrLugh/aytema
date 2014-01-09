@@ -27,9 +27,7 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 			//return contentSv.cleanSource($scope.player);
 		}
 
-		var source = contentSv.getPlayer($scope.content);
-
-		$scope.player		= source
+		$scope.player		= contentSv.getPlayer($scope.content);
 		$scope.loadPlayer	= true;
 
 		return $scope.player;
@@ -41,9 +39,7 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 			return $scope.thumbnail;
 		}		
 
-		var source = contentSv.getThumbnail($scope.content);
-
-		$scope.thumbnail	= source;
+		$scope.thumbnail	= contentSv.getThumbnail($scope.content);
 		$scope.loadThumbnail= true;
 
 		return $scope.thumbnail;
@@ -85,16 +81,6 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 		if ($scope.content.network == 'youtube') {
 			description = $scope.content.data['content'];
 		}
-
-		/*
-		if ($scope.content.network == 'tumblr') {
-
-			if (angular.isDefined($scope.content.data['caption'])) {
-				description = $scope.content.data['caption'];
-			}
-
-		}
-		*/
 
 		return $sce.trustAsHtml(description);
 	}
@@ -234,16 +220,6 @@ function adminContentPhotoCo($scope,contentSv) {
 		$scope.setCurrent();
 	});
 
-	/*
-	$scope.$watch("content",function(value){
-		console.log("Watch photo content ",value.id,$scope.content.id);		
-		$scope.photolist	= [];
-		$scope.current 		= {};
-		$scope.currentPos	= 0;
-		$scope.setList();
-		$scope.setCurrent();
-	});
-	*/
 	$scope.setList();
 	$scope.setCurrent();
 
@@ -270,9 +246,7 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 			//return contentSv.cleanSource($scope.player);
 		}
 
-		var source = contentSv.getPlayer($scope.content);
-
-		$scope.player		= source
+		$scope.player		= contentSv.getPlayer($scope.content);
 		$scope.loadPlayer	= true;
 
 		return $scope.player;
@@ -284,9 +258,7 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 			return $scope.thumbnail;
 		}
 
-		var source = contentSv.getThumbnail($scope.content);
-
-		$scope.thumbnail	= source;
+		$scope.thumbnail	= contentSv.getThumbnail($scope.content);
 		$scope.loadThumbnail= true;
 
 		return $scope.thumbnail;
@@ -413,10 +385,6 @@ function adminContentPostCo($scope,contentSv,$sce) {
 		return '';
 	}
 
-	$scope.$watch("content",function(value){
-		//console.log("Watch post content ",value.id,$scope.content.id);		
-	});
-
 }
 
 function adminContentChatCo($scope,contentSv) {
@@ -445,10 +413,6 @@ function adminContentChatCo($scope,contentSv) {
 		return '';
 	}
 
-	$scope.$watch("content",function(value){
-		//console.log("Watch chat content ",value.id,$scope.content.id);		
-	});	
-
 }
 
 function adminContentQuoteCo($scope,contentSv) {
@@ -475,14 +439,11 @@ function adminContentQuoteCo($scope,contentSv) {
 		return '';
 	}
 
-	$scope.$watch("content",function(value){
-		//console.log("Watch quote content ",value.id,$scope.content.id);
-	});	
-
 }
 
-
 function adminContentLinkCo($scope,contentSv,$sce) {
+
+	//console.log($scope.content);
 
 	$scope.getUrl = function() {
 

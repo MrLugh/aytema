@@ -2,7 +2,7 @@
 
 	<img ng-src="{{current.src}}" class="content_photo" />
 	<h2>{{getTitle()}}</h2>
-	<p>{{getDescription()}}</p>
+	<p ng-bind-html="getDescription()"></p>
 
 	<div ng-if="moreThanOne()" style="position:absolute;top:45%;width:10%;" class="{{content.network}}_bg">
 		<a href="#/" skip-default ng-click="move(-1)">

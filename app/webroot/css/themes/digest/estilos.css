@@ -162,7 +162,7 @@ p {
     margin-top: 10px;
     text-align: right;
 }
-p a {
+.content p a {
     background-color: #FDE200;
     line-height: 16px;
 }

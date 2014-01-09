@@ -122,7 +122,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		params['offset']	= offset;
 		params['limit']		= limit;
 
-		// TODO: Needs changed by data json
+
 		var vars = [];
 		for (x in params) {
 			vars.push(x+"="+params[x]);
@@ -262,7 +262,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		params['id'] = id;
 
-		// TODO: Needs changed by data json
+
 		var vars = [];
 		for (x in params) {
 			vars.push(x+"="+params[x]);
@@ -291,7 +291,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		params['id'] = id;
 
-		// TODO: Needs changed by data json
+
 		var vars = [];
 		for (x in params) {
 			vars.push(x+"="+params[x]);
@@ -328,7 +328,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			var params = [];
 		}
 
-		// TODO: Needs changed by data json
+
 		var vars = [];
 		for (var x in params) {
 
@@ -377,7 +377,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			var params = [];
 		}
 
-		// TODO: Needs changed by data json
+
 		var vars = [];
 		for (var x in params) {
 
@@ -414,14 +414,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var getFacebookContentHrefEmbed = function(content) {
 	
 		var href = "https://www.facebook.com/"+content['external_user_name']+"/posts/"+content['external_atomic_id'];
-
-		/*
-		if (angular.isDefined(content['data']['story'])) {
-			if (angular.isDefined(content['data']['link'])) {
-				href = content['data']['link'];				
-			}
-		}
-		*/
 
 		return href;
 	}
@@ -559,6 +551,148 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		return source;
 	}
 
+	var getEmbed = function(content) {
+
+		var embed = ''
+
+		if (content.network == 'twitter') {
+			if (angular.isDefined(content.data['embed'])) {
+				embed = content.data['embed'];
+			}
+		}
+
+		return embed;
+	}
+
+	var getTitle = function(content) {
+
+		var title = '';
+
+		if (content.network == 'tumblr') {
+
+			if (angular.isDefined(content.data['slug'])) {
+				title = content.data['slug'];
+			}
+
+			if (angular.isDefined(content.data['source_title'])) {
+				title = content.data['source_title'];
+			}
+
+			if (angular.isDefined(content.data['title'])) {
+				title = content.data['title'];
+			}			
+		}
+
+		if (content.network == 'vimeo') {
+			title = content.data.title;
+		}
+
+		if (content.network == 'youtube') {
+			title = content.data['title'];
+		}
+
+		if (content.network == 'soundcloud') {
+			title = content.data.title;
+		}
+
+		if (content.network == 'mixcloud') {
+			title = content.data.name;
+		}
+
+		return title;
+	}
+
+	var getDescription = function(content) {
+
+		var description = '';
+
+		if (content.network == 'tumblr') {
+
+			if (angular.isDefined(content.data['caption'])) {
+				description = content.data['caption'];
+			}
+
+			if (angular.isDefined(content.data['body'])) {
+				description = content.data['body'];
+			}
+
+		}
+
+		if (content.network == 'facebook') {
+
+			if (angular.isDefined(content.data['story'])) {
+				description = content.data['story'];
+			}
+
+			if (angular.isDefined(content.data['message'])) {
+				description = content.data['message'];
+			}
+
+		}		
+
+		if (content.network == 'vimeo') {
+			description = content.data.description;
+		}
+
+		if (content.network == 'youtube') {
+			description = content.data['content'];
+		}
+
+		return description;
+	}
+
+	var getDialogues = function(content) {
+
+		var dialogues = '';
+
+		if (content.network == 'tumblr') {
+			if (angular.isDefined(content.data['dialogue'])) {
+				dialogues =  content.data['dialogue'];
+			}
+		}
+
+		return dialogues;
+	}
+
+	var getQuoteText = function(content) {
+
+		var text = '';
+
+		if (content.network == 'tumblr') {
+			if (angular.isDefined(content.data['text'])) {
+				text = content.data['text'];
+			}
+		}
+
+		return text;
+	}
+
+	var getQuoteSource = function(content) {
+
+		var source = '';
+
+		if (content.network == 'tumblr') {
+			if (angular.isDefined(content.data['source'])) {
+				source = content.data['source'];
+			}
+		}
+
+		return source;
+	}
+
+	var getUrl = function(content) {
+
+		var url = '';
+
+		if (content.network == 'tumblr') {
+			if (angular.isDefined(content.data['url'])) {
+				url = content.data['url'];
+			}
+		}
+
+		return url;
+	}	
+
 	var getTwitterShareOptions = function(content) {
 		var options = [];
 		options.push("status=1");
@@ -567,9 +701,28 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	var getFacebookShareOptions = function(content) {
 		var options = [];
-		var thumbnail = this.getThumbnail(content);
-		if (thumbnail.length > 0){
-			options.push("p[images][0]="+thumbnail);
+
+		if (content.network == 'tumblr' && content.concept == 'photo' && content.data.photos.length > 1) {
+			for(x in content.data.photos) {
+				var element = content.data.photos[x];
+				options.push("p[images]["+x+"]="+element.original_size.url);
+			}
+			console.log(options);
+
+		} else {
+			var thumbnail = this.getThumbnail(content);
+			if (thumbnail.length > 0){
+				options.push("p[images][0]="+thumbnail);
+			}
+		}
+
+		var title = $("<p>").html(this.getTitle(content)).text();
+		if (title.length > 0){
+			options.push("p[title]="+title);
+		}
+		var summary = $("<p>").html(this.getDescription(content)).text();
+		if (summary.length > 0){
+			options.push("p[summary]="+summary);
 		}
 		
 		return options;
@@ -586,6 +739,15 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if ( content.concept == 'video' && player.length > 0){
 			options.push("embed="+encodeURIComponent(player));
 		}
+		var title = $("<p>").html(this.getTitle(content)).text();
+		if (title.length > 0){
+			options.push("title="+title);
+		}
+		var description = $("<p>").html(this.getDescription(content)).text();
+		if (description.length > 0){
+			options.push("description="+description);
+			options.push("caption="+description);
+		}		
 		
 		return options;
 	}
@@ -647,13 +809,20 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		getThumbnail:getThumbnail,
 		getPlayer:getPlayer,
+		getEmbed:getEmbed,
+		getTitle:getTitle,
+		getDescription:getDescription,
+		getUrl:getUrl,
+		getDialogues:getDialogues,
+		getQuoteText:getQuoteText,
+		getQuoteSource:getQuoteSource,
+		getTrackUrl:getTrackUrl,
+
 		getRelatedContent:getRelatedContent,
 
 		getTwitterShareOptions:getTwitterShareOptions,
 		getFacebookShareOptions:getFacebookShareOptions,
 		getTumblrShareOptions:getTumblrShareOptions,
-
-		getTrackUrl:getTrackUrl
 
 	};
 

@@ -1,5 +1,5 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}_detail" class="track {{content.network}}_{{content.concept}}">
 	<h2>{{getTitle()}}</h2>
-	<p>{{getDescription()}}</p>
+	<p ng-bind-html="getDescription()"></p>
 	<div ng-bind-html="getPlayer()" class="player"></div>
 </div>
