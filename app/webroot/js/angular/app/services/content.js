@@ -742,6 +742,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		var title = $("<p>").html(this.getTitle(content)).text();
 		if (title.length > 0){
 			options.push("title="+title);
+			options.push("name="+title);
 		}
 		var description = $("<p>").html(this.getDescription(content)).text();
 		if (description.length > 0){
