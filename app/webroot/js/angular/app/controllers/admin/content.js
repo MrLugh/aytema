@@ -24,7 +24,6 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 
 		if ($scope.loadPlayer) {
 			return $sce.trustAsHtml(contentSv.cleanSource($scope.player));
-			//return contentSv.cleanSource($scope.player);
 		}
 
 		$scope.player		= contentSv.getPlayer($scope.content);
@@ -47,42 +46,12 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 
 	$scope.getTitle = function() {	
 
-		if ($scope.content.network == 'tumblr') {
-
-			if (angular.isDefined($scope.content.data['source_title'])) {
-				return $scope.content.data['source_title'];
-			}
-
-			if (angular.isDefined($scope.content.data['slug'])) {
-				//return $sce.trustAsHtml($scope.content.data['slug']);
-				return $scope.content.data['slug'];
-			}
-		}
-
-		if ($scope.content.network == 'vimeo') {
-			return $scope.content.data.title;
-		}
-
-		if ($scope.content.network == 'youtube') {
-			return $scope.content.data['title'];
-		}
-
-		return '';
+		return contentSv.getTitle($scope.content);
 	}
 
 	$scope.getDescription = function() {
 
-		var description = '';
-
-		if ($scope.content.network == 'vimeo') {
-			description = $scope.content.data.description;
-		}
-
-		if ($scope.content.network == 'youtube') {
-			description = $scope.content.data['content'];
-		}
-
-		return $sce.trustAsHtml(description);
+		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
 	$scope.hasThumbnail = function() {
@@ -145,7 +114,7 @@ function adminContentPhotoCo($scope,contentSv) {
 				var element = $scope.content.data.photos[x];
 				var photo = {
 					src 		: element.original_size.url,
-					description : element.caption,
+					description : contentSv.getDescription($scope.content),
 				};
 
 				$scope.photolist.push(photo);
@@ -154,17 +123,9 @@ function adminContentPhotoCo($scope,contentSv) {
 
 		if ($scope.content.network == 'facebook') {
 			var element = $scope.content.data;
-			var caption = "";
-			if (angular.isDefined(element.story)) {
-				caption = element.story;
-			}
-			if (angular.isDefined(element.message)) {
-				caption = element.message;
-			}			
-
 			var photo = {
 				src 		: element.picture.replace(/_s./g,'_n.'),
-				description : caption,
+				description : contentSv.getDescription($scope.content),
 			};
 
 			$scope.photolist.push(photo);
@@ -179,13 +140,7 @@ function adminContentPhotoCo($scope,contentSv) {
 
 	$scope.getTitle = function() {
 
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['source_title'])) {
-				return $scope.content.data['source_title'];
-			}
-		}
-
-		return '';
+		return contentSv.getTitle($scope.content);
 	}
 
 	$scope.getDescription = function() {	
@@ -266,33 +221,12 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 
 	$scope.getTitle = function() {
 
-		if ($scope.content.network == 'tumblr') {
-
-			if (angular.isDefined($scope.content.data['source_title'])) {
-				return $scope.content.data['source_title'];
-			}
-
-			if (angular.isDefined($scope.content.data['slug'])) {
-				//return $sce.trustAsHtml($scope.content.data['slug']);
-				return $scope.content.data['slug'];
-			}			
-		}
-
-		if ($scope.content.network == 'soundcloud') {
-			return $scope.content.data.title;
-		}
-
-		if ($scope.content.network == 'mixcloud') {
-			return $scope.content.data.name;
-		}
-
-
-		return '';
+		return contentSv.getTitle($scope.content);
 	}
 
-	$scope.getDescription = function() {	
+	$scope.getDescription = function() {
 
-		return '';
+		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}	
 
 	$scope.hasThumbnail = function() {
@@ -333,6 +267,8 @@ function adminContentTrackCo($scope,$sce,contentSv) {
 
 function adminContentPostCo($scope,contentSv,$sce) {
 
+	console.log($scope.content);
+
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
 	}
@@ -347,42 +283,17 @@ function adminContentPostCo($scope,contentSv,$sce) {
 
 	$scope.getEmbed = function() {
 
-		if ($scope.content.network == 'twitter') {
-			if (angular.isDefined($scope.content.data['embed'])) {
-				return $sce.trustAsHtml($scope.content.data['embed']);
-			}
-		}		
+		return $sce.trustAsHtml(contentSv.getEmbed($scope.content));
 	}
 
 	$scope.getTitle = function() {
 
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['title'])) {
-				return $scope.content.data['title'];
-			}
-		}
-
-		return '';
+		return contentSv.getTitle($scope.content);
 	}
 
 	$scope.getDescription = function() {
 
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['body'])) {
-				//return $sce.trustAsHtml($scope.content.data['body']);
-				return $scope.content.data['body'];
-			}
-		}
-
-		if ($scope.content.network == 'facebook') {
-			return $scope.content.data['story'] || $scope.content.data['message'];
-		}		
-
-		if ($scope.current.description.length) {
-			return $scope.current.description;
-		}
-
-		return '';
+		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
 }
@@ -393,24 +304,12 @@ function adminContentChatCo($scope,contentSv) {
 
 	$scope.getTitle = function() {
 
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['title'])) {
-				return $scope.content.data['title'];
-			}
-		}
-
-		return '';
+		return contentSv.getTitle($scope.content);
 	}
 
 	$scope.getDialogues = function() {
 
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['dialogue'])) {
-				return $scope.content.data['dialogue'];
-			}
-		}
-
-		return '';
+		return contentSv.getDialogues($scope.content);
 	}
 
 }
@@ -419,24 +318,12 @@ function adminContentQuoteCo($scope,contentSv) {
 
 	$scope.getQuoteText = function() {
 
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['text'])) {
-				return $scope.content.data['text'];
-			}
-		}
-
-		return '';
+		return contentSv.getQuoteText($scope.content);
 	}
 
 	$scope.getQuoteSource = function() {
 
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['source'])) {
-				return $scope.content.data['source'];
-			}
-		}
-
-		return '';
+		return contentSv.getQuoteSource($scope.content);
 	}
 
 }
@@ -447,27 +334,11 @@ function adminContentLinkCo($scope,contentSv,$sce) {
 
 	$scope.getUrl = function() {
 
-		if ($scope.content.network == 'tumblr') {
-			if (angular.isDefined($scope.content.data['url'])) {
-				return $scope.content.data['url'];
-			}
-		}
-
-		return '';
+		return contentSv.getUrl($scope.content);
 	}
 
 	$scope.getDescription = function() {
 
-		var description = '';
-
-		if ($scope.content.network == 'tumblr') {
-
-			if (angular.isDefined($scope.content.data['description'])) {
-				description = $scope.content.data['description'];
-			}
-
-		}
-
-		return $sce.trustAsHtml(description);
+		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 }
