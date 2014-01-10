@@ -79,20 +79,12 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			'name'		: 'Digest',
 			'key'		: 'digest',
 			'thumbnail'	: getPath('img')+'/themes/digest/thumb.png',
-			'path'		: '#/theme?digest',
 		},
 		{
-			'name'		: 'Disco',
-			'key'		: 'disco',			
+			'name'		: 'Simple',
+			'key'		: 'simple',			
 			'thumbnail'	: getPath('img')+'/themes/disco/thumb.png',
-			'path'		: '#/theme?disco',
 		},
-		{
-			'name'		: 'Clubber',
-			'key'		: 'clubber',			
-			'thumbnail'	: getPath('img')+'/themes/clubber/thumb.png',
-			'path'		: '#/theme?clubber',
-		},		
 	];
 
 	return {

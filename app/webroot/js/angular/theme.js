@@ -19,10 +19,6 @@ ayTemaThemeApp.config(['$routeProvider','$httpProvider', function($routeProvider
     $routeProvider.when('/', {
     	templateUrl: getPath('tpl')+'/themes/index.html', controller: themesCo
     });
-
-    $routeProvider.when('/theme/digest', {
-    	templateUrl: getPath('tpl')+'/themes/digest/index.html', controller: themeDigestCo
-    });
     
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

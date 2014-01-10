@@ -1,95 +1,10 @@
 <?php
 
-App::import('model','YoutubeSocialnet');
+App::import('model','/themes/Themedigest');
 
 Class Theme extends AppModel {
 
     static $default = 'digest';
-
-    static $config = array(
-        'filters' => array(
-            'home'      => array(
-                'concepts'  => array('all'),
-            ),
-            'videos'    => array(
-                'concepts'  => array('video'),
-            ),
-            'tracks'    => array(
-                'concepts'  => array('track'),
-            ),            
-            'photos'    => array(
-                'concepts'  => array('photo'),
-                'neworks'   => array('tumblr')
-            ),
-            'posts'     => array(
-                'concepts'  => array('post','quote','chat'),
-            )
-        ),
-        'contentsizes' => array(
-            'facebook' => array(
-                'photo'=>'medium',
-                'post'=>'xlarge',
-                'video'=>'xlarge',
-            ),
-            'twitter' => array(
-                'post'=>'large',
-            ),
-            'tumblr' => array(
-                'photo'=>'medium',
-                'post'=>'medium',
-                'chat'=>'small',
-                'quote'=>'medium',
-                'video'=>'large',
-                'track'=>'large',
-                'link'=>'medium',
-            ),
-            'soundcloud' => array(
-                'track'=>'large',
-            ),
-            'mixcloud' => array(
-                'track'=>'large',
-            ),
-            'youtube' => array(
-                'video'=>'large',
-            ),
-            'vimeo' => array(
-                'video'=>'large',
-            ),
-        ),
-        'colors' => array(
-            'background' => array(
-                'value' => '#F7F7F7',
-                'label' => 'Body background',
-            ),
-            'contentBackground' => array(
-                'value' => '#ffffff',
-                'label' => 'Content background',
-            ),
-            'contentText' => array(
-                'value' => '#000000',
-                'label' => 'Content text',
-            ),
-        ),
-        'fonts' => array(
-            'selected' => array(
-                'family'=> "'Playfair Display', serif",
-                'size'  => '13px',
-            ),
-            'list' => array(
-                'Playfair Display' => "'Playfair Display', serif",
-                'Open Sans' => "'Open Sans', sans-serif",
-                'Josefin Sans' => "'Josefin Sans', sans-serif",
-                'Asap' => "'Asap', sans-serif",
-                'Ubuntu' => "'Ubuntu', sans-serif",
-                'Raleway' => "'Raleway', sans-serif",
-                'Lora' => "'Lora', serif",
-                'Montserrat' => "'Montserrat', sans-serif",
-                'Arvo' => "'Arvo', serif",
-                'Junge' => "'Junge', serif"
-            ),
-        ),
-        'width' => '100%'
-    );
 
 	public function getThemeConfig($theme,$user_id) {
 
@@ -102,7 +17,8 @@ Class Theme extends AppModel {
 	        );
 
 	        if (empty($config)) {
-	        	$config = self::$config;
+                $class = "Theme{$theme}";
+	        	$config = $class::$config;
 	        } else {
                 $config = unserialize($config[0]['Theme']['data']);
             }
@@ -120,7 +36,7 @@ Class Theme extends AppModel {
 
     public function setThemeConfig($theme,$user_id,$config) {
 
-        //try {
+        try {
 
             $save = $this->find('all', array(
                 'conditions'=> array('Theme.type'=>$theme,'Theme.user_id'=>$user_id),
@@ -140,21 +56,20 @@ Class Theme extends AppModel {
             $new->save($save);
             return $this->getThemeConfig($theme,$user_id);
 
-        //} catch(Exeption $e) {
+        } catch(Exeption $e) {
 
-        //}
+        }
     }
 
     public function removeUserConfig($type,$user_id) {
 
-        //try {
+        try {
 
             $delete = $this->deleteAll(array('Theme.user_id'=>$user_id,'Theme.type !='=>$type));
 
-        //} catch(Exeption $e) {
+        } catch(Exeption $e) {
 
-        //}
-    }    
-
+        }
+    }
 
 }

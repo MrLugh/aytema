@@ -1,0 +1,51 @@
+<div>
+
+	<nav class="navbar navbar-default" role="navigation">
+	  
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">{{user.username|uppercase}}</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+
+				<li ng-repeat="network in filters.networks" class="inline" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)">
+					<p class="navbar-text navbar-right">
+						<a href="#" class="navbar-link" skip-default>
+							<img ng-src="{{networkIcon(network)}}" class="socialIcon" />
+						</a>
+					</p>
+				</li>
+
+				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterConceptStyle(concept)" class="inline">
+					<p class="navbar-text navbar-right">
+						<a href="#" class="navbar-link" skip-default>
+							<i ng-class="conceptIcon(concept)"></i>
+						</a>
+					</p>
+				</li>
+
+			</ul>
+		</div>
+
+	</nav>
+
+
+	<div id="container">
+
+		<ul>
+			<li ng-repeat="content in list">
+				{{content.id}}
+			</li>
+		</ul>
+
+	</div>
+
+
+</div>
