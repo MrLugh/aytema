@@ -9,7 +9,7 @@
     <meta property="og:type" content="article"/>
     <meta property="og:site_name" content="aytema.com"/>
 
-    <title>Digest Theme</title>
+    <title>Simple Theme</title>
     <!--
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     -->
@@ -85,17 +85,11 @@
     echo $this->Html->script('angular/app/controllers/app');
     echo $this->Html->script('angular/app/controllers/login');
     echo $this->Html->script('angular/app/controllers/aytema');
-    echo $this->Html->script('angular/app/controllers/admin/accounts');
-    echo $this->Html->script('angular/app/controllers/admin/themes');
-    echo $this->Html->script('angular/app/controllers/admin/pagefilter');
-    echo $this->Html->script('angular/app/controllers/admin/contentsize');
-    echo $this->Html->script('angular/app/controllers/admin/colors');
-    echo $this->Html->script('angular/app/controllers/admin/fonts');
-    echo $this->Html->script('angular/app/controllers/admin/width');
 
         // Themes
         echo $this->Html->script('angular/app/controllers/themes');
         echo $this->Html->script('angular/app/controllers/themes/simple');
+        echo $this->Html->script('angular/app/controllers/themes/simple/content');
     ?>
 
     <!-- Plugins -->
@@ -114,15 +108,9 @@
     echo $this->Html->script('angular/app/directives/directives');
     echo $this->Html->script('angular/app/directives/login');
     echo $this->Html->script('angular/app/directives/aytema');
-    echo $this->Html->script('angular/app/directives/admin/accounts');
-    echo $this->Html->script('angular/app/directives/admin/themes');
-    echo $this->Html->script('angular/app/directives/admin/pagefilter');
-    echo $this->Html->script('angular/app/directives/admin/contentsize');
-    echo $this->Html->script('angular/app/directives/admin/colors');
-    echo $this->Html->script('angular/app/directives/admin/fonts');
-    echo $this->Html->script('angular/app/directives/admin/width');
         // Themes
         echo $this->Html->script('angular/app/directives/themes/simple/index');
+        echo $this->Html->script('angular/app/directives/themes/simple/content');
     ?>
 
 

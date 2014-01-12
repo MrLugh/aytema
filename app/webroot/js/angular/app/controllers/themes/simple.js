@@ -14,7 +14,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	$scope.networks = [];
 	$scope.concepts = [];
 
-	$scope.config	= {};
+	$scope.config		= {};
 	$scope.configLoaded = false;
 
 	userSv.loadAccounts();
@@ -68,9 +68,15 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		$scope.concepts = newConcepts;
 	}
 
+	$scope.moreContent = function() {
+		console.log("moreContent");
+		if (!contentSv.isLoading()) {
+			$scope.setList();
+		}
+	}	
+
 
 	$scope.setList = function() {
-
 
 		if ($scope.concepts.length == 0) {
 			$scope.list = [];
@@ -89,8 +95,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 				params['accounts'].push(account.id);
 			}
 		}
-
-		console.log(params);
 
 		contentSv.getContentsByFilters(params).then(
 			function(data) {
@@ -126,6 +130,12 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 			$scope.setList();
 		}
 	},true);
+
+	$scope.$watchCollection('[winW,winH]',function(sizes){
+        appSv.setWidth(sizes[0]);
+        appSv.setHeight(sizes[1]);
+        $scope.getStyle();
+    });	
 
 	$scope.networkIcon = function(network) {
 		return "http://aytema.com/img/socialnet/icons/ce_"+network+".png";
@@ -202,5 +212,9 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		$scope.setList();
 	}
 
+	$scope.getStyle = function() {
+		appSv.setMyWH(appSv.getHeight() - $scope.menuHeight);
+		return {'min-height':appSv.getHeight() - $scope.menuHeight + 'px'};
+	}
 
 }

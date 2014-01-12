@@ -1,5 +1,36 @@
+body {
+	overflow: hidden;
+}
+
+
 ul {
 	list-style-type: none;
+}
+
+#container {
+	text-align: center;
+	margin: 0 auto;
+}
+
+#list {
+	padding: 20px;
+	margin: 0 auto;
+	height: 300px !important;	
+	overflow-y: auto;
+  	position: relative!important;
+	text-align: center;
+	margin: 0 auto;
+	width: 80%;
+}
+
+.content {
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.content img, .content iframe, .content embed, .content object {
+	max-width: 100%;
 }
 
 .socialIcon {

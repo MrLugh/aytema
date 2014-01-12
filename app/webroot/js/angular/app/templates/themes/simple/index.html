@@ -1,6 +1,10 @@
 <div>
 
-	<nav class="navbar navbar-default" role="navigation">
+	<fb app-id='211895592326072'></fb>
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<script src="http://platform.tumblr.com/v1/share.js"></script>
+
+	<nav class="navbar navbar-default" role="navigation" get-menu-height>
 	  
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -39,9 +43,15 @@
 
 	<div id="container">
 
-		<ul>
-			<li ng-repeat="content in list">
-				{{content.id}}
+		<ul id="list" infinite-scroll="moreContent()" ng-style="getStyle()">
+			<li ng-repeat="content in list" ng-switch="content.concept" class="content well">
+				<content-video ng-switch-when='video'></content-video>
+				<content-photo ng-switch-when='photo'></content-photo>
+				<content-track ng-switch-when='track'></content-track>
+				<content-post  ng-switch-when='post' ></content-post>
+				<content-quote ng-switch-when='quote'></content-quote>
+				<content-chat  ng-switch-when='chat' ></content-chat>
+				<content-link  ng-switch-when='link' ></content-link>
 			</li>
 		</ul>
 
