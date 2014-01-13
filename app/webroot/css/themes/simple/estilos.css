@@ -29,8 +29,13 @@ ul {
 	margin-bottom: 20px;
 }
 
-.content img, .content iframe, .content embed, .content object {
+.content img {
 	max-width: 100%;
+	height: auto!important;
+}
+
+.soundcloud_track iframe {
+	width: 100%;
 }
 
 .socialIcon {

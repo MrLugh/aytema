@@ -188,7 +188,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 	$scope.thumbnail= "";
 
 	$scope.loadPlayer	= false;
-	$scope.loadThumbnail= false;	
+	$scope.loadThumbnail= false;
 
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
