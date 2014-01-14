@@ -1,6 +1,7 @@
 <?php
 
 App::import('model','Theme');
+App::import('model','Socialnet');
 
 class UsersController extends AppController {
 
@@ -8,6 +9,7 @@ class UsersController extends AppController {
 
         $this->Auth->allow('register','login','index','view');
         $this->loadModel('Theme');
+        $this->loadModel('Socialnet');
 
         $this->Auth->fields = array(
             'username'          => 'username',
@@ -85,6 +87,8 @@ class UsersController extends AppController {
 
     public function register() {
 
+        $this->set('user',json_encode(""));
+
         if (isset($this->request->data['User']['username'])) {
             $this->request->data['User']['username'] = strtolower($this->request->data['User']['username']);
         }
@@ -98,6 +102,18 @@ class UsersController extends AppController {
                 $data = $this->data;
                 $data['User']['theme'] = Theme::$default;
                 if($this->User->save($data)) {
+
+                    $findUser = $this->User->findByUsername($data['User']['username']);
+
+                    $account = array(
+                        'user_id'           => $findUser['User']['id'],
+                        'login'             => $data['User']['username'],
+                        'network'           => 'aytema',
+                        'external_user_id'  => $findUser['User']['id'],
+                        'profile_url'       => 'http://aytema.com/users/'.$data['User']['username'],
+                        'status'            => 'Allowed'
+                    );
+                    $this->Socialnet->save($account);
                     $this->redirect('/');
                 }
             }

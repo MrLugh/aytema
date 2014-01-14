@@ -17,6 +17,9 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	$scope.config		= {};
 	$scope.configLoaded = false;
 
+	$scope.isAding		= false;
+	$scope.toAdd		= '';
+
 	userSv.loadAccounts();
 
 	$scope.initFilters = function() {

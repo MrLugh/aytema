@@ -43,7 +43,7 @@
 
 				<li ng-repeat="account in list" class="account {{account.network}}Account">
 
-					<i ng-click="delete($index)" class="icon-trash right"></i>
+					<i ng-if="account.network != 'aytema'" ng-click="delete($index)" class="icon-trash right"></i>
 
 					<div class="stats right">
 						<ul>

@@ -31,6 +31,18 @@
 
 		</ul>
 
+		<ul ng-if="account.network == 'aytema'" class="filterList right both">
+			
+			<li>
+				<h2>Create:</h2>
+			</li>
+
+			<li ng-repeat="concept in concepts">
+				<i ng-class="conceptIcon(concept)" ng-click="showAddContent(concept)"></i> {{countByConcept(concept)}}
+			</li>
+
+		</ul>
+
 		<span ng-click="moreContent()" class="both left">More Content</span>
 
 	</div>
@@ -48,6 +60,7 @@
 			    <admin-content-quote ng-switch-when='quote'></admin-content-quote>
 			    <admin-content-chat  ng-switch-when='chat' ></admin-content-chat>
 			    <admin-content-link  ng-switch-when='link' ></admin-content-link>
+			    <admin-content-event ng-switch-when='event'></admin-content-event>
 
 				<div class="stats left">
 					<ul>
@@ -62,12 +75,26 @@
 				<div ng-if="isLogged()" class="both">
 					<div class="right">{{content.status}}</div>
 					<i ng-click="delete($index)" class="icon-trash right"></i>
-				</div>			
+				</div>	
 
 			</li>
 
 		</ul>
 
+	</div>
+
+	<div ng-if="isAdding" style="position:absolute;width:80%;left:10%;top:10%;z-index:2;" class="well">
+		<div ng-switch="toAdd">
+			<p class="right">
+				Create new {{toAdd}} or 
+				<button class="btn btn-primary" ng-click="hideAddContent()">Close It</button>
+			</p>
+			<admin-add-event ng-switch-when='event'></admin-add-event>
+		    <admin-add-video ng-switch-when='video'></admin-add-video>
+		    <admin-add-photo ng-switch-when='photo'></admin-add-photo>
+		    <admin-add-track ng-switch-when='track'></admin-add-track>
+		    <admin-add-post  ng-switch-when='post' ></admin-add-post>
+		</div>
 	</div>
 
 

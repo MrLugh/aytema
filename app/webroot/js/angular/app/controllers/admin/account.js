@@ -207,5 +207,16 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.generateConceptsList();
 	$scope.initFilters();
+
+	$scope.showAddContent = function(concept) {
+		$scope.isAdding = true;
+		$scope.toAdd	= concept;
+	}
+
+	$scope.hideAddContent = function() {
+		$scope.isAdding = false;
+		$scope.offset	= 0;
+		$scope.reinitMasonry();
+	}
 	
 }

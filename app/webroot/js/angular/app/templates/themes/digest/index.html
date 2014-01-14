@@ -68,6 +68,7 @@
 					<content-detail-quote ng-switch-when='quote'></content-detail-quote>
 					<content-detail-chat  ng-switch-when='chat' ></content-detail-chat>
 					<content-detail-link  ng-switch-when='link' ></content-detail-link>
+					<content-detail-event ng-switch-when='event'></content-detail-event>
 				</div>
 			</div>
 
@@ -109,7 +110,7 @@
 				</span>
 
 
-				<div class="more_user_info">
+				<div ng-if="relateds.length>0" class="more_user_info">
 					<h3>More about {{getCurrentProperty('external_user_name')}}</h3>
 
 					<div class="wrapper">
@@ -129,7 +130,6 @@
 							<div class="clearfix"></div>
 						</div>
 					</div>
-					<div ng-if="!relateds.length">There is not related contents</div>
 				</div>
 
 			    <fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true"></fb-comments>
@@ -192,6 +192,7 @@
 			    <content-quote ng-switch-when='quote'></content-quote>
 			    <content-chat  ng-switch-when='chat' ></content-chat>
 			    <content-link  ng-switch-when='link' ></content-link>
+			    <content-event ng-switch-when='event'></content-event>
 
 				<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="http://aytema.com/img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon"><p> / {{content.external_user_name}}</p></a></span>
 

@@ -342,3 +342,68 @@ function adminContentLinkCo($scope,contentSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 }
+
+function adminContentEventCo($scope,contentSv,$sce) {
+
+	console.log($scope.content);
+	$scope.getMapSrc = function() {
+		return "https://maps.googleapis.com/maps/api/staticmap?"+
+		"sensor=false"+
+		"&size=150x150"+
+		"&markers="+encodeURI($scope.content.data.address)+
+		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
+	}
+
+}
+
+function adminAddEventCo($scope,contentSv,userSv,$sce) {
+
+	$scope.datePicker = false;
+
+	$scope.user = userSv.getUser();
+
+	$scope.event = {
+		'name'		: '',
+		'address'	: '',
+		'date'		: '',
+		'time'		: '',
+		'door'		: '',
+		'place'		: '',
+		'ticket'	: ''
+	}
+
+  	$scope.dateOptions = {
+  		'year-format'	: "'yy'",
+  		'starting-day'	: 1,
+  		'default'		: 'today'
+  	};
+
+	$scope.getMapSrc = function() {
+		return "https://maps.googleapis.com/maps/api/staticmap?"+
+		"sensor=false"+
+		"&size=150x150"+
+		"&markers="+encodeURI($scope.event.address)+
+		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
+	}
+
+	$scope.openDatePicker = function($event) {
+		$event.preventDefault();
+		$event.stopPropagation();
+		$scope.datePicker = true;
+	};
+
+	$scope.disabledWeek = function(date, mode) {
+		return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+	};
+
+	$scope.save = function() {
+
+		var event = {
+			'network'			: 'aytema',
+			'concept'			: 'event',
+			'data'				: $scope.event
+		}
+		contentSv.createContent(event);
+	}
+
+}

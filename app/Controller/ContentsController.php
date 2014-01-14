@@ -3,6 +3,7 @@
 /* ONLY FOR TEST  */
 App::import('Vendor', 'CollectData', array('file' => 'collect_data/collect_data.php'));
 App::import('model','Socialnet');
+App::import('model','Content');
 
 class ContentsController extends AppController {
 
@@ -214,6 +215,26 @@ class ContentsController extends AppController {
             '_serialize'=> array('contents')
         ));
 
+    }
+
+    public function add() {
+
+        $content = $this->request->data['content'];
+        $content['external_user_id']    = $this->Auth->user('id');
+        $content['external_user_name']  = $this->Auth->user('username');
+        $content['creation_date']       = date("Y-m-d H:i:s");
+        $content['data']                = serialize($content['data']);
+        $new = new Content();
+        $new = $new->save($content);
+        $new['Content']['external_id']          = $new['Content']['id'];
+        $new['Content']['external_atomic_id']   = $new['Content']['id'];
+        $content = new Content();
+        $new = $content->save($new['Content']);
+        $new['Content']['data']                 = unserialize($new['Content']['data']);
+        $this->set(array(
+            'content'  => $new,
+            '_serialize'=> array('content')
+        ));        
     }
 
 }

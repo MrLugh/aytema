@@ -251,6 +251,10 @@ class CollectData {
 
 			$account = $account['Socialnet'];
 
+			if ($account['network'] == 'aytema') {
+				continue;
+			}
+
 			$account_data = $this->fetch_data($account);
 
 			if (count($account_data)) {

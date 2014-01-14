@@ -1,0 +1,10 @@
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="event {{content.network}}_{{content.concept}}">
+
+	<h2>{{content.data.name}}</h2>
+	<h3>{{content.data.date}} @ {{content.data.place}}</h3>
+	<span ng-if="time.length > 0">{{content.data.time}}</span>
+	<span ng-if="door.length > 0">{{content.data.door}}</span>
+	<a ng-href="{{content.data.ticket}}" target="_blank">Buy Tickets</a>
+	<img alt="Google map on {{content.data.address}}" ng-src="{{getMapSrc()}}" />
+
+</div>

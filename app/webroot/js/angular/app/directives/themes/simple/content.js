@@ -125,3 +125,16 @@ function(appSv,$window){
     }
 
 }]);
+
+ayTemaDs.directive('contentEvent',['appSv','$window',
+function(appSv,$window){
+    
+    return {
+        templateUrl : getPath('tpl')+'/themes/simple/event.html',
+        restrict : 'E',
+        replace : true,
+        controller:'contentEventCo',
+        scope: true
+    }
+
+}]);

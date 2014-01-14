@@ -151,7 +151,7 @@ function(appSv,$window,$timeout){
             });
             */
 
-        }         
+        }
     }
 
 }]);
@@ -163,7 +163,7 @@ ayTemaDs.directive('contentTrack',[function(){
         restrict : 'E',
         replace : true,
         controller:'contentTrackCo',
-        scope: true        
+        scope: true
     }
 
 }]);
@@ -175,6 +175,18 @@ ayTemaDs.directive('contentChat',[function(){
         restrict : 'E',
         replace : true,
         controller:'contentChatCo',
+        scope: true        
+    }
+
+}]);
+
+ayTemaDs.directive('contentEvent',[function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/themes/digest/event.html',
+        restrict : 'E',
+        replace : true,
+        controller:'contentEventCo',
         scope: true        
     }
 
@@ -849,6 +861,78 @@ function(appSv,$window){
             });
 
         }  
+    }
+
+}]);
+
+ayTemaDs.directive('contentDetailEvent',[function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/themes/digest/event.html',
+        restrict : 'E',
+        replace : true,
+        controller:'contentEventCo',
+        scope: true,
+        link: function(scope,element,attrs) {
+
+            scope.resizeContent = function() {
+
+                var maxheight = 300;
+
+                var container = element;
+
+                var toResize    = angular.element(element[0].querySelector('img'));
+
+                if (toResize.length == 0) {
+                    return;
+                }
+
+                var originalW = toResize.width();
+                var originalH = toResize.height();
+                $(toResize[0]).css('opacity','0').css('height','0px').css('width','0px');
+
+                var myWidth = element.width();
+                var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
+
+                var myHeight= maxheight - (element.find('h2')[0].offsetTop || 0) - 2*padding -2;
+                var currW= originalW;
+                var currH= originalH;
+                var ratio = currH / currW;
+                var myRatio = myWidth / myHeight ;
+
+                currW = myWidth;
+                if(ratio <= 1){
+                    currH = Math.ceil(currW * ratio);
+                } else {
+                    currH = Math.ceil(currW / ratio);
+                }
+                $(toResize[0]).css('height',currH+'px').css('width','auto').css('opacity','1');
+            }
+
+            /*
+            scope.appSv = appSv;
+            scope.$watchCollection('[appSv.getMyWH(),getAppClass()]', function(newValue, oldValue) {
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                });
+            });
+
+            scope.$watch('current.src', function(newValue, oldValue) {
+                if (!angular.equals(newValue,oldValue)) {
+                    imagesLoaded(element[0],function(){
+                        scope.resizeContent();
+                    });
+                }
+            },true);
+
+            element.ready(function(){
+                imagesLoaded(element[0],function(){
+                    scope.resizeContent();
+                });
+            });
+            */
+
+        }        
     }
 
 }]);

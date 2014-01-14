@@ -285,3 +285,31 @@ function(){
     }
 
 }]);
+
+ayTemaDs.directive('adminContentEvent',[
+function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/admin/event.html',
+        restrict : 'E',
+        replace : true,
+        controller:'adminContentEventCo',
+        scope: true
+    }
+
+}]);
+
+
+ayTemaDs.directive('adminAddEvent',[
+function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/admin/add/event.html',
+        restrict : 'E',
+        replace : true,
+        controller:'adminAddEventCo',
+        scope: true
+    }
+
+}]);
+

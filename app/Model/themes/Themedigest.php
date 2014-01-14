@@ -51,6 +51,13 @@ Class Themedigest {
             'vimeo' => array(
                 'video'=>'large',
             ),
+            'aytema'    => array(
+                'photo'=>'medium',
+                'post'=>'medium',
+                'video'=>'large',
+                'track'=>'large',
+                'event'=>'medium',
+            ),
         ),
         'colors' => array(
             'background' => array(

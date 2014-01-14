@@ -344,9 +344,13 @@ ul {
   overflow: hidden;
 }
 
-.facebookAccountPageHeader, .facebookAccount {
-  background-color: #00549e;
-  color:#fff;
+.aytemaAccountPageHeader, .aytemaAccount {
+  background-color: #2D2E26;
+  color:#C3C97D;
+}
+
+.aytemaAccountPageHeader a, .aytemaAccount a {
+  color:#8254BA;
 }
 
 .facebookAccountPageHeader a, .facebookAccount a {

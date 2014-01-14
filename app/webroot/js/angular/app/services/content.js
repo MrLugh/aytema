@@ -236,6 +236,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
         	icon_class= "icon-book";
         } else if (concept == 'link') {
         	icon_class = "icon-external-link";
+        } else if (concept == 'event') {
+        	icon_class = "icon-calendar";
         }
 
 		return icon_class;        
@@ -777,6 +779,25 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	}
 
+	var createContent = function(content) {
+		var deferred = $q.defer();
+
+		var url = '/contents/add.json';
+
+	    $http({method: 'POST', url: url,data:{content:content}}).
+	    success(function(data, status, headers, config) {
+	    	console.log('success');
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	console.log('error');
+	    	user = {};
+	    	deferred.resolve(data);
+	    });
+
+	    return deferred.promise;		
+	}
+
 	return {
 		getDicContent: function() {
 			return dicContent;
@@ -824,6 +845,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getTwitterShareOptions:getTwitterShareOptions,
 		getFacebookShareOptions:getFacebookShareOptions,
 		getTumblrShareOptions:getTumblrShareOptions,
+
+		createContent:createContent
 
 	};
 

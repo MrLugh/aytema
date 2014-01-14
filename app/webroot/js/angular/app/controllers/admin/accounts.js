@@ -88,6 +88,9 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.delete = function(index) {
+		if ($scope.list[index].network == 'aytema') {
+			return false;
+		}
 		userSv.deleteAccount($scope.list[index]);
 		return false;
 	}
@@ -107,7 +110,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	});
 
 	$scope.$watch('userSv.getAccounts()', function(value) {
-		if (value.length) {
+		if (value.length > 0) {
 			$scope.accounts = value;
 			$scope.setList();
 		}

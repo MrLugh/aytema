@@ -28,7 +28,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    	deferred.resolve(data);
 	    });
 
-	    return deferred.promise;		
+	    return deferred.promise;
 	}
 
 	var loadAccounts = function() {

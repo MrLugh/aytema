@@ -342,3 +342,17 @@ function contentLinkCo($scope,contentSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 }
+
+function contentEventCo($scope,contentSv,$sce) {
+
+	//console.log($scope.content);
+	
+	$scope.getMapSrc = function() {
+		return "https://maps.googleapis.com/maps/api/staticmap?"+
+		"sensor=false"+
+		"&size=150x150"+
+		"&markers="+encodeURI($scope.content.data.address)+
+		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
+	}
+
+}
