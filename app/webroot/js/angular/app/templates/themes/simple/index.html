@@ -44,7 +44,9 @@
 	<div id="container">
 
 		<ul id="list" infinite-scroll="moreContent()" on-scroll ng-style="getStyle()">
+
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content well">
+
 				<content-video ng-switch-when='video'></content-video>
 				<content-photo ng-switch-when='photo'></content-photo>
 				<content-track ng-switch-when='track'></content-track>
@@ -53,7 +55,9 @@
 				<content-chat  ng-switch-when='chat' ></content-chat>
 				<content-link  ng-switch-when='link' ></content-link>
 				<content-event ng-switch-when='event'></content-event>
+
 			</li>
+			
 		</ul>
 
 	</div>

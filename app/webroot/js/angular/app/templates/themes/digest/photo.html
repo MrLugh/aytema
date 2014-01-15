@@ -1,19 +1,20 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="photo {{content.network}}_{{content.concept}}">
 
-	<div ng-if="moreThanOne()" style="position:absolute;top:35%;width:10%;width:10%;left:0;" class="{{content.network}}_bg">
-		<a href="#/" skip-default ng-click="move(-1)">
-	 		<img src="http://aytema.com/img/themes/digest/arrow-left.png" alt="Previous photo" />
-	 	</a>
-	</div>
+	<div style="position:relative;display:inline-block;margin:0 auto;">
 
-	<div ng-if="moreThanOne()" style="position:absolute;top:35%;width:10%;right:0;" class="{{content.network}}_bg">
-		<a href="#/" skip-default ng-click="move(1)">
-			<img src="http://aytema.com/img/themes/digest/arrow-right.png" alt="Next photo" />
-		</a>
-	</div>
-	<img ng-src="{{current.src}}" class="content_photo" />	
+		<div ng-if="moreThanOne()" class="{{content.network}}_bg left inline photo_prev">
+			<a href="#/" skip-default ng-click="move(-1)">
+		 		<img src="http://aytema.com/img/themes/digest/arrow-left.png" alt="Previous photo" />
+		 	</a>
+		</div>
 
-	<h2>{{getTitle()}}</h2>
-	<p ng-bind-html="getDescription()"></p>
+		<div ng-if="moreThanOne()" class="{{content.network}}_bg right inline photo_next">
+			<a href="#/" skip-default ng-click="move(1)">
+				<img src="http://aytema.com/img/themes/digest/arrow-right.png" alt="Next photo" />
+			</a>
+		</div>
+		<img ng-src="{{current.src}}" class="content_photo" />
+
+	</div>
 
 </div>

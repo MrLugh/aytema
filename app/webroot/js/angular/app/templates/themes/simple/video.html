@@ -7,7 +7,7 @@
 	<div ng-if="!isFromNetwork('facebook')">
 
 		<div ng-if="canShowThumbnail()">
-			<img ng-src="{{getThumbnail()}}" />
+			<img ng-src="{{getThumbnail()}}" class="content_photo" />
 		</div>	
 		<div ng-if="canShowPlayer()" class="player" ng-bind-html="getPlayer()"></div>
 		<div ng-if="isEmpty()">EMPTY</div>

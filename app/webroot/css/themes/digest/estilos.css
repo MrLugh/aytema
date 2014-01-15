@@ -574,3 +574,17 @@ p {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;  
   padding:14px;
 }
+
+.content .photo .photo_prev {
+  position: relative;
+  left: 40px;
+}
+
+.content .photo .photo_next {
+  position: relative;
+  right: 40px;
+}
+
+.content .photo .photo_prev img, .content .photo .photo_next img {
+  width:40px;
+}
