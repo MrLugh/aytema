@@ -54,6 +54,7 @@ function() {
     };
 }]);
 
+
 ayTemaDs.directive("masonry2", function () {
     var NGREPEAT_SOURCE_RE = '<!-- ngRepeat: ((.*) in ((.*?)( track by (.*))?)) -->';
     return {

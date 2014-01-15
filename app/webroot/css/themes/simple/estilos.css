@@ -19,23 +19,30 @@ ul {
 #list {
 	padding: 20px;
 	margin: 0 auto;
-	height: 300px !important;	
+	height: 300px !important;
 	overflow-y: auto;
   	position: relative!important;
 	text-align: center;
 	margin: 0 auto;
-	width: 80%;
 }
 
 .content {
+	position: relative!important;
 	width: 80%;
 	margin: 0 auto;
 	margin-bottom: 20px;
+	background: none;
+	border:none;
 }
 
-.content img {
+.content:hover, .content_hover {
+	background-color: #f5f5f5;
+}
+
+.content .content_photo {
 	max-width: 100%;
 	height: auto!important;
+	max-height: 290px;
 }
 
 .soundcloud_track iframe {

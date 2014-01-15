@@ -43,7 +43,7 @@
 
 	<div id="container">
 
-		<ul id="list" infinite-scroll="moreContent()" ng-style="getStyle()">
+		<ul id="list" infinite-scroll="moreContent()" on-scroll ng-style="getStyle()">
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content well">
 				<content-video ng-switch-when='video'></content-video>
 				<content-photo ng-switch-when='photo'></content-photo>
