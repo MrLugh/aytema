@@ -47,6 +47,7 @@ function() {
 
                         $(child[0]).addClass('content_hover');
 
+
 					} else {
 
 			        	if ( document.querySelector(".content_hover") != elm[0] ) {
