@@ -152,10 +152,6 @@ ul {
 	left: 100%;
 }
 
-.content .share li {
-	display: block;
-}
-
 .content_hover .share {
 	opacity: 1;
 	left: 0;
