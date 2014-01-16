@@ -114,7 +114,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			var params			= [];
 			params['concepts']	= JSON.parse(JSON.stringify(filters.concepts));
 			params['offset']	= $scope.offset;
-			params['limit']		= $scope.limit;
+			params['limit']		= $scope.offset == 0 ? $scope.limit : 1;
 			params['accounts'] = [];
 
 			for (var x in $scope.accounts) {

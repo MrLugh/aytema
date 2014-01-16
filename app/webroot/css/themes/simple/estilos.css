@@ -184,11 +184,11 @@ ul {
 	transition:all 0.56s ease 0s;
 	opacity: 0;
 	position: relative;
-	top: 100%;
+	left: 100%;
 }
 
 .content_hover .user_info {
-	top: 0;
+	left: 0;
 	opacity: 1;
 }
 
