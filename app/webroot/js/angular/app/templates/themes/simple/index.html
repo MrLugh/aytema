@@ -45,7 +45,7 @@
 
 		<ul id="list" infinite-scroll="moreContent()" on-scroll ng-style="getStyle()">
 
-			<li ng-repeat="content in list" ng-switch="content.concept" class="content well">
+			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="$index == 0 ? 'content_hover':''" on-hover>
 
 				<content-video ng-switch-when='video'></content-video>
 				<content-photo ng-switch-when='photo'></content-photo>
@@ -56,8 +56,35 @@
 				<content-link  ng-switch-when='link' ></content-link>
 				<content-event ng-switch-when='event'></content-event>
 
+				<ul class="share left both">
+					<li class="left inline">
+	                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
+	                		<img src="http://aytema.com/img/themes/digest/twitter.png" alt="Twitter">
+	                	</a>
+	                </li>
+	                <li class="left inline">
+	                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
+	                		<img src="http://aytema.com/img/themes/digest/facebook.png" alt="Facebook">
+	                	</a>
+	                </li>
+	                <li class="left inline">
+	                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
+	                		<img src="http://aytema.com/img/themes/digest/tumblr.png" alt="Tumblr">
+	                	</a>
+	                </li>
+	            </ul>
+
+				<span class="user_info both">
+					<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank">
+						<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile">	
+						{{content.external_user_name}}
+						<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon">
+					</a>
+				</span>
+
+
 			</li>
-			
+
 		</ul>
 
 	</div>

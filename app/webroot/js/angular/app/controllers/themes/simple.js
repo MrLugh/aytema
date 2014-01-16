@@ -220,4 +220,28 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		return {'min-height':appSv.getHeight() - $scope.menuHeight + 'px'};
 	}
 
+
+	$scope.getAccountLink = function(index,external_user_id) {
+		for (var x in $scope.accounts) {
+			var account = $scope.accounts[x].Socialnet;
+			if (account.external_user_id == external_user_id && 
+				account.network == $scope.list[index].network ) {
+				return account.profile_url;
+			}
+		}
+		return '';
+	}
+
+	$scope.getProfileImg = function(index) {
+		var external_user_id = $scope.list[index].external_user_id;
+		for (var x in $scope.accounts) {
+			var account = $scope.accounts[x].Socialnet;
+			if (account.external_user_id == external_user_id && 
+				account.network == $scope.list[index].network ) {
+				return account.profile_image;
+			}
+		}
+		return '';
+	}
+
 }

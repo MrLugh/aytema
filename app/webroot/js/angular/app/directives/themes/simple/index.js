@@ -18,6 +18,7 @@ function() {
 
         var scrolling = false;
 
+
         elm.bind('scroll', function() {
 
 		    var childrens = elm[0].children;
@@ -36,12 +37,16 @@ function() {
 
 					var child = angular.element(childrens[x]);
 
-					$(child[0]).removeClass('content_hover');
+					//$(child[0]).removeClass('content_hover');
 					if (!founded && $(child[0]).position().top + child[0].clientHeight / 2 > 0 ) {
 						founded = true;
 						$(child[0]).addClass('content_hover');
 					} else {
-						$(child[0]).removeClass('content_hover');
+
+			        	if ( document.querySelector(".content_hover") != elm[0] ) {
+			        		$(child[0]).removeClass('content_hover');
+			        	}
+
 					}
 			    }
 		    }
@@ -49,5 +54,34 @@ function() {
 		    scrolling = false;
 
         });
+    };
+}]);
+
+ayTemaDs.directive('onHover',[
+function() {
+    return function(scope, elm, attr) {
+        var raw = elm[0];
+
+        var scrolling = false;
+
+        elm.hover(
+        function() {
+
+        	if ( document.querySelector(".content_hover") == elm[0] ) {
+        		return false;
+        	}
+
+        	$(document.querySelector(".content_hover")).removeClass('content_hover');
+        	$(elm[0]).addClass('content_hover');
+        },
+        function() {
+
+        	if ( document.querySelector(".content_hover") == elm[0] ) {
+        		return false;
+        	}
+
+        	$(elm[0]).removeClass('content_hover');	
+        }
+        );
     };
 }]);
