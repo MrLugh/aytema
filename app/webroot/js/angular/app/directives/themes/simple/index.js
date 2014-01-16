@@ -45,8 +45,8 @@ function() {
 					if (!founded && $(child[0]).position().top + child[0].clientHeight / 2 > 0 ) {
 						founded = true;
 
-                        $(child[0]).addClass('content_hover');    
-                        
+                        $(child[0]).addClass('content_hover');
+
 					} else {
 
 			        	if ( document.querySelector(".content_hover") != elm[0] ) {

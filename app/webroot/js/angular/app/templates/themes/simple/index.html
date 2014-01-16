@@ -47,7 +47,15 @@
 
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="$index == 0 ? 'content_hover':''" on-hover>
 
-				<ul class="share left both">
+				<span class="user_info">
+					<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank">
+						<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile">	
+						{{content.external_user_name}}
+						<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon">
+					</a>
+				</span>
+
+				<ul class="share left">
 					<li class="left inline">
 	                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
 	                		<img src="http://aytema.com/img/themes/digest/twitter.png" alt="Twitter">
@@ -64,14 +72,6 @@
 	                	</a>
 	                </li>
 	            </ul>
-
-				<span class="user_info both">
-					<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank">
-						<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile">	
-						{{content.external_user_name}}
-						<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon">
-					</a>
-				</span>
 
 				<content-video ng-switch-when='video'></content-video>
 				<content-photo ng-switch-when='photo'></content-photo>
