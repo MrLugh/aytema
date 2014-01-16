@@ -97,6 +97,7 @@ ul {
 }
 
 .content .content_photo {
+	transition:all 0.56s ease 0s;	
 	max-width: 70%;
 	height: auto!important;
 	max-height: 200px;

@@ -45,6 +45,7 @@
     echo $this->Html->script('modernizr.min');
     echo $this->Html->script('underscore.min');
     echo $this->Html->script('minicolors');
+    echo $this->Html->script('imagesloaded.pkgd');    
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('touchSwipe.min');
     ?>
