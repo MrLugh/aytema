@@ -353,6 +353,11 @@ ul {
   color:#8254BA;
 }
 
+.facebookAccountPageHeader, .facebookAccount {
+  background-color: #3b5998;
+  color:#000;  
+}
+
 .facebookAccountPageHeader a, .facebookAccount a {
   color:#fff;
 }

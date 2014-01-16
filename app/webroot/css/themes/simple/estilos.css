@@ -181,13 +181,31 @@ ul {
 }
 
 .content .user_info {
-	transition:all 0.56s ease 0s;	
+	transition:all 0.56s ease 0s;
 	opacity: 0;
 	position: relative;
-	left: 100%;
+	top: 100%;
 }
 
 .content_hover .user_info {
-	left: 0;
+	top: 0;
 	opacity: 1;
+}
+
+.content .player {
+	transition:all 0.56s ease 0s;
+	display: none;
+}
+
+.content_hover .player {
+	display: inline-block;
+}
+
+.content .content_photo_container {
+	transition:all 0.56s ease 0s;
+	display: inline-block;
+}
+
+.content_hover .content_photo_container {
+	display: none;
 }

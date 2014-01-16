@@ -6,10 +6,11 @@
 
 	<div ng-if="!isFromNetwork('facebook')">
 
-		<div ng-if="canShowThumbnail()">
+		<div class="player" ng-bind-html="getPlayer()"></div>
+
+		<div class="content_photo_container">
 			<img ng-src="{{getThumbnail()}}" class="content_photo" />
 		</div>	
-		<div ng-if="canShowPlayer()" class="player" ng-bind-html="getPlayer()"></div>
 
 		<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0"> 
 			<h2>{{getTitle()}}</h2>

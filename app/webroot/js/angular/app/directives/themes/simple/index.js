@@ -19,9 +19,14 @@ function() {
         var scrolling = false;
 
 
-        elm.bind('scroll', function() {
+        elm.bind('scroll', function(e) {
 
 		    var childrens = elm[0].children;
+
+            if (scrolling) {
+                e.preventDefault();
+                return false;
+            }
 
 		    if (!scrolling) {
 
@@ -37,10 +42,11 @@ function() {
 
 					var child = angular.element(childrens[x]);
 
-					//$(child[0]).removeClass('content_hover');
 					if (!founded && $(child[0]).position().top + child[0].clientHeight / 2 > 0 ) {
 						founded = true;
-                        $(child[0]).addClass('content_hover');
+
+                        $(child[0]).addClass('content_hover');    
+                        
 					} else {
 
 			        	if ( document.querySelector(".content_hover") != elm[0] ) {

@@ -47,15 +47,6 @@
 
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="$index == 0 ? 'content_hover':''" on-hover>
 
-				<content-video ng-switch-when='video'></content-video>
-				<content-photo ng-switch-when='photo'></content-photo>
-				<content-track ng-switch-when='track'></content-track>
-				<content-post  ng-switch-when='post' ></content-post>
-				<content-quote ng-switch-when='quote'></content-quote>
-				<content-chat  ng-switch-when='chat' ></content-chat>
-				<content-link  ng-switch-when='link' ></content-link>
-				<content-event ng-switch-when='event'></content-event>
-
 				<ul class="share left both">
 					<li class="left inline">
 	                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
@@ -82,6 +73,14 @@
 					</a>
 				</span>
 
+				<content-video ng-switch-when='video'></content-video>
+				<content-photo ng-switch-when='photo'></content-photo>
+				<content-track ng-switch-when='track'></content-track>
+				<content-post  ng-switch-when='post' ></content-post>
+				<content-quote ng-switch-when='quote'></content-quote>
+				<content-chat  ng-switch-when='chat' ></content-chat>
+				<content-link  ng-switch-when='link' ></content-link>
+				<content-event ng-switch-when='event'></content-event>
 
 			</li>
 

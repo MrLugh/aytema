@@ -72,7 +72,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		console.log("moreContent");
 		if (!contentSv.isLoading()) {
 			$scope.setList();
 		}
