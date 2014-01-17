@@ -19,8 +19,6 @@
 		</ul>
 
 		<ul class="filterList">
-			
-			{{list.length}}	of {{accounts.length}}
 
 			<li>
 				<h2>Filter by:</h2>
@@ -38,6 +36,8 @@
 		</ul>
 
 		<div class="both">
+
+			{{list.length}}	of {{accounts.length}}
 
 			<ul id="accountList" class="list" infinite-scroll="moreAccounts()" ng-style="getContainerStyle()" get-offset-top>
 
