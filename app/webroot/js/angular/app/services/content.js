@@ -525,7 +525,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			if (content.network == 'youtube') {
 				var src = 'http://www.youtube.com/embed/'+content.external_id+'?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0';
 				source = '<iframe src="'+src+'" frameborder="0" allowfullscreen></iframe>';
-				//source = '<iframe src="http://www.youtube.com/embed/'+content.external_id+'" frameborder="0" allowfullscreen></iframe>';
 			}
 
 		}

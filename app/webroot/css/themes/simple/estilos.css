@@ -182,10 +182,11 @@ ul {
 	-moz-transition:all 0.56s ease;
 	-o-transition:all 0.56s ease;
 	transition:all 0.56s ease;
+	position: relative;
 	opacity: 0;
-	left: -100%;
 	margin: 0 auto;
 	margin-top: 20px;
+	float: left;
 
 	border: 3px;
 	border-radius: 4px;
@@ -195,7 +196,6 @@ ul {
 
 .content_hover .content_caption {
 	opacity: 1;
-	left: 0;
 	background: rgba(200, 200, 200, 0.3);
 }
 
