@@ -18,44 +18,48 @@ function() {
 
         var scrolling = false;
 
+        scope.onScrollFn = function() {
 
-        elm.bind('scroll', function(e) {
-
-		    var childrens = elm[0].children;
+            var childrens = elm[0].children;
 
             if (scrolling) {
                 e.preventDefault();
                 return false;
             }
 
-		    if (!scrolling) {
+            if (!scrolling) {
 
-		    	scrolling = true;
+                scrolling = true;
 
-		    	var founded = false;
+                var founded = false;
 
-			    for (var x in childrens) {
+                for (var x in childrens) {
 
-			    	if (!angular.isDefined(parseInt(x)) || isNaN(parseInt(x))) {
-			    		continue;
-			    	}
+                    if (!angular.isDefined(parseInt(x)) || isNaN(parseInt(x))) {
+                        continue;
+                    }
 
-					var child = angular.element(childrens[x]);
+                    var child = angular.element(childrens[x]);
 
-					if (!founded && $(child[0]).position().top + child[0].clientHeight / 2 > 0 ) {
-						founded = true;
+                    if (!founded && $(child[0]).position().top + child[0].clientHeight / 2 > 0 ) {
+                        founded = true;
                         $(child[0]).addClass('content_hover');
-					} else {
-			        	if ( document.querySelector(".content_hover") != elm[0] ) {
-			        		$(child[0]).removeClass('content_hover');
-			        	}
-					}
-			    }
-		    }
+                    } else {
+                        if ( document.querySelector(".content_hover") != elm[0] ) {
+                            $(child[0]).removeClass('content_hover');
+                        }
+                    }
+                }
+            }
 
-		    scrolling = false;
+            scrolling = false;
 
-        });
+        }
+
+
+        elm.bind('scroll', function(e) {scope.onScrollFn();});
+
+        scope.$on("W.resize", function(e) {scope.onScrollFn();});
     };
 }]);
 

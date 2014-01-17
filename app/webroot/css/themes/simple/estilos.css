@@ -1,6 +1,9 @@
 body {
   overflow: hidden;
-  transition:all 0.66s ease 0s;
+	-webkit-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
 }
 
 * {
@@ -87,9 +90,9 @@ ul {
 	background: none;
 	border:none;
 	-webkit-transition:all 0.56s ease;
--moz-transition:all 0.56s ease;
--o-transition:all 0.56s ease;
-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
 	overflow: hidden;
 	width: 100%;
 }
@@ -101,9 +104,9 @@ transition:all 0.56s ease;
 
 .content .content_photo {
 	-webkit-transition:all 0.56s ease;
--moz-transition:all 0.56s ease;
--o-transition:all 0.56s ease;
-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
 	display: inline-block;
 	max-width: 70%;
 	height: auto!important;
@@ -154,9 +157,9 @@ transition:all 0.56s ease;
 
 .content .share {
 	-webkit-transition:all 0.56s ease;
--moz-transition:all 0.56s ease;
--o-transition:all 0.56s ease;
-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
 	position: relative;	
 	opacity: 0;
 	float: right;
@@ -176,12 +179,11 @@ transition:all 0.56s ease;
 	overflow-x:hidden;
 	min-height: 80px;
 	-webkit-transition:all 0.56s ease;
--moz-transition:all 0.56s ease;
--o-transition:all 0.56s ease;
-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
 	opacity: 0;
 	left: -100%;
-	float: left;
 	margin: 0 auto;
 	margin-top: 20px;
 
@@ -208,9 +210,9 @@ transition:all 0.56s ease;
 
 .content .user_info {
 	-webkit-transition:all 0.56s ease;
--moz-transition:all 0.56s ease;
--o-transition:all 0.56s ease;
-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
 	opacity: 0;
 	position: relative;
 	left: -100%;
@@ -224,9 +226,9 @@ transition:all 0.56s ease;
 
 .content .player {
 	-webkit-transition:all 0.56s ease;
--moz-transition:all 0.56s ease;
--o-transition:all 0.56s ease;
-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
 	display: none;
 }
 
@@ -242,9 +244,9 @@ transition:all 0.56s ease;
 
 .content .content_photo_container {
 	-webkit-transition:all 0.56s ease;
--moz-transition:all 0.56s ease;
--o-transition:all 0.56s ease;
-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
 	display: inline-block;
 }
 

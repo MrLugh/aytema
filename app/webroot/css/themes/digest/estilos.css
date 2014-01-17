@@ -4,7 +4,10 @@ body {
   font-family: 'Playfair Display', serif; 
   color: #000; 
   overflow: hidden;
-  transition:all 0.66s ease 0s;
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;  
   background-color: #F7F7F7;
 }
 
@@ -267,7 +270,10 @@ p {
 /* arrows*/
 
 .arrows {
-    transition:all 0.66s ease 0s;
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;  
     float: left;
     position: absolute;
     width: 6%;
@@ -553,13 +559,19 @@ p {
   position: fixed;
   display: block;
   top:100%;
-  transition:all 0.66s ease 0s;
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;  
 }
 
 .scrollToTop, .user_message {
   position: relative;
   top:-100%;
-  transition:all 0.66s ease 0s;
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;  
 }
 
 .scrollToTop img {

@@ -52,7 +52,10 @@
 }
 
 .modalContent .more-user, .modalContent .more-user img {
-    transition: all 0.56s ease;
+  -webkit-transition:all 0.56s ease;
+  -moz-transition:all 0.56s ease;
+  -o-transition:all 0.56s ease;
+  transition:all 0.56s ease;      
 }
 
 .modalContent .more-user img {
@@ -213,6 +216,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     border: 1px solid #CCCCCC;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    -webkit-transition:border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    -moz-transition:border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    -o-transition:border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 }    
 .content_detalle .pin-sub-header {
     border-bottom: 3px solid #000000;
