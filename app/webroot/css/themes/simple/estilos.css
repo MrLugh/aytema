@@ -137,10 +137,6 @@ transition:all 0.56s ease;
 	width:40px;
 }
 
-.track iframe, .track object, .track embed {
-	width: 100%;
-}
-
 .socialIcon {
   width: 20px;
 }
@@ -231,22 +227,17 @@ transition:all 0.56s ease;
 -moz-transition:all 0.56s ease;
 -o-transition:all 0.56s ease;
 transition:all 0.56s ease;
-	opacity: 0;
-	width: 0;
-	height: 0;
-	position: relative;
+	display: none;
 }
 
 .content_hover .player {
-	opacity: 1;
-	width: 100%;
-	height: auto;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
 	-moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
 	box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	display: inline-block;
 }
 
 .content .content_photo_container {
@@ -254,8 +245,7 @@ transition:all 0.56s ease;
 -moz-transition:all 0.56s ease;
 -o-transition:all 0.56s ease;
 transition:all 0.56s ease;
-	display: block;
-	position: relative;
+	display: inline-block;
 }
 
 .content_hover .content_photo_container {
