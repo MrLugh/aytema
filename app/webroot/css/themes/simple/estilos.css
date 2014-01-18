@@ -140,7 +140,6 @@ ul {
 	height:0;	
 	top:-100%;
 	left:100%;
-	background-position: center center;
 	opacity:0.2;
 }
 
@@ -175,9 +174,12 @@ ul {
 	height: 100%
 }
 
-.track iframe, .track object, .track embed,
-.post iframe, .post object, .post embed {
+.track iframe, .track object, .track embed {
 	height: 100%;
+	width: 100%;
+}
+
+.post iframe, .post object, .post embed {
 	width: 100%;
 }
 

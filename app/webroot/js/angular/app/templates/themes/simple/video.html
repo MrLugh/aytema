@@ -6,7 +6,7 @@
 
 	<div ng-if="!isFromNetwork('facebook')">
 
-		<div style="background:url('{{getThumbnail()}}');background-size:cover;" class="overlay_photo"></div>
+		<div style="background:url('{{getThumbnail()}}');background-size:cover;background-position: center center;" class="overlay_photo"></div>
 
 		<div class="player" ng-bind-html="getPlayer()"></div>
 
