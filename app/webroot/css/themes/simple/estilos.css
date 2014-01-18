@@ -146,6 +146,7 @@ ul {
 
 .content_hover {
 	z-index: 1000;
+	width: 100%;
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
 	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
@@ -218,16 +219,27 @@ ul {
 .content .photo .photo_prev {
 	position: relative;
 	left: 40px;
+	display: none;
 }
 
 .content .photo .photo_next {
 	position: relative;
 	right: 40px;
+	display: none;	
 }
 
 .content .photo .photo_prev img, .content .photo .photo_next img {
 	width:40px;
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
+	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);	
 }
+
+.content_hover .photo .photo_next, .content_hover .photo .photo_prev {
+	display: block;
+}
+
+
 
 .socialIcon {
   width: 20px;
