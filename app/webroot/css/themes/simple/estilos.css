@@ -144,18 +144,21 @@ ul {
   width: 20px;
 }
 
-.track, .video {
+.track {
 	width: 100%;
 	height: 100%
 }
 
 .track iframe, .track object, .track embed,
-.video iframe, .video object, .video embed,
 .post iframe, .post object, .post embed {
 	height: 100%;
 	width: 100%;
 }
 
+
+.soundcloud_track .player {
+	width: 100%;
+}
 
 .content .share {
 	-webkit-transition:all 0.56s ease;
