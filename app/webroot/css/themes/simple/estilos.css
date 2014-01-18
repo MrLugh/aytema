@@ -231,7 +231,8 @@ ul {
 	width: auto;
 	height: auto;	
 	opacity: 1;
-	background: rgba(200, 200, 200, 0.7);
+	background: rgba(0, 0, 0, 0.2);
+	color:white;
 	left: 0;
 	top: 0;	
 	max-width: 100%;
