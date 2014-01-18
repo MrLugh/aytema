@@ -63,6 +63,11 @@ function() {
 
         var scrolling = false;
 
+        elm.ready(function(){
+            console.log("ready ",'#content_'+scope.$index+' .player');
+            console.log(document.querySelector('#content_'+scope.$index+' .player'));
+        });
+
         elm.hover(
         function() {
 
