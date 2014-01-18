@@ -22,14 +22,7 @@ function() {
 
             var childrens = elm[0].children;
 
-            if (scrolling) {
-                e.preventDefault();
-                return false;
-            }
 
-            if (!scrolling) {
-
-                scrolling = true;
 
                 var founded = false;
 
@@ -49,10 +42,10 @@ function() {
                             $(child[0]).removeClass('content_hover');
                         }
                     }
-                }
+
             }
 
-            scrolling = false;
+            //scrolling = false;
 
         }
 
