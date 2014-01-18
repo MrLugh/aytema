@@ -370,7 +370,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		return {
 			'background-color':$scope.config.custom.colors.contentBackground.value,
 			'color':$scope.config.custom.colors.contentText.value,
-		};    	
+		};
     }
 
 }
