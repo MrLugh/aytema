@@ -364,6 +364,13 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
    		style['z-index'] = '1';
    		style['opacity'] = '0';
 	   	return style;
-    }	
+    }
+
+    $scope.getContentStyle = function() {
+		return {
+			'background-color':$scope.config.custom.colors.contentBackground.value,
+			'color':$scope.config.custom.colors.contentText.value,
+		};    	
+    }
 
 }

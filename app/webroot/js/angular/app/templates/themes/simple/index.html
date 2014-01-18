@@ -64,7 +64,7 @@
 
 		<ul id="list" infinite-scroll="moreContent()" on-scroll ng-style="getStyle()">
 
-			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="$index == 0 ? 'content_hover':''" on-hover id="content_{{$index}}">
+			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="$index == 0 ? 'content_hover':''" on-hover id="content_{{$index}}" ng-style="getContentStyle()">
 
 				<span class="user_info">
 					<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank">
