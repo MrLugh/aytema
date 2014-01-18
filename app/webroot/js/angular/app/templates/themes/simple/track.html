@@ -2,11 +2,15 @@
 
 	<div style="background:url('{{getThumbnail()}}');background-size:cover;background-position: center center;" class="overlay_photo"></div>
 
-	<div class="track_embed player" ng-bind-html="getPlayer()"></div>
+	<div class="overlay_content">
 
-	<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0"> 
-		<h2>{{getTitle()}}</h2>
-		<p ng-bind-html="getDescription()"></p>
+		<div class="track_embed player" ng-bind-html="getPlayer()"></div>
+
+		<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0"> 
+			<h2>{{getTitle()}}</h2>
+			<p ng-bind-html="getDescription()"></p>
+		</div>
+
 	</div>
 
 </div>

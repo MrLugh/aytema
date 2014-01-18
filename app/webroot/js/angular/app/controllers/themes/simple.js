@@ -92,43 +92,45 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 
 	$scope.setList = function() {
 
-		if ($scope.concepts.length == 0) {
-			$scope.list = [];
-			return;
-		}
+		if (!contentSv.isLoading() && $scope.configLoaded) {
 
-		var params			= [];
-		params['concepts']	= JSON.parse(JSON.stringify($scope.concepts));
-		params['offset']	= $scope.offset;
-		params['limit']		= $scope.offset == 0 ? $scope.limit : 1;
-		params['accounts']	= [];
-
-		for (var x in $scope.accounts) {
-			var account = $scope.accounts[x].Socialnet;
-			if ($scope.networks.indexOf(account.network) != -1) {
-				params['accounts'].push(account.id);
+			if ($scope.concepts.length == 0) {
+				$scope.list = [];
+				return;
 			}
-		}
 
-		contentSv.getContentsByFilters(params).then(
-			function(data) {
-				var contents = data.contents;
-				if (data.contents.length) {
-					for (var x in contents) {
-						content = contents[x].Content;
-						$scope.list.push(content);
-					}
-					$scope.offset += $scope.limit;
+			var params			= [];
+			params['concepts']	= JSON.parse(JSON.stringify($scope.concepts));
+			params['offset']	= $scope.offset;
+			params['limit']		= $scope.offset == 0 ? $scope.limit : 1;
+			params['accounts']	= [];
+
+			for (var x in $scope.accounts) {
+				var account = $scope.accounts[x].Socialnet;
+				if ($scope.networks.indexOf(account.network) != -1) {
+					params['accounts'].push(account.id);
 				}
-			},
-			function(reason) {
-				//console.log('Failed: ', reason);
-			},
-			function(update) {
-				//console.log('Got notification: ', update);
 			}
-		);
 
+			contentSv.getContentsByFilters(params).then(
+				function(data) {
+					var contents = data.contents;
+					if (data.contents.length) {
+						for (var x in contents) {
+							content = contents[x].Content;
+							$scope.list.push(content);
+						}
+						$scope.offset += $scope.limit;
+					}
+				},
+				function(reason) {
+					//console.log('Failed: ', reason);
+				},
+				function(update) {
+					//console.log('Got notification: ', update);
+				}
+			);
+		}
 	}
 
 
@@ -139,7 +141,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 			$scope.accountsLoaded = true;
 		}
 
-		if ($scope.accountsLoaded) {
+		if ($scope.configLoaded && $scope.accountsLoaded) {
 			$scope.initFilters();
 			$scope.setList();
 		}
@@ -367,6 +369,11 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
     }
 
     $scope.getContentStyle = function() {
+
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return {};
+    	}
+
 		return {
 			'background-color':$scope.config.custom.colors.contentBackground.value,
 			'color':$scope.config.custom.colors.contentText.value,
