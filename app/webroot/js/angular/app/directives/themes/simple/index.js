@@ -6,7 +6,12 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'themeSimpleCo',
-        scope: true
+        scope: true,
+        link: function(scope,element,attrs) {
+
+            
+
+        }
     }
 
 }]);
