@@ -1,8 +1,27 @@
-<div>
+<div class="app" ng-style="getAppStyle()" ng-class="getAppClass()">
 
 	<fb app-id='211895592326072'></fb>
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script src="http://platform.tumblr.com/v1/share.js"></script>
+
+	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
+		<a href="#/" class="control" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default>Edit <i class="icon-cogs"></i></a>
+
+		<tabset ng-if="showConfig">
+
+			<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+				<div ng-switch="tab.key" class="inside">
+					<admin-pagefilter ng-switch-when='pagefilter'></admin-pagefilter>
+					<admin-contentsize ng-switch-when='contentsize'></admin-contentsize>
+					<admin-colors ng-switch-when='colors'></admin-colors>
+					<admin-fonts ng-switch-when='fonts'></admin-fonts>
+					<admin-width ng-switch-when='width'></admin-width>
+				</div>
+			</tab>
+
+		</tabset>
+
+	</div>
 
 	<nav class="navbar navbar-default" role="navigation" get-menu-height>
 	  
@@ -58,17 +77,17 @@
 				<ul class="share left well">
 					<li class="left inline">
 	                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
-	                		<img src="http://aytema.com/img/themes/digest/twitter.png" alt="Twitter">
+	                		<img src="http://aytema.com/img/themes/simple/twitter.png" alt="Twitter">
 	                	</a>
 	                </li>
 	                <li class="left inline">
 	                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-	                		<img src="http://aytema.com/img/themes/digest/facebook.png" alt="Facebook">
+	                		<img src="http://aytema.com/img/themes/simple/facebook.png" alt="Facebook">
 	                	</a>
 	                </li>
 	                <li class="left inline">
 	                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
-	                		<img src="http://aytema.com/img/themes/digest/tumblr.png" alt="Tumblr">
+	                		<img src="http://aytema.com/img/themes/simple/tumblr.png" alt="Tumblr">
 	                	</a>
 	                </li>
 	            </ul>
@@ -87,6 +106,19 @@
 			</li>
 
 		</ul>
+
+	</div>
+
+	<div class="footer" ng-hide="showingContent" ng-style="getFooterStyle()" get-footer-height>
+
+		<div class="left user_message" ng-show="userMessage.length > 0" >
+			<img alt="loading" class="loading" ng-src="http://aytema.com/img/themes/digest/ajax-loader.gif">
+			<span class="text_message">{{userMessage}}</span>	
+		</div>
+
+		<a href="#/" ng-show="showUp" ng-click="scrollToTop()" class="scrollToTop right" skip-default>
+			<img src="http://aytema.com/img/themes/digest/scrollTop.png" />
+		</a>
 
 	</div>
 

@@ -16,11 +16,23 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
+    $scope.showConfig = false;
+	$scope.tabs = [
+		{ title:"Colors", key:"colors" },
+		{ title:"Fonts", key:"fonts" },
+		{ title:"Width", key:"width" },
+	];
+	$scope.activeAdminTab = 'pagefilter';    
 
 	$scope.isAding		= false;
 	$scope.toAdd		= '';
 
+	userSv.loadThemeConfig('simple');
 	userSv.loadAccounts();
+
+	$scope.isLogged = function() {
+		return userSv.isLogged();
+	}	
 
 	$scope.initFilters = function() {
 
@@ -133,11 +145,47 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		}
 	},true);
 
+	$scope.$watch("userSv.getThemeConfig()",function(configNew,configOld){
+		if (!angular.equals(configNew, configOld)) {
+			$scope.config = configNew;
+			$scope.configLoaded = true;
+		}
+
+		if ($scope.configLoaded && $scope.accountsLoaded) {
+			$scope.initFilters();
+		}
+	});
+
+	$scope.$watch("userSv.getThemeConfig().custom.colors",function(colors){
+		if (angular.isDefined(colors)) {
+			$scope.config.custom.colors = colors;
+			$scope.setBackgroundColor();
+		}		
+	},true);
+
+	$scope.$watch("userSv.getThemeConfig().custom.fonts",function(fonts){
+		if (angular.isDefined(fonts)) {
+			$scope.config.custom.fonts = fonts;
+			$scope.setFont();
+		}		
+	},true);	
+
+	$scope.$watch("userSv.getThemeConfig().custom.width",function(width){
+		if (angular.isDefined(width)) {
+			$scope.config.custom.width = width;
+			$scope.getAppStyle();
+		}		
+	},true);	
+
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
         $scope.getStyle();
-    });	
+    });
+
+	$scope.$watchCollection("[userMessage,showUp]",function(values){
+		$scope.getFooterStyle();
+	});
 
 	$scope.networkIcon = function(network) {
 		return "http://aytema.com/img/socialnet/icons/ce_"+network+".png";
@@ -242,5 +290,80 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		}
 		return '';
 	}
+
+    $scope.getConfigStyle = function() {
+	   	if ($scope.showConfig == true) {
+	   		return {'left':'0'};
+    	}
+	   	return {'left':'0'};
+    };
+
+    $scope.getConfigButtonStyle = function() {
+	   	if ($scope.showConfig == true) {
+	   		return {'left':'100%'};
+    	}
+	   	return {'left':'0'};
+    };	
+
+    $scope.adminTheme = function() {
+    	$scope.showConfig = !$scope.showConfig;
+    };
+
+    $scope.getAppStyle = function() {
+    	var width = "100%";
+    	if (!angular.equals({},$scope.config)) {
+    		width = $scope.config.custom.width;
+    	}
+
+    	return {'width':width};
+    }
+
+    $scope.getAppClass = function() {
+
+    	if (angular.equals({},$scope.config)) {
+    		return '';
+    	}
+
+    	if ($scope.config.custom.width != "100%") {
+    		return 'boxed';
+    	}
+    	return '';
+    }
+
+	$scope.setBackgroundColor = function() {
+
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+
+		var element = angular.element(document.querySelector('#list'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);		
+	}
+
+	$scope.setFont = function() {
+
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('font-family',$scope.config.custom.fonts.selected.family);
+		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
+	}
+
+    $scope.getFooterStyle = function() {
+
+    	var width = "100%";
+    	if (!angular.equals({},$scope.config)) {
+    		width = $scope.config.custom.width;
+    	}
+
+    	var style = {'width':width};
+	   	if ($scope.showUp == true) {
+	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
+	   		style['z-index'] = '2';
+	   		style['opacity'] = '1';
+	   		return style;	   		
+    	}
+    	style['top'] = '100%';
+   		style['z-index'] = '1';
+   		style['opacity'] = '0';
+	   	return style;
+    }	
 
 }

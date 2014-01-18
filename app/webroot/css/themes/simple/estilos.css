@@ -1,5 +1,7 @@
 body {
-  overflow: hidden;
+	text-align: center;
+	margin: 0 auto;
+	overflow: hidden;
 	-webkit-transition:all 0.56s ease;
 	-moz-transition:all 0.56s ease;
 	-o-transition:all 0.56s ease;
@@ -68,6 +70,42 @@ ul {
 	margin-bottom: 0;
 }
 
+.boxed {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  margin:0 auto;
+}
+
+.footer {
+  position: fixed;
+  display: block;
+  top:100%;
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;  
+  z-index: 10;
+}
+
+.scrollToTop, .user_message {
+  position: relative;
+  top:-100%;
+  left: 0;
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;  
+}
+
+.scrollToTop img {
+  width: 40px;
+  height: auto;
+}
+
 #container {
 	text-align: center;
 	margin: 0 auto;
@@ -94,7 +132,7 @@ ul {
 	-o-transition:all 0.56s ease;
 	transition:all 0.56s ease;
 	overflow: hidden;
-	width: 100%;
+	width: 90%;
 }
 
 .content_hover {
@@ -234,7 +272,6 @@ ul {
 	height: auto;	
 	opacity: 1;
 	background: rgba(0, 0, 0, 0.2);
-	color:white;
 	left: 0;
 	top: 0;	
 	max-width: 100%;

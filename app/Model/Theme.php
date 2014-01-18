@@ -1,6 +1,7 @@
 <?php
 
 App::import('model','/themes/Themedigest');
+App::import('model','/themes/Themesimple');
 
 Class Theme extends AppModel {
 

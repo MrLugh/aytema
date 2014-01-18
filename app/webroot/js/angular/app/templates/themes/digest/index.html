@@ -11,8 +11,6 @@
 
 		<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
 			<div ng-switch="tab.key" class="inside">
-				<admin-pagefilter ng-switch-when='pagefilter'></admin-pagefilter>
-				<admin-contentsize ng-switch-when='contentsize'></admin-contentsize>
 				<admin-colors ng-switch-when='colors'></admin-colors>
 				<admin-fonts ng-switch-when='fonts'></admin-fonts>
 				<admin-width ng-switch-when='width'></admin-width>
@@ -20,7 +18,6 @@
 		</tab>
 
 	</tabset>
-
 
 </div>
 
