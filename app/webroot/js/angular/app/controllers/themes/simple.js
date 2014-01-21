@@ -14,6 +14,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	$scope.networks = [];
 	$scope.concepts = [];
 	$scope.current	= 0;
+	$scope.controlHover = false;
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -190,6 +191,11 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		$scope.getFooterStyle();
 	});
 
+	$scope.$watch("controlHover",function(values){
+		console.log(values);
+		$scope.getContentStyle();
+	});	
+
 	$scope.move = function(direction) {
 
 		if (direction > 0) {
@@ -204,6 +210,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		if ($scope.current < 0) {		
 			$scope.current = $scope.list.length - 1;
 		}
+
+		console.log($scope.controlHover);
 
 		if ( $scope.list.length - 1 - $scope.current < 4 ) {
 			$scope.moreContent();
@@ -415,10 +423,21 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
     		return {};
     	}
 
-		return {
+    	var style = {
 			'background-color':$scope.config.custom.colors.contentBackground.value,
-			'color':$scope.config.custom.colors.contentText.value,
-		};
+			'color':$scope.config.custom.colors.contentText.value,    		
+    	}
+
+    	if ($scope.controlHover) {
+    		style['width']	= '60%';
+    		style['left']	= '20%';
+    	} else {
+    		style['width']	= '90%';
+    		style['left']	= '5%';    		
+    	}
+
+    	return style;
+
     }
 
     $scope.getControlStyle = function(direction) {

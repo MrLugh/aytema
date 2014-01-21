@@ -32,7 +32,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#" ng-style="getContentStyle()">{{user.username|uppercase}}</a>
+			<a class="navbar-brand" href="#" ng-style="getMenuStyle()">{{user.username|uppercase}}</a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -49,7 +49,7 @@
 				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterConceptStyle(concept)" class="inline">
 					<p class="navbar-text navbar-right">
 						<a href="#" class="navbar-link" skip-default>
-							<i ng-class="conceptIcon(concept)" ng-style="getContentStyle()"></i>
+							<i ng-class="conceptIcon(concept)" ng-style="getMenuStyle()"></i>
 						</a>
 					</p>
 				</li>
@@ -130,8 +130,8 @@
 	</a>
 
 	<a href="#/" skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}_bg right" control-hover="next" style="top:{{menuHeight+4}}px;" title="{{getNavigatorTitle(1)}}" ng-style="getControlStyle(1)">
-		<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
 		<img class="social-media" ng-src="http://aytema.com/img/themes/simple/{{getNavigatorNetwork(1)}}-big.png" alt=""/>
+		<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>		
 		<div class="more-user" ng-show="getNavigatorThumbnail(1).length>0">
 			<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" class="control_thumbnail"/>
 		</div>
