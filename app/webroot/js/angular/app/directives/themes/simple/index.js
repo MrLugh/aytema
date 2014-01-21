@@ -37,7 +37,9 @@ function() {
 
                     if (!founded && $(child[0]).position().top + child[0].clientHeight / 2 > 0 ) {
                         founded = true;
-                        $(child[0]).addClass('content_hover');
+                        imagesLoaded(child[0], function(){
+                            $(child[0]).addClass('content_hover');
+                        });
                     } else {
                         if ( document.querySelector(".content_hover") != elm[0] ) {
                             $(child[0]).removeClass('content_hover');
@@ -76,7 +78,7 @@ function() {
         		return false;
         	}
 
-        	$(document.querySelector(".content_hover")).removeClass('content_hover')
+        	$(document.querySelector(".content_hover")).removeClass('content_hover');
             $(elm[0]).addClass('content_hover');
         },
         function() {
@@ -99,13 +101,32 @@ function() {
         var sufix = attr.controlHover;
 
         elm.ready(function(){
+
             elm.hover(
                 function(){
-                    $(elm[0]).addClass('control_'+sufix+'_hover');
+                    var prev = angular.element(document.querySelector(".control_prev"));
+                    $(prev[0]).addClass('control_prev_hover');
+                    var next = angular.element(document.querySelector(".control_next"));
+                    $(next[0]).addClass('control_next_hover');
+
+                    $(document.querySelector(".content_hover")).css('width','60%').css('left','20%');
+
+                    $(document.querySelector(".user_info")).css('display','none');
+
+                    //$(elm[0]).addClass('control_'+sufix+'_hover');
                 },
                 function(){
-                    $(elm[0]).removeClass('control_'+sufix+'_hover');
-                    $(document.querySelector(".content_hover")).css('opacity',opacity);
+                    var prev = angular.element(document.querySelector(".control_prev"));
+                    $(prev[0]).removeClass('control_prev_hover');
+                    var next = angular.element(document.querySelector(".control_next"));
+                    $(next[0]).removeClass('control_next_hover');
+
+                    $(document.querySelector(".content_hover")).css('width','90%').css('left','5%');
+
+                    $(document.querySelector(".user_info")).css('display','inline');
+
+                    //$(document.querySelector(".content_hover")).css('opacity','');
+                    //$(elm[0]).removeClass('control_'+sufix+'_hover');
                 }
             );
         });

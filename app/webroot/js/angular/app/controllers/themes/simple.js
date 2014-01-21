@@ -7,7 +7,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 100;
+	$scope.limit 	= 10;
 	$scope.offset	= 0;
 	$scope.list 	= [];
 	$scope.filters	= {'concepts':[],'networks':[]};
@@ -210,6 +210,11 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		}
 	}
 
+    $scope.getContentCommentsHash = function() {
+    	var c = $scope.list[$scope.current];
+    	return "http://aytema.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
+    }	
+
 	$scope.networkIcon = function(network) {
 		return "http://aytema.com/img/socialnet/icons/ce_"+network+".png";
 	}
@@ -392,6 +397,18 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	   	return style;
     }
 
+    $scope.getMenuStyle = function() {
+
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return {};
+    	}
+
+		return {
+			'background-color':$scope.config.custom.colors.contentBackground.value,
+			'color':$scope.config.custom.colors.contentText.value,
+		};
+    }
+
     $scope.getContentStyle = function() {
 
     	if (!angular.isDefined($scope.config.custom)) {
@@ -404,16 +421,24 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		};
     }
 
-    $scope.getControlStyle = function() {
+    $scope.getControlStyle = function(direction) {
 
     	if (!angular.isDefined($scope.config.custom)) {
     		return {};
     	}
 
-		return {
-			'background-color':$scope.config.custom.colors.contentBackground.value,
-			'color':$scope.config.custom.colors.contentText.value,
-		};
+		var style = {};
+
+		if ($scope.getNavigatorThumbnail(direction).length>0) {			
+			style['background']			= 'url('+$scope.getNavigatorThumbnail(direction)+')';
+			style['background-size']	= 'cover';
+			style['background-position']= 'center center';
+		}
+
+		//style['background-color'] = $scope.config.custom.colors.contentBackground.value;
+		//style['color'] = $scope.config.custom.colors.contentText.value;
+
+		return style;
     }    
 
     $scope.getContentClass = function(index) {
@@ -421,7 +446,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
     	if ($scope.current != index) {
     		return '';
     	}
-    	return 'content_hover';
+    	var current = $scope.list[$scope.current];
+    	return 'content_hover '+current.network+'_bg '+current.network+'_color';
     }
 
     $scope.getNavigatorIndex = function(direction) {

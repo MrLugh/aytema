@@ -460,6 +460,14 @@ p {
   z-index: 2;
 }
 
+.aytema_bg:hover {
+  background-color: #2D2E26;
+  color:#C3C97D;  
+}
+
+.aytema_color:hover {
+  color:#8254BA;
+}
 
 .facebook_bg:hover {
   background-color: #3b5998;
