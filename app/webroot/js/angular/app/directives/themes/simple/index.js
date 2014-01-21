@@ -9,8 +9,6 @@ function(){
         scope: true,
         link: function(scope,element,attrs) {
 
-            
-
         }
     }
 
@@ -26,8 +24,6 @@ function() {
         scope.onScrollFn = function() {
 
             var childrens = elm[0].children;
-
-
 
                 var founded = false;
 
@@ -92,5 +88,26 @@ function() {
         	$(elm[0]).removeClass('content_hover');
         }
         );
+    };
+}]);
+
+ayTemaDs.directive('controlHover',[
+function() {
+    return function(scope, elm, attr) {
+        var raw = elm[0];
+
+        var sufix = attr.controlHover;
+
+        elm.ready(function(){
+            elm.hover(
+                function(){
+                    $(elm[0]).addClass('control_'+sufix+'_hover');
+                },
+                function(){
+                    $(elm[0]).removeClass('control_'+sufix+'_hover');
+                    $(document.querySelector(".content_hover")).css('opacity',opacity);
+                }
+            );
+        });
     };
 }]);

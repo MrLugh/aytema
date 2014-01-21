@@ -59,47 +59,46 @@
 
 	</nav>
 
-
 	<div id="container">
 
 		<ul id="list" infinite-scroll="moreContent()" on-scroll ng-style="getStyle()">
 
-			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="$index == 0 ? 'content_hover':''" on-hover id="content_{{$index}}" ng-style="getContentStyle()">
+			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="getContentClass($index)" id="content_{{$index}}" ng-style="getContentStyle()">
 
 				<span class="user_info">
 					<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank">
-						<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile">	
+						<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" />
 						{{content.external_user_name}}
-						<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon">
+						<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
 					</a>
 				</span>
 
 				<ul class="share left well">
 					<li class="left inline">
 	                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
-	                		<img src="http://aytema.com/img/themes/simple/twitter.png" alt="Twitter">
+	                		<img src="http://aytema.com/img/themes/simple/twitter.png" alt="Twitter" />
 	                	</a>
 	                </li>
 	                <li class="left inline">
 	                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-	                		<img src="http://aytema.com/img/themes/simple/facebook.png" alt="Facebook">
+	                		<img src="http://aytema.com/img/themes/simple/facebook.png" alt="Facebook" />
 	                	</a>
 	                </li>
 	                <li class="left inline">
 	                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
-	                		<img src="http://aytema.com/img/themes/simple/tumblr.png" alt="Tumblr">
+	                		<img src="http://aytema.com/img/themes/simple/tumblr.png" alt="Tumblr" />
 	                	</a>
 	                </li>
 	            </ul>
 
-					<content-video ng-switch-when='video'></content-video>
-					<content-photo ng-switch-when='photo'></content-photo>
-					<content-track ng-switch-when='track'></content-track>
-					<content-post  ng-switch-when='post' ></content-post>
-					<content-quote ng-switch-when='quote'></content-quote>
-					<content-chat  ng-switch-when='chat' ></content-chat>
-					<content-link  ng-switch-when='link' ></content-link>
-					<content-event ng-switch-when='event'></content-event>
+				<content-video ng-switch-when='video'></content-video>
+				<content-photo ng-switch-when='photo'></content-photo>
+				<content-track ng-switch-when='track'></content-track>
+				<content-post  ng-switch-when='post' ></content-post>
+				<content-quote ng-switch-when='quote'></content-quote>
+				<content-chat  ng-switch-when='chat' ></content-chat>
+				<content-link  ng-switch-when='link' ></content-link>
+				<content-event ng-switch-when='event'></content-event>
 
 			</li>
 
@@ -107,18 +106,33 @@
 
 	</div>
 
-	<div class="footer" ng-hide="showingContent" ng-style="getFooterStyle()" get-footer-height>
+	<div class="footer" ng-style="getFooterStyle()" get-footer-height>
 
 		<div class="left user_message" ng-show="userMessage.length > 0" >
-			<img alt="loading" class="loading" ng-src="http://aytema.com/img/themes/digest/ajax-loader.gif">
-			<span class="text_message">{{userMessage}}</span>	
+			<img alt="loading" class="loading" ng-src="http://aytema.com/img/themes/simple/ajax-loader.gif" />
+			<span class="text_message">{{userMessage}}</span>
 		</div>
 
 		<a href="#/" ng-show="showUp" ng-click="scrollToTop()" class="scrollToTop right" skip-default>
-			<img src="http://aytema.com/img/themes/digest/scrollTop.png" />
+			<img src="http://aytema.com/img/themes/simple/scrollTop.png" />
 		</a>
 
 	</div>
 
+	<a href="#/" skip-default ng-click="move(-1)" ng-if="list.length>1" class="control control_prev left" control-hover="prev" style="top:{{menuHeight+4}}px;" title="{{getNavigatorTitle(-1)}}" ng-style="getControlStyle()" >
+		<img class="social-media" ng-src="http://aytema.com/img/themes/simple/{{getNavigatorNetwork(-1)}}-big.png" alt=""/>
+		<div class="more-user" ng-show="getNavigatorThumbnail(-1).length>0">
+			<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" class="control_thumbnail"/>
+		</div>
+		<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
+	</a>
+
+	<a href="#/" skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next right" control-hover="next" style="top:{{menuHeight+4}}px;" title="{{getNavigatorTitle(1)}}" ng-style="getControlStyle()">
+		<img class="social-media" ng-src="http://aytema.com/img/themes/simple/{{getNavigatorNetwork(1)}}-big.png" alt=""/>
+		<div class="more-user" ng-show="getNavigatorThumbnail(1).length>0">
+			<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" class="control_thumbnail"/>
+		</div>
+		<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
+	</a>
 
 </div>

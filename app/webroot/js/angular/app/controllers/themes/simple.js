@@ -7,12 +7,13 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 10;
+	$scope.limit 	= 100;
 	$scope.offset	= 0;
 	$scope.list 	= [];
 	$scope.filters	= {'concepts':[],'networks':[]};
 	$scope.networks = [];
 	$scope.concepts = [];
+	$scope.current	= 0;
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -161,7 +162,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	$scope.$watch("userSv.getThemeConfig().custom.colors",function(colors){
 		if (angular.isDefined(colors)) {
 			$scope.config.custom.colors = colors;
-			$scope.setBackgroundColor();
+			$scope.setColor();
 		}		
 	},true);
 
@@ -188,6 +189,26 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	$scope.$watchCollection("[userMessage,showUp]",function(values){
 		$scope.getFooterStyle();
 	});
+
+	$scope.move = function(direction) {
+
+		if (direction > 0) {
+			$scope.current++;
+		} else {
+			$scope.current--;		
+		}
+
+		if ($scope.current == $scope.list.length) {
+			$scope.current = 0;
+		}
+		if ($scope.current < 0) {		
+			$scope.current = $scope.list.length - 1;
+		}
+
+		if ( $scope.list.length - 1 - $scope.current < 4 ) {
+			$scope.moreContent();
+		}
+	}
 
 	$scope.networkIcon = function(network) {
 		return "http://aytema.com/img/socialnet/icons/ce_"+network+".png";
@@ -332,13 +353,16 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
     	return '';
     }
 
-	$scope.setBackgroundColor = function() {
+	$scope.setColor = function() {
 
 		var element = angular.element(document.querySelector('body'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 
 		var element = angular.element(document.querySelector('#list'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);		
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+
+		var element = angular.element(document.querySelector('.control'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 	}
 
 	$scope.setFont = function() {
@@ -379,5 +403,176 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 			'color':$scope.config.custom.colors.contentText.value,
 		};
     }
+
+    $scope.getControlStyle = function() {
+
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return {};
+    	}
+
+		return {
+			'background-color':$scope.config.custom.colors.contentBackground.value,
+			'color':$scope.config.custom.colors.contentText.value,
+		};
+    }    
+
+    $scope.getContentClass = function(index) {
+
+    	if ($scope.current != index) {
+    		return '';
+    	}
+    	return 'content_hover';
+    }
+
+    $scope.getNavigatorIndex = function(direction) {
+
+		var current = $scope.current;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;		
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		return current;
+    }
+
+	$scope.getNavigatorClass = function(direction) {
+
+		var current = $scope.current;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;		
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		if (!angular.isDefined($scope.list[current])) {
+			return '';
+		}
+		var content = $scope.list[current];
+		return content.network+"_bg "+content.network+"_color";
+	}
+
+	$scope.getNavigatorTitle = function(direction) {
+
+		var current = $scope.current;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		if (!angular.isDefined($scope.list[current])) {
+			return '';
+		}
+		var content = $scope.list[current];
+		return content.network+" "+content.external_user_name+" "+content.concept;
+	}
+
+	$scope.getNavigatorNetwork = function(direction) {
+
+		var current = $scope.current;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		if (!angular.isDefined($scope.list[current])) {
+			return '';
+		}
+		var content = $scope.list[current];
+		return content.network;
+	}
+
+	$scope.getNavigatorThumbnail = function(direction) {
+
+		var current = $scope.current;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		if (!angular.isDefined($scope.list[current])) {
+			return '';
+		}
+
+		var content = $scope.list[current];
+
+		if (angular.isDefined(content)) {
+			return contentSv.getThumbnail(content);
+		}
+
+		return '';
+	}
+	$scope.getNavigatorConceptIcon = function(direction) {
+
+		var current = $scope.current;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		if (!angular.isDefined($scope.list[current])) {
+			return '';
+		}
+
+		var content = $scope.list[current];
+
+		if (angular.isDefined(content)) {
+			return contentSv.getConceptIcon(content.concept);
+		}
+
+		return '';
+	}
 
 }
