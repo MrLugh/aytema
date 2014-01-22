@@ -192,7 +192,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 	});
 
 	$scope.$watchCollection("[controlHover,current]",function(values){
-		console.log(values);
 		$scope.getNavigatorThumbnail(-1);
 		$scope.getNavigatorTitle(-1);
 		$scope.getNavigatorNetwork(-1);

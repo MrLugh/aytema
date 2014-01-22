@@ -172,8 +172,7 @@ ul {
 	position: relative;
 	left: -100%;
 	display: inline-block;
-	width: 100%;
-	max-width: 450px;
+	max-width: 100%;
 	height: auto!important;
 	/*max-height: 200px;*/
 }
@@ -261,11 +260,6 @@ iframe,object,embed {
 	margin: 0 auto;
 }
 
-.track iframe, .track object, .track embed {
-	height: 100%;
-	width: 100%;
-}
-
 .post iframe, .post object, .post embed {
 	width: 100%;
 }
@@ -273,6 +267,13 @@ iframe,object,embed {
 
 .player {
 	width: 100%;
+	min-height: 100%!important;
+	height: 100%!important;
+}
+
+.soundcloud_track iframe, .soundcloud_audio_player {
+  height: auto!important;
+  width: 100%;
 }
 
 .content .content_caption {
@@ -318,10 +319,10 @@ iframe,object,embed {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    height: 70px !important;
+    height: 60px !important;
     margin: 10px 1% 10px 0;
     right: 0;
-    width: 70px !important;
+    width: 60px !important;
 }
 
 .content .user_info {
@@ -338,6 +339,7 @@ iframe,object,embed {
 	left: -100%;
 	float: left;
 	z-index: 2;
+	max-width: 50%;
 }
 
 .content_hover .user_info {
@@ -360,6 +362,7 @@ iframe,object,embed {
 	float: right;
 	left: 100%;
 	z-index: 2;
+	max-width: 50%;	
 }
 
 .content_hover .share {
@@ -391,6 +394,7 @@ iframe,object,embed {
 	-o-transition:all 0.56s ease;
 	transition:all 0.56s ease;
 	overflow: hidden;
+	padding:0;
 	margin: 0;
 	display: block;
 	position: absolute;
@@ -420,6 +424,7 @@ iframe,object,embed {
 	z-index: 2;
 	width: 28%;
 	height: 100%;
+	padding:20px;
 }
 
 .control_next_hover {
@@ -428,6 +433,7 @@ iframe,object,embed {
 	z-index: 2;
 	width: 28%;
 	height: 100%;
+	padding:20px;
 }
 
 .control_thumbnail {
