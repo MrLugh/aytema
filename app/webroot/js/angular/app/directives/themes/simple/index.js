@@ -64,13 +64,6 @@ function() {
     return function(scope, elm, attr) {
         var raw = elm[0];
 
-        var scrolling = false;
-
-        elm.ready(function(){
-            console.log("ready ",'#content_'+scope.$index+' .player');
-            console.log(document.querySelector('#content_'+scope.$index+' .player'));
-        });
-
         elm.hover(
         function() {
 
@@ -105,7 +98,6 @@ function() {
             elm.hover(
                 function(){
 
-                    console.log(scope);
                     scope.$apply(function(){
                         scope.$parent.controlHover = true;
                     });

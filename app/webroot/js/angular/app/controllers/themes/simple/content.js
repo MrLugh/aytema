@@ -267,7 +267,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 
 function contentPostCo($scope,contentSv,$sce) {
 
-	console.log($scope.content);
+	//console.log($scope.content);
 
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;

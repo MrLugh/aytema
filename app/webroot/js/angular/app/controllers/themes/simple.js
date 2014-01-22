@@ -193,9 +193,13 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 
 	$scope.$watchCollection("[controlHover,current]",function(values){
 		console.log(values);
-		$scope.getContentStyle();
 		$scope.getNavigatorThumbnail(-1);
+		$scope.getNavigatorTitle(-1);
+		$scope.getNavigatorNetwork(-1);
 		$scope.getNavigatorThumbnail(1);
+		$scope.getNavigatorTitle(1);
+		$scope.getNavigatorNetwork(1);
+		$scope.getContentStyle();
 		$scope.hideOnHover();
 	});	
 
@@ -213,8 +217,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		if ($scope.current < 0) {		
 			$scope.current = $scope.list.length - 1;
 		}
-
-		console.log($scope.controlHover);
 
 		if ( $scope.list.length - 1 - $scope.current < 4 ) {
 			$scope.moreContent();
