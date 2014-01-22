@@ -108,7 +108,6 @@ function() {
                     console.log(scope);
                     scope.$apply(function(){
                         scope.$parent.controlHover = true;
-                        scope.$parent.getContentStyle();
                     });
                     
                     var prev = angular.element(document.querySelector(".control_prev"));
@@ -122,7 +121,6 @@ function() {
 
                     scope.$apply(function(){
                         scope.$parent.controlHover = false;
-                        scope.$parent.getContentStyle();
                     });
 
                     var prev = angular.element(document.querySelector(".control_prev"));

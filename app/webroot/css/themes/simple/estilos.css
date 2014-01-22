@@ -179,7 +179,6 @@ ul {
 }
 
 .content_hover .content_photo {
-	width: 100%;
 	left:0;
 	/*max-height: 350px;*/
 }
@@ -231,21 +230,15 @@ ul {
 }
 
 .content .photo .photo_prev {
-	position: relative;
-	left: 40px;
 	display: none;
-	float: left;
 }
 
 .content .photo .photo_next {
-	position: relative;
-	right: 40px;
 	display: none;	
-	float: right;
 }
 
 .content .photo .photo_prev img, .content .photo .photo_next img {
-	width:40px;
+	width:30px;
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
 	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);	
@@ -295,9 +288,12 @@ iframe,object,embed {
 	margin: 0 auto;
 	margin-top: 20px;
 	overflow: hidden;
+	display: block;
 
 	left: -100%;
 	top: -100%;
+
+	width: 100%;
 
 	border: 3px;
     -webkit-border-radius: 4px;
@@ -310,13 +306,11 @@ iframe,object,embed {
 }
 
 .content_hover .content_caption {
-	width: auto;
 	height: auto;	
 	opacity: 1;
 	background: rgba(0, 0, 0, 0.2);
 	left: 0;
 	top: 0;	
-	max-width: 100%;
 }
 
 .content .profile {
@@ -397,7 +391,6 @@ iframe,object,embed {
 	-o-transition:all 0.56s ease;
 	transition:all 0.56s ease;
 	overflow: hidden;
-	padding: 20px;
 	margin: 0;
 	display: block;
 	position: absolute;
@@ -425,7 +418,7 @@ iframe,object,embed {
 	left: 0;
 	opacity: 1;
 	z-index: 2;
-	width: 30%;
+	width: 28%;
 	height: 100%;
 }
 
@@ -433,7 +426,7 @@ iframe,object,embed {
 	right: 0;
 	opacity: 1;
 	z-index: 2;
-	width: 30%;
+	width: 28%;
 	height: 100%;
 }
 
@@ -521,4 +514,4 @@ iframe,object,embed {
 
 .mixcloud_color:hover {
   color:#fff;
-} 
+}

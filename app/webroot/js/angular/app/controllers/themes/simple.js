@@ -191,9 +191,12 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		$scope.getFooterStyle();
 	});
 
-	$scope.$watch("controlHover",function(values){
+	$scope.$watchCollection("[controlHover,current]",function(values){
 		console.log(values);
 		$scope.getContentStyle();
+		$scope.getNavigatorThumbnail(-1);
+		$scope.getNavigatorThumbnail(1);
+		$scope.hideOnHover();
 	});	
 
 	$scope.move = function(direction) {
@@ -325,6 +328,14 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 			}
 		}
 		return '';
+	}
+
+	$scope.hideOnHover = function() {
+
+		if ($scope.controlHover) {
+			return {'display':'none'}
+		}
+		return {'display':'block'}
 	}
 
     $scope.getConfigStyle = function() {
