@@ -429,11 +429,25 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
     	}
 
     	if ($scope.controlHover) {
-    		style['width']	= '60%';
-    		style['left']	= '20%';
+
+    		if ($scope.config.custom.width != "100%") {
+	    		style['width']	= '60%';
+	    		style['left']	= '20%';
+    		} else {
+	    		style['width']	= '50%';
+	    		style['left']	= '25%';
+    		}
+
+
     	} else {
-    		style['width']	= '90%';
-    		style['left']	= '5%';    		
+
+    		if ($scope.config.custom.width != "100%") {
+	    		style['width']	= '90%';
+	    		style['left']	= '5%';
+    		} else {
+    			
+    		}
+
     	}
 
     	return style;

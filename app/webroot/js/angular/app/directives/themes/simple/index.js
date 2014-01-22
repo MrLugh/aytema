@@ -110,12 +110,12 @@ function() {
                         scope.$parent.controlHover = true;
                         scope.$parent.getContentStyle();
                     });
-                    console.log(scope.$parent.controlHover);
                     
                     var prev = angular.element(document.querySelector(".control_prev"));
                     $(prev[0]).addClass('control_prev_hover');
                     var next = angular.element(document.querySelector(".control_next"));
                     $(next[0]).addClass('control_next_hover');
+
                     //$(elm[0]).addClass('control_'+sufix+'_hover');
                 },
                 function(){
@@ -124,12 +124,12 @@ function() {
                         scope.$parent.controlHover = false;
                         scope.$parent.getContentStyle();
                     });
-                    console.log(scope.$parent.controlHover);
 
                     var prev = angular.element(document.querySelector(".control_prev"));
                     $(prev[0]).removeClass('control_prev_hover');
                     var next = angular.element(document.querySelector(".control_next"));
                     $(next[0]).removeClass('control_next_hover');
+
                     //$(document.querySelector(".content_hover")).css('opacity','');
                     //$(elm[0]).removeClass('control_'+sufix+'_hover');
                 }

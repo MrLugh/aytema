@@ -9,13 +9,13 @@
 		<img ng-src="{{current.src}}" class="content_photo" />
 
 		<div class="both">
-			<div ng-if="moreThanOne()" class="{{content.network}}_bg left inline photo_prev">
+			<div ng-if="moreThanOne()" class="{{content.network}}_bg left photo_prev">
 				<a href="#/" skip-default ng-click="move(-1)">
 			 		<img src="http://aytema.com/img/themes/simple/arrow-left.png" alt="Previous photo" />
 			 	</a>
 			</div>
 
-			<div ng-if="moreThanOne()" class="{{content.network}}_bg right inline photo_next">
+			<div ng-if="moreThanOne()" class="{{content.network}}_bg right photo_next">
 				<a href="#/" skip-default ng-click="move(1)">
 					<img src="http://aytema.com/img/themes/simple/arrow-right.png" alt="Next photo" />
 				</a>
