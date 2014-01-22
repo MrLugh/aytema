@@ -274,13 +274,18 @@ iframe,object,embed {
 }
 
 .player {
-	width: 100%!important;
-	height: 100%!important;
+	width: 100%;
+	height: 100%;
 }
 
 .soundcloud_track .player, .soundcloud_track, .soundcloud_track iframe, .soundcloud_audio_player {
   height: auto!important;
   width: 100%!important;
+}
+
+.mixcloud_track .player iframe, .mixcloud_track .player embed, .mixcloud_track .player object {
+	width: 100%!important;
+	height: 100%!important;
 }
 
 .content .content_caption {
