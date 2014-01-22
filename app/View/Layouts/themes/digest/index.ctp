@@ -3,6 +3,7 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
 
     <meta property="fb:app_id" content="211895592326072">
     <meta property="og:title" content="Ay Tema"/>

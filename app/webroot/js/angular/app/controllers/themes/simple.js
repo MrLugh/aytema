@@ -484,7 +484,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		//style['color'] = $scope.config.custom.colors.contentText.value;
 
 		return style;
-    }    
+    }
 
     $scope.getContentClass = function(index) {
 

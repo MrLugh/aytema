@@ -16,7 +16,16 @@ body {
     scrollbar-darkshadow-color: #2D2C4D;  
     scrollbar-track-color: #7D7E94;  
     scrollbar-arrow-color: #C1C1D1;
+}
+
+a,a:hover,a:active,a:focus,
+img,img:hover,img:active,img:focus {
     outline: none;
+    border: none;
+}
+
+input::-moz-focus-inner { 
+  border: 0; 
 }
 
 *::-webkit-scrollbar {
@@ -237,7 +246,7 @@ ul {
 }
 
 .content .photo .photo_prev img, .content .photo .photo_next img {
-	width:30px;
+	width:28px;
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
 	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);	
@@ -264,16 +273,14 @@ iframe,object,embed {
 	width: 100%;
 }
 
-
 .player {
-	width: 100%;
-	min-height: 100%!important;
+	width: 100%!important;
 	height: 100%!important;
 }
 
-.soundcloud_track iframe, .soundcloud_audio_player {
+.soundcloud_track .player, .soundcloud_track, .soundcloud_track iframe, .soundcloud_audio_player {
   height: auto!important;
-  width: 100%;
+  width: 100%!important;
 }
 
 .content .content_caption {
