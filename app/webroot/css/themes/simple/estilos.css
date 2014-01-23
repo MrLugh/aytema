@@ -434,7 +434,6 @@ iframe,object,embed {
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
 	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
-	display: none;
 }
 
 .control_prev {
@@ -482,7 +481,7 @@ iframe,object,embed {
 
 .aytema_bg {
   background-color: #2D2E26;
-  color:#C3C97D;	
+  color:#5AC3C4;
 }
 
 .aytema_color:hover {
