@@ -38,7 +38,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 
-				<li ng-repeat="network in filters.networks" class="inline" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)">
+				<li ng-repeat="network in filters.networks" class="inline menu-item" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)">
 					<p class="navbar-text navbar-right">
 						<a href="#" class="navbar-link" skip-default>
 							<img ng-src="{{networkIcon(network)}}" class="socialIcon" />
@@ -46,7 +46,7 @@
 					</p>
 				</li>
 
-				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterConceptStyle(concept)" class="inline">
+				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterConceptStyle(concept)" class="inline menu-item">
 					<p class="navbar-text navbar-right">
 						<a href="#" class="navbar-link" skip-default>
 							<i ng-class="conceptIcon(concept)" ng-style="getMenuStyle()"></i>

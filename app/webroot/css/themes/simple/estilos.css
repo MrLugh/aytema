@@ -94,6 +94,11 @@ ul {
 	z-index: 4;
 }
 
+.navbar .menu-item {
+	float: left;
+	padding: 5px;
+}
+
 .boxed {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
