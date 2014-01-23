@@ -13,7 +13,7 @@
 				<h2>Add:</h2>
 			</li>
 
-			<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)">
+			<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'">
 				<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
 			</li>
 		</ul>

@@ -129,6 +129,11 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.addAccount = function(network) {
+
+		if (network == 'aytema') {
+			return false;
+		}
+
 		var href = "/"+network+"/addAccount?action=start";
 		$scope.popupAccount = false;
 
