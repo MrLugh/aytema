@@ -188,6 +188,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
     });
 
 	$scope.$watchCollection("[userMessage,showUp]",function(values){
+		console.log("watch [userMessage,showUp] ",values)
 		$scope.getFooterStyle();
 	});
 

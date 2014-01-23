@@ -115,6 +115,10 @@ ul {
   z-index: 11;
 }
 
+.scrollToTop {
+	z-index: 3;
+}
+
 .scrollToTop, .user_message {
   position: relative;
   top:-100%;
@@ -212,7 +216,7 @@ ul {
 	height:0;	
 	top:-100%;
 	left:100%;
-	opacity:0.2;
+	opacity:0.6;
 	z-index: 1;
 }
 

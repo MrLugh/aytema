@@ -44,6 +44,8 @@ function() {
 
         elm.bind('scroll', function() {
 
+            console.log(raw.scrollTop,raw.offsetHeight);
+
             scope.showUp = (raw.scrollTop > raw.offsetHeight) ? true : false;
 
             if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight*.9) {
