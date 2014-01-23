@@ -74,7 +74,7 @@
 				<content-link  ng-switch-when='link' ></content-link>
 				<content-event ng-switch-when='event'></content-event>
 
-				<span class="user_info left" ng-style="hideOnHover()">
+				<span class="user_info left">
 					<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank">
 						<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" />
 						{{content.external_user_name}}
@@ -82,7 +82,7 @@
 					</a>
 				</span>
 
-				<ul class="share left well" ng-style="hideOnHover()">
+				<ul class="share left well">
 					<li class="left inline">
 	                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
 	                		<img src="http://aytema.com/img/themes/simple/twitter.png" alt="Twitter" />
@@ -100,7 +100,7 @@
 	                </li>
 	            </ul>
 
-				<fb-comments ng-if="$index == current" ng-style="hideOnHover()" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both	"></fb-comments>
+				<fb-comments ng-if="$index == current" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
 
 			</li>
 

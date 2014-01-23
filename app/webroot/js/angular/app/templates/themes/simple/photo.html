@@ -6,7 +6,9 @@
 
 	<div class="overlay_content">
 
-		<div class="both">
+		<img ng-src="{{current.src}}" class="content_photo" />
+
+		<div style="position:absolute;width:100%;top:0;left:0;">
 			<div ng-if="moreThanOne()" class="left photo_prev">
 				<a href="#/" skip-default ng-click="move(-1)">
 			 		<img src="http://aytema.com/img/themes/simple/arrow-left.png" alt="Previous photo" />
@@ -19,8 +21,6 @@
 				</a>
 			</div>
 		</div>
-
-		<img ng-src="{{current.src}}" class="content_photo" />
 
 	</div>
 
