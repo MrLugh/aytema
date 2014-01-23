@@ -424,7 +424,7 @@ iframe,object,embed {
 	display: block;
 	position: absolute;
 	width: 10%;
-	height: 50%	;
+	max-height: 50%	;
 	top:0;
 	opacity: 0.5;
 	border:4px outset grey;
@@ -447,8 +447,9 @@ iframe,object,embed {
 	left: 0;
 	opacity: 1;
 	z-index: 2;
-	width: 28%;
+	width: 25%;
 	height: 100%;
+	max-height: 100%;
 	padding:20px;
 }
 
@@ -456,8 +457,9 @@ iframe,object,embed {
 	right: 0;
 	opacity: 1;
 	z-index: 2;
-	width: 28%;
+	width: 25%;
 	height: 100%;
+	max-height: 100%;
 	padding:20px;
 }
 
