@@ -45,7 +45,7 @@
     text-transform: none;
 }
 
-#config .control {
+#config .configcontrol {
     background: url("http://aytema.com/img/config.png") no-repeat scroll center center #F9F9F9;
     display: block;
     height: 51px;
