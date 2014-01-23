@@ -1,4 +1,4 @@
-function themeSimpleCo($scope,appSv,userSv,contentSv) {
+function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.contentSv= contentSv;
 	$scope.userSv	= userSv;
@@ -482,7 +482,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		}
 
 		//style['background-color'] = $scope.config.custom.colors.contentBackground.value;
-		//style['color'] = $scope.config.custom.colors.contentText.value;
+		style['color'] = $scope.config.custom.colors.contentText.value;
 
 		return style;
     }
@@ -645,6 +645,35 @@ function themeSimpleCo($scope,appSv,userSv,contentSv) {
 		}
 
 		return '';
+	}
+
+	$scope.getNavigatorText = function(direction) {
+		var current = $scope.current;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		if (!angular.isDefined($scope.list[current])) {
+			return '';
+		}
+
+		var content = $scope.list[current];
+
+		if (angular.isDefined(content)) {
+			return $sce.trustAsHtml(contentSv.getTitle(content)+contentSv.getDescription(content));
+		}
+
+		return '';		
 	}
 
 }
