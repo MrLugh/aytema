@@ -122,7 +122,6 @@
 		<div ng-show="getNavigatorThumbnail(-1).length>0">
 			<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" class="control_thumbnail"/>
 		</div>
-		<div ng-hide="getNavigatorThumbnail(-1).length>0" ng-bind-html="getNavigatorText(-1)"></div>		
 	</a>
 
 	<a href="#/" skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}_bg right" control-hover="next" style="top:{{menuHeight+4}}px;" title="{{getNavigatorTitle(1)}}" ng-style="getControlStyle(1)">
@@ -131,7 +130,6 @@
 		<div ng-show="getNavigatorThumbnail(1).length>0">
 			<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" class="control_thumbnail"/>
 		</div>
-		<div ng-hide="getNavigatorThumbnail(1).length>0" ng-bind-html="getNavigatorText(-1)"></div>
 	</a>
 
 </div>

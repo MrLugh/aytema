@@ -218,7 +218,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			$scope.current = $scope.list.length - 1;
 		}
 
-		if ( $scope.list.length - 1 - $scope.current < 4 ) {
+		if ( $scope.list.length - 1 - $scope.current < 5 ) {
 			$scope.moreContent();
 		}
 	}
@@ -645,35 +645,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 
 		return '';
-	}
-
-	$scope.getNavigatorText = function(direction) {
-		var current = $scope.current;
-
-		if (direction > 0) {
-			current++;
-		} else {
-			current--;
-		}
-
-		if (current == $scope.list.length) {
-			current = 0;
-		}
-		if (current < 0) {		
-			current = $scope.list.length - 1;
-		}
-
-		if (!angular.isDefined($scope.list[current])) {
-			return '';
-		}
-
-		var content = $scope.list[current];
-
-		if (angular.isDefined(content)) {
-			return $sce.trustAsHtml(contentSv.getTitle(content)+contentSv.getDescription(content));
-		}
-
-		return '';		
 	}
 
 }

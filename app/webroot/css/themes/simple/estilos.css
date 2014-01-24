@@ -47,6 +47,14 @@ input::-moz-focus-inner {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
+blockquote {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+
 *[ ng-click ] {
   cursor: pointer ;
 }
@@ -338,7 +346,8 @@ iframe,object,embed {
 	height: auto;	
 	opacity: 1;
 	background: rgba(0, 0, 0, 0.2);
-	top: 0;	
+	top: 0;
+	margin: 15px;
 }
 
 .content .profile {
@@ -467,6 +476,7 @@ iframe,object,embed {
 
 .control_thumbnail {
 	width: 100%;
+	padding: 10px;
 	-webkit-transition:all 0.56s ease;
 	-moz-transition:all 0.56s ease;
 	-o-transition:all 0.56s ease;
