@@ -476,7 +476,6 @@ iframe,object,embed {
 
 .control_thumbnail {
 	width: 100%;
-	padding: 10px;
 	-webkit-transition:all 0.56s ease;
 	-moz-transition:all 0.56s ease;
 	-o-transition:all 0.56s ease;
