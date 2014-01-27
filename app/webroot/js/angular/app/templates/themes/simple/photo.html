@@ -3,10 +3,9 @@
 
 	<div style="background:url('{{current.src}}');background-size:cover;background-position: center center;" class="overlay_photo"></div>
 
-
 	<div class="overlay_content">
 
-		<img ng-src="{{current.src}}" class="content_photo" />
+		<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" />
 
 		<div style="position:absolute;width:100%;top:0;left:0;">
 			<div ng-if="moreThanOne()" class="left photo_prev {{content.network}}_bg">

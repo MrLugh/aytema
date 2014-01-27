@@ -13,7 +13,7 @@
 				<img src="http://aytema.com/img/themes/digest/arrow-right.png" alt="Next photo" />
 			</a>
 		</div>
-		<img ng-src="{{current.src}}" class="content_photo" />
+		<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" />
 
 	</div>
 

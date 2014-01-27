@@ -435,6 +435,14 @@ p {
 
 }
 
+.content_photo {
+  -webkit-transition:all 0.56s ease;
+  -moz-transition:all 0.56s ease;
+  -o-transition:all 0.56s ease;
+  transition:all 0.56s ease;
+}
+
+
 .content img {
   width: 100%;
   height: auto;
@@ -450,6 +458,10 @@ p {
 }
 
 .modalContent {
+  -webkit-transition:all 0.56s ease;
+  -moz-transition:all 0.56s ease;
+  -o-transition:all 0.56s ease;
+  transition:all 0.56s ease;  
   position: relative;
   left: 0;
   width: 100%;
