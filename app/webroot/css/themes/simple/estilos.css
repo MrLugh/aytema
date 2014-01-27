@@ -576,7 +576,7 @@ iframe,object,embed {
 	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
 }
 
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 480px) {
 	.content_hover .content_photo {
 		max-height: 100%;
 	}
