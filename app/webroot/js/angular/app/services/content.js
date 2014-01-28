@@ -3,6 +3,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var user 		= userSv.getUser();
 	var dicContent	= [];
 
+	var queue 		= [];
+
 	/* content networks and concept lists
 	lists = {
 		networks : {
@@ -780,6 +782,18 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	}
 
+	var addToQueue = function(content) {
+
+		if (queue.indexOf(content) == -1) {
+			queue.push(content);
+		}
+	}
+
+	var deleteFromQueue = function(content) {
+		delete queue[queue.indexOf(content)];
+		console.log(queue);
+	}
+
 	var createContent = function(content) {
 		var deferred = $q.defer();
 
@@ -847,7 +861,13 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getFacebookShareOptions:getFacebookShareOptions,
 		getTumblrShareOptions:getTumblrShareOptions,
 
-		createContent:createContent
+		createContent:createContent,
+
+		addToQueue:addToQueue,
+		getQueue: function() {
+			return queue;
+		},
+		deleteFromQueue:deleteFromQueue,
 
 	};
 

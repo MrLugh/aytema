@@ -26,8 +26,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	];
 	$scope.activeAdminTab = 'pagefilter';    
 
-	$scope.isAding		= false;
-	$scope.toAdd		= '';
+	$scope.showFooter = false;
 
 	userSv.loadThemeConfig('simple');
 	userSv.loadAccounts();
@@ -179,6 +178,12 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			$scope.config.custom.width = width;
 			$scope.getAppStyle();
 		}		
+	},true);
+
+	$scope.$watch("contentSv.getQueue()",function(queue){
+		if (queue.length>0) {
+			$scope.showFooter = true;
+		}
 	},true);	
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
@@ -187,8 +192,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
         $scope.getStyle();
     });
 
-	$scope.$watchCollection("[userMessage,showUp]",function(values){
-		console.log("watch [userMessage,showUp] ",values)
+	$scope.$watchCollection("[showFooter]",function(values){
 		$scope.getFooterStyle();
 	});
 
@@ -201,7 +205,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.getNavigatorNetwork(1);
 		$scope.getContentStyle();
 		$scope.hideOnHover();
-	});	
+	});
 
 	$scope.move = function(direction) {
 
@@ -308,6 +312,10 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		return {'min-height':appSv.getHeight() - $scope.menuHeight + 'px'};
 	}
 
+	$scope.getQueueStyle = function() {
+		return {'width':appSv.getWidth() + 'px'};
+	}
+
 
 	$scope.getAccountLink = function(index,external_user_id) {
 		for (var x in $scope.accounts) {
@@ -340,22 +348,12 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		return {'display':'block'}
 	}
 
-    $scope.getConfigStyle = function() {
-	   	if ($scope.showConfig == true) {
-	   		return {'left':'0'};
-    	}
-	   	return {'left':'0'};
-    };
-
-    $scope.getConfigButtonStyle = function() {
-	   	if ($scope.showConfig == true) {
-	   		return {'left':'100%'};
-    	}
-	   	return {'left':'0'};
-    };	
-
     $scope.adminTheme = function() {
     	$scope.showConfig = !$scope.showConfig;
+    };
+
+    $scope.footer = function() {
+    	$scope.showFooter = !$scope.showFooter;
     };
 
     $scope.getAppStyle = function() {
@@ -398,6 +396,20 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
 	}
 
+    $scope.getConfigStyle = function() {
+	   	if ($scope.showConfig == true) {
+	   		return {'left':'0'};
+    	}
+	   	return {'left':'0'};
+    };
+
+    $scope.getConfigButtonStyle = function() {
+	   	if ($scope.showConfig == true) {
+	   		return {'left':'100%'};
+    	}
+	   	return {'left':'0'};
+    };
+
     $scope.getFooterStyle = function() {
 
     	var width = "100%";
@@ -406,17 +418,20 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
     	var style = {'width':width};
-	   	if ($scope.showUp == true) {
+	   	if ($scope.showFooter == true) {
 	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
-	   		style['z-index'] = '2';
-	   		style['opacity'] = '1';
 	   		return style;	   		
     	}
     	style['top'] = '100%';
-   		style['z-index'] = '1';
-   		style['opacity'] = '0';
 	   	return style;
     }
+
+    $scope.getFooterButtonStyle = function() {
+	   	if ($scope.showFooter == true) {
+	   		return {'bottom':'100%'};
+    	}
+	   	return {'bottom':'0'};
+    };	    
 
     $scope.getMenuStyle = function() {
 
@@ -647,4 +662,21 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		return '';
 	}
 
+	$scope.hasPlayer = function(index) {
+
+		var content = contentSv.getQueue()[index];
+		if (!angular.isDefined(content)) {
+			return false;
+		}
+		return true;
+	}
+
+	$scope.getPlayer = function(index) {
+
+		var content = contentSv.getQueue()[index];
+		if (!angular.isDefined(content)) {
+			return $sce.trustAsHtml("");
+		}
+		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
+	}
 }

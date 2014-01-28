@@ -110,9 +110,16 @@
 
 	<div class="footer" ng-style="getFooterStyle()" get-footer-height>
 
-		<a href="#/" ng-show="showUp" ng-click="scrollToTop()" class="scrollToTop right" skip-default>
-			<img src="http://aytema.com/img/themes/simple/scrollTop.png" />
-		</a>
+		<a href="#/" class="footercontrol" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>Player <i class="icon-cogs"></i></a>
+
+		<div ng-show="showFooter" class="queued">
+			<ul ng-style="getQueueStyle()">
+				<li ng-repeat="content in contentSv.getQueue()" class="{{content.network}}_{{content.concept}}" style="position:relative;" ng-if="hasPlayer($index)">
+					<i class="icon-remove-circle both" ng-click="contentSv.deleteFromQueue(content)"></i>
+					<div class="player both" ng-bind-html="getPlayer($index)"></div>
+				</li>
+			</ul>
+		</div>
 
 	</div>
 

@@ -117,32 +117,6 @@ ul {
   margin:0 auto;
 }
 
-.footer {
-  position: fixed;
-  display: block;
-  top:100%;
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;  
-  z-index: 11;
-}
-
-.scrollToTop, .user_message {
-  position: relative;
-  top:-100%;
-  left: 0;
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;  
-}
-
-.scrollToTop img {
-  width: 40px;
-  height: auto;
-}
-
 #container {
 	text-align: center;
 	margin: 0 auto;
@@ -204,7 +178,7 @@ ul {
 	max-height: 60%;
 }
 
-.content_hover .content_photo, .content_hover .player {
+.content_hover .content_photo {
 	border: 6px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -284,32 +258,6 @@ iframe,object,embed {
 
 .post iframe, .post object, .post embed {
 	width: 100%;
-}
-
-.soundcloud_track .player, .soundcloud_track, .soundcloud_track iframe, .soundcloud_audio_player {
-  height: auto!important;
-  width: 100%!important;
-}
-
-.mixcloud_track .player iframe .mixcloud_track .player embed, .mixcloud_track .player object {
-	width: 100%!important;
-	height: 100%!important;
-	max-width: 500px;
-	max-height: 500px;
-}
-
-.youtube_video iframe {
-	width: 100%!important;
-	height: 100%!important;
-	max-width: 640px;
-	max-height: 480px;	
-}
-
-.vimeo_video iframe {
-	width: 100%!important;
-	height: 100%!important;
-	max-width: 500px;
-	max-height: 455px;	
 }
 
 .content .content_caption {
@@ -580,4 +528,81 @@ iframe,object,embed {
 	.content_hover .content_photo {
 		max-height: 100%;
 	}
+}
+
+
+.footer {
+	position: absolute;
+	-webkit-transition:all 0.66s ease;
+	-moz-transition:all 0.66s ease;
+	-o-transition:all 0.66s ease;
+	transition:all 0.66s ease;
+	z-index: 5;
+	max-height: 300px;
+	background: rgba(0,0,0,0.9);
+	color:white;
+}
+
+.footercontrol {
+    background: url("http://aytema.com/img/themes/simple/playButton.png") no-repeat scroll center center #F9F9F9;
+    background-size:51px 51px;
+    display: block;
+    height: 51px;
+    position: absolute;
+    text-indent: -9999px;
+    width: 51px;
+    outline: none;
+    border: none;
+}
+
+.queued {
+	height: 250px;
+	width: 100%;
+	z-index: 6;
+}
+
+.queued ul {
+	height: 250px;
+	max-height: 250px;
+	width: 100%;
+	overflow-x:auto;
+	overflow-y:hidden;
+	white-space: nowrap;
+}
+
+.queued ul li {
+	display: inline-block;
+	height: 250px;
+	max-height: 250px;	
+	padding: 20px;	
+}
+
+.queued .player {
+	float: left;
+	height: 250px!important;
+}
+
+.queued .soundcloud_track .player,
+.queued .soundcloud_track,
+.queued .soundcloud_track iframe,
+.queued .soundcloud_audio_player {
+  height: 200px!important;
+  width: 380px!important;
+}
+
+.queued .mixcloud_track .player iframe,
+.queued .mixcloud_track .player embed,
+.queued .mixcloud_track .player object {
+	height: 200px!important;
+	width: 200px!important;
+}
+
+.youtube_video iframe {
+	height: 200px!important;
+	width: 200px!important;
+}
+
+.vimeo_video iframe {
+	height: 200px!important;
+	width: 200px!important;
 }
