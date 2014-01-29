@@ -10,12 +10,14 @@
 
 		<div class="overlay_content">
 			
-			<a href="#/" add-to-queue="getPlayer()" skip-default>Add to queue</a>
 			<div ng-if="canShowThumbnail()">
 				<img ng-src="{{getThumbnail()}}" class="content_photo" />
 			</div>
 
 			<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0"> 
+				<a href="#/" add-to-queue="getPlayer()" skip-default class="right">
+					<img src="http://aytema.com/img/themes/simple/playButton.png" width="40px" height="40px" />
+				</a>
 				<h2>{{getTitle()}}</h2>
 				<p ng-bind-html="getDescription()"></p>
 			</div>
