@@ -539,7 +539,7 @@ iframe,object,embed {
 	transition:all 0.66s ease;
 	z-index: 5;
 	max-height: 300px;
-	background: rgba(0,0,0,0.9);
+	background: rgba(0,0,0,0.5);
 	color:white;
 }
 
@@ -568,6 +568,13 @@ iframe,object,embed {
 	overflow-x:auto;
 	overflow-y:hidden;
 	white-space: nowrap;
+    scrollbar-face-color: #ffffff;
+    scrollbar-shadow-color: #2D2C4D;  
+    scrollbar-highlight-color:#7D7E94;  
+    scrollbar-3dlight-color: #7D7E94;  
+    scrollbar-darkshadow-color: #2D2C4D;  
+    scrollbar-track-color: #7D7E94;  
+    scrollbar-arrow-color: #C1C1D1;	
 }
 
 .queued ul li {
@@ -605,4 +612,8 @@ iframe,object,embed {
 .vimeo_video iframe {
 	height: 200px!important;
 	width: 200px!important;
+}
+
+.playButton {
+	z-index:7; 
 }
