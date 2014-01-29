@@ -8,12 +8,12 @@
 			<img ng-src="{{getThumbnail()}}" class="content_photo" />
 		</div>
 
-		<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0"> 
+		<div class="content_caption"> 
 			<a href="#/" add-to-queue="getPlayer()" skip-default class="right">
 				<img src="http://aytema.com/img/themes/simple/playButton.png" width="40px" height="40px" />
 			</a>
-			<h2>{{getTitle()}}</h2>
-			<p ng-bind-html="getDescription()"></p>
+			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+			<p ng-if="getDescription().length>0" ng-bind-html="getDescription()"></p>
 		</div>
 
 	</div>
