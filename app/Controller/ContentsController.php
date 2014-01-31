@@ -4,6 +4,7 @@
 App::import('Vendor', 'CollectData', array('file' => 'collect_data/collect_data.php'));
 App::import('model','Socialnet');
 App::import('model','Content');
+App::import('model','User');
 
 class ContentsController extends AppController {
 
@@ -13,6 +14,7 @@ class ContentsController extends AppController {
 
         $this->Auth->allow('index','view','relateds');
         $this->loadModel('Socialnet');
+        $this->loadModel('User');
     }    
 
     public function index() {
@@ -24,12 +26,26 @@ class ContentsController extends AppController {
         isset($this->request->query['concepts']) ? $selected_types = $this->request->query['concepts'] : $selected_types = null;
         isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
         isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
+        isset($this->request->query['username']) ? $username = $this->request->query['username'] : $username = null;
+
+        //echo "<pre>";var_dump($this->request->query);echo "</pre>";
+
+        $findUser = $this->User->findByUsername($username);
+        if (empty($findUser)) {
+            $this->set(array(
+                'contents'  => array(),
+                '_serialize'=> array('contents')
+            ));
+            $this->render();
+        }
+
+        //echo "<pre>";var_dump($findUser);echo "</pre>";
 
         $params['Content.status'] = 'enabled';
 
         if (!empty($accounts)) {
             $socialnets = $this->Socialnet->find('all', array(
-                'conditions'=> array('Socialnet.id'=>$accounts),
+                'conditions'=> array('Socialnet.id'=>$accounts,'Socialnet.user_id'=>$findUser['User']['id']),
                 )
             );
             foreach ($socialnets as $key => $account) {
@@ -53,6 +69,9 @@ class ContentsController extends AppController {
 
         //TEST
         //$params['Content.concept'] = array('photo'=>'photo');
+
+
+        //echo "<pre>";var_dump($params);echo "</pre>";
 
         $contents = $this->Content->find('all', array(
             'conditions'=> $params,

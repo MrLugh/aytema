@@ -69,11 +69,14 @@ class UsersController extends AppController {
 
     public function view($username) {
         $findUser = $this->User->findByUsername($username);
-        $user = array('username'=>$username);
-        $type = Theme::$default;
-        if ( !empty($findUser) && $this->Auth->user('id') == $findUser['User']['id'] ) {
+        if (empty($findUser)) {
+            $this->redirect("/");
+        }
+
+        $user = array('username'=>$findUser['User']['username']);
+        $type = $findUser['User']['theme'];
+        if ( $this->Auth->user('id') == $findUser['User']['id'] ) {
             $user['id'] = $this->Auth->user('id');
-            $type = $findUser['User']['theme'];
         }
 
         $this->layout = "/themes/{$type}/index";

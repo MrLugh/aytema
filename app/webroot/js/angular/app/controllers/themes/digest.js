@@ -115,7 +115,12 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 			params['concepts']	= JSON.parse(JSON.stringify(filters.concepts));
 			params['offset']	= $scope.offset;
 			params['limit']		= $scope.limit;
-			params['accounts'] = [];
+			params['accounts']	= [];
+
+			params['username']	= $scope.user.username;
+			if (angular.isDefined($scope.user['id'])) {
+				params['user_id']	= $scope.user.id;
+			}
 
 			for (var x in $scope.accounts) {
 				var account = $scope.accounts[x].Socialnet;

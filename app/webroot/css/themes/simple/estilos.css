@@ -620,8 +620,8 @@ iframe,object,embed {
 .queued .soundcloud_track,
 .queued .soundcloud_track iframe,
 .queued .soundcloud_audio_player {
-  height: 200px!important;
-  width: 380px!important;
+	height: 200px!important;
+	width: 200px!important;
 }
 
 .queued .mixcloud_track .player iframe,

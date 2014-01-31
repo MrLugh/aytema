@@ -22,6 +22,11 @@ class ThemesController extends AppController {
 
         $this->layout = "/themes/{$type}/index";
         $findUser = $this->User->findByUsername($username);
+
+        if (empty($findUser) || !$this->Auth->user('id')) {
+            $this->redirect("/");
+        }
+
         if ( !empty($user) && $this->Auth->user('id') == $findUser['User']['id'] ) {
             $user['id'] = $this->Auth->user('id');
         }

@@ -4,6 +4,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.userSv	= userSv;
 	$scope.user 	= userSv.getUser();
 
+	console.log($scope.user);
+
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
@@ -105,6 +107,11 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			params['offset']	= $scope.offset;
 			params['limit']		= $scope.offset == 0 ? $scope.limit : 1;
 			params['accounts']	= [];
+
+			params['username']	= $scope.user.username;
+			if (angular.isDefined($scope.user['id'])) {
+				params['user_id']	= $scope.user.id;
+			}
 
 			for (var x in $scope.accounts) {
 				var account = $scope.accounts[x].Socialnet;

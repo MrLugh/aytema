@@ -551,11 +551,6 @@ p {
   box-shadow: 0 3px 5px #444444;
 }
 
-.soundcloud_track iframe, .soundcloud_audio_player {
-  height: auto!important;
-  width: 100%;
-}
-
 #container .photo,
 #container .post,
 #container .track,

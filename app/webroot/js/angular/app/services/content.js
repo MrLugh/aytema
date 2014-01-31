@@ -462,8 +462,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 			if (content.network == 'soundcloud') {
 				if (angular.isDefined(content.data['artwork_url']) &&
-					typeof content.data['artwork_url'] == 'string') {
-					source = content.data['artwork_url'];
+					typeof content.data['artwork_url'] == 'string'){
+						source = content.data['artwork_url'].replace("large","t500x500");
 				}
 			}
 
@@ -542,8 +542,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'soundcloud') {
-				url = content.data['permalink_url'];
-				source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'&show_artwork=true&auto_play=true&buying=false&download=true&legacy_fallback=false&liking=false&sharing=true&show_comments=true&show_playcount=true"></iframe>';
+				//url = content.data['permalink_url'];
+				url = "http://api.soundcloud.com/tracks/"+content.data['id'];
+				console.log(url);
+				source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'&visual=true&liking=false&sharing=false&auto_play=false&show_comments=false&continuous_play=false&origin=tumblr"></iframe>';
 			}
 
 			if (content.network == 'mixcloud') {
