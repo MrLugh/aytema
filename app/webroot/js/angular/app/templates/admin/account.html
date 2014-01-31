@@ -2,7 +2,31 @@
 
 	<div class="accountPageHeader {{account.network}}AccountPageHeader both">
 
-		<div class="both">
+		<ul ng-if="concepts.length > 1" class="filterList right">
+			
+			<li>
+				<h2>Filter by:</h2>
+			</li>
+
+			<li ng-repeat="concept in concepts" ng-click="filter(concept)" ng-style="filterStyle(concept)">
+				<i ng-class="conceptIcon(concept)"></i> {{countByConcept(concept)}}
+			</li>
+
+		</ul>
+
+		<ul ng-if="account.network == 'aytema'" class="filterList right">
+			
+			<li>
+				<h2>Create:</h2>
+			</li>
+
+			<li ng-repeat="concept in concepts">
+				<i ng-class="conceptIcon(concept)" ng-click="showAddContent(concept)"></i> {{countByConcept(concept)}}
+			</li>
+
+		</ul>
+
+		<div>
 			<span ng-click="move(-1)">Prev</span>
 			<span ng-click="closeAccount()">Close</span>
 			<span ng-click="move(1)">Next</span>
@@ -17,30 +41,6 @@
 					<i ng-class="statIcon(key)"></i> {{stat}}
 				</div>
 			</li>
-		</ul>
-
-		<ul ng-if="concepts.length > 1" class="filterList right">
-			
-			<li>
-				<h2>Filter by:</h2>
-			</li>
-
-			<li ng-repeat="concept in concepts" ng-click="filter(concept)" ng-style="filterStyle(concept)">
-				<i ng-class="conceptIcon(concept)"></i> {{countByConcept(concept)}}
-			</li>
-
-		</ul>
-
-		<ul ng-if="account.network == 'aytema'" class="filterList right both">
-			
-			<li>
-				<h2>Create:</h2>
-			</li>
-
-			<li ng-repeat="concept in concepts">
-				<i ng-class="conceptIcon(concept)" ng-click="showAddContent(concept)"></i> {{countByConcept(concept)}}
-			</li>
-
 		</ul>
 
 		<span ng-click="moreContent()" class="both left">More Content</span>
