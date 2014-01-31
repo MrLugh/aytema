@@ -96,7 +96,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.getContainerStyle = function() {
-		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() + 'px'};
+		return {'min-height':appSv.getHeight() - $scope.getOffsetTop()  - $scope.$parent.menuHeight + 'px'};
 	}	
 
 	$scope.countByNetwork = function(network) {

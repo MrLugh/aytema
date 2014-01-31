@@ -145,7 +145,8 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.getContainerStyle = function() {
-		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() + 'px'};
+		console.log($scope.$parent.menuHeight);
+		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() - $scope.$parent.menuHeight + 'px'};
 	}
 
 	$scope.getContentSize = function(index) {

@@ -1,10 +1,16 @@
-<div class="right">
-<!--<form action="#/login" ng-submit="login()" onsubmit="return false;" method="post" accept-charset="utf-8">-->
+<div class="navbar-form navbar-left">
+<!--<form class="navbar-form navbar-left" role="login">-->
 	<input type="hidden" name="_method" value="POST"/>
-	<input type="text" name="username" ng-model="username" maxlength="50" placeholder="username" required/>
-	<input type="password" name="password" ng-model="password" placeholder="password" maxlength="8" required/>
-	<input type="submit" value="Login" ng-click="login()"/>
-	<a href="/users/register">Sign up</a>
+	<div class="form-group">
+		<input type="text" name="username" ng-model="username" placeholder="username" required class="form-control"/>
+	</div>
+	<div class="form-group">		
+		<input type="password" name="password" ng-model="password" placeholder="password" maxlength="8" required class="form-control"/>
+	</div>
+	<div class="form-group">		
+		<input type="submit" value="Login" ng-click="login()" class="btn btn-default"/>
+	</div>
+	<a href="/users/register" class="btn btn-default">Sign up</a>
 	{{loginMessage}}
 <!--</form>-->
 </div>
