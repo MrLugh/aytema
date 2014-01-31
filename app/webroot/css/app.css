@@ -435,7 +435,7 @@ ul {
 
 
 .account.ng-enter {
-  left: 0;
+  left: 100%;
   opacity: 0;
 }
 
@@ -444,11 +444,11 @@ ul {
 }
 
 .account.ng-leave {
-
+  top: 0;
 }
 
 .account.ng-leave.ng-leave-active {
-
+  top: 100%;
 }
 
 
@@ -482,9 +482,9 @@ ul {
 }
 
 .accountDetail.ng-leave {
-  left: 0;
+  top:0;
 }
 
 .accountDetail.ng-leave.ng-leave-active {
-  left: -100%;
+  top:100%;
 }

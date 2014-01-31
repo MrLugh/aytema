@@ -568,6 +568,9 @@ iframe,object,embed {
 	overflow-x:auto;
 	overflow-y:hidden;
 	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+	text-align: left;
     scrollbar-face-color: #ffffff;
     scrollbar-shadow-color: #2D2C4D;  
     scrollbar-highlight-color:#7D7E94;  
