@@ -65,20 +65,6 @@ function(contentSv) {
 
             scope.$apply(contentSv.addToQueue(scope.content));
 
-            /*
-            var content_class= scope.content.network + '_' + scope.content.concept;
-
-            var div  = document.createElement("div");
-            $(div).addClass(content_class).addClass('player');
-
-            var player = $compile( scope.$apply(attr.addToQueue) )( scope );
-
-            $(div).append(player);
-            $(document.querySelector(".queued")).append(div);
-
-            scope.$emit('ay.showFooter');
-            */
-
         });
         
     };

@@ -53,6 +53,11 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			params['limit']		= $scope.limit;
 			params['accounts'] = [$scope.account.id];
 
+			params['username']	= $scope.user.username;
+			if (angular.isDefined($scope.user['id'])) {
+				params['user_id']	= $scope.user.id;
+			}			
+
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
 					var contents = data.contents;

@@ -419,8 +419,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     left: -100%;
 }
 
-
-
 .content_detalle .right-column.ng-enter {
     right:-100%;
 }
