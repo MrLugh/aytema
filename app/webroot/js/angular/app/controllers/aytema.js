@@ -34,13 +34,17 @@ function aytemaCo($scope,$location,userSv) {
 		}
 	});
 
+	$scope.isLogged = function() {
+		return userSv.isLogged();
+	}	
+
 	if ($location.path() == '/themes') {
 		$scope.activateStep(2);
 	} else if ($location.path() == '/share') {
 		$scope.activateStep(3);
 	} else if ($location.path() == '/accounts') {
 		$scope.activateStep(1);
-	} else {
+	} else if($scope.isLogged()) {
 		$location.path("/accounts");
 		$scope.activateStep(1);
 	}
