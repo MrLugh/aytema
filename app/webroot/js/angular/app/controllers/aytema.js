@@ -38,11 +38,11 @@ function aytemaCo($scope,$location,userSv) {
 		return userSv.isLogged();
 	}	
 
-	if ($location.path() == '/themes') {
+	if ($scope.isLogged() && $location.path() == '/themes') {
 		$scope.activateStep(2);
-	} else if ($location.path() == '/share') {
+	} else if ($scope.isLogged() && $location.path() == '/share') {
 		$scope.activateStep(3);
-	} else if ($location.path() == '/accounts') {
+	} else if ($scope.isLogged() && $location.path() == '/accounts') {
 		$scope.activateStep(1);
 	} else if($scope.isLogged()) {
 		$location.path("/accounts");
