@@ -1,4 +1,4 @@
-function aytemaCo($scope,userSv) {
+function aytemaCo($scope,$location,userSv) {
 
 	$scope.user = userSv.getUser();
 	$scope.steps= $scope.user.steps;
@@ -33,5 +33,16 @@ function aytemaCo($scope,userSv) {
 			$scope.searchUsers();
 		}
 	});
+
+	if ($location.path() == '/themes') {
+		$scope.activateStep(2);
+	} else if ($location.path() == '/share') {
+		$scope.activateStep(3);
+	} else if ($location.path() == '/accounts') {
+		$scope.activateStep(1);
+	} else {
+		$location.path("/accounts");
+		$scope.activateStep(1);
+	}
 
 }

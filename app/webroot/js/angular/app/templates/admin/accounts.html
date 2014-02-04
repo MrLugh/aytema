@@ -59,12 +59,15 @@
 
 					<div class="both">
 
-						<img ng-src="{{account.profile_image}}" class="profileImage img-circle" ng-click="showAccount($index)"/>
+						<a href="#/" ng-click="showAccount($index)" class="both" skip-default>
+							<img ng-src="{{account.profile_image}}" class="profileImage img-circle"/>
+						</a>
+						
 
 					</div>
 
 					<div class="both">
-						<a href="/#" ng-click="showAccount($index)" class="both" skip-default>{{account.login}}</a>
+						<a href="#/" ng-click="showAccount($index)" ng-click="showAccount($index)" class="both" skip-default>{{account.login}}</a>
 					</div>				
 
 				</li>

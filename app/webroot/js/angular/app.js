@@ -16,8 +16,22 @@ var ayTemaApp = angular.module('ayTemaApp',[
 
 ayTemaApp.config(['$routeProvider','$httpProvider', function($routeProvider,$httpProvider) {
     $routeProvider.when('/', {
-    	templateUrl: getPath('tpl')+'/index.html', controller: appCo
+    	templateUrl: getPath('tpl')+'/index.html',
+    	controller: appCo,
+    	reloadOnSearch: false
     });
+
+    $routeProvider.when('/accounts', {
+    	templateUrl: getPath('tpl')+'/index.html',
+    	controller: appCo,
+    	reloadOnSearch: false
+    });
+
+    $routeProvider.when('/themes', {
+    	templateUrl: getPath('tpl')+'/index.html',
+    	controller: appCo,
+    	reloadOnSearch: false
+    });    
     
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

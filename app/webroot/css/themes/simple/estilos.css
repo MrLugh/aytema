@@ -614,26 +614,10 @@ iframe,object,embed {
     -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5);	
 }
 
-.queued .soundcloud_track .player iframe {
+.queued iframe, .queued object, .queued embed, .queued video, .queued audio {
 	height: 200px;
 	width: 200px;
-}
-
-.queued .mixcloud_track .player iframe,
-.queued .mixcloud_track .player embed,
-.queued .mixcloud_track .player object {
-	height: 200px;
-	width: 200px;
-}
-
-.youtube_video iframe {
-	height: 200px;
-	width: 200px;
-}
-
-.vimeo_video iframe {
-	height: 200px;
-	width: 200px;
+	display: inline-block!important;
 }
 
 .playButton {
