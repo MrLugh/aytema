@@ -1,18 +1,20 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}_detail" class="photo {{content.network}}_{{content.concept}}">
 
-	<div ng-if="moreThanOne()" style="position:absolute;top:35%;width:10%;width:10%;left:0;" class="{{content.network}}_bg">
-		<a href="#/" skip-default ng-click="move(-1)">
-	 		<img src="http://aytema.com/img/themes/digest/arrow-left.png" alt="Previous photo" />
-	 	</a>
-	</div>
-
-	<div ng-if="moreThanOne()" style="position:absolute;top:35%;width:10%;right:0;" class="{{content.network}}_bg">
-		<a href="#/" skip-default ng-click="move(1)">
-			<img src="http://aytema.com/img/themes/digest/arrow-right.png" alt="Next photo" />
-		</a>
-	</div>
-
 	<h2>{{getTitle()}}</h2>
+
+	<div style="position:relative;display:block;margin:0 auto;">
+		<div ng-if="moreThanOne()" style="position:absolute;top:0;width:10%;left:0;" class="{{content.network}}_bg">
+			<a href="#/" skip-default ng-click="move(-1)">
+		 		<img src="http://aytema.com/img/themes/digest/arrow-left.png" alt="Previous photo" />
+		 	</a>
+		</div>
+
+		<div ng-if="moreThanOne()" style="position:absolute;top:0;width:10%;right:0;" class="{{content.network}}_bg">
+			<a href="#/" skip-default ng-click="move(1)">
+				<img src="http://aytema.com/img/themes/digest/arrow-right.png" alt="Next photo" />
+			</a>
+		</div>
+	</div>
 
 	<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo photoimg':'photoimg'" />
 

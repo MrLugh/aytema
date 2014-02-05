@@ -603,13 +603,13 @@ p {
 }
 
 .content .photo .photo_prev {
-  position: relative;
-  left: 40px;
+  position: absolute;
+  left: 0;
 }
 
 .content .photo .photo_next {
-  position: relative;
-  right: 40px;
+  position: absolute;
+  right: 0;
 }
 
 .content .photo .photo_prev img, .content .photo .photo_next img {
