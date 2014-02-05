@@ -615,3 +615,8 @@ p {
 .content .photo .photo_prev img, .content .photo .photo_next img {
   width:40px;
 }
+
+.content .soundcloud_track iframe, .content .tumblr_track iframe {
+  width: 100%;
+  height: 100%;
+}
