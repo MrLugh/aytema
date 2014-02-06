@@ -90,6 +90,11 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			'key'		: 'simple',			
 			'thumbnail'	: getPath('img')+'/themes/disco/thumb.png',
 		},
+		{
+			'name'		: 'Space',
+			'key'		: 'space',			
+			'thumbnail'	: getPath('img')+'/themes/space/thumb.jpg',
+		},		
 	];
 
 	return {

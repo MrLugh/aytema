@@ -61,18 +61,9 @@
 
 	<div id="container">
 
-		<ul id="list" infinite-scroll="moreContent()" ng-style="getStyle()">
+		<ul id="list" infinite-scroll="moreContent()" on-scroll ng-style="getStyle()">
 
-			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="getContentClass($index)" id="content_{{$index}}" ng-style="getContentStyle()">
-
-				<content-video ng-switch-when='video'></content-video>
-				<content-photo ng-switch-when='photo'></content-photo>
-				<content-track ng-switch-when='track'></content-track>
-				<content-post  ng-switch-when='post' ></content-post>
-				<content-quote ng-switch-when='quote'></content-quote>
-				<content-chat  ng-switch-when='chat' ></content-chat>
-				<content-link  ng-switch-when='link' ></content-link>
-				<content-event ng-switch-when='event'></content-event>
+			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="getContentClass($index)" id="content_{{$index}}" ng-style="getContentStyle()" on-hover>
 
 				<span class="user_info left">
 					<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank">
@@ -100,6 +91,16 @@
 	                </li>
 	            </ul>
 
+
+				<content-video ng-switch-when='video'></content-video>
+				<content-photo ng-switch-when='photo'></content-photo>
+				<content-track ng-switch-when='track'></content-track>
+				<content-post  ng-switch-when='post' ></content-post>
+				<content-quote ng-switch-when='quote'></content-quote>
+				<content-chat  ng-switch-when='chat' ></content-chat>
+				<content-link  ng-switch-when='link' ></content-link>
+				<content-event ng-switch-when='event'></content-event>
+
 				<fb-comments ng-if="$index == current" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
 
 			</li>
@@ -122,21 +123,5 @@
 		</div>
 
 	</div>
-
-	<a href="#/" skip-default ng-click="move(-1)" ng-if="list.length>1" class="control control_prev {{getNavigatorNetwork(-1)}}_bg left" control-hover="prev" style="top:{{menuHeight+4}}px;" title="{{getNavigatorTitle(-1)}}" ng-style="getControlStyle(-1)">
-		<img class="social-media right" ng-src="http://aytema.com/img/themes/simple/{{getNavigatorNetwork(-1)}}-big.png" alt=""/>
-		<i class="social-icon right" ng-class="getNavigatorConceptIcon(-1)"></i>
-		<div ng-show="getNavigatorThumbnail(-1).length>0">
-			<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" class="control_thumbnail"/>
-		</div>
-	</a>
-
-	<a href="#/" skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}_bg right" control-hover="next" style="top:{{menuHeight+4}}px;" title="{{getNavigatorTitle(1)}}" ng-style="getControlStyle(1)">
-		<img class="social-media left" ng-src="http://aytema.com/img/themes/simple/{{getNavigatorNetwork(1)}}-big.png" alt=""/>
-		<i class="social-icon left" ng-class="getNavigatorConceptIcon(1)"></i>
-		<div ng-show="getNavigatorThumbnail(1).length>0">
-			<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" class="control_thumbnail"/>
-		</div>
-	</a>
 
 </div>

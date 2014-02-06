@@ -1,0 +1,21 @@
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="track {{content.network}}_{{content.concept}}">
+
+	<div style="background:url('{{getThumbnail()}}');background-size:cover;" class="overlay_photo" on-hover-position></div>
+
+	<div class="overlay_content">
+
+		<div ng-if="canShowThumbnail()">
+			<img ng-src="{{getThumbnail()}}" class="content_photo" />
+		</div>
+
+	</div>
+
+	<div class="content_caption"> 
+		<a href="#/" add-to-queue="getPlayer()" skip-default class="right">
+			<img src="http://aytema.com/img/themes/simple/playButton.png" width="40px" height="40px" />
+		</a>
+		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+		<p ng-if="getDescription().length>0" ng-bind-html="getDescription()"></p>
+	</div>	
+
+</div>

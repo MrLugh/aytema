@@ -1,0 +1,77 @@
+*[ ng-click ] {
+    cursor: pointer ;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.both {
+  clear: both;
+}
+
+.hide {
+  display: none;
+}
+
+.next {
+  float: right;
+}
+
+.prev {
+  float: left;
+}
+
+
+#config {
+    background: none repeat scroll 0 0 #F9F9F9;
+    color: #213442 !important;
+    font-size: 12px;
+    line-height: 21px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 20%;
+    z-index: 9000;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    text-transform: none;
+}
+
+#config .configcontrol {
+    background: url("http://aytema.com/img/config.png") no-repeat scroll center center #F9F9F9;
+    display: block;
+    height: 51px;
+    position: absolute;
+    text-indent: -9999px;
+    width: 51px;
+    outline: none;
+    border: none;
+}
+
+#config .inside {
+  width: 100%;
+  min-height: 150px;
+  padding: 20px;
+}
+
+/* Admin */
+.socialIcon {
+  width: 20px;
+}
+
+.active {
+  border-bottom: 1px solid black;
+}
+
+#config ul {
+  padding: 0;
+  margin: 0;
+}
