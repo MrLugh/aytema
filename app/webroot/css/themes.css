@@ -1,5 +1,7 @@
-.themesContainer .list li {
-	display: inline-block;
+.themesContainer {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
 }
 
 .themesContainer .filterList {
@@ -7,19 +9,53 @@
 }
 
 .themesContainer .list {
+	width: 100%;
 	clear: both;
 	text-align: center;
+	margin: 0 auto;
+	padding: 15px;
 }
 
 .themesContainer .theme {
-	width: 200px;
-	margin: 15px;
-	padding: 15px;
-	outline: 1px solid black;
+	width: 300px;
+	height: 300px;
 	text-align: left;
+	display: inline-block;
+	-webkit-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
+	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
+	padding: 15px;
+	margin-top: 15px;
+	margin-left: 15px;
+	overflow: hidden;
 }
 
 .themesContainer .theme .themeThumbnail {
-	width: 150px;
+	width: 200px;
+	height: 270px;
 	cursor: pointer;
+	-webkit-transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease;
+	-o-transition:all 0.56s ease;
+	transition:all 0.56s ease;
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
+	-moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.8);
+	box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.8);	
+}
+
+@media (min-width: 0px) and (max-width: 480px) {
+
+  .themesContainer .theme {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .themesContainer .theme .themeThumbnail {
+  	width: 100%;
+  }
+
 }
