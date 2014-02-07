@@ -872,6 +872,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		},
 		deleteFromQueue:deleteFromQueue,
 
+		getContrast50: function(hexcolor) {
+			return (parseInt(hexcolor, 16) > 0xffffff/2) ? 'black':'white';
+		}
+		
 	};
 
 }]);

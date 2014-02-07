@@ -63,13 +63,17 @@
 
 		<ul id="list" infinite-scroll="moreContent()" on-scroll ng-style="getStyle()">
 
-			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="getContentClass($index)" id="content_{{$index}}" ng-style="getContentStyle()" on-hover>
+			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="getContentClass($index)" id="content_{{$index}}" ng-style="getContentStyle()" on-hover on-load>
 
 				<span class="user_info left">
 					<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank">
 						<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" />
 						{{content.external_user_name}}
 						<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
+					</a>
+					<a href="#/" ng-click="showComments($index)" class="both link_comments" skip-default>
+						<p ng-if="isComments">Hide comments</p>
+						<p ng-if="!isComments">Show comments</p>
 					</a>
 				</span>
 
@@ -101,11 +105,13 @@
 				<content-link  ng-switch-when='link' ></content-link>
 				<content-event ng-switch-when='event'></content-event>
 
-				<fb-comments ng-if="$index == current" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
-
 			</li>
 
 		</ul>
+
+		<div ng-style="getCommentsStyle()" ng-if="isComments" class="overlay_comments">
+			<fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true" data-colorscheme="{{getCommentsColor()}}" class="comments_container"></fb-comments>
+		</div>
 
 	</div>
 

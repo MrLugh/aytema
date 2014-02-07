@@ -7,7 +7,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 10;
+	$scope.limit 	= 4;
 	$scope.offset	= 0;
 	$scope.list 	= [];
 	$scope.filters	= {'concepts':[],'networks':[]};
@@ -15,6 +15,9 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.concepts = [];
 	$scope.current	= 0;
 	$scope.controlHover = false;
+
+	$scope.indexComments= 0;
+	$scope.isComments	= false; 
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -226,8 +229,14 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 	}
 
+	$scope.showComments = function(index) {
+		$scope.isComments	= !$scope.isComments;
+		$scope.indexComments= index;
+	}
+
+
     $scope.getContentCommentsHash = function() {
-    	var c = $scope.list[$scope.current];
+    	var c = $scope.list[$scope.indexComments];
     	return "http://aytema.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
     }	
 
@@ -308,7 +317,32 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.getStyle = function() {
 		appSv.setMyWH(appSv.getHeight() - $scope.menuHeight);
-		return {'min-height':appSv.getHeight() - $scope.menuHeight + 'px'};
+		return {
+			'min-height':appSv.getHeight() - $scope.menuHeight + 'px',
+			'opacity': ($scope.isComments) ? '0':'1'
+		};
+	}
+
+	$scope.getCommentsColor = function() {
+
+		var color = $scope.config.custom.colors.background.value.replace("#","");
+
+		if (contentSv.getContrast50(color) == 'white') {
+			return "dark";
+		}
+		return "light";
+	}
+
+	$scope.getCommentsStyle = function() {
+		var style = {
+			'height':appSv.getHeight() - $scope.menuHeight + 'px',
+			'top':$scope.menuHeight + 'px',
+			'left':($scope.isComments) ? '0':'-100%',
+			'background-color':$scope.config.custom.colors.background.value,
+			'color':$scope.config.custom.colors.contentText.value
+		}
+
+		return style;
 	}
 
 	$scope.getQueueStyle = function() {
@@ -384,8 +418,9 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		var element = angular.element(document.querySelector('#list'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 
-		var element = angular.element(document.querySelector('.control'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+		var element = angular.element(document.querySelector('.link_comments'));
+		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
+
 	}
 
 	$scope.setFont = function() {
