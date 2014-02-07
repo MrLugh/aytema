@@ -166,8 +166,6 @@ ul {
   overflow-x: hidden;
   width: 85%;
   height: auto;
-  opacity: 0.6;
-  filter: alpha(opacity=60);
   text-align:left;
 }
 
