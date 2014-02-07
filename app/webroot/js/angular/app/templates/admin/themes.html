@@ -23,9 +23,13 @@
 
 				<div class="center">
 
-					<a ng-href="/themes?type={{theme.key}}&username={{user.username}}">
-						<img ng-src="{{theme.thumbnail}}" class="themeThumbnail"/>
-					</a>
+					<carousel interval="-1">
+						<slide ng-repeat="slide in theme.thumbnails">
+							<a ng-href="/themes?type={{theme.key}}&username={{user.username}}">
+								<img ng-src="{{slide}}" style="margin:auto;">
+							</a>
+						</slide>
+					</carousel>
 
 				</div>
 

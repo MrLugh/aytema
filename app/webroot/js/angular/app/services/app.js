@@ -83,17 +83,27 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 		{
 			'name'		: 'Digest',
 			'key'		: 'digest',
-			'thumbnail'	: getPath('img')+'/themes/digest/thumb.png',
+			'thumbnails': {
+				0:getPath('img')+'/themes/digest/digest.png',
+				1:getPath('img')+'/themes/digest/digest-detail.png',
+			}
 		},
 		{
 			'name'		: 'Simple',
 			'key'		: 'simple',			
-			'thumbnail'	: getPath('img')+'/themes/disco/thumb.png',
+			'thumbnails': {
+				0:getPath('img')+'/themes/simple/simple.png',
+				1:getPath('img')+'/themes/simple/simple-controls.png',
+				2:getPath('img')+'/themes/simple/simple-player.png',
+			}
 		},
 		{
 			'name'		: 'Space',
 			'key'		: 'space',			
-			'thumbnail'	: getPath('img')+'/themes/space/thumb.jpg',
+			'thumbnails': {
+				0:getPath('img')+'/themes/space/space.png',
+				1:getPath('img')+'/themes/space/space-player.png',
+			}
 		},		
 	];
 
