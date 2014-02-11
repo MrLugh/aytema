@@ -220,14 +220,14 @@ ul {
   height: 100%;
   top: 0;
   left: 0;
-  opacity: 1;
+  opacity:1;
   filter: alpha(opacity=100);
   z-index: 1;
 }
 
 
 .content_hover .overlay_photo {
-  opacity:0.8;
+  opacity:0.5;
   filter: alpha(opacity=80);  
 }
 
