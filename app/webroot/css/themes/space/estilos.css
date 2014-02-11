@@ -395,9 +395,9 @@ iframe,object,embed {
 }
 
 /* fb-comments */
-.fb_iframe_widget,
-.fb_iframe_widget span,
-.fb_iframe_widget iframe[style] {
+.overlay_comments .fb_iframe_widget,
+.overlay_comments .fb_iframe_widget span,
+.overlay_comments .fb_iframe_widget iframe[style] {
   width: 100%!important;
   display: block!important;
 }
