@@ -301,8 +301,7 @@ iframe,object,embed {
   position: relative;
   opacity: 0;
   filter: alpha(opacity=0);  
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 20px;
   overflow: hidden;
 
   display: inline-block;
