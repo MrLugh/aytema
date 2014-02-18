@@ -15,7 +15,6 @@ Class Themedigest {
             ),            
             'photos'    => array(
                 'concepts'  => array('photo'),
-                'neworks'   => array('tumblr')
             ),
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),

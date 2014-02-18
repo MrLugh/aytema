@@ -26,7 +26,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		{ title:"Fonts", key:"fonts" },
 		{ title:"Width", key:"width" },
 	];
-	$scope.activeAdminTab = 'pagefilter';    
+	$scope.activeAdminTab = 'colors';
 
 	$scope.showFooter = false;
 

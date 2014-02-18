@@ -55,27 +55,21 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 		},
 		'twitter' : {
 			id : 'l9e7aSs4BVet4Oryv7QsGw',
-			secret	:'xnVrbnu7vl4pvgOYjVTNWm3zMuCJNRd1tnhbBMWpio'
 		},
 		'tumblr' : {
 			id : 'TyJKAYXQm61AsADJ8vpgGLoPcwxpme8LzWaOfRvYGLJeRQ31Az',
-			secret	:'hYkvNmO4UqMMq2lvja7OdoDJsQJEm4VNrpmszt6A9O1hnAzWr4'
 		},
 		'soundcloud' : {
 			id : 'b0b6e1bfc6ac107fe7804f0dd6083538',
-			secret	:'5e5e7cdfb18e7687a5a189f4e4dfa603'
 		},
 		'mixcloud' : {
 			id : 'XvjV23U8zawTxMp368',
-			secret	:'YVeSaskkEfsS8NceZjzsjj8QHsUTfbsb'
 		},
 		'vimeo' : {
 			id : 'b6faa32ad34bfdfad0f3a53d39d0ec25a4d18cb7',
-			secret	:'2094203347c3141b0c0aba804d06c355a55a4b10'
 		},
 		'youtube' : {
 			id : 'AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8',
-			secret	:'_O3NeoH2eltGwBTmYh8Ol5hm'
 		},
 	};
 
@@ -104,7 +98,14 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 				0:getPath('img')+'/themes/space/space.png',
 				1:getPath('img')+'/themes/space/space-player.png',
 			}
-		},		
+		},
+		{
+			'name'		: 'Clubber',
+			'key'		: 'clubber',
+			'thumbnails': {
+				0:getPath('img')+'/themes/clubber/clubber.png',
+			}
+		},
 	];
 
 	return {

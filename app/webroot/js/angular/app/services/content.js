@@ -5,106 +5,11 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	var queue 		= [];
 
-	/* content networks and concept lists
-	lists = {
-		networks : {
-			facebook: {
-				all	: [],
-				concepts	: {
-					photo	: [],
-					video	: [],
-					track	: [],
-					post	: [],
-				}
-			},
-			...
-		},
-		concepts	: {photo:[],video:[],track:[],post:[],...}
-	};
-	*/
-
-	var lists 		= false;
+	var pagesList = {};
 
 	var offset		= 0;
 	var limit		= 8;
 	var loading		= false;
-
-
-	var generateLists = function() {
-
-		lists = {'networks':{},'concepts':{}};
-
-		var networksData = appSv.getNetworks();
-		for (var x in networksData) {
-			var networkData = networksData[x];
-			if (!angular.isDefined(lists['networks'][networkData.network])) {
-				lists['networks'][networkData.network] = {all:[],concepts:{}};
-			}
-
-			for (var y in networkData.concepts) {
-
-				var concept = networkData.concepts[y];
-
-				if (!angular.isDefined(lists['networks'][networkData.network]['concepts'][concept])) {
-					lists['networks'][networkData.network]['concepts'][concept] = [];
-				}
-
-				if (!angular.isDefined(lists['concepts'][concept])) {
-					lists['concepts'][concept] = [];
-				}
-
-			}
-
-		}
-	}
-	
-	var addToLists = function(indexOfDic,content) {
-
-		if (!lists) {
-			generateLists();
-		}
-
-		var index = lists['networks'][content.network]['all'].indexOf(indexOfDic);
-		if (index === -1) {
-			lists['networks'][content.network]['all'].push(indexOfDic);
-		}
-
-		index = lists['networks'][content.network]['concepts'][content.concept].indexOf(indexOfDic);
-		if (index === -1) {
-			lists['networks'][content.network]['concepts'][content.concept].push(indexOfDic);
-		}
-
-		index = lists['concepts'][content.concept].indexOf(indexOfDic);
-		if (index === -1) {
-			lists['concepts'][content.concept].push(indexOfDic);
-		}
-
-	}
-
-	var processContent = function(contents) {
-		//dicContent = contents;
-
-		for (var x in contents) {
-			var content = contents[x].Content;
-
-			// dicContent
-			var index 	= dicContent.indexOf(content);
-			if (index === -1) {
-				//Adding content
-				dicContent.push(content);
-				index = dicContent.length -1;
-			} else {
-				//Updating content
-				for (var key in content) {
-					(!angular.isDefined(dicContent[index][key])) ? dicContent[index][key] = "" : null;
-					dicContent[index][key] = content[key];
-				}
-			}
-
-			addToLists(index,content);
-		}
-
-	}
 
 	var loadContent = function(params) {
 
@@ -245,20 +150,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		return icon_class;        
 	}
 
-	var getListsByNetwork = function(network) {
-		if (!lists || !angular.isDefined(lists['networks']) || !angular.isDefined(lists['networks'][network])) {
-			return [];
-		}
-		return lists['networks'][network];
-	}
-
-	var getListsByConcept = function(concept) {
-		if (!lists || !angular.isDefined(lists['concepts']) || !angular.isDefined(lists['concepts'][concept])) {
-			return [];
-		}
-		return lists['concepts'][concept];
-	}	
-
 	var deleteContent = function(id) {
 		var deferred= $q.defer();
 
@@ -321,10 +212,12 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var deferred= $q.defer();
 
+		/*
 		if (loading) {
 			deferred.resolve({});
 			return;
 		}
+		*/
 
 		loading = true;
 
@@ -468,7 +361,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'mixcloud') {
-				console.log(content.data);
 				if (angular.isDefined(content.data['pictures'])) {
 					source = content.data['pictures']['extra_large'];
 					;
@@ -545,7 +437,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			if (content.network == 'soundcloud') {
 				//url = content.data['permalink_url'];
 				url = "http://api.soundcloud.com/tracks/"+content.data['id'];
-				console.log(url);
 				source = '<iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='+url+'&visual=true&liking=false&sharing=false&auto_play=false&show_comments=false&continuous_play=false&origin=tumblr"></iframe>';
 			}
 
@@ -715,7 +606,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				var element = content.data.photos[x];
 				options.push("p[images]["+x+"]="+element.original_size.url);
 			}
-			console.log(options);
 
 		} else {
 			var thumbnail = this.getThumbnail(content);
@@ -794,7 +684,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	var deleteFromQueue = function(content) {
 		delete queue[queue.indexOf(content)];
-		console.log(queue);
 	}
 
 	var createContent = function(content) {
@@ -804,7 +693,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	    $http({method: 'POST', url: url,data:{content:content}}).
 	    success(function(data, status, headers, config) {
-	    	console.log('success');
 	    	deferred.resolve(data);
 	    }).
 	    error(function(data, status, headers, config) {
@@ -834,8 +722,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		},		
 		cleanSource:cleanSource,
 		loadContent:loadContent,
-		getListsByConcept:getListsByConcept,
-		getListsByNetwork:getListsByNetwork,
 		
 		getContentsByFilters:getContentsByFilters,
 		
@@ -874,8 +760,31 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		getContrast50: function(hexcolor) {
 			return (parseInt(hexcolor, 16) > 0xffffff/2) ? 'black':'white';
+		},
+		cutHex:function(h) {
+			return (h.charAt(0)=="#") ? h.substring(1,7):h
+		},		
+		hexToRgb: function(h){
+			var r = parseInt((this.cutHex(h)).substring(0,2),16);
+			var g = parseInt((this.cutHex(h)).substring(2,4),16);
+			var b = parseInt((this.cutHex(h)).substring(4,6),16);
+
+			var rgb = {r:r,g:g,b:b};
+			return rgb;
+		},
+
+		setPageList: function(page,list) {
+			if (!angular.isDefined(pagesList[page])) {
+				pagesList[page] = {};
+			}
+			pagesList[page] = list;
+		},
+		getPagesList: function() {
+			return pagesList;
+		},
+		getPageList: function(page) {
+			return pagesList[page];
 		}
-		
 	};
 
 }]);

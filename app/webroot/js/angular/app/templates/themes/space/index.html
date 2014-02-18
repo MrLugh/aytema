@@ -69,7 +69,7 @@
 					<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank">
 						<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" />
 						{{content.external_user_name}}
-						<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
+						<img alt="{{network}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
 					</a>
 					<a href="#/" ng-click="showComments($index)" class="both link_comments" skip-default>
 						<p ng-if="isComments">Hide comments</p>

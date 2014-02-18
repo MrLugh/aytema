@@ -51,6 +51,7 @@
 
   .themesContainer .theme {
     width: 90%;
+    height: auto;
     margin-left: 0;
   }
 

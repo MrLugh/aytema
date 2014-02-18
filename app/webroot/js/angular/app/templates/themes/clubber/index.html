@@ -1,0 +1,115 @@
+<div class="app" ng-style="getAppStyle()" ng-class="getAppClass()">
+
+	<fb app-id='211895592326072'></fb>
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<script src="http://platform.tumblr.com/v1/share.js"></script>
+
+	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
+		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default>Edit <i class="icon-cogs"></i></a>
+
+		<tabset ng-if="showConfig">
+
+			<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+				<div ng-switch="tab.key" class="inside">
+					<admin-contentsize ng-switch-when='contentsize'></admin-contentsize>
+					<admin-colors ng-switch-when='colors'></admin-colors>
+					<admin-fonts ng-switch-when='fonts'></admin-fonts>
+					<admin-width ng-switch-when='width'></admin-width>
+				</div>
+			</tab>
+
+		</tabset>
+
+	</div>
+
+	<nav class="navbar navbar-default" role="navigation">
+	  
+		<div class="navbar-container">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">{{user.username|uppercase}}</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+				<ul ng-if="configLoaded" class="nav navbar-nav right">
+
+					<li ng-class="getMenuItemClass('home')" class="menu-item active" ng-style="getMenuItemStyle('home')">
+						<a href="#/" ng-click="setCurrent('home')" ng-style="getMenuItemStyle('home')" skip-default>Home </a>
+					</li>
+
+					<li ng-repeat="page in pages" ng-class="getMenuItemClass(page)" class="menu-item" ng-if="hasContent(page)" ng-style="getMenuItemStyle(page)">
+						<a href="#/" ng-click="setCurrent(page)" ng-style="getMenuItemStyle(page)" skip-default>{{page}}</a>
+					</li>
+
+				</ul>
+			</div>
+
+		</div>
+
+	</nav>
+
+	<div class="container_wrap">
+
+		<div id="container">
+
+			<ul class="page block {{getPageClass('home')}}" ng-if="isActive('home')">
+
+				<li ng-repeat="page in pages" class="section {{getHomepageSize(page)}}" ng-if="hasContent(page)">
+
+					<h3 class="title">Latest <span ng-style="getHighlightStyle()">{{page}}</span></h3>
+
+					<div ng-switch="page">
+						<latest-photos ng-switch-when='photos' limit="3" config="config"></latest-photos>
+					</div>
+
+					<div class="both">
+						<a href="#/{{page}}" skip-default ng-click="setCurrent(page)">More {{page}}</a>
+					</div>
+
+				</li>
+
+			</ul>
+
+
+			<div ng-repeat="page in pages" class="page {{getPageClass(page)}}" ng-if="isActive(page)" ng-switch="page">
+
+				{{page}}
+				<!--
+				<photos ng-switch-when='photos'></photos>
+				-->
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+	<div id="footer" class="block" ng-style="getFooterStyle()">
+
+		<div ng-style="getDividerStyle()" class="divider">&nbsp;</div>
+
+
+		<ul class="social-links">
+
+			<h3 class="title">Follow me <span ng-style="getHighlightStyle()">on:</span></h3>
+
+			<li ng-repeat="account in accounts" class="social-link inline">
+				<a href="{{account.Socialnet.profile_url}}">
+					<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
+					<img alt="{{account.Socialnet.network}} profile" ng-src="{{networkIcon(account.Socialnet.network)}}" class="socialIcon" />					
+				</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+</div>

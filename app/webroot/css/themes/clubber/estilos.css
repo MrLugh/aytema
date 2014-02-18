@@ -1,0 +1,362 @@
+body {
+  background: url("http://images4.alphacoders.com/174/174978.jpg");
+  background: url("http://bigbackground.com/wp-content/uploads/2013/07/dj-wallpaper-hd-widescreen.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  margin: 0 auto;
+  -webkit-transition:all 0.56s ease;
+  -moz-transition:all 0.56s ease;
+  -o-transition:all 0.56s ease;
+  transition:all 0.56s ease;
+  font-size: 17px;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
+}
+
+* {
+    scrollbar-face-color: #000000;
+    scrollbar-shadow-color: #2D2C4D;  
+    scrollbar-highlight-color:#7D7E94;  
+    scrollbar-3dlight-color: #7D7E94;  
+    scrollbar-darkshadow-color: #2D2C4D;  
+    scrollbar-track-color: #7D7E94;  
+    scrollbar-arrow-color: #C1C1D1;
+}
+
+a,a:hover,a:active,a:focus,
+img,img:hover,img:active,img:focus {
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+input::-moz-focus-inner { 
+  border: 0; 
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+     -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+blockquote {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+*[ ng-click ] {
+  cursor: pointer ;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.both {
+  clear: both;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.well {
+  background-color: transparent;
+}
+
+.img-circle {
+  border-radius:50%;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+.navbar {
+  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
+  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
+  border: none;
+  z-index: 4;
+  margin:0px auto 60px auto;
+}
+
+.navbar-brand {
+  font-size: 40px;
+}
+
+.navbar-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 25px;
+}
+
+.navbar .menu-item {
+  margin-left: 5px;
+  padding:0;
+}
+
+.navbar .menu-item a {
+  text-transform: uppercase; 
+  padding:8px 15px 8px 15px;
+}
+
+.boxed {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  margin:0 auto;
+}
+
+.container_wrap {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#container {
+  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  padding: 25px;
+  display: block;  
+  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  box-shadow: 0 1px 3px rgba(34,25,25,0.4);  
+}
+
+#container .page {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+
+#container .activePage {
+  opacity: 1;
+  top: 0;
+  left: 0;
+}
+
+#container .inactivePage {
+  opacity: 0;
+  top: 100%;
+}
+
+#footer {
+  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
+  margin:60px auto 0 auto;
+}
+
+.divider {
+  border-top: 10px solid;
+}
+
+#footer .social-links {
+  width:25%;
+  overflow: hidden;
+}
+
+#footer .social-links .social-link {
+  margin: 10px;
+}
+
+#footer .social-links .profileImage {
+  height: 50px;
+}
+
+#footer .socialIcon {
+  margin-top: 50%;
+  height: 15px;
+}
+
+.aytema_bg {
+  background-color: #2D2E26;
+  color:#5AC3C4;
+}
+
+.aytema_color:hover {
+  color:#8254BA;
+}
+  
+.facebook_bg {
+  background-color: #3b5998;
+}
+.facebook_color:hover {
+
+  color:#fff;
+}
+
+.soundcloud_bg {
+  background-color: #ff4c00;
+}
+
+.soundcloud_color:hover {
+  color:#000;
+}
+
+.tumblr_bg {
+  background-color: #385774;
+}
+
+.tumblr_color:hover {
+  color:#fff;
+}
+
+.twitter_bg {
+  background-color: #00b0ed;
+  border-color: #00b0ed;
+  border-width: 10px;
+}
+
+.twitter_color:hover {
+  color:#fff; 
+}
+
+.youtube_bg {
+  background-color: #bc2c28;
+}
+
+.youtube_color:hover {
+  color:#fff;
+}
+
+.vimeo_bg {
+  background-color:#44bbff;
+}
+
+.vimeo_color:hover {
+  color:#fff;
+}
+
+.mixcloud_bg {
+  background-color: #284450;
+}
+
+.mixcloud_color:hover {
+  color:#fff;
+}
+
+.small {
+  width: 25%;
+  min-width: 25%;
+}
+
+.medium {
+  width: 50%;
+  min-width: 50%;
+}
+
+.large {
+  width: 75;
+  min-width: 75%;
+}
+
+.xlarge {
+  width: 100%;
+  min-width: 100%;
+}
+
+.section {
+  display: inline-block;
+  text-align: left;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.latestPhotos {
+  height: 320px!important;
+}
+
+.latestPhotos .photo {
+  max-height: 300px;
+  margin: auto;
+  border: 6px;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.8);
+  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.8);
+}
+
+.latestPhotos .carousel-control {
+  z-index: 3;
+}
+
+.latestPhotos .carousel-indicators {
+  position: relative;
+}
+
+.latestPhotos .text_container {
+  position:absolute;
+  max-width:74%;
+  margin:0 auto;
+  left:16%;
+  padding:10px;
+}
+
+.latestPhotos .title, .latestPhotos .caption {
+  position:relative;
+  z-index:3;
+  max-width:100%;
+  padding:10px;
+  overflow:hidden;
+  opacity: 0.7;
+}
+
+.latestPhotos .caption {
+  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
+}
+
+@media (min-width: 0px) and (max-width: 480px) {
+
+  .small, .medium, .large, .xlarge {
+    width: 100%;
+    min-width: 100%;
+  }
+
+}

@@ -63,11 +63,11 @@
 }
 
 /* Admin */
-.socialIcon {
+#config .socialIcon {
   width: 20px;
 }
 
-.active {
+#config .active {
   border-bottom: 1px solid black;
 }
 
