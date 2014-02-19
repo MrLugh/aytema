@@ -167,6 +167,8 @@ ul {
   width: 85%;
   height: auto;
   text-align:left;
+  opacity: 0.1;
+  filter: alpha(opacity=10);
 }
 
 .content_hover {
@@ -183,7 +185,9 @@ ul {
   filter: alpha(opacity=100);
   top:0;
   height: auto;
-  overflow-x: hidden;  
+  overflow-x: hidden;
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 .content .content_photo {
@@ -194,7 +198,7 @@ ul {
   position: relative;
   left: 100%;
   display: inline-block;
-  max-height: 60%;
+  max-height: 80%;
   max-width: 100%;
   height: auto!important;
 }
