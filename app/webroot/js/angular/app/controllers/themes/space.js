@@ -237,11 +237,11 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
     $scope.getContentCommentsHash = function() {
     	var c = $scope.list[$scope.indexComments];
-    	return "http://aytema.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
+    	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
     }	
 
 	$scope.networkIcon = function(network) {
-		return "http://aytema.com/img/socialnet/icons/ce_"+network+".png";
+		return "http://cloudcial.com/img/socialnet/icons/ce_"+network+".png";
 	}
 
 	$scope.statIcon = function(stat_name) {

@@ -66,7 +66,7 @@ function adminContentsizeCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.networkIcon = function(network) {
-		return "http://aytema.com/img/socialnet/icons/ce_"+network+".png";
+		return "http://cloudcial.com/img/socialnet/icons/ce_"+network+".png";
 	}
 
 	$scope.saveConfig = function() {

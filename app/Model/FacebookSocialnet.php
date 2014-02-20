@@ -11,7 +11,7 @@ Class FacebookSocialnet {
 	const APP_ID 			= "211895592326072";
 	const APP_SECRET 		= "ac6e4892f759a43cb5a7247244c86767";
 	const APP_PERMS 		= "publish_stream,offline_access,manage_pages,user_photos";
-	const APP_CALLBACK 		= "http://aytema.com/facebook/addAccount";
+	const APP_CALLBACK 		= "http://cloudcial.com/facebook/addAccount";
 
 	static $content_types	= array('photo','video','post');
 

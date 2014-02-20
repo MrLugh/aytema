@@ -14,7 +14,11 @@ var ayTemaApp = angular.module('ayTemaApp',[
 	'ui.bootstrap',
 ]);
 
-ayTemaApp.config(['$routeProvider','$httpProvider', function($routeProvider,$httpProvider) {
+ayTemaApp.config(['$routeProvider','$httpProvider','$sceDelegateProvider',
+function($routeProvider,$httpProvider,$sceDelegateProvider) {
+
+  $sceDelegateProvider.resourceUrlWhitelist(['^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?\(vimeo|youtube|facebook|mixcloud|twitter|soundcloud|cloudcial)\.com(/.*)?$', 'self']);
+
     $routeProvider.when('/', {
     	templateUrl: getPath('tpl')+'/index.html',
     	controller: appCo,

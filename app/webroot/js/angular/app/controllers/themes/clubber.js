@@ -136,12 +136,12 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 
 		if (page == 'events') {
-			return 'medium';
+			return 'large';
 		}
 
 		if (page == 'tracks') {
-			return 'medium';
-		}
+			return 'large';
+		}		
 
 		return 'small';
 	}	
@@ -215,7 +215,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	*/
 
 	$scope.networkIcon = function(network) {
-		return "http://aytema.com/img/socialnet/icons/ce_"+network+".png";
+		return "http://cloudcial.com/img/socialnet/icons/ce_"+network+".png";
 	}
 
 	$scope.statIcon = function(stat_name) {

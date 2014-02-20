@@ -1,7 +1,7 @@
 ayTemaDs.directive('contentVideo',['$FB','$timeout','appSv','$window',
 function($FB,$timeout,appSv,$window){
     return {
-        templateUrl : getPath('tpl')+'/themes/space/video.html',
+        templateUrl : getPath('tpl')+'/themes/clubber/video.html',
         restrict : 'E',
         replace : true,
         controller:'contentVideoCo',
@@ -33,7 +33,7 @@ function($FB,$timeout,appSv,$window){
 ayTemaDs.directive('contentPhoto',['appSv','$window','$timeout',
 function(appSv,$window,$timeout){
     return {
-        templateUrl : getPath('tpl')+'/themes/space/photo.html',
+        templateUrl : getPath('tpl')+'/themes/clubber/photo.html',
         restrict : 'E',
         replace : true,
         controller:'contentPhotoCo',
@@ -48,7 +48,7 @@ function(appSv,$window,$timeout){
 ayTemaDs.directive('contentTrack',[function(){
     
     return {
-        templateUrl : getPath('tpl')+'/themes/space/track.html',
+        templateUrl : getPath('tpl')+'/themes/clubber/track.html',
         restrict : 'E',
         replace : true,
         controller:'contentTrackCo',
@@ -60,7 +60,7 @@ ayTemaDs.directive('contentTrack',[function(){
 ayTemaDs.directive('contentChat',[function(){
     
     return {
-        templateUrl : getPath('tpl')+'/themes/space/chat.html',
+        templateUrl : getPath('tpl')+'/themes/clubber/chat.html',
         restrict : 'E',
         replace : true,
         controller:'contentChatCo',
@@ -72,7 +72,7 @@ ayTemaDs.directive('contentChat',[function(){
 ayTemaDs.directive('contentQuote',[function(){
     
     return {
-        templateUrl : getPath('tpl')+'/themes/space/quote.html',
+        templateUrl : getPath('tpl')+'/themes/clubber/quote.html',
         restrict : 'E',
         replace : true,
         controller:'contentQuoteCo',
@@ -84,7 +84,7 @@ ayTemaDs.directive('contentQuote',[function(){
 ayTemaDs.directive('contentPost',['$FB','$timeout',
 function($FB,$timeout){    
     return {
-        templateUrl : getPath('tpl')+'/themes/space/post.html',
+        templateUrl : getPath('tpl')+'/themes/clubber/post.html',
         restrict : 'E',
         replace : true,
         controller:'contentPostCo',
@@ -117,7 +117,7 @@ ayTemaDs.directive('contentLink',['appSv','$window',
 function(appSv,$window){
     
     return {
-        templateUrl : getPath('tpl')+'/themes/space/link.html',
+        templateUrl : getPath('tpl')+'/themes/clubber/link.html',
         restrict : 'E',
         replace : true,
         controller:'contentLinkCo',
@@ -130,7 +130,7 @@ ayTemaDs.directive('contentEvent',['appSv','$window',
 function(appSv,$window){
     
     return {
-        templateUrl : getPath('tpl')+'/themes/space/event.html',
+        templateUrl : getPath('tpl')+'/themes/clubber/event.html',
         restrict : 'E',
         replace : true,
         controller:'contentEventCo',

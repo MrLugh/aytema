@@ -81,7 +81,7 @@
 					<div>
 						<h3> {{getCurrentProperty('external_user_name')}}</h3>
 						<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">
-							<img alt="" ng-src="http://aytema.com/img/themes/digest/{{getCurrentProperty('network')}}.png">
+							<img alt="" ng-src="http://cloudcial.com/img/themes/digest/{{getCurrentProperty('network')}}.png">
 							<p> / {{getCurrentProperty('external_user_name')}}</p>
 						</a>
 					</div>
@@ -91,17 +91,17 @@
 						<ul>
 							<li class="left inline">
 			                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
-			                		<img src="http://aytema.com/img/themes/digest/twitter.png" alt="Twitter">
+			                		<img src="http://cloudcial.com/img/themes/digest/twitter.png" alt="Twitter">
 			                	</a>
 			                </li>
 			                <li class="left inline">
 			                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-			                		<img src="http://aytema.com/img/themes/digest/facebook.png" alt="Facebook">
+			                		<img src="http://cloudcial.com/img/themes/digest/facebook.png" alt="Facebook">
 			                	</a>
 			                </li>
 			                <li class="left inline">
 			                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
-			                		<img src="http://aytema.com/img/themes/digest/tumblr.png" alt="Tumblr">
+			                		<img src="http://cloudcial.com/img/themes/digest/tumblr.png" alt="Tumblr">
 			                	</a>
 			                </li>
 			            </ul>
@@ -115,8 +115,8 @@
 
 					<div class="wrapper">
 						<div class="list_carousel" ng-if="relateds.length">
-							<a id="prev2" class="prev" href="#/"><img alt="" src="http://aytema.com/img/themes/digest/arrow-left.png"></a>
-							<a id="next2" class="next" href="#/"><img alt="" src="http://aytema.com/img/themes/digest/arrow-right.png"></a>
+							<a id="prev2" class="prev" href="#/"><img alt="" src="http://cloudcial.com/img/themes/digest/arrow-left.png"></a>
+							<a id="next2" class="next" href="#/"><img alt="" src="http://cloudcial.com/img/themes/digest/arrow-right.png"></a>
 							<div class="carousel_container">
 								<ul id="carousel">
 									<li ng-repeat="related in relateds" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
@@ -143,8 +143,8 @@
 			<div class="more-user" ng-show="getNavigatorThumbnail(-1).length">
 				<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
 			</div>
-			<img class="arrow" src="http://aytema.com/img/themes/digest/arrow-left.png" alt="">
-			<img class="social-media" ng-src="http://aytema.com/img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
+			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="">
+			<img class="social-media" ng-src="http://cloudcial.com/img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
 		</a>
 
 		<a href="#/" ng-click="move(1)" title="{{getNavigatorTitle(1)}}" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)" ng-style="getStyle()">
@@ -152,8 +152,8 @@
 			<div class="more-user" ng-show="getNavigatorThumbnail(1).length">
 				<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
 			</div>
-			<img class="arrow" src="http://aytema.com/img/themes/digest/arrow-right.png" alt="">
-			<img class="social-media" ng-src="http://aytema.com/img/themes/digest/{{getNavigatorNetwork(1)}}-big.png" alt="">
+			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="">
+			<img class="social-media" ng-src="http://cloudcial.com/img/themes/digest/{{getNavigatorNetwork(1)}}-big.png" alt="">
 		</a>
 
 	</div>
@@ -162,7 +162,7 @@
 
 	<div class="arrows arrows_home arrow_left" ng-style="getStyle()">
 	 	<a href="#/" skip-default ng-click="movePage(-1)" title="{{getPageArrowTitle(-1)}}">
-	 		<img class="arrow" src="http://aytema.com/img/themes/digest/arrow-left.png" alt="Previous page">
+	 		<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="Previous page">
 	 	</a>
 	 </div>
 
@@ -194,7 +194,7 @@
 			    <content-link  ng-switch-when='link' ></content-link>
 			    <content-event ng-switch-when='event'></content-event>
 
-				<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="http://aytema.com/img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon"><p> / {{content.external_user_name}}</p></a></span>
+				<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="http://cloudcial.com/img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon"><p> / {{content.external_user_name}}</p></a></span>
 
 			</div>
 
@@ -206,19 +206,19 @@
 
 	<div class="arrows arrows_home arrow_right" ng-style="getStyle()">
 		<a href="#/" skip-default ng-click="movePage(1)" title="{{getPageArrowTitle(1)}}">
-			<img class="arrow" src="http://aytema.com/img/themes/digest/arrow-right.png" alt="Next page">
+			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="Next page">
 		</a>
 	</div>
 
 	<div class="footer" ng-hide="showingContent" ng-style="getFooterStyle()" get-footer-height>
 
 		<div class="left user_message" ng-show="userMessage.length > 0" >
-			<img alt="loading" class="loading" ng-src="http://aytema.com/img/themes/digest/ajax-loader.gif">
+			<img alt="loading" class="loading" ng-src="http://cloudcial.com/img/themes/digest/ajax-loader.gif">
 			<span class="text_message">{{userMessage}}</span>	
 		</div>
 
 		<a href="#/" ng-show="showUp" ng-click="scrollToTop()" class="scrollToTop right" skip-default>
-			<img src="http://aytema.com/img/themes/digest/scrollTop.png" />
+			<img src="http://cloudcial.com/img/themes/digest/scrollTop.png" />
 		</a>
 
 	</div>

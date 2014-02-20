@@ -4,13 +4,13 @@
 
 		<div ng-if="moreThanOne()" class="{{content.network}}_bg left inline photo_prev">
 			<a href="#/" skip-default ng-click="move(-1)">
-		 		<img src="http://aytema.com/img/themes/digest/arrow-left.png" alt="Previous photo" />
+		 		<img src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="Previous photo" />
 		 	</a>
 		</div>
 
 		<div ng-if="moreThanOne()" class="{{content.network}}_bg right inline photo_next">
 			<a href="#/" skip-default ng-click="move(1)">
-				<img src="http://aytema.com/img/themes/digest/arrow-right.png" alt="Next photo" />
+				<img src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="Next photo" />
 			</a>
 		</div>
 		<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo photoimg':'photoimg'" />

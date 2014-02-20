@@ -13,7 +13,7 @@ Class TumblrSocialnet {
 	//Esto va al config!
 	const APP_ID 			= "TyJKAYXQm61AsADJ8vpgGLoPcwxpme8LzWaOfRvYGLJeRQ31Az";
 	const APP_SECRET 		= "hYkvNmO4UqMMq2lvja7OdoDJsQJEm4VNrpmszt6A9O1hnAzWr4";
-	const APP_CALLBACK 		= "http://aytema.com/tumblr/addAccount";
+	const APP_CALLBACK 		= "http://cloudcial.com/tumblr/addAccount";
 
 	static $content_types	= array('photo','track','video','quote'/*,'post','link','chat'*/);
 

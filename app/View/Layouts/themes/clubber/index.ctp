@@ -46,7 +46,8 @@
     echo $this->Html->script('modernizr.min');
     echo $this->Html->script('underscore.min');
     echo $this->Html->script('minicolors');
-    echo $this->Html->script('imagesloaded.pkgd');    
+    echo $this->Html->script('masonry.pkgd');
+    echo $this->Html->script('imagesloaded.pkgd');
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('touchSwipe.min');
     ?>
@@ -97,6 +98,8 @@
         echo $this->Html->script('angular/app/controllers/themes/clubber');
         echo $this->Html->script('angular/app/controllers/themes/clubber/content');
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/photos');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/latest/videos');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/latest/tracks');
     ?>
 
     <!-- Plugins -->

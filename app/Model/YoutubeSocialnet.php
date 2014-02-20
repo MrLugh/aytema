@@ -29,7 +29,7 @@ Class YoutubeSocialnet {
 	const APP_ID 			= "177548082876.apps.googleusercontent.com";
 	const APP_SECRET 		= "_O3NeoH2eltGwBTmYh8Ol5hm";
 	const APP_PERMS 		= "https://www.googleapis.com/auth/youtube.readonly,https://www.googleapis.com/auth/youtube,https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/userinfo.profile,https://www.googleapis.com/auth/yt-analytics.readonly";
-	const APP_CALLBACK 		= "http://aytema.com/youtube/addAccount";
+	const APP_CALLBACK 		= "http://cloudcial.com/youtube/addAccount";
 
 	static $content_types	= array('video');
 

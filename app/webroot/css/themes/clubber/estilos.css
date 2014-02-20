@@ -16,7 +16,6 @@ body {
 .app {
   position: relative;
   z-index: 1;
-  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
 }
 
 * {
@@ -45,7 +44,9 @@ input::-moz-focus-inner {
 }
 
 *::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.3);
+    box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.3); 
 
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -56,7 +57,9 @@ input::-moz-focus-inner {
      -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.5);
+    box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.5);
 }
 
 blockquote {
@@ -109,7 +112,7 @@ ul {
 }
 
 .navbar {
-  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
+  background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
   -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
   box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
@@ -156,7 +159,7 @@ ul {
 }
 
 #container {
-  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
+  background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
   display: block;
   text-align: center;
   margin: 0 auto;
@@ -187,7 +190,7 @@ ul {
 }
 
 #footer {
-  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
+  background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
   margin:60px auto 0 auto;
 }
 
@@ -281,28 +284,25 @@ ul {
 }
 
 .small {
-  width: 25%;
-  min-width: 25%;
+  width: 22%;
 }
 
 .medium {
-  width: 50%;
-  min-width: 50%;
+  width: 47%;
 }
 
 .large {
-  width: 75;
-  min-width: 75%;
+  width: 72%;
 }
 
 .xlarge {
   width: 100%;
-  min-width: 100%;
 }
 
 .section {
-  display: inline-block;
   text-align: left;
+  /*outline: 1px solid cyan;*/
+  padding: 15px;
 }
 
 .title {
@@ -310,8 +310,10 @@ ul {
   font-weight: bold;
 }
 
+/* latest photos */
+
 .latestPhotos {
-  height: 320px!important;
+  height: 320px;
 }
 
 .latestPhotos .photo {
@@ -329,6 +331,7 @@ ul {
 
 .latestPhotos .carousel-indicators {
   position: relative;
+  margin-top: 10px
 }
 
 .latestPhotos .text_container {
@@ -349,14 +352,419 @@ ul {
 }
 
 .latestPhotos .caption {
-  background: url("http://aytema.com/img/themes/clubber/bg-dark.png");
+  background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
 }
 
-@media (min-width: 0px) and (max-width: 480px) {
+/* latest photos */
+
+/* latest videos */
+
+.latestVideos {
+  background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
+}
+
+.latestVideos,  .latestVideos .videos {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.latestVideos .videos {
+  padding: 15px;
+}
+
+.latestVideos .video {
+  margin:10px auto ;
+  border-bottom: 1px dashed white;  
+}
+
+.latestVideos .title, .latestvideos .caption {
+  position:relative;
+  z-index:3;
+  max-width:100%;
+  overflow:hidden;
+  text-transform: none;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+
+.latestVideos iframe, .latestVideos object, .latestVideos embed, .latestVideos video, .latestVideos audio {
+  width: 100%;
+  max-width: 100%;
+  display: inline-block!important;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
+  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);  
+}
+
+/* latest videos */
+
+/* latest tracks */
+
+.latestTracks {
+  background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
+}
+
+.latestTracks, .latestTracks .tracks {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.latestTracks .tracks {
+  padding: 15px;
+  height: 300px;
+  width: 100%;
+  white-space: nowrap;
+  overflow-y:hidden;
+  overflow-x: auto;
+}
+
+.latestTracks .track {
+  margin:10px auto ;
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+  width: 50%;
+}
+
+.latestTracks .tracks::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
+  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.latestTracks .tracks::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
+  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.latestTracks .title, .latestTracks .caption {
+  position:relative;
+  z-index:3;
+  max-width:100%;
+  overflow:hidden;
+  text-transform: none;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+
+.latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
+  width: 100%;
+  height: 200px;
+  max-width: 200px;
+  display: inline-block!important;
+}
+
+/* latest tracks */
+
+
+@media (min-width: 0px) and (max-width: 320px) {
+
+  h1, h2, h3 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  h3, .h3 {
+    font-size: 18px;
+  }
+
+  .navbar {
+    margin:0px auto 30px auto;
+  }
+
+  .navbar-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .navbar-brand {
+    font-size: 30px;
+  }
+
+  .navbar .menu-item {
+    margin: 0 auto;
+    float: left;
+  }
+
+  #container {
+    width: 95%;
+    padding: 5px;
+  }
+
+  .section {
+    padding: 5px;
+  }
 
   .small, .medium, .large, .xlarge {
     width: 100%;
     min-width: 100%;
+  }
+
+  .latestTracks .tracks {
+    padding: 0px;
+    height: auto;
+  }
+
+  .latestTracks .track {
+    padding: 0px;
+    width: 100%;
+  }
+
+  .latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
+    width: 90%;
+    max-width: 100%;
+    height: 150px;
+  }
+
+  .latestTracks .title, .latestTracks .caption {
+    font-size: 14px;
+  }
+
+  .latestPhotos {
+    height: 220px;
+  }
+
+  .latestPhotos .photo {
+    max-height: 200px;
+  }
+
+  #footer .social-links {
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+
+@media (min-width: 321px) and (max-width: 480px) {
+
+  h1, h2, h3 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  h3, .h3 {
+    font-size: 18px;
+  }
+
+  .navbar {
+    margin:0px auto 20px auto;
+  }
+
+  .navbar-container {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .navbar-brand {
+    font-size: 30px;
+  }
+
+  .navbar .menu-item {
+    margin: 0 auto;
+    float: left;
+  }
+
+  #container {
+    width: 95%;
+    padding: 5px;
+  }
+
+  .section {
+    padding: 5px;
+  }
+
+  .small, .medium, .large {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .latestTracks .tracks {
+    padding: 0px;
+    height: auto;
+  }
+
+  .latestTracks .track {
+    padding: 0px;
+    width: 50%;
+  }
+
+  .latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
+    width: 100%;
+    max-width: 120px;
+    height: 115px;
+  }
+
+  .latestTracks .title, .latestTracks .caption {
+    font-size: 14px;
+  }
+
+  .latestPhotos {
+    height: 170px;
+  }
+
+  .latestPhotos .photo {
+    max-height: 150px;
+  }
+
+  #footer .social-links {
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+  h1, h2, h3 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  h3, .h3 {
+    font-size: 18px;
+  }
+
+  .navbar {
+    margin:0px auto 20px auto;
+  }
+
+  .navbar-container {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .navbar-brand {
+    font-size: 30px;
+  }
+
+  .navbar .menu-item {
+    margin: 0 auto;
+    float: left;
+  }
+
+  #container {
+    width: 95%;
+    padding: 5px;
+  }
+
+  .section {
+    padding: 5px;
+  }
+
+  .small, .medium, .large {
+    width: 47%;
+    min-width: 47%;
+  }
+
+  .latestTracks .tracks {
+    padding: 0px;
+    height: auto;
+  }
+
+  .latestTracks .track {
+    width: 100%;
+  }
+
+  .latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
+    width: 100%;
+    height: 200px;
+  }
+
+  .latestTracks .title, .latestTracks .caption {
+    font-size: 14px;
+  }
+
+  #footer .social-links {
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  h1, h2, h3 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  h3, .h3 {
+    font-size: 18px;
+  }
+
+  .navbar {
+    margin:0px auto 20px auto;
+  }
+
+  .navbar-container {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .navbar-brand {
+    font-size: 30px;
+  }
+
+  .navbar .menu-item {
+    margin: 0 auto;
+    float: left;
+  }
+
+  #container {
+    width: 85%;
+    padding: 15px;
+  }
+
+  .section {
+    padding: 5px;
+  }
+
+  .small, .medium, .large {
+    width: 47%;
+    min-width: 47%;
+  }
+
+  .latestTracks .tracks {
+    padding: 0px;
+    height: auto;
+  }
+
+  .latestTracks .track {
+    width: 70%;
+  }
+
+  .latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
+    width: 100%;
+    height: 200px;
+    max-width: 100%;
+  }
+
+  .latestTracks .title, .latestTracks .caption {
+    font-size: 14px;
+  }
+
+  #footer .social-links {
+    padding: 0;
+    margin: 0;
   }
 
 }

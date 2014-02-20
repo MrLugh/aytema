@@ -12,7 +12,7 @@ Class VimeoSocialnet extends AppModel {
 	const UPDATE_STATUS			= "https://api.vimeo.com/1.1/statuses/update.json";
 	const STATUS				= "https://api.vimeo.com/1.1/statuses";
 	const USER_DATA				= 'https://api.vimeo.com/1.1/users/show.json';
-	const APP_CALLBACK 			= "http://aytema.com/vimeo/addAccount";
+	const APP_CALLBACK 			= "http://cloudcial.com/vimeo/addAccount";
 
 	//Esto va al config!
 	const APP_ID 			= "b6faa32ad34bfdfad0f3a53d39d0ec25a4d18cb7";

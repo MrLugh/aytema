@@ -59,14 +59,16 @@
 
 		<div id="container">
 
-			<ul class="page block {{getPageClass('home')}}" ng-if="isActive('home')">
+			<ul id="masonry" class="page block masonry {{getPageClass('home')}}"  ng-if="isActive('home')" masonry-simple="{'columnWidth':10,'gutter':5,'isAnimated':true,'itemSelector':'.section'}">
 
-				<li ng-repeat="page in pages" class="section {{getHomepageSize(page)}}" ng-if="hasContent(page)">
+				<li ng-repeat="page in pages" class="section {{getHomepageSize(page)}}" ng-if="hasContent(page)" masonry-simple-item>
 
 					<h3 class="title">Latest <span ng-style="getHighlightStyle()">{{page}}</span></h3>
 
 					<div ng-switch="page">
 						<latest-photos ng-switch-when='photos' limit="3" config="config"></latest-photos>
+						<latest-videos ng-switch-when='videos' limit="2" config="config"></latest-videos>
+						<latest-tracks ng-switch-when='tracks' limit="3" config="config"></latest-tracks>	
 					</div>
 
 					<div class="both">

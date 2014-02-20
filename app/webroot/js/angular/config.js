@@ -8,5 +8,5 @@ var paths = {
 }
 
 function getPath(key) {
-	return 'http://aytema.com/' + paths[key];
+	return 'http://cloudcial.com/' + paths[key];
 }

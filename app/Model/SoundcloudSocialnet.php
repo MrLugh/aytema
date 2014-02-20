@@ -11,7 +11,7 @@ Class SoundcloudSocialnet {
 	const APP_ID 			= "b0b6e1bfc6ac107fe7804f0dd6083538";
 	const APP_SECRET 		= "5e5e7cdfb18e7687a5a189f4e4dfa603";
 	const APP_PERMS 		= "non-expiring";
-	const APP_CALLBACK 		= "http://aytema.com/soundcloud/addAccount";
+	const APP_CALLBACK 		= "http://cloudcial.com/soundcloud/addAccount";
 	const API_URL 			= "http://soundcloud.com/";
 
 	static $content_types	= array('track');

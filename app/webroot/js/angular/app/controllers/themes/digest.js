@@ -741,7 +741,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
     $scope.getContentCommentsHash = function() {
     	var c = $scope.contentModal[0];
-    	return "http://aytema.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
+    	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
     }
 
     $scope.activateTab = function(tab) {

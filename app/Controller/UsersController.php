@@ -113,7 +113,7 @@ class UsersController extends AppController {
                         'login'             => $data['User']['username'],
                         'network'           => 'aytema',
                         'external_user_id'  => $findUser['User']['id'],
-                        'profile_url'       => 'http://aytema.com/users/'.$data['User']['username'],
+                        'profile_url'       => 'http://cloudcial.com/users/'.$data['User']['username'],
                         'status'            => 'Allowed'
                     );
                     $this->Socialnet->save($account);

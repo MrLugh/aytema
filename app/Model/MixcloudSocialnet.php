@@ -11,7 +11,7 @@ Class MixcloudSocialnet {
 	//Esto va al config!
 	const APP_ID 			= "XvjV23U8zawTxMp368";
 	const APP_SECRET 		= "YVeSaskkEfsS8NceZjzsjj8QHsUTfbsb";
-	const APP_CALLBACK 		= "http://aytema.com/mixcloud/addAccount";
+	const APP_CALLBACK 		= "http://cloudcial.com/mixcloud/addAccount";
 
 	static $content_types	= array('track');
 

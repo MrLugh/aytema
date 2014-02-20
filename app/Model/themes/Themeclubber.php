@@ -7,18 +7,22 @@ Class Themeclubber {
             'photos'    => array(
                 'concepts'  => array('photo'),
             ),
+            /*            
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),
             ),
-            'videos'    => array(
-                'concepts'  => array('video'),
-            ),
             'events'    => array(
                 'concepts'  => array('event'),
-            ),                        
+            ),
+            */
+            'videos'    => array(
+                'concepts'  => array('video'),
+                'networks'  => array('tumblr','vimeo')
+            ),
             'tracks'    => array(
                 'concepts'  => array('track'),
             ),
+
         ),        
         'colors' => array(
             'background' => array(
