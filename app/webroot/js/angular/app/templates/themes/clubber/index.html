@@ -66,9 +66,11 @@
 					<h3 class="title">Latest <span ng-style="getHighlightStyle()">{{page}}</span></h3>
 
 					<div ng-switch="page">
-						<latest-photos ng-switch-when='photos' limit="3" config="config"></latest-photos>
-						<latest-videos ng-switch-when='videos' limit="2" config="config"></latest-videos>
-						<latest-tracks ng-switch-when='tracks' limit="3" config="config"></latest-tracks>	
+						<!--
+						<latest-photos ng-switch-when='photos' limit="100" config="config"></latest-photos>
+						-->
+						<latest-videos ng-switch-when='videos' limit="100" config="config"></latest-videos>
+						<latest-tracks ng-switch-when='tracks' limit="100" config="config"></latest-tracks>
 					</div>
 
 					<div class="both">

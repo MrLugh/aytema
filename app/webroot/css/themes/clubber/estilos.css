@@ -299,9 +299,14 @@ ul {
   width: 100%;
 }
 
+.small, .medium, .large, .xlarge {
+  min-width: 300px;
+  min-height: 300px;
+  outline: 1px solid cyan;
+}
+
 .section {
   text-align: left;
-  /*outline: 1px solid cyan;*/
   padding: 15px;
 }
 
@@ -370,12 +375,15 @@ ul {
 }
 
 .latestVideos .videos {
-  padding: 15px;
+  width: 100%;
+  white-space: nowrap;
+  overflow-y:hidden;
+  overflow-x: auto;
+  height: 320px;
 }
 
 .latestVideos .video {
-  margin:10px auto ;
-  border-bottom: 1px dashed white;  
+  display: inline-block;
 }
 
 .latestVideos .title, .latestvideos .caption {
@@ -388,15 +396,26 @@ ul {
   font-weight: normal;
 }
 
+.latestVideos .videos::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
+  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
 
-.latestVideos iframe, .latestVideos object, .latestVideos embed, .latestVideos video, .latestVideos audio {
-  width: 100%;
-  max-width: 100%;
-  display: inline-block!important;
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);  
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
+
+.latestVideos .videos::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
+  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
 
 /* latest videos */
 
@@ -413,20 +432,15 @@ ul {
 }
 
 .latestTracks .tracks {
-  padding: 15px;
-  height: 300px;
   width: 100%;
   white-space: nowrap;
   overflow-y:hidden;
   overflow-x: auto;
+  height: 320px;
 }
 
 .latestTracks .track {
-  margin:10px auto ;
   display: inline-block;
-  position: relative;
-  padding: 10px;
-  width: 50%;
 }
 
 .latestTracks .tracks::-webkit-scrollbar-track {
@@ -459,312 +473,10 @@ ul {
   font-weight: normal;
 }
 
-
-.latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
-  width: 100%;
-  height: 200px;
-  max-width: 200px;
-  display: inline-block!important;
-}
-
 /* latest tracks */
 
-
-@media (min-width: 0px) and (max-width: 320px) {
-
-  h1, h2, h3 {
-    margin-top: 2px;
-    margin-bottom: 2px;
-  }
-
-  h3, .h3 {
-    font-size: 18px;
-  }
-
-  .navbar {
-    margin:0px auto 30px auto;
-  }
-
-  .navbar-container {
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-  }
-
-  .navbar-brand {
-    font-size: 30px;
-  }
-
-  .navbar .menu-item {
-    margin: 0 auto;
-    float: left;
-  }
-
-  #container {
-    width: 95%;
-    padding: 5px;
-  }
-
-  .section {
-    padding: 5px;
-  }
-
-  .small, .medium, .large, .xlarge {
-    width: 100%;
-    min-width: 100%;
-  }
-
-  .latestTracks .tracks {
-    padding: 0px;
-    height: auto;
-  }
-
-  .latestTracks .track {
-    padding: 0px;
-    width: 100%;
-  }
-
-  .latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
-    width: 90%;
-    max-width: 100%;
-    height: 150px;
-  }
-
-  .latestTracks .title, .latestTracks .caption {
-    font-size: 14px;
-  }
-
-  .latestPhotos {
-    height: 220px;
-  }
-
-  .latestPhotos .photo {
-    max-height: 200px;
-  }
-
-  #footer .social-links {
-    padding: 0;
-    margin: 0;
-  }
-
-}
-
-
-@media (min-width: 321px) and (max-width: 480px) {
-
-  h1, h2, h3 {
-    margin-top: 2px;
-    margin-bottom: 2px;
-  }
-
-  h3, .h3 {
-    font-size: 18px;
-  }
-
-  .navbar {
-    margin:0px auto 20px auto;
-  }
-
-  .navbar-container {
-    width: 100%;
-    margin: 0;
-    padding: 5px;
-  }
-
-  .navbar-brand {
-    font-size: 30px;
-  }
-
-  .navbar .menu-item {
-    margin: 0 auto;
-    float: left;
-  }
-
-  #container {
-    width: 95%;
-    padding: 5px;
-  }
-
-  .section {
-    padding: 5px;
-  }
-
-  .small, .medium, .large {
-    width: 100%;
-    min-width: 100%;
-  }
-
-  .latestTracks .tracks {
-    padding: 0px;
-    height: auto;
-  }
-
-  .latestTracks .track {
-    padding: 0px;
-    width: 50%;
-  }
-
-  .latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
-    width: 100%;
-    max-width: 120px;
-    height: 115px;
-  }
-
-  .latestTracks .title, .latestTracks .caption {
-    font-size: 14px;
-  }
-
-  .latestPhotos {
-    height: 170px;
-  }
-
-  .latestPhotos .photo {
-    max-height: 150px;
-  }
-
-  #footer .social-links {
-    padding: 0;
-    margin: 0;
-  }
-
-}
-
-
-@media (min-width: 481px) and (max-width: 768px) {
-
-  h1, h2, h3 {
-    margin-top: 2px;
-    margin-bottom: 2px;
-  }
-
-  h3, .h3 {
-    font-size: 18px;
-  }
-
-  .navbar {
-    margin:0px auto 20px auto;
-  }
-
-  .navbar-container {
-    width: 100%;
-    margin: 0;
-    padding: 5px;
-  }
-
-  .navbar-brand {
-    font-size: 30px;
-  }
-
-  .navbar .menu-item {
-    margin: 0 auto;
-    float: left;
-  }
-
-  #container {
-    width: 95%;
-    padding: 5px;
-  }
-
-  .section {
-    padding: 5px;
-  }
-
-  .small, .medium, .large {
-    width: 47%;
-    min-width: 47%;
-  }
-
-  .latestTracks .tracks {
-    padding: 0px;
-    height: auto;
-  }
-
-  .latestTracks .track {
-    width: 100%;
-  }
-
-  .latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
-    width: 100%;
-    height: 200px;
-  }
-
-  .latestTracks .title, .latestTracks .caption {
-    font-size: 14px;
-  }
-
-  #footer .social-links {
-    padding: 0;
-    margin: 0;
-  }
-
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  h1, h2, h3 {
-    margin-top: 2px;
-    margin-bottom: 2px;
-  }
-
-  h3, .h3 {
-    font-size: 18px;
-  }
-
-  .navbar {
-    margin:0px auto 20px auto;
-  }
-
-  .navbar-container {
-    width: 100%;
-    margin: 0;
-    padding: 5px;
-  }
-
-  .navbar-brand {
-    font-size: 30px;
-  }
-
-  .navbar .menu-item {
-    margin: 0 auto;
-    float: left;
-  }
-
-  #container {
-    width: 85%;
-    padding: 15px;
-  }
-
-  .section {
-    padding: 5px;
-  }
-
-  .small, .medium, .large {
-    width: 47%;
-    min-width: 47%;
-  }
-
-  .latestTracks .tracks {
-    padding: 0px;
-    height: auto;
-  }
-
-  .latestTracks .track {
-    width: 70%;
-  }
-
-  .latestTracks iframe, .latestTracks object, .latestTracks embed, .latestTracks audio {
-    width: 100%;
-    height: 200px;
-    max-width: 100%;
-  }
-
-  .latestTracks .title, .latestTracks .caption {
-    font-size: 14px;
-  }
-
-  #footer .social-links {
-    padding: 0;
-    margin: 0;
-  }
-
+iframe, object, embed, audio, video {
+  height: 250px;
+  width: 250px;
+  display: inline-block!important;
 }

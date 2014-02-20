@@ -20,7 +20,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.current	= 'home';
 	$scope.pages 	= [];
 	$scope.content 	= {};
-	$scope.limit 	= 10;
+	$scope.limit 	= 30;
 
 	userSv.loadThemeConfig('clubber');
 	userSv.loadAccounts();
@@ -131,19 +131,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 			return 'xlarge';
 		}
 
-		if (page == 'posts') {
-			return 'large';
-		}
-
-		if (page == 'events') {
-			return 'large';
-		}
-
-		if (page == 'tracks') {
-			return 'large';
-		}		
-
-		return 'small';
+		return 'medium';
 	}	
 
 	$scope.getPageClass = function(page) {
