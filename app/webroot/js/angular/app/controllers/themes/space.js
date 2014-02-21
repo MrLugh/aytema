@@ -7,7 +7,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 4;
+	$scope.limit 	= 10;
 	$scope.offset	= 0;
 	$scope.list 	= [];
 	$scope.filters	= {'concepts':[],'networks':[]};
@@ -106,7 +106,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 			var params			= [];
 			params['concepts']	= JSON.parse(JSON.stringify($scope.concepts));
 			params['offset']	= $scope.offset;
-			params['limit']		= $scope.offset == 0 ? $scope.limit : 1;
+			params['limit']		= $scope.limit;
 			params['accounts']	= [];
 
 			params['username']	= $scope.user.username;

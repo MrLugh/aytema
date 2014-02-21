@@ -4,8 +4,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.userSv	= userSv;
 	$scope.user 	= userSv.getUser();
 
-	console.log($scope.user);
-
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
@@ -105,7 +103,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			var params			= [];
 			params['concepts']	= JSON.parse(JSON.stringify($scope.concepts));
 			params['offset']	= $scope.offset;
-			params['limit']		= $scope.offset == 0 ? $scope.limit : 1;
+			params['limit']		= $scope.limit;
 			params['accounts']	= [];
 
 			params['username']	= $scope.user.username;
@@ -119,6 +117,9 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 					params['accounts'].push(account.id);
 				}
 			}
+
+			console.log($scope.list.length);
+			console.log(params);
 
 			contentSv.getContentsByFilters(params).then(
 				function(data) {

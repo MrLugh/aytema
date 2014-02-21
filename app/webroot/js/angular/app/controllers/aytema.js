@@ -7,7 +7,6 @@ function aytemaCo($scope,$location,userSv) {
 	$scope.usersList = [];
 
 	$scope.searchUsers = function() {
-		console.log($scope.userSearch);
 		userSv.search($scope.userSearch).then(function(data){
 			for (var x in data.users) {
 				var user = data.users[x];

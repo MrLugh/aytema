@@ -18,7 +18,6 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 	    $http({method: 'POST', url: url,data:params}).
 	    success(function(data, status, headers, config) {
-	    	console.log('success');
 	    	setUser(data.user);
 	    	deferred.resolve(data);
 	    }).
