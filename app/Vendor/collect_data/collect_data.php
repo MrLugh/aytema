@@ -251,7 +251,7 @@ class CollectData {
 
 			$account = $account['Socialnet'];
 
-			if ($account['network'] == 'aytema') {
+			if ($account['network'] == 'cloudcial') {
 				continue;
 			}
 

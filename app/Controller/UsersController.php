@@ -111,7 +111,7 @@ class UsersController extends AppController {
                     $account = array(
                         'user_id'           => $findUser['User']['id'],
                         'login'             => $data['User']['username'],
-                        'network'           => 'aytema',
+                        'network'           => 'cloudcial',
                         'external_user_id'  => $findUser['User']['id'],
                         'profile_url'       => 'http://cloudcial.com/users/'.$data['User']['username'],
                         'status'            => 'Allowed'

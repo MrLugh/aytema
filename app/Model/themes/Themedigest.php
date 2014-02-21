@@ -50,7 +50,7 @@ Class Themedigest {
             'vimeo' => array(
                 'video'=>'large',
             ),
-            'aytema'    => array(
+            'cloudcial'    => array(
                 'photo'=>'medium',
                 'post'=>'medium',
                 'video'=>'large',

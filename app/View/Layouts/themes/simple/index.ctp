@@ -8,7 +8,7 @@
     <meta property="fb:app_id" content="211895592326072">
     <meta property="og:title" content="Ay Tema"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:site_name" content="aytema.com"/>
+    <meta property="og:site_name" content="CloudCial.com"/>
 
     <title>Simple Theme</title>
     <!--

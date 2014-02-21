@@ -284,15 +284,15 @@ ul {
 }
 
 .small {
-  width: 22%;
+  width: 23%;
 }
 
 .medium {
-  width: 47%;
+  width: 48%;
 }
 
 .large {
-  width: 72%;
+  width: 73%;
 }
 
 .xlarge {
@@ -300,8 +300,6 @@ ul {
 }
 
 .small, .medium, .large, .xlarge {
-  min-width: 300px;
-  min-height: 300px;
   outline: 1px solid cyan;
 }
 
@@ -480,3 +478,4 @@ iframe, object, embed, audio, video {
   width: 250px;
   display: inline-block!important;
 }
+

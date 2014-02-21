@@ -7,7 +7,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 	var networks = {
 		'aytema'	: {
 			network : 'aytema',
-			brand 	: "AyTema",
+			brand 	: "CloudCial",
 			concepts: ['event','photo','video','track','post']
 		},
 		'facebook' : {

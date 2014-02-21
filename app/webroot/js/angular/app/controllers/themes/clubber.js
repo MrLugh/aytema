@@ -131,6 +131,14 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 			return 'xlarge';
 		}
 
+		if (page == 'posts') {
+			return 'large';
+		}
+
+		if (page == 'events') {
+			return 'small';
+		}
+
 		return 'medium';
 	}	
 
