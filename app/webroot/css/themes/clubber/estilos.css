@@ -6,10 +6,6 @@ body {
   background-position: center center;
   text-align: center;
   margin: 0 auto;
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;
   font-size: 17px;
 }
 
@@ -178,6 +174,10 @@ ul {
   position: relative;
 }
 
+#masonry {
+
+}
+
 #container .activePage {
   opacity: 1;
   top: 0;
@@ -300,12 +300,17 @@ ul {
 }
 
 .small, .medium, .large, .xlarge {
-  outline: 1px solid cyan;
+
 }
 
 .section {
   text-align: left;
   padding: 15px;
+  min-height: 250px;
+  -webkit-transition:all 0.56s ease;
+  -moz-transition:all 0.56s ease;
+  -o-transition:all 0.56s ease;
+  transition:all 0.56s ease;  
 }
 
 .title {
@@ -315,12 +320,9 @@ ul {
 
 /* latest photos */
 
-.latestPhotos {
-  height: 320px;
-}
-
 .latestPhotos .photo {
-  max-height: 300px;
+  position: relative;
+  height: 250px!important;
   margin: auto;
   border: 6px;
   -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
@@ -333,13 +335,17 @@ ul {
 }
 
 .latestPhotos .carousel-indicators {
+  display: none;
   position: relative;
   margin-top: 10px
 }
 
 .latestPhotos .text_container {
-  position:absolute;
-  max-width:74%;
+  position: absolute;
+  top:0;
+  left:0;
+  max-width: 100%;
+  max-height: 100%;  
   margin:0 auto;
   left:16%;
   padding:10px;
@@ -377,11 +383,13 @@ ul {
   white-space: nowrap;
   overflow-y:hidden;
   overflow-x: auto;
-  height: 320px;
+  height: 350px;
+  padding: 20px;  
 }
 
 .latestVideos .video {
   display: inline-block;
+  width: 270px;
 }
 
 .latestVideos .title, .latestvideos .caption {
@@ -434,11 +442,12 @@ ul {
   white-space: nowrap;
   overflow-y:hidden;
   overflow-x: auto;
-  height: 320px;
+  height: 350px;
 }
 
-.latestTracks .track {
+.latestTracks .track {  
   display: inline-block;
+  width: 270px;  
 }
 
 .latestTracks .tracks::-webkit-scrollbar-track {
@@ -476,6 +485,6 @@ ul {
 iframe, object, embed, audio, video {
   height: 250px;
   width: 250px;
-  display: inline-block!important;
+  display: block!important;
 }
 
