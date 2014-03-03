@@ -363,12 +363,12 @@ ul {
   margin-bottom: 20px;
 }
 
-.aytemaAccountPageHeader, .aytemaAccount {
+.cloudcialAccountPageHeader, .cloudcialAccount {
   background-color: #2D2E26;
   color:#5AC3C4;
 }
 
-.aytemaAccountPageHeader a, .aytemaAccount a {
+.cloudcialAccountPageHeader a, .cloudcialAccount a {
   color:#8254BA;
 }
 
@@ -506,4 +506,9 @@ ul {
 
 .accountDetail.ng-leave.ng-leave-active {
   top:100%;
+}
+
+._4q_, ._6kq {
+  background: none!important;
+  border: none!important;
 }

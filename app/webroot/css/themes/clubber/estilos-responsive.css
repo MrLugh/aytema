@@ -1,0 +1,25 @@
+@media (max-width: 480px) {
+
+  #container {
+    width: 90%;
+    padding: 0;
+  }
+
+  .small, .medium, .large, .xlarge {
+    width: 100%;
+  }
+
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+  #container {
+    width: 90%;
+    padding: 0;
+  }
+
+  .small, .medium, .large {
+    width: 49%;
+  }
+
+}

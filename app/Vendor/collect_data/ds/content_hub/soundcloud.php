@@ -6,7 +6,7 @@ App::import('model','Content');
 
 class SoundcloudContentHubDs extends AbstractContentHubDs {
 
-	const UPDATE_INTERVAL 		= "- 2 weeks";
+	const UPDATE_INTERVAL 		= "-2 weeks";
 
 	protected static $network 	= "soundcloud";
 

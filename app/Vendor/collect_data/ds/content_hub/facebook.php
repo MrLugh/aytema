@@ -5,7 +5,7 @@ App::import('model','Content');
 
 class FacebookContentHubDs extends AbstractContentHubDs {
 
-	const UPDATE_INTERVAL 		= "- 2 weeks";
+	const UPDATE_INTERVAL 		= "-2 weeks";
 
 	protected static $network 	= "facebook";
 
@@ -72,7 +72,6 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 			$collected_data = array_merge($collected_data,$feed);
 		}
 
-		/*
 		$posts	= $this->getPosts($account, $params);
 		if (!empty($posts))
 		{
@@ -90,7 +89,6 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 		{
 			$collected_data = array_merge($collected_data,$videos);
 		}
-		*/
 
 		return $collected_data;
 	}
@@ -142,7 +140,6 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 		return $data;
 	}	
 
-	/*
 	private function getPosts($account, $params) {
 
 		$data 	= array();
@@ -162,7 +159,6 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 
 			foreach ($posts['posts']['data'] as $k=>$post)
 			{
-				echo "<pre>";var_dump($post['type']);echo "</pre>";
 
 				$date	= date("Y-m-d H:i:s",strtotime(substr($post['created_time'],0,-5)));
 
@@ -184,7 +180,6 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 
 				$data[] = $row;
 			}
-			exit;
 		}
 		return $data;
 	}
@@ -274,6 +269,5 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 		}
 		return $data;
 	}
-	*/
 
 }

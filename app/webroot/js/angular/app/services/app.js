@@ -5,8 +5,8 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
     var myWH = 0;
 
 	var networks = {
-		'aytema'	: {
-			network : 'aytema',
+		'cloudcial'	: {
+			network : 'cloudcial',
 			brand 	: "CloudCial",
 			concepts: ['event','photo','video','track','post']
 		},

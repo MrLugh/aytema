@@ -5,7 +5,7 @@ App::import('Vendor', 'stdclass', array('file' => 'fb_stdclass.php'));
 
 class MixcloudContentHubDs extends AbstractContentHubDs {
 
-	const UPDATE_INTERVAL 		= "- 2 weeks";
+	const UPDATE_INTERVAL 		= "-2 weeks";
 
 	protected static $network 	= "mixcloud";
 

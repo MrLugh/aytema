@@ -216,12 +216,12 @@ ul {
   height: 15px;
 }
 
-.aytema_bg {
+.cloudcial_bg {
   background-color: #2D2E26;
   color:#5AC3C4;
 }
 
-.aytema_color:hover {
+.cloudcial_color:hover {
   color:#8254BA;
 }
   
@@ -322,7 +322,7 @@ ul {
 
 .latestPhotos .photo {
   position: relative;
-  height: 250px!important;
+  height: 450px!important;
   margin: auto;
   border: 6px;
   -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
@@ -379,7 +379,6 @@ ul {
 }
 
 .latestVideos .videos {
-  width: 100%;
   white-space: nowrap;
   overflow-y:hidden;
   overflow-x: auto;
@@ -438,7 +437,6 @@ ul {
 }
 
 .latestTracks .tracks {
-  width: 100%;
   white-space: nowrap;
   overflow-y:hidden;
   overflow-x: auto;
@@ -487,4 +485,3 @@ iframe, object, embed, audio, video {
   width: 250px;
   display: block!important;
 }
-
