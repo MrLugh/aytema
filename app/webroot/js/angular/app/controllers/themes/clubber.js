@@ -9,7 +9,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
-    $scope.showConfig = false;
+    $scope.showConfig 	= false;
 	$scope.tabs = [
 		{ title:"Colors", key:"colors", active: true },
 		{ title:"Fonts", key:"fonts" },
@@ -128,11 +128,9 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.getHomepageSize = function(page) {
 
 
-		if (page == 'photos') {
-			return 'xlarge';
-		}
+		console.log(contentSv.getPageList(page));
 
-		if (page == 'tracks') {
+		if (page == 'photos') {
 			return 'xlarge';
 		}
 
