@@ -362,12 +362,15 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 @media (min-width: 481px) and (max-width: 768px) {
 
-    .content_detalle .icon_more {
-        font-size: 14px!important;
-        font-weight: 120!important;
-        line-height: 30px;
-    }
+    .content_detalle {
+      overflow-y: auto;
+    }    
 
+    .content_detalle .icon_more {
+        font-size: 10px!important;
+        font-weight: 100!important;
+        line-height: 20px;
+    }
     .content_detalle .left-column {
         width: 100%!important;
         float: none;
