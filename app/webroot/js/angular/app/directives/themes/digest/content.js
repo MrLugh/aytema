@@ -302,7 +302,7 @@ function(appSv,$window){
                 var myHeight= appSv.getMyWH() - padding -1;
 
 
-                if ($window.innerWidth > 480) {
+                if ($window.innerWidth > 768) {
                     $(right[0]).css('height',myHeight+'px');
                 }
             }
@@ -323,7 +323,7 @@ function(appSv,$window){
                 var myWidth = element.width();
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
-                if ($window.innerWidth <= 480) {
+                if ($window.innerWidth <= 768) {
                     //var myHeight = toResize.height() +2*padding +2;
                     var myHeight = toResize.height();
                     var currW= toResize.width();
@@ -390,7 +390,7 @@ function (appSv,$window) {
                 var myHeight= appSv.getMyWH() - padding -1;
 
 
-                if ($window.innerWidth > 480) {
+                if ($window.innerWidth > 768) {
                     $(right[0]).css('height',myHeight+'px');
                 }
             }            
@@ -406,7 +406,7 @@ function (appSv,$window) {
                     element[0].querySelector('embed')
                 );
 
-                if ($window.innerWidth <= 480) {
+                if ($window.innerWidth <= 768) {
                     return;
                 }
 
@@ -498,7 +498,7 @@ function(appSv,$window){
                 var myHeight= appSv.getMyWH() - padding -1;
 
 
-                if ($window.innerWidth > 480) {
+                if ($window.innerWidth > 768) {
                     $(right[0]).css('height',myHeight+'px');
                 }
             }            
@@ -519,7 +519,7 @@ function(appSv,$window){
                 var myWidth = element.width();
                 var padding = parseInt($(container[0]).css('padding').replace('px','')) || 10;
 
-                if ($window.innerWidth <= 480) {
+                if ($window.innerWidth <= 768) {
                     //var myHeight = toResize.height() +2*padding +2;
                     var myHeight = toResize.height();
                     var currW= toResize.width();
@@ -587,7 +587,7 @@ function(appSv,$window){
                 var myHeight= appSv.getMyWH() - padding -1;
 
 
-                if ($window.innerWidth > 480) {
+                if ($window.innerWidth > 768) {
                     $(right[0]).css('height',myHeight+'px');
                 }
             }
@@ -618,7 +618,7 @@ function(appSv,$window){
 
                 $(element[0]).css('height','').css('overflow-y','hidden');
 
-                if ($window.innerWidth <= 480) {
+                if ($window.innerWidth <= 768) {
                     return;
                 }
 
@@ -664,7 +664,7 @@ ayTemaDs.directive('contentDetailQuote',[function(){
                 var myHeight= appSv.getMyWH() - padding -1;
 
 
-                if ($window.innerWidth > 480) {
+                if ($window.innerWidth > 768) {
                     $(right[0]).css('height',myHeight+'px');
                 }
             }
@@ -695,7 +695,7 @@ ayTemaDs.directive('contentDetailQuote',[function(){
 
                 $(element[0]).css('height','').css('overflow-y','');
 
-                if ($window.innerWidth <= 480) {
+                if ($window.innerWidth <= 768) {
                     return;
                 }
 
@@ -741,7 +741,7 @@ function($FB,$timeout,appSv,$window){
                 var myHeight= appSv.getMyWH() - padding -1;
 
 
-                if ($window.innerWidth > 480) {
+                if ($window.innerWidth > 768) {
                     $(right[0]).css('height',myHeight+'px');
                 }
             }
@@ -776,7 +776,7 @@ function($FB,$timeout,appSv,$window){
 
                 $(element[0]).css('height','').css('overflow-y','');
 
-                if ($window.innerWidth <= 480) {
+                if ($window.innerWidth <= 768) {
                     return;
                 }
 
@@ -824,7 +824,7 @@ function(appSv,$window){
                 var myHeight= appSv.getMyWH() - padding -1;
 
 
-                if ($window.innerWidth > 480) {
+                if ($window.innerWidth > 768) {
                     $(right[0]).css('height',myHeight+'px');
                 }
             }
@@ -837,7 +837,7 @@ function(appSv,$window){
 
                 $(element[0]).css('height','').css('overflow-y','hidden');
 
-                if ($window.innerWidth <= 480) {
+                if ($window.innerWidth <= 768) {
                     return;
                 }
 
