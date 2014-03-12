@@ -1,0 +1,93 @@
+@media (max-width: 480px) {
+
+    .content_detalle {
+      overflow-y: auto;
+      width: 80%!important;
+    }    
+
+    .content_detalle .icon_more {
+        font-size: 10px!important;
+        font-weight: 100!important;
+        line-height: 20px;
+    }
+    .content_detalle .left-column {
+        width: 100%!important;
+        float: none;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .content_detalle .right-column {
+        text-align: left;
+        float: none;
+        width: 100%;
+    }
+    .content_detalle h2, .content_detalle p  {
+        text-align: left;
+    }
+    .content_detalle h2 {
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .content_detalle .profile {
+        border: 2px solid #FDE200;
+        height: 45px !important;
+        margin: 10px 1% 10px 0;
+        right: 0;
+        width: 45px !important;
+    }
+
+    .content_detalle .close-detalle {
+        background: url("http://cloudcial.com/img/themes/digest/close.png") no-repeat 0 0 transparent;
+        width: 33px;
+        height: 30px;
+        background-size:33px 30px;
+        float: right;
+        position: relative;
+        right: -21px;
+        top: -21px;
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .content_detalle {
+      overflow-y: auto;
+      width: 80%!important;
+    }    
+
+    .content_detalle .icon_more {
+        font-size: 10px!important;
+        font-weight: 100!important;
+        line-height: 20px;
+    }
+    .content_detalle .left-column {
+        width: 100%!important;
+        float: none;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .content_detalle .right-column {
+        text-align: left;
+        float: none;
+        width: 100%;
+    }
+
+    .content_detalle h2 {
+        font-size: 20px;
+        line-height: 20px;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .content_detalle .profile {
+        border: 2px solid #FDE200;
+        height: 45px !important;
+        margin: 10px 1% 10px 0;
+        right: 0;
+        width: 45px !important;
+    }
+}

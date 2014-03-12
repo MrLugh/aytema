@@ -13,7 +13,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.list 	= [];
 	$scope.offset 	= 0;
-	$scope.limit	= 10;
+	$scope.limit	= 15;
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
@@ -528,8 +528,12 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 
 	$scope.contentStyle = function() {
+
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.8)";
+
 		return {
-			'background-color':$scope.config.custom.colors.contentBackground.value,
+			'background-color':rgbString,
 			'color':$scope.config.custom.colors.contentText.value,
 		};		
 	}

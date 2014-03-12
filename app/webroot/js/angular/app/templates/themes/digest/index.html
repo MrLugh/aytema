@@ -38,7 +38,7 @@
 
 			<ul ng-if="configLoaded" class="nav navbar-nav">
 				<li ng-repeat="page in pages" ng-class="getMenuItemClass('{{page}}')">
-					<a href="#/" ng-click="setCurrent('{{page}}')" skip-default>{{page}} <span ng-class="getMenuItemClass('{{page}}')"></span></a>
+					<a href="#/" ng-click="setCurrent('{{page}}')" skip-default>{{page}}</a>
 				</li>
 			</ul>
 
@@ -57,7 +57,7 @@
 				<div class="section content well" ng-style="getContentStyle(content)" ng-repeat="content in contentModal" ng-switch="content.concept">
 
 					<div class="both">
-						<i class="icon-remove-circle right" ng-click="closeContent()"></i>
+						<div class="close-detalle" ng-click="closeContent()">&nbsp;</div>
 						<div ng-if="isLogged()">{{content.status}}</div>
 					</div>
 

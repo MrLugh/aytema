@@ -36,7 +36,9 @@
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('minicolors');
     echo $this->Html->css('themes/digest/estilos');
+    echo $this->Html->css('themes/digest/estilos-responsive');
     echo $this->Html->css('themes/digest/detalle');
+    echo $this->Html->css('themes/digest/detalle-responsive');
     echo $this->Html->css('themes/digest/admin');
     ?>
 
