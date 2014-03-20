@@ -10,7 +10,6 @@ function latestEventsCo($scope,appSv,contentSv,$sce) {
 
 		if (angular.isDefined(list.list)) {
 			$scope.list = list.list.slice(0,$scope.limit);
-			console.log($scope.list);
 			//$scope.list = list.list;
 			$scope.setList();
 		}

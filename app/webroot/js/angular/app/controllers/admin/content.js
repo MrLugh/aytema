@@ -345,7 +345,6 @@ function adminContentLinkCo($scope,contentSv,$sce) {
 
 function adminContentEventCo($scope,contentSv,$sce) {
 
-	console.log($scope.content);
 	$scope.getMapSrc = function() {
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
