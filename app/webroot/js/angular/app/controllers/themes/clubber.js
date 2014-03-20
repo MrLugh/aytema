@@ -127,9 +127,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.getHomepageSize = function(page) {
 
-
-		console.log(contentSv.getPageList(page));
-
 		if (page == 'photos') {
 			return 'xlarge';
 		}

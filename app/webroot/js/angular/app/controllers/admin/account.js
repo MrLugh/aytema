@@ -56,7 +56,9 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			params['username']	= $scope.user.username;
 			if (angular.isDefined($scope.user['id'])) {
 				params['user_id']	= $scope.user.id;
-			}			
+			}
+
+			console.log(params);
 
 			contentSv.getContentsByFilters(params).then(
 				function(data) {

@@ -56,6 +56,44 @@ function(){
 
 }]);
 
+ayTemaDs.directive('latestPosts',[
+function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/themes/clubber/latest/posts.html',
+        restrict : 'E',
+        replace : true,
+        controller:'latestPostsCo',
+        scope: {
+            limit:'=',
+            config:'=',
+        },
+        link: function(scope,element,attrs) {
+
+        }
+    }
+
+}]);
+
+ayTemaDs.directive('latestEvents',[
+function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/themes/clubber/latest/events.html',
+        restrict : 'E',
+        replace : true,
+        controller:'latestEventsCo',
+        scope: {
+            limit:'=',
+            config:'=',
+        },
+        link: function(scope,element,attrs) {
+
+        }
+    }
+
+}]);
+
 ayTemaDs.directive('masonrySimple',['$timeout',
 function ($timeout) {
     return function (scope, element, attrs) {
