@@ -100,8 +100,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 				$scope.getContent(x);
 			}
 		}
-
-
 	}
 
 	$scope.hasContent = function(page) {
