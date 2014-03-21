@@ -9,10 +9,11 @@ Class Themeclubber {
             ),
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),
+                'networks'  => array('twitter')
             ),
             'videos'    => array(
                 'concepts'  => array('video'),
-                'networks'  => array('tumblr','vimeo')
+                'networks'  => array('youtube','vimeo')
             ),
             'events'    => array(
                 'concepts'  => array('event'),

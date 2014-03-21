@@ -485,3 +485,7 @@ iframe, object, embed, audio, video {
   width: 250px;
   display: block!important;
 }
+
+#rufous-sandbox {
+  display: none!important;
+}

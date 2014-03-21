@@ -6,18 +6,22 @@ Class Themedigest {
         'filters' => array(
             'home'      => array(
                 'concepts'  => array('all'),
+                'networks'  => array('cloudcial')
             ),
             'videos'    => array(
                 'concepts'  => array('video'),
+                'networks'  => array('vimeo','youtube')
             ),
             'tracks'    => array(
                 'concepts'  => array('track'),
+                'networks'  => array('soundcloud','mixcloud','tumblr')
             ),            
             'photos'    => array(
                 'concepts'  => array('photo'),
             ),
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),
+                'networks'  => array('twitter','facebook','tumblr')
             )
         ),
         'contentsizes' => array(

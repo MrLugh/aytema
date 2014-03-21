@@ -101,6 +101,8 @@
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/photos');
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/videos');
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/tracks');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/latest/posts');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/latest/events');
     ?>
 
     <!-- Plugins -->

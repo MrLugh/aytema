@@ -345,7 +345,6 @@ function adminContentLinkCo($scope,contentSv,$sce) {
 
 function adminContentEventCo($scope,contentSv,$sce) {
 
-	console.log($scope.content);
 	$scope.getMapSrc = function() {
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
@@ -365,7 +364,7 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 	$scope.event = {
 		'name'		: '',
 		'address'	: '',
-		'date'		: '',
+		'date'		: new Date(),
 		'time'		: '',
 		'door'		: '',
 		'place'		: '',
@@ -373,7 +372,7 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 	}
 
   	$scope.dateOptions = {
-  		'year-format'	: "'yy'",
+  		'year-format'	: "'yyyy'",
   		'starting-day'	: 1,
   		'default'		: 'today'
   	};
@@ -398,12 +397,24 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 
 	$scope.save = function() {
 
+		$scope.event.date = $scope.format(new Date($scope.event.date));
+
 		var event = {
-			'network'			: 'aytema',
+			'network'			: 'cloudcial',
 			'concept'			: 'event',
 			'data'				: $scope.event
 		}
+
 		contentSv.createContent(event);
+	}
+
+	$scope.format =  function(date) {
+		var year = date.getFullYear();
+		var month = (1 + date.getMonth()).toString();
+		month = month.length > 1 ? month : '0' + month;
+		var day = date.getDate().toString();
+		day = day.length > 1 ? day : '0' + day;
+		return year + '-' + month + '-' + day;
 	}
 
 }
