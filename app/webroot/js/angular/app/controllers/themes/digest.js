@@ -3,6 +3,10 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.contentSv = contentSv;
 	$scope.user = userSv.getUser();
 
+	$scope.networks = appSv.getNetworks();
+	$scope.networks.tumblr.concepts = ['photo','video','track'];
+	$scope.networks.facebook.concepts = ['photo','video'];
+
 	$scope.userMessage	= '';
 
 	$scope.showOverlay = false;
@@ -73,8 +77,8 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 				filters.networks.push(network);
 			}
 
-			for (var y in appSv.getNetworks()[network].concepts) {
-				var concept = appSv.getNetworks()[network].concepts[y];
+			for (var y in $scope.networks[network].concepts) {
+				var concept = $scope.networks[network].concepts[y];
 				if (allConcepts.indexOf(concept) == -1) {
 					allConcepts.push(concept);
 				}
@@ -129,6 +133,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 				}
 			}
 
+			console.log("PARAMS");
 			console.log(params);
 
 			contentSv.getContentsByFilters(params).then(
@@ -583,10 +588,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		$scope.pages = [];
 		for (var x in $scope.config.custom.filters) {
 			$scope.pages.push(x);
-		}
-
-		for (var x in $scope.config.custom.filters) {
-
 			if (!angular.isDefined($scope.config.custom.filters[x]['networks'])) {
 				var networks = [];
 				for (var y in $scope.accounts) {

@@ -4,6 +4,10 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.userSv	= userSv;
 	$scope.user 	= userSv.getUser();
 
+	$scope.networks = appSv.getNetworks();
+	$scope.networks.tumblr.concepts = ['video','track'];
+	$scope.networks.facebook.concepts = ['photo','video'];
+
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
@@ -27,12 +31,13 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.isLogged = function() {
 		return userSv.isLogged();
-	}	
+	}
 
-	$scope.getContent = function(type,concepts) {
+	$scope.getContent = function(type) {
 
 		var params			= [];
-		params['concepts']	= JSON.parse(JSON.stringify(concepts));
+		params['concepts']	= JSON.parse(JSON.stringify($scope.config.custom.filters[type].concepts));
+		params['networks']	= JSON.parse(JSON.stringify($scope.config.custom.filters[type].networks));
 		params['offset']	= $scope.content[type].offset;
 		params['limit']		= $scope.limit;
 		params['accounts']	= [];
@@ -44,7 +49,8 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 		for (var x in $scope.accounts) {
 			var account = $scope.accounts[x].Socialnet;
-			if (params['accounts'].indexOf(account.id) == -1) {
+			if ($scope.config.custom.filters[type].networks.indexOf(account.network) != -1 &&
+				params['accounts'].indexOf(account.id) == -1) {
 				params['accounts'].push(account.id);
 			}
 		}
@@ -76,11 +82,26 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.pages = [];
 		for (var x in $scope.config.custom.filters) {
 			$scope.pages.push(x);
+
+			if (!angular.isDefined($scope.config.custom.filters[x]['networks'])) {
+				var networks = [];
+				for (var y in $scope.accounts) {
+					var network = $scope.accounts[y].Socialnet.network;
+					if (networks.indexOf(network) == -1) {
+						networks.push(network);
+					}
+				}
+				$scope.config.custom.filters[x]['networks'] = networks;
+			}
+
+
 			if (!angular.isDefined($scope.content[x])) {
 				$scope.content[x] = {'offset':0,'list':[]};
-				$scope.getContent(x,$scope.config.custom.filters[x].concepts);
+				$scope.getContent(x);
 			}
 		}
+
+
 	}
 
 	$scope.hasContent = function(page) {
