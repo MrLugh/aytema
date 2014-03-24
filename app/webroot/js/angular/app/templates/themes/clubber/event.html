@@ -1,7 +1,18 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="event {{content.network}}_{{content.concept}}">
 
-	<h2>{{content.data.name}} {{content.data.date}} @ {{content.data.place}}</h2>
-	<a ng-if="content.data.ticket.length > 0" ng-href="{{content.data.ticket}}" target="_blank" class="right event_map">Buy Tickets</a>
-	<img alt="Google map on {{content.data.address}}" ng-src="{{getMapSrc()}}" />
+	<div class="event-date-container">
+		<p class="event-date-day">{{content.data.date|date:'dd'}}</p>
+		<p class="event-date-month">{{content.data.date|date:'MMMM'}}</p>
+	</div>
+
+	<div class="event-map-container">
+		<img alt="Google map on {{content.data.address}}" ng-src="{{getMapSrc()}}" class="event_map" />
+	</div>
+
+	<div class="event-info-container">
+		<h2>{{content.data.name}}</h2>
+		<p class="event-info-place">{{content.data.place}}</p>
+		<a ng-if="content.data.ticket.length > 0" ng-href="{{content.data.ticket}}" target="_blank">Buy Tickets</a>
+	</div>
 
 </div>
