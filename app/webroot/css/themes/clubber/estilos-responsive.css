@@ -9,7 +9,10 @@
     width: 100%;
   }
 
-  
+  h1 a {
+    font-size: 22px!important;
+    line-height: 18px!important;
+  }  
 
 }
 
@@ -23,5 +26,10 @@
   .small, .medium, .large {
     width: 48%;
   }
+
+  h1 a {
+    font-size: 22px!important;
+    line-height: 18px!important;
+  }  
 
 }
