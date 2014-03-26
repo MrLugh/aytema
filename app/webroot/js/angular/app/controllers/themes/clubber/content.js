@@ -49,6 +49,11 @@ function contentVideoCo($scope,$sce,contentSv) {
 		return contentSv.getTitle($scope.content);
 	}
 
+	$scope.hasDescription = function() {
+
+		return contentSv.getDescription($scope.content).length;
+	}
+
 	$scope.getDescription = function() {
 
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));

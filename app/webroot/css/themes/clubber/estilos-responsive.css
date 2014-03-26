@@ -9,6 +9,8 @@
     width: 100%;
   }
 
+  
+
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -19,7 +21,7 @@
   }
 
   .small, .medium, .large {
-    width: 49%;
+    width: 48%;
   }
 
 }

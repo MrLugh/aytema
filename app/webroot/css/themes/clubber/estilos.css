@@ -27,7 +27,6 @@ body {
     -moz-transition:all 0.56s ease;
     -o-transition:all 0.56s ease;
     transition:all 0.56s ease;
-
 }
 
 a,a:hover,a:active,a:focus,
@@ -36,6 +35,7 @@ img,img:hover,img:active,img:focus {
     border: none;
     text-decoration: none;
 }
+
 
 input::-moz-focus-inner { 
   border: 0; 
@@ -180,6 +180,23 @@ ul {
   position: relative;
 }
 
+#container .page.ng-enter {
+    left:-100%;
+}
+
+#container .page.ng-enter.ng-enter-active {
+    left: 0;
+}
+
+#container .page.ng-leave {
+    left: 0;
+}
+
+#container .page.ng-leave.ng-leave-active {
+    left: -100%;
+}
+
+
 #masonry {
 
 }
@@ -317,12 +334,22 @@ ul {
   -moz-transition:none;
   -o-transition:none;
   transition:none;
+
+  outline: 1px solid;
 }
 
 .title {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+/*
+iframe, object, embed, audio, video {
+  height: 250px;
+  width: 250px;
+  display: block!important;
+}
+*/
 
 /* latest photos */
 
@@ -375,7 +402,7 @@ ul {
 /* latest videos */
 
 .latestVideos {
-  background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
+  outline: 1px solid red;
 }
 
 .latestVideos,  .latestVideos .videos {
@@ -385,55 +412,42 @@ ul {
 }
 
 .latestVideos .videos {
-  white-space: nowrap;
-  overflow-y:hidden;
-  overflow-x: auto;
-  height: 350px;
-  padding: 20px;  
+
 }
 
 .latestVideos .video {
-  display: inline-block;
-  width: 270px;
+  /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+
+  outline: 1px solid;
+}
+
+.latestVideos .video .player iframe, .latestVideos .video .player object, .latestVideos .video .player video {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.latestVideos .video .video_thumbnail {
+  max-width: 100%;
 }
 
 .latestVideos .title, .latestvideos .caption {
   position:relative;
   z-index:3;
   max-width:100%;
-  overflow:hidden;
   text-transform: none;
   font-size: 13px;
   font-weight: normal;
 }
-
-.latestVideos .videos::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
-  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
-
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
-
-.latestVideos .videos::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
-  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
-
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
-
 
 /* latest videos */
 
 /* latest tracks */
 
 .latestTracks {
-  background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
+  outline: 1px solid red;
 }
 
 .latestTracks, .latestTracks .tracks {
@@ -442,43 +456,22 @@ ul {
   text-align: center;
 }
 
-.latestTracks .tracks {
-  white-space: nowrap;
-  overflow-y:hidden;
-  overflow-x: auto;
-  height: 350px;
-}
-
 .latestTracks .track {  
-  display: inline-block;
-  width: 270px;  
+  /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
+  display: block;
+
+  outline: 1px solid;
 }
 
-.latestTracks .tracks::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
-  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
-
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
-
-.latestTracks .tracks::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
-  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
-
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+.latestTracks .track iframe, .latestTracks .track object, .latestTracks .track embed, .latestTracks audio {
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 .latestTracks .title, .latestTracks .caption {
   position:relative;
   z-index:3;
   max-width:100%;
-  overflow:hidden;
   text-transform: none;
   font-size: 13px;
   font-weight: normal;
@@ -489,7 +482,8 @@ ul {
 /* latest events */
 
 .latestEvents {
-  background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
+  /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
+  outline: 1px solid red;
 }
 
 .latestEvents, .latestEvents .events {
@@ -499,46 +493,21 @@ ul {
 }
 
 .latestEvents .events {
-  white-space: nowrap;
-  overflow-y:auto;
-  overflow-x: hidden;
-  height: 350px;
+
 }
 
 .latestEvents .event {  
   width: 100%;
-  margin-bottom: 20px;
-}
-
-.latestEvents .events::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
-  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
-
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
-
-.latestEvents .events::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.3);
-  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.3);
-
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  outline: 1px solid;
 }
 
 .latestEvents .event-date-container {
-  width: 20%;
-  display: inline-block;
+  width: 19%;
   text-align: center;
-  vertical-align:middle;
+  display: inline-block;
 }
 
 .latestEvents .event-date-container .event-date-day {
-  line-height: 80px;
   text-transform: uppercase;
   font-size: 35px;
   font-weight: bold;
@@ -551,8 +520,8 @@ ul {
 }
 
 .latestEvents .event-map-container {
-  width: 20%;
-  padding-left: 10px;  
+  width: 19%;
+  padding-left: 10px;
   display: inline-block;
 }
 
@@ -563,22 +532,44 @@ ul {
 .latestEvents .event-info-container {
   width: 60%;
   padding-left: 10px;
-  display: inline-block;
   text-align: left;
-  vertical-align:middle;
+  display: inline-block;
 }
 
 .latestEvents .event-info-container h2 {
   font-size: 20px;
 }
 
-/* latest tracks */
+/* latest events */
 
-iframe, object, embed, audio, video {
-  height: 250px;
-  width: 250px;
-  display: block!important;
+/* latest posts */
+
+.latestPosts {
+  outline: 1px solid red;
 }
+
+.latestPosts, .latestPosts .posts {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.latestPosts .posts {
+}
+
+.latestPosts .post {
+  /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
+  width: 100%;
+  margin-bottom: 20px;
+
+  outline: 1px solid;
+}
+
+.latestPosts .post iframe, .latestPosts .post object, .latestPosts .post embed {
+  width: 100%;
+}
+
+/* latest posts */
 
 #rufous-sandbox {
   display: none!important;
