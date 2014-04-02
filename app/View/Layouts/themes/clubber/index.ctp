@@ -35,6 +35,7 @@
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('minicolors');
+    echo $this->Html->css('themes/clubber/bootstrap-overwrite');
     echo $this->Html->css('themes/clubber/estilos');
     echo $this->Html->css('themes/clubber/estilos-responsive');    
     echo $this->Html->css('themes/clubber/admin');
