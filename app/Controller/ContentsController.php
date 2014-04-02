@@ -158,6 +158,12 @@ class ContentsController extends AppController {
 
         foreach ($data as $key => $value) {
 
+            $status = 'enabled';
+            if ($value['network'] == 'soundcloud' && $value['data']['sharing'] != 'public') {
+                $stats = 'disabled';
+            }
+
+            $value['status']= $status;
             $value['data']  = serialize($value['data']);
             $value['stats'] = serialize($value['stats']);
 
