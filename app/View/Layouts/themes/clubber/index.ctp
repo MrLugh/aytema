@@ -39,6 +39,11 @@
     echo $this->Html->css('themes/clubber/estilos');
     echo $this->Html->css('themes/clubber/estilos-responsive');    
     echo $this->Html->css('themes/clubber/admin');
+    echo $this->Html->css('themes/clubber/pages/photos');
+    echo $this->Html->css('themes/clubber/pages/videos');
+    echo $this->Html->css('themes/clubber/pages/events');
+    echo $this->Html->css('themes/clubber/pages/tracks');
+    echo $this->Html->css('themes/clubber/pages/posts');
     ?>
 
     <!-- Js -->
@@ -104,6 +109,11 @@
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/tracks');
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/posts');
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/events');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/pages/photos');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/pages/videos');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/pages/tracks');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/pages/posts');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/pages/events');        
     ?>
 
     <!-- Plugins -->
@@ -130,6 +140,7 @@
         echo $this->Html->script('angular/app/directives/themes/clubber/index');
         echo $this->Html->script('angular/app/directives/themes/clubber/content');
         echo $this->Html->script('angular/app/directives/themes/clubber/latest');
+        echo $this->Html->script('angular/app/directives/themes/clubber/pages');
     ?>
 
 
