@@ -1,11 +1,15 @@
 /* Estilos galeria*/
+.pagePhotos ul {
+    padding-right: -12px;    
+}
 
 .pagePhotos ul li {
-    width: 32%;
+    width: 29.3%;
     height: auto;
     float: left;
     margin: 0;
-    padding: 5px;    
+    padding-right: 12px;
+    padding-bottom: 12px;    
 }
 .pagePhotos ul li .pagePhotoContainer {
     display: block;
