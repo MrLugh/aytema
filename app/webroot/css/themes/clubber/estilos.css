@@ -1,9 +1,12 @@
 body {
-  background: url("http://images4.alphacoders.com/174/174978.jpg");
   background: url("http://bigbackground.com/wp-content/uploads/2013/07/dj-wallpaper-hd-widescreen.jpg");
-  background-repeat: no-repeat;
+  background: url("http://cloudcial.com/img/themes/clubber/background.png") repeat 0 0 #fff;
+
+  /*
+  background-repeat: no-repeat;  
   background-size: cover;
   background-position: center center;
+  */
   text-align: center;
   margin: 0 auto;
   font-size: 17px;

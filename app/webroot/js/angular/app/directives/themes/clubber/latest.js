@@ -114,7 +114,7 @@ function ($timeout) {
 
         setInterval(function(){
             scope.masonry.layout();
-        },3000);
+        },500);
     }
 }]);
 
