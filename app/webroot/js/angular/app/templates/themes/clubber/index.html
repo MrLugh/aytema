@@ -71,7 +71,7 @@
 				</li>
 			</ul>
 
-			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')" masonry-simple="{'columnWidth':10,'gutter':5,'isAnimated':true,'itemSelector':'.section'}">
+			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')" masonry-simple="{'isAnimated':false,'itemSelector':'.section'}">
 
 				<li ng-repeat="page in pages" class="section section_{{page}} {{getHomepageSize(page)}}" ng-if="hasContent(page) && page != 'photos'" masonry-simple-item>
 

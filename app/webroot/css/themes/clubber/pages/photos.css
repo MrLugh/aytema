@@ -1,0 +1,77 @@
+/* Estilos galeria*/
+
+.pagePhotos ul li {
+    width: 32%;
+    height: auto;
+    float: left;
+    margin: 0;
+    padding: 5px;    
+}
+.pagePhotos ul li .pagePhotoContainer {
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    color: #00A9C5;
+    text-decoration: none;
+    z-index: 1;
+}
+.pagePhotos ul li .pagePhotoContainer img {
+    position: relative;
+    top:0;
+    left: 0;
+    display: block;
+    vertical-align: bottom;
+    height: auto;
+    max-width: 100%;
+}
+.pagePhotos ul li .pagePhotoContainer .overlay {
+    display: block;
+    padding: 10px;
+    position: absolute;
+    width: 100%;    
+    height: 100%;
+    left: 100%;
+    top: 0;
+    z-index: 2;
+    opacity: 0;
+    background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;        
+}
+
+.pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner {
+    display: inline-block;
+}
+.pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner h2 {
+    color: #FFFFFF;
+    display: block;
+    line-height: 1;
+    position: relative;
+    text-align: center;
+    z-index: 4;
+    font-size: 2.25rem;
+}
+.pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner p {
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 0;
+    position: relative;
+    text-align: center;
+    z-index: 4;
+    font-size: 1.125rem;
+}
+.pagePhotos ul li .pagePhotoContainer:hover .overlay {
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+.pagePhotosItem {
+  -webkit-transition:none;
+  -moz-transition:none;
+  -o-transition:none;
+  transition:none;    
+}
