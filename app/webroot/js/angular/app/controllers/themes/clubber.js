@@ -270,12 +270,12 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		var element = angular.element(document.querySelector('#container'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 		//$(element[0]).css('background-color',rgbString);
-		$(element[0]).css('background-color',rgb);
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 
 		var element = angular.element(document.querySelector('.navbar'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 		//$(element[0]).css('background-color',rgbString);
-		$(element[0]).css('background-color',rgb);
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 
 		var element = angular.element(document.querySelector('.navbar-nav li.active a'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
@@ -306,7 +306,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	var style = {
     		'width':width,
     		//'background-color':rgbString,
-    		'background-color':rgb,
+    		'background-color':$scope.config.custom.colors.background.value,
     		'color':$scope.config.custom.colors.contentText.value
     	};
 
