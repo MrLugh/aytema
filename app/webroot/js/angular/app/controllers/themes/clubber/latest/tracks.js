@@ -10,7 +10,6 @@ function latestTracksCo($scope,appSv,contentSv,$sce) {
 
 		if (angular.isDefined(list.list)) {
 			$scope.list = list.list.slice(0,$scope.limit);
-			//$scope.list = list.list;
 			$scope.setList();
 		}
 

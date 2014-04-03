@@ -309,6 +309,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	};	
 
 	var getFacebookContentHrefEmbed = function(content) {
+
+		if (!angular.isDefined(content)) {
+			return '';
+		}		
 	
 		var href = "https://www.facebook.com/"+content['external_user_name']+"/posts/"+content['external_atomic_id'];
 
@@ -318,6 +322,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var getThumbnail = function(content) {
 
 		var source = '';
+
+		if (!angular.isDefined(content)) {
+			return source;
+		}		
 
 		if (content.concept == 'video') {
 
@@ -395,6 +403,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var source = '';
 
+		if (!angular.isDefined(content)) {
+			return source;
+		}		
+
 		if (content.concept == 'video') {
 
 			if (content.network == 'tumblr') {
@@ -454,6 +466,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var embed = ''
 
+		if (!angular.isDefined(content)) {
+			return embed;
+		}		
+
 		if (content.network == 'twitter') {
 			if (angular.isDefined(content.data['embed'])) {
 				embed = content.data['embed'];
@@ -466,6 +482,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var getTitle = function(content) {
 
 		var title = '';
+
+		if (!angular.isDefined(content)) {
+			return title;
+		}		
 
 		if (content.network == 'tumblr') {
 
@@ -504,6 +524,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var getDescription = function(content) {
 
 		var description = '';
+
+		if (!angular.isDefined(content)) {
+			return description;
+		}
 
 		if (content.network == 'tumblr') {
 
@@ -544,6 +568,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var dialogues = '';
 
+		if (!angular.isDefined(content)) {
+			return dialogues;
+		}		
+
 		if (content.network == 'tumblr') {
 			if (angular.isDefined(content.data['dialogue'])) {
 				dialogues =  content.data['dialogue'];
@@ -556,6 +584,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var getQuoteText = function(content) {
 
 		var text = '';
+
+		if (!angular.isDefined(content)) {
+			return text;
+		}		
 
 		if (content.network == 'tumblr') {
 			if (angular.isDefined(content.data['text'])) {
@@ -570,6 +602,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var source = '';
 
+		if (!angular.isDefined(content)) {
+			return source;
+		}		
+
 		if (content.network == 'tumblr') {
 			if (angular.isDefined(content.data['source'])) {
 				source = content.data['source'];
@@ -582,6 +618,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var getUrl = function(content) {
 
 		var url = '';
+
+		if (!angular.isDefined(content)) {
+			return url;
+		}		
 
 		if (content.network == 'tumblr') {
 			if (angular.isDefined(content.data['url'])) {
@@ -600,6 +640,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	var getFacebookShareOptions = function(content) {
 		var options = [];
+
+		if (!angular.isDefined(content)) {
+			return options;
+		}		
 
 		if (content.network == 'tumblr' && content.concept == 'photo' && content.data.photos.length > 1) {
 			for(x in content.data.photos) {
@@ -629,6 +673,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var getTumblrShareOptions = function(content) {
 		var options = [];
 
+		if (!angular.isDefined(content)) {
+			return options;
+		}		
+
 		var thumbnail = this.getThumbnail(content);
 		if ( content.concept == 'photo' && thumbnail.length > 0){
 			options.push("source="+encodeURIComponent(thumbnail));
@@ -656,6 +704,9 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var source = '';
 
+		if (!angular.isDefined(content)) {
+			return source;
+		}
 
 		if (content.network == 'tumblr') {
 			if (angular.isDefined(content.data['source_url'])) {

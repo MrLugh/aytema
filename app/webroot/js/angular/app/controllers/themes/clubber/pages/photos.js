@@ -7,6 +7,10 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 
 		for (var x in $scope.list) {
 
+			if (angular.isDefined($scope.photolist[x])) {
+				continue;
+			}
+
 			var content = $scope.list[x];
 
 			if (content.network == 'tumblr') {
@@ -37,7 +41,6 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 	$scope.$watch("contentSv.getPageList('photos')",function(list){
 
 		if (angular.isDefined(list.list)) {
-			//$scope.list = list.list.slice(0,$scope.limit);
 			$scope.list = list.list;
 			$scope.setList();
 		}

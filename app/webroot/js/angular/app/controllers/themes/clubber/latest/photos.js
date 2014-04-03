@@ -5,6 +5,8 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 
 	$scope.setList = function() {
 
+		$scope.photolist = [];
+
 		for (var x in $scope.list) {
 
 			var content = $scope.list[x];
@@ -37,8 +39,7 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 	$scope.$watch("contentSv.getPageList('photos')",function(list){
 
 		if (angular.isDefined(list.list)) {
-			//$scope.list = list.list.slice(0,$scope.limit);
-			$scope.list = list.list;
+			$scope.list = list.list.slice(0,$scope.limit);
 			$scope.setList();
 		}
 
