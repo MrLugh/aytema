@@ -6,10 +6,6 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'PhotosCo',
-        scope: {
-            limit:'=',
-            config:'=',
-        },
         link: function(scope,element,attrs) {
 
         }
@@ -26,10 +22,6 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'VideosCo',
-        scope: {
-            limit:'=',
-            config:'=',
-        },
         link: function(scope,element,attrs) {
 
         }
@@ -45,10 +37,6 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'TracksCo',
-        scope: {
-            limit:'=',
-            config:'=',
-        },
         link: function(scope,element,attrs) {
 
         }
@@ -64,10 +52,6 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'PostsCo',
-        scope: {
-            limit:'=',
-            config:'=',
-        },
         link: function(scope,element,attrs) {
 
         }
@@ -83,10 +67,6 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'EventsCo',
-        scope: {
-            limit:'=',
-            config:'=',
-        },
         link: function(scope,element,attrs) {
 
         }

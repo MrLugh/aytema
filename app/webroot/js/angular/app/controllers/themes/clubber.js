@@ -63,7 +63,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 						content = contents[x].Content;
 						$scope.content[type].list.push(content);
 					}
-					$scope.content[type].offset += $scope.limit;
+					$scope.content[type].offset = $scope.content[type].list.length;
 					contentSv.setPageList(type,$scope.content[type]);
 				}
 			},
