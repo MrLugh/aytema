@@ -66,11 +66,13 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 
 		$collected_data= array();
 
+		/*
 		$feed	= $this->getFeed($account, $params);
 		if (!empty($feed))
 		{
 			$collected_data = array_merge($collected_data,$feed);
 		}
+		*/
 
 		$posts	= $this->getPosts($account, $params);
 		if (!empty($posts))
