@@ -172,7 +172,8 @@ ul {
   display: block;  
   -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
   -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-  box-shadow: 0 1px 3px rgba(34,25,25,0.4);  
+  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  min-height: 480px;  
 }
 
 #container .page {
