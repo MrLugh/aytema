@@ -95,6 +95,7 @@
 
 			<div ng-repeat="page in pages" class="page {{getPageClass(page)}}" ng-if="isActive(page)" ng-switch="page">
 
+				{{page}}
 				<photos ng-switch-when='photos'></photos>
 
 			</div>
