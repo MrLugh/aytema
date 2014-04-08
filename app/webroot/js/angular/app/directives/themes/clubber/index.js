@@ -47,3 +47,42 @@ function($FB,$timeout){
     }
 
 }]);
+
+ayTemaDs.directive('masonrySimple',['$timeout',
+function ($timeout) {
+    return function (scope, element, attrs) {
+
+        var options = scope.$eval(attrs.masonrySimple);
+
+        scope.createMasonry = function() {
+            var container = element[0];
+            scope.masonry = new Masonry(container,options);
+        }
+        scope.createMasonry();
+
+        scope.addToMasonry = function(elm) {
+
+            jQuery.when(scope.masonry.appended(elm[0])).done(function(event) {
+                scope.masonry.layout();
+            });
+        }           
+
+        setInterval(function(){
+            scope.masonry.layout();
+        },500);
+    }
+}]);
+
+ayTemaDs.directive('masonrySimpleItem',['$timeout',
+function ($timeout) {
+    return function (scope, element, attrs) {
+
+        var masonry = scope.$parent.masonry;
+
+        element.ready(function(){
+            imagesLoaded(element[0],function(){
+                scope.$parent.addToMasonry(element);
+            });
+        });
+    }
+}]);

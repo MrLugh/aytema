@@ -1,15 +1,21 @@
 function PhotosCo($scope,appSv,contentSv,$sce) {
 
 	$scope.contentSv= contentSv;
-	$scope.photolist = [];
+	$scope.photolist= [];
+	$scope.loading 	= false;
+	$scope.limit 	= 10;
+	$scope.offset 	= 0;
 
 	$scope.setList = function() {
 
-		for (var x in $scope.list) {
+		$scope.list = contentSv.getPageList('photos').list.slice($scope.offset,$scope.offset+$scope.limit);
+		if ($scope.list.length == $scope.limit) {
+			$scope.offset = $scope.offset + $scope.limit;
+		} else {
+			$scope.offset = $scope.offset + $scope.list.length;
+		}
 
-			if (angular.isDefined($scope.photolist[x])) {
-				continue;
-			}
+		for (var x in $scope.list) {
 
 			var content = $scope.list[x];
 
@@ -35,13 +41,14 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 
 		}
 
+		$scope.loading = false;
+
 	}
 
 
 	$scope.$watch("contentSv.getPageList('photos')",function(list){
 
 		if (angular.isDefined(list.list)) {
-			$scope.list = list.list;
 			$scope.setList();
 		}
 
@@ -75,7 +82,17 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 	}
 
 	$scope.loadMore = function() {
-		$scope.$parent.$parent.getContent("photos");
+		if ($scope.loading) {
+			return false;
+		}
+		$scope.loading = true;
+		if ($scope.offset + $scope.limit * 3 > contentSv.getPageList('photos').list.length ) {
+			console.log("Loading more fotos from backend");
+			$scope.$parent.$parent.getContent("photos");
+		} else {
+			console.log("Loading from contentSv.getPageList('photos') ");
+		}
+		$scope.setList();
 	}
 
 }

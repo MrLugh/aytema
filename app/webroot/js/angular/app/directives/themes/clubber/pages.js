@@ -8,6 +8,14 @@ function(){
         controller:'PhotosCo',
         link: function(scope,element,attrs) {
 
+            $(window).scroll(function() {
+
+                if ( !scope.loading && ($(window).scrollTop() + $(window).height()) >= ($('body').height() * 0.9)) {
+                    scope.$apply(scope.loadMore());
+                }
+
+            });
+
         }
     }
 
