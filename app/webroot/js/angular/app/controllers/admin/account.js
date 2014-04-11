@@ -58,8 +58,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 				params['user_id']	= $scope.user.id;
 			}
 
-			console.log(params);
-
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
 					var contents = data.contents;
@@ -152,7 +150,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.getContainerStyle = function() {
-		console.log($scope.$parent.menuHeight);
 		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() - $scope.$parent.menuHeight + 'px'};
 	}
 
