@@ -87,10 +87,7 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 		}
 		$scope.loading = true;
 		if ($scope.offset + $scope.limit * 3 > contentSv.getPageList('photos').list.length ) {
-			console.log("Loading more fotos from backend");
 			$scope.$parent.$parent.getContent("photos");
-		} else {
-			console.log("Loading from contentSv.getPageList('photos') ");
 		}
 		$scope.setList();
 	}
