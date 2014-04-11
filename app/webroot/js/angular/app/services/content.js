@@ -490,15 +490,15 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if (content.network == 'tumblr') {
 
 			if (angular.isDefined(content.data['slug'])) {
-				title = content.data['slug'];
+				title = content.data['slug'].split("-").join(" ");
 			}
 
 			if (angular.isDefined(content.data['source_title'])) {
-				title = content.data['source_title'];
+				title = content.data['source_title'].split("-").join(" ")
 			}
 
 			if (angular.isDefined(content.data['title'])) {
-				title = content.data['title'];
+				title = content.data['title'].split("-").join(" ")
 			}			
 		}
 
@@ -545,6 +545,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 			if (angular.isDefined(content.data['story'])) {
 				description = content.data['story'];
+			}
+
+			if (angular.isDefined(content.data['name'])) {
+				description = content.data['name'];
 			}
 
 			if (angular.isDefined(content.data['message'])) {

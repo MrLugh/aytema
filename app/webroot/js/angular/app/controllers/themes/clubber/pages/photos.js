@@ -23,17 +23,20 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 				var element = content.data.photos[0];
 				var photo = {
 					src 		: element.original_size.url,
-					title		: contentSv.getTitle(content)
+					title		: contentSv.getTitle(content),
+					description : contentSv.getDescription(content)
 				};
 
 				$scope.photolist.push(photo);
 			}
 
 			if (content.network == 'facebook') {
+
 				var element = content.data;
 				var photo = {
 					src 		: element.picture.replace(/_s./g,'_n.'),
-					title		: contentSv.getTitle(content)
+					title		: contentSv.getTitle(content),
+					description : contentSv.getDescription(content)
 				};
 
 				$scope.photolist.push(photo);
@@ -56,7 +59,7 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 
 	$scope.getDescription = function(index) {
 
-		return $sce.trustAsHtml(contentSv.getDescription($scope.list[index]));
+		return $sce.trustAsHtml($scope.photolist[index].description);
 	}
 
 	$scope.getTitleStyle = function() {
