@@ -2,26 +2,9 @@
 
 	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pagePhotosItem'}">
 
-		<!--
-		<li ng-repeat="photo in photolist" class="pagePhotosItem" masonry-simple-item>
-
-			<div class="pagePhotoContainer">
-				<img ng-src="{{photo.src}}" class="photo" style="position:relative;top:0;left:0;z-index:2;">
-			    <div class="overlay" ng-if="photo.title.length>0 || photo.description.length>0">
-		          <div class="overlay-inner">
-		            <h2 ng-if="photo.title.length>0" class="beta">{{photo.title}}</h2>
-		            <p ng-if="photo.description.length>0" ng-bind-html="getDescription($index)"></p>
-		          </div>
-		        </div>
-		    </div>
-
-		</li>
-		-->
-
 		<li ng-repeat="content in photolist" class="pagePhotosItem" masonry-simple-item>
 			<content-photo></content-photo>
 		</li>
-
 
 	</ul>
 

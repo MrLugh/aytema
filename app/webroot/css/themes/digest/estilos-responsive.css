@@ -1,16 +1,16 @@
 @media (max-width: 480px) {
 
   #container .small {
-  width: calc(100% - 20px);
+    width: 97%;
   }
   #container .medium {
-  width: calc(100% - 20px);
+    width: 97%;
   }
   #container .large {
-  width: calc(100% - 20px);
+    width: 97%;
   }
   #container .xlarge {
-  width: calc(100% - 20px);
+    width: 97%;
   }
 
   .navbar ul li {
@@ -36,16 +36,16 @@
 @media (min-width: 481px) and (max-width: 768px) {
 
   #container .small {
-  width: calc(50% - 20px);
+    width: 47%;
   }
   #container .medium {
-  width: calc(50% - 20px);
+    width: 47%;
   }
   #container .large {
-  width: calc(72% - 20px);
+    width: 72%;
   }
   #container .xlarge {
-  width: calc(100% - 20px);
+  width: 97%;
   }
 
   h1 a {
@@ -66,16 +66,16 @@
 @media (min-width: 769px) and (max-width: 1024px) {
 
   #container .small {
-    width: calc(50% - 20px);
+    width: 47%;
   }
   #container .medium {
-    width: calc(50% - 20px);
+    width: 47%;
   }
   #container .large {
-    width: calc(72% - 20px);
+    width: 72%;
   }
   #container .xlarge {
-    width: calc(100% - 20px);
+    width: 97%;
   }
 
 }
@@ -83,16 +83,16 @@
 @media (min-width: 1025px) and (max-width: 2048px) {
 
   #container .small {
-    width: calc(16% - 20px);
+    width: 15%;
   }
   #container .medium {
-    width: calc(25% - 20px);
+    width: 24%;
   }
   #container .large {
-    width: calc(33% - 20px);
+    width: 32%;
   }
   #container .xlarge {
-    width: calc(50% - 20px);
+    width: 47%;
   }
 
 }
