@@ -47,16 +47,23 @@
 }
 
 .pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner {
-    display: inline-block;
+    left: 21%;
+    padding: 0 0 20px;
+    position: absolute;
+    top: 28%;
+    width: 60%;
 }
 .pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner h2 {
-    color: #FFFFFF;
+    background-color: #000000;
+    color: #02C0F8;
     display: block;
+    font-size: 2.25rem;
     line-height: 1;
+    padding: 5px;
     position: relative;
     text-align: center;
+    text-transform: uppercase;
     z-index: 4;
-    font-size: 2.25rem;
 }
 .pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner p {
     color: #FFFFFF;
