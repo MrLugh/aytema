@@ -1,9 +1,9 @@
 @media (max-width: 1024px) {
 
-	.pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner h2 {
+	.pagePhotos ul li .overlay .overlay-inner h2 {
 		font-size: 12px;
 	}
-	.pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner p {
+	.pagePhotos ul li .overlay .overlay-inner p {
 		line-height: 12px;
 	}	
 }
@@ -30,10 +30,10 @@
 	.pagePhotos ul li {
 	    width: calc(89% - 12px);
 	}
-	.pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner h2 {
+	.pagePhotos ul li .overlay .overlay-inner h2 {
 		font-size: 22px;
 	}	
-	.pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner p {
+	.pagePhotos ul li .overlay .overlay-inner p {
 		line-height: 16px;
 	}		
 

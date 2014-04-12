@@ -4,31 +4,32 @@
 	<div style="background:url('{{current.src}}');background-size:cover;" class="overlay_photo" on-hover-position></div>
 	-->
 
-	<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" />
-
-	<div style="position:absolute;width:100%;top:0;left:0;">
-		<div ng-if="moreThanOne()" class="left photo_prev">
-			<a href="#/" skip-default ng-click="move(-1)">
-		 		<img src="http://cloudcial.com/img/themes/clubber/arrow-left.png" alt="Previous photo" />
-		 	</a>
-		</div>
-
-		<div ng-if="moreThanOne()" class="right photo_next">
-			<a href="#/" skip-default ng-click="move(1)">
-				<img src="http://cloudcial.com/img/themes/clubber/arrow-right.png" alt="Next photo" />
-			</a>
-		</div>
-	</div>
-
 	<div class="pagePhotoContainer">
-		<!--<img ng-src="{{photo.src}}" class="photo" style="position:relative;top:0;left:0;z-index:2;">-->
+
+		<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" />
+
 	    <div class="overlay" ng-if="getTitle().length>0 || getDescription().length>0">
-          <div class="overlay-inner">
-            <h2 ng-if="getTitle().length>0" class="beta">{{getTitle()}}</h2>
-            <p ng-if="getDescription().length>0" ng-bind-html="getDescription()"></p>
-          </div>
-        </div>
-    </div>
+	      <div class="overlay-inner">
+	        <h2 ng-if="getTitle().length>0" class="title">{{getTitle()}}</h2>
+	        <p ng-if="getDescription().length>0" ng-bind-html="getDescription()"></p>
+	      </div>
+	    </div>
+
+		<div style="position:absolute;width:100%;top:0;left:0;z-index:3;">
+			<div ng-if="moreThanOne()" class="left photo_prev">
+				<a href="#/" skip-default ng-click="move(-1)">
+			 		<img src="http://cloudcial.com/img/themes/clubber/arrow-left.png" alt="Previous photo" />
+			 	</a>
+			</div>
+
+			<div ng-if="moreThanOne()" class="right photo_next">
+				<a href="#/" skip-default ng-click="move(1)">
+					<img src="http://cloudcial.com/img/themes/clubber/arrow-right.png" alt="Next photo" />
+				</a>
+			</div>
+		</div>
+
+	</div>
 
 
 </div>
