@@ -276,6 +276,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 		//$(element[0]).css('background-color',rgbString);
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+		$(element[0]).css('border-bottom','4px solid '+$scope.config.custom.colors.contentBackground.value);
 
 		var element = angular.element(document.querySelector('.navbar-nav li.active a'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
