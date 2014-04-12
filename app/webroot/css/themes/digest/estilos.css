@@ -4,13 +4,10 @@ body {
   font-family: 'Playfair Display', serif; 
   color: #000; 
   overflow: hidden;
-
-  /*
   -webkit-transition:all 0.66s ease;
   -moz-transition:all 0.66s ease;
   -o-transition:all 0.66s ease;
   transition:all 0.66s ease;  
-  */
   background-color: #F7F7F7;
 }
 
@@ -246,7 +243,7 @@ p {
 #container .content {
   /*border-bottom: 3px solid #000000;*/
   float: left;
-  margin: 0 0 20px;
+  margin: 0 10px 20px;
   padding: 10px;
   overflow: hidden;
   z-index: 1;
