@@ -22,7 +22,6 @@
     overflow: hidden;
     padding: 0;
     position: relative;
-    color: #00A9C5;
     text-decoration: none;
     z-index: 1;
 }
@@ -60,8 +59,6 @@
     display: inline-block;
 }
 .pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner h2 {
-    background-color: #000;
-    color: #fff;
     display: block;
     font-size: 2.25rem;
     line-height: 1;
@@ -72,7 +69,6 @@
     z-index: 4;
 }
 .pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner p {
-    color: #FFFFFF;
     display: block;
     margin-bottom: 0;
     position: relative;
@@ -88,7 +84,6 @@
 
 .pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner p a {
     font-style: italic;
-    color: #fff;
     text-decoration: underline;
 }
 .pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner p a:hover {

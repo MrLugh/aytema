@@ -70,6 +70,6 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 			'background-color': $scope.config.custom.colors.background.value,
 			'color': contrast
 		}
-	}	
+	}
 
 }

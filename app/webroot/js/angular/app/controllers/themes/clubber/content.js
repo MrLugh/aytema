@@ -96,13 +96,14 @@ function contentVideoCo($scope,$sce,contentSv) {
 }
 
 
-function contentPhotoCo($scope,contentSv) {
+function contentPhotoCo($scope,userSv,contentSv) {
 
 	//console.log($scope.content);
 
 	$scope.photolist	= [];
 	$scope.current 		= {};
 	$scope.currentPos	= 0;
+	$scope.userSv		= userSv;
 
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
@@ -156,6 +157,25 @@ function contentPhotoCo($scope,contentSv) {
 
 		return '';
 	}
+
+	$scope.getOverlayStyle = function() {
+
+		return {
+			'background-color': userSv.getThemeConfig().custom.colors.background.value,
+		}
+	}
+
+	$scope.getTitleStyle = function() {
+
+		return {
+			'background-color': userSv.getThemeConfig().custom.colors.contentBackground.value,
+			'color': userSv.getThemeConfig().custom.colors.contentText.value
+		}
+	}	
+
+	$scope.getDescriptionStyle = function() {
+		return {'color':userSv.getThemeConfig().custom.colors.contentText.value};
+	}	
 
 	$scope.move = function(direction) {
 
