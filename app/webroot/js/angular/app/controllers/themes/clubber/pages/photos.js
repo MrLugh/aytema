@@ -18,7 +18,9 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 		for (var x in $scope.list) {
 
 			var content = $scope.list[x];
+			$scope.photolist.push(content);
 
+			/*
 			if (content.network == 'tumblr') {
 				var element = content.data.photos[0];
 				var photo = {
@@ -41,7 +43,7 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 
 				$scope.photolist.push(photo);
 			}
-
+			*/
 		}
 
 		$scope.loading = false;

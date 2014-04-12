@@ -2,6 +2,7 @@
 
 	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pagePhotosItem'}">
 
+		<!--
 		<li ng-repeat="photo in photolist" class="pagePhotosItem" masonry-simple-item>
 
 			<div class="pagePhotoContainer">
@@ -15,6 +16,12 @@
 		    </div>
 
 		</li>
+		-->
+
+		<li ng-repeat="content in photolist" class="pagePhotosItem" masonry-simple-item>
+			<content-photo></content-photo>
+		</li>
+
 
 	</ul>
 

@@ -11,6 +11,11 @@
     padding-right: 12px;
     padding-bottom: 12px;    
 }
+
+.pagePhotos ul li .photo {
+    position: relative;
+}
+
 .pagePhotos ul li .pagePhotoContainer {
     display: block;
     overflow: hidden;
@@ -20,14 +25,17 @@
     text-decoration: none;
     z-index: 1;
 }
-.pagePhotos ul li .pagePhotoContainer img {
-    position: relative;
-    top:0;
-    left: 0;
+.pagePhotos ul li .content_photo {
     display: block;
-    vertical-align: bottom;
+    vertical-align: middle;
     height: auto;
     max-width: 100%;
+    margin: 0 auto;
+    -webkit-transition: all 0.56s ease;
+    -moz-transition: all 0.56s ease;
+    -o-transition: all 0.56s ease;
+    transition: all 0.56s ease;
+
 }
 .pagePhotos ul li .pagePhotoContainer .overlay {
     display: block;
@@ -85,4 +93,9 @@
   -moz-transition:none;
   -o-transition:none;
   transition:none;    
+}
+
+/* controls */
+.pagePhotos ul li .photo_prev img , .pagePhotos ul li .photo_next img {
+    width: 20px;
 }
