@@ -1,10 +1,11 @@
 /* Estilos galeria*/
 .pagePhotos ul {
-    margin-right: -60px;
+   padding-left: 12;
+   width: calc(100% - 12px);
 }
 
 .pagePhotos ul li {
-    width: 29.3%;
+    width: calc(33% - 12px);
     height: auto;
     float: left;
     margin: 0;
@@ -55,11 +56,8 @@
 }
 
 .pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner {
-    left: 21%;
     padding: 0 0 20px;
-    position: absolute;
-    top: 28%;
-    width: 60%;
+    display: inline-block;
 }
 .pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner h2 {
     background-color: #000000;
@@ -86,6 +84,15 @@
     top: 0;
     left: 0;
     opacity: 1;
+}
+
+.pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner p a {
+    font-style: italic;
+    color: #fff;
+    text-decoration: underline;
+}
+.pagePhotos ul li .pagePhotoContainer .overlay .overlay-inner p a:hover {
+    text-decoration: none;
 }
 
 .pagePhotosItem {
