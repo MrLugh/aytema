@@ -26,12 +26,6 @@ body {
   scrollbar-darkshadow-color: #2D2C4D;
   scrollbar-track-color: #7D7E94;
   scrollbar-arrow-color: #C1C1D1;
-
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;
-
 }
 
 a,a:hover,a:active,a:focus,
@@ -125,7 +119,12 @@ ul {
   box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
   border: none;
   z-index: 4;
-  margin:0px auto 60px auto;
+  margin:0px auto 20px auto;
+}
+
+.navbar h1 {
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .navbar-brand {
@@ -135,8 +134,8 @@ ul {
 .container {
   max-width: 100% !important;
   margin: 0 auto;
-  margin-top: 20px;
-  padding: 25px;
+  margin-top: 10px;
+  padding: 7px;
 }
 
 .navbar .menu-item {
@@ -177,6 +176,9 @@ ul {
   -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
   -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
   box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
   min-height: 480px;  
 }
 
@@ -185,6 +187,11 @@ ul {
   margin: 0 auto;
   padding: 0;
   position: relative;
+
+  -webkit-transition:all 0.56s ease;
+  -moz-transition:all 0.56s ease;
+  -o-transition:all 0.56s ease;
+  transition:all 0.56s ease;  
 }
 
 #container .page.ng-enter {
