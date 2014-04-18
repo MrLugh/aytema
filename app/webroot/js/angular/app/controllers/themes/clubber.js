@@ -150,7 +150,20 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 			return 'xlarge';
 		}
 
-		return 'medium';
+		//if (page == 'tracks' || page == 'videos') {
+
+			if ( $scope.content[page].list.length == 1) {
+				return 'small';
+			}
+
+			if ( $scope.content[page].list.length == 2) {
+				return 'medium';
+			}
+
+			return 'xlarge';
+		//}
+
+		//return 'medium';
 	}	
 
 	$scope.getPageClass = function(page) {

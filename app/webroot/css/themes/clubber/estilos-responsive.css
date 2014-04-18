@@ -1,5 +1,12 @@
 @media (max-width: 480px) {
 
+  iframe, object, embed, audio, video {
+    height: auto;
+    width: 100%;
+    display: block!important;
+    margin: 0 auto;
+  }
+
   #container {
     width: 90%;
     padding: 0;
@@ -17,6 +24,13 @@
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
+
+  iframe, object, embed, audio, video {
+    height: auto;
+    width: 100%;
+    display: block!important;
+    margin: 0 auto;
+  }
 
   #container {
     width: 90%;

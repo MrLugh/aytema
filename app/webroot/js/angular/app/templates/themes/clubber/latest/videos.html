@@ -1,15 +1,9 @@
 <div class="latestVideos" style="position:relative;">
 	<div class="center" style="position:relative;">
-
-		<ul class="videos">
-
-			<li ng-repeat="content in list" class="video">
-
+		<carousel interval="8000">
+			<slide ng-repeat="content in list">
 				<content-video></content-video>
-
-			</li>
-
-		</ul>
-
+			</slide>
+		</carousel>
 	</div>
 </div>

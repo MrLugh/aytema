@@ -78,10 +78,10 @@
 					<h3 class="title">Latest <span ng-style="getHighlightStyle()">{{page}}</span></h3>
 
 					<div ng-switch="page">
-						<latest-videos ng-switch-when='videos' limit="3" config="config"></latest-videos>
-						<latest-tracks ng-switch-when='tracks' limit="3" config="config"></latest-tracks>
-						<latest-events ng-switch-when='events' limit="3" config="config"></latest-events>
-						<latest-posts ng-switch-when='posts' limit="3" config="config"></latest-posts>
+						<latest-videos ng-switch-when='videos' limit="10" config="config"></latest-videos>
+						<latest-tracks ng-switch-when='tracks' limit="10" config="config"></latest-tracks>
+						<latest-events ng-switch-when='events' limit="10" config="config"></latest-events>
+						<latest-posts  ng-switch-when='posts'  limit="10" config="config"></latest-posts>
 					</div>
 
 					<div class="both">
@@ -95,7 +95,7 @@
 
 			<div ng-repeat="page in pages" class="page {{getPageClass(page)}}" ng-if="isActive(page)" ng-switch="page">
 
-				{{page}}
+				<h3 class="title"><span ng-style="getHighlightStyle()">{{page}}</span></h3>
 				<photos ng-switch-when='photos'></photos>
 				<videos ng-switch-when='videos'></videos>
 

@@ -1,15 +1,9 @@
 <div class="latestTracks" style="position:relative;">
 	<div class="center" style="position:relative;">
-
-		<ul class="tracks">
-
-			<li ng-repeat="content in list" class="track">
-
-				<content-track></content-track>
-
-			</li>
-
-		</ul>
-
+		<carousel interval="8000">
+			<slide ng-repeat="content in list">
+				<content-video></content-video>
+			</slide>
+		</carousel>
 	</div>
 </div>

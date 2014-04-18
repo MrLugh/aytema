@@ -353,14 +353,6 @@ ul {
   font-weight: bold;
 }
 
-/*
-iframe, object, embed, audio, video {
-  height: 250px;
-  width: 250px;
-  display: block!important;
-}
-*/
-
 /* latest photos */
 
 .latestPhotos .photo {
@@ -583,4 +575,20 @@ iframe, object, embed, audio, video {
 
 #rufous-sandbox {
   display: none!important;
+}
+
+/*
+iframe, object, embed, audio, video {
+  height: 250px;
+  width: 250px;
+  display: block!important;
+  margin: 0 auto;
+}
+*/
+
+iframe, object, embed, audio, video {
+  height: 360px;
+  width: 100%;
+  display: block!important;
+  margin: 0 auto;
 }
