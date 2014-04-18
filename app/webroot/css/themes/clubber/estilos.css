@@ -345,7 +345,7 @@ ul {
   -o-transition:none;
   transition:none;
 
-  outline: 1px solid;
+  /*outline: 1px solid;*/
 }
 
 .title {
@@ -412,7 +412,7 @@ iframe, object, embed, audio, video {
 /* latest videos */
 
 .latestVideos {
-  outline: 1px solid red;
+  /*outline: 1px solid red;*/
 }
 
 .latestVideos,  .latestVideos .videos {
@@ -431,7 +431,7 @@ iframe, object, embed, audio, video {
   width: 100%;
   margin: 0 auto;
 
-  outline: 1px solid;
+  /*outline: 1px solid;*/
 }
 
 .latestVideos .video .player iframe, .latestVideos .video .player object, .latestVideos .video .player video {
@@ -457,7 +457,7 @@ iframe, object, embed, audio, video {
 /* latest tracks */
 
 .latestTracks {
-  outline: 1px solid red;
+  /*outline: 1px solid red;*/
 }
 
 .latestTracks, .latestTracks .tracks {
@@ -470,7 +470,7 @@ iframe, object, embed, audio, video {
   /*/*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/*/
   display: block;
 
-  outline: 1px solid;
+  /*outline: 1px solid;*/
 }
 
 .latestTracks .track iframe, .latestTracks .track object, .latestTracks .track embed, .latestTracks audio {
@@ -493,7 +493,7 @@ iframe, object, embed, audio, video {
 
 .latestEvents {
   /*/*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/*/
-  outline: 1px solid red;
+  /*outline: 1px solid red;*/
 }
 
 .latestEvents, .latestEvents .events {
@@ -508,7 +508,7 @@ iframe, object, embed, audio, video {
 
 .latestEvents .event {  
   width: 100%;
-  outline: 1px solid;
+  /*outline: 1px solid;*/
 }
 
 .latestEvents .event-date-container {
@@ -555,7 +555,7 @@ iframe, object, embed, audio, video {
 /* latest posts */
 
 .latestPosts {
-  outline: 1px solid red;
+  /*outline: 1px solid red;*/
 }
 
 .latestPosts, .latestPosts .posts {
@@ -572,7 +572,7 @@ iframe, object, embed, audio, video {
   width: 100%;
   margin-bottom: 20px;
 
-  outline: 1px solid;
+  /*outline: 1px solid;*/
 }
 
 .latestPosts .post iframe, .latestPosts .post object, .latestPosts .post embed {
