@@ -365,7 +365,7 @@ iframe, object, embed, audio, video {
 
 .latestPhotos .photo {
   position: relative;
-  height: 450px!important;
+  height: 420px!important;
   margin: auto;
   border: 6px;
   -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
