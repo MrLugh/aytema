@@ -412,6 +412,8 @@ ul {
   bottom: 0;
   width: 35%;
 
+  top:100%;
+
   -webkit-transition:all 0.76s ease;
   -moz-transition:all 0.76s ease;
   -o-transition:all 0.76s ease;
@@ -420,10 +422,6 @@ ul {
 
 .latestPhotos .carousel-inner .active .text_container {
   top:0;
-}
-
-.latestPhotos .photo:hover .text_conatiner {
-  float: right; 
 }
 
 .latestPhotos .title {
