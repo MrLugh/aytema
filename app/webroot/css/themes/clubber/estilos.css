@@ -290,28 +290,25 @@ ul {
 }
 
 .small {
-  width: 23%;
+  width: calc(25% - 15px);
 }
 
 .medium {
-  width: 48%;
+  width: calc(50% - 15px);
 }
 
 .large {
-  width: 73%;
+  width: calc(75% - 15px);
 }
 
 .xlarge {
-  width: 100%;
-}
-
-.small, .medium, .large, .xlarge {
-
+  width: calc(100% - 15px);
 }
 
 .section {
   text-align: left;
-  padding: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
   min-height: 250px;
   -webkit-transition:none;
   -moz-transition:none;
@@ -558,6 +555,7 @@ ul {
   padding-bottom: 10px;
   margin-bottom: 10px;
   overflow: hidden;
+  height: 250px;
   /*outline: 1px solid;*/
 }
 
