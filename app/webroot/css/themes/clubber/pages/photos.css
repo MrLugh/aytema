@@ -54,7 +54,7 @@
     top: 0;
     z-index: 2;
     opacity: 0;
-    background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
+    /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
@@ -145,11 +145,11 @@
 
 
 .pagePhotos ul li .photo_prev i {
-    left: 10%;
+    left: 25%;
 }
 
 .pagePhotos ul li .photo_next i {
-    right: 10%;
+    right: 25%;
 }
 
 .pagePhotos ul li .photo_prev i , .pagePhotos ul li .photo_next i {
