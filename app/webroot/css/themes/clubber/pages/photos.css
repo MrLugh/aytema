@@ -5,7 +5,7 @@
 }
 
 .pagePhotos ul li {
-    width: calc(33% - 12px);
+    width: calc(48% - 12px);
     height: auto;
     float: left;
     margin: 0;
@@ -105,6 +105,36 @@
 }
 
 /* controls */
-.pagePhotos ul li .photo_prev img , .pagePhotos ul li .photo_next img {
-    width: 20px;
+
+.pagePhotos ul li .photo_prev , .pagePhotos ul li .photo_next {
+    height: 100%;
+    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+    opacity: 0.5;
+}
+
+.pagePhotos ul li .photo_prev:hover , .pagePhotos ul li .photo_next:hover {
+    color: #ffffff;
+    text-decoration: none;
+    outline: none;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+
+.pagePhotos ul li .photo_prev i {
+    left: 10%;
+}
+
+.pagePhotos ul li .photo_next i {
+    right: 10%;
+}
+
+.pagePhotos ul li .photo_prev i , .pagePhotos ul li .photo_next i {
+    position: relative;
+    font-size: 25px;
+    top:50%;
+    color: white;
 }

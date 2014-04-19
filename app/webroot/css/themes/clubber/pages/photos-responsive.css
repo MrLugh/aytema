@@ -5,37 +5,26 @@
 	}
 	.pagePhotos ul li .overlay .overlay-inner p {
 		line-height: 12px;
-	}	
-}
-
-
-
-@media (max-width: 991px) {
-
-}
-
-
-@media (max-width: 768px) {
-
-	.pagePhotos ul li {
-	    width: calc(48% - 12px);
 	}
 
-
+	.pagePhotos ul li {
+	    width: calc(89% - 12px);
+	}
 }
 
 
 @media (max-width: 480px) {
 
-	.pagePhotos ul li {
-	    width: calc(89% - 12px);
-	}
 	.pagePhotos ul li .overlay .overlay-inner h2 {
 		font-size: 22px;
 	}	
 	.pagePhotos ul li .overlay .overlay-inner p {
 		line-height: 16px;
-	}		
+	}
+
+	.pagePhotos ul li .pagePhotoContainer .overlay	{
+		display: none;
+	}
 
 }
 

@@ -11,18 +11,22 @@
 
 		<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" />
 
-		<div style="position:absolute;width:100%;top:0;left:0;z-index:3;">
-			<div ng-if="moreThanOne()" class="left photo_prev">
-				<a href="#/" skip-default ng-click="move(-1)">
-			 		<img src="http://cloudcial.com/img/themes/clubber/arrow-left.png" alt="Previous photo" />
-			 	</a>
-			</div>
+		<div style="position:absolute;width:100%;top:0;bottom:0;left:0;z-index:3;">
 
-			<div ng-if="moreThanOne()" class="right photo_next">
-				<a href="#/" skip-default ng-click="move(1)">
-					<img src="http://cloudcial.com/img/themes/clubber/arrow-right.png" alt="Next photo" />
-				</a>
-			</div>
+			<a ng-if="moreThanOne()" class="left photo_prev" href="#/" skip-default ng-click="move(-1)">
+				<i class="icon-chevron-left"></i>
+		 		<!--
+		 		<img src="http://cloudcial.com/img/themes/clubber/arrow-left.png" alt="Previous photo" />
+		 		-->
+		 	</a>
+
+			<a ng-if="moreThanOne()" class="right photo_next" href="#/" skip-default ng-click="move(1)">
+				<i class="icon-chevron-right"></i>
+				<!---
+				<img src="http://cloudcial.com/img/themes/clubber/arrow-right.png" alt="Next photo" />
+				-->
+			</a>
+
 		</div>
 
 	</div>

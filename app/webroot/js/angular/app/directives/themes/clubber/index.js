@@ -106,6 +106,14 @@ function ($timeout) {
                 last_y = e.pageY;
             });
 
+            $(element).hover(
+                function(e){},
+                function(e){$(element[0]).removeClass('photo_down').removeClass('photo_up');}
+            );
+
         });
+
+
+
     }
 }]);

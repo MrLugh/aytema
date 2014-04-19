@@ -144,6 +144,7 @@ ul {
   padding:0;
   margin-top: 2px;
   font-weight: 700;
+  float: left;
 }
 
 .navbar .menu-item a {
@@ -368,10 +369,10 @@ ul {
   float: left;
   border: 6px;
 
-  -webkit-transition:all 0.76s ease;
-  -moz-transition:all 0.76s ease;
-  -o-transition:all 0.76s ease;
-  transition:all 0.76s ease;  
+  -webkit-transition:all 2.36s ease;
+  -moz-transition:all 2.36s ease;
+  -o-transition:all 2.36s ease;
+  transition:all 2.36s ease;  
 
   background-size:cover;
   background-position:center center;
@@ -401,6 +402,15 @@ ul {
   display: none;
   position: relative;
   margin-top: 10px
+}
+
+
+.latestPhotos .left.carousel-control i {
+  left: 10%;
+}
+
+.latestPhotos .right.carousel-control i {
+  right: 10%;
 }
 
 .latestPhotos .text_container {
@@ -455,7 +465,6 @@ ul {
 .carousel-control i {
   position: absolute;
   top: 50%;
-  left: 50%;
   font-size: 25px;
 }
 
