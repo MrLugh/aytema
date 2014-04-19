@@ -290,28 +290,25 @@ ul {
 }
 
 .small {
-  width: 23%;
+  width: calc(25% - 15px);
 }
 
 .medium {
-  width: 48%;
+  width: calc(50% - 15px);
 }
 
 .large {
-  width: 73%;
+  width: calc(75% - 15px);
 }
 
 .xlarge {
-  width: 100%;
-}
-
-.small, .medium, .large, .xlarge {
-
+  width: calc(100% - 15px);
 }
 
 .section {
   text-align: left;
-  padding: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
   min-height: 250px;
   -webkit-transition:none;
   -moz-transition:none;
@@ -372,11 +369,11 @@ ul {
 }
 
 
-.latestPhotos .left.carousel-control i {
+.left.carousel-control i {
   left: 10%;
 }
 
-.latestPhotos .right.carousel-control i {
+.right.carousel-control i {
   right: 10%;
 }
 
@@ -417,7 +414,8 @@ ul {
   text-shadow: 1px 0 3px #000;
 }
 
-.latestPhotos .caption {
+.latestPhotos .caption,
+.overlay-inner p {
   position:relative;
   z-index:3;
   max-width:100%;
@@ -431,7 +429,7 @@ ul {
 
 .carousel-control i {
   position: absolute;
-  top: 50%;
+  top: 46%;
   font-size: 25px;
 }
 
@@ -440,6 +438,18 @@ ul {
 }
 
 /* latest photos */
+
+.latestVideos .carousel-control,
+.latestTracks .carousel-control {
+  background: transparent;
+  top:46%;
+  bottom: initial;
+}
+
+.latestVideos .carousel-inner,
+.latestTracks .carousel-inner {
+  width: 100%;
+}
 
 /* latest videos */
 
@@ -538,15 +548,22 @@ ul {
 
 }
 
-.latestEvents .event {  
+.latestEvents li.event {  
   width: 100%;
+  clear: both;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  height: 250px;
   /*outline: 1px solid;*/
 }
 
+
 .latestEvents .event-date-container {
-  width: 19%;
+  width: 25%;
   text-align: center;
-  display: inline-block;
+  float: left;
 }
 
 .latestEvents .event-date-container .event-date-day {
@@ -557,14 +574,24 @@ ul {
 
 .latestEvents .event-date-container .event-date-day {
   text-transform: uppercase;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 40px;
+  font-weight: 900;
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+}
+
+.latestEvents .event-date-container .event-date-month {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  margin: 0;
 }
 
 .latestEvents .event-map-container {
-  width: 19%;
-  padding-left: 10px;
-  display: inline-block;
+  width: 30%;
+  padding: 10px;
+  float: left;
 }
 
 .latestEvents .event-map-container .event_map {
@@ -572,14 +599,14 @@ ul {
 }
 
 .latestEvents .event-info-container {
-  width: 60%;
-  padding-left: 10px;
+  width: 45%;
   text-align: left;
-  display: inline-block;
+  float: left;
 }
 
 .latestEvents .event-info-container h2 {
-  font-size: 20px;
+  font-size: 14px;
+  font-weight: 900;
 }
 
 /* latest events */

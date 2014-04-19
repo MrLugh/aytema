@@ -68,7 +68,7 @@
   }
 
   .small, .medium {
-    width: 48%;
+    width: calc(50% - 15px);
   }
 
   .large, .xlarge {
