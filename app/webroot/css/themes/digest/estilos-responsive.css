@@ -74,9 +74,9 @@
   #container .large {
     width: calc(72% - 20px);
   }
-  #container .xlarge {
-    width: calc(100% - 20px);
-  }
+    #container .xlarge {
+      width: calc(100% - 20px);
+    }
 
 }
 

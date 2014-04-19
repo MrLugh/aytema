@@ -232,8 +232,9 @@ ul {
 }
 
 #footer .social-links {
-  /*width:25%;*/
-  overflow: hidden;
+    margin-bottom: 0;
+    overflow: hidden;
+    padding-bottom: 30px;
 }
 
 #footer .social-links .social-link {
@@ -357,8 +358,8 @@ ul {
 
 .latestPhotos .photo {
   position: relative;
-  height: 420px;
-  width: calc(100% - 5px);
+  height: 480px;
+  width: calc(100% - 10px);
   margin: 5px;
   float: left;
   border: 6px;
