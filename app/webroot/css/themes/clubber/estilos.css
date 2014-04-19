@@ -336,10 +336,10 @@ ul {
   float: left;
   border: 6px;
 
-  -webkit-transition:all 2.36s ease;
-  -moz-transition:all 2.36s ease;
-  -o-transition:all 2.36s ease;
-  transition:all 2.36s ease;  
+  -webkit-transition:all 0.96s ease;
+  -moz-transition:all 0.96s ease;
+  -o-transition:all 0.96s ease;
+  transition:all 0.96s ease;  
 
   background-size:cover;
   background-position:center center;

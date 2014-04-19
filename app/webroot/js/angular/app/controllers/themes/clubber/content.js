@@ -174,8 +174,19 @@ function contentPhotoCo($scope,userSv,contentSv) {
 	}	
 
 	$scope.getDescriptionStyle = function() {
-		return {'color':userSv.getThemeConfig().custom.colors.contentText.value};
-	}	
+
+		var color = userSv.getThemeConfig().custom.colors.background.value.replace("#","");
+
+		var contrast = "#000000";
+		if (contentSv.getContrast50(color) == 'white') {
+			contrast = "#ffffff";
+		}
+
+		return {
+			'background-color': userSv.getThemeConfig().custom.colors.background.value,
+			'color': contrast
+		}
+	}
 
 	$scope.move = function(direction) {
 
