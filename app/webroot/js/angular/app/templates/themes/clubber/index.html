@@ -59,18 +59,6 @@
 
 		<div id="container">
 
-			<ul class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')">
-				<li class="section section_photos {{getHomepageSize('photos')}}" ng-if="hasContent('photos')" >
-					<h3 class="title">Latest <span ng-style="getHighlightStyle()">Photos</span></h3>
-					<div>
-						<latest-photos limit="10" config="config"></latest-photos>
-					</div>
-					<div class="both">
-						<a href="#/photos" skip-default ng-click="setCurrent('photos')">More photos</a>
-					</div>
-				</li>
-			</ul>
-
 			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')" masonry-simple="{'isAnimated':false,'itemSelector':'.section'}">
 
 				<li ng-repeat="page in pages" class="section section_{{page}} {{getHomepageSize(page)}}" ng-if="hasContent(page) && page != 'photos'" masonry-simple-item>
@@ -90,6 +78,19 @@
 
 				</li>
 
+			</ul>
+
+
+			<ul class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')">
+				<li class="section section_photos {{getHomepageSize('photos')}}" ng-if="hasContent('photos')" >
+					<h3 class="title">Latest <span ng-style="getHighlightStyle()">Photos</span></h3>
+					<div>
+						<latest-photos limit="10" config="config"></latest-photos>
+					</div>
+					<div class="both">
+						<a href="#/photos" skip-default ng-click="setCurrent('photos')">More photos</a>
+					</div>
+				</li>
 			</ul>
 
 
