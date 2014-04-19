@@ -46,6 +46,15 @@
 
 }
 
+@media (min-width: 769px) {
+
+  iframe, object, embed, audio, video {
+    height: 250px;
+    width: 100%;
+  }
+
+}
+
 @media (min-width: 481px) and (max-width: 768px) {
 
   iframe, object, embed, audio, video {
