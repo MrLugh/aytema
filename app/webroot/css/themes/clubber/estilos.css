@@ -405,14 +405,17 @@ ul {
 
 .latestPhotos .text_container {
   position: relative;
-  overflow: hidden;
   margin:0 auto;
   padding:1em;
   float: left;
   bottom: 0;
-  width: 35%;
 
   top:100%;
+  opacity: 0;
+
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
 
   -webkit-transition:all 0.76s ease;
   -moz-transition:all 0.76s ease;
@@ -422,6 +425,7 @@ ul {
 
 .latestPhotos .carousel-inner .active .text_container {
   top:0;
+  opacity: 1;
 }
 
 .latestPhotos .title {
@@ -429,7 +433,6 @@ ul {
   z-index:3;
   max-width:100%;
   padding:.4em;
-  overflow:hidden;
   opacity: 0.7;
   margin: 0;
   font-weight: 900;
@@ -442,7 +445,6 @@ ul {
   z-index:3;
   max-width:100%;
   padding:.4em;
-  overflow:hidden;
   opacity: 0.7;
   margin: 0;
   font-weight: 300;
