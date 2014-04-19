@@ -381,8 +381,12 @@ ul {
   border-radius: 10px;
 }
 
-.latestPhotos .photo:hover {
-  background-position:0 0;
+.latestPhotos .photo_up {
+  background-position:center top;
+}
+
+.latestPhotos .photo_down {
+  background-position:center bottom;
 }
 
 .latestPhotos .carousel-control {

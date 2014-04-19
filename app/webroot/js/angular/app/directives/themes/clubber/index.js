@@ -86,3 +86,26 @@ function ($timeout) {
         });
     }
 }]);
+
+
+ayTemaDs.directive('hoverVertical',['$timeout',
+function ($timeout) {
+    return function (scope, element, attrs) {
+
+        var last_y = 0;
+
+        element.ready(function(){
+
+            element.bind('mousemove',function(e){
+
+                if (last_y && last_y<e.pageY) {
+                    $(element[0]).removeClass('photo_up').addClass('photo_down');
+                } else if (last_y && last_y>e.pageY) {
+                    $(element[0]).removeClass('photo_down').addClass('photo_up');
+                }
+                last_y = e.pageY;
+            });
+
+        });
+    }
+}]);
