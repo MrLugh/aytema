@@ -44,7 +44,6 @@
   iframe, object, embed, audio, video {
     height: 300px;
     width: 100%;
-    display: block!important;
     margin: 0 auto;
   }
 
