@@ -494,8 +494,7 @@ ul {
 .latestTracks .track {  
   /*/*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/*/
   display: block;
-  padding: 15%;
-
+  margin: 0 auto;
   /*outline: 1px solid;*/
 }
 
@@ -622,7 +621,7 @@ iframe, object, embed, audio, video {
 
 iframe, object, embed, audio, video {
   height: 320px;
-  width: 100%;
+  width: 320px;
   display: block!important;
   margin: 0 auto;
 }

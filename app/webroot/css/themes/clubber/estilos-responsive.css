@@ -43,7 +43,7 @@
 
   iframe, object, embed, audio, video {
     height: 300px;
-    width: 100%;
+    width: 300px;
     margin: 0 auto;
   }
 
