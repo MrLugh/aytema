@@ -632,3 +632,9 @@ iframe, object, embed, audio, video {
   display: block!important;
   margin: 0 auto;
 }
+
+
+.loadMorePageContent {
+  clear: both;
+  display: block;
+}

@@ -1,7 +1,13 @@
 <div class="pageVideos">
 
+	<ul>
 
+		<li ng-repeat="content in videolist" class="pageVideosItem">
+			<content-video></content-video>
+		</li>
 
-	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default>More Videos</a>
+	</ul>
+
+	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent"><i class="icon-plus"></i> Videos</a>
 
 </div>

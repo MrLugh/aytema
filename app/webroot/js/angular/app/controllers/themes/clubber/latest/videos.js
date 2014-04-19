@@ -13,12 +13,17 @@ function latestVideosCo($scope,appSv,contentSv,$sce) {
 			$scope.setList();
 		}
 
-	},true);	
+	},true);
 
 	$scope.getDescription = function(index) {
 
 		return $sce.trustAsHtml(contentSv.getDescription($scope.list[index]));
 	}
+
+	$scope.getPlayer = function(index) {
+
+		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer($scope.list[index])));
+	}	
 
 	$scope.getTitleStyle = function() {
 		return {

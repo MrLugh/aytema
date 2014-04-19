@@ -1,0 +1,43 @@
+@media (min-width: 1024px) {
+
+	.pageVideos ul li {
+	    width: calc(33% - 12px);
+	}
+
+}
+
+@media (max-width: 1024px) {
+
+	.pageVideos ul li .overlay .overlay-inner h2 {
+		font-size: 12px;
+	}
+	.pageVideos ul li .overlay .overlay-inner p {
+		line-height: 12px;
+	}
+
+	.pageVideos ul li {
+	    width: calc(89% - 12px);
+	}
+}
+
+
+@media (max-width: 480px) {
+
+	.pageVideos ul li .overlay .overlay-inner h2 {
+		font-size: 22px;
+	}	
+	.pageVideos ul li .overlay .overlay-inner p {
+		line-height: 16px;
+	}
+
+	.pageVideos ul li .pageVideoContainer .overlay	{
+		display: none;
+	}
+
+}
+
+
+@media (max-width: 320px) {
+   
+
+}

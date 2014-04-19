@@ -44,6 +44,11 @@ function contentVideoCo($scope,$sce,contentSv) {
 		return $scope.thumbnail;
 	}
 
+	$scope.getDefaultThumbnail = function() {
+
+		
+	}
+
 	$scope.getTitle = function() {	
 
 		return contentSv.getTitle($scope.content);

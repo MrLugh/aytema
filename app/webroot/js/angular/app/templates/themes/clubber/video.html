@@ -1,20 +1,36 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="video {{content.network}}_{{content.concept}}">
 
-	<div ng-if="isFromNetwork('facebook')">
-		<div class="fb-post" data-href="{{getFbPostHref()}}"></div>
-	</div>
+	<div class="pageVideoContainer">
 
-	<div ng-if="!isFromNetwork('facebook')">
-
-		<!--
-		<div ng-if="canShowThumbnail()">
-			<img ng-src="{{getThumbnail()}}" class="video_thumbnail" />
+		<div ng-if="isFromNetwork('facebook')">
+			<div class="fb-post" data-href="{{getFbPostHref()}}"></div>
 		</div>
-		<div ng-if="canShowPlayer()" class="player" ng-bind-html="getPlayer()"></div>
-		<h2 class="title">{{getTitle()}}</h2>		
-		-->
-		<div class="player" ng-bind-html="getPlayer()"></div>
-		<!--<p ng-if="hasDescription()" ng-bind-html="getDescription()"></p>-->
-				
+
+		<div ng-if="!isFromNetwork('facebook')">
+
+		    <div class="overlay" ng-if="getTitle().length>0 || getDescription().length>0">
+		      <div class="overlay-inner">
+		        <h2 ng-if="getTitle().length>0" ng-style="getTitleStyle()">{{getTitle()}}</h2>
+		      </div>
+		    </div>
+
+			<div ng-if="canShowThumbnail()">
+				<img ng-src="{{getThumbnail()}}" class="video_thumbnail" />
+			</div>
+			<div ng-if="!canShowThumbnail()">
+				<img ng-src="{{getDefaultThumbnail()}}" class="video_thumbnail" />
+			</div>
+
+			<!--
+			<div ng-if="canShowThumbnail()">
+				<img ng-src="{{getThumbnail()}}" class="video_thumbnail" />
+			</div>
+			<div ng-if="canShowPlayer()" class="player" ng-bind-html="getPlayer()"></div>
+			<h2 class="title">{{getTitle()}}</h2>		
+			-->
+					
+		</div>
+
 	</div>
+
 </div>
