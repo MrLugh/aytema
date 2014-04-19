@@ -123,12 +123,13 @@ ul {
 }
 
 .navbar h1 {
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin: 0;
 }
 
 .navbar-brand {
   font-size: 40px;
+  font-weight: 900;  
+  text-shadow: 0 0 3px #000;
 }
 
 .container {
@@ -141,11 +142,14 @@ ul {
 .navbar .menu-item {
   margin-left: 5px;
   padding:0;
+  margin-top: 2px;
+  font-weight: 700;
 }
 
 .navbar .menu-item a {
   text-transform: uppercase; 
   padding:8px 15px 8px 15px;
+  color: #fff!important;
 }
 
 .boxed {
@@ -372,13 +376,13 @@ ul {
   background-size:cover;
   background-position:center center;
 
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.8);
-  -moz-box-shadow:    0px 0px 5px 0px rgba(255,255,255,0.8);
-  box-shadow:         0px 0px 5px 0px rgba(255,255,255,0.8);
+  -webkit-box-shadow: 2px 7px 0 rgba(0, 0, 0, 0.8);
+  -moz-box-shadow:    2px 7px 0 rgba(0, 0, 0, 0.8);
+  box-shadow:         2px 7px 0 rgba(0, 0, 0, 0.8);
 
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .latestPhotos .photo:hover {
@@ -397,14 +401,12 @@ ul {
 
 .latestPhotos .text_container {
   position: relative;
-  top:-100%;
-  left:0;
-  max-width: 100%;
-  max-height: 100%;
   overflow: hidden;
   margin:0 auto;
-  padding:10px;
+  padding:1em;
   float: left;
+  bottom: 0;
+  width: 35%;
 
   -webkit-transition:all 0.76s ease;
   -moz-transition:all 0.76s ease;
@@ -420,17 +422,41 @@ ul {
   float: right; 
 }
 
-.latestPhotos .title, .latestPhotos .caption {
+.latestPhotos .title {
   position:relative;
   z-index:3;
   max-width:100%;
-  padding:10px;
+  padding:.4em;
   overflow:hidden;
   opacity: 0.7;
+  margin: 0;
+  font-weight: 900;
+  font-size: 2.1em;
+  text-shadow: 1px 0 3px #000;
 }
 
 .latestPhotos .caption {
-  /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
+  position:relative;
+  z-index:3;
+  max-width:100%;
+  padding:.4em;
+  overflow:hidden;
+  opacity: 0.7;
+  margin: 0;
+  font-weight: 300;
+  font-size: 1.0em;
+  text-shadow: 1px 0 2px #000;
+}
+
+.carousel-control i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 25px;
+}
+
+.latestPhotos .carousel-control i  {
+  font-size: 35px;
 }
 
 /* latest photos */
