@@ -357,12 +357,31 @@ ul {
 
 .latestPhotos .photo {
   position: relative;
-  height: 420px!important;
-  margin: auto;
+  height: 420px;
+  width: calc(100% - 5px);
+  margin: 5px;
+  float: left;
   border: 6px;
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.8);
+
+  -webkit-transition:all 0.76s ease;
+  -moz-transition:all 0.76s ease;
+  -o-transition:all 0.76s ease;
+  transition:all 0.76s ease;  
+
+  background-size:cover;
+  background-position:center center;
+
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.8);
+  -moz-box-shadow:    0px 0px 5px 0px rgba(255,255,255,0.8);
+  box-shadow:         0px 0px 5px 0px rgba(255,255,255,0.8);
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.latestPhotos .photo:hover {
+  background-position:0 0;
 }
 
 .latestPhotos .carousel-control {
@@ -376,14 +395,28 @@ ul {
 }
 
 .latestPhotos .text_container {
-  position: absolute;
-  top:0;
+  position: relative;
+  top:-100%;
   left:0;
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
   margin:0 auto;
   padding:10px;
+  float: left;
+
+  -webkit-transition:all 0.76s ease;
+  -moz-transition:all 0.76s ease;
+  -o-transition:all 0.76s ease;
+  transition:all 0.76s ease;      
+}
+
+.latestPhotos .carousel-inner .active .text_container {
+  top:0;
+}
+
+.latestPhotos .photo:hover .text_conatiner {
+  float: right; 
 }
 
 .latestPhotos .title, .latestPhotos .caption {
@@ -461,6 +494,7 @@ ul {
 .latestTracks .track {  
   /*/*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/*/
   display: block;
+  padding: 15%;
 
   /*outline: 1px solid;*/
 }
@@ -587,7 +621,7 @@ iframe, object, embed, audio, video {
 */
 
 iframe, object, embed, audio, video {
-  height: 360px;
+  height: 320px;
   width: 100%;
   display: block!important;
   margin: 0 auto;

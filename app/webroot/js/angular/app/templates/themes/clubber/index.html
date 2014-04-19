@@ -59,6 +59,18 @@
 
 		<div id="container">
 
+			<ul class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')">
+				<li class="section section_photos {{getHomepageSize('photos')}}" ng-if="hasContent('photos')" >
+					<h3 class="title">Latest <span ng-style="getHighlightStyle()">Photos</span></h3>
+					<div>
+						<latest-photos limit="4" config="config"></latest-photos>
+					</div>
+					<div class="both">
+						<a href="#/photos" skip-default ng-click="setCurrent('photos')">More photos</a>
+					</div>
+				</li>
+			</ul>
+
 			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')" masonry-simple="{'isAnimated':false,'itemSelector':'.section'}">
 
 				<li ng-repeat="page in pages" class="section section_{{page}} {{getHomepageSize(page)}}" ng-if="hasContent(page) && page != 'photos'" masonry-simple-item>
@@ -66,10 +78,10 @@
 					<h3 class="title">Latest <span ng-style="getHighlightStyle()">{{page}}</span></h3>
 
 					<div ng-switch="page">
-						<latest-videos ng-switch-when='videos' limit="10" config="config"></latest-videos>
-						<latest-tracks ng-switch-when='tracks' limit="10" config="config"></latest-tracks>
-						<latest-events ng-switch-when='events' limit="10" config="config"></latest-events>
-						<latest-posts  ng-switch-when='posts'  limit="10" config="config"></latest-posts>
+						<latest-videos ng-switch-when='videos' limit="3" config="config"></latest-videos>
+						<latest-tracks ng-switch-when='tracks' limit="3" config="config"></latest-tracks>
+						<latest-events ng-switch-when='events' limit="3" config="config"></latest-events>
+						<latest-posts  ng-switch-when='posts'  limit="3" config="config"></latest-posts>
 					</div>
 
 					<div class="both">
@@ -79,20 +91,6 @@
 				</li>
 
 			</ul>
-
-
-			<ul class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')">
-				<li class="section section_photos {{getHomepageSize('photos')}}" ng-if="hasContent('photos')" >
-					<h3 class="title">Latest <span ng-style="getHighlightStyle()">Photos</span></h3>
-					<div>
-						<latest-photos limit="10" config="config"></latest-photos>
-					</div>
-					<div class="both">
-						<a href="#/photos" skip-default ng-click="setCurrent('photos')">More photos</a>
-					</div>
-				</li>
-			</ul>
-
 
 			<div ng-repeat="page in pages" class="page {{getPageClass(page)}}" ng-if="isActive(page)" ng-switch="page">
 

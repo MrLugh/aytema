@@ -8,11 +8,10 @@ function aytemaCo($scope,$location,userSv) {
 
 	$scope.searchUsers = function() {
 		userSv.search($scope.userSearch).then(function(data){
+			$scope.usersList = [];
 			for (var x in data.users) {
 				var user = data.users[x];
-				if ($scope.usersList.indexOf(user['User']) == -1) {
-					$scope.usersList.push(user['User']);
-				}
+				$scope.usersList.push(user['User']);
 			}
 		});
 	}
