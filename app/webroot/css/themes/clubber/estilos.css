@@ -621,8 +621,8 @@ iframe, object, embed, audio, video {
 */
 
 iframe, object, embed, audio, video {
-  height: 320px;
-  width: 320px;
+  height: 250px;
+  width: 250px;
   display: block!important;
   margin: 0 auto;
 }

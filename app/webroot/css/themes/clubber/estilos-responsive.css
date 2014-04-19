@@ -42,9 +42,8 @@
 @media (min-width: 481px) and (max-width: 768px) {
 
   iframe, object, embed, audio, video {
-    height: 300px;
-    width: 300px;
-    margin: 0 auto;
+    height: 250px;
+    width: 250px;
   }
 
   #container {
