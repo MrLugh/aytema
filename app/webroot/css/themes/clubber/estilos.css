@@ -362,7 +362,7 @@ ul {
 
 .latestPhotos .photo {
   position: relative;
-  height: 480px;
+  height: 430px;
   width: calc(100% - 10px);
   margin: 5px;
   float: left;
