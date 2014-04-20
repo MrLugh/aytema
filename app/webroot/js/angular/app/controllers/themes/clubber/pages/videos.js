@@ -3,7 +3,7 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 	$scope.contentSv= contentSv;
 	$scope.videolist= [];
 	$scope.loading 	= false;
-	$scope.limit 	= 9;
+	$scope.limit 	= 10;
 	$scope.offset 	= 0;
 	$scope.show 	= false;
 	$scope.player 	= false;
