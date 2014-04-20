@@ -2,14 +2,17 @@
 
 	<div ng-if="show" class="video_full_player_container">
 		
-		<a href="#" skip-default ng-click="close()" class="close">Close</a>
+		<a href="#" skip-default ng-click="close()" class="close"><i class="icon-off"></i></a>
+
+		<a href="#" skip-default ng-click="move(-1)" class="video_prev"><i class="icon-chevron-left"></i></a>
+
+		<a href="#" skip-default ng-click="move(1)" class="video_next"><i class="icon-chevron-right"></i></a>
 
 		<div class="video_full_player" ng-bind-html="player"></div>
 
-
 	</div>
 
-	<ul>
+	<ul ng-class="pageVideosWithplayerClass()">
 
 		<li ng-repeat="content in videolist" class="pageVideosItem">
 			<content-video></content-video>

@@ -7,6 +7,7 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 	$scope.offset 	= 0;
 	$scope.show 	= false;
 	$scope.player 	= false;
+	$scope.content 	= false;
 
 	$scope.setList = function() {
 
@@ -37,7 +38,7 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 
 	$scope.getDescription = function(index) {
 
-		return $sce.trustAsHtml(contentSv.getDescription($scope.list[index]));
+		return $sce.trustAsHtml(contentSv.getDescription($scope.videolist[index]));
 	}
 
 	$scope.getTitleStyle = function() {
@@ -48,12 +49,38 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 	}
 
 	$scope.showVideo = function(content) {
-		$scope.player = $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
-		$scope.show   = true;
+		$scope.current= $scope.videolist.indexOf($scope.content);
+		$scope.content= content;
+		$scope.player = $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer($scope.content)));
+		$scope.show   = true;		
+	}
+
+	$scope.move = function(direction) {
+
+		var indexCurrent = $scope.videolist.indexOf($scope.content);
+
+		if (direction > 0) {
+			indexCurrent++;
+		} else {
+			indexCurrent--;
+		}
+
+		if (indexCurrent == $scope.videolist.length) {
+			indexCurrent = 0;
+		}
+		if (indexCurrent < 0) {		
+			indexCurrent = $scope.videolist.length - 1;
+		}
+
+		$scope.showVideo($scope.videolist[indexCurrent]);
 	}
 
 	$scope.close = function() {
 		$scope.show   = false;
+	}
+
+	$scope.pageVideosWithplayerClass = function() {
+		return ($scope.show) ? 'pageVideosWithplayer':'';
 	}
 
 	$scope.loadMore = function() {
