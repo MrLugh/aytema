@@ -48,10 +48,10 @@
     display: block;
     padding: 10px;
     position: absolute;
-    width: 100%; 
-    height: 100%;
+    width: 0; 
+    height: 0;
     left: 100%;
-    top: 0;
+    top: 100%;
     z-index: 2;
     opacity: 0;
     background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
@@ -59,6 +59,14 @@
     -moz-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
+}
+
+.pageVideos ul li .pageVideoContainer .overlay i {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    font-size: 45px;
+    cursor: pointer;
 }
 
 .pageVideos ul li .pageVideoContainer .overlay .overlay-inner {
@@ -106,6 +114,8 @@
 .pageVideos ul li .pageVideoContainer:hover .overlay {
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;    
     opacity: 1;
 }
 
@@ -157,4 +167,28 @@
     font-size: 25px;
     top:50%;
     color: white;
+}
+
+
+.pageVideos .video_full_player_container .close {
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    right: 0;    
+}
+
+.pageVideos .video_full_player_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: black;
+}
+
+.pageVideos .video_full_player iframe, .pageVideos .video_full_player video, .pageVideos .video_full_player embed {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
 }

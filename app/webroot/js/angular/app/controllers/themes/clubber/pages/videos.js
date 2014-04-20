@@ -5,6 +5,8 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 	$scope.loading 	= false;
 	$scope.limit 	= 10;
 	$scope.offset 	= 0;
+	$scope.show 	= false;
+	$scope.player 	= false;
 
 	$scope.setList = function() {
 
@@ -43,6 +45,15 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 			'background-color': $scope.config.custom.colors.contentBackground.value,
 			'color': $scope.config.custom.colors.contentText.value
 		}
+	}
+
+	$scope.showVideo = function(content) {
+		$scope.player = $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
+		$scope.show   = true;
+	}
+
+	$scope.close = function() {
+		$scope.show   = false;
 	}
 
 	$scope.loadMore = function() {

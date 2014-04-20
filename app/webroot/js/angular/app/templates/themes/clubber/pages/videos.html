@@ -1,5 +1,14 @@
 <div class="pageVideos">
 
+	<div ng-if="show" class="video_full_player_container">
+		
+		<a href="#" skip-default ng-click="close()" class="close">Close</a>
+
+		<div class="video_full_player" ng-bind-html="player"></div>
+
+
+	</div>
+
 	<ul>
 
 		<li ng-repeat="content in videolist" class="pageVideosItem">
