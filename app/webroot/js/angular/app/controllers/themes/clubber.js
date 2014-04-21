@@ -153,6 +153,9 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		if ($scope.isActive(page)) {
 			style['background-color']	= $scope.config.custom.colors.contentBackground.value;
 			style['color']				= $scope.config.custom.colors.contentText.value;
+		} else {
+			style['color']				= $scope.config.custom.colors.contentBackground.value;
+			style['background-color']	= $scope.config.custom.colors.contentText.value;
 		}
 
 		return style;
