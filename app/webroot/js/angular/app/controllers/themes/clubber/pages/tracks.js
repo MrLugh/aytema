@@ -24,7 +24,10 @@ function TracksCo($scope,appSv,contentSv,$sce) {
 			$scope.tracklist.push(content);
 		}
 
-		$scope.loading = false;
+
+		if ($scope.offset < contentSv.getPageList('tracks').list.length) {
+			$scope.loading = false;
+		}
 
 	}
 

@@ -129,14 +129,18 @@ ul {
 
 .accountsContainer .addList li {
 	margin-left:10px;
+  margin-bottom:10px;
+  vertical-align: middle;
 }
 
 .accountsContainer .filterList li {
-	margin-left:20px;
+	margin-left:10px;
+  margin-bottom:10px;
 }
 
 .accountsContainer .socialIcon {
-	width: 20px;
+	width: 30px;
+  border-radius:50%;
 }
 
 .accountsContainer .profileImage {

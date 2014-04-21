@@ -24,7 +24,9 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 			$scope.videolist.push(content);
 		}
 
-		$scope.loading = false;
+		if ($scope.offset < contentSv.getPageList('videos').list.length) {
+			$scope.loading = false;
+		}
 
 	}
 

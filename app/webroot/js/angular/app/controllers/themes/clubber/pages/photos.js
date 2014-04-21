@@ -21,7 +21,9 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 			$scope.photolist.push(content);
 		}
 
-		$scope.loading = false;
+		if ($scope.offset < contentSv.getPageList('photos').list.length) {
+			$scope.loading = false;
+		}
 
 	}
 
