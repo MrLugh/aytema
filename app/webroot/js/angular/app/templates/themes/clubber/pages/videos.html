@@ -20,6 +20,6 @@
 
 	</ul>
 
-	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent"><i class="icon-plus"></i> Videos</a>
+	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent"><i class="icon-plus"></i> Videos ({{offset}} of {{contentSv.getPageList('videos').list.length}}) </a>
 
 </div>
