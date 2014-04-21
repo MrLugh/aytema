@@ -386,7 +386,7 @@ ul {
   float: left;
   bottom: 0;
 
-  top:100%;
+  left:-100%;
   opacity: 0;
 
   max-height: 100%;
@@ -400,7 +400,7 @@ ul {
 }
 
 .latestPhotos .carousel-inner .active .text_container {
-  top:0;
+  left:0;
   opacity: 1;
 }
 
