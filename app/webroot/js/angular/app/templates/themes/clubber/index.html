@@ -45,7 +45,7 @@
 					</li>
 
 					<li ng-repeat="page in pages" ng-class="getMenuItemClass(page)" class="menu-item" ng-if="hasContent(page)" ng-style="getMenuItemStyle(page)">
-						<a href="#/" ng-click="setCurrent(page)" ng-style="getMenuItemStyle(page)" skip-default>{{page}}</a>
+						<a href="#/" ng-click="setCurrent(page)" ng-style="getMenuItemStyle(page)" skip-default> <i ng-class="getMenuItemIconClass(page)"></i> {{page}}</a>
 					</li>
 
 				</ul>

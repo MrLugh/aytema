@@ -125,6 +125,29 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		return ($scope.isActive(page)) ? 'active':'';
 	}
 
+	$scope.getMenuItemIconClass = function(page) {
+
+		if (page == 'tracks') {
+			return 'icon-music';
+		}
+
+		if (page == 'videos') {
+			return 'icon-facetime-video';
+		}
+
+		if (page == 'photos') {
+			return 'icon-camera';
+		}
+
+		if (page == 'events') {
+			return 'icon-calendar';
+		}
+
+		if (page == 'posts') {
+			return 'icon-quote-left';
+		}
+	}	
+
 	$scope.getMenuItemStyle =  function(page) {
 		var style = {};
 		if ($scope.isActive(page)) {
