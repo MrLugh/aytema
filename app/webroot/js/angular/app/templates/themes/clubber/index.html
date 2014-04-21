@@ -99,8 +99,10 @@
 			<div ng-repeat="page in pages" class="page {{getPageClass(page)}}" ng-if="isActive(page)" ng-switch="page">
 
 				<h3 class="title"><span ng-style="getHighlightStyle()">{{page}}</span></h3>
+				
 				<photos ng-switch-when='photos'></photos>
 				<videos ng-switch-when='videos'></videos>
+				<tracks ng-switch-when='tracks'></tracks>
 
 			</div>
 

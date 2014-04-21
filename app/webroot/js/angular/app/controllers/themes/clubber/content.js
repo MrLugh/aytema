@@ -265,6 +265,16 @@ function contentTrackCo($scope,$sce,contentSv) {
 		return $scope.thumbnail;
 	}
 
+	$scope.getDefaultThumbnail = function() {
+
+
+	}
+
+	$scope.showTrack = function() {
+
+		$scope.$parent.showTrack($scope.content);
+	}	
+
 	$scope.getTitle = function() {
 
 		return contentSv.getTitle($scope.content);

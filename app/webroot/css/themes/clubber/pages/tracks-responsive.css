@@ -1,0 +1,39 @@
+@media (min-width: 1024px) {
+
+	.pageTracks ul li {
+	    width: calc(33% - 12px);
+	}
+
+}
+
+@media (max-width: 1024px) {
+
+	.pageTracks ul li .overlay .overlay-inner h2 {
+		font-size: 12px;
+	}
+	.pageTracks ul li .overlay .overlay-inner p {
+		line-height: 12px;
+	}
+
+	.pageTracks ul li {
+	    width: calc(89% - 12px);
+	}
+}
+
+
+@media (max-width: 480px) {
+
+	.pageTracks ul li .overlay .overlay-inner h2 {
+		font-size: 22px;
+	}	
+	.pageTracks ul li .overlay .overlay-inner p {
+		line-height: 16px;
+	}
+
+}
+
+
+@media (max-width: 320px) {
+   
+
+}

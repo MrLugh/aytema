@@ -20,6 +20,11 @@ function latestTracksCo($scope,appSv,contentSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.list[index]));
 	}
 
+	$scope.getPlayer = function(index) {
+
+		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer($scope.list[index])));
+	}
+
 	$scope.getTitleStyle = function() {
 		return {
 			'background-color': $scope.config.custom.colors.contentBackground.value,
