@@ -230,7 +230,7 @@ ul {
 
 .adminContent {
   float: left;
-  margin: 0 0 20px;
+  margin: 15px;
   padding: 10px;
   z-index: 1;
 
@@ -271,48 +271,48 @@ ul {
 @media (max-width: 480px) {
 
   #accountPageList .small {
-  width: 97%;
+    width: calc(100% - 30px);
   }
   #accountPageList .medium {
-  width: 97%;
+    width: calc(100% - 30px);
   }
   #accountPageList .large {
-  width: 97%;
+    width: calc(100% - 30px);
   }
   #accountPageList .xlarge {
-  width: 97%;
+    width: calc(100% - 30px);
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
 
   #accountPageList .small {
-  width: 22%%;
+    width: calc(25% - 30px);
   }
   #accountPageList .medium {
-  width: 47%;
+    width: calc(50% - 30px);
   }
   #accountPageList .large {
-  width: 72%;
+    width: calc(75% - 30px);
   }
   #accountPageList .xlarge {
-  width: 97%;
+    width: calc(100% - 30px);
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
   #accountPageList .small {
-    width: 22%;
+    width: calc(25% - 30px);
   }
   #accountPageList .medium {
-    width: 47%;
+    width: calc(50% - 30px);
   }
   #accountPageList .large {
-    width: 72%;
+    width: calc(75% - 30px);
   }
   #accountPageList .xlarge {
-    width: 97%;
+    width: calc(100% - 30px);
   }
 
 }
@@ -320,16 +320,16 @@ ul {
 @media (min-width: 1025px) and (max-width: 1200px) {
 
   #accountPageList .small {
-    width: 22%;
+    width: calc(25% - 30px);
   }
   #accountPageList .medium {
-    width: 47%;
+    width: calc(50% - 30px);
   }
   #accountPageList .large {
-    width: 72%;
+    width: calc(75% - 30px);
   }
   #accountPageList .xlarge {
-    width: 97%;
+    width: calc(100% - 30px);
   }
 
 }
@@ -337,17 +337,17 @@ ul {
 @media all and (max-width: 2048px) and (min-width: 1201px) {
 
   #accountPageList .small {
-    width: 24%;
+    width: calc(20% - 30px);
   }
   #accountPageList .medium {
-    width: 32%;
+    width: calc(25% - 30px);
   }
 
   #accountPageList .large {
-    width: 42%;
+    width: calc(33% - 30px);
   }
   #accountPageList .xlarge {
-    width: 49.5%;
+    width: calc(50% - 30px);
   }
 }
 

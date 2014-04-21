@@ -49,7 +49,7 @@
 
 	<div class="both">
 
-		<ul id="accountPageList" infinite-scroll="moreContent()" ng-style="getContainerStyle()" get-offset-top class="masonry" masonry="{'isAnimated':false,'itemSelector':'.adminContent'}">
+		<ul id="accountPageList" infinite-scroll="moreContent()" ng-style="getContainerStyle()" get-offset-top class="masonry" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.adminContent'}">
 
 			<li ng-repeat="content in list" class="adminContent" ng-class="getContentSize($index)" ng-style="getContentStyle(content)" ng-switch="content.concept" masonry-item>
 

@@ -160,7 +160,7 @@ class ContentsController extends AppController {
 
             $status = 'enabled';
             if ($value['network'] == 'soundcloud' && $value['data']['sharing'] != 'public') {
-                $stats = 'disabled';
+                $status = 'disabled';
             }
 
             $value['status']= $status;
