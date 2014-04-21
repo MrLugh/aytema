@@ -512,3 +512,17 @@ ul {
   background: none!important;
   border: none!important;
 }
+
+.carousel-control i {
+  font-size: 25px;
+  position: absolute;
+  top:50%;
+}
+
+.left.carousel-control i {
+  left: 10%;
+}
+
+.right.carousel-control i {
+  right: 10%;
+}
