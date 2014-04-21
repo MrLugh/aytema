@@ -311,15 +311,13 @@ ul {
 
 .section {
   text-align: left;
-  padding-right: 15px;
-  padding-bottom: 15px;
+  margin: 7px;
+  padding: 15px;
   min-height: 250px;
   -webkit-transition:none;
   -moz-transition:none;
   -o-transition:none;
   transition:none;
-
-  /*outline: 1px solid;*/
 }
 
 .title {

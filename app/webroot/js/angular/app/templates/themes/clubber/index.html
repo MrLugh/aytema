@@ -59,7 +59,7 @@
 
 		<div id="container">
 
-			<ul class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')">
+			<ul class="page block {{getPageClass('home')}}" ng-if="isActive('home')">
 				<li class="section section_photos {{getHomepageSize('photos')}}" ng-if="hasContent('photos')" >
 					<h3 class="title">Latest <span ng-style="getHighlightStyle()">Photos</span></h3>
 					<div>
@@ -73,7 +73,7 @@
 				</li>
 			</ul>
 
-			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')" masonry-simple="{'isAnimated':false,'itemSelector':'.section'}">
+			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')" masonry-simple="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.section'}">
 
 				<li ng-repeat="page in pages" class="section section_{{page}} {{getHomepageSize(page)}}" ng-if="hasContent(page) && page != 'photos'" masonry-simple-item>
 
