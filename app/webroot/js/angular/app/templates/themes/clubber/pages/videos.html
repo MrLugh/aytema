@@ -12,9 +12,9 @@
 
 	</div>
 
-	<ul ng-class="pageVideosWithplayerClass()">
+	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pageVideosItem'}" ng-class="pageVideosWithplayerClass()">
 
-		<li ng-repeat="content in videolist" class="pageVideosItem">
+		<li ng-repeat="content in videolist" class="pageVideosItem" masonry-simple-item>
 			<content-video></content-video>
 		</li>
 

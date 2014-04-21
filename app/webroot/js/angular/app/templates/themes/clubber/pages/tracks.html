@@ -12,9 +12,9 @@
 
 	</div>
 
-	<ul ng-class="pageTracksWithplayerClass()">
+	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pageTracksItem'}" ng-class="pageTracksWithplayerClass()">
 
-		<li ng-repeat="content in tracklist" class="pageTracksItem">
+		<li ng-repeat="content in tracklist" class="pageTracksItem" masonry-simple-item>
 			<content-track></content-track>
 		</li>
 
