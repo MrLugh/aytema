@@ -8,6 +8,36 @@
     height: auto;
   }
 
+.latestEvents .event-date-container {
+  width: 25%;
+}
+
+.latestEvents .event-date-container .event-date-day {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.latestEvents .event-date-container .event-date-month {
+  font-size: 11px;
+}
+
+.latestEvents .event-map-container {
+  width: 30%;
+}
+
+.latestEvents .event-map-container .event_map {
+  max-width: 100%;
+}
+
+.latestEvents .event-info-container {
+  width: 43%;
+}
+
+.latestEvents .event-info-container h2 {
+  font-size: 14px;
+  font-weight: 900;
+}
+
   .navbar-nav {
     width: 100%;
   }
@@ -83,5 +113,69 @@
     font-size: 22px!important;
     line-height: 18px!important;
   }  
+
+.latestEvents .event-date-container {
+  width: 25%;
+}
+
+.latestEvents .event-date-container .event-date-day {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.latestEvents .event-date-container .event-date-month {
+  font-size: 12px;
+}
+
+.latestEvents .event-map-container {
+  width: 30%;
+}
+
+.latestEvents .event-map-container .event_map {
+  max-width: 100%;
+}
+
+.latestEvents .event-info-container {
+  width: 43%;
+}
+
+.latestEvents .event-info-container h2 {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .latestEvents .event-date-container {
+  width: 25%;
+}
+
+.latestEvents .event-date-container .event-date-day {
+  font-size: 55px;
+  line-height: 55px;
+}
+
+.latestEvents .event-date-container .event-date-month {
+  font-size: 14px;
+}
+
+.latestEvents .event-map-container {
+  width: 30%;
+}
+
+.latestEvents .event-map-container .event_map {
+  max-width: 100%;
+}
+
+.latestEvents .event-info-container {
+  width: 43%;
+}
+
+.latestEvents .event-info-container h2 {
+  font-size: 14px;
+  font-weight: 900;
+}
 
 }

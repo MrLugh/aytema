@@ -311,8 +311,8 @@ ul {
 
 .section {
   text-align: left;
-  margin: 7px;
-  padding: 15px;
+  margin: 0 0 45px;
+  padding: 0 15px;
   min-height: 250px;
   -webkit-transition:none;
   -moz-transition:none;
@@ -322,7 +322,10 @@ ul {
 
 .title {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 900;
+  margin-top: 0;
+  font-size: 18px;
+  text-shadow: 1px 0 3px #000;
 }
 
 /* latest photos */
@@ -408,8 +411,8 @@ ul {
   position:relative;
   z-index:3;
   max-width:100%;
-  padding:.4em;
-  opacity: 0.7;
+  padding: .6em 1em;
+  opacity: 0.85;
   margin: 0;
   font-weight: 900;
   font-size: 2.1em;
@@ -421,11 +424,11 @@ ul {
   position:relative;
   z-index:3;
   max-width:100%;
-  padding:.4em;
-  opacity: 0.7;
+  padding:.7em .5em .4em;
+  opacity: 0.85;
   margin: 0;
-  font-weight: 300;
-  font-size: 1.0em;
+  font-weight: 600;
+  font-size: 1.15em;
   text-shadow: 1px 0 2px #000;
 }
 
@@ -553,12 +556,8 @@ ul {
 .latestEvents li.event {  
   width: 100%;
   clear: both;
-  border-bottom: 1px solid #fff;
-  padding-bottom: 10px;
   margin-bottom: 10px;
   overflow: hidden;
-  height: 250px;
-  /*outline: 1px solid;*/
 }
 
 
@@ -570,29 +569,24 @@ ul {
 
 .latestEvents .event-date-container .event-date-day {
   text-transform: uppercase;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.latestEvents .event-date-container .event-date-day {
-  text-transform: uppercase;
-  font-size: 40px;
+  font-size: 70px;
   font-weight: 900;
   margin: 0;
-  line-height: 50px;
+  line-height: 70px;
   text-align: center;
 }
 
 .latestEvents .event-date-container .event-date-month {
   text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 900;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
   margin: 0;
 }
 
 .latestEvents .event-map-container {
   width: 30%;
-  padding: 10px;
+  padding: 0px;
   float: left;
 }
 
@@ -601,14 +595,21 @@ ul {
 }
 
 .latestEvents .event-info-container {
-  width: 45%;
+  width: 43%;
+  margin-left: 2%;
   text-align: left;
   float: left;
 }
 
 .latestEvents .event-info-container h2 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 900;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.latestEvents .event-info-container p {
+  color: #666;
 }
 
 /* latest events */
