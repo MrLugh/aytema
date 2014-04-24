@@ -190,6 +190,7 @@
     /*min-height: 450px;*/
     height: 100%;
     z-index: 2;
+    background-color: rgba(0,0,0,0.90);
 }
 
 .pageVideos .video_full_player_container .close, .pageVideos .video_full_player_container .video_prev, .pageVideos .video_full_player_container .video_next {
@@ -228,8 +229,8 @@
 .pageVideos .video_full_player {
     position: absolute;
     min-height: 450px;
-    height: 100%;
-    top: 0px;
+    height: calc(100% - 130px);
+    top: 130px;
     width: 100%;
 
     -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
