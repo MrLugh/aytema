@@ -54,7 +54,9 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 		$scope.current= $scope.videolist.indexOf($scope.content);
 		$scope.content= content;
 		$scope.player = $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer($scope.content)));
-		$scope.show   = true;		
+		$scope.show   = true;
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('overflow','hidden');
 	}
 
 	$scope.move = function(direction) {
@@ -79,6 +81,8 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 
 	$scope.close = function() {
 		$scope.show   = false;
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('overflow','auto');
 	}
 
 	$scope.pageVideosWithplayerClass = function() {

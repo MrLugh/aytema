@@ -658,7 +658,7 @@ iframe, object, embed, audio, video {
 
 iframe, object, embed, audio, video {
   height: 250px;
-  width: 250px;
+  width: 100%;
   display: block!important;
   margin: 0 auto;
 }

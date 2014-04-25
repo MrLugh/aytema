@@ -75,7 +75,6 @@
 
   iframe, object, embed, audio, video {
     height: 250px;
-    width: 250px;
   } 
 
 }
@@ -84,7 +83,6 @@
 
   iframe, object, embed, audio, video {
     height: 350px;
-    width: 350px;
   }
 
 }
@@ -93,7 +91,6 @@
 
   iframe, object, embed, audio, video {
     height: 250px;
-    width: 250px;
   }
 
   #container {
