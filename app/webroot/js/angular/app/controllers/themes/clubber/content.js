@@ -399,7 +399,7 @@ function contentLinkCo($scope,contentSv,$sce) {
 	}
 }
 
-function contentEventCo($scope,contentSv,$sce,userSv) {
+function contentEventCo($scope,contentSv,$sce) {
 
 	//console.log($scope.content);
 	
@@ -413,7 +413,7 @@ function contentEventCo($scope,contentSv,$sce,userSv) {
 
 	$scope.getDayStyle = function() {
 		return {
-			'color': userSv.getThemeConfig().custom.colors.contentBackground.value
+			'color': $scope.config.custom.colors.contentBackground.value
 		}
 	}	
 

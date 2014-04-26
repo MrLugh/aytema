@@ -308,7 +308,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
 
 		var element = angular.element(document.querySelector('.loadMore'));
-		console.log(element);
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
 	}
 
