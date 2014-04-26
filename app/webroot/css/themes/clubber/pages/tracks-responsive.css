@@ -1,7 +1,7 @@
 @media (min-width: 1024px) {
 
 	.pageTracks ul li {
-	    width: calc(33% - 12px);
+	    width: calc(33% - 1px);
 	}
 
 	.pageTracks .track_full_player iframe, .pageTracks .track_full_player track, .pageTracks .track_full_player embed {	
@@ -17,10 +17,6 @@
 	}
 	.pageTracks ul li .overlay .overlay-inner p {
 		line-height: 12px;
-	}
-
-	.pageTracks ul li {
-	    width: calc(89% - 12px);
 	}
 
 	.pageTracks .track_full_player iframe, .pageTracks .track_full_player track, .pageTracks .track_full_player embed {	
@@ -49,6 +45,10 @@
 	.pageTracks .track_full_player iframe, .pageTracks .track_full_player track, .pageTracks .track_full_player embed {	
 		width: 100%;
 	}
+
+	.pageTracks ul li {
+		width: 100%;
+	}	
 
 }
 

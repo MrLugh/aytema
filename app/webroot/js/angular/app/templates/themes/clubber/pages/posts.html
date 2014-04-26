@@ -1,0 +1,13 @@
+<div class="pagePosts">
+
+	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pagePostsItem'}" ng-class="pagePostsWithplayerClass()">
+
+		<li ng-repeat="content in postlist" class="pagePostsItem" masonry-simple-item>
+			<content-post></content-post>
+		</li>
+
+	</ul>
+
+	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="icon-plus"></i> Posts ({{offset}} of {{contentSv.getPageList('posts').list.length}}) </a>
+
+</div>

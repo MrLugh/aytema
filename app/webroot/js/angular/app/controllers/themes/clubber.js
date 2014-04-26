@@ -149,6 +149,12 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	}	
 
 	$scope.getMenuItemStyle =  function(page) {
+
+    	if (angular.equals({},$scope.config)) {
+    		return {};
+    	}
+
+
 		var style = {};
 		if ($scope.isActive(page)) {
 			style['background-color']	= $scope.config.custom.colors.contentBackground.value;
@@ -309,9 +315,27 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var element = angular.element(document.querySelector('.loadMore'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
+
+
 	}
 
+	$scope.getCollapseMenuItemStyle = function() {
+
+    	if (angular.equals({},$scope.config)) {
+    		return {};
+    	}
+
+		return {
+			'background-color': $scope.config.custom.colors.contentBackground.value
+		}
+	}
+
+
 	$scope.getMoreStyle = function() {
+
+    	if (angular.equals({},$scope.config)) {
+    		return {};
+    	}		
 
 		return {
 			'color': $scope.config.custom.colors.contentText.value

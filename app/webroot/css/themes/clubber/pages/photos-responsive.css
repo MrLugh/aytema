@@ -1,7 +1,7 @@
 @media (min-width: 1024px) {
 
 	.pagePhotos ul li {
-	    width: calc(33% - 12px);
+	    width: calc(33% - 1px);
 	}
 
 }
@@ -13,10 +13,6 @@
 	}
 	.pagePhotos ul li .overlay .overlay-inner p {
 		line-height: 12px;
-	}
-
-	.pagePhotos ul li {
-	    width: calc(89% - 12px);
 	}
 
 }
@@ -33,6 +29,10 @@
 
 	.pagePhotos ul li .pagePhotoContainer .overlay	{
 		display: none;
+	}
+
+	.pagePhotos ul li {
+	    width: 100%;
 	}
 
 }
