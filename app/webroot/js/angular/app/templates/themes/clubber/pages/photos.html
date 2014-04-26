@@ -8,6 +8,6 @@
 
 	</ul>
 
-	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent"><i class="icon-plus"></i> Photos ({{offset}} of {{contentSv.getPageList('photos').list.length}}) </a>
+	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="icon-plus"></i> Photos ({{offset}} of {{contentSv.getPageList('photos').list.length}}) </a>
 
 </div>

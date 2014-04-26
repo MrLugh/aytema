@@ -399,7 +399,7 @@ function contentLinkCo($scope,contentSv,$sce) {
 	}
 }
 
-function contentEventCo($scope,contentSv,$sce) {
+function contentEventCo($scope,contentSv,$sce,userSv) {
 
 	//console.log($scope.content);
 	
@@ -410,5 +410,11 @@ function contentEventCo($scope,contentSv,$sce) {
 		"&markers="+encodeURI($scope.content.data.address)+
 		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
 	}
+
+	$scope.getDayStyle = function() {
+		return {
+			'color': userSv.getThemeConfig().custom.colors.contentBackground.value
+		}
+	}	
 
 }

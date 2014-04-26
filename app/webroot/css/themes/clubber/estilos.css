@@ -1,6 +1,8 @@
 body {
   background: url("http://bigbackground.com/wp-content/uploads/2013/07/dj-wallpaper-hd-widescreen.jpg");
   background: url("http://cloudcial.com/img/themes/clubber/background.png") repeat 0 0 #fff;
+  background: url("http://cloudcial.com/img/themes/clubber/bg.png") repeat 0 0 #fff;
+  background: url("http://cloudcial.com/img/themes/clubber/bg-dot.png") repeat 0 0 #fff;
 
   /*
   background-repeat: no-repeat;  
@@ -580,7 +582,6 @@ ul {
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 600;
-  color: #666;
   margin: 0;
 }
 
@@ -608,9 +609,6 @@ ul {
   margin-top: 0;
 }
 
-.latestEvents .event-info-container p {
-  color: #666;
-}
 
 /* latest events */
 
@@ -667,4 +665,5 @@ iframe, object, embed, audio, video {
 .loadMorePageContent {
   clear: both;
   display: block;
+  padding: 15px;
 }

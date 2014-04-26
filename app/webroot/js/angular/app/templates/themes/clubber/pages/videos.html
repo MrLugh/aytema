@@ -11,6 +11,7 @@
 		<div class="video_full_player" ng-bind-html="player"></div>
 
 	</div>
+	
 
 	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pageVideosItem'}" ng-class="pageVideosWithplayerClass()">
 
@@ -20,6 +21,6 @@
 
 	</ul>
 
-	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent"><i class="icon-plus"></i> Videos ({{offset}} of {{contentSv.getPageList('videos').list.length}}) </a>
+	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="icon-plus"></i> Videos ({{offset}} of {{contentSv.getPageList('videos').list.length}}) </a>
 
 </div>

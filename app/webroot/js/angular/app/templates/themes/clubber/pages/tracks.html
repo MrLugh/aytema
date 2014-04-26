@@ -20,6 +20,6 @@
 
 	</ul>
 
-	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent"><i class="icon-plus"></i> Tracks ({{offset}} of {{contentSv.getPageList('tracks').list.length}}) </a>
+	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="icon-plus"></i> Tracks ({{offset}} of {{contentSv.getPageList('tracks').list.length}}) </a>
 
 </div>
