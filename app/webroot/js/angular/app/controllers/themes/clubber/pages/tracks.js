@@ -63,8 +63,6 @@ function TracksCo($scope,appSv,contentSv,$sce) {
 		$scope.content= content;
 		$scope.player = $sce.trustAsHtml(contentSv.getPlayer($scope.content));
 		$scope.show   = true;
-		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('overflow','hidden');
 	}
 
 	$scope.move = function(direction) {
@@ -89,8 +87,6 @@ function TracksCo($scope,appSv,contentSv,$sce) {
 
 	$scope.close = function() {
 		$scope.show   = false;
-		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('overflow','auto');
 	}
 
 	$scope.pageTracksWithplayerClass = function() {
