@@ -188,8 +188,7 @@
     /*min-height: 450px;*/
     height: 100%;
     z-index: 2;
-    background-color: rgba(0,0,0,0.90);
-
+    background: url("http://cloudcial.com/img/themes/clubber/bg-dot.png") repeat 0 0 #fff;
 }
 
 .pageTracks .track_full_player_container .close, .pageTracks .track_full_player_container .track_prev, .pageTracks .track_full_player_container .track_next {

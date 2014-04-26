@@ -51,6 +51,13 @@ function TracksCo($scope,appSv,contentSv,$sce) {
 		}
 	}
 
+	$scope.getPlayerStyle = function() {
+		return {
+			'background-color': $scope.config.custom.colors.background.value,
+			'color': $scope.config.custom.colors.contentText.value
+		}
+	}
+
 	$scope.showTrack = function(content) {
 		$scope.current= $scope.tracklist.indexOf($scope.content);
 		$scope.content= content;
