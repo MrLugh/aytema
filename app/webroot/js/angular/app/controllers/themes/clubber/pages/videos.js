@@ -53,7 +53,7 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 	$scope.showVideo = function(content) {
 		$scope.current= $scope.videolist.indexOf($scope.content);
 		$scope.content= content;
-		$scope.player = $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer($scope.content)));
+		$scope.player = $sce.trustAsHtml(contentSv.getPlayer($scope.content));
 		$scope.show   = true;
 		var element = angular.element(document.querySelector('body'));
 		$(element[0]).css('overflow','hidden');

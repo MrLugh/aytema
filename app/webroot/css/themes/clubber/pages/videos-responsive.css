@@ -4,6 +4,10 @@
 	    width: calc(33% - 12px);
 	}
 
+	.pageVideos .video_full_player iframe, .pageVideos .video_full_player video, .pageVideos .video_full_player embed {
+		width: 600px;
+	}
+
 }
 
 @media (max-width: 1024px) {
@@ -18,6 +22,10 @@
 	.pageVideos ul li {
 	    width: calc(89% - 12px);
 	}
+
+	.pageVideos .video_full_player iframe, .pageVideos .video_full_player video, .pageVideos .video_full_player embed {
+		width: 450px;
+	}	
 }
 
 
@@ -29,6 +37,10 @@
 	.pageVideos ul li .overlay .overlay-inner p {
 		line-height: 16px;
 	}
+
+	.pageVideos .video_full_player iframe, .pageVideos .video_full_player video, .pageVideos .video_full_player embed {
+		width: 100%;
+	}	
 
 }
 
