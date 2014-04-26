@@ -1,6 +1,6 @@
 @media (max-width: 480px) {
 
-  iframe, object, embed, audio, video {
+  .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
     height: 200px;
   }
 
@@ -73,7 +73,7 @@
 
 @media (max-width: 768px) {
 
-  iframe, object, embed, audio, video {
+  .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
     height: 250px;
   } 
 
@@ -81,7 +81,7 @@
 
 @media (min-width: 1024px) {
 
-  iframe, object, embed, audio, video {
+  .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
     height: 350px;
   }
 
@@ -89,7 +89,7 @@
 
 @media (min-width: 481px) and (max-width: 768px) {
 
-  iframe, object, embed, audio, video {
+  .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
     height: 250px;
   }
 

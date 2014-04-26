@@ -330,6 +330,13 @@ ul {
   text-shadow: 1px 0 3px #000;
 }
 
+.player > iframe, .player > object, .player > embed, .player > audio, .player > video {
+  height: 250px;
+  width: 100%;
+  display: block!important;
+  margin: 0 auto;
+}
+
 /* latest photos */
 
 .latestPhotos .photo {
@@ -644,23 +651,6 @@ ul {
 #rufous-sandbox {
   display: none!important;
 }
-
-/*
-iframe, object, embed, audio, video {
-  height: 250px;
-  width: 250px;
-  display: block!important;
-  margin: 0 auto;
-}
-*/
-
-iframe, object, embed, audio, video {
-  height: 250px;
-  width: 100%;
-  display: block!important;
-  margin: 0 auto;
-}
-
 
 .loadMorePageContent {
   clear: both;
