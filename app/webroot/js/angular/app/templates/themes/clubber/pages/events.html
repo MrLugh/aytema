@@ -1,0 +1,13 @@
+<div class="pageEvents">
+
+	<ul>
+
+		<li ng-repeat="content in eventlist" class="pageEventsItem">
+			<content-event></content-event>
+		</li>
+
+	</ul>
+
+	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="icon-plus"></i> Events ({{offset}} of {{contentSv.getPageList('events').list.length}}) </a>
+
+</div>

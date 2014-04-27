@@ -1,0 +1,44 @@
+@media (min-width: 1024px) {
+
+	.pageEvents ul li {
+	    width: calc(33% - 1px);
+	}
+
+}
+
+@media (max-width: 1024px) {
+
+	.pageEvents ul li .overlay .overlay-inner h2 {
+		font-size: 12px;
+	}
+	.pageEvents ul li .overlay .overlay-inner p {
+		line-height: 12px;
+	}
+
+}
+
+
+@media (max-width: 480px) {
+
+	.pageEvents ul li .overlay .overlay-inner h2 {
+		font-size: 22px;
+	}	
+	.pageEvents ul li .overlay .overlay-inner p {
+		line-height: 16px;
+	}
+
+	.pageEvents ul li .pageEventContainer .overlay	{
+		display: none;
+	}
+
+	.pageEvents ul li {
+	    width: 100%;
+	}
+
+}
+
+
+@media (max-width: 320px) {
+   
+
+}

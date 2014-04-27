@@ -1,0 +1,157 @@
+/* Estilos galeria*/
+.pagePosts ul {
+   padding: 0px;
+   width: 100%;
+}
+
+.pagePosts ul li {
+    height: auto;
+    float: none;
+    margin: 0;
+    padding: 15px;
+    width: calc(50% - 1px);
+}
+
+.pagePosts ul li .post {
+    position: relative;
+}
+
+.pagePosts ul li .pagePostContainer {
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+}
+.pagePosts ul li .content_post {
+    display: block;
+    vertical-align: middle;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-transition: all 0.56s ease;
+    -moz-transition: all 0.56s ease;
+    -o-transition: all 0.56s ease;
+    transition: all 0.56s ease;
+
+    -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+}
+.pagePosts ul li .pagePostContainer .overlay {
+    display: block;
+    padding: 10px;
+    position: absolute;
+    width: 100%;    
+    height: 100%;
+    left: 100%;
+    top: 0;
+    z-index: 2;
+    opacity: 0;
+    /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.pagePosts ul li .pagePostContainer .overlay .overlay-inner {
+    padding: 0 0 20px;
+    display: inline-block;
+}
+.pagePosts ul li .pagePostContainer .overlay .overlay-inner h2 {
+    display: block;
+    font-size: 2.25rem;
+    line-height: 1;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 4;
+
+    position: relative;
+    z-index: 3;
+    max-width: 100%;
+    padding: .4em;
+    opacity: 0.7;
+    margin: 0;
+    font-weight: 900;
+    font-size: 1.2em;
+    text-shadow: 1px 0 3px #000;
+}
+.pagePosts ul li .pagePostContainer .overlay .overlay-inner p {
+    display: block;
+    margin-bottom: 0;
+    position: relative;
+    text-align: center;
+    z-index: 4;
+    font-size: 1.125rem;
+
+    position: relative;
+    z-index: 3;
+    max-width: 100%;
+    padding: .4em;
+    opacity: 0.7;
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.0em;
+    text-shadow: 1px 0 2px #000;    
+}
+.pagePosts ul li .pagePostContainer:hover .overlay {
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+.pagePosts ul li .pagePostContainer .overlay .overlay-inner p a {
+    font-style: italic;
+    text-decoration: underline;
+}
+.pagePosts ul li .pagePostContainer .overlay .overlay-inner p a:hover {
+    text-decoration: none;
+}
+
+.pagePostsItem {
+  -webkit-transition:none;
+  -moz-transition:none;
+  -o-transition:none;
+  transition:none;    
+}
+
+/* controls */
+
+.pagePosts ul li .post_prev , .pagePosts ul li .post_next {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    position: absolute;
+    top:46%;
+}
+
+.pagePosts ul li .post_prev:hover , .pagePosts ul li .post_next:hover {
+    color: #ffffff;
+    text-decoration: none;
+    outline: none;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+
+.pagePosts ul li .post_prev {
+    left: 5%;
+}
+
+.pagePosts ul li .post_next {
+    right: 5%;
+}
+
+.pagePosts ul li .post_prev i , .pagePosts ul li .post_next i {
+    position: relative;
+    font-size: 25px;
+    top:50%;
+    color: white;
+}

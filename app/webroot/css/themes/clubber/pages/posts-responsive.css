@@ -1,0 +1,44 @@
+@media (min-width: 1024px) {
+
+	.pagePosts ul li {
+	    width: calc(33% - 1px);
+	}
+
+}
+
+@media (max-width: 1024px) {
+
+	.pagePosts ul li .overlay .overlay-inner h2 {
+		font-size: 12px;
+	}
+	.pagePosts ul li .overlay .overlay-inner p {
+		line-height: 12px;
+	}
+
+}
+
+
+@media (max-width: 480px) {
+
+	.pagePosts ul li .overlay .overlay-inner h2 {
+		font-size: 22px;
+	}	
+	.pagePosts ul li .overlay .overlay-inner p {
+		line-height: 16px;
+	}
+
+	.pagePosts ul li .pagePostContainer .overlay	{
+		display: none;
+	}
+
+	.pagePosts ul li {
+	    width: 100%;
+	}
+
+}
+
+
+@media (max-width: 320px) {
+   
+
+}

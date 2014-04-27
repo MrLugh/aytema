@@ -44,6 +44,7 @@
     echo $this->Html->css('themes/clubber/pages/events');
     echo $this->Html->css('themes/clubber/pages/tracks');
     echo $this->Html->css('themes/clubber/pages/posts');
+    echo $this->Html->css('themes/clubber/pages/events');
     echo $this->Html->css('themes/clubber/pages/photos-responsive');
     echo $this->Html->css('themes/clubber/pages/videos-responsive');
     echo $this->Html->css('themes/clubber/pages/events-responsive');
