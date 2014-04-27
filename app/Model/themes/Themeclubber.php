@@ -9,7 +9,7 @@ Class Themeclubber {
             ),
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),
-                'networks'  => array('twitter')
+                //'networks'  => array('twitter')
             ),
             'videos'    => array(
                 'concepts'  => array('video'),
