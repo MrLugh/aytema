@@ -1,9 +1,5 @@
 @media (min-width: 1024px) {
 
-	.pagePosts ul li {
-	    width: calc(33% - 1px);
-	}
-
 }
 
 @media (max-width: 1024px) {

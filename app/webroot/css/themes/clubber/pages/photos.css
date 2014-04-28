@@ -129,7 +129,7 @@
     opacity: 0.5;
     filter: alpha(opacity=50);
     position: absolute;
-    top:46%;
+    top:10%;
 }
 
 .pagePhotos ul li .photo_prev:hover , .pagePhotos ul li .photo_next:hover {
