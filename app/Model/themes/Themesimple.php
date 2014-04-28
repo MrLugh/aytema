@@ -13,7 +13,7 @@ Class Themesimple {
                 'label' => 'Content background',
             ),
             'contentText' => array(
-                'value' => '#000000',
+                'value' => '#ffffff',
                 'label' => 'Content text',
             ),
         ),
