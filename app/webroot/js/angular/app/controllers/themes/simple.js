@@ -118,9 +118,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 				}
 			}
 
-			console.log($scope.list.length);
-			console.log(params);
-
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
 					var contents = data.contents;
