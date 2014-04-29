@@ -343,6 +343,7 @@ function contentPostCo($scope,contentSv,$sce) {
 	}
 
 	$scope.getTitle = function() {
+		console.log($scope.content);
 
 		return contentSv.getTitle($scope.content);
 	}

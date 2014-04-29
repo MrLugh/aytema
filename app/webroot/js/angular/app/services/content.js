@@ -489,16 +489,18 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		if (content.network == 'tumblr') {
 
-			if (angular.isDefined(content.data['slug'])) {
-				title = content.data['slug'].split("-").join(" ");
+			if (angular.isDefined(content.data['slug']) && content.data['slug'].length) {
+				title = content.data['slug'].replace("-"," ");
 			}
 
-			if (angular.isDefined(content.data['source_title'])) {
-				title = content.data['source_title'].split("-").join(" ")
+			if (angular.isDefined(content.data['source_title']) && content.data['source_title'].length) {
+				console.log(content.data['source_title']);
+				title = content.data['source_title'].replace("-"," ");
 			}
 
-			if (angular.isDefined(content.data['title'])) {
-				title = content.data['title'].split("-").join(" ")
+			if (angular.isDefined(content.data['title']) && content.data['title'].length) {
+				console.log(content.data['title']);
+				title = content.data['title'].replace("-"," ");
 			}			
 		}
 
