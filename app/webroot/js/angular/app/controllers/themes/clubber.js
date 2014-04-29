@@ -292,7 +292,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.setColor = function() {
 
 		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+		//$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
 		var element = angular.element(document.querySelector('.navbar-brand'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);

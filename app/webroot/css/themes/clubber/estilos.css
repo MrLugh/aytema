@@ -165,6 +165,8 @@ ul {
   margin: 0 auto;
   padding: 0;
   position: relative;
+  top:0;
+  left:0;
 
   -webkit-transition:all 0.56s ease;
   -moz-transition:all 0.56s ease;
@@ -173,19 +175,23 @@ ul {
 }
 
 #container .page.ng-enter {
-  left:100%;
+  position: relative;
+  opacity: 0;
 }
 
 #container .page.ng-enter.ng-enter-active {
-  left: 0;
+  position: relative;
+  opacity: 1;
 }
 
 #container .page.ng-leave {
-  left: 0;
+  position: relative;
+  opacity: 1;
 }
 
 #container .page.ng-leave.ng-leave-active {
-  left: -100%;
+  position: relative;
+  opacity: 0;
 }
 
 #container .activePage {
