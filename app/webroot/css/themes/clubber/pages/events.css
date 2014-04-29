@@ -9,7 +9,7 @@
     float: none;
     margin: 0;
     padding: 15px;
-    width: 100%;
+     width: calc(50% - 1px);
 }
 
 .pageEvents ul li .event {
@@ -122,6 +122,55 @@
   -o-transition:none;
   transition:none;    
 }
+.pageEvents , .pageEvents ul {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    min-height: 400px;
+}
+.pageEvents ul li {
+    overflow: hidden;
+    float: left;
+}
+.pageEvents .event-date-container {
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+.pageEvents .event-date-container .event-date-day {
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: 900;
+    margin: 0;
+    line-height: 70px;
+    text-align: center;
+}
+.pageEvents .event-date-container .event-date-month {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+.pageEvents .event-map-container {
+    width: 30%;
+    padding: 0px;
+    float: left;
+}
+.pageEvents .event-map-container .event_map {
+    max-width: 100%;
+}
+.pageEvents .event-info-container {
+    width: 43%;
+    margin-left: 2%;
+    text-align: left;
+    float: left;
+}
+.pageEvents .event-info-container h2 {
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-top: 0;
+}
 
 /* controls */
 
@@ -155,3 +204,4 @@
     top:50%;
     color: white;
 }
+
