@@ -343,6 +343,10 @@ ul {
   margin: 0 auto;
 }
 
+.carousel-indicators {
+  display: none;
+ }
+
 /* latest photos */
 
 .latestPhotos .photo {
@@ -381,13 +385,6 @@ ul {
 .latestPhotos .carousel-control {
   z-index: 3;
 }
-
-.latestPhotos .carousel-indicators {
-  display: none;
-  position: relative;
-  margin-top: 10px
-}
-
 
 .left.carousel-control i {
   left: 10%;
