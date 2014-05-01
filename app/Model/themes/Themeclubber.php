@@ -7,20 +7,20 @@ Class Themeclubber {
             'photos'    => array(
                 'concepts'  => array('photo'),
             ),
-            'posts'     => array(
-                'concepts'  => array('post','quote','chat'),
-                //'networks'  => array('twitter')
-            ),
             'videos'    => array(
                 'concepts'  => array('video'),
                 'networks'  => array('youtube','vimeo','tumblr')
             ),
-            'events'    => array(
-                'concepts'  => array('event'),
-            ),                        
             'tracks'    => array(
                 'concepts'  => array('track'),
             ),
+            'events'    => array(
+                'concepts'  => array('event'),
+            ),            
+            'posts'     => array(
+                'concepts'  => array('post','quote','chat'),
+                //'networks'  => array('twitter')
+            ),            
         ),        
         'colors' => array(
             'background' => array(
