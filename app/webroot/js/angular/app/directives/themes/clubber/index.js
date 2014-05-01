@@ -9,6 +9,20 @@ function(){
         scope: true,
         link: function(scope,element,attrs) {
 
+            var raw = $('body');
+            scope.showUp = false;
+
+            scope.scrollToTop = function() {
+                scope.showUp = false;
+                $('body').animate({scrollTop: $('body').offset().top}, "slow");
+            }
+
+            $(window).scroll(function() {
+                scope.$apply(scope.showUp = ($(window).scrollTop() > $(window).height()) ? true : false);
+                console.log(scope.showUp);
+            });
+
+
         }
     }
 

@@ -319,6 +319,17 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	}
 
+	$scope.getTopStyle = function() {
+
+    	if (angular.equals({},$scope.config)) {
+    		return {};
+    	}
+
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}		
+	}
+
 	$scope.getCollapseMenuItemStyle = function() {
 
     	if (angular.equals({},$scope.config)) {
