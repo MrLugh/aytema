@@ -9,7 +9,7 @@
 	      </div>
 	    </div>
 
-		<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" />
+		<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':'content_photo_hide'" />
 
 		<div style="position:absolute;width:100%;top:0;bottom:0;left:0;z-index:3;">
 
