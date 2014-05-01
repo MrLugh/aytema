@@ -19,9 +19,7 @@ function(){
 
             $(window).scroll(function() {
                 scope.$apply(scope.showUp = ($(window).scrollTop() > $(window).height()) ? true : false);
-                console.log(scope.showUp);
             });
-
 
         }
     }
