@@ -326,7 +326,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
 		return {
-			'color': $scope.config.custom.colors.contentBackground.value
+			'color': $scope.config.custom.colors.contentBackground.value,
 		}		
 	}
 
