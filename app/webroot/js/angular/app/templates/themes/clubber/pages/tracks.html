@@ -2,11 +2,17 @@
 
 	<div ng-if="show" class="track_full_player_container" ng-style="getPlayerStyle()">
 		
-		<a href="#" skip-default ng-click="close()" class="close"><i class="icon-off"></i></a>
+		<a href="#" skip-default ng-click="close()" class="close_player" ng-style="getPlayerStyle()">
+			<i class="icon-off"></i>
+		</a>
 
-		<a href="#" skip-default ng-click="move(-1)" class="track_prev"><i class="icon-chevron-sign-left"></i></a>
+		<a href="#" skip-default ng-click="move(-1)" class="track_prev" ng-style="getPlayerStyle()">
+			<i class="icon-chevron-sign-left"></i>
+		</a>
 
-		<a href="#" skip-default ng-click="move(1)" class="track_next"><i class="icon-chevron-sign-right"></i></a>
+		<a href="#" skip-default ng-click="move(1)" class="track_next" ng-style="getPlayerStyle()">
+			<i class="icon-chevron-sign-right"></i>
+		</a>
 
 		<div class="track_full_player" ng-bind-html="player"></div>
 

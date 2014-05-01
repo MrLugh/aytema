@@ -2,16 +2,21 @@
 
 	<div ng-if="show" class="video_full_player_container" ng-style="getPlayerStyle()">
 		
-		<a href="#" skip-default ng-click="close()" class="close"><i class="icon-off"></i></a>
+		<a href="#" skip-default ng-click="close()" class="close_player" ng-style="getPlayerStyle()">
+			<i class="icon-off"></i>
+		</a>
 
-		<a href="#" skip-default ng-click="move(-1)" class="video_prev"><i class="icon-chevron-sign-left"></i></a>
+		<a href="#" skip-default ng-click="move(-1)" class="video_prev" ng-style="getPlayerStyle()">
+			<i class="icon-chevron-sign-left"></i>
+		</a>
 
-		<a href="#" skip-default ng-click="move(1)" class="video_next"><i class="icon-chevron-sign-right"></i></a>
+		<a href="#" skip-default ng-click="move(1)" class="video_next" ng-style="getPlayerStyle()">
+			<i class="icon-chevron-sign-right"></i>
+		</a>
 
 		<div class="video_full_player" ng-bind-html="player"></div>
 
-	</div>
-	
+	</div>	
 
 	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pageVideosItem'}" ng-class="pageVideosWithplayerClass()">
 

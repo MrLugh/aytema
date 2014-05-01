@@ -53,7 +53,7 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 	$scope.getPlayerStyle = function() {
 		return {
 			'background-color': $scope.config.custom.colors.background.value,
-			'color': $scope.config.custom.colors.contentText.value
+			'color': $scope.config.custom.colors.contentBackground.value
 		}
 	}
 

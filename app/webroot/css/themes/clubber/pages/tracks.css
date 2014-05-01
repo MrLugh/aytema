@@ -177,7 +177,6 @@
     position: relative;
     font-size: 25px;
     top:50%;
-    color: white;
 }
 
 .pageTracks .track_full_player_container {
@@ -191,16 +190,15 @@
     background: url("http://cloudcial.com/img/themes/clubber/bg-dot.png") repeat 0 0 #fff;
 }
 
-.pageTracks .track_full_player_container .close, .pageTracks .track_full_player_container .track_prev, .pageTracks .track_full_player_container .track_next {
+.pageTracks .track_full_player_container .close_player, .pageTracks .track_full_player_container .track_prev, .pageTracks .track_full_player_container .track_next {
     position: fixed;
     z-index: 3;
     top: 80px;
     font-size: 30px;
-    color: white;
 }
 
-.pageTracks .track_full_player_container .close {
-    left: 49%;
+.pageTracks .track_full_player_container .close_player {
+    left: calc(50% - 15px);
 }
 
 .pageTracks .track_full_player_container .track_prev {

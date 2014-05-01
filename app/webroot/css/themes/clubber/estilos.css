@@ -12,6 +12,7 @@ body {
   text-align: center;
   margin: 0 auto;
   font-size: 17px;
+  overflow-x: hidden;
 }
 
 .app {
@@ -76,6 +77,13 @@ blockquote {
   border-radius:50%;
 }
 
+i {
+  opacity: 1;
+  -webkit-transition:all 0.36s ease;
+  -moz-transition:all 0.36s ease;
+  -o-transition:all 0.36s ease;
+  transition:all 0.36s ease;  
+}
 
 ul {
   list-style-type: none;
@@ -149,6 +157,7 @@ ul {
   margin: 0 auto;
   width: 80%;
   padding: 15px;
+  padding-top: 25px;
   display: block;  
   overflow: hidden;
   -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);

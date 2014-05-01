@@ -1,5 +1,9 @@
 @media (max-width: 480px) {
 
+  #container {
+    width: 100%;
+  }
+
   .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
     height: 200px;
   }
@@ -8,35 +12,35 @@
     height: auto;
   }
 
-.latestEvents .event-date-container {
-  width: 25%;
-}
+  .latestEvents .event-date-container {
+    width: 25%;
+  }
 
-.latestEvents .event-date-container .event-date-day {
-  font-size: 30px;
-  line-height: 30px;
-}
+  .latestEvents .event-date-container .event-date-day {
+    font-size: 30px;
+    line-height: 30px;
+  }
 
-.latestEvents .event-date-container .event-date-month {
-  font-size: 11px;
-}
+  .latestEvents .event-date-container .event-date-month {
+    font-size: 11px;
+  }
 
-.latestEvents .event-map-container {
-  width: 30%;
-}
+  .latestEvents .event-map-container {
+    width: 30%;
+  }
 
-.latestEvents .event-map-container .event_map {
-  max-width: 100%;
-}
+  .latestEvents .event-map-container .event_map {
+    max-width: 100%;
+  }
 
-.latestEvents .event-info-container {
-  width: 43%;
-}
+  .latestEvents .event-info-container {
+    width: 43%;
+  }
 
-.latestEvents .event-info-container h2 {
-  font-size: 14px;
-  font-weight: 900;
-}
+  .latestEvents .event-info-container h2 {
+    font-size: 14px;
+    font-weight: 900;
+  }
 
   .navbar-nav {
     width: 100%;
@@ -55,11 +59,6 @@
     font-size: 25px;
   }
 
-  #container {
-    width: 90%;
-    padding: 0;
-  }
-
   .small, .medium, .large, .xlarge {
     width: 100%;
   }
@@ -72,6 +71,11 @@
 }
 
 @media (max-width: 768px) {
+
+  #container {
+    padding: 0;
+    padding-top: 25px;
+  }
 
   .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
     height: 250px;
@@ -93,11 +97,6 @@
     height: 250px;
   }
 
-  #container {
-    width: 90%;
-    padding: 0;
-  }
-
   .small, .medium, .large, .xlarge {
     width: 100%;
   }
@@ -107,68 +106,68 @@
     line-height: 18px!important;
   }  
 
-.latestEvents .event-date-container {
-  width: 25%;
-}
+  .latestEvents .event-date-container {
+    width: 25%;
+  }
 
-.latestEvents .event-date-container .event-date-day {
-  font-size: 30px;
-  line-height: 30px;
-}
+  .latestEvents .event-date-container .event-date-day {
+    font-size: 30px;
+    line-height: 30px;
+  }
 
-.latestEvents .event-date-container .event-date-month {
-  font-size: 12px;
-}
+  .latestEvents .event-date-container .event-date-month {
+    font-size: 12px;
+  }
 
-.latestEvents .event-map-container {
-  width: 30%;
-}
+  .latestEvents .event-map-container {
+    width: 30%;
+  }
 
-.latestEvents .event-map-container .event_map {
-  max-width: 100%;
-}
+  .latestEvents .event-map-container .event_map {
+    max-width: 100%;
+  }
 
-.latestEvents .event-info-container {
-  width: 43%;
-}
+  .latestEvents .event-info-container {
+    width: 43%;
+  }
 
-.latestEvents .event-info-container h2 {
-  font-size: 14px;
-  font-weight: 900;
-}
+  .latestEvents .event-info-container h2 {
+    font-size: 14px;
+    font-weight: 900;
+  }
 
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
   .latestEvents .event-date-container {
-  width: 25%;
-}
+    width: 25%;
+  }
 
-.latestEvents .event-date-container .event-date-day {
-  font-size: 55px;
-  line-height: 55px;
-}
+  .latestEvents .event-date-container .event-date-day {
+    font-size: 55px;
+    line-height: 55px;
+  }
 
-.latestEvents .event-date-container .event-date-month {
-  font-size: 14px;
-}
+  .latestEvents .event-date-container .event-date-month {
+    font-size: 14px;
+  }
 
-.latestEvents .event-map-container {
-  width: 30%;
-}
+  .latestEvents .event-map-container {
+    width: 30%;
+  }
 
-.latestEvents .event-map-container .event_map {
-  max-width: 100%;
-}
+  .latestEvents .event-map-container .event_map {
+    max-width: 100%;
+  }
 
-.latestEvents .event-info-container {
-  width: 43%;
-}
+  .latestEvents .event-info-container {
+    width: 43%;
+  }
 
-.latestEvents .event-info-container h2 {
-  font-size: 14px;
-  font-weight: 900;
-}
+  .latestEvents .event-info-container h2 {
+    font-size: 14px;
+    font-weight: 900;
+  }
 
 }

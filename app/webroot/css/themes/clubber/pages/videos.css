@@ -177,7 +177,6 @@
     position: relative;
     font-size: 25px;
     top:50%;
-    color: white;
 }
 
 .pageVideos .video_full_player_container {
@@ -191,16 +190,15 @@
     background: url("http://cloudcial.com/img/themes/clubber/bg-dot.png") repeat 0 0 #fff;
 }
 
-.pageVideos .video_full_player_container .close, .pageVideos .video_full_player_container .video_prev, .pageVideos .video_full_player_container .video_next {
+.pageVideos .video_full_player_container .close_player, .pageVideos .video_full_player_container .video_prev, .pageVideos .video_full_player_container .video_next {
     position: fixed;
     z-index: 3;
     top: 80px;
     font-size: 30px;
-    color: white;
 }
 
-.pageVideos .video_full_player_container .close {
-    left: 49%;
+.pageVideos .video_full_player_container .close_player {
+    left: calc(50% - 15px);
 }
 
 .pageVideos .video_full_player_container .video_prev {
