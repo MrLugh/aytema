@@ -485,6 +485,7 @@ ul {
 }
 
 .carousel-control i {
+  text-shadow: 2px 2px 2px #000;
   position: absolute;
   top: 46%;
   font-size: 25px;

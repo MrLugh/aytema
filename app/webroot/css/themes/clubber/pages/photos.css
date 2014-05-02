@@ -156,6 +156,7 @@
 }
 
 .pagePhotos ul li .photo_prev i , .pagePhotos ul li .photo_next i {
+    text-shadow: 2px 2px 2px #000;
     position: relative;
     font-size: 25px;
     top:50%;
