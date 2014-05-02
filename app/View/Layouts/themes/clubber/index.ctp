@@ -105,6 +105,7 @@
     echo $this->Html->script('angular/app/controllers/admin/colors');
     echo $this->Html->script('angular/app/controllers/admin/fonts');
     echo $this->Html->script('angular/app/controllers/admin/width');
+    echo $this->Html->script('angular/app/controllers/admin/background');
 
         // Themes
         echo $this->Html->script('angular/app/controllers/themes');
@@ -142,6 +143,7 @@
     echo $this->Html->script('angular/app/directives/admin/colors');
     echo $this->Html->script('angular/app/directives/admin/fonts');
     echo $this->Html->script('angular/app/directives/admin/width');
+    echo $this->Html->script('angular/app/directives/admin/background');
         // Themes
         echo $this->Html->script('angular/app/directives/themes/clubber/index');
         echo $this->Html->script('angular/app/directives/themes/clubber/content');

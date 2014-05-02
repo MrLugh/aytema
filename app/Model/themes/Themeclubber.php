@@ -54,7 +54,15 @@ Class Themeclubber {
                 'Junge' => "'Junge', serif"
             ),
         ),
-        'width' => '100%'
+        'width' => '100%',
+        'background' => array(
+            'selected'   => 'img/themes/clubber/bg-dot.png',
+            'list' => array(
+                'dot'       => "img/themes/clubber/bg-dot.png",
+                'mask'      => "img/themes/clubber/bg.png",
+                'squares'   => "img/themes/clubber/background-square.gif",
+            ),
+        )
     );
 
 

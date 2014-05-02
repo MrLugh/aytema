@@ -1,7 +1,4 @@
 body {
-  background: url("http://bigbackground.com/wp-content/uploads/2013/07/dj-wallpaper-hd-widescreen.jpg");
-  background: url("http://cloudcial.com/img/themes/clubber/background.png") repeat 0 0 #fff;
-  background: url("http://cloudcial.com/img/themes/clubber/bg.png") repeat 0 0 #fff;
   background: url("http://cloudcial.com/img/themes/clubber/bg-dot.png") repeat 0 0 #fff;
 
   /*
@@ -13,6 +10,10 @@ body {
   margin: 0 auto;
   font-size: 17px;
   overflow-x: hidden;
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;
 }
 
 .app {

@@ -42,6 +42,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.tabs = [
 		{ title:"Pages Filters",key:"pagefilter", active: true },
+		{ title:"background Image", key:"background" },
 		{ title:"Content Sizes", key:"contentsize" },
 		{ title:"Colors", key:"colors" },
 		{ title:"Fonts", key:"fonts" },
@@ -657,6 +658,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		}		
 	},true);
 
+	$scope.$watch("userSv.getThemeConfig().custom.background",function(background){
+		if (angular.isDefined(background)) {
+			$scope.config.custom.background = background;
+			$scope.setBackground();
+		}		
+	},true);
+
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 		if (accounts.length > 0) {
 			$scope.accounts = accounts;
@@ -699,6 +707,13 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
     	return {'width':width};
     }
+
+	$scope.setBackground = function() {
+
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('background','url("'+$scope.config.custom.background.selected+'") repeat');
+
+	}    
 
     $scope.getAppClass = function() {
 

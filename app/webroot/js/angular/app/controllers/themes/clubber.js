@@ -16,6 +16,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.showConfig 	= false;
 	$scope.tabs = [
 		{ title:"Colors", key:"colors", active: true },
+		{ title:"background Image", key:"background" },
 		{ title:"Fonts", key:"fonts" },
 		{ title:"Width", key:"width" },
 	];
@@ -238,6 +239,14 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 	},true);
 
+	$scope.$watch("userSv.getThemeConfig().custom.background",function(background){
+		console.log(background);
+		if (angular.isDefined(background)) {
+			$scope.config.custom.background = background;
+			$scope.setBackground();
+		}		
+	},true);
+
 	$scope.$watch("content",function(content){
 		if (!angular.equals(content, {})) {
 			$scope.checkHasContent();
@@ -292,7 +301,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.setColor = function() {
 
 		var element = angular.element(document.querySelector('body'));
-		//$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
 		var element = angular.element(document.querySelector('.navbar-brand'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
@@ -316,6 +324,13 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		var element = angular.element(document.querySelector('.loadMore'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
 
+
+	}
+
+	$scope.setBackground = function() {
+
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('background','url("'+$scope.config.custom.background.selected+'") repeat');
 
 	}
 

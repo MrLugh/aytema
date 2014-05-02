@@ -1,0 +1,16 @@
+<div class="background">
+
+	<div class="both">
+		<span class="left">Image</span>
+		<select 
+			ng-model="config.custom.background.selected"
+			ng-options="name for (name,background) in config.custom.background.list" class="right">
+		</select>
+	</div>
+
+	<div class="both">
+		<a href="#/" ng-click="restoreConfig()" skip-default>Restore!</a>
+		<a href="#/" ng-click="saveConfig()" skip-default>Save as my theme</a>
+	</div>
+
+</div>

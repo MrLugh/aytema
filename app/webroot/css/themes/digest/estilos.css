@@ -1,14 +1,11 @@
 /* gral */
 body {
-  background: url("http://cloudcial.com/img/themes/digest/bg.png") repeat 0 0 #fff;
-  font-family: 'Playfair Display', serif; 
   color: #000; 
   overflow: hidden;
   -webkit-transition:all 0.66s ease;
   -moz-transition:all 0.66s ease;
   -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;  
-  background-color: #F7F7F7;
+  transition:all 0.66s ease;
 }
 
 * {
@@ -109,7 +106,7 @@ h3, h4 {
 }
 
 .navbar {
-    background: url("../img/bg_nav.png") repeat 0 0 #000!important;
+    background: url("../../../img/themes/digest/bg_nav.png") repeat 0 0 #000!important;
     border: none;
     margin-bottom: 0;
 }
