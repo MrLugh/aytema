@@ -19,8 +19,8 @@ Class Themeclubber {
             ),            
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),
-                //'networks'  => array('twitter')
-            ),            
+                //'networks'  => array('twitter','facebook','tumblr')
+            ), 
         ),        
         'colors' => array(
             'background' => array(

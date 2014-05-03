@@ -10,10 +10,6 @@ body {
   margin: 0 auto;
   font-size: 17px;
   overflow-x: hidden;
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;
 }
 
 .app {
@@ -374,6 +370,11 @@ ul {
   margin-top: 0;
   font-size: 18px;
   text-shadow: 1px 0 3px #000;
+  overflow: hidden;
+}
+
+.caption {
+  overflow: hidden;
 }
 
 .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
