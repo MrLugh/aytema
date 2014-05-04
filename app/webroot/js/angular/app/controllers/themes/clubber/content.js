@@ -343,8 +343,6 @@ function contentPostCo($scope,contentSv,$sce) {
 	}
 
 	$scope.getTitle = function() {
-		console.log($scope.content);
-
 		return contentSv.getTitle($scope.content);
 	}
 
@@ -360,7 +358,6 @@ function contentChatCo($scope,contentSv) {
 	//console.log($scope.content);
 
 	$scope.getTitle = function() {
-
 		return contentSv.getTitle($scope.content);
 	}
 

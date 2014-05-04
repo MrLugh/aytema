@@ -240,7 +240,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	},true);
 
 	$scope.$watch("userSv.getThemeConfig().custom.background",function(background){
-		console.log(background);
 		if (angular.isDefined(background)) {
 			$scope.config.custom.background = background;
 			$scope.setBackground();

@@ -6,15 +6,8 @@
 
 	<div ng-if="!isFromNetwork('facebook')">
 
-		<div style="background:url('{{getThumbnail()}}');background-size:cover;" class="overlay_photo" on-hover-position></div>
-
-		<div class="overlay_content">
-			
-			<div ng-if="canShowThumbnail()">
-				<img ng-src="{{getThumbnail()}}" class="content_photo" />
-			</div>
-
-		</div>
+		<div style="background-image:url('{{getThumbnail()}}');" class="overlay_cover"></div>
+		<div style="background-image:url('{{getThumbnail()}}');" class="overlay_photo"></div>
 
 		<div class="content_caption"> 
 			<a href="#/" add-to-queue="getPlayer()" skip-default class="right">

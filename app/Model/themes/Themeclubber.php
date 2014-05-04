@@ -21,7 +21,7 @@ Class Themeclubber {
                 'concepts'  => array('post','quote','chat'),
                 //'networks'  => array('twitter','facebook','tumblr')
             ), 
-        ),        
+        ),
         'colors' => array(
             'background' => array(
                 'value' => '#101010',

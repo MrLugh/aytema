@@ -179,7 +179,7 @@ function () {
     return function(scope,element,attrs) {
 
         scope.getMenuHeight = function() {
-            return element.height();
+            return element[0].offsetHeight;
         };
         scope.initMenuHeight= scope.getMenuHeight();
         scope.menuHeight    = scope.getMenuHeight();

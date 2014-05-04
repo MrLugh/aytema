@@ -22,21 +22,12 @@
   display: none;
 }
 
-.next {
-  float: right;
-}
-
-.prev {
-  float: left;
-}
-
-
 #config {
     background: none repeat scroll 0 0 #F9F9F9;
     color: #213442 !important;
     font-size: 12px;
     line-height: 21px;
-    position: absolute;
+    position: fixed;
     text-transform: uppercase;
     top: 20%;
     z-index: 9000;

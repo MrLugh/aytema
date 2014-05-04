@@ -490,17 +490,15 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if (content.network == 'tumblr') {
 
 			if (angular.isDefined(content.data['slug']) && content.data['slug'].length) {
-				title = content.data['slug'].replace("-"," ");
+				title = content.data['slug'];
 			}
 
 			if (angular.isDefined(content.data['source_title']) && content.data['source_title'].length) {
-				console.log(content.data['source_title']);
-				title = content.data['source_title'].replace("-"," ");
+				title = content.data['source_title'];
 			}
 
 			if (angular.isDefined(content.data['title']) && content.data['title'].length) {
-				console.log(content.data['title']);
-				title = content.data['title'].replace("-"," ");
+				title = content.data['title'];
 			}			
 		}
 
@@ -520,7 +518,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			title = content.data.name;
 		}
 
-		return title;
+		return title.replace(/-/g, ' ');
 	}
 
 	var getDescription = function(content) {

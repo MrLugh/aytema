@@ -35,7 +35,14 @@ Class Themespace {
                 'Junge' => "'Junge', serif"
             ),
         ),
-        'width' => '100%'
+        'width' => '100%',
+        'background' => array(
+            'selected'   => 'img/themes/space/bg-dot.png',
+            'list' => array(
+                'dot'       => "img/themes/space/bg-dot.png",
+                'mask'      => "img/themes/space/bg.png",
+            ),
+        )
     );
 
 

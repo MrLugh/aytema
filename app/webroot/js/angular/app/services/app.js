@@ -13,7 +13,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 		'facebook' : {
 			network : 'facebook',
 			brand	:'FaceBook',
-			concepts: ['post']
+			concepts: ['post','photo','video']
 		},
 		'twitter' : {
 			network : 'twitter',
@@ -21,7 +21,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['post']
 		},
 		'tumblr' : {
-			network : 'tumblr',			
+			network : 'tumblr',
 			brand	:'Tumblr',
 			concepts: ['photo','video','track','post','quote','chat','link']
 		},

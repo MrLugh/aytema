@@ -40,7 +40,22 @@ function(appSv,$window,$timeout){
         scope: true,
         link: function(scope,element,attrs) {
 
-        }         
+            element.ready(function(){
+                var loaded = 0;
+                var images = [];
+                for(var x in scope.photolist) {
+                    images[x] = new Image();
+                    images[x].src = scope.photolist[x].src;
+                    $(images[x]).load(function(){
+                        loaded++;
+                        if (loaded == scope.photolist.length) {
+                            scope.$apply(scope.loaded = true);
+                        }
+                    });
+                }
+            });
+
+        }
     }
 
 }]);
