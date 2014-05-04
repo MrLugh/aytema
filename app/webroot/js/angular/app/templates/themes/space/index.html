@@ -62,37 +62,37 @@
 
 		<ul id="list" ng-style="getStyle()">
 
-			<span class="user_info left" ng-if="list.length>0" ng-style="getUserInfoStyle()">
-				<a ng-href="{{getAccountLink(current,content.external_user_id)}}" target="_blank">
-					<img class="profile" ng-src="{{getProfileImg(current)}}" alt="Go to profile" />
-					{{content.external_user_name}}
-					<img alt="{{content.network}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
-				</a>
-				<a href="#/" ng-click="showComments(current)" class="both link_comments" skip-default>
-					<p ng-if="isComments">Hide comments</p>
-					<p ng-if="!isComments">Show comments</p>
-				</a>
-			</span>
-
-			<ul class="share left" ng-if="list.length>0" ng-style="getShareStyle()">
-				<li class="left inline">
-	            	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
-	            		<img src="http://cloudcial.com/img/themes/space/twitter.png" alt="Twitter" />
-	            	</a>
-	            </li>
-	            <li class="left inline">
-	            	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-	            		<img src="http://cloudcial.com/img/themes/space/facebook.png" alt="Facebook" />
-	            	</a>
-	            </li>
-	            <li class="left inline">
-	            	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
-	            		<img src="http://cloudcial.com/img/themes/space/tumblr.png" alt="Tumblr" />
-	            	</a>
-	            </li>
-	        </ul>
-
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="getContentClass($index)" id="content_{{$index}}" ng-style="getContentStyle()">
+
+				<span class="user_info left" ng-style="getUserInfoStyle()">
+					<a ng-href="{{getAccountLink(content,content.external_user_id)}}" target="_blank">
+						<img class="profile" ng-src="{{getProfileImg(content)}}" alt="Go to profile" />
+						{{content.external_user_name}}
+						<img alt="{{content.network}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
+					</a>
+					<a href="#/" ng-click="showComments(content)" class="both link_comments" skip-default>
+						<p ng-if="isComments">Hide comments</p>
+						<p ng-if="!isComments">Show comments</p>
+					</a>
+				</span>
+
+				<ul class="share left" ng-style="getShareStyle()">
+					<li class="left inline">
+		            	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
+		            		<img src="http://cloudcial.com/img/themes/space/twitter.png" alt="Twitter" />
+		            	</a>
+		            </li>
+		            <li class="left inline">
+		            	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
+		            		<img src="http://cloudcial.com/img/themes/space/facebook.png" alt="Facebook" />
+		            	</a>
+		            </li>
+		            <li class="left inline">
+		            	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
+		            		<img src="http://cloudcial.com/img/themes/space/tumblr.png" alt="Tumblr" />
+		            	</a>
+		            </li>
+		        </ul>
 
 				<content-video ng-switch-when='video'></content-video>
 				<content-photo ng-switch-when='photo'></content-photo>
