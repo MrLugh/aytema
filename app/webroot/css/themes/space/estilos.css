@@ -245,6 +245,7 @@ iframe,object,embed {
   text-align: left;
   position: relative;
   z-index: 3;
+  margin-top: 60px;
 }
 
 .profile {
