@@ -51,7 +51,6 @@ blockquote {
 }
 
 
-
 *[ ng-click ] {
   cursor: pointer ;
 }
@@ -202,6 +201,7 @@ body::-webkit-scrollbar-thumb {
   max-width: 100%;
   height: auto!important;
   opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 .content .overlay_cover {
@@ -258,49 +258,79 @@ iframe,object,embed {
 }
 
 .content .content_caption {
+  text-align: left;
+  position: relative;
+  z-index: 3;
+  padding:5px 20px;
+  font-size: 15px!important;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.content_hover .content_caption {
   -webkit-transition:all 0.66s ease;
   -moz-transition:all 0.66s ease;
   -o-transition:all 0.66s ease;
   transition:all 0.66s ease;
-  text-align: left;
-  position: relative;
-  z-index: 3;
-  padding: 20px;
+  opacity: 1;
+  filter: alpha(opacity=1);
+}
+
+.content .content_caption * {
+  font-size: 15px!important;
+  display: inline-block;
+  padding: 0;
+  padding-right: 3px;
+  margin: 0 auto;
+  border: none;
+}
+
+.content .content_caption h1, .content .content_caption h2, .content .content_caption h3 {
+  margin: 0 auto;
+  font-size: 20px!important;
+  display: block;
 }
 
 .profile {
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    height: 60px !important;
-    margin: 10px 1% 10px 0;
-    right: 0;
-    width: 60px !important;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  height: 60px !important;
+  margin: 0 auto;
+  right: 0;
+  width: 60px !important;
 }
 
-.user_info {
-  float: left;
+.content .user_info {
+  margin: 0 auto;
 }
 
-.share {
+.content .share {
   float: right;
 }
 
-.content_bar {
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;  
+.content .content_bar {
   margin: 0;
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
   -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
   box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
-  padding: 20px;
+  padding:5px 20px;
   position: absolute;
   z-index: 3;
   width: 100%;
   bottom:0;
-  left: 0;  
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.content_hover .content_bar {
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;  
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 
