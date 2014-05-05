@@ -513,7 +513,8 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     }
 
     $scope.getFooterButtonStyle = function() {
-	   	if ($scope.showFooter == true) {
+
+	if ($scope.showFooter == true) {
 	   		return {'bottom':'100%'};
     	}
 	   	return {'bottom':'0'};
@@ -577,6 +578,13 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		
     	return style;
 
+    }
+
+    $scope.getPlaylistIconClass = function() {
+    	if ($scope.showFooter) {
+    		return "icon-remove-sign";
+    	}
+    	return "icon-play-sign";
     }
 
     $scope.getContentClass = function(index) {

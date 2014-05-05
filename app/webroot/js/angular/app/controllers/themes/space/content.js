@@ -70,6 +70,19 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 
 	}		
 
+    $scope.getPlayStyle = function() {
+
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+    	return {
+			'color':userSv.getThemeConfig().custom.colors.contentText.value
+		}
+
+	}
+
+
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();
 		return $scope.thumbnail.length > 0;
@@ -277,6 +290,18 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 
 	}	
 
+    $scope.getPlayStyle = function() {
+
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+    	return {
+			'color':userSv.getThemeConfig().custom.colors.contentText.value
+		}
+
+	}
+
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();
 		return $scope.thumbnail.length > 0;
@@ -426,7 +451,7 @@ function contentEventCo($scope,contentSv,$sce,userSv) {
 		}
 
 	}
-	
+
 	$scope.getMapSrc = function() {
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
