@@ -811,9 +811,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getQueue: function() {
 			return queue;
 		},
-		emptyQueue: function ()  {
-			queue = [];
-		},
 		deleteFromQueue:deleteFromQueue,
 
 		getContrast50: function(hexcolor) {

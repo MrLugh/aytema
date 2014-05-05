@@ -268,11 +268,6 @@ iframe,object,embed {
   padding: 20px;
 }
 
-.content .content_caption i {
-  font-size: 62px;
-  line-height: 62px;
-}
-
 .profile {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -439,14 +434,15 @@ iframe,object,embed {
 }
 
 .footercontrol {
+  background: url("http://cloudcial.com/img/themes/simple/playButton.png") no-repeat scroll center center #F9F9F9;
+  background-size:51px 51px;
   display: block;
+  height: 51px;
   position: absolute;
+  text-indent: -9999px;
+  width: 51px;
   outline: none;
   border: none;
-}
-
-.footercontrol i {
-  font-size: 62px;
 }
 
 .queued {
