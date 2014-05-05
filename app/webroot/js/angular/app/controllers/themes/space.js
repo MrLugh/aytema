@@ -13,7 +13,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.filters	= {'concepts':[],'networks':[]};
 	$scope.networks = [];
 	$scope.concepts = [];
-	$scope.current	= -1;
+	$scope.current	= 0;
 	$scope.content	= {};
 	$scope.controlHover = false;
 
@@ -131,7 +131,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 							$scope.list.push(content);
 						}
 						$scope.offset += $scope.limit;
-						$scope.current = 0;
 						$scope.content = $scope.list[$scope.current];
 						$scope.scrollCurrent();
 					}
@@ -237,7 +236,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		if (direction > 0) {
 			$scope.current++;
 		} else {
-			$scope.current--;		
+			$scope.current--;	
 		}
 
 		if ($scope.current == $scope.list.length) {
@@ -494,14 +493,15 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
     $scope.getFooterStyle = function() {
 
+    	var style = {};
+
     	var width = "100%";
     	if (!angular.equals({},$scope.config)) {
     		width = $scope.config.custom.width;
+    		style['background-color'] = $scope.config.custom.colors.contentBackground.value;
     	}
 
-    	var style = {'width':width};
-
-		style['background-color'] = $scope.config.custom.colors.contentBackground.value;
+    	style['¨width'] = width;		
 
 	   	if ($scope.showFooter == true) {
 	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
