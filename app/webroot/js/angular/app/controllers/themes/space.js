@@ -25,7 +25,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.showConfig = false;
 	$scope.tabs = [
 		{ title:"Colors", key:"colors", active: true },
-		{ title:"background Image", key:"background" },
 		{ title:"Fonts", key:"fonts" },
 		{ title:"Width", key:"width" },
 	];
@@ -501,11 +500,15 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
     	var style = {'width':width};
+
+		style['background-color'] = $scope.config.custom.colors.contentBackground.value;
+
 	   	if ($scope.showFooter == true) {
 	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
 	   		return style;	   		
     	}
     	style['top'] = '100%';
+
 	   	return style;
     }
 
@@ -528,30 +531,25 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		};
     }
 
-    $scope.getShareStyle = function() {
+    $scope.getProfileStyle = function() {
 
     	if (!angular.isDefined($scope.config.custom)) {
     		return {};
     	}
-
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.5)";
 
     	return {
-    		'background-color':rgbString,
-			'color':$scope.config.custom.colors.contentText.value
-		}
+    		'border': '2px solid '+$scope.config.custom.colors.contentText.value
+    	}
+    }
 
-	}
-
-    $scope.getUserInfoStyle = function() {
+    $scope.getContentBarStyle = function() {
 
     	if (!angular.isDefined($scope.config.custom)) {
     		return {};
     	}
 
 		var rgb = contentSv.hexToRgb($scope.config.custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.5)";
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
 
     	return {
     		'background-color':rgbString,

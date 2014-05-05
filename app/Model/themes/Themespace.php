@@ -5,11 +5,11 @@ Class Themespace {
     static $config = array(
         'colors' => array(
             'background' => array(
-                'value' => '#101010',
+                'value' => '#4A897F',
                 'label' => 'Body background',
             ),
             'contentBackground' => array(
-                'value' => '#303030',
+                'value' => '#AD4340',
                 'label' => 'Content background',
             ),
             'contentText' => array(
@@ -19,7 +19,7 @@ Class Themespace {
         ),
         'fonts' => array(
             'selected' => array(
-                'family'=> "'Playfair Display', serif",
+                'family'=> "'Ubuntu', sans-serif",
                 'size'  => '13px',
             ),
             'list' => array(
@@ -36,13 +36,6 @@ Class Themespace {
             ),
         ),
         'width' => '100%',
-        'background' => array(
-            'selected'   => 'img/themes/space/bg-dot.png',
-            'list' => array(
-                'dot'       => "img/themes/space/bg-dot.png",
-                'mask'      => "img/themes/space/bg.png",
-            ),
-        )
     );
 
 

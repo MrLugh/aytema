@@ -348,7 +348,7 @@ function adminContentEventCo($scope,contentSv,$sce) {
 	$scope.getMapSrc = function() {
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
-		"&size=150x150"+
+		"&size=850x850"+
 		"&markers="+encodeURI($scope.content.data.address)+
 		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
 	}
@@ -380,7 +380,7 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 	$scope.getMapSrc = function() {
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
-		"&size=150x150"+
+		"&size=850x850"+
 		"&markers="+encodeURI($scope.event.address)+
 		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
 	}

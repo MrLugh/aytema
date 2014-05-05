@@ -1,4 +1,4 @@
-function contentVideoCo($scope,$sce,contentSv) {
+function contentVideoCo($scope,$sce,contentSv,userSv) {
 
 	//console.log($scope.content);
 
@@ -54,6 +54,22 @@ function contentVideoCo($scope,$sce,contentSv) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
+    $scope.getDescriptionStyle = function() {
+
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+
+    	return {
+    		'background-color':rgbString,
+			'color':userSv.getThemeConfig().custom.colors.contentText.value
+		}
+
+	}		
+
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();
 		return $scope.thumbnail.length > 0;
@@ -91,7 +107,7 @@ function contentVideoCo($scope,$sce,contentSv) {
 }
 
 
-function contentPhotoCo($scope,contentSv) {
+function contentPhotoCo($scope,contentSv,userSv) {
 
 	//console.log($scope.content);
 
@@ -152,6 +168,22 @@ function contentPhotoCo($scope,contentSv) {
 		return '';
 	}
 
+    $scope.getDescriptionStyle = function() {
+
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+
+    	return {
+    		'background-color':rgbString,
+			'color':userSv.getThemeConfig().custom.colors.contentText.value
+		}
+
+	}	
+
 	$scope.move = function(direction) {
 
 		//console.log("content move");
@@ -180,7 +212,7 @@ function contentPhotoCo($scope,contentSv) {
 
 }
 
-function contentTrackCo($scope,$sce,contentSv) {
+function contentTrackCo($scope,$sce,contentSv,userSv) {
 
 	//console.log($scope.content);
 
@@ -229,6 +261,22 @@ function contentTrackCo($scope,$sce,contentSv) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}	
 
+    $scope.getDescriptionStyle = function() {
+
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+
+    	return {
+    		'background-color':rgbString,
+			'color':userSv.getThemeConfig().custom.colors.contentText.value
+		}
+
+	}	
+
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();
 		return $scope.thumbnail.length > 0;
@@ -265,7 +313,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 
 }
 
-function contentPostCo($scope,contentSv,$sce) {
+function contentPostCo($scope,contentSv,$sce,userSv) {
 
 	//console.log($scope.content);
 
@@ -295,6 +343,22 @@ function contentPostCo($scope,contentSv,$sce) {
 
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
+
+    $scope.getDescriptionStyle = function() {
+
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+
+    	return {
+    		'background-color':rgbString,
+			'color':userSv.getThemeConfig().custom.colors.contentText.value
+		}
+
+	}	
 
 }
 
@@ -343,14 +407,30 @@ function contentLinkCo($scope,contentSv,$sce) {
 	}
 }
 
-function contentEventCo($scope,contentSv,$sce) {
+function contentEventCo($scope,contentSv,$sce,userSv) {
 
 	//console.log($scope.content);
+	
+    $scope.getDescriptionStyle = function() {
+
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+
+    	return {
+    		'background-color':rgbString,
+			'color':userSv.getThemeConfig().custom.colors.contentText.value
+		}
+
+	}
 	
 	$scope.getMapSrc = function() {
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
-		"&size=150x150"+
+		"&size=850x850"+
 		"&markers="+encodeURI($scope.content.data.address)+
 		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
 	}

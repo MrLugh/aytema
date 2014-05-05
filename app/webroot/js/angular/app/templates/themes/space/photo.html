@@ -14,7 +14,7 @@
 	</div>
 
 
-	<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0"> 
+	<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0" ng-style="getDescriptionStyle()"> 
 		<h2>{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>
 	</div>
