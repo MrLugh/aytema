@@ -1,23 +1,25 @@
 <div class="themesContainer">
 
-	<ul class="filterList">
-
-		{{list.length}}	of {{themes.length}}
-		<li>
-			<h2>Filter by:</h2>
-		</li>
-
-		<li>
-			<input type="text" ng-model="search" placeholder="Search" class="form-control" />
-		</li>
-
-	</ul>
-
 	<div class="both">
 
-		<ul class="list" ng-style="getContainerStyle()" get-offset-top>
+		<ul class="list" ng-style="getContainerStyle()">
 
-			<li ng-repeat="theme in list" class="theme">
+			<li>
+				<ul class="filterList">
+
+					{{list.length}}	of {{themes.length}}
+					<li>
+						<h2>Filter by:</h2>
+					</li>
+
+					<li>
+						<input type="text" ng-model="search" placeholder="Search" class="form-control" />
+					</li>
+
+				</ul>
+			</li>
+
+			<li ng-repeat="theme in list" ng-class="getThemeClass($index)" id="theme_{{$index}}">
 
 				<h3>{{theme.name}}</h3>
 
@@ -25,9 +27,7 @@
 
 					<carousel interval="-1">
 						<slide ng-repeat="slide in theme.thumbnails">
-							<a ng-href="/themes?type={{theme.key}}&username={{user.username}}">
-								<img ng-src="{{slide}}" style="margin:auto;">
-							</a>
+							<img ng-src="{{slide}}" style="margin:auto;">
 						</slide>
 					</carousel>
 
@@ -35,13 +35,22 @@
 
 				<div class="both">
 
-					<a href="#/" ng-click="preview($index)" class="right">Preview</a>
+					<a ng-href="/themes?type={{theme.key}}&username={{user.username}}" title="Full Edit">
+						<i class="icon-cogs"></i>
+					</a>
+					<a href="#/" ng-if="$index != current" ng-click="previewSrc($index)" skip-default title="Preview">
+						<i class="icon-zoom-in"></i>
+					</a>
 
 				</div>
 
 			</li>
 
 		</ul>
+
+		<div ng-if="src.length>0" class="preview"  ng-style="getContainerStyle()">
+			<iframe src="{{src}}" style="width:100%;height:100%;"></iframe>
+		</div>
 
 	</div>
 

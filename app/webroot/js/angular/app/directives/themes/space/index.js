@@ -10,7 +10,6 @@ function(){
         link: function(scope,element,attrs) {
 
             $( window ).resize(function() {
-                console.log("resize");
                 scope.$apply(scope.scrollCurrent());
             });
 

@@ -134,9 +134,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 				}
 			}
 
-			console.log("PARAMS");
-			console.log(params);
-
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
 					var contents = data.contents;
