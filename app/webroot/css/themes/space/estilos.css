@@ -276,6 +276,7 @@ iframe,object,embed {
   filter: alpha(opacity=1);
 }
 
+/*
 .content .content_caption * {
   font-size: 15px!important;
   display: inline-block;
@@ -291,6 +292,7 @@ iframe,object,embed {
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
 }
+*/
 
 .content .content_caption h1, .content .content_caption h2, .content .content_caption h3 {
   margin: 0 auto;

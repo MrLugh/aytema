@@ -51,7 +51,7 @@ Class TumblrSocialnet {
   		$this->oauth->fetch(self::VERIFY_CREDENTIALS);
   		$response = $this->oauth->getLastResponseInfo();
   		
-  		if($response['http_code'] == 200) {
+  		if (isset($response['http_code']) && $response['http_code'] == 200) {
   			$data =  json_decode($this->oauth->getLastResponse(),true);
   			return $data['response'];
   		}

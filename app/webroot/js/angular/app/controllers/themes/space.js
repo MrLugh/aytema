@@ -99,6 +99,11 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
 		if (!contentSv.isLoading() && $scope.configLoaded) {
 
+			if ($scope.offset == 0) {
+				$scope.content = {};
+				$scope.current = 0;
+			}
+
 			if ($scope.concepts.length == 0) {
 				$scope.list = [];
 				return;
@@ -131,8 +136,10 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 							$scope.list.push(content);
 						}
 						$scope.offset += $scope.limit;
-						$scope.content = $scope.list[$scope.current];
-						$scope.scrollCurrent();
+						if (angular.isDefined($scope.list[$scope.current])) {
+							$scope.content = $scope.list[$scope.current];
+							$scope.scrollCurrent();
+						}
 					}
 				},
 				function(reason) {
@@ -246,8 +253,10 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 			$scope.current = $scope.list.length - 1;
 		}
 
-		$scope.content = $scope.list[$scope.current];
-		$scope.scrollCurrent();
+		if (angular.isDefined($scope.list[$scope.current])) {
+			$scope.content = $scope.list[$scope.current];
+			$scope.scrollCurrent();
+		}
 
 		if ( $scope.list.length - 1 - $scope.current < 5 ) {
 			$scope.moreContent();
