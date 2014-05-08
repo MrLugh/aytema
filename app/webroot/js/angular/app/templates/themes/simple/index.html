@@ -115,7 +115,7 @@
 		<div ng-show="showFooter" class="queued">
 			<ul ng-style="getQueueStyle()">
 				<li ng-repeat="content in contentSv.getQueue()" class="{{content.network}}_{{content.concept}}" style="position:relative;" ng-if="hasPlayer($index)">
-					<i class="icon-remove-circle both" ng-click="contentSv.deleteFromQueue(content)"></i>
+					<i class="icon-remove-sign both" ng-click="contentSv.deleteFromQueue(content)"></i>
 					<div class="player both" ng-bind-html="getPlayer($index)"></div>
 				</li>
 			</ul>
