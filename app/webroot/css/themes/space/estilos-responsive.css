@@ -1,0 +1,16 @@
+@media (max-width: 480px) {
+
+  .controls {
+    right: 5px;
+  }
+
+  .footercontrol i {
+    font-size: 35px;
+    margin: 0 5px
+  }
+
+  .content .share li a i {
+    font-size: 25px;
+  }
+  
+}

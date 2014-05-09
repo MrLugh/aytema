@@ -202,8 +202,8 @@ function () {
     }
 }]);
 
-ayTemaDs.directive('getFooterHeight',[
-function () {
+ayTemaDs.directive('getFooterHeight',['$window',
+function ($window) {
     return function(scope,element,attrs) {
 
         scope.getFooterHeight = function() {
@@ -214,6 +214,8 @@ function () {
         scope.$watch('getFooterHeight()', function(newValue, oldValue, scope) {
             scope.footerHeight = scope.getFooterHeight();
         });
+
+        angular.element($window).bind('resize', scope.footerHeight = scope.getFooterHeight);
     }
 }]);
 

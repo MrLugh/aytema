@@ -209,7 +209,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		if (queue.length>0) {
 			$scope.showFooter = true;
 		}
-	},true);	
+	},true);
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);

@@ -325,10 +325,6 @@ iframe,object,embed {
   color: #fff;
 }
 
-
-
-
-
 .profile {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -349,6 +345,8 @@ iframe,object,embed {
 
 .content .share {
   float: right;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .content .content_bar {
@@ -599,9 +597,6 @@ iframe,object,embed {
 
 /* iframes */
 
-.fb_iframe_widget iframe {
-  top: 20%;
-}
 .twitter_post {
   position: relative;
 }
