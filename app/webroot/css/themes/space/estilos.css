@@ -603,3 +603,11 @@ iframe,object,embed {
 .fb_iframe_widget iframe {
   top: 20%;
 }
+.twitter_post {
+  position: relative;
+}
+.twitter_post iframe {
+  position: absolute!important;
+  top: 50px;
+  left: 35%;
+}
