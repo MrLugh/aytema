@@ -36,6 +36,7 @@
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('minicolors');
     echo $this->Html->css('themes/space/estilos');
+    echo $this->Html->css('themes/space/estilos-responsive');
     echo $this->Html->css('themes/space/admin');
     ?>
 
