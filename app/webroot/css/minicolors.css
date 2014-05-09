@@ -6,7 +6,7 @@
 	position: absolute;
 	vertical-align: middle;
 	background: url(jquery.minicolors.png) -80px 0;
-	border: solid 1px #ccc;
+	border: none;
 	cursor: text;
 	padding: 0;
 	margin: 0;
@@ -19,6 +19,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
+	cursor: pointer;
 }
 
 .minicolors input[type=hidden] + .minicolors-swatch {
@@ -210,13 +211,18 @@
 	right: 1px;
 }
 .minicolors-theme-default.minicolors {
-	width: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 11px solid rgba(0, 0, 0, 0);
+    width: auto;
 }
 .minicolors-theme-default .minicolors-input {
-	height: 20px;
-	width: auto;
-	display: inline-block;
-	padding-left: 26px;
+    background-color: rgba(0, 0, 0, 0);
+    border: medium none;
+    color: #FFFFFF;
+    display: inline-block;
+    height: 20px;
+    padding-left: 26px;
+    width: auto;
 }
 .minicolors-theme-default.minicolors-position-right .minicolors-input {
 	padding-right: 26px;
