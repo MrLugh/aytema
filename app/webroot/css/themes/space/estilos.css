@@ -291,7 +291,6 @@ iframe,object,embed {
 
 .content .content_caption i {
   font-size: 40px;
-  color: #fff;
   line-height: 23px;
   margin: 0 15px;
 }
@@ -344,7 +343,6 @@ iframe,object,embed {
   margin: 0 auto;
 }
 .content .user_info a {
-  color: #fff;
   font-style: italic;
 }
 
@@ -378,7 +376,6 @@ iframe,object,embed {
 }
 
 .content .share li a i {
-  color: #ffffff;
   font-size: 39px;
   margin: 0 15px;
   line-height: 59px;
@@ -528,7 +525,6 @@ iframe,object,embed {
 }
 .footercontrol i {
   font-size: 52px;
-  color: #fff;
   line-height: 69px;
   margin: 0 15px;
 }

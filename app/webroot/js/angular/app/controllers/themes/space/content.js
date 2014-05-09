@@ -182,6 +182,16 @@ function contentPhotoCo($scope,contentSv,userSv) {
 			'color':userSv.getThemeConfig().custom.colors.contentText.value
 		}
 
+	}
+
+	$scope.getControlsStyle = function() {
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+		return {
+			'color':userSv.getThemeConfig().custom.colors.background.value,
+		};		
 	}	
 
 	$scope.move = function(direction) {

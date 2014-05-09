@@ -588,6 +588,16 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
     }
 
+    $scope.getFooterContrastStyle = function() {
+
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return {};
+    	}
+
+		var color = $scope.config.custom.colors.background.value.replace("#","");
+		return {'color':contentSv.getContrast50(color)}
+    }
+
     $scope.getContentClass = function(index) {
 
     	if ($scope.current != index) {

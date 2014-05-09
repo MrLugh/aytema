@@ -4,11 +4,11 @@
 	<div style="background-image:url('{{current.src}}');" class="overlay_photo"></div>
 
 	<div ng-if="loaded" style="position:absolute;width:100%;top:calc(50% - 50px);left:0;">
-		<a href="#/" skip-default ng-click="move(-1)" alt="Previous photo" ng-if="moreThanOne()" class="prev">
+		<a href="#/" ng-click="move(-1)" alt="Previous photo" ng-if="moreThanOne()" class="prev"  ng-style="getControlsStyle()" skip-default >
 			<i class="icon-chevron-sign-left"></i>
 	 	</a>
 
-		<a href="#/" skip-default ng-click="move(1)" alt="Next photo" ng-if="moreThanOne()" class="next">
+		<a href="#/" ng-click="move(1)" alt="Next photo" ng-if="moreThanOne()" class="next"  ng-style="getControlsStyle()" skip-default>
 			<i class="icon-chevron-sign-right"></i>
 		</a>
 	</div>
