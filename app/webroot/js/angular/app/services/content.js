@@ -732,9 +732,14 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	var addToQueue = function(content) {
 
-		if (queue.indexOf(content) == -1) {
-			queue.push(content);
+		for (var x in queue) {
+			var item = queue[x];
+			if (item.id == content.id) {
+				return false;
+			}
 		}
+		queue.push(content);
+
 	}
 
 	var deleteFromQueue = function(content) {
