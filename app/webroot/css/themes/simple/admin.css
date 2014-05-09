@@ -22,44 +22,51 @@
   display: none;
 }
 
-.next {
-  float: right;
-}
-
-.prev {
-  float: left;
-}
-
-
 #config {
-    background: none repeat scroll 0 0 #F9F9F9;
-    color: #213442 !important;
-    font-size: 12px;
-    line-height: 21px;
-    position: absolute;
-    text-transform: uppercase;
-    top: 20%;
-    z-index: 9000;
-    text-align: left;
-    font-family: 'Playfair Display', serif;
-    text-transform: none;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+  color: #FFFFFF !important;
+  font-size: 12px;
+  line-height: 21px;
+  position: fixed;
+  text-transform: uppercase;
+  top: 20%;
+  z-index: 9000;
+  text-align: left;
+  font-family: 'Raleway',sans-serif;
+  text-transform: none;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 #config .configcontrol {
-    background: url("http://cloudcial.com/img/config.png") no-repeat scroll center center #F9F9F9;
-    display: block;
-    height: 51px;
-    position: absolute;
-    text-indent: -9999px;
-    width: 51px;
-    outline: none;
-    border: none;
+  /*background: url("http://cloudcial.com/img/config.png") no-repeat scroll center center #F9F9F9;*/
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+  display: block;
+  /*height: 51px;*/
+  position: absolute;
+  /*text-indent: -9999px;*/
+  /*width: 51px;*/
+  outline: none;
+  border: none;
+  padding: 8px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;    
+}
+#config .configcontrol i {
+  color: #FFFFFF!important;
+  font-size: 32px
 }
 
 #config .inside {
   width: 100%;
   min-height: 150px;
   padding: 20px;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Admin */
@@ -67,11 +74,98 @@
   width: 20px;
 }
 
-#config .active {
-  border-bottom: 1px solid black;
+#config ul li.active a {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid grey;
+  color: #EEEEEE!important;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
 }
-
 #config ul {
   padding: 0;
   margin: 0;
+  border: none; 
+}
+#config .config_last {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 0 20px;
+  padding: 0 0 15px;
+}
+#config ul li a {
+  border: medium none;
+  border-radius: 0;
+  font-size: 15px;
+  line-height: 30px;
+  margin: 0;
+  color: #fff!important;
+  -moz-opacity: 0.50;
+  -khtml-opacity: 0.50;
+  opacity: 0.50;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=50);
+}
+#config ul li a:hover, #config .nav > li > a, #config .nav > li > a:hover {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0)!important;
+}
+#config .inside ul li .left {
+  display: block;
+  float: left;
+  font-size: 14px;
+}
+#config .inside ul li .right {
+    clear: both;
+    float: none;
+    padding: 10px 0; 
+}
+#config .both a {
+  background: none repeat scroll 0 0 #555555;
+  border-radius: 4px;
+  color: #FFFFFF!important;
+  float: left;
+  font-size: 14px;
+  margin: 0px 0 20px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+#config .fonts .both {
+  overflow: hidden;
+  padding: 0px;
+}
+#config .fonts .both .left {
+  display: block;
+  font-size: 15px;
+  padding: 0 0 10px;
+  width: 100%;
+}
+#config .fonts select {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+  color: #FFFFFF!important;
+  margin-bottom: 14px;
+  padding: 13px 10px;
+  width: 100%;
+  border: none; 
+}
+#config .fonts select option {
+  background: none!important;
+}
+#config .width .both {
+  overflow: hidden;
+}
+#config .width select {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+  color: #FFFFFF!important;
+  margin-bottom: 14px;
+  padding: 13px 10px;
+  width: 100%;
+  border: none;
+}
+
+#config .pagefilter ul li {
+  padding: 5px;
+}
+
+#config .pagefilter ul li.active  {
+  border-bottom: 1px solid grey;
 }

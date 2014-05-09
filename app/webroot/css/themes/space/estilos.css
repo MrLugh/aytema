@@ -587,7 +587,6 @@ iframe,object,embed {
 }
 
 
-
 .queued iframe, .queued object, .queued embed, .queued video, .queued audio {
   height: 200px;
   width: 200px;
