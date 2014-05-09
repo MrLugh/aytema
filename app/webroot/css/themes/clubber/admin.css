@@ -169,3 +169,12 @@
 #config .pagefilter ul li.active  {
   border-bottom: 1px solid grey;
 }
+
+
+#config .contentsize ul li {
+  padding: 5px;
+}
+
+#config .contentsize ul li.active  {
+  border-bottom: 1px solid grey;
+}
