@@ -68,7 +68,17 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 			'color':userSv.getThemeConfig().custom.colors.contentText.value
 		}
 
-	}		
+	}
+
+	$scope.getControlsStyle = function() {
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+		return {
+			'color':userSv.getThemeConfig().custom.colors.contentText.value,
+		};		
+	}
 
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();
@@ -192,7 +202,7 @@ function contentPhotoCo($scope,contentSv,userSv) {
 		return {
 			'color':userSv.getThemeConfig().custom.colors.background.value,
 		};		
-	}	
+	}
 
 	$scope.move = function(direction) {
 
@@ -285,7 +295,17 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 			'color':userSv.getThemeConfig().custom.colors.contentText.value
 		}
 
-	}	
+	}
+
+	$scope.getControlsStyle = function() {
+    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
+    		return {};
+    	}
+
+		return {
+			'color':userSv.getThemeConfig().custom.colors.contentText.value,
+		};		
+	}
 
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();

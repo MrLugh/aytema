@@ -11,7 +11,7 @@
 
 		<div class="content_caption" ng-style="getDescriptionStyle()"> 
 			<a href="#/" add-to-queue="getPlayer()" skip-default class="right">
-				<i class="icon-play-sign"></i>
+				<i class="icon-play-sign" ng-style="getControlsStyle()"></i>
 			</a>
 			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 			<p ng-bind-html="getDescription()"></p>
