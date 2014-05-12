@@ -39,7 +39,7 @@
     echo $this->Html->css('themes/digest/estilos-responsive');
     echo $this->Html->css('themes/digest/detalle');
     echo $this->Html->css('themes/digest/detalle-responsive');
-    echo $this->Html->css('themes/digest/admin');
+    echo $this->Html->css('admin');
     ?>
 
     <!-- Js -->

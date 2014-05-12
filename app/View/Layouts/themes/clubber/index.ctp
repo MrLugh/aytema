@@ -38,7 +38,7 @@
     echo $this->Html->css('themes/clubber/bootstrap-overwrite');
     echo $this->Html->css('themes/clubber/estilos');
     echo $this->Html->css('themes/clubber/estilos-responsive');    
-    echo $this->Html->css('themes/clubber/admin');
+    echo $this->Html->css('admin');
     echo $this->Html->css('themes/clubber/pages/photos');
     echo $this->Html->css('themes/clubber/pages/videos');
     echo $this->Html->css('themes/clubber/pages/events');
