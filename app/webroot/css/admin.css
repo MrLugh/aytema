@@ -66,19 +66,33 @@
   background: none repeat scroll 0 0 #555555;
   border-radius: 4px;
   color: #FFFFFF!important;
-  display: block;
+  display: inline-block;
   clear: both;
   font-size: 14px;
-  margin: 0px 0 20px;
+  margin: 0px 10px;
   padding: 10px;
   text-align: center;
-  width: 100%;
 }
 
 #config ul, #config .nav {
   padding: 0;
   margin: 0;
   border: none;
+}
+
+
+#config .nav a {
+  border: medium none;
+  border-radius: 0;
+  font-size: 15px;
+  line-height: 30px;
+  margin: 0;
+  color: #fff!important;
+  -moz-opacity: 0.50;
+  -khtml-opacity: 0.50;
+  opacity: 0.50;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha"(Opacity=50);
+  font-style: normal;
 }
 
 #config ul > li, #config .nav > li > a, #config .nav > li > a:hover, #config .nav > li.active > a, #config .nav > li.active > a:hover {
