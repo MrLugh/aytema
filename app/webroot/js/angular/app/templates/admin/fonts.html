@@ -1,14 +1,14 @@
 <div class="fonts">
 
-	<div class="both config_last">
-		<span class="left">Family</span>
+	<div>
+		<span>Family</span>
 		<select 
 			ng-model="config.custom.fonts.selected.family" 
-			ng-options="name for (name,font) in config.custom.fonts.list" class="right">
+			ng-options="name for (name,font) in config.custom.fonts.list">
 		</select>
 	</div>
 
-	<div class="both">
+	<div class="config-actions">
 		<a href="#/" ng-click="saveConfig()" skip-default>Save as my Theme!</a>
 		<a href="#/" ng-click="restoreConfig()" skip-default>Restore!</a>
 	</div>

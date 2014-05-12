@@ -1,15 +1,15 @@
 <div class="colors">
 
-	<ul class="both config_last">
-		<li ng-repeat="(color,settings) in config.custom.colors" class="minicolors both">
-			<div class="left">{{settings.label}}:</div>
-			<div class="right">
-				<input minicolor name="{{color}}" maxlength="7" type="text" size="6" ng-model="config.custom.colors[color].value"/>	
+	<ul>
+		<li ng-repeat="(color,settings) in config.custom.colors" class="item-color">
+			<div class="item-color-label">{{settings.label}}:</div>
+			<div class="item-color-element">
+				<input minicolor name="{{color}}" maxlength="7" type="text" size="6" ng-model="config.custom.colors[color].value"/>
 			</div>
 		</li>
 	</ul>
 
-	<div class="both">
+	<div class="config-actions">
 		<a href="#/" ng-click="saveConfig()" skip-default>Save as my Theme!</a>
 		<a href="#/" ng-click="restoreConfig()" skip-default>Restore!</a>
 	</div>
