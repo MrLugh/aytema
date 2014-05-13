@@ -402,6 +402,7 @@ function contentEventCo($scope,contentSv,$sce) {
 	//console.log($scope.content);
 	
 	$scope.getMapSrc = function() {
+
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
 		"&size=850x850"+
@@ -410,6 +411,7 @@ function contentEventCo($scope,contentSv,$sce) {
 	}
 
 	$scope.getDayStyle = function() {
+		
 		return {
 			'color': $scope.config.custom.colors.contentBackground.value
 		}
