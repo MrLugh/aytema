@@ -231,9 +231,11 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		element = angular.element(document.querySelector("#content_"+$scope.current));
 
 		if (angular.isDefined(element[0])) {
-			$('html, body').animate({
-				scrollTop: element[0].offsetTop
-			}, 500);
+			imagesLoaded(element[0],function(){
+				$('html, body').animate({
+					scrollTop: element[0].offsetTop
+				}, 500);
+			});	
 		}
 
 	}
