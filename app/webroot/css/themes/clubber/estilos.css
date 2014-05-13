@@ -75,6 +75,7 @@ blockquote {
 }
 
 i {
+  text-shadow:2px 2px 2px #000;
   opacity: 1;
   -webkit-transition:all 0.36s ease;
   -moz-transition:all 0.36s ease;
@@ -711,8 +712,4 @@ ul {
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background: none;
-}
-
-i {
-  text-shadow:2px 2px 2px #000;
 }

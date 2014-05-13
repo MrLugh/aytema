@@ -394,6 +394,17 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 					source = content.data['picture'];
 				}
 			}
+		}
+
+		if (content.concept == 'event')	{
+
+			if (content.network == 'cloudcial') {
+				source ="https://maps.googleapis.com/maps/api/staticmap?"+
+						"sensor=false"+
+						"&size=850x850"+
+						"&markers="+encodeURI(content.data.address)+
+						"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
+			}
 		}		
 
 		return source;
