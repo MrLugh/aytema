@@ -5,7 +5,7 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.current  = -1;
 	$scope.src 		= "";
 
-	$scope.showMenu = true;
+	$scope.showMenu = false;
 
 	$scope.adminMenu = function() {
 		$scope.showMenu = !$scope.showMenu;
