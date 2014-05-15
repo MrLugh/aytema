@@ -1,87 +1,59 @@
  <div id="container">
 
- 	<div id="header">
+	<i class="icon-align-justify" id="menu-button" ng-click="adminMenu()"></i>
 
- 		<div class="navbar navbar-default" get-menu-height>
+ 	<div id="header" ng-style="getHeaderStyle()">
 
- 			<div class="container">
+		<a href="#" class="brand">{{user.username}}</a>
 
- 				<div class="navbar-header">
+ 		<form role="search" style="position:relative;">
+ 			<div>
+ 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users">
+ 			</div>
+ 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
+ 				<ul class="usersSearch">
+ 					<li class="dropdown active open">
+ 						<ul class="dropdown-menu">
+ 							<li ng-repeat="userFind in usersList">
+ 								<a href="/users/{{userFind.username}}" tabindex="-1" class="ajax">{{userFind.username}}</a>
+ 							</li>
+ 						</ul>
+ 					</li>
+ 				</ul>
+ 			</div>
+ 		</form>
 
- 					<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+		 <login ng-if="!isLogged()"></login>
 
- 						<span class="icon-bar"></span>
- 						<span class="icon-bar"></span>
- 						<span class="icon-bar"></span>
- 					</button>
+		<ul class="nav navbar-nav navbar-right">
 
- 					<a href="#" class="navbar-brand">{{user.username}}</a>
- 				</div>
+			<li ng-if="isLogged()">
+				<a ng-click="activateStep(1)" href="#/accounts">Accounts</a>
+			</li>
 
- 				<div id="navbar-main" class="navbar-collapse collapse">
+			<li ng-if="isLogged()">
+				<a ng-click="activateStep(2)" href="#/themes">Themes</a>
+			</li>
 
-			 		<form class="navbar-form navbar-right" role="search" style="position:relative;">
-			 			<div class="form-group">
-			 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
-			 			</div>
-			 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
-			 				<ul class="nav navbar-nav usersSearch">
-			 					<li class="dropdown active open">
-			 						<ul class="dropdown-menu">
-			 							<li ng-repeat="userFind in usersList">
-			 								<a href="/users/{{userFind.username}}" tabindex="-1" class="ajax">{{userFind.username}}</a>
-			 							</li>
-			 						</ul>
-			 					</li>
-			 				</ul>
-			 			</div>
-			 		</form>
+			<li ng-if="isLogged()">
+				<a ng-click="activateStep(3)" href="#/share">Share</a>
+			</li>
 
-			 		<login ng-if="!isLogged()"></login> 				
+			<li ng-if="isLogged()">
+				<a href="/users/logout">LogOut</a>
+			</li>
 
- 					<ul class="nav navbar-nav navbar-right">
+		</ul>
 
- 						<li ng-if="isLogged()">
- 							<a ng-click="activateStep(1)" href="#/accounts">Accounts</a>
- 						</li>
-
- 						<li ng-if="isLogged()">
- 							<a ng-click="activateStep(2)" href="#/themes">Themes</a>
- 						</li>
-
- 						<li ng-if="isLogged()">
- 							<a ng-click="activateStep(3)" href="#/share">Share</a>
- 						</li>
-
- 						<li ng-if="isLogged()">
- 							<a href="/users/logout">LogOut</a>
- 						</li>
-
- 					</ul>
-
-
-
-			 	</div>
-
-			</div>
-		</div>
 	 </div>
 
- 	<div id="content">
+ 	<div id="content" ng-style="getContainerStyle()">
 
- 		<div ng-if="steps.1" class="step_1">
+ 		<admin-accounts ng-if="steps.1"></admin-accounts>
 
- 			<admin-accounts></admin-accounts>
+		<admin-themes ng-if="steps.2"></admin-themes>
 
- 		</div>
-
- 		<div ng-if="steps.2" class="step_2">
-
- 			<admin-themes></admin-themes>
-
- 		</div>
-
- 		<div ng-if="steps.3" class="step_3">
+		<div ng-if="steps.3" class="step step_3">
 
  			<p>Step 3</p>
 

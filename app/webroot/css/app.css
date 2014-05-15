@@ -1,7 +1,9 @@
 body {
-  overflow: hidden;
   font-family: "Josefin Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
+  padding: 0;
+  margin: 0;
+  height: 100%;
 }
 
 a {
@@ -78,13 +80,56 @@ ul {
   float: left;
 }
 
+/* Struture */
+.cloudcial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+
+#header {
+  width: 20%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  position: fixed;
+  z-index: 1;
+  -webkit-transition:all 0.26s ease;
+  -moz-transition:all 0.26s ease;
+  -o-transition:all 0.26s ease;
+  transition:all 0.26s ease;
+}
+
+#content {
+  position: absolute;
+  height: 100%;  
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  -webkit-transition:all 0.26s ease;
+  -moz-transition:all 0.26s ease;
+  -o-transition:all 0.26s ease;
+  transition:all 0.26s ease;
+}
+
+#menu-button {
+  position: fixed;
+  z-index: 2;
+  font-size: 30px;
+  color:cobalt;
+}
 
 /* Menu */
-#header {
-  display: block;
-  width: 100%;
-  clear: both;
-}
 #header .container {
   width: 100%;
 }
@@ -190,7 +235,7 @@ ul {
 	height: 100px;
 	width: 70%;
 	float: right;
-	text-align: left;	
+	text-align: left;
 }
 
 .accountsContainer .stats li {
@@ -200,7 +245,6 @@ ul {
 /* Account Content List */
 
 #accountList {
-  height: 300px!important;
   overflow-y: auto;
   overflow-x: hidden;
   text-align: center;  

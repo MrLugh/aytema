@@ -1,10 +1,40 @@
-function aytemaCo($scope,$location,userSv) {
+function aytemaCo($scope,$location,userSv,appSv) {
 
 	$scope.user = userSv.getUser();
 	$scope.steps= $scope.user.steps;
 
 	$scope.userSearch= '';
 	$scope.usersList = [];
+
+	$scope.showMenu = true;
+
+	$scope.adminMenu = function() {
+		$scope.showMenu = !$scope.showMenu;
+	}
+
+	$scope.getContainerStyle = function() {
+
+		if ($scope.showMenu) {
+			return {
+				'padding-left': '20%',
+				//'min-height': appSv.getHeight()+'px',
+			};
+		}
+		return {
+			'padding-left': '0%',
+			//'min-height': appSv.getHeight()+'px',
+		};
+
+	}
+
+	$scope.getHeaderStyle = function() {
+
+		if ($scope.showMenu) {
+			return {'left':'0'};
+		}
+		return {'left':'-20%'};
+
+	}	
 
 	$scope.searchUsers = function() {
 		userSv.search($scope.userSearch).then(function(data){
