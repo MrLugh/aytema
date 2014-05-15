@@ -208,7 +208,7 @@ body::-webkit-scrollbar-thumb {
   padding: 0;
   background: none;
   border:none;
-  overflow-y: auto;
+  overflow: hidden;
   width: 100%;
   text-align:center;
 }
