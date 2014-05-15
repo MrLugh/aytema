@@ -16,6 +16,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.current	= 0;
 	$scope.content	= {};
 	$scope.controlHover = false;
+	$scope.mode 	= true;
 
 	$scope.indexComments= 0;
 	$scope.isComments	= false; 
@@ -464,7 +465,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.setColor = function() {
 
 		var element = angular.element(document.querySelector('#list'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+		//$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 
 		var element = angular.element(document.querySelector('.link_comments'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
@@ -478,7 +479,36 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
 	}
 
+	$scope.getModeTitle = function() {
+		return $scope.mode ? 'Text mode' : 'Full Height mode';
+	}
+
+	$scope.changeMode = function() {
+		$scope.mode = !$scope.mode;
+	}
+
+	$scope.getModeIconClass = function() {
+		return $scope.mode ? 'icon-text-height' : 'icon-picture';
+	}
+
+	$scope.getListClass = function() {
+		return $scope.mode ? 'list_full' : 'list_text';
+	}
+
 	$scope.getControlsStyle = function() {
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return {};
+    	}
+
+    	return {
+    		'top':$scope.menuHeight + 'px',
+    		'background-color':$scope.config.custom.colors.contentBackground.value
+    	}
+
+
+	}
+
+	$scope.getControlsButtonStyle = function() {
     	if (!angular.isDefined($scope.config.custom)) {
     		return {};
     	}
@@ -576,7 +606,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
     	var style = {
-			'background-color':$scope.config.custom.colors.contentBackground.value,
+			//'background-color':$scope.config.custom.colors.contentBackground.value,
 			'color':$scope.config.custom.colors.contentText.value,    		
     	}
 

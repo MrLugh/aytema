@@ -59,7 +59,7 @@
 
 	<div id="container">
 
-		<ul id="list" ng-style="getStyle()">
+		<ul id="list" ng-style="getStyle()" ng-class="getListClass()">
 
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="getContentClass($index)" id="content_{{$index}}" ng-style="getContentStyle()">
 
@@ -109,16 +109,19 @@
 
 		</ul>
 
-		<div class="controls">
+		<div class="controls" ng-style="getControlsStyle()">
 
-			<div ng-if="!contentSv.isLoading()">
-				<a href="#/" class="prev" skip-default ng-click="move(-1)" title="Previous content" ng-style="getControlsStyle()">
-					<i class="icon-circle-arrow-up"></i>
-				</a>
-				<a href="#/" class="next" skip-default ng-click="move(1)" title="Next content" ng-style="getControlsStyle()">
-					<i class="icon-circle-arrow-down"></i>
-				</a>
-			</div>
+			<a href="#/" class="prev" skip-default ng-click="move(-1)" title="Previous content" ng-style="getControlsButtonStyle()">
+				<i class="icon-circle-arrow-left"></i>
+			</a>
+			<a href="#/" class="next" skip-default ng-click="move(1)" title="Next content" ng-style="getControlsButtonStyle()">
+				<i class="icon-circle-arrow-right"></i>
+			</a>
+
+			<a href="#/" class="mode" skip-default ng-click="changeMode()" ng-title="getModeTitle()" ng-style="getControlsButtonStyle()">
+				<i ng-class="getModeIconClass()"></i>
+			</a>
+
 
 		</div>
 
