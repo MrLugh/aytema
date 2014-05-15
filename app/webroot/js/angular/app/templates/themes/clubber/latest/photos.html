@@ -4,20 +4,19 @@
 		<carousel interval="-8000">
 			<slide ng-repeat="photo in photolist">
 
+				<div style="background-image:url('{{photo.src}}');" class="photo" hover-vertical>
 
-			<div style="background-image:url('{{photo.src}}');" class="photo" hover-vertical>
+					<div class="text_container">
+						<h3 ng-if="photo.title.length>0" class="title" ng-style="getTitleStyle()">{{photo.title}}</h3>
 
-				<div class="text_container">
-					<h3 ng-if="photo.title.length>0" class="title" ng-style="getTitleStyle()">{{photo.title}}</h3>
+						<div ng-if="contentSv.getDescription(list[$index]).length>0" ng-bind-html="getDescription($index)" class="caption" ng-style="getDescriptionStyle()"></div>
+					</div>
 
-					<div ng-if="contentSv.getDescription(list[$index]).length>0" ng-bind-html="getDescription($index)" class="caption" ng-style="getDescriptionStyle()"></div>
 				</div>
 
-			</div>
-
-			<!--
-			<img ng-src="{{photo.src}}" class="photo" style="position:relative;top:0;left:0;z-index:2;">
-			-->
+				<!--
+				<img ng-src="{{photo.src}}" class="photo" style="position:relative;top:0;left:0;z-index:2;">
+				-->
 
 			</slide>
 		</carousel>

@@ -364,7 +364,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 			'min-height':appSv.getHeight() - $scope.menuHeight + 'px',
 			'opacity': ($scope.isComments) ? '0':'1',
 			'margin-top': $scope.menuHeight + 'px',
-			'background-color': $scope.config.custom.colors.background.value
+			//'background-color': $scope.config.custom.colors.background.value
 		};
 	}
 
@@ -454,13 +454,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     	}
     	return '';
     }
-
-	$scope.setBackground = function() {
-
-		var element = angular.element(document.querySelector('#list'));
-		$(element[0]).css('background','url("'+$scope.config.custom.background.selected+'") repeat');
-
-	}
 
 	$scope.setColor = function() {
 
