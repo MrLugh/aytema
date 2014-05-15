@@ -5,6 +5,21 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.current  = -1;
 	$scope.src 		= "";
 
+	$scope.showMenu = true;
+
+	$scope.adminMenu = function() {
+		$scope.showMenu = !$scope.showMenu;
+	}
+
+	$scope.getHeaderStyle = function() {
+
+		if ($scope.showMenu) {
+			return {'top':'0'};
+		}
+		return {'top':'-20%'};
+
+	}
+
 	$scope.previewSrc = function(index) {
 		if ($scope.current == index) {
 			return false;
@@ -13,8 +28,8 @@ function adminThemesCo($scope,appSv,userSv) {
 		$scope.src = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username=mrlugh#/";
 	}
 
-	$scope.getContainerStyle = function() {
-		return {'max-height':appSv.getHeight() - $scope.$parent.menuHeight + 'px'};
+	$scope.getThemeStyle = function() {
+		return {'height':(appSv.getHeight() / 2) + 'px' };
 	}
 
 	$scope.getThemeClass = function(index) {
@@ -32,6 +47,7 @@ function adminThemesCo($scope,appSv,userSv) {
 		$scope.list = list;
 
 	}
+
 	$scope.setList();
 	if ($scope.list.length>0) {
 		$scope.previewSrc(0);

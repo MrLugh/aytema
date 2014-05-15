@@ -1,22 +1,16 @@
 <div class="themesContainer">
 
-	<div class="filterList">
+	<i class="icon-play" id="menu-button" ng-click="adminMenu()"></i>
 
+	<div class="filterList" ng-style="getHeaderStyle()">
 		{{list.length}}	of {{themes.length}}
-		<li>
-			<h2>Filter by:</h2>
-		</li>
-
-		<li>
-			<input type="text" ng-model="search" placeholder="Search" class="form-control" />
-		</li>
-
+		Filter by:
+		<input type="text" ng-model="search" placeholder="Search" class="form-control" />
 	</div>
 
+	<ul class="list">
 
-	<ul class="list" ng-style="getContainerStyle()">
-
-		<li ng-repeat="theme in list" ng-class="getThemeClass($index)" id="theme_{{$index}}">
+		<li ng-repeat="theme in list" ng-class="getThemeClass($index)"  ng-style="getThemeStyle()" id="theme_{{$index}}">
 
 			<h3>{{theme.name}}</h3>
 
@@ -41,7 +35,7 @@
 
 	</ul>
 
-	<div ng-if="src.length>0" class="preview"  ng-style="getContainerStyle()">
+	<div ng-if="src.length>0" class="preview">
 		<!--<iframe src="{{src}}" style="width:100%;height:100%;"></iframe>-->
 	</div>
 
