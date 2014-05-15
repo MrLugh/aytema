@@ -99,7 +99,9 @@
 
 <body>
 
-    <ng-view data-ng-app="ayTemaApp" user='<?php echo $user; ?>' controller='appCo' resize></ng-view>
+    <div data-ng-app="ayTemaApp" class="cloudcial" user='<?php echo $user; ?>' controller='appCo' resize>
+        <ng-view></ng-view>
+    </div>
 
     <?php echo $this->element('sql_dump'); ?>
 
