@@ -85,10 +85,17 @@ ul {
   width: 100%;
   clear: both;
 }
+#header .container {
+  width: 100%;
+}
+
 
 #header li {
-	display: inline-block;
+    border-left: 1px solid #CCCCCC;
+    display: inline-block;
+    width: 120px;
 }
+
 
 .navbar {
   margin-bottom: 0;
@@ -98,6 +105,28 @@ ul {
   box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
   border: none;
   border-bottom: 4px outset grey;
+}
+.navbar-brand {
+    padding-top: 36px;
+}
+.nav.navbar-nav {
+    line-height: 35px;
+}
+.navbar-default .navbar-nav > li > a {
+    font-size: 13px;
+    line-height: 66px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+.navbar-form {
+    height: 96px;
+    margin: 0;
+    padding-top: 31px;
+    border-left: 1px solid #CCCCCC;
 }
 
 .usersSearch li {

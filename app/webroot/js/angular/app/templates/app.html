@@ -20,7 +20,26 @@
 
  				<div id="navbar-main" class="navbar-collapse collapse">
 
- 					<ul class="nav navbar-nav">
+			 		<form class="navbar-form navbar-right" role="search" style="position:relative;">
+			 			<div class="form-group">
+			 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
+			 			</div>
+			 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
+			 				<ul class="nav navbar-nav usersSearch">
+			 					<li class="dropdown active open">
+			 						<ul class="dropdown-menu">
+			 							<li ng-repeat="userFind in usersList">
+			 								<a href="/users/{{userFind.username}}" tabindex="-1" class="ajax">{{userFind.username}}</a>
+			 							</li>
+			 						</ul>
+			 					</li>
+			 				</ul>
+			 			</div>
+			 		</form>
+
+			 		<login ng-if="!isLogged()"></login> 				
+
+ 					<ul class="nav navbar-nav navbar-right">
 
  						<li ng-if="isLogged()">
  							<a ng-click="activateStep(1)" href="#/accounts">Accounts</a>
@@ -40,30 +59,7 @@
 
  					</ul>
 
- 					<ul class="nav navbar-nav navbar-right">
- 						<li>
- 							<a href="/Users/logout"><?php echo __("logout");?></a>
- 						</li>
- 					</ul>
 
-			 		<form class="navbar-form navbar-left" role="search" style="position:relative;">
-			 			<div class="form-group">
-			 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
-			 			</div>
-			 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
-			 				<ul class="nav navbar-nav usersSearch">
-			 					<li class="dropdown active open">
-			 						<ul class="dropdown-menu">
-			 							<li ng-repeat="userFind in usersList">
-			 								<a href="/users/{{userFind.username}}" tabindex="-1" class="ajax">{{userFind.username}}</a>
-			 							</li>
-			 						</ul>
-			 					</li>
-			 				</ul>
-			 			</div>
-			 		</form>
-
-			 		<login ng-if="!isLogged()"></login>
 
 			 	</div>
 
