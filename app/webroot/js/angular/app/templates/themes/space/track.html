@@ -1,13 +1,17 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="track {{content.network}}_{{content.concept}}">
 
-
 	<div style="background-image:url('{{getThumbnail()}}');" class="overlay_cover"></div>
-	<div style="background-image:url('{{getThumbnail()}}');" class="overlay_photo"></div>	
+	<div style="background-image:url('{{getThumbnail()}}');" class="overlay_photo">
+		
+		<div style="font-size:70px;position: absolute;top: calc(50% - 35px);margin: 0 auto;left: calc(50% - 35px);}">
+			<a href="#/" add-to-queue="getPlayer()" skip-default>
+				<i class="icon-play-sign" ng-style="getControlsStyle()"></i>
+			</a>
+		</div>
+
+	</div>
 
 	<div class="content_caption" ng-style="getDescriptionStyle()"> 
-		<a href="#/" add-to-queue="getPlayer()" skip-default class="right">
-			<i class="icon-play-sign" ng-style="getControlsStyle()"></i>
-		</a>
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>
 	</div>	
