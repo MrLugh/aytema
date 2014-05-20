@@ -442,22 +442,20 @@ ul {
   padding:1em;
   float: left;
   bottom: 0;
-
-  left:-100%;
+  left: 0;
   opacity: 0;
 
   max-height: 100%;
   max-width: 100%;
   overflow: hidden;
 
-  -webkit-transition:all 0.76s ease;
-  -moz-transition:all 0.76s ease;
-  -o-transition:all 0.76s ease;
-  transition:all 0.76s ease;      
+  -webkit-transition:opacity 0.76s ease;
+  -moz-transition:opacity 0.76s ease;
+  -o-transition:opacity 0.76s ease;
+  transition:opacity 0.76s ease;      
 }
 
 .latestPhotos .carousel-inner .active .text_container {
-  left:0;
   opacity: 1;
 }
 
