@@ -271,7 +271,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.indexComments= index;
 	}
 
-
     $scope.getContentCommentsHash = function() {
     	var c = $scope.list[$scope.indexComments];
     	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
