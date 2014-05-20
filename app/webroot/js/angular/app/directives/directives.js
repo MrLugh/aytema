@@ -84,7 +84,7 @@ function ($timeout) {
                         scope.enableMasonry();
                         scope.masonry.layout();
                         imagesLoaded(document.querySelector('body'), function(){
-                            scope.userMessage = "";                          
+                            scope.userMessage = "";                  
                             scope.masonry.layout();
                         });
                     }

@@ -213,14 +213,14 @@
 
 	<div class="footer" ng-hide="showingContent" ng-style="getFooterStyle()" get-footer-height>
 
-		<div class="left user_message" ng-show="userMessage.length > 0" >
-			<img alt="loading" class="loading" ng-src="http://cloudcial.com/img/themes/digest/ajax-loader.gif">
-			<span class="text_message">{{userMessage}}</span>	
-		</div>
-
 		<a href="#/" ng-show="showUp" ng-click="scrollToTop()" class="scrollToTop right" skip-default>
 			<img src="http://cloudcial.com/img/themes/digest/scrollTop.png" />
 		</a>
+
+		<div class="left user_message" ng-show="userMessage.length > 0" >
+			<img alt="loading" class="loading" ng-src="http://cloudcial.com/img/themes/digest/ajax-loader.gif">
+			<span class="text_message">{{userMessage}}</span>	
+		</div>		
 
 	</div>
 
