@@ -2,6 +2,7 @@ function aytemaCo($scope,$location,userSv) {
 
 	$scope.user = userSv.getUser();
 	$scope.steps= $scope.user.steps;
+	console.log($scope.steps);
 
 	$scope.userSearch= '';
 	$scope.usersList = [];
@@ -36,16 +37,13 @@ function aytemaCo($scope,$location,userSv) {
 
 	$scope.isLogged = function() {
 		return userSv.isLogged();
-	}	
+	}
 
 	if ($scope.isLogged() && $location.path() == '/themes') {
 		$scope.activateStep(2);
 	} else if ($scope.isLogged() && $location.path() == '/share') {
 		$scope.activateStep(3);
-	} else if ($scope.isLogged() && $location.path() == '/accounts') {
-		$scope.activateStep(1);
 	} else if($scope.isLogged()) {
-		$location.path("/accounts");
 		$scope.activateStep(1);
 	}
 
