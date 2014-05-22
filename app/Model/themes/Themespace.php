@@ -5,15 +5,15 @@ Class Themespace {
     static $config = array(
         'colors' => array(
             'background' => array(
-                'value' => '#4A897F',
+                'value' => '#F5ECC9',
                 'label' => 'Body background',
             ),
             'contentBackground' => array(
-                'value' => '#AD4340',
+                'value' => '#030303',
                 'label' => 'Content background',
             ),
             'contentText' => array(
-                'value' => '#ffffff',
+                'value' => '#DB116F',
                 'label' => 'Content text',
             ),
         ),
@@ -36,6 +36,14 @@ Class Themespace {
             ),
         ),
         'width' => '100%',
+        'background' => array(
+            'selected'   => 'img/themes/clubber/bg.jpg',
+            'list' => array(
+                'dot'       => "img/themes/clubber/bg-dot.png",
+                'mask'      => "img/themes/clubber/bg.png",
+                'grey'      => "img/themes/clubber/bg.jpg"
+            ),
+        )
     );
 
 

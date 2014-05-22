@@ -26,6 +26,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.showConfig = false;
 	$scope.tabs = [
 		{ title:"Colors", key:"colors", active: true },
+		{ title:"background Image", key:"background" },
 		{ title:"Fonts", key:"fonts" },
 		{ title:"Width", key:"width" },
 	];
@@ -677,4 +678,11 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
 	}
+
+	$scope.setBackground = function() {
+
+		var element = angular.element(document.querySelector('#list'));
+		$(element[0]).css('background','url("'+$scope.config.custom.background.selected+'") repeat');
+
+	}	
 }

@@ -528,10 +528,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	}
 	
 
-	$scope.getModalBackgroundStyle = function() {
-		return {'background-color':$scope.config.custom.colors.background.value};
-	}
-
 	$scope.contentStyle = function() {
 
 		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
@@ -710,7 +706,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		var element = angular.element(document.querySelector('body'));
 		$(element[0]).css('background','url("'+$scope.config.custom.background.selected+'") repeat');
 
-	}    
+	}
 
     $scope.getAppClass = function() {
 
