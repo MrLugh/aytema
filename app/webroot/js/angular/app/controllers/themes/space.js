@@ -7,7 +7,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 20;
+	$scope.limit 	= 10;
 	$scope.offset	= 0;
 	$scope.list 	= [];
 	$scope.filters	= {'concepts':[],'networks':[]};
@@ -232,11 +232,31 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		element = angular.element(document.querySelector("#content_"+$scope.current));
 
 		if (angular.isDefined(element[0])) {
-			imagesLoaded(element[0],function(){
-				$('html, body').animate({
-					scrollTop: element[0].offsetTop
-				}, 500);
-			});	
+			angular.element(document).ready(function(){
+
+				var bg 	= angular.element(document.querySelector("#content_"+$scope.current+" .overlay_photo"));
+
+				if (angular.isDefined(bg[0])) {
+
+					var src = $(bg).css('background-image');
+					src = src.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+					var image = new Image();
+					image.onload = function() {
+						console.log("load");
+						$('html, body').animate({
+							scrollTop: element[0].offsetTop
+						}, 500);
+					}
+
+					image.src = src;
+
+				} else {
+					$('html, body').animate({
+						scrollTop: element[0].offsetTop
+					}, 500);
+				}
+
+			});
 		}
 
 	}
@@ -496,8 +516,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     		'top':$scope.menuHeight + 'px',
     		'background-color':$scope.config.custom.colors.contentBackground.value
     	}
-
-
 	}
 
 	$scope.getControlsButtonStyle = function() {
@@ -537,19 +555,30 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     	style['¨width'] = width;		
 
 	   	if ($scope.showFooter == true) {
-	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
-	   		return style;	   		
+	   		style['bottom'] =  0;
+	   		return style;
     	}
-    	style['top'] = '100%';
+    	style['bottom'] = -$scope.footerHeight + 'px';
 
 	   	return style;
     }
 
     $scope.getFooterButtonStyle = function() {
+
+    	var style = {};
+
 	   	if ($scope.showFooter == true) {
-	   		return {'bottom':'100%'};
+	   		style['bottom'] = '100%';
+    	} else {
+    		style['bottom'] = '0';
     	}
-	   	return {'bottom':'0'};
+
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return style;
+    	}
+
+    	style['background-color'] = $scope.config.custom.colors.contentBackground.value;
+	   	return style;
     };	    
 
     $scope.getMenuStyle = function() {
@@ -618,7 +647,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     		return {};
     	}
 
-		var color = $scope.config.custom.colors.background.value.replace("#","");
+		var color = $scope.config.custom.colors.contentBackground.value.replace("#","");
 		return {'color':contentSv.getContrast50(color)}
     }
 
