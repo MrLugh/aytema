@@ -4,7 +4,9 @@
 		<carousel interval="-8000">
 			<slide ng-repeat="photo in photolist">
 
-				<div style="background-image:url('{{photo.src}}');" class="photo" hover-vertical>
+				<div style="background-image:url('{{photo.src}}');" class="photo">
+
+					<div style="background-image:url('{{photo.src}}');" class="photo_contain"></div>
 
 					<div class="text_container">
 						<h3 ng-if="photo.title.length>0" class="title" ng-style="getTitleStyle()">{{photo.title}}</h3>

@@ -261,7 +261,6 @@ body::-webkit-scrollbar-thumb {
   filter: alpha(opacity=100);
   z-index: 2;
   background-size:contain;
-  background-attachment:fixed;
   background-position: center;
   background-repeat: no-repeat;
 }
