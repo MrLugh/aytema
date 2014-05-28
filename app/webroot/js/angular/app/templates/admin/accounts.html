@@ -61,8 +61,13 @@
 
 							<div style="position:absolute;width:50%;left:50%;top:40%;">
 
-								<i ng-if="account.network != 'cloudcial'" ng-click="delete($index)" class="icon-trash"></i>
-								<i ng-click="showAccount($index)" class="icon-search"></i>
+								<p>
+									<i ng-click="showAccount($index)" class="icon-search"></i>
+								</p>
+								
+								<p>
+									<i ng-if="account.network != 'cloudcial'" ng-click="delete($index)" class="icon-trash"></i>
+								</p>
 
 							</div>
 
