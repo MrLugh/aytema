@@ -5,7 +5,7 @@ body {
 }
 
 a {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 *[ ng-click ] {
@@ -45,29 +45,29 @@ img,img:hover,img:active,img:focus {
 }
 
 ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .center {
-	text-align: center;
+  text-align: center;
 }
 
 .left {
-	float: left;
+  float: left;
 }
 
 .right {
-	float: right;
+  float: right;
 }
 
 .both {
-	clear: both;
+  clear: both;
 }
 
 .hide {
-	display: none;
+  display: none;
 }
 
 .next {
@@ -140,61 +140,189 @@ ul {
 }
 
 .accountsContainer .addList li ,.accountsContainer .filterList li, .accountsContainer .list li {
-	display: inline-block;
+  display: inline-block;
 }
 
 .accountsContainer .addList {
-	float: left;
+  float: left;
 }
 
 .accountsContainer .filterList {
-	float: right;
+  float: right;
 }
 
 .accountsContainer .list {
-	clear: both;
-	text-align: center;
+  clear: both;
+  text-align: center;
 }
 
 .accountsContainer .addList li {
-	margin-left:10px;
+  margin-left:10px;
   margin-bottom:10px;
   vertical-align: middle;
 }
 
 .accountsContainer .filterList li {
-	margin-left:10px;
+  margin-left:10px;
   margin-bottom:10px;
 }
 
 .accountsContainer .socialIcon {
-	width: 30px;
+  width: 30px;
   border-radius:50%;
 }
 
 .accountsContainer .profileImage {
-	height:60px;
+  height:60px;
 }
 
 .accountsContainer .account {
-	width: 200px;
-	margin: 15px;
-	padding: 15px;
-	outline: 1px solid black;
-	text-align: left;
+  width: 300px;
+  height: 300px;
+  margin-top: 10px;
+  text-align: center;
   position: relative;
+  color:white;
+  border-width: 75px;
+
+  /*
+  border-color: #EDC42C #84BE88 #695C83 #C87A61;
+  border-style: dotted dashed;
+  background-color: black;
+  */
+
+
+  border-color: #B7C0C4 #C1C5C7 #C1C5C7 #B7C0C4;  
+  border-style: solid;
+
+
+  /*
+  border-color: black white;
+  border-style: dotted dashed;
+  background-color: black;
+  */
+
+  
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
+  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
+
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
+
+  -webkit-transform: scale(0.8);
 }
 
-.accountsContainer .stats {
-	overflow: auto;
-	height: 100px;
-	width: 70%;
-	float: right;
-	text-align: left;	
+.accountsContainer .account:hover {
+
+  background-color: black;
+  border-width: 10px;
+
+  /*
+  border-color: #695C83 #C87A61 #EDC42C #84BE88;
+  border-style: dotted dashed;
+  */
+
+  border-color: #695C83 #C87A61 #EDC42C #84BE88;
+  border-style: solid;
+
+  /*
+  border-color: #C1C5C7 #B7C0C4 #B7C0C4 #C1C5C7;
+  border-style: solid;
+  */
+
+
+  /*
+  border-color: black white;
+  border-style: dotted dashed;
+  background-color: black;
+  */
+
+
+  -webkit-transform: scale(1);
+  
 }
 
-.accountsContainer .stats li {
-	margin:4px;
+.accountsContainer .account .socialIcon {
+  position: absolute;
+  top:-15px;
+  left: calc(50% - 15px);
+  border:2px dotted black;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
+  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
+  -webkit-transition:all 0.26s ease;
+  -moz-transition:all 0.26s ease;
+  -o-transition:all 0.26s ease;
+  transition:all 0.26s ease;
+}
+
+.accountsContainer .account:hover .socialIcon {
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.8);
+  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.8);
+  top:0;
+  width: 50px;
+}
+
+.accountsContainer .accountLayerImage {
+  position: absolute;
+  top:10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  opacity:1;
+  filter: alpha(opacity=100);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  z-index: 1;
+  filter: alpha(opacity=0);
+  -webkit-transition:all 0.36s ease;
+  -moz-transition:all 0.36s ease;
+  -o-transition:all 0.36s ease;
+  transition:all 0.36s ease;  
+}
+
+.accountsContainer .account:hover .accountLayerImage {
+ opacity:0.7;
+ filter: alpha(opacity=70);
+ background-color: rgba(35,41,50,0.4);
+}
+
+.accountsContainer .accountLayerInfo {
+  position: relative;
+  top:5%;
+  left:5%;
+  width: 90%;
+  height: 90%;
+  z-index: 2;
+  opacity:0;
+  filter: alpha(opacity=0);
+  -webkit-transition:all 0.36s ease;
+  -moz-transition:all 0.36s ease;
+  -o-transition:all 0.36s ease;
+  transition:all 0.36s ease;
+}
+
+.accountsContainer .account:hover .accountLayerInfo {
+  opacity:1;
+  filter: alpha(opacity=100);
+}
+
+.accountsContainer i {
+  font-size: 24px;
 }
 
 /* Account Content List */
@@ -247,7 +375,7 @@ ul {
 }
 
 #accountPageList .stats li {
-	margin:4px;
+  margin:4px;
 }
   
  
@@ -399,6 +527,7 @@ ul {
 .cloudcialAccountPageHeader, .cloudcialAccount {
   background-color: #2D2E26;
   color:#5AC3C4;
+  border-color: #393B30 #2D2E26;
 }
 
 .cloudcialAccountPageHeader a, .cloudcialAccount a {
@@ -407,7 +536,8 @@ ul {
 
 .facebookAccountPageHeader, .facebookAccount {
   background-color: #3b5998;
-  color:#000;  
+  color:#000;
+  border-color: #4E6DAD #3b5998;
 }
 
 .facebookAccountPageHeader a, .facebookAccount a {
@@ -415,18 +545,19 @@ ul {
 }
 
 .soundcloudAccountPageHeader, .soundcloudAccount {
-  background-color: #ff200f;
+  background-color: #ff5500;
   color:#000;
+  border-color: #FA6E28 #ff5500;
 }
 
 .soundcloudAccountPageHeader a, .soundcloudAccount a {
   color:#000;
 }
 
-
 .tumblrAccountPageHeader, .tumblrAccount {
   background-color: #48576d;
   color:#fff;
+  border-color: #62728A #48576d;
 }
 
 .tumblrAccountPageHeader a, .tumblrAccount a {
@@ -436,6 +567,7 @@ ul {
 .twitterAccountPageHeader, .twitterAccount {
   background-color: #2aa9e0;
   color:#fff;
+  border-color: #31BCF7 #2aa9e0;
 }
 
 .twitterAccountPageHeader a, .twitterAccount a {
@@ -445,6 +577,7 @@ ul {
 .youtubeAccountPageHeader, .youtubeAccount {
   background-color: #f4001c;
   color:#fff;
+  border-color: #FC2B43 #f4001c;
 }
 
 .youtubeAccountPageHeader a, .youtubeAccount a {
@@ -454,6 +587,7 @@ ul {
 .vimeoAccountPageHeader, .vimeoAccount {
   background-color:#3d3d3d;
   color:#fff;
+  border-color: #fff #3d3d3d;
 }
 
 .vimeoAccountPageHeader a, .vimeoAccount a {
@@ -463,11 +597,13 @@ ul {
 .mixcloudAccountPageHeader, .mixcloudAccount {
   background-color: #6d6e71;
   color:#fff;
+  border-color: #4D4A4A #6d6e71;
 }
 
 .mixcloudAccountPageHeader a, .mixcloudAccount a {
   color:#fff;
 }
+
 
 
 .account {

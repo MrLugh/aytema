@@ -43,32 +43,33 @@
 
 				<li ng-repeat="account in list" class="account {{account.network}}Account">
 
-					<i ng-if="account.network != 'aytema'" ng-click="delete($index)" class="icon-trash right"></i>
-
-					<div class="stats right">
-						<ul>
-							<li ng-repeat="(key,stat) in account.stats" title="{{key}}: {{stat}}">
-								<div ng-if="canShowStat(stat)" >
-									<i ng-class="statIcon(key)"></i> {{stat}}
-								</div>
-							</li>
-						</ul>
+					<div class="accountLayerImage" style="background-image:url('{{account.profile_image}}');">
+						<img ng-src="{{networkIcon(account.network)}}" class="socialIcon" />
 					</div>
 
-					<img ng-src="{{networkIcon(account.network)}}" class="socialIcon" />
+					<div class="accountLayerInfo">
 
-					<div class="both">
+						<div style="position:relative;width:80%;height:80%;top:10%;left:10%;">
 
-						<a href="#/" ng-click="showAccount($index)" class="both" skip-default>
-							<img ng-src="{{account.profile_image}}" class="profileImage img-circle"/>
-						</a>
-						
+							<div style="position:absolute;width:50%;height:100%;bottom:0;text-align:left;">
+
+								<p ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)">
+									<i title="{{key}}: {{stat}}" ng-class="statIcon(key)"></i> {{stat}}
+								</p>
+
+							</div>
+
+							<div style="position:absolute;width:50%;left:50%;top:40%;">
+
+								<i ng-if="account.network != 'cloudcial'" ng-click="delete($index)" class="icon-trash"></i>
+								<i ng-click="showAccount($index)" class="icon-search"></i>
+
+							</div>
+
+						</div>
+
 
 					</div>
-
-					<div class="both">
-						<a href="#/" ng-click="showAccount($index)" ng-click="showAccount($index)" class="both" skip-default>{{account.login}}</a>
-					</div>				
 
 				</li>
 			</ul>
