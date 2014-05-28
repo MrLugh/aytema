@@ -8,38 +8,37 @@
 
 	<div>
 
-		<ul class="addList">
-			<li>
-				<h2>Add:</h2>
-			</li>
-
-			<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'">
-				<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
-			</li>
-		</ul>
-
 		<ul class="filterList">
 
 			<li>
-				<h2>Filter by:</h2>
-			</li>
-
-			<li>
-				<input type="text" ng-model="search" placeholder="Search" class="form-control" />
+				<h2>Filter by </h2>				
 			</li>
 
 			<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)" >
 				<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
 				{{countByNetwork(network.network)}}
+			</li>			
+
+			<li>
+				<input type="text" ng-model="search" placeholder="Search" class="form-control input-sm" />
 			</li>
 
 		</ul>
 
-		<div class="both">
+		<ul class="addList">
+		
+			<li>
+				<h2>Add</h2>
+			</li>
 
-			{{list.length}}	of {{accounts.length}}
+			<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'">
+				<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
+			</li>
+		</ul>		
 
-			<ul id="accountList" class="list" infinite-scroll="moreAccounts()" ng-style="getContainerStyle()" get-offset-top>
+		<div class="list">
+
+			<ul id="accountList" infinite-scroll="moreAccounts()" ng-style="getContainerStyle()" get-offset-top>
 
 				<li ng-repeat="account in list" class="account {{account.network}}Account">
 
@@ -51,7 +50,7 @@
 
 						<div style="position:relative;width:80%;height:80%;top:10%;left:10%;">
 
-							<div style="position:absolute;width:50%;height:100%;bottom:0;text-align:left;">
+							<div style="position:absolute;width:70%;height:100%;bottom:0;text-align:left;">
 
 								<p ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)">
 									<i title="{{key}}: {{stat}}" ng-class="statIcon(key)"></i> {{stat}}
@@ -59,12 +58,12 @@
 
 							</div>
 
-							<div style="position:absolute;width:50%;left:50%;top:40%;">
+							<div style="position:absolute;width:20%;left:80%;top:40%;">
 
 								<p>
 									<i ng-click="showAccount($index)" class="icon-search"></i>
 								</p>
-								
+
 								<p>
 									<i ng-if="account.network != 'cloudcial'" ng-click="delete($index)" class="icon-trash"></i>
 								</p>
