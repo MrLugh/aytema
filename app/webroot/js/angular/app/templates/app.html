@@ -1,12 +1,12 @@
  <div id="container">
 
- 	<div id="menuControl" ng-style="getControlStyle()">
- 		<i ng-class="getControlClass()" ng-click="manageControl()"></i>
- 	</div>
-
  	<div id="header" ng-style="getHeaderStyle()" get-menu-width>
 
-			<div class="container">
+	 	<div id="menuControl">
+	 		<i class="icon-align-justify" ng-click="manageControl()"></i>
+	 	</div>
+
+		<div class="container" ng-style="getMenuContainerStyle()">
 
 			<a href="#" class="navbar-brand">{{user.username}}</a>
 
@@ -50,7 +50,7 @@
 			</ul>
 
 		</div>
-		
+
 	 </div>
 
  	<div id="content"  ng-style="getContentStyle()">

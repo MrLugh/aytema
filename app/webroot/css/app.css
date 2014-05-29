@@ -81,10 +81,22 @@ ul {
 /* Menu */
 
 #menuControl {
-  position: fixed;
+  position: absolute;
   z-index: 3;
+  right: 0;
   font-size: 20px;
-} 
+  padding: 10px;
+  margin: 10px;
+  background-color: #252328;
+}
+
+#menuControl i {
+  color: white;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;    
+}
 
 #header {
   display: block;
@@ -92,7 +104,7 @@ ul {
   height: 100%;
   position: fixed;
   z-index: 2;
-  background-color: gray;
+  background-color: #252328;
 }
 #header .container {
   width: 100%;
@@ -105,7 +117,6 @@ ul {
 }
 
 #content {
-  width: 100%;
   height: 100%;
   position: absolute;
   z-index: 1;

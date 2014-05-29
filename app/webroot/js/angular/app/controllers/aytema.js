@@ -51,24 +51,6 @@ function aytemaCo($scope,$location,userSv,appSv) {
 		$scope.showMenu = !$scope.showMenu;
 	}
 
-	$scope.getControlClass = function() {
-		return $scope.showMenu ? 'icon-remove' : 'icon-align-justify';
-	}
-
-	$scope.getControlStyle = function() {
-
-		if ($scope.showMenu) {
-
-			return {
-				'left': ($scope.menuWidth) + 'px'
-			}
-		}
-
-		return {
-			'left':0
-		}		
-	}
-
 	$scope.getHeaderStyle = function() {
 
 		if ($scope.showMenu) {
@@ -79,7 +61,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 		}
 
 		return {
-			'left': '-' + $scope.menuWidth + 'px'
+			'left': '-' + ($scope.menuWidth - 50) + 'px'
 		}
 
 	}
@@ -87,18 +69,35 @@ function aytemaCo($scope,$location,userSv,appSv) {
 	$scope.getContentStyle = function() {
 
 		if ($scope.showMenu) {
-
 			return {
-				'width':'calc(100% - '+$scope.menuWidth+'px)',
+				'width':'calc(100% - '+($scope.menuWidth + 50) +'px)',
 				'left' :$scope.menuWidth+'px'
 			}
 		}
 
 		return {
-			'width':'100%',
-			'left':0
+			'width':'calc(100% - 50px)',
+			'left':'50px'
 		}
 
 	}
+
+	$scope.getMenuContainerStyle = function() {
+		if ($scope.showMenu) {
+			return {
+				'left' :'0'
+			}
+		}
+
+		return {
+			'left':'-50px'
+		}		
+	}
+
+	$scope.$watchCollection('[winW,winH]',function(sizes){
+        appSv.setWidth(sizes[0]);
+        appSv.setHeight(sizes[1]);
+       	$scope.getMenuWidth();
+    });
 
 }
