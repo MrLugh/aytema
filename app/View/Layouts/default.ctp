@@ -13,6 +13,7 @@
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('app');
+    echo $this->Html->css('app-responsive');
     echo $this->Html->css('themes');
     ?>
 

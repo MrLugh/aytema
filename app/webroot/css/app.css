@@ -1,5 +1,4 @@
 body {
-  overflow: hidden;
   font-family: "Josefin Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
 }
@@ -80,22 +79,42 @@ ul {
 
 
 /* Menu */
+
+#menuControl {
+  position: fixed;
+  z-index: 3;
+  font-size: 20px;
+} 
+
 #header {
   display: block;
-  width: 100%;
-  clear: both;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
 }
 #header .container {
   width: 100%;
 }
 
-
 #header li {
-    border-left: 1px solid #CCCCCC;
-    display: inline-block;
-    width: 120px;
+  border-left: 1px solid #CCCCCC;
+  display: inline-block;
+  width: 120px;
 }
 
+
+#content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;  
+}
 
 .navbar {
   margin-bottom: 0;
@@ -339,7 +358,6 @@ ul {
 /* Account Content List */
 
 #accountList {
-  height: 300px!important;
   overflow-y: auto;
   overflow-x: hidden;
   text-align: center;  
@@ -436,100 +454,6 @@ ul {
     -ms-transition-property: height, width;
      -o-transition-property: height, width;
       transition-property: height, width;
-}
-
-/* Responsive */
-
-@media (max-width: 480px) {
-
-  .accountsContainer i {
-    font-size: 20px;
-  }
-
-  .accountsContainer .account  {
-    width: 200px;
-    height: 200px;
-  }
-
-  #accountPageList .small {
-    width: calc(100% - 30px);
-  }
-  #accountPageList .medium {
-    width: calc(100% - 30px);
-  }
-  #accountPageList .large {
-    width: calc(100% - 30px);
-  }
-  #accountPageList .xlarge {
-    width: calc(100% - 30px);
-  }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-
-  #accountPageList .small {
-    width: calc(25% - 30px);
-  }
-  #accountPageList .medium {
-    width: calc(50% - 30px);
-  }
-  #accountPageList .large {
-    width: calc(75% - 30px);
-  }
-  #accountPageList .xlarge {
-    width: calc(100% - 30px);
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  #accountPageList .small {
-    width: calc(25% - 30px);
-  }
-  #accountPageList .medium {
-    width: calc(50% - 30px);
-  }
-  #accountPageList .large {
-    width: calc(75% - 30px);
-  }
-  #accountPageList .xlarge {
-    width: calc(100% - 30px);
-  }
-
-}
-
-@media (min-width: 1025px) and (max-width: 1200px) {
-
-  #accountPageList .small {
-    width: calc(25% - 30px);
-  }
-  #accountPageList .medium {
-    width: calc(50% - 30px);
-  }
-  #accountPageList .large {
-    width: calc(75% - 30px);
-  }
-  #accountPageList .xlarge {
-    width: calc(100% - 30px);
-  }
-
-}
-
-@media all and (max-width: 2048px) and (min-width: 1201px) {
-
-  #accountPageList .small {
-    width: calc(20% - 30px);
-  }
-  #accountPageList .medium {
-    width: calc(25% - 30px);
-  }
-
-  #accountPageList .large {
-    width: calc(33% - 30px);
-  }
-  #accountPageList .xlarge {
-    width: calc(50% - 30px);
-  }
 }
 
 .adminContent img {

@@ -202,6 +202,34 @@ function () {
     }
 }]);
 
+ayTemaDs.directive('getMenuWidth',[
+function () {
+    return function(scope,element,attrs) {
+
+        scope.getMenuWidth = function() {
+            return element[0].offsetWidth;
+        };
+        scope.initMenuWidth= scope.getMenuWidth();
+        scope.menuWidth    = scope.getMenuWidth();
+
+        scope.$watch('getMenuWidth()', function(newValue, oldValue, scope) {
+            scope.menuWidth = scope.getMenuWidth();
+        });
+
+        $(document).on('shown.bs.collapse',function(elm){
+            scope.$apply(function(){
+                scope.menuWidth = scope.getMenuWidth();
+            });
+        });
+
+        $(document).on('hidden.bs.collapse',function(elm){
+            scope.$apply(function(){
+                scope.menuWidth = scope.getMenuWidth();
+            });
+        });
+    }
+}]);
+
 ayTemaDs.directive('getFooterHeight',['$window',
 function ($window) {
     return function(scope,element,attrs) {
