@@ -60,7 +60,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 		if ($scope.showMenu) {
 
 			return {
-				'left': ($scope.menuWidth - 20) + 'px'
+				'left': ($scope.menuWidth) + 'px'
 			}
 		}
 
