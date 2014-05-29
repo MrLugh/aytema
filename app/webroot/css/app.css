@@ -178,15 +178,11 @@ ul {
 }
 
 .accountsContainer .addList {
-  float: left;
-}
-
-.accountsContainer .addList li {
 
 }
 
 .accountsContainer .filterList {
-  float: right;
+  
 }
 
 .accountsContainer .list {
@@ -203,7 +199,7 @@ ul {
   margin-bottom: 10px;
   float: left;
 }
-.accountsContainer .addList li i, .accountsContainer .filterList li i {
+.accountsContainer .addList li i, .accountsContainer .filterList li i, .listTitle {
   background-color: #777;
   border-radius: 50%;
   height: 50px;
@@ -212,9 +208,29 @@ ul {
   text-align: center;
 }
 
-.accountsContainer .addList li h2, .accountsContainer .filterList li h2  {
-  color: #e18728;
+.accountsContainer .listTitle {
+  background-color: transparent;
+  color: #339C67;
+  border-color: #339C67;
 }
+
+
+.filterList.ng-enter {
+  left: -100%;
+}
+
+.filterList.ng-enter.ng-enter-active {
+  left: 0;
+}
+
+.filterList.ng-leave {
+  left:0;
+}
+
+.filterList.ng-leave.ng-leave-active {
+  left:-100%;
+}
+
 
 .accountsContainer .profileImage {
   height:60px;

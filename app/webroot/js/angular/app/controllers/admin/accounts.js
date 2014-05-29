@@ -14,6 +14,18 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.current			= false;
 	$scope.currentAccount 	= [];
 
+
+	$scope.showAdd 		= false;
+	$scope.showFilters 	= false;
+
+	$scope.manageAdd = function() {
+		$scope.showAdd = !$scope.showAdd;
+	}
+
+	$scope.manageFilters = function() {
+		$scope.showFilters = !$scope.showFilters;
+	}	
+
 	$scope.initFilters = function() {
 
 		var filters = {'networks':[]};

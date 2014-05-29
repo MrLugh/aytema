@@ -8,33 +8,33 @@
 
 	<div>
 
-		<ul class="filterList">
+		<div style="position:fixed;">
+			<i class="fa fa-search listTitle filtersControl left both" ng-click="manageFilters()"></i>
+			<i class="fa fa-plus listTitle addControl left both" ng-click="manageAdd()"></i>
+		</div>
 
-			<li>
-				<h2>Filter by </h2>		
-			</li>
+		<div class="filterList" ng-if="showFilters">
 
-			<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)" >
-				<i ng-class="networkIcon(network.network)"></i>
-				{{countByNetwork(network.network)}}
-			</li>			
+			<ul>
+				<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)" >
+					<i ng-class="networkIcon(network.network)"></i>
+					{{countByNetwork(network.network)}}
+				</li>			
+			</ul>
 
-			<li>
-				<input type="text" ng-model="search" placeholder="Search" class="form-control input-sm" />
-			</li>
+			<input type="text" ng-model="search" placeholder="Search" class="form-control input-sm" />
 
-		</ul>
+		</div>
 
-		<ul class="addList">
-		
-			<li>
-				<h2>Add</h2>
-			</li>
+		<div class="addList" ng-if="showAdd">
+	
+			<ul>				
+				<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'">
+					<i ng-class="networkIcon(network.network)"></i>
+				</li>
+			</ul>
 
-			<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'">
-				<i ng-class="networkIcon(network.network)"></i>
-			</li>
-		</ul>		
+		</div>		
 
 		<div class="list">
 
