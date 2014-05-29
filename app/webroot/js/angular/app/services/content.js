@@ -154,12 +154,14 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var icon_class = "";
 
-        if (network == 'facebok') {
+        if (network == 'facebook') {
         	icon_class= "icon-facetime-video";
         } else if (network == 'twitter') {
         	icon_class= "icon-music";
         } else if (network == 'youtube') {
         	icon_class= "icon-camera";
+        } else if (network == 'vimeo') {
+        	icon_class= "icon-camera";        	
         } else if (network == 'tumblr') {
         	icon_class= "icon-font";
         } else if (network == 'soundcloud') {

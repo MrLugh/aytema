@@ -197,11 +197,6 @@ ul {
   margin-bottom:10px;
 }
 
-.accountsContainer .socialIcon {
-  width: 30px;
-  border-radius:50%;
-}
-
 .accountsContainer .profileImage {
   height:60px;
 }
@@ -287,28 +282,6 @@ ul {
   -o-transform: scale(1);
   -ms-transform: scale(1);
   
-}
-
-.accountsContainer .account .socialIcon {
-  position: absolute;
-  top:-15px;
-  left: calc(50% - 15px);
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
-  -webkit-transition:all 0.26s ease;
-  -moz-transition:all 0.26s ease;
-  -o-transition:all 0.26s ease;
-  transition:all 0.26s ease;
-}
-
-.accountsContainer .account:hover .socialIcon {
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.8);
-  top:0;
-  left: calc(50% - 25px);
-  width: 50px;
 }
 
 .accountsContainer .accountLayerImage {

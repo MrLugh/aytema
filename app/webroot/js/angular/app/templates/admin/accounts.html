@@ -43,7 +43,7 @@
 				<li ng-repeat="account in list" class="account {{account.network}}Account">
 
 					<div class="accountLayerImage" style="background-image:url('{{account.profile_image}}');">
-						<img ng-src="{{networkIcon(account.network)}}" class="socialIcon" />
+						<i ng-class="networkIcon(account.network)"></i>
 					</div>
 
 					<div class="accountLayerInfo">
