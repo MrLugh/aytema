@@ -117,7 +117,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	},true);
 
 	$scope.networkIcon = function(network) {
-		return "http://cloudcial.com/img/socialnet/icons/ce_"+network+".png";
+		return contentSv.getNetworkIcon(network);
 	}
 
 	$scope.canShowStat = function(stat) {

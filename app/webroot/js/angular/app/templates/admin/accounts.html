@@ -15,7 +15,7 @@
 			</li>
 
 			<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)" >
-				<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
+				<i ng-class="networkIcon(network.network)"></i>
 				{{countByNetwork(network.network)}}
 			</li>			
 
@@ -32,7 +32,7 @@
 			</li>
 
 			<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'">
-				<img ng-src="{{networkIcon(network.network)}}" class="socialIcon" />
+				<i ng-class="networkIcon(network.network)"></i>
 			</li>
 		</ul>		
 

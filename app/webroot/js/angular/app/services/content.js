@@ -150,6 +150,29 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		return icon_class;        
 	}
 
+	var getNetworkIcon = function(network) {
+
+		var icon_class = "";
+
+        if (network == 'facebok') {
+        	icon_class= "icon-facetime-video";
+        } else if (network == 'twitter') {
+        	icon_class= "icon-music";
+        } else if (network == 'youtube') {
+        	icon_class= "icon-camera";
+        } else if (network == 'tumblr') {
+        	icon_class= "icon-font";
+        } else if (network == 'soundcloud') {
+        	icon_class= "icon-quote-left";
+        } else if (network == 'mixcloud') {
+        	icon_class= "icon-book";
+        } else if (network == 'cloudcial') {
+        	icon_class = "icon-calendar";
+        }
+
+		return icon_class;        
+	}
+
 	var deleteContent = function(id) {
 		var deferred= $q.defer();
 
@@ -798,6 +821,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		
 		getStatIcon:getStatIcon,
 		getConceptIcon:getConceptIcon,
+		getNetworkIcon:getNetworkIcon,
 		
 		deleteContent:deleteContent,
 		activateContent:activateContent,
