@@ -42,37 +42,20 @@
 
 				<li ng-repeat="account in list" class="account {{account.network}}Account">
 
-					<div class="accountLayerImage" style="background-image:url('{{account.profile_image}}');">
-						<i ng-class="networkIcon(account.network)"></i>
-					</div>
-
 					<div class="accountLayerInfo">
 
-						<div style="position:relative;width:100%;height:100%;">
+						<i ng-click="showAccount($index)" class="fa fa-search right both"></i>
+						<i ng-if="account.network!='cloudcial'" ng-click="delete($index)" class="fa fa-trash-o right both"></i>
 
-							<div style="position:absolute;width:70%;height:100%;bottom:0;text-align:left;">
-
-								<p ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)">
-									<i title="{{key}}: {{stat}}" ng-class="statIcon(key)"></i> {{stat}}
-								</p>
-
-							</div>
-
-							<div style="position:absolute;width:20%;left:80%;top:40%;">
-
-								<p>
-									<i ng-click="showAccount($index)" class="fa fa-search"></i>
-								</p>
-
-								<p>
-									<i ng-if="account.network != 'cloudcial'" ng-click="delete($index)" class="fa fa-trash-o"></i>
-								</p>
-
-							</div>
-
-						</div>
+						<p ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
+							<i title="{{key}}: {{stat}}" ng-class="statIcon(key)"></i> {{stat}}
+						</p>
 
 
+					</div>
+
+					<div class="accountLayerImage" style="background-image:url('{{account.profile_image}}');">
+						<i ng-class="networkIcon(account.network)"></i>
 					</div>
 
 				</li>
