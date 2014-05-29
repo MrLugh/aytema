@@ -89,37 +89,37 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		var icon_class = "";
 
 		if (stat_name == 'comments') {
-		    icon_class= "icon-comments";
+		    icon_class= "fa fa-comments";
 		} else if (stat_name == 'plays' || stat_name == 'listen') {
-		    icon_class= "icon-play-sign";
+		    icon_class= "fa fa-play";
 		} else if (stat_name == 'downloads') {
-		    icon_class= "icon-cloud-download";
+		    icon_class= "fa fa-cloud-download";
 		} else if (stat_name == 'favorites' || stat_name == 'likes' || stat_name == 'favourites') {
-		    icon_class= "icon-thumbs-up";
+		    icon_class= "fa fa-thumbs-up";
 		} else if (stat_name == 'dislikes') {
-		    icon_class= "icon-thumbs-down";
+		    icon_class= "fa fa-thumbs-down";
 		} else if (stat_name == 'activities') {
-		    icon_class= "icon-bar-chart";
+		    icon_class= "fa fa-bar-chart";
 		} else if (stat_name == 'views') {
-		    icon_class= "icon-eye-open";
+		    icon_class= "fa fa-eye";
 		} else if (stat_name == 'followers' || stat_name == 'subscribers' || stat_name == 'subscriptions') {
-		    icon_class= "icon-user";
+		    icon_class= "fa fa-user";
 		} else if (stat_name == 'friends') {
-		    icon_class= "icon-sitemap";
+		    icon_class= "fa fa-sitemap";
 		} else if (stat_name == 'videos') {  
-		    icon_class= "icon-facetime-video";
+		    icon_class= "fa fa-video-camera";
 		} else if (stat_name == 'tracks' || stat_name == 'cloudcasts') {
-		    icon_class= "icon-music";
+		    icon_class= "fa fa-music";
 		} else if (stat_name == 'photos') {
-		    icon_class= "icon-camera";
+		    icon_class= "fa fa-camera";
 		} else if (stat_name == 'posts' || stat_name == 'statuses') {
-		    icon_class= "icon-file-text";
+		    icon_class= "fa fa-file-text";
 		} else if (stat_name == 'quotes') {
-		    icon_class= "icon-quote-left";
+		    icon_class= "fa fa-quote-left";
 		} else if (stat_name == 'blogs' || stat_name == 'playlists') {
-		    icon_class= "icon-list";
+		    icon_class= "fa fa-list";
 		} else if (stat_name == 'following') {
-		    icon_class= "icon-star";
+		    icon_class= "fa fa-star";
 		}
 
 		return icon_class;
@@ -130,21 +130,21 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		var icon_class = "";
 
         if (concept == 'video') {
-        	icon_class= "icon-facetime-video";
+        	icon_class= "fa fa-video-camera";
         } else if (concept == 'track') {
-        	icon_class= "icon-music";
+        	icon_class= "fa fa-music";
         } else if (concept == 'photo') {
-        	icon_class= "icon-camera";
+        	icon_class= "fa fa-camera";
         } else if (concept == 'post') {
-        	icon_class= "icon-font";
+        	icon_class= "fa fa-font";
         } else if (concept == 'quote') {
-        	icon_class= "icon-quote-left";
+        	icon_class= "fa fa-quote-left";
         } else if (concept == 'chat') {
-        	icon_class= "icon-book";
+        	icon_class= "fa fa-book";
         } else if (concept == 'link') {
-        	icon_class = "icon-external-link";
+        	icon_class = "fa fa-link";
         } else if (concept == 'event') {
-        	icon_class = "icon-calendar";
+        	icon_class = "fa fa-calendar";
         }
 
 		return icon_class;        
@@ -154,24 +154,21 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var icon_class = "";
 
-        if (network == 'facebook') {
-        	icon_class= "icon-facetime-video";
-        } else if (network == 'twitter') {
-        	icon_class= "icon-music";
-        } else if (network == 'youtube') {
-        	icon_class= "icon-camera";
-        } else if (network == 'vimeo') {
-        	icon_class= "icon-camera";        	
-        } else if (network == 'tumblr') {
-        	icon_class= "icon-font";
-        } else if (network == 'soundcloud') {
-        	icon_class= "icon-quote-left";
-        } else if (network == 'mixcloud') {
-        	icon_class= "icon-book";
-        } else if (network == 'cloudcial') {
-        	icon_class = "icon-calendar";
+        if (network == "facebook") {
+            icon_class = "fa fa-facebook";
+        } else if (network == "twitter") {
+            icon_class = "fa fa-twitter";
+        } else if (network == "youtube") {
+            icon_class = "fa fa-youtube";            
+        } else if (network == "vimeo") {
+            icon_class = "icon-vimeo";
+        } else if (network == "tumblr") {
+            icon_class = "fa fa-tumblr";
+        } else if (network == "mixcloud") {
+            icon_class = "fa fa-mixcloud";
+        } else if (network == "soundcloud") {
+            icon_class = "fa fa-soundcloud";
         }
-
 		return icon_class;        
 	}
 
