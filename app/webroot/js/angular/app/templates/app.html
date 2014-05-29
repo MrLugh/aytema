@@ -6,59 +6,51 @@
 
  	<div id="header" ng-style="getHeaderStyle()" get-menu-width>
 
- 		<div class="navbar navbar-default">
+			<div class="container">
 
- 			<div class="container">
+			<a href="#" class="navbar-brand">{{user.username}}</a>
 
- 				<div class="navbar-header">
- 					<a href="#" class="navbar-brand">{{user.username}}</a>
- 				</div>
+	 		<form class="navbar-form navbar-left" role="search" style="position:relative;">
+	 			<div class="form-group">
+	 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
+	 			</div>
+	 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
+	 				<ul class="nav navbar-nav usersSearch">
+	 					<li class="dropdown active open">
+	 						<ul class="dropdown-menu">
+	 							<li ng-repeat="userFind in usersList">
+	 								<a href="/users/{{userFind.username}}" tabindex="-1" class="ajax">{{userFind.username}}</a>
+	 							</li>
+	 						</ul>
+	 					</li>
+	 				</ul>
+	 			</div>
+	 		</form>
 
- 				<div id="navbar-main">
+		 	<login ng-if="!isLogged()"></login>
 
-			 		<form class="navbar-form navbar-left" role="search" style="position:relative;">
-			 			<div class="form-group">
-			 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
-			 			</div>
-			 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
-			 				<ul class="nav navbar-nav usersSearch">
-			 					<li class="dropdown active open">
-			 						<ul class="dropdown-menu">
-			 							<li ng-repeat="userFind in usersList">
-			 								<a href="/users/{{userFind.username}}" tabindex="-1" class="ajax">{{userFind.username}}</a>
-			 							</li>
-			 						</ul>
-			 					</li>
-			 				</ul>
-			 			</div>
-			 		</form>
+			<ul class="right">
 
-			 		<login ng-if="!isLogged()"></login> 				
+				<li ng-if="isLogged()">
+					<a ng-click="activateStep(1)" href="#/accounts" skip-default>Accounts</a>
+				</li>
 
- 					<ul class="nav navbar-nav navbar-right">
+				<li ng-if="isLogged()">
+					<a ng-click="activateStep(2)" href="#/themes" skip-default>Themes</a>
+				</li>
 
- 						<li ng-if="isLogged()">
- 							<a ng-click="activateStep(1)" href="#/accounts" skip-default>Accounts</a>
- 						</li>
+				<li ng-if="isLogged()">
+					<a ng-click="activateStep(3)" href="#/share" skip-default>Share</a>
+				</li>
 
- 						<li ng-if="isLogged()">
- 							<a ng-click="activateStep(2)" href="#/themes" skip-default>Themes</a>
- 						</li>
+				<li ng-if="isLogged()">
+					<a href="/users/logout">LogOut</a>
+				</li>
 
- 						<li ng-if="isLogged()">
- 							<a ng-click="activateStep(3)" href="#/share" skip-default>Share</a>
- 						</li>
+			</ul>
 
- 						<li ng-if="isLogged()">
- 							<a href="/users/logout">LogOut</a>
- 						</li>
-
- 					</ul>
-
-			 	</div>
-
-			</div>
 		</div>
+		
 	 </div>
 
  	<div id="content"  ng-style="getContentStyle()">
