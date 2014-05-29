@@ -70,7 +70,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 
 		if ($scope.showMenu) {
 			return {
-				'width':'calc(100% - '+($scope.menuWidth + 50) +'px)',
+				'width':'calc(100% - '+($scope.menuWidth) +'px)',
 				'left' :$scope.menuWidth+'px'
 			}
 		}
