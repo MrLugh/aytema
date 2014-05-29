@@ -358,8 +358,6 @@ ul {
 /* Account Content List */
 
 #accountList {
-  overflow-y: auto;
-  overflow-x: hidden;
   text-align: center;  
 }
 
@@ -390,9 +388,7 @@ ul {
   clear: both; 
   display: block;
   margin: 0 auto ;
-
-  height: 300px!important;
-  overflow: auto;
+  height: 100%;
   width: 100%;
   text-align: center;
 }

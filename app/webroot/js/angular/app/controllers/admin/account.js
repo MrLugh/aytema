@@ -2,6 +2,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.list		= [];
 	$scope.concepts	= [];
+	$scope.loading 	= false;
 
 	$scope.masonryLoading = false;
 
@@ -72,6 +73,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 						}
 						$scope.offset += $scope.limit;
 					}
+					$scope.loading 	= false;
 				},
 				function(reason) {
 					console.log('Failed: ', reason);
@@ -108,7 +110,8 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		if (!contentSv.isLoading() && !$scope.masonryLoading) {
+		if (!contentSv.isLoading() && !$scope.loading) {
+			$scope.loading 	= true;
 			$scope.setList();
 		}
 	}
@@ -147,10 +150,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			}
 		});
 		*/
-	}
-
-	$scope.getContainerStyle = function() {
-		return {'min-height':appSv.getHeight() - $scope.getOffsetTop() - $scope.$parent.menuHeight + 'px'};
 	}
 
 	$scope.getContentSize = function(index) {
