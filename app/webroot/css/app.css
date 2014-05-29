@@ -88,6 +88,7 @@ ul {
   padding: 10px;
   margin: 10px;
   background-color: #252328;
+  border-bottom: 1px solid #353338;
 }
 
 #menuControl i {
@@ -236,9 +237,11 @@ ul {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 
+  /*
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
   -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
   box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
+  */
 
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
@@ -272,10 +275,9 @@ ul {
   */
 
 
-  border-color: #252328 #B7C0C4;
+  border-color: #252328 #353338;
   border-style: dotted dashed;
-  border-style: solid;
-
+  background-color: #252328;
 
   -webkit-transform: scale(1);
   -moz-transform: scale(1); 
