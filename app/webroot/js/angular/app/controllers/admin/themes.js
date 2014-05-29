@@ -4,6 +4,7 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.user		= userSv.getUser();
 	$scope.current  = -1;
 	$scope.src 		= "";
+	$scope.showPreview = false;
 
 	$scope.previewSrc = function(index) {
 		if ($scope.current == index) {
@@ -11,6 +12,7 @@ function adminThemesCo($scope,appSv,userSv) {
 		}
 		$scope.current = index;
 		$scope.src = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username=mrlugh#/";
+		$scope.showPreview = true;
 	}
 
 	$scope.getContainerStyle = function() {
@@ -33,8 +35,5 @@ function adminThemesCo($scope,appSv,userSv) {
 
 	}
 	$scope.setList();
-	if ($scope.list.length>0) {
-		$scope.previewSrc(0);
-	}
 
 }

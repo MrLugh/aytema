@@ -5,7 +5,7 @@
 	<script src="http://platform.tumblr.com/v1/share.js"></script>
 
 	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
-		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="icon-cogs"></i></a>
+		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
 
 		<tabset ng-if="showConfig">
 
@@ -110,7 +110,7 @@
 
 	<div class="footer" ng-style="getFooterStyle()" get-footer-height>
 
-		<a href="#/" class="footercontrol" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>Player <i class="icon-cogs"></i></a>
+		<a href="#/" class="footercontrol" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>Player <i class="fa fa-cogs"></i></a>
 
 		<div ng-show="showFooter" class="queued">
 			<ul ng-style="getQueueStyle()">

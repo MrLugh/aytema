@@ -36,10 +36,10 @@
 				<div class="both">
 
 					<a ng-href="/themes?type={{theme.key}}&username={{user.username}}" title="Full Edit">
-						<i class="icon-cogs"></i>
+						<i class="fa fa-cogs"></i>
 					</a>
 					<a href="#/" ng-if="$index != current" ng-click="previewSrc($index)" skip-default title="Preview">
-						<i class="icon-zoom-in"></i>
+						<i class="fa fa-search"></i>
 					</a>
 
 				</div>
@@ -48,7 +48,7 @@
 
 		</ul>
 
-		<div ng-if="src.length>0" class="preview"  ng-style="getContainerStyle()">
+		<div ng-if="showPreview && src.length>0" class="preview"  ng-style="getContainerStyle()">
 			<iframe src="{{src}}" style="width:100%;height:100%;"></iframe>
 		</div>
 
