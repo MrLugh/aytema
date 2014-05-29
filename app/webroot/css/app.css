@@ -217,7 +217,7 @@ ul {
   */
 
 
-  border-color: #B7C0C4 #C1C5C7 #C1C5C7 #B7C0C4;  
+  border-color: #B7C0C4 #C1C5C7 #C1C5C7 #B7C0C4;
   border-style: solid;
 
 
@@ -253,7 +253,7 @@ ul {
 
 .accountsContainer .account:hover {
 
-  background-color: black;
+  background-color: #252328;
   border-width: 10px;
 
   /*
@@ -272,10 +272,9 @@ ul {
   */
 
 
-  border-color: black white;
+  border-color: #252328 #B7C0C4;
   border-style: dotted dashed;
   border-style: solid;
-  background-color: black;
 
 
   -webkit-transform: scale(1);
