@@ -1,57 +1,52 @@
 <div class="themesContainer">
 
-	<div class="both">
 
-		<ul class="list" ng-style="getContainerStyle()">
+	<ul class="list" ng-style="getContainerStyle()">
 
-			<li>
-				<ul class="filterList">
+		<li>
+			<ul class="filterList">
 
+				<li>
+					<h2>Filter by:</h2>
 					{{list.length}}	of {{themes.length}}
-					<li>
-						<h2>Filter by:</h2>
-					</li>
+				</li>
 
-					<li>
-						<input type="text" ng-model="search" placeholder="Search" class="form-control" />
-					</li>
+				<li>
+					<input type="text" ng-model="search" placeholder="Search" class="form-control" />
+				</li>
 
-				</ul>
-			</li>
+			</ul>
+		</li>
 
-			<li ng-repeat="theme in list" ng-class="getThemeClass($index)" id="theme_{{$index}}">
+		<li ng-repeat="theme in list" ng-class="getThemeClass($index)" id="theme_{{$index}}">
 
-				<h3>{{theme.name}}</h3>
+			<div class="themeThumbnail" style="background-image:url('{{theme.thumbnails[0]}}');"></div>
 
-				<div class="center">
 
-					<carousel interval="-1">
-						<slide ng-repeat="slide in theme.thumbnails">
-							<img ng-src="{{slide}}" style="margin:auto;">
-						</slide>
-					</carousel>
-
-				</div>
-
-				<div class="both">
+			<div class="themeInfo">
+				
+				<p>
+					<h3>{{theme.name}}</h3>
 
 					<a ng-href="/themes?type={{theme.key}}&username={{user.username}}" title="Full Edit">
 						<i class="fa fa-cogs"></i>
 					</a>
+					
 					<a href="#/" ng-if="$index != current" ng-click="previewSrc($index)" skip-default title="Preview">
 						<i class="fa fa-search"></i>
 					</a>
 
-				</div>
+				</p>
 
-			</li>
+			</div>
 
-		</ul>
+		</li>
 
-		<div ng-if="showPreview && src.length>0" class="preview"  ng-style="getContainerStyle()">
-			<iframe src="{{src}}" style="width:100%;height:100%;"></iframe>
-		</div>
+	</ul>
 
+	<div ng-if="showPreview && src.length>0" class="preview"  ng-style="getContainerStyle()">
+		<iframe src="{{src}}" style="width:100%;height:100%;"></iframe>
 	</div>
+
 
 </div>
