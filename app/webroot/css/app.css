@@ -92,6 +92,7 @@ ul {
   height: 100%;
   position: fixed;
   z-index: 2;
+  background-color: gray;
 }
 #header .container {
   width: 100%;
@@ -102,7 +103,6 @@ ul {
   display: inline-block;
   width: 120px;
 }
-
 
 #content {
   width: 100%;
