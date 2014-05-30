@@ -14,6 +14,8 @@
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('app');
     echo $this->Html->css('app-responsive');
+    echo $this->Html->css('accounts');
+    echo $this->Html->css('accounts-responsive');
     echo $this->Html->css('themes');
     ?>
 

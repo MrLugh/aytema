@@ -8,14 +8,11 @@
 
 	<div>
 
-		<div style="position:fixed;">
+		<div class="filterList">
+
 			<i class="fa fa-search listTitle filtersControl left both" ng-click="manageFilters()"></i>
-			<i class="fa fa-plus listTitle addControl left both" ng-click="manageAdd()"></i>
-		</div>
 
-		<div class="filterList" ng-if="showFilters">
-
-			<ul>
+			<ul ng-if="showFilters">
 				<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)" >
 					<i ng-class="networkIcon(network.network)"></i>
 					{{countByNetwork(network.network)}}
@@ -26,9 +23,11 @@
 
 		</div>
 
-		<div class="addList" ng-if="showAdd">
+		<div class="addList">
+
+			<i class="fa fa-plus listTitle addControl left both" ng-click="manageAdd()"></i>
 	
-			<ul>				
+			<ul ng-if="showAdd">
 				<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'">
 					<i ng-class="networkIcon(network.network)"></i>
 				</li>
