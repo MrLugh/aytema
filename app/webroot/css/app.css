@@ -78,6 +78,9 @@ ul {
   float: left;
 }
 
+.inline {
+  display: inline-block;
+}
 
 /* Menu */
 
@@ -87,7 +90,6 @@ ul {
   right: 0;
   font-size: 20px;
   padding: 10px;
-  margin: 10px;
   background-color: #252328;
   border-bottom: 1px solid #353338;
 }

@@ -7,69 +7,44 @@
   overflow: hidden;
 }
 
-.accountsContainer .addList, .accountsContainer .filterList {
-  position: fixed;
-  background-color: #252328;
-}
-
-.accountsContainer .addList li, .accountsContainer .filterList li, .accountsContainer .list li {
-  display: inline-block;
-}
-
-.accountsContainer .addList {
-
-}
-
-.accountsContainer .filterList {
-  
-}
 
 .accountsContainer .list {
   clear: both;
   text-align: center;
 }
 
-.accountsContainer .list li {
-  margin: 10px;
+.accountsContainer .addList ul, .accountsContainer .filterList ul,
+.accountsContainer .addList li, .accountsContainer .filterList li {
+  display: inline-block;
+}
+
+.accountsContainer .addList, .accountsContainer .filterList {
+  color: white;
+  position: fixed;
+  z-index: 3;
+  font-size: 20px;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: #252328;
+}
+
+.accountsContainer .addList {
+  top:0;
+}
+
+.accountsContainer .filterList {
+  bottom: 0;
 }
 
 .accountsContainer .addList li, .accountsContainer .filterList li {
-  margin-left: 10px;
-  margin-bottom: 10px;
-  float: left;
-}
-.accountsContainer .addList li i, .accountsContainer .filterList li i, .listTitle {
-  background-color: #777;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  border: 4px solid gray;
   text-align: center;
+  margin-left: 10px;
+  font-size: 10px;
 }
 
-.accountsContainer .listTitle {
-  background-color: transparent;
-  color: #339C67;
-  border-color: #339C67;
+.accountsContainer .addList li i, .accountsContainer .filterList li i {
+  font-size: 24px;
 }
-
-
-.filterList.ng-enter {
-  left: -100%;
-}
-
-.filterList.ng-enter.ng-enter-active {
-  left: 0;
-}
-
-.filterList.ng-leave {
-  left:0;
-}
-
-.filterList.ng-leave.ng-leave-active {
-  left:-100%;
-}
-
 
 .accountsContainer .profileImage {
   height:60px;
@@ -81,6 +56,7 @@
   margin-top: 10px;
   text-align: center;
   position: relative;
+  display: inline-block;
   top:0;
   left: 0;
   z-index: 1;
@@ -245,7 +221,7 @@
   text-align: justify;
 }
 
-.accountsContainer i {
+.accountsContainer .account i {
   font-size: 20px;
   line-height: 42px;
   margin: 0 auto;
