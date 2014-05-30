@@ -246,7 +246,7 @@ ul {
   left: 0;
   z-index: 1;
   color:white;
-  border-width: 110px;
+  border-width: 85px;
 
   /*
   border-color: #EDC42C #84BE88 #695C83 #C87A61;
@@ -286,27 +286,21 @@ ul {
   -ms-user-select: none;
   user-select: none;
 
-  opacity:0.8;
-  filter: alpha(opacity=80);
-
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
   transition:all 0.5s ease;
 
-  /*
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9); 
   -o-transform: scale(0.9);
   -ms-transform: scale(0.9);  
-  */
 
 }
 
 .accountsContainer .account:hover {
 
   border-width: 25px;
-
   /*
   border-color: #695C83 #C87A61 #EDC42C #84BE88;
   border-style: dotted dashed;
@@ -337,6 +331,17 @@ ul {
 
   opacity:1;
   filter: alpha(opacity=100);
+
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1); 
+  -o-transform: scale(1);
+  -ms-transform: scale(1);  
+
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
+
   
 }
 
