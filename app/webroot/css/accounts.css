@@ -38,12 +38,12 @@
 
 .accountsContainer .addList li, .accountsContainer .filterList li {
   text-align: center;
-  margin-left: 10px;
-  font-size: 10px;
+  margin-left: 20px;
+  color: #6FF591;
 }
 
-.accountsContainer .addList li i, .accountsContainer .filterList li i {
-  font-size: 24px;
+.accountsContainer .filterList li span {
+  font-size: 10px;
 }
 
 .accountsContainer .profileImage {
