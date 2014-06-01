@@ -7,6 +7,14 @@ body {
 a {
   cursor: pointer;
 }
+.form-control::-moz-placeholder {
+    color: #555555!important;
+}
+.form-control:focus {
+    border-color: #252328;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(37, 35, 40, 0.6);
+    outline: 0 none;
+}
 
 *[ ng-click ] {
     cursor: pointer ;
@@ -91,7 +99,7 @@ ul {
   font-size: 20px;
   padding: 10px;
   background-color: #252328;
-  border-bottom: 1px solid #353338;
+  /*border-bottom: 1px solid #353338;*/
 }
 
 #menuControl i {
@@ -113,11 +121,35 @@ ul {
 #header .container {
   width: 100%;
 }
+#header ul {
+  clear: both;
+  border-top: 1px solid #353338;
+  border-bottom: 1px solid #353338;
+}
 
 #header li {
-  border-left: 1px solid #CCCCCC;
-  display: inline-block;
-  width: 120px;
+    background-color: #252328;
+    color: #FF3D3D;
+    display: block;
+    font-size: 15px;
+    line-height: 25px;
+    padding: 12px 20px;
+    text-decoration: none;
+}
+#header li:hover {
+  border-left: 4px solid #FF3D3D!important;
+  transition: border 0.1s ease 0s; 
+}
+
+#header li a {
+   color: #fff;
+}
+#header li a:hover {
+   color: #fff!important;
+}
+#header li i {
+   margin-right: 5px;
+   color: #FFFFFF;
 }
 
 #content {
@@ -141,8 +173,19 @@ ul {
   border-bottom: 4px outset grey;
 }
 .navbar-brand {
-    padding-top: 36px;
+     line-height: 19px;
+    color: #fff;
 }
+.navbar-brand:hover {
+    color: #fff;
+    -moz-opacity: 0.80;
+    -khtml-opacity: 0.80;
+    opacity: 0.80;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=80);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+    filter:alpha(opacity=80);
+}
+
 .nav.navbar-nav {
     line-height: 35px;
 }
@@ -157,10 +200,12 @@ ul {
     color: #FFFFFF;
 }
 .navbar-form {
-    height: 96px;
-    margin: 0;
-    padding-top: 31px;
-    border-left: 1px solid #CCCCCC;
+    border: medium none;
+    box-shadow: none;
+    float: left;
+    margin: 0 0 5px;
+    padding: 30px 5px 15px;
+    width: 100%;
 }
 
 .usersSearch li {

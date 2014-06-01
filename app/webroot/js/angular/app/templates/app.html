@@ -11,7 +11,7 @@
 			<a href="#" class="navbar-brand">{{user.username}}</a>
 
 	 		<form class="navbar-form navbar-left" role="search" style="position:relative;">
-	 			<div class="form-group">
+	 			<div class="">
 	 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
 	 			</div>
 	 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
@@ -29,21 +29,25 @@
 
 		 	<login ng-if="!isLogged()"></login>
 
-			<ul class="right">
+			<ul class="">
 
 				<li ng-if="isLogged()">
+				    <i class="fa fa-users"></i>
 					<a ng-click="activateStep(1)" href="#/accounts" skip-default>Accounts</a>
 				</li>
 
 				<li ng-if="isLogged()">
+				    <i class="fa fa-files-o"></i>
 					<a ng-click="activateStep(2)" href="#/themes" skip-default>Themes</a>
 				</li>
 
 				<li ng-if="isLogged()">
+				    <i class="fa fa-share-alt"></i>
 					<a ng-click="activateStep(3)" href="#/share" skip-default>Share</a>
 				</li>
 
 				<li ng-if="isLogged()">
+				    <i class="fa fa-sign-out"></i>
 					<a href="/users/logout">LogOut</a>
 				</li>
 
