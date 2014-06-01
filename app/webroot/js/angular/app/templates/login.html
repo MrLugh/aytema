@@ -1,16 +1,14 @@
-<div class="navbar-form navbar-left">
+<div class="navbar-form navbar-left content-login">
 <!--<form class="navbar-form navbar-left" role="login">-->
 	<input type="hidden" name="_method" value="POST"/>
-	<div class="form-group">
+	<div class="">
 		<input type="text" name="username" ng-model="username" placeholder="username" required class="form-control"/>
 	</div>
-	<div class="form-group">		
+	<div class="">		
 		<input type="password" name="password" ng-model="password" placeholder="password" maxlength="8" required class="form-control"/>
 	</div>
-	<div class="form-group">		
-		<input type="submit" value="Login" ng-click="login()" class="btn btn-default"/>
-	</div>
-	<a href="/users/register" class="btn btn-default">Sign up</a>
+		<input type="submit" value="Login" ng-click="login()" class="btn btn-default btn-login"/>
+	<a href="/users/register" class="btn btn-default btn-login">Sign up</a>
 	{{loginMessage}}
 <!--</form>-->
 </div>
