@@ -120,25 +120,30 @@ ul {
 }
 #header .container {
   width: 100%;
+  margin: 0;
+  padding: 0px 50px 10px 10px;
 }
 #header ul {
-  clear: both;
   border-top: 1px solid #353338;
   border-bottom: 1px solid #353338;
 }
 
-#header li {
-    background-color: #252328;
-    color: #FF3D3D;
-    display: block;
-    font-size: 15px;
-    line-height: 25px;
-    padding: 12px 20px;
-    text-decoration: none;
+#header .userFind {
+  background-color: #252328;
+  color: #FF3D3D;
+  display: block;
+  font-size: 15px;
+  line-height: 25px;
+  padding: 12px 20px;
+  text-decoration: none;
 }
-#header li:hover {
+#header .userFind:hover {
   border-left: 4px solid #FF3D3D!important;
   transition: border 0.1s ease 0s; 
+}
+
+#header .userFind a:hover {
+  background-color: transparent;
 }
 
 #header li a {
