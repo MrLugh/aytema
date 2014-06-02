@@ -123,9 +123,14 @@ ul {
   margin: 0;
   padding: 0px 50px 10px 10px;
 }
-#header ul {
-  border-top: 1px solid #353338;
-  border-bottom: 1px solid #353338;
+
+#header .dropdown-menu {
+  background-color: #fff!important;
+  position: absolute!important;
+  float: left!important;
+  min-width: 160px!important;
+  padding: 5px 0!important;
+  margin: 2px 0 0!important;
 }
 
 #header .userFind {
@@ -136,26 +141,61 @@ ul {
   line-height: 25px;
   padding: 12px 20px;
   text-decoration: none;
+  border-top: 1px solid #353338;
+  border-bottom: 1px solid #353338;
 }
+
+#header .userFind a { 
+  color: #fff;
+}
+
 #header .userFind:hover {
   border-left: 4px solid #FF3D3D!important;
   transition: border 0.1s ease 0s; 
+  color: #6FF591;
 }
 
 #header .userFind a:hover {
   background-color: transparent;
+  color: #6FF591;
 }
 
-#header li a {
-   color: #fff;
+#header .menu {
+  float: none;
+  clear: both;
 }
-#header li a:hover {
-   color: #fff!important;
+
+#header .menu li {
+  background-color: #252328;
+  color: #fff;
+  display: block;
+  font-size: 15px;
+  line-height: 25px;
+  padding: 12px 20px;
+  text-decoration: none;
 }
-#header li i {
-   margin-right: 5px;
-   color: #FFFFFF;
+
+#header .menu li a {
+  color:#fff;
 }
+
+#header .menu li i {
+  color:#555555;
+}
+
+#header .menu li:hover i {
+  color:#6FF591;
+}
+
+#header .menu li:hover {
+  border-left: 4px solid #FF3D3D!important;
+  transition: border 0.1s ease 0s; 
+}
+
+#header .menu li:hover  a {
+  color:#FF3D3D;
+}
+
 
 #content {
   height: 100%;
