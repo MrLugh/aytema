@@ -2705,7 +2705,7 @@ input[type="button"].btn-block {
   content: "\2a";
 }
 
-.glyphicon-plus:before {
+.glyphfa fa-icon-plus:before {
   content: "\2b";
 }
 
@@ -3041,7 +3041,7 @@ input[type="button"].btn-block {
   content: "\e080";
 }
 
-.glyphicon-plus-sign:before {
+.glyphfa fa-icon-plus-sign:before {
   content: "\e081";
 }
 

@@ -1,7 +1,8 @@
 body {
   font-family: "Josefin Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
-  background-color: #ff3d3d;
+  background-color: brown;
+  background-image:url(http://cloudcial.com/img/admin/bg-dot.png);
 }
 
 a {
@@ -135,7 +136,7 @@ ul {
 
 #header .userFind {
   background-color: #252328;
-  color: #FF3D3D;
+  color: brown;
   display: block;
   font-size: 15px;
   line-height: 25px;
@@ -150,7 +151,7 @@ ul {
 }
 
 #header .userFind:hover {
-  border-left: 4px solid #FF3D3D!important;
+  border-left: 4px solid brown!important;
   transition: border 0.1s ease 0s; 
   color: #6FF591;
 }
@@ -188,12 +189,12 @@ ul {
 }
 
 #header .menu li:hover {
-  border-left: 4px solid #FF3D3D!important;
+  border-left: 4px solid brown!important;
   transition: border 0.1s ease 0s; 
 }
 
 #header .menu li:hover  a {
-  color:#FF3D3D;
+  color:brown;
 }
 
 

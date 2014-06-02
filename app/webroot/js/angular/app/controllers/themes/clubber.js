@@ -127,27 +127,8 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.getMenuItemIconClass = function(page) {
-
-		if (page == 'tracks') {
-			return 'icon-music';
-		}
-
-		if (page == 'videos') {
-			return 'icon-facetime-video';
-		}
-
-		if (page == 'photos') {
-			return 'icon-camera';
-		}
-
-		if (page == 'events') {
-			return 'icon-calendar';
-		}
-
-		if (page == 'posts') {
-			return 'icon-quote-left';
-		}
-	}	
+		return contentSv.getStatIcon(page);
+	}
 
 	$scope.getMenuItemStyle =  function(page) {
 

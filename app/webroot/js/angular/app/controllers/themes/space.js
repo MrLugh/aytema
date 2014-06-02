@@ -501,7 +501,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.getModeIconClass = function() {
-		return $scope.mode ? 'icon-text-height' : 'icon-picture';
+		return $scope.mode ? 'fa fa-text-height' : 'fa fa-picture-o';
 	}
 
 	$scope.getListClass = function() {

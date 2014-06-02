@@ -42,7 +42,7 @@
 				<ul ng-if="configLoaded" class="nav navbar-nav right">
 
 					<li ng-class="getMenuItemClass('home')" class="menu-item active" ng-style="getMenuItemStyle('home')">
-						<a href="#/" ng-click="setCurrent('home')" ng-style="getMenuItemStyle('home')" skip-default> <i class="icon-home"></i> Home</a>
+						<a href="#/" ng-click="setCurrent('home')" ng-style="getMenuItemStyle('home')" skip-default> <i class="fa fa-home"></i> Home</a>
 					</li>
 
 					<li ng-repeat="page in pages" ng-class="getMenuItemClass(page)" class="menu-item" ng-if="hasContent(page)" ng-style="getMenuItemStyle(page)">
@@ -68,7 +68,7 @@
 					</div>
 					<div class="both">
 						<a href="#/photos" skip-default ng-click="setCurrent('photos')" ng-style="getMoreStyle()" class="loadMore">
-							<i class="icon-plus"></i> Photos
+							<i class="fa fa-plus"></i> Photos
 						</a>
 					</div>
 				</li>
@@ -89,7 +89,7 @@
 
 					<div class="both">
 						<a href="#/{{page}}" skip-default ng-click="setCurrent(page)" ng-style="getMoreStyle()" class="loadMore">
-							<i class="icon-plus"></i> {{page}}
+							<i class="fa fa-plus"></i> {{page}}
 						</a>
 					</div>
 
@@ -110,7 +110,7 @@
 			</div>
 
 			<a href="#/" ng-show="showUp" ng-click="scrollToTop()" ng-style="getTopStyle()" class="scrollToTop right" skip-default>
-				<i class="icon-circle-arrow-up"></i>
+				<i class="fa fa-arrow-circle-up"></i>
 			</a>
 
 		</div>
