@@ -31,17 +31,17 @@
 
 			<ul class="menu">
 
-				<li ng-if="isLogged()">
+				<li ng-if="isLogged()" ng-class="getMenuItemClass(1)">
 				    <i class="fa fa-users"></i>
 					<a ng-click="activateStep(1)" href="#/accounts" skip-default>Accounts</a>
 				</li>
 
-				<li ng-if="isLogged()">
+				<li ng-if="isLogged()" ng-class="getMenuItemClass(2)">
 				    <i class="fa fa-files-o"></i>
 					<a ng-click="activateStep(2)" href="#/themes" skip-default>Themes</a>
 				</li>
 
-				<li ng-if="isLogged()">
+				<li ng-if="isLogged()" ng-class="getMenuItemClass(3)">
 				    <i class="fa fa-share-alt"></i>
 					<a ng-click="activateStep(3)" href="#/share" skip-default>Share</a>
 				</li>

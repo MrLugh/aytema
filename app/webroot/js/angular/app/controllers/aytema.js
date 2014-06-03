@@ -23,6 +23,10 @@ function aytemaCo($scope,$location,userSv,appSv) {
 		$scope.steps[step] = true;
 	}
 
+	$scope.getMenuItemClass = function(step) {
+		return $scope.steps[step] ? 'active' : '';
+	}
+
 	$scope.getTemplate = function(tpl) {
 		return 'app/webroot/js/angular/app/templates/'+tpl;
 	}

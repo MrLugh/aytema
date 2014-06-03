@@ -177,29 +177,54 @@ ul {
   line-height: 25px;
   padding: 12px 20px;
   text-decoration: none;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;    
 }
 
 #header .menu li a {
   color:#fff;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;  
 }
 
 #header .menu li i {
   color:#555555;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;  
 }
 
 #header .menu li:hover i {
   color:#6FF591;
 }
 
-#header .menu li:hover {
-  border-left: 4px solid brown!important;
-  transition: border 0.1s ease 0s; 
-}
-
-#header .menu li:hover  a {
+#header .menu li.active i {
   color:brown;
 }
 
+#header .menu li:hover {
+  border-left: 4px solid #38353D!important;
+  transition: border 0.1s ease 0s;
+}
+
+#header .menu li.active {
+  border-left: 4px solid brown!important;
+  transition: border 0.1s ease 0s;
+  padding-left: 25px;
+}
+
+#header .menu li:hover a, #header .menu li.active a {
+  color:brown;
+}
+
+#header .menu li.active a {
+  color:#6FF591;
+}
 
 #content {
   height: 100%;
