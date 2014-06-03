@@ -7,11 +7,9 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.showPreview = false;
 
 	$scope.previewSrc = function(index) {
-		if ($scope.current == index) {
-			return false;
-		}
+		console.log($scope.current,index);
 		$scope.current = index;
-		$scope.src = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username=mrlugh#/";
+		$scope.src = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username="+$scope.user.username;
 		$scope.showPreview = true;
 	}
 
@@ -35,5 +33,56 @@ function adminThemesCo($scope,appSv,userSv) {
 
 	}
 	$scope.setList();
+
+	$scope.closePreview = function() {
+		$scope.current  = -1;
+		$scope.src 		= "";
+		$scope.showPreview = false;
+	}
+
+	$scope.move = function(direction) {
+
+		if (direction > 0) {
+			$scope.current++;
+		} else {
+			$scope.current--;		
+		}
+
+		if ($scope.current == $scope.list.length) {
+			$scope.current = 0;
+		}
+		if ($scope.current < 0) {		
+			$scope.current = $scope.list.length - 1;
+		}
+		$scope.previewSrc($scope.current);
+	}
+
+	$scope.getPreviousStyle = function() {
+
+		var current = $scope.current;
+		current--;
+		if (current < 0) {
+			current = $scope.list.length - 1;
+		}		
+
+		return {
+			'background-image':'url('+$scope.list[current].thumbnails[0]+')',
+
+		}
+	}
+
+	$scope.getNextStyle = function() {
+
+		var current = $scope.current;
+		current++;
+		if (current == $scope.list.length) {
+			current = 0;
+		}		
+
+		return {
+			'background-image':'url('+$scope.list[current].thumbnails[0]+')',
+			
+		}
+	}	
 
 }

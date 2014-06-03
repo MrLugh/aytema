@@ -1,6 +1,5 @@
 <div class="themesContainer">
 
-
 	<ul class="list" ng-style="getContainerStyle()">
 
 		<li>
@@ -45,7 +44,19 @@
 	</ul>
 
 	<div ng-if="showPreview && src.length>0" class="preview"  ng-style="getContainerStyle()">
-		<iframe src="{{src}}" style="width:100%;height:100%;"></iframe>
+		<div class="themeNavigation">
+			<div class="themeControlThumbnail left"  ng-click="move(-1)" ng-style="getPreviousStyle()">
+
+			</div>
+
+			<i class="fa fa-times" ng-click="closePreview()"></i>
+
+			<div class="themeControlThumbnail right" ng-click="move(1)" ng-style="getNextStyle()">
+
+			</div>
+
+		</div>
+		<iframe ng-src="{{src}}"></iframe>
 	</div>
 
 
