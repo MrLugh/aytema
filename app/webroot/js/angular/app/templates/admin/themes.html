@@ -17,10 +17,9 @@
 			</ul>
 		</li>
 
-		<li ng-repeat="theme in list" ng-class="getThemeClass($index)" id="theme_{{$index}}">
+		<li ng-repeat="theme in list" ng-class="getThemeClass($index)" id="theme_{{$index}}" ng-style="getThemeStyle()">
 
 			<div class="themeThumbnail" style="background-image:url('{{theme.thumbnails[0]}}');"></div>
-
 
 			<div class="themeInfo">
 				

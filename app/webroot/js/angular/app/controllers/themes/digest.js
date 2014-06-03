@@ -521,10 +521,10 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.getManageContentIconClass = function(index) {
 		if ($scope.list[index].status == "enabled") {
-			return 'icon-lock';
+			return 'fa fa-lock';
 		}
 
-		return 'icon-unlock';
+		return 'fa fa-unlock';
 	}
 	
 

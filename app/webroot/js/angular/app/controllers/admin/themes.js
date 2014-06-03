@@ -7,7 +7,6 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.showPreview = false;
 
 	$scope.previewSrc = function(index) {
-		console.log($scope.current,index);
 		$scope.current = index;
 		$scope.src = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username="+$scope.user.username;
 		$scope.showPreview = true;
@@ -42,6 +41,9 @@ function adminThemesCo($scope,appSv,userSv) {
 
 	$scope.move = function(direction) {
 
+		$scope.src = '';
+		$scope.showPreview = false;
+
 		if (direction > 0) {
 			$scope.current++;
 		} else {
@@ -69,6 +71,10 @@ function adminThemesCo($scope,appSv,userSv) {
 			'background-image':'url('+$scope.list[current].thumbnails[0]+')',
 
 		}
+	}
+
+	$scope.getThemeStyle = function() {
+		return {'height':(appSv.getHeight() / 2 )+'px'}
 	}
 
 	$scope.getNextStyle = function() {

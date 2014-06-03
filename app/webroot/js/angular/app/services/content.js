@@ -99,11 +99,11 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		} else if (stat_name == 'dislikes') {
 		    icon_class= "fa fa-thumbs-down";
 		} else if (stat_name == 'activities') {
-		    icon_class= "fa fa-bar-chart";
+		    icon_class= "fa fa-bar-chart-o";
 		} else if (stat_name == 'views') {
 		    icon_class= "fa fa-eye";
 		} else if (stat_name == 'followers' || stat_name == 'subscribers' || stat_name == 'subscriptions') {
-		    icon_class= "fa fa-user";
+		    icon_class= "fa fa-users";
 		} else if (stat_name == 'friends') {
 		    icon_class= "fa fa-sitemap";
 		} else if (stat_name == 'videos') {  
