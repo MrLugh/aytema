@@ -83,6 +83,29 @@ function adminThemesCo($scope,appSv,userSv) {
 			'background-image':'url('+$scope.list[current].thumbnails[0]+')',
 			
 		}
-	}	
+	}
+
+	$scope.getPreviousThemeName = function() {
+
+		var current = $scope.current;
+		current--;
+		if (current < 0) {
+			current = $scope.list.length - 1;
+		}		
+
+		return $scope.list[current].name;
+
+	}
+
+	$scope.getNextThemeName = function() {
+
+		var current = $scope.current;
+		current++;
+		if (current == $scope.list.length) {
+			current = 0;
+		}		
+
+		return $scope.list[current].name;
+	}
 
 }

@@ -46,15 +46,14 @@
 	<div ng-if="showPreview && src.length>0" class="preview"  ng-style="getContainerStyle()">
 		<div class="themeNavigation">
 			<div class="themeControlThumbnail left"  ng-click="move(-1)" ng-style="getPreviousStyle()">
-
-			</div>
+				<strong class="left">{{getPreviousThemeName()}}</strong>
+			</div>			
 
 			<i class="fa fa-times" ng-click="closePreview()"></i>
 
 			<div class="themeControlThumbnail right" ng-click="move(1)" ng-style="getNextStyle()">
-
+				<strong class="right">{{getNextThemeName()}}</strong>	
 			</div>
-
 		</div>
 		<iframe ng-src="{{src}}"></iframe>
 	</div>
