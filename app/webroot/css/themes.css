@@ -46,7 +46,6 @@
 
 .themesContainer .theme .themeThumbnail {
 	position: absolute;
-	background-color: black;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -57,10 +56,6 @@
 	opacity: 1;
 	filter: alpha(opacity=100);
 
-	-webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
-	-moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.8);
-	box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.8);
-	
 	-webkit-transition:all 0.56s ease;
 	-moz-transition:all 0.56s ease;
 	-o-transition:all 0.56s ease;
