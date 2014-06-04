@@ -28,7 +28,7 @@ Class Themeclubber {
                 'label' => 'Body background',
             ),
             'contentBackground' => array(
-                'value' => '#02c0f8',
+                'value' => '#F70031',
                 'label' => 'Content background',
             ),
             'contentText' => array(

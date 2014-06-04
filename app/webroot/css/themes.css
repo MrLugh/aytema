@@ -64,6 +64,10 @@
 .themesContainer .themeActive .themeThumbnail, .themesContainer .theme:hover .themeThumbnail {
 	opacity: 0.1;
 	filter: alpha(opacity=10);
+	top:5%;
+	left:5%;
+	width:90%;
+	height:90%;
 }
 
 .themesContainer .theme .themeInfo {
