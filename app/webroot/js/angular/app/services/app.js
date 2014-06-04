@@ -78,32 +78,39 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			'name'		: 'Digest',
 			'key'		: 'digest',
 			'thumbnails': {
-				0:getPath('img')+'/themes/digest/digest.png',
-				1:getPath('img')+'/themes/digest/digest-detail.png',
+				0:getPath('img')+'/themes/digest/digest_theme_01.png',
+				1:getPath('img')+'/themes/digest/digest_theme_02.png',
+				2:getPath('img')+'/themes/digest/digest_theme_03.png',
 			}
 		},
 		{
 			'name'		: 'Simple',
 			'key'		: 'simple',			
 			'thumbnails': {
-				0:getPath('img')+'/themes/simple/simple.png',
-				1:getPath('img')+'/themes/simple/simple-controls.png',
-				2:getPath('img')+'/themes/simple/simple-player.png',
+				0:getPath('img')+'/themes/simple/simple_theme_01.png',
+				1:getPath('img')+'/themes/simple/simple_theme_02.png',
+				2:getPath('img')+'/themes/simple/simple_theme_03.png',
 			}
 		},
 		{
 			'name'		: 'Space',
 			'key'		: 'space',			
 			'thumbnails': {
-				0:getPath('img')+'/themes/space/space.png',
-				1:getPath('img')+'/themes/space/space-player.png',
+				0:getPath('img')+'/themes/space/space_theme_01.png',
+				1:getPath('img')+'/themes/space/space_theme_02.png',
+				2:getPath('img')+'/themes/space/space_theme_03.png',
+				3:getPath('img')+'/themes/space/space_theme_04.png',
+				4:getPath('img')+'/themes/space/space_theme_05.png',
 			}
 		},
 		{
 			'name'		: 'Clubber',
 			'key'		: 'clubber',
 			'thumbnails': {
-				0:getPath('img')+'/themes/clubber/clubber.png',
+				0:getPath('img')+'/themes/clubber/clubber_theme_01.png',
+				1:getPath('img')+'/themes/clubber/clubber_theme_02.png',
+				2:getPath('img')+'/themes/clubber/clubber_theme_03.png',
+				3:getPath('img')+'/themes/clubber/clubber_theme_04.png',
 			}
 		},
 	];

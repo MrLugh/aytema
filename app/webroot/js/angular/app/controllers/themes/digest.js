@@ -704,7 +704,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.setBackground = function() {
 
 		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('background','url("'+$scope.config.custom.background.selected+'") repeat');
+		$(element[0]).css('background','url("/'+$scope.config.custom.background.selected+'") repeat');
 
 	}
 
