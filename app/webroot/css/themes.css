@@ -73,12 +73,27 @@
 .themesContainer .theme .themeInfo {
 	opacity: 0;
 	filter: alpha(opacity=0);
-	position: relative;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	text-align: center;
 
 	-webkit-transition:all 0.56s ease;
 	-moz-transition:all 0.56s ease;
 	-o-transition:all 0.56s ease;
 	transition:all 0.56s ease;
+}
+
+.themesContainer .themeInfo .themeName {
+	color: brown;
+	font-size: 50px;
+}
+
+.themesContainer .theme .themeInfo i {
+	padding: 20px;
+	color:#6FF591;
+	font-size: 45px;
 }
 
 .themesContainer .themeActive .themeInfo, .themesContainer .theme:hover .themeInfo {
@@ -173,9 +188,6 @@
 	right: 0;
 }
 
-.themesContainer .themeNavigation i {
-	margin-top: 30px;
-}
 
 .themesContainer .themeNavigation strong {
 	margin: 30px 10px 0 10px;
@@ -185,6 +197,11 @@
 	width: 100%;
 	height: 100%;
 	text-shadow: 3px 0px 2px rgba(37, 35, 40, 0.7);
+}
+
+.themesContainer .themeNavigation i {
+	font-size: 30px;
+	margin-top: 30px;
 }
 
 .themesContainer .themeNavigation i:hover, .themesContainer .themeNavigation strong:hover {

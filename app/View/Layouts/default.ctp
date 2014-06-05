@@ -17,6 +17,7 @@
     echo $this->Html->css('accounts');
     echo $this->Html->css('accounts-responsive');
     echo $this->Html->css('themes');
+    echo $this->Html->css('themes-responsive');
     ?>
 
     <!-- Js -->
