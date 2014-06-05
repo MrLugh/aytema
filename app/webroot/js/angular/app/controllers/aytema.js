@@ -42,14 +42,18 @@ function aytemaCo($scope,$location,userSv,appSv) {
 		return userSv.isLogged();
 	}
 
-	if ($scope.isLogged() && $location.path() == '/themes') {
-		$scope.activateStep(2);
-	} else if ($scope.isLogged() && $location.path() == '/share') {
-		$scope.activateStep(3);
-	} else if($scope.isLogged()) {
+	$scope.checkStep = function() {
 
-		$scope.activateStep(1);
+		if ($scope.isLogged() && $location.path() == '/themes') {
+			$scope.activateStep(2);
+		} else if ($scope.isLogged() && $location.path() == '/share') {
+			$scope.activateStep(3);
+		} else if($scope.isLogged()) {
+			$scope.activateStep(1);
+		}
+
 	}
+	$scope.checkStep();
 
 	$scope.manageControl = function() {
 		$scope.showMenu = !$scope.showMenu;
@@ -95,8 +99,12 @@ function aytemaCo($scope,$location,userSv,appSv) {
 
 		return {
 			'left':'-50px'
-		}		
+		}
 	}
+
+	$scope.$watch('isLogged',function(){
+		$scope.checkStep();
+	});
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);

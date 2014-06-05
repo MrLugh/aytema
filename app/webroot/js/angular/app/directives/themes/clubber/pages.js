@@ -10,8 +10,12 @@ function(){
 
             $(window).scroll(function() {
 
-                if ( !scope.loading && ($(window).scrollTop() + $(window).height()) >= ($('body').height() * 0.9)) {
-                    //scope.$apply(scope.loadMore());
+                var bottom = $(window).height() + $(window).scrollTop();
+                var height = $(document).height();
+
+                var scrollPercent = Math.round(100*bottom/height);
+                if(!scope.loading && scrollPercent > 95) {
+                    scope.$apply(scope.loadMore());
                 }
 
             });
@@ -32,6 +36,18 @@ function(){
         controller:'VideosCo',
         link: function(scope,element,attrs) {
 
+            $(window).scroll(function() {
+
+                var bottom = $(window).height() + $(window).scrollTop();
+                var height = $(document).height();
+
+                var scrollPercent = Math.round(100*bottom/height);
+                if(!scope.loading && scrollPercent > 95) {
+                    scope.$apply(scope.loadMore());
+                }
+
+            });
+
         }
     }
 
@@ -46,6 +62,18 @@ function(){
         replace : true,
         controller:'TracksCo',
         link: function(scope,element,attrs) {
+
+            $(window).scroll(function() {
+
+                var bottom = $(window).height() + $(window).scrollTop();
+                var height = $(document).height();
+
+                var scrollPercent = Math.round(100*bottom/height);
+                if(!scope.loading && scrollPercent > 95) {
+                    scope.$apply(scope.loadMore());
+                }
+
+            });
 
         }
     }
@@ -62,6 +90,18 @@ function(){
         controller:'PostsCo',
         link: function(scope,element,attrs) {
 
+            $(window).scroll(function() {
+
+                var bottom = $(window).height() + $(window).scrollTop();
+                var height = $(document).height();
+
+                var scrollPercent = Math.round(100*bottom/height);
+                if(!scope.loading && scrollPercent > 95) {
+                    scope.$apply(scope.loadMore());
+                }
+
+            });
+
         }
     }
 
@@ -76,6 +116,18 @@ function(){
         replace : true,
         controller:'EventsCo',
         link: function(scope,element,attrs) {
+
+            $(window).scroll(function() {
+
+                var bottom = $(window).height() + $(window).scrollTop();
+                var height = $(document).height();
+
+                var scrollPercent = Math.round(100*bottom/height);
+                if(!scope.loading && scrollPercent > 95) {
+                    scope.$apply(scope.loadMore());
+                }
+
+            });
 
         }
     }
