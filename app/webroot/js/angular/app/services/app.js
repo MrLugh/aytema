@@ -111,6 +111,11 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 				1:getPath('img')+'/themes/clubber/clubber_theme_02.png',
 				2:getPath('img')+'/themes/clubber/clubber_theme_03.png',
 				3:getPath('img')+'/themes/clubber/clubber_theme_04.png',
+				4:getPath('img')+'/themes/clubber/clubber_theme_05.png',
+				5:getPath('img')+'/themes/clubber/clubber_theme_06.png',
+				6:getPath('img')+'/themes/clubber/clubber_theme_07.png',
+				7:getPath('img')+'/themes/clubber/clubber_theme_08.png',
+				8:getPath('img')+'/themes/clubber/clubber_theme_09.png',
 			}
 		},
 	];
