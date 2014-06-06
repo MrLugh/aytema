@@ -7,9 +7,21 @@
 }
 
 .themesContainer .filterList {
-	position: absolute;
+	color: white;
+	position: fixed;
+	z-index: 3;
+	font-size: 20px;
+	padding: 10px;
 	margin: 0 auto;
-	padding: 0;
+	background-color: #252328;
+
+	-webkit-box-shadow: 0px -5px 5px 0px rgba(37, 35, 40, 0.8);
+	-moz-box-shadow:    0px -5px 5px 0px rgba(37, 35, 40, 0.8);
+	box-shadow:         0px -5px 5px 0px rgba(37, 35, 40, 0.8); 	
+}
+
+.themesContainer .filterList ul, .themesContainer .filterList li {
+  display: inline-block;
 }
 
 .themesContainer .list {

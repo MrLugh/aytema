@@ -5,6 +5,11 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.current  = -1;
 	$scope.src 		= "";
 	$scope.showPreview = false;
+	$scope.showFilters 	= false;
+
+	$scope.manageFilters = function() {
+		$scope.showFilters = !$scope.showFilters;
+	}
 
 	$scope.previewSrc = function(index) {
 		document.body.style.overflow = 'hidden';

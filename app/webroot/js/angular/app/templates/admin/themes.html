@@ -1,21 +1,22 @@
 <div class="themesContainer">
 
+	<div class="filterList">
+
+		<i class="fa fa-search filtersControl" ng-click="manageFilters()"></i>
+
+		<ul ng-show="showFilters">
+			<li>
+				Filter by:
+			</li>
+			<li>
+				<input type="text" ng-model="search" placeholder="Search" class="form-control" />
+			</li>
+		</ul>
+
+	</div>
+
+
 	<ul class="list" ng-style="getContainerStyle()">
-
-		<li>
-			<ul class="filterList">
-
-				<li>
-					<h2>Filter by:</h2>
-					{{list.length}}	of {{themes.length}}
-				</li>
-
-				<li>
-					<input type="text" ng-model="search" placeholder="Search" class="form-control" />
-				</li>
-
-			</ul>
-		</li>
 
 		<li ng-repeat="theme in list" ng-class="getThemeClass($index)" id="theme_{{$index}}" ng-style="getThemeStyle()">
 
