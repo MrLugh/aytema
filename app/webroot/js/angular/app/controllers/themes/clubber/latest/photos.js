@@ -43,7 +43,8 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 			$scope.setList();
 		}
 
-	},true);	
+	},true);
+
 
 	$scope.getDescription = function(index) {
 

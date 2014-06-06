@@ -7,6 +7,7 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.showPreview = false;
 
 	$scope.previewSrc = function(index) {
+		document.body.style.overflow = 'hidden';
 		$scope.current = index;
 		$scope.src = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username="+$scope.user.username;
 		$scope.showPreview = true;
@@ -37,6 +38,7 @@ function adminThemesCo($scope,appSv,userSv) {
 		$scope.current  = -1;
 		$scope.src 		= "";
 		$scope.showPreview = false;
+		document.body.style.overflow = '';
 	}
 
 	$scope.move = function(direction) {
