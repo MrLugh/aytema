@@ -1,7 +1,7 @@
 body {
   font-family: "Josefin Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
-  background-color: brown;
+  background-color: #211E1E;
   background-image:url(http://cloudcial.com/img/admin/bg-dot.png);
 }
 
@@ -224,6 +224,43 @@ ul {
 
 #header .menu li.active a {
   color:#6FF591;
+}
+
+.headerClosed .container {
+  padding: 0!important;
+}
+
+.headerClosed .navbar-form {
+  position: relative;
+  left: -100%;
+}
+
+.headerClosed .menu {
+  float: right!important;
+  margin: 0;
+}
+
+.headerClosed .form-control {
+  width: auto;
+}
+
+.headerClosed .menu li {
+  padding-left: 15px;
+  width: 100%;
+}
+
+.headerClosed .menu li.active {
+  border: none;
+  border-right: 2px solid brown!important;
+}
+
+.headerClosed .menu li:hover {
+  border: none;
+  border-right: 2px solid #38353D!important;
+}
+
+.headerClosed .menu li a {
+  display: none;
 }
 
 #content {

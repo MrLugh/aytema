@@ -24,7 +24,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	$scope.manageFilters = function() {
 		$scope.showFilters = !$scope.showFilters;
-	}	
+	}
 
 	$scope.initFilters = function() {
 

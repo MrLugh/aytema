@@ -25,7 +25,15 @@ ayTemaDs.directive('adminAccount',[function(){
             $(window).scroll(function() {
                 scope.$apply(function(){
 	                scope.showUp = $(window).scrollTop() > $(window).height() ? true : false;
-                })
+                });
+                
+                var bottom = $(window).height() + $(window).scrollTop();
+                var height = $(document).height();
+
+                var scrollPercent = Math.round(100*bottom/height);
+                if(!scope.loading && scrollPercent > 95) {
+                    scope.$apply(scope.moreContent());
+                }                
             });
 
         }

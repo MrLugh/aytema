@@ -1,6 +1,6 @@
  <div id="container">
 
- 	<div id="header" ng-style="getHeaderStyle()" get-menu-width>
+ 	<div id="header" ng-style="getHeaderStyle()" ng-class="getHeaderClass()" get-menu-width>
 
 	 	<div id="menuControl">
 	 		<i class="fa fa-align-justify" ng-click="manageControl()"></i>
@@ -31,23 +31,23 @@
 
 			<ul class="menu">
 
-				<li ng-if="isLogged()" ng-class="getMenuItemClass(1)">
-				    <i class="fa fa-users"></i>
-					<a ng-click="activateStep(1)" href="#/accounts" skip-default>Accounts</a>
+				<li ng-if="isLogged()" ng-class="getMenuItemClass(1)" ng-click="activateStep(1)">
+				    <i class="fa fa-users" title="Accounts"></i>
+					<a  href="#/accounts" skip-default title="Accounts">Accounts</a>
 				</li>
 
-				<li ng-if="isLogged()" ng-class="getMenuItemClass(2)">
-				    <i class="fa fa-files-o"></i>
-					<a ng-click="activateStep(2)" href="#/themes" skip-default>Themes</a>
+				<li ng-if="isLogged()" ng-class="getMenuItemClass(2)" ng-click="activateStep(2)">
+				    <i class="fa fa-files-o" title="Themes"></i>
+					<a href="#/themes" skip-default title="Themes">Themes</a>
 				</li>
 
-				<li ng-if="isLogged()" ng-class="getMenuItemClass(3)">
-				    <i class="fa fa-share-alt"></i>
-					<a ng-click="activateStep(3)" href="#/share" skip-default>Share</a>
+				<li ng-if="isLogged()" ng-class="getMenuItemClass(3)" ng-click="activateStep(3)">
+				    <i class="fa fa-share-alt" title="Share"></i>
+					<a href="#/share" skip-default title="Themes">Share</a>
 				</li>
 
 				<li ng-if="isLogged()">
-				    <i class="fa fa-sign-out"></i>
+				    <i class="fa fa-sign-out" title="Logout"></i>
 					<a href="/users/logout">LogOut</a>
 				</li>
 

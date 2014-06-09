@@ -1,39 +1,42 @@
 <div class="accountPage {{account.network}}AccountPage">
 
-	<div class="accountPageHeader {{account.network}}AccountPageHeader both">
+	<div ng-if="concepts.length > 1" class="filterList">
+		
+		<i class="fa fa-search filtersControl" ng-click="manageFilters()"></i>
 
-		<ul ng-if="concepts.length > 1" class="filterList right">
-			
-			<li>
-				<h2>Filter by:</h2>
-			</li>
-
+		<ul ng-show="showFilters">
 			<li ng-repeat="concept in concepts" ng-click="filter(concept)" ng-style="filterStyle(concept)">
 				<i ng-class="conceptIcon(concept)"></i> {{countByConcept(concept)}}
 			</li>
-
 		</ul>
 
-		<ul ng-if="account.network == 'cloudcial'" class="filterList right">
-			
-			<li>
-				<h2>Create:</h2>
-			</li>
+	</div>
 
+	<div ng-if="account.network == 'cloudcial'" class="addList">
+		
+		<i class="fa fa-plus addControl" ng-click="manageAdd()"></i>
+
+		<ul ng-show="showAdd">
 			<li ng-repeat="concept in concepts">
 				<i ng-class="conceptIcon(concept)" ng-click="showAddContent(concept)"></i> {{countByConcept(concept)}}
 			</li>
-
 		</ul>
 
-		<div>
-			<span ng-click="move(-1)">Prev</span>
-			<span ng-click="closeAccount()">Close</span>
-			<span ng-click="move(1)">Next</span>
-		</div>
+	</div>
 
-		<img ng-src="{{account.profile_image}}" class="left profileImage img-circle" />
-		<p><strong>{{account.login}}</strong></p>
+
+	<div class="accountPageHeader {{account.network}}AccountPageHeader both">
+
+		<div class="controls">
+			<i class="fa fa-arrow-left left" ng-click="move(-1)" title="Previous Account"></i>
+			<i class="fa fa-arrow-right left" ng-click="move(1)" title="Next Account"></i>
+		
+			<img ng-src="{{account.profile_image}}" class="profileImage img-circle inline" />
+			<strong>{{account.login}}</strong>
+
+			<i class="fa fa-times-circle-o left both" ng-click="closeAccount()" title="Close Account"></i>
+			<i ng-click="moreContent()" class="fa fa-plus-circle left" title="More Content"></i>
+		</div>
 
 		<ul class="stats">
 			<li ng-repeat="(key,stat) in account.stats" title="{{key}}: {{stat}}">
@@ -43,15 +46,13 @@
 			</li>
 		</ul>
 
-		<span ng-click="moreContent()" class="both left">More Content</span>
-
 	</div>
 
 	<div class="both">
 
 		<ul id="accountPageList" class="masonry" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.adminContent'}">
 
-			<li ng-repeat="content in list" class="adminContent" ng-class="getContentSize($index)" ng-style="getContentStyle(content)" ng-switch="content.concept" masonry-item>
+			<li ng-repeat="content in list" class="adminContent medium" ng-style="getContentStyle(content)" ng-switch="content.concept" masonry-item>
 
 			    <admin-content-video ng-switch-when='video'></admin-content-video>
 			    <admin-content-photo ng-switch-when='photo'></admin-content-photo>

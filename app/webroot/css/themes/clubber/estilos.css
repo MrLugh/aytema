@@ -184,21 +184,25 @@ ul {
 #container .page.ng-enter {
   position: relative;
   opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 #container .page.ng-enter.ng-enter-active {
   position: relative;
   opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 #container .page.ng-leave {
   position: relative;
   opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 #container .page.ng-leave.ng-leave-active {
   position: relative;
   opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 #container .activePage {

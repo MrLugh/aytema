@@ -59,6 +59,17 @@ function aytemaCo($scope,$location,userSv,appSv) {
 		$scope.showMenu = !$scope.showMenu;
 	}
 
+	$scope.getHeaderClass = function() {
+
+		if ($scope.showMenu) {
+
+			return 'headerOpened';
+		}
+
+		return 'headerClosed';
+
+	}
+
 	$scope.getHeaderStyle = function() {
 
 		if ($scope.showMenu) {

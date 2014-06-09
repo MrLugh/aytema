@@ -11,6 +11,17 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.filters	= {'concepts':[],'networks':[$scope.account.network]};
 	$scope.concepts = [];
 
+	$scope.showAdd 		= false;
+	$scope.showFilters 	= false;
+
+	$scope.manageAdd = function() {
+		$scope.showAdd = !$scope.showAdd;
+	}
+
+	$scope.manageFilters = function() {
+		$scope.showFilters = !$scope.showFilters;
+	}
+
 	$scope.getListLength = function() {
 		return $scope.list.length;
 	}
@@ -140,43 +151,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 				$scope.list[index].status = "disabled";
 			}
 		});
-
-		/*
-		contentSv.deleteContent($scope.list[index].id).
-		then(function(data){
-			if (data.message == "Deleted") {
-				$scope.removeFromMasonry(index);
-				$scope.list.splice(index,1);
-			}
-		});
-		*/
-	}
-
-	$scope.getContentSize = function(index) {
-		var small 		= ['quote','chat','photo','post'];
-		var medium 		= ['video','track','video'];
-		var large 		= [];
-		var extralarge 	= [];
-		var concept = $scope.list[index].concept;
-
-		if (small.indexOf(concept) != -1 ) {
-			if (concept == 'post' && $scope.account.network == 'facebook') {
-				return 'xlarge';
-			}
-			if (concept == 'post' && $scope.account.network == 'twitter') {
-				return 'medium';
-			}			
-			return 'small';
-		}
-		if (medium.indexOf(concept) != -1 ) {
-			return 'medium';
-		}
-		if (large.indexOf(concept) != -1 ) {
-			return 'large';
-		}
-		if (extralarge.indexOf(concept) != -1 ) {
-			return 'xlarge';
-		}
 
 	}
 
