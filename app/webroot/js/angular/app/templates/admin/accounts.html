@@ -3,10 +3,10 @@
 	<div ng-show="showingAccount" class="modalAccount">
 		<fb app-id='211895592326072'></fb>
 		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-		<admin-account class="accountDetail" ng-repeat="account in currentAccount"></admin-account>
+		<admin-account class="accountDetail" account="account"></admin-account>
 	</div>
 
-	<div>
+	<div ng-hide="showingAccount">
 
 		<div class="filterList">
 

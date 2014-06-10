@@ -1,5 +1,8 @@
 function adminAccountCo($scope,userSv,appSv,contentSv) {
 
+	$scope.user 	= userSv.getUser();
+	$scope.networks = appSv.getNetworks();
+
 	$scope.list		= [];
 	$scope.concepts	= [];
 	$scope.loading 	= false;
@@ -50,8 +53,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		$scope.filters = filters;
 
 	}
-	$scope.generateConceptsList();
-	$scope.initFilters();
 
 	$scope.clearList = function() {
 		$scope.list = [];
@@ -165,14 +166,15 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.userSv	= userSv;
 	$scope.contentSv= contentSv;
 
-	$scope.$watch('account', function(oldValue,newValue) {
-		//if (oldValue.id != newValue.id) {
+	$scope.$watch('account', function(account) {
+		console.log(account);
+		if (!angular.equals({},account)) {
 			$scope.generateConceptsList();
 			$scope.initFilters();
 			$scope.offset = 0;
 			$scope.reinitMasonry();
-		//}
-
+			$scope.scrollToTop();
+		}
 	});
 
 	$scope.conceptIcon = function(concept) {
@@ -182,9 +184,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.enableMasonry = function() {
 		$scope.masonryLoading = false;
 	}
-
-	$scope.generateConceptsList();
-	$scope.initFilters();
 
 	$scope.showAddContent = function(concept) {
 		$scope.isAdding = true;
