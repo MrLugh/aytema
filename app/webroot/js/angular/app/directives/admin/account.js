@@ -4,6 +4,7 @@ ayTemaDs.directive('adminAccount',[function(){
         templateUrl : getPath('tpl')+'/admin/account.html',
         restrict : 'E',
         replace : true,
+        scope: true,
         controller:'adminAccountCo',
         link: function(scope,element,attrs) {
 
@@ -31,6 +32,7 @@ ayTemaDs.directive('adminAccount',[function(){
                 var height = $(document).height();
 
                 var scrollPercent = Math.round(100*bottom/height);
+
                 if(!scope.loading && scrollPercent > 95) {
                     scope.$apply(scope.moreContent());
                 }                
