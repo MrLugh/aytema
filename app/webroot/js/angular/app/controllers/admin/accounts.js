@@ -12,7 +12,6 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.showingAccount	= false;
 	$scope.account			= {};
 	$scope.current			= false;
-	$scope.currentAccount 	= [];
 
 
 	$scope.showAdd 		= false;
@@ -108,7 +107,10 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.getContainerStyle = function() {
-		return {'min-height':appSv.getHeight() - $scope.getOffsetTop()  - $scope.$parent.menuHeight + 'px'};
+
+		return {
+			'min-height':appSv.getHeight() - $scope.getOffsetTop()  - $scope.$parent.menuHeight + 'px'
+		};
 	}	
 
 	$scope.countByNetwork = function(network) {
@@ -163,7 +165,6 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.showAccount = function(index) {
 		$scope.current			= index;
 		$scope.account 			= $scope.list[$scope.current];
-		$scope.currentAccount   = [$scope.list[$scope.current]];
 		$scope.showingAccount 	= true;
 	}
 
@@ -175,7 +176,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.move = function(direction) {
-		$scope.showingAccount 	= false;
+
 		if (direction > 0) {
 			$scope.current++;
 		} else {

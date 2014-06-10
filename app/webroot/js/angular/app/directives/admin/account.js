@@ -4,7 +4,9 @@ ayTemaDs.directive('adminAccount',[function(){
         templateUrl : getPath('tpl')+'/admin/account.html',
         restrict : 'E',
         replace : true,
-        scope: true,
+        scope : {
+            account : "=account"
+        },
         controller:'adminAccountCo',
         link: function(scope,element,attrs) {
 
@@ -24,20 +26,22 @@ ayTemaDs.directive('adminAccount',[function(){
             }
 
             $(window).scroll(function() {
-                scope.$apply(function(){
-	                scope.showUp = $(window).scrollTop() > $(window).height() ? true : false;
-                });
-                
+
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
 
                 var scrollPercent = Math.round(100*bottom/height);
+                var more = (!scope.loading && scrollPercent > 95) ? true : false; 
 
-                if(!scope.loading && scrollPercent > 95) {
-                    scope.$apply(scope.moreContent());
-                }                
+                scope.$apply(function(){
+	                scope.showUp = $(window).scrollTop() > $(window).height() ? true : false;
+
+                    if (more) {
+                        console.log("more for!",scope.account.id);
+                        scope.moreContent();
+                    }
+                });
             });
-
         }
     }
 
