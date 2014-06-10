@@ -4,4 +4,9 @@
 		width: 100%;
 	}
 
+	.themesContainer .themeNavigation .themeControlThumbnail:hover {
+		width: 120px;
+		height: 120px;
+	}
+
 }

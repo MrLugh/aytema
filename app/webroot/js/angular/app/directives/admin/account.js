@@ -37,7 +37,6 @@ ayTemaDs.directive('adminAccount',[function(){
 	                scope.showUp = $(window).scrollTop() > $(window).height() ? true : false;
 
                     if (more) {
-                        console.log("more for!",scope.account.id);
                         scope.moreContent();
                     }
                 });

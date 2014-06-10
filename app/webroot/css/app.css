@@ -21,6 +21,7 @@ a {
     cursor: pointer ;
 }
 
+/*
 * {
     scrollbar-face-color: #000000;
     scrollbar-shadow-color: #2D2C4D;  
@@ -45,6 +46,7 @@ a {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
+*/
 
 a,a:hover,a:active,a:focus,
 img,img:hover,img:active,img:focus {
@@ -154,7 +156,7 @@ ul {
 }
 
 #header .userFind:hover {
-  border-left: 4px solid brown!important;
+  border-left: 4px solid brown
   transition: border 0.1s ease 0s; 
   color: #6FF591;
 }
@@ -208,12 +210,12 @@ ul {
 }
 
 #header .menu li:hover {
-  border-left: 4px solid #38353D!important;
+  border-left: 4px solid #38353D
   transition: border 0.1s ease 0s;
 }
 
 #header .menu li.active {
-  border-left: 4px solid brown!important;
+  border-left: 4px solid brown
   transition: border 0.1s ease 0s;
   padding-left: 25px;
 }
@@ -246,16 +248,17 @@ ul {
 
 .headerClosed .menu li {
   padding-left: 15px;
-  width: 100%;
+  width: auto;
+  text-align: right;
 }
 
 .headerClosed .menu li.active {
-  border: none;
+  border: none!important;
   border-right: 2px solid brown!important;
 }
 
 .headerClosed .menu li:hover {
-  border: none;
+  border: none!important;
   border-right: 2px solid #38353D!important;
 }
 

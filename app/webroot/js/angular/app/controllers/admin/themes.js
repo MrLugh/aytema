@@ -7,6 +7,24 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.showPreview = false;
 	$scope.showFilters 	= false;
 
+	$scope.scrollCurrent = function() {
+
+		var current = $scope.current;
+
+		setTimeout(function(){
+			element = angular.element(document.querySelector("#theme_"+current));
+
+			if (angular.isDefined(element[0])) {
+				angular.element(document).ready(function(){
+					$('html, body').animate({
+						scrollTop: element[0].offsetTop
+					}, 500);
+				});
+			}
+		},1500);
+
+	}	
+
 	$scope.manageFilters = function() {
 		$scope.showFilters = !$scope.showFilters;
 	}
@@ -16,6 +34,9 @@ function adminThemesCo($scope,appSv,userSv) {
 		$scope.current = index;
 		$scope.src = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username="+$scope.user.username;
 		$scope.showPreview = true;
+		setTimeout(function(){
+			$scope.scrollToTop();
+		},1500);
 	}
 
 	$scope.getContainerStyle = function() {
@@ -40,10 +61,11 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.setList();
 
 	$scope.closePreview = function() {
-		$scope.current  = -1;
-		$scope.src 		= "";
-		$scope.showPreview = false;
 		document.body.style.overflow = '';
+		$scope.showPreview = false;
+		$scope.src 		= "";
+		$scope.scrollCurrent();
+		$scope.current  = -1;
 	}
 
 	$scope.move = function(direction) {

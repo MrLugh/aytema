@@ -42,6 +42,10 @@ function aytemaCo($scope,$location,userSv,appSv) {
 		return userSv.isLogged();
 	}
 
+	$scope.logout = function() {
+		$location.path('/users/logout');
+	}
+
 	$scope.checkStep = function() {
 
 		if ($scope.isLogged() && $location.path() == '/themes') {

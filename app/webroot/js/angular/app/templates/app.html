@@ -46,7 +46,7 @@
 					<a href="#/share" skip-default title="Themes">Share</a>
 				</li>
 
-				<li ng-if="isLogged()">
+				<li ng-if="isLogged()" ng-click="logout()">
 				    <i class="fa fa-sign-out" title="Logout"></i>
 					<a href="/users/logout">LogOut</a>
 				</li>
