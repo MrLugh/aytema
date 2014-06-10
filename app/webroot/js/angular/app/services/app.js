@@ -77,46 +77,46 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 		{
 			'name'		: 'Digest',
 			'key'		: 'digest',
-			'thumbnails': {
-				0:getPath('img')+'/themes/digest/digest_theme_01.png',
-				1:getPath('img')+'/themes/digest/digest_theme_02.png',
-				2:getPath('img')+'/themes/digest/digest_theme_03.png',
-			}
+			'thumbnails': [
+				getPath('img')+'/themes/digest/digest_theme_01.png',
+				getPath('img')+'/themes/digest/digest_theme_02.png',
+				getPath('img')+'/themes/digest/digest_theme_03.png'
+			]
 		},
 		{
 			'name'		: 'Simple',
 			'key'		: 'simple',			
-			'thumbnails': {
-				0:getPath('img')+'/themes/simple/simple_theme_01.png',
-				1:getPath('img')+'/themes/simple/simple_theme_02.png',
-				2:getPath('img')+'/themes/simple/simple_theme_03.png',
-			}
+			'thumbnails': [
+				getPath('img')+'/themes/simple/simple_theme_01.png',
+				getPath('img')+'/themes/simple/simple_theme_02.png',
+				getPath('img')+'/themes/simple/simple_theme_03.png',
+			]
 		},
 		{
 			'name'		: 'Space',
 			'key'		: 'space',			
-			'thumbnails': {
-				0:getPath('img')+'/themes/space/space_theme_01.png',
-				1:getPath('img')+'/themes/space/space_theme_02.png',
-				2:getPath('img')+'/themes/space/space_theme_03.png',
-				3:getPath('img')+'/themes/space/space_theme_04.png',
-				4:getPath('img')+'/themes/space/space_theme_05.png',
-			}
+			'thumbnails': [
+				getPath('img')+'/themes/space/space_theme_01.png',
+				getPath('img')+'/themes/space/space_theme_02.png',
+				getPath('img')+'/themes/space/space_theme_03.png',
+				getPath('img')+'/themes/space/space_theme_04.png',
+				getPath('img')+'/themes/space/space_theme_05.png',
+			]
 		},
 		{
 			'name'		: 'Clubber',
 			'key'		: 'clubber',
-			'thumbnails': {
-				0:getPath('img')+'/themes/clubber/clubber_theme_01.png',
-				1:getPath('img')+'/themes/clubber/clubber_theme_02.png',
-				2:getPath('img')+'/themes/clubber/clubber_theme_03.png',
-				3:getPath('img')+'/themes/clubber/clubber_theme_04.png',
-				4:getPath('img')+'/themes/clubber/clubber_theme_05.png',
-				5:getPath('img')+'/themes/clubber/clubber_theme_06.png',
-				6:getPath('img')+'/themes/clubber/clubber_theme_07.png',
-				7:getPath('img')+'/themes/clubber/clubber_theme_08.png',
-				8:getPath('img')+'/themes/clubber/clubber_theme_09.png',
-			}
+			'thumbnails': [
+				getPath('img')+'/themes/clubber/clubber_theme_01.png',
+				getPath('img')+'/themes/clubber/clubber_theme_02.png',
+				getPath('img')+'/themes/clubber/clubber_theme_03.png',
+				getPath('img')+'/themes/clubber/clubber_theme_04.png',
+				getPath('img')+'/themes/clubber/clubber_theme_05.png',
+				getPath('img')+'/themes/clubber/clubber_theme_06.png',
+				getPath('img')+'/themes/clubber/clubber_theme_07.png',
+				getPath('img')+'/themes/clubber/clubber_theme_08.png',
+				getPath('img')+'/themes/clubber/clubber_theme_09.png',
+			]
 		},
 	];
 
