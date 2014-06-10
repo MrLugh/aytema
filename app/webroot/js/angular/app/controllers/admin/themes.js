@@ -43,6 +43,10 @@ function adminThemesCo($scope,appSv,userSv) {
 		return {'max-height':appSv.getHeight() - $scope.$parent.menuHeight + 'px'};
 	}
 
+	$scope.getPreviewStyle = function() {
+		return {'height':appSv.getHeight()+'px'};
+	}	
+
 	$scope.getThemeClass = function(index) {
 		return ($scope.current == index) ? 'theme themeActive' : 'theme';
 	}
