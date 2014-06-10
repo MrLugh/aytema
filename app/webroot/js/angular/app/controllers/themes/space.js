@@ -547,10 +547,14 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
     	var style = {};
 
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+
     	var width = "100%";
     	if (!angular.equals({},$scope.config)) {
     		width = $scope.config.custom.width;
-    		style['background-color'] = $scope.config.custom.colors.contentBackground.value;
+
+    		style['background-color'] = rgbString;
     	}
 
     	style['¨width'] = width;		
@@ -578,7 +582,10 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     		return style;
     	}
 
-    	style['background-color'] = $scope.config.custom.colors.contentBackground.value;
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+
+    	style['background-color'] = rgbString;
 	   	return style;
     };	    
 

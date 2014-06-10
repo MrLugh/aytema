@@ -43,7 +43,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 	}
 
 	$scope.logout = function() {
-		$location.path('/users/logout');
+		window.location.href = '/users/logout';
 	}
 
 	$scope.checkStep = function() {
