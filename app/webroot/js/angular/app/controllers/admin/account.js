@@ -167,7 +167,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.contentSv= contentSv;
 
 	$scope.$watch('account', function(account) {
-		console.log(account);
 		if (!angular.equals({},account)) {
 			$scope.generateConceptsList();
 			$scope.initFilters();

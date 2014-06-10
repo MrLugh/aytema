@@ -124,7 +124,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	});
 
 	$scope.$watch('userSv.getAccounts()', function(value) {
-		if (value.length > 0) {
+		if (angular.isDefined(value) && value.length > 0) {
 			$scope.accounts = value;
 			$scope.setList();
 		}

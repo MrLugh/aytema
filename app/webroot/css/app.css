@@ -130,6 +130,44 @@ ul {
   padding: 0px 50px 10px 10px;
 }
 
+#header .profileImageContainer {
+  width: 140px;
+  height: 120px;
+  position: relative;
+  float: left;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;  
+}
+
+#header #profileImage {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
+}
+
+#header .profileImageContainer i {
+  top: calc(50% - 7px);
+  color: white;
+  font-size: 15px;
+  position: relative;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
+}
+
 #header .dropdown-menu {
   background-color: #fff!important;
   position: absolute!important;

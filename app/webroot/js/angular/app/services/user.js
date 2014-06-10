@@ -159,6 +159,25 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 	}
 
+	var saveProfileimage = function(path) {
+		var deferred = $q.defer();
+
+		var url = '/users/setProfileImage.json';
+
+		var params = {'path':path}
+
+	    $http({method: 'POST', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	user.profile_image = path;
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	deferred.resolve(data);
+	    });
+
+	    return deferred.promise;
+	}
+
 	var restoreConfig = function() {
 		themeConfig.custom = JSON.parse(JSON.stringify(themeConfig.default));
 	}
@@ -230,6 +249,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		restoreConfig:restoreConfig,
 		login:login,
 		setUser:setUser,
+		saveProfileimage:saveProfileimage,
 		search:search,
 		loadAccounts:loadAccounts,
 		getAccounts:getAccounts,

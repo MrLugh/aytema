@@ -7,7 +7,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
 
-        $this->Auth->allow('register','login','index','view');
+        $this->Auth->allow('register','login','index','view','setProfileImage');
         $this->loadModel('Theme');
         $this->loadModel('Socialnet');
 
@@ -26,14 +26,16 @@ class UsersController extends AppController {
             if ($this->Auth->login()) {
                 $this->User->id = $this->Auth->user('id');
                 $this->User->saveField('last_login', date('Y-m-d H:i:s') );
+                $findUser = $this->User->findById($this->Auth->user('id'));
                 $this->set(array(
                     'message' => array(
                         'text' => __('You are logged!'),
                         'type' => 'success'
                     ),
                     'user' => array(
-                        'id'        => $this->Auth->user('id'),
-                        'username'  => $this->Auth->user('username')
+                        'id'            => $this->Auth->user('id'),
+                        'username'      => $this->Auth->user('username'),
+                        'profile_image' => $findUser['User']['profile_image'],
                     ),
                     '_serialize' => array('message','user')
                 ));
@@ -78,6 +80,7 @@ class UsersController extends AppController {
         if ( $this->Auth->user('id') == $findUser['User']['id'] ) {
             $user['id'] = $this->Auth->user('id');
         }
+        $user['profile_image'] = $findUser['User']['profile_image'];
 
         $this->layout = "/themes/{$type}/index";
         $this->set('user',json_encode($user));
@@ -121,6 +124,30 @@ class UsersController extends AppController {
                 }
             }
         }
+    }
+
+    public function setProfileImage(){
+
+
+        if (!$this->Auth->user('id')) {
+            throw new Exception("Error Processing Request", 1);
+        }
+
+        $path = $this->request->data['path'];
+        
+        if ($this->request->is('post')) {
+            $this->User->id = $this->Auth->user('id');
+            $this->User->profile_image = $path;
+            $this->User->saveField('profile_image', $path );
+            $this->Session->write('Auth.User.profile_image', $path);
+        }
+
+        $this->layout = 'anonymous';
+        $this->set(array(
+            'path' => $path,
+            '_serialize' => array('path')
+        ));
+
     }
 
 }

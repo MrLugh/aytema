@@ -8,6 +8,13 @@
 
 		<div class="container" ng-style="getMenuContainerStyle()">
 
+			<div class="profileImageContainer" ng-if="profileImages.length>0">
+				<i class="fa fa-arrow-left left" ng-click="moveProfileImage(-1)" title="Previous Image"></i>
+				<div id="profileImage" ng-style="getProfileImageStyle()"></div>
+				<i class="fa fa-arrow-right right" ng-click="moveProfileImage(1)" title="Previous Image"></i>
+			</div>
+
+
 			<a href="#" class="navbar-brand">{{user.username}}</a>
 
 	 		<form class="navbar-form navbar-left" role="search" style="position:relative;">

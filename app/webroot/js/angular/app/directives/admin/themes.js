@@ -62,10 +62,7 @@ function () {
 
             $(element).css('backgroundImage',"url('"+scope.theme.thumbnails[current]+"')");
 
-            console.log(current);
-
             if (time == -1) {
-                console.log("timer");
                 time = setInterval(function(){scope.carrousel();},5000);
             }
             

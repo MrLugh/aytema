@@ -15,8 +15,9 @@ class IndexController extends AppController {
 
     	if ($this->Auth->user('id')) {
 	    	$user = array(
-	    		'id'		=> $this->Auth->user('id'),
-	    		'username'	=> $this->Auth->user('username')
+	    		'id' => $this->Auth->user('id'),
+	    		'username' => $this->Auth->user('username'),
+                'profile_image' => $this->Auth->user('profile_image'),
 	    	);
     	}
     	$this->set('user',json_encode($user));
