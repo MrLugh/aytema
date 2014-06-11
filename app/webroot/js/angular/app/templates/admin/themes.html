@@ -12,7 +12,6 @@
 
 	</div>
 
-
 	<ul class="list" ng-style="getContainerStyle()">
 
 		<li ng-repeat="theme in list" ng-class="getThemeClass($index)" id="theme_{{$index}}" ng-style="getThemeStyle()">
@@ -40,7 +39,7 @@
 
 	</ul>
 
-	<div ng-if="showPreview && src.length>0" class="preview"  ng-style="getPreviewStyle()">
+	<div ng-if="showPreview && src.length>0" class="preview" ng-style="getPreviewStyle()">
 		<div class="themeNavigation">
 			<div class="themeControlThumbnail left"  ng-click="move(-1)" ng-style="getPreviousStyle()">
 				<strong class="left">{{getPreviousThemeName()}}</strong>
