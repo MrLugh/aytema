@@ -1,5 +1,5 @@
-ayTemaDs.directive('adminAccount',[function(){
-	
+ayTemaDs.directive('adminAccount',['$window',
+function ($window) {
     return {
         templateUrl : getPath('tpl')+'/admin/account.html',
         restrict : 'E',
@@ -22,10 +22,10 @@ ayTemaDs.directive('adminAccount',[function(){
                 scope.showUp = false;
                 $('body').animate({scrollTop: $('body').offset().top}, "slow");
                 scope.scrolling = false;
-
             }
 
-            $(window).scroll(function() {
+            var scroll = function() {
+                console.log("scrolling from account directive for account",scope.account.id);
 
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
@@ -33,14 +33,20 @@ ayTemaDs.directive('adminAccount',[function(){
                 var scrollPercent = Math.round(100*bottom/height);
                 var more = (!scope.loading && scrollPercent > 95) ? true : false; 
 
-                scope.$apply(function(){
-	                scope.showUp = $(window).scrollTop() > $(window).height() ? true : false;
+                scope.showUp = $(window).scrollTop() > $(window).height() ? true : false;
+                
+                if (more) {
+                    scope.moreContent();
+                }
+            }            
 
-                    if (more) {
-                        scope.moreContent();
-                    }
-                });
-            });
+            var destroy = function() {
+                element.unbind('$destroy',destroy);
+                angular.element($window).unbind('scroll',scroll);
+            }
+
+            angular.element($window).bind('scroll',scroll);
+            element.bind('$destroy',destroy);            
         }
     }
 

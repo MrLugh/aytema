@@ -1,6 +1,6 @@
 <div class="accountsContainer">
 
-	<div ng-show="showingAccount" class="modalAccount">
+	<div ng-if="showingAccount" class="modalAccount">
 		<fb app-id='211895592326072'></fb>
 		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<admin-account class="accountDetail" account="account"></admin-account>
@@ -12,7 +12,7 @@
 
 			<i class="fa fa-search filtersControl" ng-click="manageFilters()"></i>
 
-			<ul ng-show="showFilters">
+			<ul ng-if="showFilters">
 				<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)" >
 					<i ng-class="networkIcon(network.network)"></i>
 					<span>{{countByNetwork(network.network)}}</span>
@@ -28,8 +28,8 @@
 
 			<i class="fa fa-plus addControl" ng-click="manageAdd()"></i>
 
-			<ul ng-show="showAdd">
-				<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-show="network.network!='aytema'">
+			<ul ng-if="showAdd">
+				<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'">
 					<i ng-class="networkIcon(network.network)"></i>
 				</li>
 			</ul>
@@ -45,9 +45,9 @@
 					<div class="accountLayerInfo">
 
 						<i ng-click="showAccount($index)" class="fa fa-search right both"></i>
-						<i ng-show="account.network!='cloudcial'" ng-click="delete($index)" class="fa fa-trash-o right both"></i>
+						<i ng-if="account.network!='cloudcial'" ng-click="delete($index)" class="fa fa-trash-o right both"></i>
 
-						<p ng-repeat="(key,stat) in account.stats" ng-show="canShowStat(stat)" class="stat">
+						<p ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
 							<i title="{{key}}: {{stat}}" ng-class="statIcon(key)"></i> {{stat}}
 						</p>
 

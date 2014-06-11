@@ -52,48 +52,48 @@
   }
 
   #accountPageList .small {
-    width: calc(100% - 31px);
+    width: calc(100% - 32px);
   }
   #accountPageList .medium {
-    width: calc(100% - 31px);
+    width: calc(100% - 32px);
   }
   #accountPageList .large {
-    width: calc(100% - 31px);
+    width: calc(100% - 32px);
   }
   #accountPageList .xlarge {
-    width: calc(100% - 31px);
+    width: calc(100% - 32px);
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
 
   #accountPageList .small {
-    width: calc(25% - 31px);
+    width: calc(25% - 32px);
   }
   #accountPageList .medium {
-    width: calc(50% - 31px);
+    width: calc(50% - 32px);
   }
   #accountPageList .large {
-    width: calc(75% - 31px);
+    width: calc(75% - 32px);
   }
   #accountPageList .xlarge {
-    width: calc(100% - 31px);
+    width: calc(100% - 32px);
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
   #accountPageList .small {
-    width: calc(25% - 31px);
+    width: calc(25% - 32px);
   }
   #accountPageList .medium {
-    width: calc(50% - 31px);
+    width: calc(50% - 32px);
   }
   #accountPageList .large {
-    width: calc(75% - 31px);
+    width: calc(75% - 32px);
   }
   #accountPageList .xlarge {
-    width: calc(100% - 31px);
+    width: calc(100% - 32px);
   }
 
 }
@@ -101,16 +101,16 @@
 @media (min-width: 1025px) and (max-width: 1200px) {
 
   #accountPageList .small {
-    width: calc(25% - 31px);
+    width: calc(25% - 32px);
   }
   #accountPageList .medium {
-    width: calc(50% - 31px);
+    width: calc(50% - 32px);
   }
   #accountPageList .large {
-    width: calc(75% - 31px);
+    width: calc(75% - 32px);
   }
   #accountPageList .xlarge {
-    width: calc(100% - 31px);
+    width: calc(100% - 32px);
   }
 
 }
@@ -118,16 +118,16 @@
 @media all and (max-width: 2048px) and (min-width: 1201px) {
 
   #accountPageList .small {
-    width: calc(20% - 31px);
+    width: calc(20% - 32px);
   }
   #accountPageList .medium {
-    width: calc(25% - 31px);
+    width: calc(25% - 32px);
   }
 
   #accountPageList .large {
-    width: calc(33% - 31px);
+    width: calc(33% - 32px);
   }
   #accountPageList .xlarge {
-    width: calc(50% - 31px);
+    width: calc(50% - 32px);
   }
 }
