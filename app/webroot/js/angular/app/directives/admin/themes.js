@@ -7,6 +7,14 @@ function ($window) {
         controller:'adminThemesCo',
         link: function(scope,element,attrs) {
 
+            scope.$watch('showPreview',function(){
+                if (scope.showPreview) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+
             var raw = $('body');
             scope.showUp = false;
             scope.scrolling = false;
@@ -40,6 +48,7 @@ function ($window) {
             var destroy = function() {
                 element.unbind('$destroy',destroy);
                 angular.element($window).unbind('scroll',scroll);
+                document.body.style.overflow = '';
             }
 
             angular.element($window).bind('scroll',scroll);
