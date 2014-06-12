@@ -107,6 +107,11 @@ ul {
   text-shadow: 0 0 3px #000;
 }
 
+.navbar .profileImage {
+  height: 70px;
+  float: left;
+}
+
 .container {
   max-width: 100% !important;
   margin: 0 auto;

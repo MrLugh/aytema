@@ -127,6 +127,11 @@ h3, h4 {
   background-color: transparent;
 }
 
+.navbar .profileImage {
+  height: 70px;
+  float: left;
+}
+
 /*menu*/
 
 h1 {

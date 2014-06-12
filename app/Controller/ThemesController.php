@@ -30,6 +30,7 @@ class ThemesController extends AppController {
         if ( !empty($user) && $this->Auth->user('id') == $findUser['User']['id'] ) {
             $user['id'] = $this->Auth->user('id');
         }
+        $user['profile_image'] = $findUser['User']['profile_image'];
 
     	$this->set('user',json_encode($user));
     }

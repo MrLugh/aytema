@@ -108,6 +108,11 @@ ul {
 	padding: 5px;
 }
 
+.navbar .profileImage {
+  height: 70px;
+  float: left;
+}
+
 .boxed {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;

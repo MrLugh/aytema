@@ -102,6 +102,11 @@ ul {
   line-height: 40px;
 }
 
+.navbar .profileImage {
+  height: 70px;
+  float: left;
+}
+
 .navbar .menu-item {
   float: left;
   padding: 5px;

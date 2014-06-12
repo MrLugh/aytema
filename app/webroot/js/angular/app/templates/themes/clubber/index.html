@@ -34,7 +34,12 @@
 					<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
 					<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
 				</button>
-				<h1><a class="navbar-brand" href="#/">{{user.username|uppercase}}</a></h1>
+
+				<h1>
+					<img ng-if="user.profile_image.length>0" src="{{user.profile_image}}" class="profileImage img-circle"/>
+					<a class="navbar-brand" href="#/">{{user.username|uppercase}}</a>
+				</h1>
+				
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
