@@ -37,11 +37,11 @@ Class Themespace {
         ),
         'width' => '100%',
         'background' => array(
-            'selected'   => 'img/themes/clubber/bg.jpg',
+            'selected'   => 'img/themes/space/bg.jpg',
             'list' => array(
-                'dot'       => "img/themes/clubber/bg-dot.png",
-                'mask'      => "img/themes/clubber/bg.png",
-                'grey'      => "img/themes/clubber/bg.jpg"
+                'dot'       => "img/themes/space/bg-dot.png",
+                'mask'      => "img/themes/space/bg.png",
+                'grey'      => "img/themes/space/bg.jpg"
             ),
         )
     );
