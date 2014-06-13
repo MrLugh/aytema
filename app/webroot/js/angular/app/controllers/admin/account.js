@@ -142,7 +142,16 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			'border-color':(contentSv.isContentEnabled(content)) ? 'none' : 'black'
 		};
 
-	}	
+	}
+
+	$scope.getContentClass = function(content) {
+
+		if ( content.concept == 'post' && (content.network == 'facebook' || content.network == 'twitter') ) {
+			return 'large';
+		}
+
+		return 'medium';
+	}
 
 	$scope.delete = function(index) {
 
