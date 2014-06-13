@@ -226,7 +226,6 @@
 }
 
 .accountsContainer .account i {
-  font-size: 20px;
   line-height: 42px;
   margin: 0 auto;
   color: #fff;
@@ -260,7 +259,6 @@
   overflow: hidden;
   margin-bottom: 20px;
   position: fixed;
-  height: 120px;
   z-index: 3;
 }
 
@@ -287,7 +285,7 @@
 
 .accountPageHeader .stats li {
    float: left;
-   margin-left: 10px;
+   margin-right: 10px;
 }
 
 #accountPageList {

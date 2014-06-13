@@ -29,7 +29,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		return $scope.list.length;
 	}
 
-
 	$scope.generateConceptsList = function() {
 
 		var concepts = [];
@@ -135,6 +134,14 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		}
 		return {"opacity":"1"};
 	}
+
+	$scope.statIcon = function(stat_name) {
+		return contentSv.getStatIcon(stat_name);
+	}
+
+	$scope.canShowStat = function(stat) {
+		return (parseInt(stat) != 0) ? true : false;
+	}	
 
 	$scope.getContentStyle = function(content) {
 		return {

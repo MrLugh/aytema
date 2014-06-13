@@ -10,10 +10,10 @@
 
 		<div class="filterList">
 
-			<i class="fa fa-search filtersControl" ng-click="manageFilters()"></i>
+			<i class="fa fa-search filtersControl" ng-click="manageFilters()" tooltip="Filter"></i>
 
 			<ul ng-if="showFilters">
-				<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)" >
+				<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)"  tooltip="On/Off {{network.network}}">
 					<i ng-class="networkIcon(network.network)"></i>
 					<span>{{countByNetwork(network.network)}}</span>
 				</li>
@@ -26,10 +26,10 @@
 
 		<div class="addList">
 
-			<i class="fa fa-plus addControl" ng-click="manageAdd()"></i>
+			<i class="fa fa-plus addControl" ng-click="manageAdd()" tooltip="Add account" tooltip-placement="right"></i>
 
 			<ul ng-if="showAdd">
-				<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'">
+				<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'" tooltip="Add {{network.network}} account" tooltip-placement="bottom">
 					<i ng-class="networkIcon(network.network)"></i>
 				</li>
 			</ul>
@@ -44,13 +44,12 @@
 
 					<div class="accountLayerInfo">
 
-						<i ng-click="showAccount($index)" class="fa fa-search right both"></i>
-						<i ng-if="account.network!='cloudcial'" ng-click="delete($index)" class="fa fa-trash-o right both"></i>
+						<i ng-click="showAccount($index)" class="fa fa-search right both" tooltip="View content" tooltip-placement="left"></i>
+						<i ng-if="account.network!='cloudcial'" ng-click="delete($index)" class="fa fa-trash-o right both" tooltip="Delete account" tooltip-placement="left"></i>
 
 						<p ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
-							<i title="{{key}}: {{stat}}" ng-class="statIcon(key)"></i> {{stat}}
+							<i tooltip="{{key}}: {{stat}}" tooltip-placement="right" ng-class="statIcon(key)"></i> {{stat}}
 						</p>
-
 
 					</div>
 

@@ -289,10 +289,6 @@ ul {
   line-height: 25px;
   padding: 12px 20px;
   text-decoration: none;
-  -webkit-transition:all 0.5s ease;
-  -moz-transition:all 0.5s ease;
-  -o-transition:all 0.5s ease;
-  transition:all 0.5s ease;    
 }
 
 #header .menu li a {
@@ -327,7 +323,6 @@ ul {
 #header .menu li.active {
   border-left: 4px solid brown
   transition: border 0.1s ease 0s;
-  padding-left: 25px;
 }
 
 #header .menu li:hover a, #header .menu li.active a {

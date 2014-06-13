@@ -4,8 +4,8 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.user		= userSv.getUser();
 	$scope.current  = -1;
 	$scope.src 		= "";
-	$scope.showPreview = false;
-	$scope.showFilters 	= false;
+	$scope.showPreview	= false;
+	$scope.showFilters	= false;
 
 	$scope.scrollCurrent = function() {
 

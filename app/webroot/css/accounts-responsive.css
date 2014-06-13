@@ -1,9 +1,5 @@
 @media (max-width: 480px) {
 
-  .accountsContainer i {
-    font-size: 20px;
-  }
-
   .accountsContainer .list li {
     margin: 0;
   }

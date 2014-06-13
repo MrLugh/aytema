@@ -2,10 +2,10 @@
 
 	<div ng-if="concepts.length > 1" class="filterList">
 		
-		<i class="fa fa-search filtersControl" ng-click="manageFilters()"></i>
+		<i class="fa fa-search filtersControl" ng-click="manageFilters()" tooltip="Filter"></i>
 
 		<ul ng-show="showFilters">
-			<li ng-repeat="concept in concepts" ng-click="filter(concept)" ng-style="filterStyle(concept)">
+			<li ng-repeat="concept in concepts" ng-click="filter(concept)" ng-style="filterStyle(concept)"tooltip="On/Off {{concept}}">
 				<i ng-class="conceptIcon(concept)"></i> {{countByConcept(concept)}}
 			</li>
 		</ul>
@@ -14,10 +14,10 @@
 
 	<div ng-if="account.network == 'cloudcial'" class="addList">
 		
-		<i class="fa fa-plus addControl" ng-click="manageAdd()"></i>
+		<i class="fa fa-plus addControl" ng-click="manageAdd()" tooltip="Add content" tooltip-placement="right"></i>
 
 		<ul ng-show="showAdd">
-			<li ng-repeat="concept in concepts">
+			<li ng-repeat="concept in concepts" tooltip="Add {{concept}}" tooltip-placement="bottom">
 				<i ng-class="conceptIcon(concept)" ng-click="showAddContent(concept)"></i> {{countByConcept(concept)}}
 			</li>
 		</ul>
@@ -28,19 +28,19 @@
 	<div class="accountPageHeader {{account.network}}AccountPageHeader both">
 
 		<div class="controls">
-			<i class="fa fa-arrow-left left" ng-click="move(-1)" title="Previous Account"></i>
-			<i class="fa fa-arrow-right left" ng-click="move(1)" title="Next Account"></i>
+			<i class="fa fa-arrow-left left" ng-click="move(-1)" tooltip="Previous Account" tooltip-placement="bottom"></i>
+			<i class="fa fa-arrow-right left" ng-click="move(1)" tooltip="Next Account" tooltip-placement="bottom"></i>
 		
 			<img ng-src="{{account.profile_image}}" class="profileImage img-circle inline" />
 			<strong>{{account.login}}</strong>
 
-			<i class="fa fa-times-circle-o left both" ng-click="closeAccount()" title="Close Account"></i>
-			<i ng-click="moreContent()" class="fa fa-plus-circle left" title="More Content"></i>
+			<i class="fa fa-times-circle-o left both" ng-click="closeAccount()" tooltip="Close Account"></i>
+			<i ng-click="moreContent()" class="fa fa-plus-circle left" tooltip="More Content"></i>
 		</div>
 
 		<ul class="stats">
-			<li ng-repeat="(key,stat) in account.stats" title="{{key}}: {{stat}}">
-				<div ng-if="canShowStat(stat)" >
+			<li ng-repeat="(key,stat) in account.stats">
+				<div ng-if="canShowStat(stat)" tooltip="{{key}}: {{stat}}" tooltip-placement="bottom">
 					<i ng-class="statIcon(key)"></i> {{stat}}
 				</div>
 			</li>
@@ -65,7 +65,7 @@
 
 				<div class="stats left">
 					<ul>
-						<li ng-repeat="(key,stat) in content.stats" title="{{key}}:{{stat}}">
+						<li ng-repeat="(key,stat) in content.stats" tooltip="{{key}}:{{stat}}">
 							<div ng-if="canShowStat(stat)" >
 								<i ng-class="statIcon(key)"></i> {{stat}}
 							</div>
