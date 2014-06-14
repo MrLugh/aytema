@@ -106,12 +106,15 @@
 	padding: 20px;
 	color:#fff;
 	font-size: 30px;
+
+	/*
 	border: 8px solid #252328;
 	border-radius: 50%;
 
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(255,255,255,0.8);
 	box-shadow:         0px 0px 20px 0px rgba(255,255,255,0.8);	
+	*/
 
 	-webkit-transition:all 0.56s ease;
 	-moz-transition:all 0.56s ease;
@@ -127,9 +130,11 @@
 .themesContainer .theme .themeInfo i:hover {
 	color:#6FF591;
 
+	/*
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(111, 245, 145,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(111, 245, 145,0.8);
 	box-shadow:         0px 0px 20px 0px rgba(111, 245, 145,0.8);	
+	*/
 
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1); 

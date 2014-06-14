@@ -2,7 +2,7 @@
 
 	<div class="filterList">
 
-		<i class="fa fa-search filtersControl" ng-click="manageFilters()"></i>
+		<i class="fa fa-search filtersControl" ng-click="manageFilters()" tooltip="Filter" tooltip-placement="right"></i>
 
 		<ul ng-show="showFilters">
 			<li>
@@ -23,11 +23,11 @@
 				<p>
 					<h1 class="themeName">{{theme.name}}</h1>
 
-					<a ng-href="/themes?type={{theme.key}}&username={{user.username}}" title="Full Edit">
+					<a ng-href="/themes?type={{theme.key}}&username={{user.username}}" tooltip="Full Edit">
 						<i class="fa fa-cogs"></i>
 					</a>
 					
-					<a href="#/" ng-click="previewSrc($index)" skip-default title="Preview">
+					<a href="#/" ng-click="previewSrc($index)" skip-default tooltip="Preview">
 						<i class="fa fa-search"></i>
 					</a>
 

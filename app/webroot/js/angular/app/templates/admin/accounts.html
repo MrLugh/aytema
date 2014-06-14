@@ -44,12 +44,17 @@
 
 					<div class="accountLayerInfo">
 
-						<i ng-click="showAccount($index)" class="fa fa-search right both" tooltip="View content" tooltip-placement="left"></i>
-						<i ng-if="account.network!='cloudcial'" ng-click="delete($index)" class="fa fa-trash-o right both" tooltip="Delete account" tooltip-placement="left"></i>
+						<div class="controls">
+							<i ng-click="showAccount($index)" class="fa fa-search" tooltip="View content" tooltip-placement="bottom"></i>
+							<i ng-if="account.network!='cloudcial'" ng-click="delete($index)" class="fa fa-trash-o" tooltip="Delete account" tooltip-placement="bottom"></i>
+						</div>
 
-						<p ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
-							<i tooltip="{{key}}: {{stat}}" tooltip-placement="right" ng-class="statIcon(key)"></i> {{stat}}
-						</p>
+						<ul class="center">
+							<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
+								<i tooltip="{{key}}: {{stat}}" tooltip-placement="bottom" ng-class="statIcon(key)"></i> {{stat}}
+							</li>							
+						</ul>
+
 
 					</div>
 

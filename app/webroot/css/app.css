@@ -337,9 +337,17 @@ ul {
   padding: 0!important;
 }
 
-.headerClosed .navbar-form {
+.headerClosed .navbar-form, .headerClosed .navbar-brand, .headerClosed .profileImageContainer {
   position: relative;
-  left: -100%;
+  left: -500%;
+  width: 0px;
+  height: 0px;
+  -moz-opacity: 0.80;
+  -khtml-opacity: 0.80;
+  opacity: 0.80;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=80);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+  filter:alpha(opacity=80);
 }
 
 .headerClosed .menu {
