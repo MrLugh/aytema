@@ -367,7 +367,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 			if (content.network == 'facebook') {
 				if (angular.isDefined(content.data['picture'])) {
-					source = content.data['picture'];
+					//source = content.data['picture'];
 				}
 			}
 
@@ -413,7 +413,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 			if (content.network == 'facebook') {
 				if (angular.isDefined(content.data['picture'])) {
-					source = content.data['picture'];
+					//source = content.data['picture'];
 				}
 			}
 		}

@@ -46,7 +46,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 				filters['networks'].push(account.network);
 			}
 
-			var concepts = networks[account.network]['concepts'];
+			var concepts =  angular.isDefined(networks[account.network]) ? networks[account.network]['concepts'] : [];
 
 			for (var y in concepts){
 				var concept = concepts[y];
@@ -457,8 +457,9 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
     	var style = {
-			'background-color':$scope.config.custom.colors.contentBackground.value,
-			'color':$scope.config.custom.colors.contentText.value,    		
+			//'background-color':$scope.config.custom.colors.contentBackground.value,
+			'color':$scope.config.custom.colors.contentText.value,
+			'min-height':appSv.getHeight() - $scope.menuHeight + 'px'
     	}
 
     	if ($scope.controlHover) {
@@ -513,7 +514,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     		return '';
     	}
     	var current = $scope.list[$scope.current];
-    	return 'content_hover '+current.network+'_bg '+current.network+'_color';
+    	return 'content_hover '+current.network+'_color';
     }
 
     $scope.getNavigatorIndex = function(direction) {
