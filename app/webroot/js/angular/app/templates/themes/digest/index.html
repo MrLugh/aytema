@@ -4,7 +4,7 @@
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script src="http://platform.tumblr.com/v1/share.js"></script>
 
-<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
+<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme" tooltip-placement="right">
 	<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
 
 	<tabset ng-if="showConfig">
@@ -142,7 +142,7 @@
 
 		</div>
 
-		<a href="#/" ng-click="move(-1)" title="{{getNavigatorTitle(-1)}}" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)" ng-style="getStyle()">
+		<a href="#/" ng-click="move(-1)" tooltip="{{getNavigatorTitle(-1)}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)" ng-style="getStyle()">
 			<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
 			<div class="more-user" ng-show="getNavigatorThumbnail(-1).length">
 				<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
@@ -151,7 +151,7 @@
 			<img class="social-media" ng-src="http://cloudcial.com/img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
 		</a>
 
-		<a href="#/" ng-click="move(1)" title="{{getNavigatorTitle(1)}}" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)" ng-style="getStyle()">
+		<a href="#/" ng-click="move(1)" tooltip="{{getNavigatorTitle(1)}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)" ng-style="getStyle()">
 			<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
 			<div class="more-user" ng-show="getNavigatorThumbnail(1).length">
 				<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
@@ -164,8 +164,8 @@
 
 
 
-	<div class="arrows arrows_home arrow_left" ng-style="getStyle()">
-	 	<a href="#/" skip-default ng-click="movePage(-1)" title="{{getPageArrowTitle(-1)}}">
+	<div class="arrows arrows_home arrow_left" ng-style="getStyle()" tooltip="{{getPageArrowTitle(-1)}}" tooltip-placement="right">
+	 	<a href="#/" skip-default ng-click="movePage(-1)">
 	 		<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="Previous page">
 	 	</a>
 	 </div>
@@ -179,7 +179,7 @@
 
 			<div class="stats both">
 				<ul>
-					<li ng-repeat="(key,stat) in content.stats" title="{{key}}:{{stat}}">
+					<li ng-repeat="(key,stat) in content.stats" tooltip="{{key}}:{{stat}}">
 						<div ng-if="canShowStat(stat)" >
 							<i ng-class="statIcon(key)"></i> {{stat}}
 						</div>
@@ -208,8 +208,8 @@
 
 	</ul>
 
-	<div class="arrows arrows_home arrow_right" ng-style="getStyle()">
-		<a href="#/" skip-default ng-click="movePage(1)" title="{{getPageArrowTitle(1)}}">
+	<div class="arrows arrows_home arrow_right" ng-style="getStyle()" tooltip="{{getPageArrowTitle(1)}}" tooltip-placement="left">
+		<a href="#/" skip-default ng-click="movePage(1)">
 			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="Next page">
 		</a>
 	</div>

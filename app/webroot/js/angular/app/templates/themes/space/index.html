@@ -4,7 +4,7 @@
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script src="http://platform.tumblr.com/v1/share.js"></script>
 
-	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
+	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme"  tooltip-placement="right">
 		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
 
 		<tabset ng-if="showConfig">
@@ -113,14 +113,14 @@
 
 		<div class="controls" ng-style="getControlsStyle()">
 
-			<a href="#/" class="prev" skip-default ng-click="move(-1)" title="Previous content" ng-style="getControlsButtonStyle()">
+			<a href="#/" class="prev" skip-default ng-click="move(-1)" tooltip="Previous content" ng-style="getControlsButtonStyle()">
 				<i class="fa fa-arrow-circle-up"></i>
 			</a>
-			<a href="#/" class="next" skip-default ng-click="move(1)" title="Next content" ng-style="getControlsButtonStyle()">
+			<a href="#/" class="next" skip-default ng-click="move(1)" tooltip="Next content" ng-style="getControlsButtonStyle()">
 				<i class="fa fa-arrow-circle-down"></i>
 			</a>
 
-			<a href="#/" class="mode" skip-default ng-click="changeMode()" ng-title="getModeTitle()" ng-style="getControlsButtonStyle()">
+			<a href="#/" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()}}" ng-style="getControlsButtonStyle()">
 				<i ng-class="getModeIconClass()"></i>
 			</a>
 

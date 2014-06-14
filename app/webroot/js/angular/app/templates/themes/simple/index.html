@@ -4,7 +4,7 @@
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script src="http://platform.tumblr.com/v1/share.js"></script>
 
-	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" title="Edit theme">
+	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme"  tooltip-placement="right">
 		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
 
 		<tabset ng-if="showConfig">
@@ -39,7 +39,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 
-				<li ng-repeat="network in filters.networks" class="inline menu-item" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)">
+				<li ng-repeat="network in filters.networks" class="inline menu-item" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)" tooltip="On/Off {{network}}" tooltip-placement="bottom">
 					<p class="navbar-text navbar-right">
 						<a href="#" class="navbar-link" skip-default>
 							<img ng-src="{{networkIcon(network)}}" class="socialIcon" />
@@ -47,7 +47,7 @@
 					</p>
 				</li>
 
-				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterConceptStyle(concept)" class="inline menu-item">
+				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterConceptStyle(concept)" class="inline menu-item" tooltip="On/Off {{concept}}" tooltip-placement="bottom">
 					<p class="navbar-text navbar-right">
 						<a href="#" class="navbar-link" skip-default>
 							<i ng-class="conceptIcon(concept)" ng-style="getMenuStyle()"></i>
@@ -124,7 +124,7 @@
 
 	</div>
 
-	<a href="#/" skip-default ng-click="move(-1)" ng-if="list.length>1" class="control control_prev {{getNavigatorNetwork(-1)}}_bg left" control-hover="prev" style="top:{{menuHeight+4}}px;" title="{{getNavigatorTitle(-1)}}" ng-style="getControlStyle(-1)">
+	<a href="#/" skip-default ng-click="move(-1)" ng-if="list.length>1" class="control control_prev {{getNavigatorNetwork(-1)}}_bg left" control-hover="prev" style="top:{{menuHeight+4}}px;" tooltip="{{getNavigatorTitle(-1)}}" tooltip-placement="right" ng-style="getControlStyle(-1)">
 		<img class="social-media right" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(-1)}}-big.png" alt=""/>
 		<i class="social-icon right" ng-class="getNavigatorConceptIcon(-1)"></i>
 		<div ng-show="getNavigatorThumbnail(-1).length>0">
@@ -132,7 +132,7 @@
 		</div>
 	</a>
 
-	<a href="#/" skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}_bg right" control-hover="next" style="top:{{menuHeight+4}}px;" title="{{getNavigatorTitle(1)}}" ng-style="getControlStyle(1)">
+	<a href="#/" skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}_bg right" tooltip-placement="left" control-hover="next" style="top:{{menuHeight+4}}px;" tooltip="{{getNavigatorTitle(1)}}" ng-style="getControlStyle(1)">
 		<img class="social-media left" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(1)}}-big.png" alt=""/>
 		<i class="social-icon left" ng-class="getNavigatorConceptIcon(1)"></i>
 		<div ng-show="getNavigatorThumbnail(1).length>0">
