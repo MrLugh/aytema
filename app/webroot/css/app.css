@@ -178,7 +178,7 @@ ul {
 }
 
 #menuControl i {
-  color: white;
+  color: #555555;
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
@@ -231,7 +231,7 @@ ul {
 
 #header .profileImageContainer i {
   top: calc(50% - 7px);
-  color: white;
+  color: #555555;
   font-size: 15px;
   position: relative;
   -webkit-transition:all 0.5s ease;

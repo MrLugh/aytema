@@ -7,7 +7,7 @@
 }
 
 .themesContainer .filterList {
-	color: white;
+	color: #555555;
 	position: fixed;
 	z-index: 3;
 	font-size: 20px;
@@ -189,7 +189,7 @@
 
 .themesContainer .themeNavigation {
 	background-color: #252328;
-	color: white;
+	color: #555555;
 	z-index: 3;
 	font-size: 20px;
 	margin: 0 auto;
