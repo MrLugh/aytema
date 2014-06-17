@@ -136,7 +136,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 
 		if ($scope.profileImages.indexOf($scope.user.profile_image) != -1) {
 			$scope.currentImage	= $scope.profileImages.indexOf($scope.user.profile_image);
-		} else if ($scope.user.profile_image.length>0) {
+		} else if ( angular.isDefined(($scope.user.profile_image)) && $scope.user.profile_image.length>0) {
 			$scope.profileImages.push($scope.user.profile_image);
 			$scope.currentImage	= $scope.profileImages.indexOf($scope.user.profile_image);
 		}
