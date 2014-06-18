@@ -86,9 +86,17 @@ function ($timeout) {
             });
         }           
 
-        setInterval(function(){
+
+        scope.timer = setInterval(function(){
             scope.masonry.layout();
-        },500);
+        },1500);
+
+        var destroy = function() {
+            element.unbind('$destroy',destroy);
+            clearTimeout(scope.timer);
+        }
+
+        element.bind('$destroy',destroy);
     }
 }]);
 

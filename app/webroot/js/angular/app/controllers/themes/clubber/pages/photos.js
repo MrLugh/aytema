@@ -5,6 +5,8 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 	$scope.loading 	= false;
 	$scope.limit 	= 10;
 	$scope.offset 	= 0;
+	$scope.show 	= false;
+	$scope.content 	= false;
 
 	$scope.setList = function() {
 
@@ -46,6 +48,64 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 			'background-color': $scope.config.custom.colors.contentBackground.value,
 			'color': $scope.config.custom.colors.contentText.value
 		}
+	}
+
+	$scope.getPlayerStyle = function() {
+		return {
+			'background-color': $scope.config.custom.colors.background.value,
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	}
+
+	$scope.getCommentsColor = function() {
+
+		var color = $scope.config.custom.colors.background.value.replace("#","");
+
+		if (contentSv.getContrast50(color) == 'white') {
+			return "dark";
+		}
+		return "light";
+	}
+
+	$scope.showPhoto = function(content) {
+		$scope.show 	= false;
+		$scope.current  = -1
+		$scope.content  = {};
+		$scope.contents = [];
+
+		$scope.content 	= content;
+		$scope.current 	= $scope.photolist.indexOf($scope.content);
+		$scope.contents	= [content];
+
+		$scope.show 	= true;
+	}
+
+	$scope.move = function(direction) {
+
+		var indexCurrent = $scope.photolist.indexOf($scope.content);
+
+		if (direction > 0) {
+			indexCurrent++;
+		} else {
+			indexCurrent--;
+		}
+
+		if (indexCurrent == $scope.photolist.length) {
+			indexCurrent = 0;
+		}
+		if (indexCurrent < 0) {		
+			indexCurrent = $scope.photolist.length - 1;
+		}
+
+		$scope.showPhoto($scope.photolist[indexCurrent]);
+	}
+
+	$scope.close = function() {
+		$scope.show   = false;
+	}
+
+	$scope.pagePhotosWithplayerClass = function() {
+		return ($scope.show) ? 'pagePhotosWithplayer':'';
 	}	
 
 	$scope.loadMore = function() {
@@ -58,5 +118,10 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 		}
 		$scope.setList();
 	}
+
+    $scope.getContentCommentsHash = function() {
+    	var c = $scope.content;
+    	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
+    }
 
 }

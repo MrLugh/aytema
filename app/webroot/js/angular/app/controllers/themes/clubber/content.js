@@ -198,6 +198,11 @@ function contentPhotoCo($scope,userSv,contentSv) {
 		}
 	}
 
+	$scope.showPhoto = function() {
+
+		$scope.$parent.showPhoto($scope.content);
+	}	
+
 	$scope.move = function(direction) {
 
 		//console.log("content move");

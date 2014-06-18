@@ -1,6 +1,30 @@
 <div class="pagePhotos">
 
-	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pagePhotosItem'}">
+	<div ng-if="show" class="photo_full_player_container" ng-style="getPlayerStyle()" ng-repeat="content in contents">
+		
+		<a href="#" skip-default ng-click="move(-1)" class="photo_prev" ng-style="getPlayerStyle()">
+			<i class="fa fa-chevron-circle-left"></i>
+		</a>
+
+		<a href="#" skip-default ng-click="close()" class="close_player" ng-style="getPlayerStyle()">
+			<i class="fa fa-times-circle"></i>
+		</a>
+
+		<a href="#" skip-default ng-click="move(1)" class="photo_next" ng-style="getPlayerStyle()">
+			<i class="fa fa-chevron-circle-right"></i>
+		</a>
+
+		<div class="photo_full_player">
+			<content-photo></content-photo>
+		</div>
+
+		<div class="comments">
+			<fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true" data-colorscheme="{{getCommentsColor()}}" class="comments_container"></fb-comments>
+		</div>
+
+	</div>
+
+	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pagePhotosItem'}" ng-class="pagePhotosWithplayerClass()">
 
 		<li ng-repeat="content in photolist" class="pagePhotosItem" masonry-simple-item>
 			<content-photo></content-photo>
@@ -8,6 +32,6 @@
 
 	</ul>
 
-	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="fa fa-icon-plus"></i> Photos ({{offset}} of {{contentSv.getPageList('photos').list.length}}) </a>
+	<a href="#" ng-if="!loading && !show" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="fa fa-icon-plus"></i> Photos ({{offset}} of {{contentSv.getPageList('photos').list.length}}) </a>
 
 </div>

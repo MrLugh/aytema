@@ -4,7 +4,12 @@
 
 		<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':'content_photo_hide'" />
 
-		<div style="position:absolute;width:100%;top:0;bottom:0;left:0;z-index:3;">
+		<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0" ng-style="getDescriptionStyle()"> 
+			<h2>{{getTitle()}}</h2>
+			<p ng-bind-html="getDescription()"></p>
+		</div>
+
+		<div style="position:absolute;width:100%;top:0;bottom:0;left:0;z-index:3;" class="overlay">
 
 			<a ng-if="moreThanOne()" class="left photo_prev" href="#/" skip-default ng-click="move(-1)">
 				<i class="fa fa-chevron-circle-left"></i>
@@ -13,6 +18,8 @@
 			<a ng-if="moreThanOne()" class="right photo_next" href="#/" skip-default ng-click="move(1)">
 				<i class="fa fa-chevron-circle-right"></i>
 			</a>
+
+			<i class="fa fa-eye show" ng-click="showPhoto()"></i>
 
 		</div>
 
