@@ -46,7 +46,7 @@ function ($window) {
             }
 
             angular.element($window).bind('scroll',scroll);
-            element.bind('$destroy',destroy);            
+            element.bind('$destroy',destroy);
         }
     }
 

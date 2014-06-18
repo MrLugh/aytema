@@ -1,13 +1,13 @@
 <div class="pageVideos">
 
-	<div ng-if="show" class="video_full_player_container" ng-style="getPlayerStyle()">
+	<div ng-if="show" class="video_full_player_container" ng-style="getPlayerStyle()" ng-repeat="content in contents">
 		
-		<a href="#" skip-default ng-click="close()" class="close_player" ng-style="getPlayerStyle()">
-			<i class="fa fa-times-circle"></i>
-		</a>
-
 		<a href="#" skip-default ng-click="move(-1)" class="video_prev" ng-style="getPlayerStyle()">
 			<i class="fa fa-chevron-circle-left"></i>
+		</a>
+
+		<a href="#" skip-default ng-click="close()" class="close_player" ng-style="getPlayerStyle()">
+			<i class="fa fa-times-circle"></i>
 		</a>
 
 		<a href="#" skip-default ng-click="move(1)" class="video_next" ng-style="getPlayerStyle()">
@@ -16,7 +16,11 @@
 
 		<div class="video_full_player" ng-bind-html="player"></div>
 
-	</div>	
+		<div class="comments">
+			<fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true" data-colorscheme="{{getCommentsColor()}}" class="comments_container"></fb-comments>
+		</div>
+
+	</div>
 
 	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pageVideosItem'}" ng-class="pageVideosWithplayerClass()">
 

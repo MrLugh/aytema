@@ -53,7 +53,7 @@ function($FB,$timeout){
                         if(value){
                             if (typeof $FB  != "undefined"){
                                 $FB.XFBML.parse($('.fb-comments .fb_iframe_widget').get(0));
-                                $FB.XFBML.parse($('.fb-comments-count .fb_iframe_widget').get(0));                                
+                                $FB.XFBML.parse($('.fb-comments-count .fb_iframe_widget').get(0));
                             }
                         }
                     },true);

@@ -58,11 +58,28 @@ function TracksCo($scope,appSv,contentSv,$sce) {
 		}
 	}
 
+	$scope.getCommentsColor = function() {
+
+		var color = $scope.config.custom.colors.background.value.replace("#","");
+
+		if (contentSv.getContrast50(color) == 'white') {
+			return "dark";
+		}
+		return "light";
+	}
+
 	$scope.showTrack = function(content) {
-		$scope.current= $scope.tracklist.indexOf($scope.content);
-		$scope.content= content;
-		$scope.player = $sce.trustAsHtml(contentSv.getPlayer($scope.content));
-		$scope.show   = true;
+		$scope.show 	= false;
+		$scope.current  = -1
+		$scope.content  = {};
+		$scope.contents = [];
+
+		$scope.content 	= content;
+		$scope.current 	= $scope.tracklist.indexOf($scope.content);
+		$scope.contents	= [content];
+		$scope.player 	= $sce.trustAsHtml(contentSv.getPlayer($scope.content));
+
+		$scope.show   	= true;
 	}
 
 	$scope.move = function(direction) {
@@ -103,5 +120,10 @@ function TracksCo($scope,appSv,contentSv,$sce) {
 		}
 		$scope.setList();
 	}
+
+    $scope.getContentCommentsHash = function() {
+    	var c = $scope.content;
+    	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
+    }	
 
 }

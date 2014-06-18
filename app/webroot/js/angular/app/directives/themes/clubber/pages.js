@@ -1,5 +1,5 @@
-ayTemaDs.directive('photos',[
-function(){
+ayTemaDs.directive('photos',['$window',
+function ($window) {
     
     return {
         templateUrl : getPath('tpl')+'/themes/clubber/pages/photos.html',
@@ -8,17 +8,23 @@ function(){
         controller:'PhotosCo',
         link: function(scope,element,attrs) {
 
-            $(window).scroll(function() {
-
+            var scroll = function() {
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
 
                 var scrollPercent = Math.round(100*bottom/height);
-                if(!scope.loading && scrollPercent > 95) {
+                if(!scope.show && !scope.loading && scrollPercent > 95) {
                     scope.$apply(scope.loadMore());
                 }
+            }
 
-            });
+            var destroy = function() {
+                element.unbind('$destroy',destroy);
+                angular.element($window).unbind('scroll',scroll);
+            }
+
+            angular.element($window).bind('scroll',scroll);
+            element.bind('$destroy',destroy);
 
         }
     }
@@ -26,8 +32,8 @@ function(){
 }]);
 
 
-ayTemaDs.directive('videos',[
-function(){
+ayTemaDs.directive('videos',['$window',
+function ($window) {
     
     return {
         templateUrl : getPath('tpl')+'/themes/clubber/pages/videos.html',
@@ -36,25 +42,31 @@ function(){
         controller:'VideosCo',
         link: function(scope,element,attrs) {
 
-            $(window).scroll(function() {
-
+            var scroll = function() {
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
 
                 var scrollPercent = Math.round(100*bottom/height);
-                if(!scope.loading && scrollPercent > 95) {
+                if(!scope.show && !scope.loading && scrollPercent > 95) {
                     scope.$apply(scope.loadMore());
                 }
+            }
 
-            });
+            var destroy = function() {
+                element.unbind('$destroy',destroy);
+                angular.element($window).unbind('scroll',scroll);
+            }
+
+            angular.element($window).bind('scroll',scroll);
+            element.bind('$destroy',destroy);
 
         }
     }
 
 }]);
 
-ayTemaDs.directive('tracks',[
-function(){
+ayTemaDs.directive('tracks',['$window',
+function ($window) {
     
     return {
         templateUrl : getPath('tpl')+'/themes/clubber/pages/tracks.html',
@@ -63,25 +75,31 @@ function(){
         controller:'TracksCo',
         link: function(scope,element,attrs) {
 
-            $(window).scroll(function() {
-
+            var scroll = function() {
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
 
                 var scrollPercent = Math.round(100*bottom/height);
-                if(!scope.loading && scrollPercent > 95) {
+                if(!scope.show && !scope.loading && scrollPercent > 95) {
                     scope.$apply(scope.loadMore());
                 }
+            }
 
-            });
+            var destroy = function() {
+                element.unbind('$destroy',destroy);
+                angular.element($window).unbind('scroll',scroll);
+            }
+
+            angular.element($window).bind('scroll',scroll);
+            element.bind('$destroy',destroy);
 
         }
     }
 
 }]);
 
-ayTemaDs.directive('posts',[
-function(){
+ayTemaDs.directive('posts',['$window',
+function ($window) {
     
     return {
         templateUrl : getPath('tpl')+'/themes/clubber/pages/posts.html',
@@ -90,25 +108,31 @@ function(){
         controller:'PostsCo',
         link: function(scope,element,attrs) {
 
-            $(window).scroll(function() {
-
+            var scroll = function() {
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
 
                 var scrollPercent = Math.round(100*bottom/height);
-                if(!scope.loading && scrollPercent > 95) {
+                if(!scope.show && !scope.loading && scrollPercent > 95) {
                     scope.$apply(scope.loadMore());
                 }
+            }
 
-            });
+            var destroy = function() {
+                element.unbind('$destroy',destroy);
+                angular.element($window).unbind('scroll',scroll);
+            }
+
+            angular.element($window).bind('scroll',scroll);
+            element.bind('$destroy',destroy);
 
         }
     }
 
 }]);
 
-ayTemaDs.directive('events',[
-function(){
+ayTemaDs.directive('events',['$window',
+function ($window) {
     
     return {
         templateUrl : getPath('tpl')+'/themes/clubber/pages/events.html',
@@ -117,17 +141,23 @@ function(){
         controller:'EventsCo',
         link: function(scope,element,attrs) {
 
-            $(window).scroll(function() {
-
+            var scroll = function() {
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
 
                 var scrollPercent = Math.round(100*bottom/height);
-                if(!scope.loading && scrollPercent > 95) {
+                if(!scope.show && !scope.loading && scrollPercent > 95) {
                     scope.$apply(scope.loadMore());
                 }
+            }
 
-            });
+            var destroy = function() {
+                element.unbind('$destroy',destroy);
+                angular.element($window).unbind('scroll',scroll);
+            }
+
+            angular.element($window).bind('scroll',scroll);
+            element.bind('$destroy',destroy);
 
         }
     }

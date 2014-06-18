@@ -1,7 +1,8 @@
 /* Estilos galeria*/
 
 .pageVideosWithplayer {
-    opacity: 0.1;
+    filter: alpha(opacity=0);
+    opacity: 0;
 }
 
 .pageVideos {
@@ -153,6 +154,7 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+    filter: alpha(opacity=50);
     opacity: 0.5;
 }
 
@@ -166,34 +168,29 @@
 
 
 .pageVideos ul li .video_prev i {
-    left: 10%;
+    float: left;
 }
 
 .pageVideos ul li .video_next i {
-    right: 10%;
+    float: right;
 }
 
 .pageVideos ul li .video_prev i , .pageVideos ul li .video_next i {
     position: relative;
     font-size: 25px;
-    top:50%;
 }
 
 .pageVideos .video_full_player_container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    /*min-height: 450px;*/
-    height: 100%;
+    min-height: 100%;
     z-index: 2;
-    background: url("http://cloudcial.com/img/themes/clubber/bg-dot.png") repeat 0 0 #fff;
 }
 
 .pageVideos .video_full_player_container .close_player, .pageVideos .video_full_player_container .video_prev, .pageVideos .video_full_player_container .video_next {
-    position: fixed;
     z-index: 3;
-    top: 80px;
     font-size: 30px;
 }
 
@@ -225,8 +222,6 @@
 .pageVideos .video_full_player {
     position: relative;
     min-height: 450px;
-    height: calc(100% - 130px);
-    top: 130px;
     width: 100%;
 
     -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
