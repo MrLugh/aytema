@@ -30,6 +30,6 @@
 
 	</ul>
 
-	<a href="#" ng-if="!loading" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="fa fa-icon-plus"></i> Videos ({{offset}} of {{contentSv.getPageList('videos').list.length}}) </a>
+	<a href="#" ng-if="!loading && !show" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="fa fa-icon-plus"></i> Videos ({{offset}} of {{contentSv.getPageList('videos').list.length}}) </a>
 
 </div>

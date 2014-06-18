@@ -3,6 +3,7 @@
 .pageTracksWithplayer {
     filter: alpha(opacity=0);
     opacity: 0;
+    height: 0px!important;
 }
 
 .pageTracks {
@@ -181,7 +182,7 @@
 }
 
 .pageTracks .track_full_player_container {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
