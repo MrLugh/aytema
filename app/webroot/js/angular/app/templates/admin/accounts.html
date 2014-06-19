@@ -13,7 +13,7 @@
 			<i class="fa fa-search filtersControl" ng-click="manageFilters()" tooltip="Filter"></i>
 
 			<ul ng-if="showFilters">
-				<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)"  tooltip="On/Off {{network.network}}">
+				<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-style="filterStyle(key)"  tooltip="On/Off {{network.network}}" ng-hide="countByNetwork(network.network) == 0">
 					<i ng-class="networkIcon(network.network)"></i>
 					<span>{{countByNetwork(network.network)}}</span>
 				</li>
