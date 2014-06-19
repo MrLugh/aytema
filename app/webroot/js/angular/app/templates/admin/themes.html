@@ -20,18 +20,15 @@
 
 			<div class="themeInfo">
 				
-				<p>
-					<h1 class="themeName">{{theme.name}}</h1>
+				<h1 class="themeName">{{theme.name}}</h1>
 
-					<a ng-href="/themes?type={{theme.key}}&username={{user.username}}" tooltip="Full Edit">
-						<i class="fa fa-cogs"></i>
-					</a>
-					
-					<a href="#/" ng-click="previewSrc($index)" skip-default tooltip="Preview">
-						<i class="fa fa-search"></i>
-					</a>
-
-				</p>
+				<a ng-href="/themes?type={{theme.key}}&username={{user.username}}" tooltip="Full Edit">
+					<i class="fa fa-cogs"></i>
+				</a>
+				
+				<a href="#/" ng-click="previewSrc($index)" skip-default tooltip="Preview">
+					<i class="fa fa-search"></i>
+				</a>
 
 			</div>
 
@@ -45,9 +42,13 @@
 				<strong class="left">{{getPreviousThemeName()}}</strong>
 			</div>			
 
-			<p>{{list[current].name}}</p>
-			<i class="fa fa-times-circle-o" ng-click="closePreview()"></i>
-
+			<p>
+				<a href="{{src}}" tooltip="Full Edit" tooltip-placement="bottom">
+					<i class="fa fa-cogs"></i>
+				</a>
+				{{list[current].name}}
+				<i class="fa fa-times-circle-o" ng-click="closePreview()" tooltip="Close preview" tooltip-placement="bottom"></i>
+			</p>
 
 			<div class="themeControlThumbnail right" ng-click="move(1)" ng-style="getNextStyle()">
 				<strong class="right">{{getNextThemeName()}}</strong>	
