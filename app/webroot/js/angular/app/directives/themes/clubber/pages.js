@@ -8,6 +8,16 @@ function ($window) {
         controller:'PhotosCo',
         link: function(scope,element,attrs) {
 
+            scope.scrollToTop = function() {
+                $('body').animate({scrollTop: $('body').offset().top}, "slow");
+            }            
+
+            scope.$watch('show',function(){
+                if (scope.show) {
+                    scope.scrollToTop();
+                }
+            });
+
             var scroll = function() {
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
@@ -42,6 +52,16 @@ function ($window) {
         controller:'VideosCo',
         link: function(scope,element,attrs) {
 
+            scope.scrollToTop = function() {
+                $('body').animate({scrollTop: $('body').offset().top}, "slow");
+            }            
+
+            scope.$watch('show',function(){
+                if (scope.show) {
+                    scope.scrollToTop();
+                }
+            });
+
             var scroll = function() {
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
@@ -74,6 +94,16 @@ function ($window) {
         replace : true,
         controller:'TracksCo',
         link: function(scope,element,attrs) {
+
+            scope.scrollToTop = function() {
+                $('body').animate({scrollTop: $('body').offset().top}, "slow");
+            }            
+
+            scope.$watch('show',function(){
+                if (scope.show) {
+                    scope.scrollToTop();
+                }
+            });
 
             var scroll = function() {
                 var bottom = $(window).height() + $(window).scrollTop();

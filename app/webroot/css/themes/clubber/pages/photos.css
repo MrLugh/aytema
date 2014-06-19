@@ -64,13 +64,23 @@
     box-shadow: 0 1px 3px rgba(34,25,25,0.4);
 }
 
-
+.pagePhotos .current .content_photo {
+    border-radius: 50%;
+}
 
 .pagePhotosItem {
-  -webkit-transition:none;
-  -moz-transition:none;
-  -o-transition:none;
-  transition:none;    
+    -webkit-transition:none;
+    -moz-transition:none;
+    -o-transition:none;
+    transition:none;
+}
+
+.pagePhotosItem.current {
+   border: 1px dashed #555555;
+}
+
+.pagePhotosItem:hover {
+   border: 1px dashed #292828;
 }
 
 .pagePhotosItem .content_caption {

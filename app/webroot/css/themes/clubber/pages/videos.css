@@ -147,6 +147,14 @@
   transition:none;    
 }
 
+.pageVideosItem.current {
+   border: 1px dashed #555555;
+}
+
+.pageVideosItem:hover {
+   border: 1px dashed #292828;
+}
+
 /* controls */
 
 .pageVideos ul li .video_prev , .pageVideos ul li .video_next {

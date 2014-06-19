@@ -147,6 +147,14 @@
   transition:none;    
 }
 
+.pageTracksItem.current {
+   border: 1px dashed #555555;
+}
+
+.pageTracksItem:hover {
+   border: 1px dashed #292828;
+}
+
 /* controls */
 
 .pageTracks ul li .track_prev , .pageTracks ul li .track_next {

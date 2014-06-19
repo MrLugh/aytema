@@ -103,6 +103,25 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 
 	$scope.close = function() {
 		$scope.show   = false;
+		$scope.scrollCurrent();
+	}
+
+	$scope.scrollCurrent = function() {
+
+		element = angular.element(document.querySelector("#page_videos_"+$scope.current));
+
+		if (angular.isDefined(element[0])) {
+			angular.element(document).ready(function(){
+
+				var bg 	= angular.element(document.querySelector("#page_videos_"+$scope.current));
+
+				$('html, body').animate({
+					scrollTop: element[0].offsetTop
+				}, 500);
+
+			});
+		}
+
 	}
 
 	$scope.pageVideosWithplayerClass = function() {
