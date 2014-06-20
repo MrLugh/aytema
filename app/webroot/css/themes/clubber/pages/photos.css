@@ -24,7 +24,7 @@
     float: left;
     margin: 0;
     padding: 15px;
-    width: calc(50% - 1px);
+    width: calc(50% - 5px);
 }
 
 .pagePhotos ul li .photo {
@@ -76,11 +76,7 @@
 }
 
 .pagePhotosItem.current {
-   border: 1px dashed #555555;
-}
-
-.pagePhotosItem:hover {
-   border: 1px dashed #292828;
+   outline: 4px dashed #555555;
 }
 
 .pagePhotosItem .content_caption {

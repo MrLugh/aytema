@@ -148,11 +148,7 @@
 }
 
 .pageVideosItem.current {
-   border: 1px dashed #555555;
-}
-
-.pageVideosItem:hover {
-   border: 1px dashed #292828;
+   outline: 2px dashed #555555;
 }
 
 /* controls */

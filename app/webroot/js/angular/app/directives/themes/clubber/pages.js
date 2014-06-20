@@ -9,7 +9,7 @@ function ($window) {
         link: function(scope,element,attrs) {
 
             scope.scrollToTop = function() {
-                $('body').animate({scrollTop: $('body').offset().top}, "slow");
+                $('body').animate({scrollTop: $('body').offset().top}, "fast");
             }            
 
             scope.$watch('show',function(){
@@ -53,7 +53,7 @@ function ($window) {
         link: function(scope,element,attrs) {
 
             scope.scrollToTop = function() {
-                $('body').animate({scrollTop: $('body').offset().top}, "slow");
+                $('body').animate({scrollTop: $('body').offset().top}, "fast");
             }            
 
             scope.$watch('show',function(){
@@ -96,7 +96,7 @@ function ($window) {
         link: function(scope,element,attrs) {
 
             scope.scrollToTop = function() {
-                $('body').animate({scrollTop: $('body').offset().top}, "slow");
+                $('body').animate({scrollTop: $('body').offset().top}, "fast");
             }            
 
             scope.$watch('show',function(){
