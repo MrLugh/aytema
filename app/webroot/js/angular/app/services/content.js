@@ -138,7 +138,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
         } else if (concept == 'photo' || concept == 'photos') {
         	icon_class= "fa fa-camera";
         } else if (concept == 'post' || concept == 'posts') {
-        	icon_class= "fa fa-font";
+        	icon_class= "fa fa-file-text";
         } else if (concept == 'quote' || concept == 'quotes') {
         	icon_class= "fa fa-quote-left";
         } else if (concept == 'chat' || concept == 'chats') {
