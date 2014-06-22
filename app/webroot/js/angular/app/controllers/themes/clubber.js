@@ -127,7 +127,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.getMenuItemIconClass = function(page) {
-		return contentSv.getStatIcon(page);
+		return contentSv.getConceptIcon(page);
 	}
 
 	$scope.getMenuItemStyle =  function(page) {

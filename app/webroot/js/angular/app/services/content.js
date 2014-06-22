@@ -120,6 +120,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		    icon_class= "fa fa-list";
 		} else if (stat_name == 'following') {
 		    icon_class= "fa fa-star";
+		} else if (stat_name == 'events') {
+		    icon_class= "fa fa-calendar";
 		}
 
 		return icon_class;
@@ -129,21 +131,21 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var icon_class = "";
 
-        if (concept == 'video') {
+        if (concept == 'video' || concept == 'videos') {
         	icon_class= "fa fa-video-camera";
-        } else if (concept == 'track') {
+        } else if (concept == 'track' || concept == 'tracks') {
         	icon_class= "fa fa-music";
-        } else if (concept == 'photo') {
+        } else if (concept == 'photo' || concept == 'photos') {
         	icon_class= "fa fa-camera";
-        } else if (concept == 'post') {
+        } else if (concept == 'post' || concept == 'posts') {
         	icon_class= "fa fa-font";
-        } else if (concept == 'quote') {
+        } else if (concept == 'quote' || concept == 'quotes') {
         	icon_class= "fa fa-quote-left";
-        } else if (concept == 'chat') {
+        } else if (concept == 'chat' || concept == 'chats') {
         	icon_class= "fa fa-book";
-        } else if (concept == 'link') {
+        } else if (concept == 'link' || concept == 'links') {
         	icon_class = "fa fa-link";
-        } else if (concept == 'event') {
+        } else if (concept == 'event' || concept == 'events') {
         	icon_class = "fa fa-calendar";
         }
 
