@@ -1,0 +1,24 @@
+<div ng-show="relateds.length>0" class="relateds">
+	<h3>More about</h3>
+
+	<div class="wrapper" ng-if="relateds.length>0">
+		<div class="list_carousel" ng-show="relateds.length>0">
+			<a id="prev2" class="prev" href="#/">
+				<i class="fa fa-chevron-circle-left"></i>
+			</a>
+			<a id="next2" class="next" href="#/">
+				<i class="fa fa-chevron-circle-right"></i>
+			</a>
+			<div class="carousel_container left">
+				<ul id="carousel">
+					<li ng-repeat="related in relateds" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}" style="background-image:url('{{getRelatedThumbnail($index)}}');">
+						<a href="#/" ng-click="showRelated($index)" skip-default >
+							<i ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>

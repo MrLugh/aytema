@@ -111,6 +111,7 @@
         echo $this->Html->script('angular/app/controllers/themes');
         echo $this->Html->script('angular/app/controllers/themes/clubber');
         echo $this->Html->script('angular/app/controllers/themes/clubber/content');
+        echo $this->Html->script('angular/app/controllers/themes/clubber/related');
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/photos');
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/videos');
         echo $this->Html->script('angular/app/controllers/themes/clubber/latest/tracks');

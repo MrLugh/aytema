@@ -33,6 +33,22 @@ function(){
 
 }]);
 
+ayTemaDs.directive('relatedContents',['contentSv',
+function(contentSv){
+    
+    return {
+        templateUrl : getPath('tpl')+'/themes/clubber/related.html',
+        restrict : 'E',
+        replace : true,
+        controller:'relatedCo',
+        scope: true,
+        link: function(scope,element,attrs) {
+
+        }
+    }
+
+}]);
+
 
 ayTemaDs.directive('fbComments',['$FB','$timeout',
 function($FB,$timeout){

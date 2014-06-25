@@ -394,16 +394,19 @@ ayTemaDs.directive('caroufredsel',['$window','$timeout',
 function ($window,$timeout) {
     return function (scope, element, attrs) {
 
+        var options = attrs.caroufredsel;
+        options =  eval("(function(){return " + options + ";})()");
+
         scope.caroufredsel = function() {
             if (scope.$last !== true) {
                 return;
             }
             element.ready(function(){
+                //angular.element(document.querySelector(options.selector)).trigger("destroy");
                 $timeout(function(){
-                    var options = attrs.caroufredsel;
-                    options =  eval("(function(){return " + options + ";})()");
-                    jQuery(options.selector).carouFredSel(options);
-                },100);
+                    //jQuery(options.selector).carouFredSel(options);
+                    angular.element(document.querySelector(options.selector)).carouFredSel(options);
+                },0);
             });            
         }
 

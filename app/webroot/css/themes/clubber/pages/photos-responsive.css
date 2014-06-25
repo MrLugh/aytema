@@ -27,10 +27,6 @@
 		line-height: 16px;
 	}
 
-	.pagePhotos ul li .pagePhotoContainer .overlay	{
-		display: none;
-	}
-
 	.pagePhotos ul li {
 	    width: 100%;
 	}

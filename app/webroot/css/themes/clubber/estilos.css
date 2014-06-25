@@ -740,3 +740,53 @@ ul {
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background: none;
 }
+
+
+/* Related Contents */
+.relateds .list_carousel {
+  width: 100%;
+  position: relative;
+}
+
+.relateds .prev, .relateds .next {
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+}
+
+.relateds .prev {
+  left: 0;
+  text-align: left;
+}
+
+.relateds .next {
+  right: 0;
+  text-align: right;
+}
+
+.relateds .prev i, .relateds .next i {
+  position: relative;
+  font-size: 20px;
+  top:calc(50% - 10px);
+}
+
+.relateds .carousel_container {
+  width: 100%;
+}
+
+.relateds .caroufredsel_wrapper {
+  width: auto!important;
+  position: relative;
+}
+
+.relateds .list_carousel li {
+  padding: 0;
+  margin: 0px 6px 0 5px;
+  display: block;
+  float: left;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -237,6 +237,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     float:left;
 }
 
+.content_detalle .caroufredsel_wrapper {
+  width: auto!important;
+  overflow: hidden;
+}
+
 .content_detalle .list_carousel {
     width: 100%;
 }
