@@ -46,7 +46,6 @@
 	}
 
 	.pageTracks .track_full_player iframe, .pageTracks .track_full_player track, .pageTracks .track_full_player embed {	
-		height: auto;
 		width: 100%;
 	}
 

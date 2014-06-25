@@ -118,28 +118,29 @@
 				<i class="fa fa-arrow-circle-up"></i>
 			</a>
 
+			<div id="footer" class="block" ng-style="getFooterStyle()">
+
+				<div ng-style="getDividerStyle()" class="divider">&nbsp;</div>
+
+
+				<ul class="social-links">
+
+					<h3 class="title">Follow me <span ng-style="getHighlightStyle()">on:</span></h3>
+
+					<li ng-repeat="account in accounts" class="social-link inline">
+						<a href="{{account.Socialnet.profile_url}}" target="_blank">
+							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
+							<img alt="{{account.Socialnet.network}} profile" ng-src="{{networkIcon(account.Socialnet.network)}}" class="socialIcon" />					
+						</a>
+					</li>
+
+				</ul>
+
+			</div>			
+
 		</div>
 
 	</div>
 
-	<div id="footer" class="block" ng-style="getFooterStyle()">
-
-		<div ng-style="getDividerStyle()" class="divider">&nbsp;</div>
-
-
-		<ul class="social-links">
-
-			<h3 class="title">Follow me <span ng-style="getHighlightStyle()">on:</span></h3>
-
-			<li ng-repeat="account in accounts" class="social-link inline">
-				<a href="{{account.Socialnet.profile_url}}" target="_blank">
-					<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
-					<img alt="{{account.Socialnet.network}} profile" ng-src="{{networkIcon(account.Socialnet.network)}}" class="socialIcon" />					
-				</a>
-			</li>
-
-		</ul>
-
-	</div>
 
 </div>

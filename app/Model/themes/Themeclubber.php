@@ -58,9 +58,9 @@ Class Themeclubber {
         'background' => array(
             'selected'   => 'img/themes/clubber/bg.png',
             'list' => array(
-                'dot'       => "img/themes/clubber/bg-dot.png",
-                'mask'      => "img/themes/clubber/bg.png",
-                'grey'      => "img/themes/clubber/bg.jpg"
+                'dot'   => "img/themes/clubber/bg-dot.png",
+                'mask'  => "img/themes/clubber/bg.png",
+                'grey'  => "img/themes/clubber/bg.jpg"
             ),
         )
     );

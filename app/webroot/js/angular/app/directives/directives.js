@@ -386,7 +386,6 @@ function () {
             element.css('opacity','1');
 
         });
-
     }
 }]);
 
@@ -404,11 +403,16 @@ function ($window,$timeout) {
             element.ready(function(){
                 //angular.element(document.querySelector(options.selector)).trigger("destroy");
                 $timeout(function(){
-                    //jQuery(options.selector).carouFredSel(options);
                     angular.element(document.querySelector(options.selector)).carouFredSel(options);
                 },0);
-            });            
+            });
         }
+
+        var destroy = function() {
+            element.unbind('$destroy',destroy);
+            angular.element(document.querySelector(options.selector)).trigger("destroy");
+        }
+        element.bind('$destroy',destroy);
 
         scope.caroufredsel();
 
