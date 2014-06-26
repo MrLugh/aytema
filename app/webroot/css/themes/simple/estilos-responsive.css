@@ -1,0 +1,12 @@
+@media (min-width: 0px) and (max-width: 480px) {
+	.content_hover .content_photo {
+		max-height: 100%;
+	}
+	.control_prev {
+		left: -2%;
+	}
+
+	.control_next {
+		right: -2%;
+	}	
+}
