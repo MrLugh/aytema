@@ -160,7 +160,8 @@ ul {
   margin: 0 auto;
   width: 80%;
   padding: 15px;
-  padding-top: 25px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   display: block;  
   overflow: hidden;
   -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
@@ -262,9 +263,9 @@ ul {
 }
 
 #footer .social-links {
-    margin-bottom: 0;
+    margin: 0 auto;
     overflow: hidden;
-    padding-bottom: 30px;
+    padding: 30px;
 }
 
 #footer .social-links .social-link {
