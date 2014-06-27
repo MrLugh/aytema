@@ -56,6 +56,11 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 			}
 		}
 
+		if (params['accounts'].length == 0) {
+			contentSv.setPageList(type,$scope.content[type]);
+			return;
+		}
+
 		contentSv.getContentsByFilters(params).then(
 			function(data) {
 				var contents = data.contents;

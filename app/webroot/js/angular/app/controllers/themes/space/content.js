@@ -105,6 +105,16 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 		return !$scope.hasThumbnail() && !$scope.hasPlayer();
 	}
 
+	$scope.getBgImage = function() {
+		if (!$scope.hasThumbnail()) {
+			return {}
+		}
+
+		return {
+			'background-image':"url('"+$scope.getThumbnail()+"')"
+		}
+	}
+
 	$scope.$watch("content",function(value){
 		//console.log("Watch video content ",value.id,$scope.content.id);
 		$scope.player	= "";
@@ -330,6 +340,16 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 
 	$scope.isEmpty = function() {
 		return !$scope.hasThumbnail() && !$scope.hasPlayer();
+	}
+
+	$scope.getBgImage = function() {
+		if (!$scope.hasThumbnail()) {
+			return {}
+		}
+
+		return {
+			'background-image':"url('"+$scope.getThumbnail()+"')"
+		}
 	}
 
 	$scope.$watch("content",function(value){

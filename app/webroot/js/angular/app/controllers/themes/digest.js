@@ -109,12 +109,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 		if (!contentSv.isLoading() && $scope.configLoaded) {
 			var filters = $scope.getFilters();
-			if (!filters.concepts.length && !filters.networks.length) {
-				$scope.list = [];
-				return;
-			}
-
-			$scope.showMessage('Getting content...');
 
 			var params			= [];
 			params['concepts']	= JSON.parse(JSON.stringify(filters.concepts));
@@ -133,6 +127,14 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 					params['accounts'].push(account.id);
 				}
 			}
+
+			if ( (params['accounts'].length == 0) || (!filters.concepts.length && !filters.networks.length)) {
+				$scope.list = [];
+				$scope.showMessage('There is no content :(');
+				return;
+			}
+
+			$scope.showMessage('Getting content...');
 
 			contentSv.getContentsByFilters(params).then(
 				function(data) {

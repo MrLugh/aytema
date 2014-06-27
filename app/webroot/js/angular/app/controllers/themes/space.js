@@ -228,9 +228,16 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.hideOnHover();
 	});
 
+	$scope.scrollToElement = function(element) {
+		$('html, body').animate({
+			scrollTop: element[0].offsetTop
+		}, 500);
+	}
+
 	$scope.scrollCurrent = function() {
 
-		element = angular.element(document.querySelector("#content_"+$scope.current));
+
+		var element = angular.element(document.querySelector("#content_"+$scope.current));
 
 		if (angular.isDefined(element[0])) {
 			angular.element(document).ready(function(){
@@ -240,23 +247,22 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 				if (angular.isDefined(bg[0])) {
 
 					var src = $(bg).css('background-image');
-					src = src.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-					var image = new Image();
-					image.onload = function() {
-						console.log("load");
-						$('html, body').animate({
-							scrollTop: element[0].offsetTop
-						}, 500);
+
+					if (src =! 'none') {
+						src = src.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+						var image = new Image();
+						image.onload = function() {
+							console.log("load");
+							$scope.scrollToElement(element);
+						}
+
+						image.src = src;						
+					} else {
+						$scope.scrollToElement(element);
 					}
-
-					image.src = src;
-
 				} else {
-					$('html, body').animate({
-						scrollTop: element[0].offsetTop
-					}, 500);
+					$scope.scrollToElement(element);
 				}
-
 			});
 		}
 
