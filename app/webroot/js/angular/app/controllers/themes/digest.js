@@ -145,19 +145,6 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 							$scope.list.push(content);
 						}
 						$scope.offset += $scope.limit;
-
-						/*
-						if ($scope.list.length) {
-							$scope.contentModal		= [];
-							$scope.currentContent	= 0;
-							$scope.contentModal		= [$scope.list[$scope.currentContent]];
-						} else {
-							$scope.showingContent	= false;
-							$scope.contentModal		= [];
-							$scope.currentContent	= false;
-						}
-						*/
-
 					} else {
 						$scope.showMessage('There is no content :(');
 					}
