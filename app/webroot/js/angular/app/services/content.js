@@ -407,7 +407,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'facebook') {
-				source = content.data.picture.replace(/_s./g,'_n.');
+				//source = content.data.picture.replace(/_s./g,'_n.');
+				source = content.data.source;
 			}
 		}
 

@@ -160,7 +160,7 @@ function contentPhotoCo($scope,contentSv,userSv) {
 		if ($scope.content.network == 'facebook') {
 			var element = $scope.content.data;
 			var photo = {
-				src 		: element.picture.replace(/_s./g,'_n.'),
+				src 		: contentSv.getThumbnail($scope.content),
 				description : contentSv.getDescription($scope.content),
 			};
 

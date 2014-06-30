@@ -397,26 +397,24 @@ function ($window,$timeout) {
         options =  eval("(function(){return " + options + ";})()");
 
         scope.caroufredsel = function() {
-            if (scope.$last !== true) {
-                return;
-            }
             element.ready(function(){
-                //angular.element(document.querySelector(options.selector)).trigger("destroy");
                 $timeout(function(){
                     angular.element(document.querySelector(options.selector)).carouFredSel(options);
-                },0);
+                },500);
             });
         }
 
-        var destroy = function() {
-            element.unbind('$destroy',destroy);
-            angular.element(document.querySelector(options.selector)).trigger("destroy");
+        if (scope.$last === true) {
+        
+            scope.caroufredsel();
+
+            var destroy = function() {
+                element.unbind('$destroy',destroy);
+                angular.element(document.querySelector(options.selector)).trigger("destroy");
+            }
+            element.bind('$destroy',destroy);
+            //angular.element($window).bind('resize', scope.caroufredsel);
         }
-        element.bind('$destroy',destroy);
-
-        scope.caroufredsel();
-
-        angular.element($window).bind('resize', scope.caroufredsel);
 
     }
 }]);

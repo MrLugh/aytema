@@ -235,6 +235,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .content_detalle .carousel_container {
     width:80%;
     float:left;
+    overflow: hidden;
 }
 
 .content_detalle .caroufredsel_wrapper {
@@ -251,6 +252,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     list-style: none;
     display: block;
     width: 100%;
+    overflow: hidden;
 }
 .content_detalle .list_carousel li {
     padding: 0;

@@ -773,11 +773,17 @@ ul {
 
 .relateds .carousel_container {
   width: 100%;
+  overflow: hidden;
 }
 
 .relateds .caroufredsel_wrapper {
   width: auto!important;
   position: relative;
+  overflow: hidden;
+}
+
+.relateds .list_carousel {
+  overflow: hidden;
 }
 
 .relateds .list_carousel li {
