@@ -3,6 +3,8 @@
 
 Class User extends AppModel {
 
+	public static $default_image = 'http://static2.wikia.nocookie.net/__cb20130817100506/youtube/images/2/27/Vector-black-white-emo-skull-profile.jpg';
+
 	public $validate = array(
 		'email' => array(
 			'kosher' => array(

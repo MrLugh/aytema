@@ -1,5 +1,6 @@
 <?php
 
+App::import('model','User');
 App::import('model','Theme');
 App::import('model','Socialnet');
 
@@ -107,6 +108,7 @@ class UsersController extends AppController {
                 $this->User->create();
                 $data = $this->data;
                 $data['User']['theme'] = Theme::$default;
+                $data['User']['profile_image'] = User::$default_image;
                 if($this->User->save($data)) {
 
                     $findUser = $this->User->findByUsername($data['User']['username']);
