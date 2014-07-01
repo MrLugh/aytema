@@ -228,12 +228,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 /* carousel */
 
 .content_detalle .wrapper {
-    margin: 2% 0;
-    width: 86%;
+    width: 100%;
 }
 
 .content_detalle .carousel_container {
-    width:80%;
+    width:100%;
     float:left;
     overflow: hidden;
 }
@@ -245,6 +244,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
 .content_detalle .list_carousel {
     width: 100%;
+    position: relative;
 }
 .content_detalle .list_carousel ul {
     margin: 0;
@@ -278,19 +278,19 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 .content_detalle .prev {
     background-color: #FDE200;
     display: block;
-    float: left;
-    height: 109px;
+    left: 0;
     width: 10%;
 }
 .content_detalle .next {
     background-color: #FDE200;
-    float: right;
-    height: 109px;
+    right: 0;
     width: 10%;
 }
 
 .content_detalle .prev, .content_detalle .next {
-    position: relative;
+    position: absolute;
+    height: 100%;
+    z-index: 1;
 }
 
 .content_detalle .prev img, .content_detalle .next img{

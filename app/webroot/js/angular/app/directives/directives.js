@@ -400,7 +400,7 @@ function ($window,$timeout) {
             element.ready(function(){
                 $timeout(function(){
                     angular.element(document.querySelector(options.selector)).carouFredSel(options);
-                },500);
+                },1000);
             });
         }
 
@@ -413,7 +413,6 @@ function ($window,$timeout) {
                 angular.element(document.querySelector(options.selector)).trigger("destroy");
             }
             element.bind('$destroy',destroy);
-            //angular.element($window).bind('resize', scope.caroufredsel);
         }
 
     }
