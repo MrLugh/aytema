@@ -58,6 +58,12 @@
   background-color: #252328;
 }
 
+.accountsContainer .addList .dropdown-menu .networkBrand {
+  color:#A52A2A;
+  font-weight: bold;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+}
+
 .accountsContainer .addList .dropdown-menu ul li {
   display: block;
   margin: 0 auto;
