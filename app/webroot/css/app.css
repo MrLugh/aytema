@@ -133,6 +133,24 @@ ul {
   margin: 0;
 }
 
+i, *.active i {
+  padding: 5px;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
+}
+
+*.active i {
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+}
+
+i:hover,*.active i:hover {
+  transition: border 0.1s ease 0s;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+}
+
 .center {
   text-align: center;
 }
@@ -179,10 +197,6 @@ ul {
 
 #menuControl i {
   color: #adafae;
-  -webkit-transition:all 0.5s ease;
-  -moz-transition:all 0.5s ease;
-  -o-transition:all 0.5s ease;
-  transition:all 0.5s ease;    
 }
 
 #header {
@@ -293,6 +307,7 @@ ul {
 
 #header .menu li a {
   color:#fff;
+  padding-left: 20px;
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
@@ -315,22 +330,28 @@ ul {
   color:#A52A2A;
 }
 
-#header .menu li:hover {
-  border-left: 4px solid #38353D
+#header .menu li:hover, #header .menu li.active {
+  border-left: 4px solid #38353D;
   transition: border 0.1s ease 0s;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
+
 
 #header .menu li.active {
   border-left: 4px solid #A52A2A
-  transition: border 0.1s ease 0s;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(3, 3, 3, 0.8);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(3, 3, 3, 0.8);
+  box-shadow:         0px 0px 20px 0px rgba(3, 3, 3, 0.8);
 }
 
 #header .menu li:hover a, #header .menu li.active a {
   color:#A52A2A;
+  padding-left: 25px;
 }
 
 #header .menu li.active a {
   color:#6FF591;
+  padding-left: 25px;
 }
 
 .headerClosed .container {

@@ -11,8 +11,7 @@
   text-align: center;
 }
 
-.accountsContainer .addList ul, .accountsContainer .filterList ul,
-.accountsContainer .addList li, .accountsContainer .filterList li {
+.accountsContainer .addList ul, .accountsContainer .filterList ul {
   display: inline-block;
 }
 
@@ -41,13 +40,19 @@
 }
 
 .accountsContainer .addList li, .accountsContainer .filterList li {
+  display: inline-block;
   text-align: center;
-  margin-left: 20px;
+  padding-right: 10px;
   color: #6FF591;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
 .accountsContainer .filterList li span {
   font-size: 10px;
+}
+
+.accountsContainer .addList li.open {
+  color: #adafae;
 }
 
 .accountsContainer .addList .dropdown-menu {

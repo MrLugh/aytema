@@ -19,25 +19,6 @@
 
 			<a href="#" class="navbar-brand">{{user.username}}</a>
 
-	 		<form class="navbar-form navbar-left" role="search" style="position:relative;">
-	 			<div class="">
-	 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
-	 			</div>
-	 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
-	 				<ul class="nav navbar-nav usersSearch">
-	 					<li class="dropdown active open">
-	 						<ul class="dropdown-menu">
-	 							<li ng-repeat="userFind in usersList" class="userFind">
-	 								<a href="/users/{{userFind.username}}" tabindex="-1" class="ajax">{{userFind.username}}</a>
-	 							</li>
-	 						</ul>
-	 					</li>
-	 				</ul>
-	 			</div>
-	 		</form>
-
-		 	<login ng-if="!isLogged()"></login>
-
 			<ul class="menu">
 
 				<li ng-if="isLogged()" ng-class="getMenuItemClass(1)" ng-click="activateStep(1)" tooltip="Accounts" tooltip-placement="right">
@@ -61,6 +42,25 @@
 				</li>
 
 			</ul>
+
+		 	<login ng-if="!isLogged()"></login>
+
+	 		<form class="navbar-form navbar-left" role="search" style="position:relative;">
+	 			<div class="">
+	 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
+	 			</div>
+	 			<div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
+	 				<ul class="nav navbar-nav usersSearch">
+	 					<li class="dropdown active open">
+	 						<ul class="dropdown-menu">
+	 							<li ng-repeat="userFind in usersList" class="userFind">
+	 								<a href="/users/{{userFind.username}}" tabindex="-1" class="ajax">{{userFind.username}}</a>
+	 							</li>
+	 						</ul>
+	 					</li>
+	 				</ul>
+	 			</div>
+	 		</form>
 
 		</div>
 

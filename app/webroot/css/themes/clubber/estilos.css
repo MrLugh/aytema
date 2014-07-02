@@ -74,13 +74,22 @@ blockquote {
   border-radius:50%;
 }
 
-i {
-  text-shadow:2px 2px 2px #000;
-  opacity: 1;
-  -webkit-transition:all 0.36s ease;
-  -moz-transition:all 0.36s ease;
-  -o-transition:all 0.36s ease;
-  transition:all 0.36s ease;  
+i, *.active i {
+  padding: 5px;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;  
+}
+
+*.active i {
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+}
+
+i:hover,*.active i:hover {
+  transition: border 0.1s ease 0s;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
 ul {
