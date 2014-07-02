@@ -50,6 +50,31 @@
   font-size: 10px;
 }
 
+.accountsContainer .addList .dropdown-menu {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;  
+  color: #adafae;
+  background-color: #252328;
+}
+
+.accountsContainer .addList .dropdown-menu ul li {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 0px;
+  text-align: left;
+  color: #adafae;
+}
+
+.accountsContainer .addList .dropdown-menu ul li:nth-of-type(1) {
+  border-bottom: 1px solid #adafae;
+}
+
+.accountsContainer .addList .dropdown-menu ul li i {
+  color: #fff;
+  font-size: 20px;
+}
+
 .accountsContainer .profileImage {
   height:60px;
 }

@@ -39,7 +39,7 @@ function adminThemesCo($scope,appSv,userSv) {
 	}
 
 	$scope.getContainerStyle = function() {
-		return {'max-height':appSv.getHeight() - $scope.$parent.menuHeight + 'px'};
+		return {'max-height':appSv.getHeight() + 'px'};
 	}
 
 	$scope.getPreviewStyle = function() {

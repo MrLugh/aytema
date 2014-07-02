@@ -13,12 +13,26 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.account			= {};
 	$scope.current			= false;
 
+	$scope.dropdown		= '';
 
 	$scope.showAdd 		= false;
 	$scope.showFilters 	= false;
 
+	$scope.showDropdown = function(network) {
+
+		if ($scope.dropdown == network) {
+			$scope.dropdown = '';
+			return;
+		}
+		$scope.dropdown = network;
+	}
+
+
 	$scope.manageAdd = function() {
 		$scope.showAdd = !$scope.showAdd;
+		if (!$scope.showAdd) {
+			$scope.dropdown		= '';
+		}
 	}
 
 	$scope.manageFilters = function() {
@@ -109,7 +123,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.getContainerStyle = function() {
 
 		return {
-			'min-height':appSv.getHeight() - $scope.getOffsetTop()  - $scope.$parent.menuHeight + 'px'
+			'min-height':appSv.getHeight() + 'px'
 		};
 	}	
 
@@ -144,9 +158,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	$scope.addAccount = function(network) {
 
-		if (network == 'aytema') {
-			return false;
-		}
+		$scope.dropdown = '';
 
 		var href = "/"+network+"/addAccount?action=start";
 		$scope.popupAccount = false;

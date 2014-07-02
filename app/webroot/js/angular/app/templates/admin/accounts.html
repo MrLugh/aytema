@@ -29,8 +29,30 @@
 			<i class="fa fa-plus addControl" ng-click="manageAdd()" tooltip="Add account" tooltip-placement="right"></i>
 
 			<ul ng-if="showAdd">
-				<li ng-repeat="(key,network) in networks" ng-click="addAccount(key)" ng-if="network.network!='aytema'" tooltip="Add {{network.network}} account" tooltip-placement="bottom">
-					<i ng-class="networkIcon(network.network)"></i>
+				<li ng-repeat="(key,network) in networks" ng-if="network.network!='cloudcial'" class="btn-group" dropdown>
+					<i ng-class="networkIcon(network.network)" class="dropdown-toggle" ng-click="showDropdown(network.network)"></i>
+
+					<div class="dropdown-menu" role="menu" ng-show="dropdown == network.network">
+
+						<h4>{{network.network}}:</h4>
+
+						<ul>
+							<li>
+								- My account: <i ng-class="networkIcon(network.network)" ng-click="addAccount(key)"></i> 
+							</li>
+							<li>
+								<p>- Or follow someone:</p>
+								<p>
+									<input type="text" ng-model="userAccount" name="userAccount" placeholder="By UserName" class="form-control">
+								</p>
+								<p>
+									<button type="submit" class="btn btn-sm">Go!</button>
+								</p>
+							</li>
+						</ul>
+
+					</div>
+
 				</li>
 			</ul>
 
@@ -38,7 +60,7 @@
 
 		<div class="list">
 
-			<ul id="accountList" infinite-scroll="moreAccounts()" ng-style="getContainerStyle()" get-offset-top>
+			<ul id="accountList" infinite-scroll="moreAccounts()" ng-style="getContainerStyle()">
 
 				<li ng-repeat="account in list" class="account {{account.network}}Account">
 
