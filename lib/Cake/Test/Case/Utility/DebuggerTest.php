@@ -478,7 +478,7 @@ TEXT;
 			array(
 				'name' => 'joeseph',
 				'coat' => 'technicolor',
-				'hair_color' => 'brown'
+				'hair_color' => '#A52A2A'
 			),
 			array(
 				'name' => 'Shaft',
@@ -498,7 +498,7 @@ TEXT;
 		(int) 0 => array(
 			'name' => 'joeseph',
 			'coat' => 'technicolor',
-			'hair_color' => 'brown'
+			'hair_color' => '#A52A2A'
 		),
 		(int) 1 => array(
 			'name' => 'Shaft',

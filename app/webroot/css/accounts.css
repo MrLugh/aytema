@@ -71,8 +71,26 @@
 }
 
 .accountsContainer .addList .dropdown-menu ul li i {
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
   color: #fff;
   font-size: 20px;
+}
+
+.accountsContainer .addList .dropdown-menu ul li:hover {
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;  
+  margin-left: 5px;
+}
+
+
+.accountsContainer .addList .dropdown-menu ul li:hover i {
+  padding-left: 10px;
+  color: #6FF591;
 }
 
 .accountsContainer .profileImage {

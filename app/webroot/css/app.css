@@ -251,7 +251,7 @@ ul {
 
 #header .userFind {
   background-color: #252328;
-  color: brown;
+  color: #A52A2A;
   display: block;
   font-size: 15px;
   line-height: 25px;
@@ -266,7 +266,7 @@ ul {
 }
 
 #header .userFind:hover {
-  border-left: 4px solid brown
+  border-left: 4px solid #A52A2A
   transition: border 0.1s ease 0s; 
   color: #6FF591;
 }
@@ -312,7 +312,7 @@ ul {
 }
 
 #header .menu li.active i {
-  color:brown;
+  color:#A52A2A;
 }
 
 #header .menu li:hover {
@@ -321,12 +321,12 @@ ul {
 }
 
 #header .menu li.active {
-  border-left: 4px solid brown
+  border-left: 4px solid #A52A2A
   transition: border 0.1s ease 0s;
 }
 
 #header .menu li:hover a, #header .menu li.active a {
-  color:brown;
+  color:#A52A2A;
 }
 
 #header .menu li.active a {
@@ -367,7 +367,7 @@ ul {
 
 .headerClosed .menu li.active {
   border: none!important;
-  border-right: 2px solid brown!important;
+  border-right: 2px solid #A52A2A!important;
 }
 
 .headerClosed .menu li:hover {

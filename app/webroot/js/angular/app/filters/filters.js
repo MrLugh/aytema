@@ -1,10 +1,10 @@
 var ayTemaFs = angular.module('ayTema.filters',[]);
 
-ayTemaFs.filter('htmlToPlaintext', function() {
-	return function(text) {
-		if (text.length == 0) {
-			return text;
+ayTemaFs.filter('networkBrand', function(appSv) {
+	return function(network) {
+		if (angular.isDefined(appSv.getNetworks()[network])) {
+			return appSv.getNetworks()[network]['brand'];
 		}
-		return String(text).replace(/<(?:.|\n)*?>/gm, '');
+		return '';
 	}
 });
