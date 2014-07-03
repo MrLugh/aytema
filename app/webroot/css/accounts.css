@@ -63,6 +63,11 @@
   background-color: #252328;
 }
 
+.accountsContainer .addList .dropdown-menu form {
+  margin: 0 auto;
+  padding: 5px;
+}
+
 .accountsContainer .addList .dropdown-menu .networkBrand {
   color:#A52A2A;
   font-weight: bold;
@@ -297,7 +302,7 @@
 .accountsContainer .accountLayerInfo .stat {
   margin-left: 5px;
   text-align: justify;
-  display: inline-block;
+  display: inline-block;  
 }
 
 .accountsContainer .account i {
