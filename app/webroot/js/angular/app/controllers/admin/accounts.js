@@ -86,12 +86,12 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		$scope.setList();
 	}
 
-	$scope.filterStyle = function(network) {
+	$scope.filterClass = function(network) {
 		var ixNetwork = $scope.filters.networks.indexOf(network);
 		if (ixNetwork == -1 ) {
-			return {"opacity":"0.3"};
+			return "";
 		}
-		return {"opacity":"1"};
+		return "active";
 	}
 
 	$scope.matchBySearch = function(account) {

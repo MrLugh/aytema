@@ -128,7 +128,7 @@
 }
 
 .themesContainer .theme .themeInfo i:hover {
-	color:#6FF591;
+	color:#DCEE5C;
 
 	/*
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(111, 245, 145,0.8);
@@ -224,7 +224,7 @@
 	width: 40%;
 	height: 300px;
 	z-index: 3;
-	color:#6FF591;
+	color:#DCEE5C;
 }
 
 .themesContainer .themeNavigation .themeControlThumbnail.left {
@@ -252,5 +252,5 @@
 }
 
 .themesContainer .themeNavigation i:hover, .themesContainer .themeNavigation strong:hover {
-	color:#6FF591;
+	color:#DCEE5C;
 }

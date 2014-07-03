@@ -124,7 +124,7 @@ a {
   text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
-input {
+input, button {
  text-shadow: none; 
 }
 
@@ -290,12 +290,12 @@ i:hover,*.active i:hover {
 #header .userFind:hover {
   border-left: 4px solid #A52A2A
   transition: border 0.1s ease 0s; 
-  color: #6FF591;
+  color: #DCEE5C;
 }
 
 #header .userFind a:hover {
   background-color: transparent;
-  color: #6FF591;
+  color: #DCEE5C;
 }
 
 #header .menu {
@@ -331,7 +331,7 @@ i:hover,*.active i:hover {
 }
 
 #header .menu li:hover i {
-  color:#6FF591;
+  color:#DCEE5C;
 }
 
 #header .menu li.active i {
@@ -358,7 +358,7 @@ i:hover,*.active i:hover {
 }
 
 #header .menu li.active a {
-  color:#6FF591;
+  color:#DCEE5C;
   padding-left: 25px;
 }
 
