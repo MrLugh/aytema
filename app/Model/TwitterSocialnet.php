@@ -58,8 +58,6 @@ Class TwitterSocialnet extends AppModel {
   		return false;
 	}
 
-	
-
 	/* COLLECT METHODS */
 
 	public function stats($account, $params = array()) {
@@ -137,5 +135,25 @@ Class TwitterSocialnet extends AppModel {
 		return false;
 	}
 
+	/** Public methods **/
+	public function validateFollow($account,$username) {
+		try {
+			$this->setToken($account['token'], $account['secret']);
+			
+			$path	= self::USER_DATA;
+		
+			$args	= array('screen_name' => $username);
+
+			$this->oauth->fetch($path, $args, OAUTH_HTTP_METHOD_GET);
+			$response = $this->oauth->getLastResponseInfo();
+
+			if($response['http_code'] == 200) {
+				$user = json_decode($this->oauth->getLastResponse(),true);
+			}			
+		} catch (Exception $e) {
+			$user = array();
+		}
+		return $user;
+	}
 
 }

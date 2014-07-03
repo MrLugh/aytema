@@ -133,12 +133,11 @@ class TwitterController extends AppController {
 
 				$picture_url = "";
 				if (isset($network_data['profile_image_url_https'])) {
-					$picture_url = $network_data['profile_image_url_https'];
+					$picture_url = str_replace("_normal", "", $network_data['profile_image_url_https']);
 				}
 
 				$old_account = $this->Socialnet->find('all', array(
 					'conditions' => array(
-						'Socialnet.token'				=> $access_token['oauth_token'],
 						'Socialnet.user_id'				=> $user_id,
 						'Socialnet.network'				=> self::$network,
 						)
@@ -202,6 +201,137 @@ class TwitterController extends AppController {
 		}
 
 	}
+
+	public function addFollow() {
+
+       	$response_data	= array();
+
+		$network 	= self::$network;
+		$username	= isset($this->request->query['username'])	? $this->request->query['username']	: null;
+
+		$username = trim($username);
+
+		$this->set('network', $network);
+
+		$user_id = $this->Auth->user('id');
+		$mo_socialnet = $this->Socialnet->Factory($network,array("user_id" => $user_id));
+
+		try {
+
+			$tw_aux = $this->Socialnet->find('all', array(
+	   			'conditions' => array(
+	   				'Socialnet.network'			=> self::$network,
+	   				'Socialnet.status'			=> "Allowed",
+	   				'Socialnet.token != '		=> "",
+					'Socialnet.secret != '		=> "",
+	   			),
+				'order'	=> array('Socialnet.id' => 'desc'),
+				'limit'	=> 1	   			
+				)
+			);
+			if (empty($tw_aux)) {
+				$msg = __('There was an error adding the account');
+				$response_data = array(
+					'status'	=> 'error',
+					'status_msg'=> $msg,
+				);
+				die(json_encode($response_data));
+			}
+
+			$tw_aux = array_shift($tw_aux);
+			$params = array(
+				'token'	=> $tw_aux['Socialnet']['token'],
+				'secret'=> $tw_aux['Socialnet']['secret']
+			);
+
+			$network_data = $mo_socialnet->validateFollow($params,$username);
+
+			if (!$network_data) {
+				$msg = __('There is not Twitter information');
+				$response_data = array(
+					'status'	=> 'error',
+					'status_msg'=> $msg,
+				);
+				die(json_encode($response_data));
+			}
+
+			$picture_url = "";
+			if (isset($network_data['profile_image_url_https'])) {
+				$picture_url = str_replace("_normal", "", $network_data['profile_image_url_https']);
+			}
+
+			//Check if already exists an account by $network_data['username'],
+			$accounts = $this->Socialnet->find('all', array(
+	   			'conditions' => array(
+	   				'Socialnet.user_id'			=> $user_id,
+	   				'Socialnet.network'			=> self::$network,
+	   				'Socialnet.status'			=> "Allowed",
+	   				'Socialnet.external_user_id'=> $network_data['id'],
+	   				)
+				)
+			);
+
+			if (count($accounts)) {
+				$msg = __('You already have synced this account');
+				$account = array_shift($accounts);
+				$save['id'] = $account['Socialnet']['id'];
+			} else {
+				
+				$account = $this->Socialnet->find('all', array(
+	       			'conditions' => array(
+	       				'Socialnet.user_id'	=> $user_id,
+	       				'Socialnet.network'	=> self::$network,
+	       				)
+	    			)
+	    		);
+
+	    		if (count($account)) {
+	    			$msg = __('You already have synced this account');
+					$account = array_shift($accounts);
+					$save['id'] = $account['Socialnet']['id'];
+				}
+			}
+
+			$save = array(
+				'id'				=> $account['Socialnet']['id'],
+				'user_id'			=> $user_id,
+				'login'				=> $network_data['screen_name'],
+				'network'			=> self::$network,
+				'status'			=> 'Allowed',
+				'token'				=> '',
+				'secret'			=> '',
+				'external_user_id'	=> $network_data['id_str'],
+				'created'			=> date('Y-m-d H:i:s'),
+				'profile_url'		=> "https://twitter.com/".$network_data['screen_name'],
+				'profile_image'		=> $picture_url,
+				'stats'				=> json_encode($mo_socialnet->stats($params)),
+			);
+
+			if (!$this->Socialnet->save($save)) {
+				$msg = __('There was an error adding the account');
+				$status = 'error';
+			} else {
+				$msg = __('The account was added');
+				$status = 'success';					
+			}
+
+			$response_data = array(
+				'status'	=> $status,
+				'status_msg'=> $msg,
+			);
+			die(json_encode($response_data));
+
+		} catch (Exception $e) {
+
+			$msg = __('There was an error adding the account');
+			$response_data = array(
+				'status'	=> 'error',
+				'status_msg'=> $msg,
+			);
+			die(json_encode($response_data));
+		}
+
+	}	
 
 	public function collect() {
 

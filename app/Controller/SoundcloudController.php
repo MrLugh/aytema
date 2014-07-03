@@ -63,7 +63,7 @@ class SoundcloudController extends AppController {
 
 				$picture_url = "";
 				if (isset($network_data['avatar_url'])) {
-					$picture_url = $network_data['avatar_url'];
+					$picture_url = str_replace('-large','-t200x200',$network_data['avatar_url']);
 				}
 			
 				$msg 	= 'The account was added';
@@ -185,7 +185,7 @@ class SoundcloudController extends AppController {
 
 			$picture_url = "";
 			if (isset($network_data['avatar_url'])) {
-				$picture_url = $network_data['avatar_url'];
+				$picture_url = str_replace('-large','-t200x200',$network_data['avatar_url']);
 			}
 		
 			$msg 	= __('The account was added');
