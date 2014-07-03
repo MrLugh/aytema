@@ -37,11 +37,11 @@
 						<h4 class="networkBrand">{{network.network|networkBrand}}:</h4>
 
 						<ul>
-							<li>
+							<li ng-if="networks[network.network].oauth" style="border-bottom: 1px solid #adafae;">
 								- My account: <i ng-class="networkIcon(network.network)" ng-click="addAccount(key)"></i>
 							</li>
 							<li>
-								<p>- Or follow someone:</p>
+								<p>- Follow someone:</p>
 								<form class="navbar-form navbar-left" role="search" style="z-index:20;">
 									<input type="text"  name="userAccount" placeholder="By UserName" class="form-control"/>
 									<button type="text" class="btn btn-sm" ng-click="addFollow(network.network)">Add</button>

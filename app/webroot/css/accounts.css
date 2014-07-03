@@ -77,10 +77,6 @@
   color: #adafae;
 }
 
-.accountsContainer .addList .dropdown-menu ul li:nth-of-type(1) {
-  border-bottom: 1px solid #adafae;
-}
-
 .accountsContainer .addList .dropdown-menu ul li i {
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;

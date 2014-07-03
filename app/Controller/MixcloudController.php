@@ -57,8 +57,8 @@ class MixcloudController extends AppController {
 			}
 
 			$picture_url = "";
-			if (isset($network_data['pictures']['medium'])) {
-				$picture_url = $network_data['pictures']['medium'];
+			if (isset($network_data['pictures']['extra_large'])) {
+				$picture_url = $network_data['pictures']['extra_large'];
 			}
 
 			$msg 	= 'The account was added';

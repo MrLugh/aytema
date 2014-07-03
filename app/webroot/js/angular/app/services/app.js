@@ -8,42 +8,50 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 		'cloudcial'	: {
 			network : 'cloudcial',
 			brand 	: "CloudCial",
-			concepts: ['event','photo','video','track','post']
+			concepts: ['event','photo','video','track','post'],
+			oauth	: false,
 		},
 		'facebook' : {
 			network : 'facebook',
 			brand	:'FaceBook',
-			concepts: ['post','photo','video']
+			concepts: ['post','photo','video'],
+			oauth	: true,			
 		},
 		'twitter' : {
 			network : 'twitter',
 			brand	:'Twitter',
-			concepts: ['post']
+			concepts: ['post'],
+			oauth	: true,
 		},
 		'tumblr' : {
 			network : 'tumblr',
 			brand	:'Tumblr',
-			concepts: ['photo','video','track','post','quote','chat','link']
+			concepts: ['photo','video','track','post','quote','chat','link'],
+			oauth	: true,
 		},
 		'soundcloud' : {
 			network : 'soundcloud',			
 			brand	:'SoundCloud',
-			concepts: ['track']
+			concepts: ['track'],
+			oauth	: true,
 		},
 		'mixcloud' : {
 			network : 'mixcloud',
 			brand	:'MixCloud',
-			concepts: ['track']
+			concepts: ['track'],
+			oauth	: false,
 		},
 		'vimeo' : {
 			network : 'vimeo',
 			brand	:'Vimeo',
-			concepts: ['video']
+			concepts: ['video'],
+			oauth	: true,
 		},
 		'youtube' : {
 			network : 'youtube',
 			brand	:'YouTube',
-			concepts: ['video']
+			concepts: ['video'],
+			oauth	: true,
 		},
 	};
 
