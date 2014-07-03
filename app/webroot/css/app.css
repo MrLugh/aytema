@@ -120,6 +120,10 @@ a {
 }
 */
 
+* {
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+}
+
 a,a:hover,a:active,a:focus,
 img,img:hover,img:active,img:focus {
     outline: none;

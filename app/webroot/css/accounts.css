@@ -303,7 +303,8 @@
   margin-left: 5px;
   text-align: justify;
   display: inline-block;  
-}
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+ }
 
 .accountsContainer .account i {
   line-height: 42px;
@@ -362,11 +363,13 @@
   width: auto;
   height: auto;
   float: left;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;  
 }
 
 .accountPageHeader .stats li {
-   float: left;
-   margin-right: 10px;
+  float: left;
+  margin-right: 10px;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
 #accountPageList {
@@ -386,10 +389,12 @@
 #accountPageList .stats {
   width: auto;
   height: auto;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
 #accountPageList .stats li {
   margin:4px;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
   
  
