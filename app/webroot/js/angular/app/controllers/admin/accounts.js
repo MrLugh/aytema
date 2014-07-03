@@ -13,25 +13,26 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.account			= {};
 	$scope.current			= false;
 
-	$scope.dropdown		= '';
+	$scope.networkAdd	= '';
 
+	$scope.addError 	= false;
 	$scope.showAdd 		= false;
 	$scope.showFilters 	= false;
 
 	$scope.showDropdown = function(network) {
 
-		if ($scope.dropdown == network) {
-			$scope.dropdown = '';
+		if ($scope.networkAdd == network) {
+			$scope.networkAdd = '';
 			return;
 		}
-		$scope.dropdown = network;
+		$scope.networkAdd = network;
 	}
 
 
 	$scope.manageAdd = function() {
 		$scope.showAdd = !$scope.showAdd;
 		if (!$scope.showAdd) {
-			$scope.dropdown		= '';
+			$scope.networkAdd		= '';
 		}
 	}
 
@@ -156,9 +157,27 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		return contentSv.getStatIcon(stat_name);
 	}
 
+	$scope.addFollow = function(network) {
+
+		//$scope.networkAdd = '';
+		var username = document.querySelector('input[name="userAccount"]');
+		var href = "/"+network+"/addFollow?username="+username.value;
+
+		userSv.addFollow(href).then(function(data){
+			if (data.status != 'error') {
+				$scope.addError = false;
+				userSv.loadAccounts();
+			} else {
+				$scope.addError = true;
+				$scope.addErrorMsg = data.status_msg;
+			}
+			
+		});
+	}
+
 	$scope.addAccount = function(network) {
 
-		$scope.dropdown = '';
+		$scope.networkAdd = '';
 
 		var href = "/"+network+"/addAccount?action=start";
 		$scope.popupAccount = false;

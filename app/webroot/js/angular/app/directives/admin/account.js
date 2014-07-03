@@ -25,7 +25,6 @@ function ($window) {
             }
 
             var scroll = function() {
-                console.log("scrolling from account directive for account",scope.account.id);
 
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();

@@ -109,12 +109,23 @@ class SoundcloudContentHubDs extends AbstractContentHubDs {
 				$row	= self::set_external_user_name_to_row($account['login'],$row);
 				$row	= self::set_content_to_row($track,$row);
 
-				$stats = array(
-					'plays'		=> $track['playback_count'],
-					'comments'	=> $track['comment_count'],
-					'favorites'	=> $track['favoritings_count'],
-					'downloads'	=> $track['download_count'],
-				);
+				$stats = array();
+
+				if (!empty($track['playback_count'])) {
+					$stats['plays'] = $track['playback_count'];
+				}
+
+				if (!empty($track['comment_count'])) {
+					$stats['comments'] = $track['comment_count'];
+				}
+
+				if (!empty($track['favoritings_count'])) {
+					$stats['favorites'] = $track['favoritings_count'];
+				}
+
+				if (!empty($track['download_count'])) {
+					$stats['downloads'] = $track['download_count'];
+				}
 
 				$row	= self::set_stats_to_row($stats,$row);				
 

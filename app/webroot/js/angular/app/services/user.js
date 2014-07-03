@@ -30,6 +30,25 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    return deferred.promise;
 	}
 
+	var addFollow = function(url,params) {
+
+		var deferred = $q.defer();
+
+	    $http({method: 'GET', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	console.log('success');
+	    	console.log(data);
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	console.log('error');
+	    	console.log(data);
+	    	deferred.resolve();	    	
+	    });
+
+	    return deferred.promise;
+	}
+
 	var loadAccounts = function() {
 
 		var deferred = $q.defer();
@@ -251,6 +270,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		setUser:setUser,
 		saveProfileimage:saveProfileimage,
 		search:search,
+		addFollow:addFollow,
 		loadAccounts:loadAccounts,
 		getAccounts:getAccounts,
 		deleteAccount:deleteAccount,

@@ -24,13 +24,13 @@ class MixcloudController extends AppController {
 	public function index() {
 
 
-	}
+	}	
 
 	public function addAccount() {
 
 		$view = new View($this, false);
 		$this->view 	= '/Elements/Socialnets/ajax/add_non_oauth_account';
-		//$this->layout 	= 'anonymous';
+		$this->layout 	= 'anonymous';
        	$response_data	= array();
 
 		$network 	= self::$network;
@@ -109,6 +109,22 @@ class MixcloudController extends AppController {
 			$this->render();
 		} 
 			
+	}
+
+	public function addFollow() {
+
+		$view = new View($this, false);
+		$this->view 	= '/Elements/Socialnets/ajax/add_non_oauth_account';
+		$this->layout 	= 'anonymous';
+       	$response_data	= array();
+
+		$network 	= self::$network;
+		$username	= isset($this->request->query['data']['username'])	? $this->request->query['data']['username']	: null;
+
+		$username = trim($username);
+
+		var_dump($username);
+
 	}
 
 

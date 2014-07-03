@@ -73,8 +73,10 @@ Class SoundcloudSocialnet {
 
 	public function profile($token,$user='me') {
 
-		$this->soundcloud->setAccessToken($token);
-		return json_decode($this->soundcloud->get($user),true);
+		if (!empty($token)) {
+			$this->soundcloud->setAccessToken($token);
+		}
+		return json_decode($this->soundcloud->get("users/{$user}.json"),true);
 	}
 
 	protected function processApiParams( $params ) {
@@ -122,5 +124,17 @@ Class SoundcloudSocialnet {
 	
 		return json_decode($this->soundcloud->get($path, $params));
 	}
+
+	/** Public methods **/
+	public function validateFollow($username) {
+		try {
+			$user = json_decode($this->soundcloud->get("users/{$username}.json"),true);
+		} catch (Exception $e) {
+			$user = array();
+		}
+		return $user;
+	}
+
+
 
 }

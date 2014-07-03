@@ -123,9 +123,7 @@ Class MixcloudSocialnet {
 			return json_decode($crawler->get_response(), true);
 		}
 		return false;
-	}
-
-	
+	}	
 
 	public function getTracks($account) {
 
