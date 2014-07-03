@@ -124,6 +124,10 @@ a {
   text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
+input {
+ text-shadow: none; 
+}
+
 a,a:hover,a:active,a:focus,
 img,img:hover,img:active,img:focus {
     outline: none;
@@ -138,7 +142,7 @@ ul {
 }
 
 i, *.active i {
-  padding: 5px;
+  padding: 0px 2px;
   text-shadow: rgb(3, 3, 3) 4px 4px 4px;
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
