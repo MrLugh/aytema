@@ -28,25 +28,23 @@ class MixcloudController extends AppController {
 
 	public function addAccount() {
 
+	}
+
+	public function addFollow() {
+
 		$view = new View($this, false);
 		$this->view 	= '/Elements/Socialnets/ajax/add_non_oauth_account';
 		$this->layout 	= 'anonymous';
        	$response_data	= array();
 
 		$network 	= self::$network;
-		$action 	= isset($this->request->query['action'])			? $this->request->query['action']			: null;		
-		$username	= isset($this->request->query['data']['username'])	? $this->request->query['data']['username']	: null;
+		$username	= isset($this->request->query['username'])	? $this->request->query['username']	: null;
 
 		$username = trim($username);
-
-		$this->set('network', $network);
-
 		$user_id = $this->Auth->user('id');
-		$mo_socialnet = $this->Socialnet->Factory($network,array("user_id" => $user_id));
-		
-		if ( $username ) {
+		$mo_socialnet = $this->Socialnet->Factory($network,array("user_id" => $user_id));		
 
-			$this->view 	= '/Elements/Socialnets/ajax/add_account';
+		try {
 
 			$network_data = $mo_socialnet->profile($username);
 			if (!$network_data) {
@@ -55,8 +53,7 @@ class MixcloudController extends AppController {
 					'status'	=> 'error',
 					'status_msg'=> $msg,
 				);
-				$this->set("response_data",$response_data);
-				$this->render();
+				die(json_encode($response_data));
 			}
 
 			$picture_url = "";
@@ -71,8 +68,8 @@ class MixcloudController extends AppController {
 				'login'				=> $network_data['username'],
 				'network'			=> self::$network,
 				'status'			=> 'Allowed',
-				'token'				=> 'non_oauth_account',
-				'secret'			=> 'non_oauth_account',
+				'token'				=> '',
+				'secret'			=> '',
 				'external_user_id'	=> $network_data['username'],
 				'created'			=> date('Y-m-d H:i:s'),
 				'profile_url'		=> $network_data['url'],
@@ -105,25 +102,17 @@ class MixcloudController extends AppController {
 				'status'	=> 'success',
 				'status_msg'=> __($msg),
 			);
-			$this->set("response_data",$response_data);
-			$this->render();
-		} 
-			
-	}
+			die(json_encode($response_data));
 
-	public function addFollow() {
+		} catch (Exception $e) {
 
-		$view = new View($this, false);
-		$this->view 	= '/Elements/Socialnets/ajax/add_non_oauth_account';
-		$this->layout 	= 'anonymous';
-       	$response_data	= array();
-
-		$network 	= self::$network;
-		$username	= isset($this->request->query['data']['username'])	? $this->request->query['data']['username']	: null;
-
-		$username = trim($username);
-
-		var_dump($username);
+			$msg = __('There was an error adding the account');
+			$response_data = array(
+				'status'	=> 'error',
+				'status_msg'=> $msg,
+			);
+			die(json_encode($response_data));
+		}
 
 	}
 
