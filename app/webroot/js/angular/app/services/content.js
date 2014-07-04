@@ -457,12 +457,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 						source = decodeURIComponent(url[1]);
 					}
 
-                    var img = new Image();
-                    img.src = source;
-                    $(img).load(function(){
-                    	
-                    });					
-
 				}
 			}
 		}
