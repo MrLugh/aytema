@@ -80,10 +80,11 @@
 
 .pageTracks ul li .pageTrackContainer .overlay i {
     position: absolute;
-    top: 45%;
-    left: 45%;
+    top: calc(50% - 28px);
+    left: calc(50% - 28px);
     font-size: 45px;
     cursor: pointer;
+    z-index: 3;
 }
 
 .pageTracks ul li .pageTrackContainer .overlay .overlay-inner {

@@ -24,7 +24,7 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 			if (content.network == 'facebook') {
 				var element = content.data;
 				var photo = {
-					src 		: contentSv.getThumbnail($scope.content),
+					src 		: contentSv.getThumbnail(content),
 					title		: contentSv.getTitle(content)
 				};
 

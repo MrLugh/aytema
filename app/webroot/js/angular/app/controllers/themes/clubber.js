@@ -5,8 +5,10 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.user 	= userSv.getUser();
 
 	$scope.networks = appSv.getNetworks();
+	/*
 	$scope.networks.tumblr.concepts = ['video','track'];
 	$scope.networks.facebook.concepts = ['photo','video'];
+	*/
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;

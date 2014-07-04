@@ -1,18 +1,12 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="video {{content.network}}_{{content.concept}}">
 
-	<div ng-if="isFromNetwork('facebook')">
-		<div class="fb-post" data-href="{{getFbPostHref()}}"></div>
-	</div>
-
-	<div ng-if="!isFromNetwork('facebook')">
-
-		<div ng-if="canShowThumbnail()">
-			<img ng-src="{{getThumbnail()}}" />
-		</div>	
-		<div ng-if="canShowPlayer()" class="player" ng-bind-html="getPlayer()"></div>
-		<div ng-if="isEmpty()">EMPTY</div>
-		<h2 ng-if="getTitle().length">{{getTitle()}}</h2>
-		<p ng-bind-html="getDescription()"></p>
+	<div ng-if="canShowThumbnail()">
+		<img ng-src="{{getThumbnail()}}" />
+	</div>	
+	<div ng-if="canShowPlayer()" class="player" ng-bind-html="getPlayer()"></div>
+	<div ng-if="isEmpty()">EMPTY</div>
+	<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+	<p ng-bind-html="getDescription()"></p>
 				
-	</div>
+
 </div>

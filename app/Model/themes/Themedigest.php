@@ -10,12 +10,12 @@ Class Themedigest {
             ),
             'videos'    => array(
                 'concepts'  => array('video'),
-                'networks'  => array('vimeo','youtube')
+                //'networks'  => array('vimeo','youtube')
             ),
             'tracks'    => array(
                 'concepts'  => array('track'),
                 'networks'  => array('soundcloud','mixcloud','tumblr')
-            ),            
+            ),
             'photos'    => array(
                 'concepts'  => array('photo'),
             ),
@@ -28,7 +28,7 @@ Class Themedigest {
             'facebook' => array(
                 'photo'=>'medium',
                 'post'=>'xlarge',
-                'video'=>'xlarge',
+                'video'=>'large',
             ),
             'twitter' => array(
                 'post'=>'large',

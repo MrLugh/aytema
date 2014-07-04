@@ -9,14 +9,14 @@ Class Themeclubber {
             ),
             'videos'    => array(
                 'concepts'  => array('video'),
-                'networks'  => array('youtube','vimeo','tumblr')
+                //'networks'  => array('youtube','vimeo','tumblr')
             ),
             'tracks'    => array(
                 'concepts'  => array('track'),
             ),
             'events'    => array(
                 'concepts'  => array('event'),
-            ),            
+            ),
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),
                 //'networks'  => array('twitter','facebook','tumblr')

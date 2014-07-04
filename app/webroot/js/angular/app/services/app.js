@@ -15,7 +15,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			network : 'facebook',
 			brand	:'FaceBook',
 			concepts: ['post','photo','video'],
-			oauth	: true,			
+			oauth	: true,
 		},
 		'twitter' : {
 			network : 'twitter',

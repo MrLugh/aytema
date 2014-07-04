@@ -59,7 +59,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	var cleanSource = function(source) {
 
-		/*
+
 		source = source.replace(/style="(.*?)"/g,'');
 		source = source.replace(/style='(.*?)'/g,'');
 
@@ -75,7 +75,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		source = source.replace(/max-height='(.*?)'/g,'');
 		source = source.replace(/height="(.*?)"/g,'');
 		source = source.replace(/height='(.*?)'/g,'');
-		*/
+
 		
 		source = source.replace('autoplay=1','autoplay=0');
 		source = source.replace('auto_play=true','auto_play=false');
@@ -368,7 +368,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		if (!angular.isDefined(content)) {
 			return source;
-		}		
+		}
 
 		if (content.concept == 'video') {
 
@@ -388,7 +388,12 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 			if (content.network == 'facebook') {
 				if (angular.isDefined(content.data['picture'])) {
-					//source = content.data['picture'];
+					source = content.data['picture'];
+				}
+
+				if (angular.isDefined(content.data['format']) && content.data['format'].length>0) {
+					var format = content.data['format'][content.data['format'].length-1];
+					source = format.picture;
 				}
 			}
 
@@ -478,9 +483,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'facebook') {
-				if (angular.isDefined(content.data['source'])) {
-					source = content.data['source'];
-					source =  '<iframe src="'+source+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+				if (angular.isDefined(content.data['embed_html'])) {
+					source = content.data['embed_html'];
 				}
 			}
 
@@ -579,6 +583,14 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			title = content.data.name;
 		}
 
+		if (content.network == 'facebook') {
+
+			if (angular.isDefined(content.data['name'])) {
+				title = content.data['name'];
+			}
+
+		}		
+
 		return title.replace(/-/g, ' ');
 	}
 
@@ -604,19 +616,19 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		if (content.network == 'facebook') {
 
-			if (angular.isDefined(content.data['story'])) {
-				description = content.data['story'];
+			if (angular.isDefined(content.data['description'])) {
+				description = content.data['description'];
 			}
 
-			if (angular.isDefined(content.data['name'])) {
-				description = content.data['name'];
+			if (angular.isDefined(content.data['story'])) {
+				description = content.data['story'];
 			}
 
 			if (angular.isDefined(content.data['message'])) {
 				description = content.data['message'];
 			}
 
-		}		
+		}
 
 		if (content.network == 'vimeo') {
 			description = content.data.description;

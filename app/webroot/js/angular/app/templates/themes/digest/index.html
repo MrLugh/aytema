@@ -125,7 +125,7 @@
 								<ul id="carousel">
 									<li ng-repeat="related in relateds" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
 										<a href="#/" ng-click="showRelated($index)" skip-default >
-											<i ng-hide="getRelatedThumbnail($index).length" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
+											<i ng-hide="getRelatedThumbnail($index).length>0" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
 											<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">
 										</a>
 									</li>
@@ -144,7 +144,7 @@
 
 		<a href="#/" ng-click="move(-1)" tooltip="{{getNavigatorTitle(-1)}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)" ng-style="getStyle()">
 			<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
-			<div class="more-user" ng-show="getNavigatorThumbnail(-1).length">
+			<div class="more-user" ng-show="getNavigatorThumbnail(-1).length>0">
 				<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
 			</div>
 			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="">
@@ -153,7 +153,7 @@
 
 		<a href="#/" ng-click="move(1)" tooltip="{{getNavigatorTitle(1)}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)" ng-style="getStyle()">
 			<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
-			<div class="more-user" ng-show="getNavigatorThumbnail(1).length">
+			<div class="more-user" ng-show="getNavigatorThumbnail(1).length>0">
 				<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
 			</div>
 			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="">

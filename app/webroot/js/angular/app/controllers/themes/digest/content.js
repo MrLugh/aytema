@@ -16,10 +16,6 @@ function contentVideoCo($scope,$sce,contentSv) {
 		return $scope.content.data.type != 'status';
 	}
 
-	$scope.getFbPostHref = function() {
-		return contentSv.getFacebookContentHrefEmbed($scope.content);
-	}
-
 	$scope.getPlayer = function() {
 
 		if ($scope.loadPlayer) {

@@ -1,28 +1,22 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="video {{content.network}}_{{content.concept}}">
 
-	<div ng-if="isFromNetwork('facebook')">
-		<div class="fb-post" data-href="{{getFbPostHref()}}"></div>
-	</div>
 
-	<div ng-if="!isFromNetwork('facebook')">
+	<div style="background:url('{{getThumbnail()}}');background-size:cover;background-position: center center;" class="overlay_photo"></div>
 
-		<div style="background:url('{{getThumbnail()}}');background-size:cover;background-position: center center;" class="overlay_photo"></div>
-
-		<div class="overlay_content">
-			
-			<div ng-if="canShowThumbnail()">
-				<img ng-src="{{getThumbnail()}}" class="content_photo" />
-			</div>
-
-			<div class="content_caption"> 
-				<a href="#/" add-to-queue="getPlayer()" skip-default class="right">
-					<img src="http://cloudcial.com/img/themes/simple/playButton.png" width="40px" height="40px" />
-				</a>
-				<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
-				<p ng-bind-html="getDescription()"></p>
-			</div>
-
+	<div class="overlay_content">
+		
+		<div ng-if="canShowThumbnail()">
+			<img ng-src="{{getThumbnail()}}" class="content_photo" />
 		</div>
-				
+
+		<div class="content_caption"> 
+			<a href="#/" add-to-queue="getPlayer()" skip-default class="right">
+				<img src="http://cloudcial.com/img/themes/simple/playButton.png" width="40px" height="40px" />
+			</a>
+			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+			<p ng-bind-html="getDescription()"></p>
+		</div>
+
 	</div>
+
 </div>
