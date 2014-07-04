@@ -439,8 +439,30 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if (content.concept == 'post')	{
 
 			if (content.network == 'facebook') {
+				//console.log(content.data.picture);
 				if (angular.isDefined(content.data['picture'])) {
-					//source = content.data['picture'];
+
+					var original = content.data['picture'];
+					source = content.data['picture'];
+					
+					if (source.search(/([a-z]?)[0-9]+x[0-9]+\//gmi) > -1) {
+						console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+						console.log(source);
+						source = source.replace(/([a-z]?)[0-9]+x[0-9]+\//gmi,"");
+						console.log(source);
+					}
+
+					var url = source.split("url=");
+					if (url.length > 1) {
+						source = decodeURIComponent(url[1]);
+					}
+
+                    var img = new Image();
+                    img.src = source;
+                    $(img).load(function(){
+                    	
+                    });					
+
 				}
 			}
 		}
@@ -618,6 +640,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 			if (angular.isDefined(content.data['description'])) {
 				description = content.data['description'];
+			}
+
+			if (angular.isDefined(content.data['caption'])) {
+				description = content.data['caption'];
 			}
 
 			if (angular.isDefined(content.data['story'])) {

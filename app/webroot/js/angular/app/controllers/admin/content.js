@@ -270,10 +270,6 @@ function adminContentPostCo($scope,contentSv,$sce) {
 		return $scope.content.network == network;
 	}
 
-	$scope.getFbPostHref = function() {
-		return contentSv.getFacebookContentHrefEmbed($scope.content);
-	}
-
 	$scope.canEmbedFb = function() {
 		return $scope.content.data.type != 'status';
 	}	
@@ -291,6 +287,27 @@ function adminContentPostCo($scope,contentSv,$sce) {
 	$scope.getDescription = function() {
 
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
+	}
+
+	$scope.getThumbnail = function() {
+
+		if ($scope.loadThumbnail) {
+			return $scope.thumbnail;
+		}
+
+		$scope.thumbnail	= contentSv.getThumbnail($scope.content);
+		$scope.loadThumbnail= true;
+
+		return $scope.thumbnail;
+	}
+
+	$scope.hasThumbnail = function() {
+		$scope.getThumbnail();
+		return $scope.thumbnail.length > 0;
+	}
+
+	$scope.canShowThumbnail = function() {
+		return $scope.hasThumbnail();
 	}
 
 }
