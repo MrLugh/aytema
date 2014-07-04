@@ -156,18 +156,20 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		var icon_class = "";
 
-        if (network == "facebook") {
+        if (network == "cloudcial") {
+            icon_class = "fa fa-cloud";
+        } else if (network == "facebook") {
             icon_class = "fa fa-facebook";
         } else if (network == "twitter") {
             icon_class = "fa fa-twitter";
         } else if (network == "youtube") {
             icon_class = "fa fa-youtube";            
         } else if (network == "vimeo") {
-            icon_class = "icon-vimeo";
+            icon_class = "fa fa-vimeo-square";
         } else if (network == "tumblr") {
             icon_class = "fa fa-tumblr";
         } else if (network == "mixcloud") {
-            icon_class = "fa fa-mixcloud";
+            icon_class = "fa fa-renren";
         } else if (network == "soundcloud") {
             icon_class = "fa fa-soundcloud";
         }
@@ -525,15 +527,21 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		if (content.network == 'tumblr') {
 
-			if (angular.isDefined(content.data['slug']) && content.data['slug'].length) {
+			if (angular.isDefined(content.data['slug'])&& 
+				angular.isString(content.data['slug']) &&
+				content.data['slug'].length) {
 				title = content.data['slug'];
 			}
 
-			if (angular.isDefined(content.data['source_title']) && content.data['source_title'].length) {
+			if (angular.isDefined(content.data['source_title']) &&
+				angular.isString(content.data['source_title']) &&
+				content.data['source_title'].length) {
 				title = content.data['source_title'];
 			}
 
-			if (angular.isDefined(content.data['title']) && content.data['title'].length) {
+			if (angular.isDefined(content.data['title']) &&
+				angular.isString(content.data['title']) &&
+				content.data['title'].length) {
 				title = content.data['title'];
 			}			
 		}

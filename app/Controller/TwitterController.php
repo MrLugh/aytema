@@ -260,6 +260,20 @@ class TwitterController extends AppController {
 				$picture_url = str_replace("_normal", "", $network_data['profile_image_url_https']);
 			}
 
+			$save = array(
+				'user_id'			=> $user_id,
+				'login'				=> $network_data['screen_name'],
+				'network'			=> self::$network,
+				'status'			=> 'Allowed',
+				'token'				=> '',
+				'secret'			=> '',
+				'external_user_id'	=> $network_data['id_str'],
+				'created'			=> date('Y-m-d H:i:s'),
+				'profile_url'		=> "https://twitter.com/".$network_data['screen_name'],
+				'profile_image'		=> $picture_url,
+				'stats'				=> json_encode($mo_socialnet->stats($params)),
+			);			
+
 			//Check if already exists an account by $network_data['username'],
 			$accounts = $this->Socialnet->find('all', array(
 	   			'conditions' => array(
@@ -281,6 +295,7 @@ class TwitterController extends AppController {
 	       			'conditions' => array(
 	       				'Socialnet.user_id'	=> $user_id,
 	       				'Socialnet.network'	=> self::$network,
+	   					'Socialnet.external_user_id'=> $network_data['id']
 	       				)
 	    			)
 	    		);
@@ -291,21 +306,6 @@ class TwitterController extends AppController {
 					$save['id'] = $account['Socialnet']['id'];
 				}
 			}
-
-			$save = array(
-				'id'				=> $account['Socialnet']['id'],
-				'user_id'			=> $user_id,
-				'login'				=> $network_data['screen_name'],
-				'network'			=> self::$network,
-				'status'			=> 'Allowed',
-				'token'				=> '',
-				'secret'			=> '',
-				'external_user_id'	=> $network_data['id_str'],
-				'created'			=> date('Y-m-d H:i:s'),
-				'profile_url'		=> "https://twitter.com/".$network_data['screen_name'],
-				'profile_image'		=> $picture_url,
-				'stats'				=> json_encode($mo_socialnet->stats($params)),
-			);
 
 			if (!$this->Socialnet->save($save)) {
 				$msg = __('There was an error adding the account');

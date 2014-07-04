@@ -67,7 +67,7 @@
 					<div class="accountLayerInfo">
 
 						<div class="controls">
-							<i ng-if="account.network!='cloudcial'" ng-click="delete($index)" class="fa fa-trash-o" tooltip="Delete account" tooltip-placement="bottom"></i>
+							<i ng-click="delete($index)" class="{{account.network!='cloudcial' ? 'fa  fa-trash-o':'fa fa-exclamation-circle'}}" tooltip="{{account.network!='cloudcial' ? 'Delete account':'Can\'t Delete'}}" tooltip-placement="bottom"></i>
 							<i ng-click="showAccount($index)" class="fa fa-search" tooltip="View content" tooltip-placement="bottom"></i>
 						</div>
 

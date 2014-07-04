@@ -13,7 +13,7 @@
 	</div>
 	<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" />
 
-	<h2>{{getTitle()}}</h2>
+	<h2 ng-if="getTitle().length">{{getTitle()}}</h2>
 	<p ng-bind-html="getDescription()"></p>
 
 </div>

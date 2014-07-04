@@ -1,5 +1,5 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}_detail" class="link {{content.network}}_{{content.concept}}">
-	<h2>{{getTitle()}}</h2>
+	<h2 ng-if="getTitle().length">{{getTitle()}}</h2>
 	<p ng-bind-html="getDescription()"></p>	
 	<p><a target="_blank" href="{{getUrl()}}">{{getUrl()}}</a></p>
 

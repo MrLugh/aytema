@@ -4,6 +4,6 @@
 	</div>
 	<div ng-if="canShowPlayer()" class="track_embed" ng-bind-html="getPlayer()"></div>
 	<div ng-if="isEmpty()">EMPTY</div>
-	<h2>{{getTitle()}}</h2>
+	<h2 ng-if="getTitle().length">{{getTitle()}}</h2>
 	<p ng-bind-html="getDescription()"></p>
 </div>

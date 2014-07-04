@@ -114,7 +114,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.delete = function(index) {
-		if ($scope.list[index].network == 'aytema') {
+		if ($scope.list[index].network == 'cloudcial') {
 			return false;
 		}
 		userSv.deleteAccount($scope.list[index]);

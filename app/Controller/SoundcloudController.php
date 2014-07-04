@@ -225,6 +225,7 @@ class SoundcloudController extends AppController {
 	       			'conditions' => array(
 	       				'Socialnet.user_id'	=> $user_id,
 	       				'Socialnet.network'	=> self::$network,
+	       				'Socialnet.external_user_id'=> $network_data['id'],
 	       				)
 	    			)
 	    		);

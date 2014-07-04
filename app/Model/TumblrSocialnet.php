@@ -9,6 +9,7 @@ Class TumblrSocialnet {
 	const VERIFY_CREDENTIALS	= "http://api.tumblr.com/v2/user/info";
 	const UPDATE_STATUS			= "http://tumblr.com/statuses/update.json";
 	const RETRIEVE_DATA			= "http://api.tumblr.com/v2/blog";
+	const USER_DATA				= "http://api.tumblr.com/v2/blog/*.tumblr.com/info";
 
 	//Esto va al config!
 	const APP_ID 			= "TyJKAYXQm61AsADJ8vpgGLoPcwxpme8LzWaOfRvYGLJeRQ31Az";
@@ -240,6 +241,43 @@ Class TumblrSocialnet {
 		}
   		
 		return false;
+	}
+
+	/** Public methods **/
+	public function validateFollow($account,$username) {
+		try {
+			$this->setToken($account['token'], $account['secret']);
+			
+			$path	= str_replace("*",$username,self::USER_DATA);
+		
+			$args	= array('api_key' => self::APP_ID);
+
+			$this->oauth->fetch($path, $args, OAUTH_HTTP_METHOD_GET);
+			$response = $this->oauth->getLastResponseInfo();
+
+			if($response['http_code'] == 200) {
+				$user = json_decode($this->oauth->getLastResponse(),true);
+			}			
+		} catch (Exception $e) {
+			$user = array();
+		}
+		return $user;
+	}
+
+	public function getBlogStats($account,$username) {
+		$user = $this->validateFollow($account,$username);
+		$stats= array();
+		if (isset($user['response']['blog']['posts'])) {
+			$stats['posts'] = $user['response']['blog']['posts'];
+		}
+		if (isset($user['response']['blog']['likes'])) {
+			$stats['likes'] = $user['response']['blog']['likes'];
+		}
+		if (isset($user['response']['blog']['followers'])) {
+			$stats['followers'] = $user['response']['blog']['followers'];
+		}		
+
+		return $stats;
 	}
 
 }

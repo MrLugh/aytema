@@ -72,7 +72,6 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 		{
 			$collected_data = array_merge($collected_data,$feed);
 		}
-		*/
 
 		$posts	= $this->getPosts($account, $params);
 		if (!empty($posts))
@@ -80,17 +79,19 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 			$collected_data = array_merge($collected_data,$posts);
 		}
 
+		$videos	= $this->getVideos($account, $params);
+		if (!empty($videos))
+		{
+			$collected_data = array_merge($collected_data,$videos);
+		}
+		*/
+
 		$photos	= $this->getPhotos($account, $params);
 		if (!empty($photos))
 		{
 			$collected_data = array_merge($collected_data,$photos);
 		}
 
-		$videos	= $this->getVideos($account, $params);
-		if (!empty($videos))
-		{
-			$collected_data = array_merge($collected_data,$videos);
-		}
 
 		return $collected_data;
 	}

@@ -6,7 +6,7 @@
 		<div ng-bind-html="getEmbed()"></div>
 	</div>
 	<div ng-if="(isFromNetwork('facebook') && !canEmbedFb()) || !isFromNetwork('facebook') && !isFromNetwork('twitter')">
-		<h2>{{getTitle()}}</h2>
+		<h2 ng-if="getTitle().length">{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>
 	</div>
 </div>
