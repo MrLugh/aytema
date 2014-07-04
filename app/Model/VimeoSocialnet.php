@@ -49,10 +49,18 @@ Class VimeoSocialnet extends AppModel {
 
 	public function verifyCredentials($account, $params = array()) {
 
-		$this->setToken($account['token'], $account['secret']);
+		if (!empty($account)) {
+			$this->setToken($account['token'], $account['secret']);
+		}
 
 		try {
-  			return json_decode(json_encode($this->vimeo->call("vimeo.people.getInfo")),true);
+			$args = array();
+
+			if (isset($params['username'])) {
+				$args = array('user_id'=>$params['username']);
+			}
+
+  			return json_decode(json_encode($this->vimeo->call("vimeo.people.getInfo",$args)),true);			
   		} catch(Exception $e) {
   			return null;
   		}
@@ -87,7 +95,11 @@ Class VimeoSocialnet extends AppModel {
 		$this->vimeo->setToken($account['token'], $account['secret']);
 		
 		try {
-			$params = array("full_response"=>true,"summary_response"=>true);
+			$params = array(
+				"full_response"		=> true,
+				"summary_response"	=> true,
+				'user_id'			=> $account['external_user_id']
+			);
   			return json_decode(json_encode($this->vimeo->call('vimeo.videos.getAll',$params)),true);
   		} catch(Exception $e) {
   			return null;

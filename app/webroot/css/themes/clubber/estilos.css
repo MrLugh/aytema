@@ -18,7 +18,7 @@ body {
 }
 
 * {
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  text-shadow: rgb(3, 3, 3) 1px 1px 1px;
 }
 
 a,a:hover,a:active,a:focus,
@@ -79,7 +79,7 @@ blockquote {
 
 i, *.active i {
   padding: 5px;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  text-shadow: rgb(3, 3, 3) 1px 1px 1px;
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
@@ -87,12 +87,12 @@ i, *.active i {
 }
 
 *.active i {
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  text-shadow: rgb(3, 3, 3) 1px 1px 1px;
 }
 
 i:hover,*.active i:hover {
   transition: border 0.1s ease 0s;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  text-shadow: rgb(3, 3, 3) 1px 1px 1px;
 }
 
 ul {

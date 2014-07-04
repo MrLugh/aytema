@@ -76,7 +76,7 @@ Class TwitterSocialnet extends AppModel {
 		if (isset($user['favourites_count'])) {
 			$stats['favourites'] = $user['favourites_count'];
 		}
-		return $stats;		
+		return $stats;
 	}
 
 	public function getPostEmbed($account,$id) {
@@ -155,5 +155,23 @@ Class TwitterSocialnet extends AppModel {
 		}
 		return $user;
 	}
+
+	public function getPublicStats($account,$username) {
+		$user = $this->validateFollow($account,$username);
+		$stats= array();
+		if (isset($user['statuses_count'])) {
+			$stats['statuses'] = $user['statuses_count'];
+		}
+		if (isset($user['followers_count'])) {
+			$stats['followers'] = $user['followers_count'];
+		}
+		if (isset($user['friends_count'])) {
+			$stats['friends'] = $user['friends_count'];
+		}
+		if (isset($user['favourites_count'])) {
+			$stats['favourites'] = $user['favourites_count'];
+		}
+		return $stats;
+	}	
 
 }

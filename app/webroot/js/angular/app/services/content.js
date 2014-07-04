@@ -90,11 +90,16 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		if (stat_name == 'comments') {
 		    icon_class= "fa fa-comments";
-		} else if (stat_name == 'plays' || stat_name == 'listen') {
+		} else if (stat_name == 'plays' ||
+			stat_name == 'listen') {
+
 		    icon_class= "fa fa-play";
 		} else if (stat_name == 'downloads') {
 		    icon_class= "fa fa-cloud-download";
-		} else if (stat_name == 'favorites' || stat_name == 'likes' || stat_name == 'favourites') {
+		} else if (stat_name == 'favorites' ||
+			stat_name == 'likes'			||
+			stat_name == 'favourites') {
+
 		    icon_class= "fa fa-thumbs-up";
 		} else if (stat_name == 'dislikes') {
 		    icon_class= "fa fa-thumbs-down";
@@ -102,21 +107,33 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		    icon_class= "fa fa-bar-chart-o";
 		} else if (stat_name == 'views') {
 		    icon_class= "fa fa-eye";
-		} else if (stat_name == 'followers' || stat_name == 'subscribers' || stat_name == 'subscriptions') {
+		} else if (stat_name == 'followers' ||
+			stat_name == 'subscribers'		||
+			stat_name == 'subscriptions'	||
+			stat_name == 'contacts') {
+
 		    icon_class= "fa fa-users";
 		} else if (stat_name == 'friends') {
 		    icon_class= "fa fa-sitemap";
 		} else if (stat_name == 'videos') {  
 		    icon_class= "fa fa-video-camera";
-		} else if (stat_name == 'tracks' || stat_name == 'cloudcasts') {
+		} else if (stat_name == 'tracks'	||
+			stat_name == 'cloudcasts') {
+
 		    icon_class= "fa fa-music";
 		} else if (stat_name == 'photos') {
 		    icon_class= "fa fa-camera";
-		} else if (stat_name == 'posts' || stat_name == 'statuses') {
+		} else if (stat_name == 'posts' ||
+			stat_name == 'statuses') {
+
 		    icon_class= "fa fa-file-text";
 		} else if (stat_name == 'quotes') {
 		    icon_class= "fa fa-quote-left";
-		} else if (stat_name == 'blogs' || stat_name == 'playlists') {
+		} else if (stat_name == 'blogs' ||
+			stat_name == 'playlists'	||
+			stat_name == 'channels'		||
+			stat_name == 'albums') {
+
 		    icon_class= "fa fa-list";
 		} else if (stat_name == 'following') {
 		    icon_class= "fa fa-star";

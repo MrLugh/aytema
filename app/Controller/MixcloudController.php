@@ -16,9 +16,6 @@ class MixcloudController extends AppController {
 		$this->modelKey 	= 'Socialnet';
 		$this->loadModel('Socialnet');
 		$this->loadModel('Content');
-
-		//ONLY FOR TESTING
-		$this->Auth->allow('collect');
 	}
 
 	public function index() {
@@ -115,82 +112,5 @@ class MixcloudController extends AppController {
 		}
 
 	}
-
-
-	public function collect() {
-
-		$user_id = $this->Auth->user('id');
-
-		$conditions = array('Socialnet.network' => self::$network);
-		$params 	= array('Content.network'	=> self::$network);
-
-		$this->layout = 'ajax';
-		if (isset($user_id)) {
-			$conditions['Socialnet.user_id'] = $user_id;
-			$this->layout = 'user';
-		}
-
-		if (isset($this->request->query['account_id'])) {
-			$conditions['Socialnet.id'] = $this->request->query['account_id'];
-			$this->set("account_id",$conditions['Socialnet.id']);
-		}
-
-		$accounts = $this->Socialnet->find('all',array(
-			'conditions'=> $conditions,
-			'fields'	=> array('Socialnet.external_user_id')
-			)
-		);
-
-		if ($accounts) {
-			$account_ids = array();
-			foreach ($accounts as $key => $value) {
-				$account_ids[] = $value['Socialnet']['external_user_id'];
-			}
-			$params['Content.external_user_id'] = $account_ids;
-		}
-
-		$contents = $this->Content->find('all', array(
-			'conditions'=> $params,
-			'order'		=> array('Content.creation_date' => 'desc'),
-			'limit'		=> '50',
-			)
-		);
-
-
-		$data = array();
-		foreach ($contents as $key => $value) {
-
-			$value['Content']['data']	= unserialize($value['Content']['data']);
-			$value['Content']['stats']	= unserialize($value['Content']['stats']);
-			$data[] = $value['Content'];
-		}
-
-		$this->set("count",count($contents));
-
-		if (isset($this->request->query['layout'])) {
-			$this->layout = $this->request->query['layout'];
-		}
-		$content_types 	= MixcloudSocialnet::$content_types;
-		$types 			= $content_types;
-
-		if (isset($this->request->query['types'])) {
-			$types = $this->request->query['types'];
-		}
-
-        if($this->request->isAjax) {
-            $this->layout = "ajax";
-        }
-
-		$this->view = 'free_embed';
-		
-	 	$networks = Socialnet::$networks;
-		$this->set("network",self::$network);
-	 	$this->set("title_for_layout",$networks[self::$network]);
-		$this->set("app_id",MixcloudSocialnet::APP_ID);
-		$this->set("data",$data);
-		$this->set("content_types",$content_types);
-		$this->set("types",$types);
-	}
-
 
 }

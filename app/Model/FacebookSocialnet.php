@@ -101,9 +101,15 @@ Class FacebookSocialnet {
 
 	}
 
-	public function	profile($account) {
+	public function	profile($account,$username= 'me') {
 
-		return $this->facebook->api('/me', array('access_token' => $account['access_token']));
+		$args = array();
+
+		if (!empty($account)) {
+			$args = array('access_token' => $account['access_token']);
+		}
+
+		return $this->facebook->api("/{$username}", $args);
 	}
 
 	public function getMasterPagesGraph($account) {
@@ -169,9 +175,9 @@ Class FacebookSocialnet {
 		return $this->facebook->api($path, $method, $args);
 	}	
 
-	public function stats($account) {
+	public function stats($account,$username = 'me') {
 
-		$user = $this->profile($account);
+		$user = $this->profile($account,$username);
 		$stats= array();
 		if (isset($user['likes'])) {
 			$stats['likes'] = $user['likes'];
@@ -185,7 +191,10 @@ Class FacebookSocialnet {
 
 		$method = 'GET';
 
-		(!isset($params['access_token'])) ? $params['access_token'] = $account['access_token'] : null;
+		if (!empty($account['access_token'])) {
+			$params['access_token'] = $account['access_token'];
+		}
+
 		$params['fields'] = "picture.type(large)";
 
 		return $this->facebook->api($path, $method, $params);		
@@ -219,7 +228,7 @@ Class FacebookSocialnet {
 		return $this->facebook->api($path, $method, $args);
 	}
 
-	public function getvideos($account, $params = array()) {
+	public function getVideos($account, $params = array()) {
 
 		$path	= "/{$account['external_user_id']}/videos";
 
@@ -230,6 +239,6 @@ Class FacebookSocialnet {
 		(!isset($params['access_token'])) ? $args['access_token'] = $account['token'] : null;
 
 		return $this->facebook->api($path, $method, $args);
-	}	
+	}
 
 }
