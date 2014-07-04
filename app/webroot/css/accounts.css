@@ -60,7 +60,7 @@
   font-size: 10px;
 }
 
-.accountsContainer .addList li.open {
+.accountsContainer .addList li.active {
   color: #DCEE5C;
 }
 

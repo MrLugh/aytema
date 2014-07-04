@@ -72,6 +72,7 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 		{
 			$collected_data = array_merge($collected_data,$feed);
 		}
+		*/
 
 		$posts	= $this->getPosts($account, $params);
 		if (!empty($posts))
@@ -84,14 +85,12 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 		{
 			$collected_data = array_merge($collected_data,$videos);
 		}
-		*/
 
 		$photos	= $this->getPhotos($account, $params);
 		if (!empty($photos))
 		{
 			$collected_data = array_merge($collected_data,$photos);
 		}
-
 
 		return $collected_data;
 	}
@@ -109,7 +108,7 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$feed	= $mo_socialnet->getFeed($account,$params);
 
-		if (isset($feed['data']) and count($feed['data']))
+		if ($feed !== false and isset($feed['data']) and count($feed['data']))
 		{
 
 			foreach ($feed['data'] as $k=>$feed)
@@ -201,7 +200,7 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$photos	= $mo_socialnet->getPhotos($account,$params);
 
-		if ($photos !==false and count($photos['data']))
+		if (isset($photos['data']) and count($photos['data']))
 		{
 			foreach ($photos['data'] as $k=>$photo)
 			{
@@ -243,8 +242,7 @@ class FacebookContentHubDs extends AbstractContentHubDs {
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$videos	= $mo_socialnet->getVideos($account,$params);
 
-
-		if ($videos !==false and count($videos['data']))
+		if (isset($videos['data']) and count($videos['data']))
 		{
 			foreach ($videos['data'] as $k=>$video)
 			{

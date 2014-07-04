@@ -23,6 +23,8 @@ class CollectData {
 	private $cache_control_key 	= null;
 	private $networks 			= array();
 
+	private $aux_accounts 		= array();
+
 	public function __construct($params) {
 
 		$this->set_networks(Socialnet::$networks);
@@ -197,6 +199,39 @@ class CollectData {
 		return $this->cache_last_id_key;
 	}
 
+	public function accountWithToken($network) {
+
+		if (isset($this->aux_accounts[$network])) {
+			return $this->aux_accounts[$network];
+		}
+
+		$where 	= array(
+			'Socialnet.network'	=> $network,
+			'Socialnet.status'	=> 'Allowed',
+			'Socialnet.token !='=> '',
+		);
+
+		$params = array(
+			'conditions'	=> $where,
+			'limit'			=> 1,
+			'order'			=> 'Socialnet.id DESC',
+		);
+
+		$socialnet = new Socialnet();
+		$aux_account = $socialnet->find('all', $params);
+		if (empty($aux_account)) {
+			return array();
+		}
+
+		$aux_account = array_shift($aux_account);
+		$aux_account = $aux_account['Socialnet'];
+
+		$this->aux_accounts[$network] = $aux_account;
+
+		return $aux_account;
+
+	}
+
 	public function accounts() {
 
 		$where 	= array(
@@ -253,6 +288,19 @@ class CollectData {
 
 			if ($account['network'] == 'cloudcial') {
 				continue;
+			}
+
+			if (empty($account['token'])) {
+				$aux_account = $this->accountWithToken($account['network']);
+
+				if (empty($aux_account)) {
+					continue;
+				}
+
+				// Using a valid token and secret!
+				$account['token']	= $aux_account['token'];
+				$account['secret']	= $aux_account['secret'];
+
 			}
 
 			$account_data = $this->fetch_data($account);

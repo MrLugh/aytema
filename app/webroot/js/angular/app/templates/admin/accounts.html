@@ -29,7 +29,7 @@
 			<i class="fa fa-plus addControl" ng-click="manageAdd()" tooltip="Add account" tooltip-placement="right"></i>
 
 			<ul ng-show="showAdd">
-				<li ng-repeat="(key,network) in networks" ng-if="network.network!='cloudcial'" dropdown  class="btn-group">
+				<li ng-repeat="(key,network) in networks" ng-if="network.network!='cloudcial'" dropdown  class="btn-group" ng-class="getAddClass(network.network)">
 					<i ng-class="networkIcon(network.network)" class="dropdown-toggle" ng-click="showDropdown(network.network)"></i>
 
 					<div class="dropdown-menu" role="menu" ng-if="networkAdd == network.network">

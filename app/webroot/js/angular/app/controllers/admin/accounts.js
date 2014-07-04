@@ -132,6 +132,11 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		return userSv.countByNetwork(network);
 	}
 
+
+	$scope.getAddClass = function(network) {
+		return $scope.networkAdd == network ? 'active' : '';
+	}
+
 	$scope.userSv = userSv;
 
 	$scope.$watch('search', function(value) {
@@ -185,7 +190,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		var command = '$scope.popupAccount = window.open(href,"mywindow","status=0,menubar=0,resizable=0,location=0,width=910,height=550");';
 		eval(command);
 
-		var timer = setInterval(function() {   
+		var timer = setInterval(function() {
 		    if($scope.popupAccount.closed) {  
 		        clearInterval(timer);
 				userSv.loadAccounts();
