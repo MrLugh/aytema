@@ -8,17 +8,16 @@
     width: 100%;
     min-height: 150px;
     margin: 0 auto;
-    border-radius: 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
   }
 
   .accountsContainer .accountLayerImage, .accountsContainer .account:hover .accountLayerImage {  
-    border-radius: 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
     border: none;
-    background-image: contain;
     -webkit-transform: none;
     -moz-transform: none;
     -ms-transform: none;
@@ -27,9 +26,9 @@
   }
 
   .accountsContainer .accountLayerInfo, .accountsContainer:hover .accountLayerInfo {
-    border-radius: 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
     border: none;
   }  
 
