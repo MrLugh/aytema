@@ -12,10 +12,6 @@ body {
   overflow-x: hidden;
 }
 
-* {
-  text-shadow: rgb(3, 3, 3) 1px 1px 1px;
-}
-
 img {
   max-width: 100%;
 }
