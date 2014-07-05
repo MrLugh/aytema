@@ -363,6 +363,8 @@ function contentPostCo($scope,contentSv,$sce,userSv) {
 
 	//console.log($scope.content);
 
+	$scope.thumbnail= "";
+
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
 	}
@@ -405,6 +407,40 @@ function contentPostCo($scope,contentSv,$sce,userSv) {
 		}
 
 	}	
+
+	$scope.getThumbnail = function() {
+
+		if ($scope.loadThumbnail) {
+			return $scope.thumbnail;
+		}		
+
+		$scope.thumbnail	= contentSv.getThumbnail($scope.content);
+		$scope.loadThumbnail= true;
+
+		return $scope.thumbnail;
+	}
+
+	$scope.hasThumbnail = function() {
+		$scope.getThumbnail();
+		return $scope.thumbnail.length > 0;
+	}	
+
+	$scope.getBgImage = function() {
+		if (!$scope.hasThumbnail()) {
+			return {}
+		}
+
+		return {
+			'background-image':"url('"+$scope.getThumbnail()+"')"
+		}
+	}
+
+	$scope.$watch("content",function(value){
+		//console.log("Watch video content ",value.id,$scope.content.id);
+		$scope.thumbnail= "";
+
+		$scope.loadThumbnail= false;
+	});	
 
 }
 

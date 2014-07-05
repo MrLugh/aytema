@@ -16,19 +16,11 @@
 		    </div>
 
 			<div ng-if="canShowThumbnail()">
-				<img ng-src="{{getThumbnail()}}" class="track_thumbnail" />
+				<img thumbnail="content" ng-src="{{getThumbnail()}}" class="track_thumbnail" />
 			</div>
 			<div ng-if="!canShowThumbnail()">
 				<img src="http://cloudcial.com/img/themes/clubber/default-content-thumbnail.jpg" class="track_thumbnail" />
 			</div>
-
-			<!--
-			<div ng-if="canShowThumbnail()">
-				<img ng-src="{{getThumbnail()}}" class="track_thumbnail" />
-			</div>
-			<div ng-if="canShowPlayer()" class="player" ng-bind-html="getPlayer()"></div>
-			<h2 class="title">{{getTitle()}}</h2>		
-			-->
 					
 		</div>
 

@@ -27,6 +27,7 @@ class VimeoController extends AppController {
 
 		$view = new View($this, false);
        	$this->view 	= '/Elements/Socialnets/ajax/add_account';
+		$this->layout 	= 'anonymous';
        	$response_data	= array();
 
 		$network 	= self::$network;

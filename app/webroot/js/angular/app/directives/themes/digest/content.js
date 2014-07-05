@@ -8,27 +8,9 @@ function($FB,$timeout,appSv,$window){
         scope: true,
         link: function(scope,element,attrs) {
 
-            if (scope.isFromNetwork('facebook')) {
-                element.ready(function(){
-                    $timeout(function(){
-                        scope.$FB = $FB;
-                        scope.$apply();
-                        scope.$watch('$FB.loaded',function(value) {
-                            // It needs authentication, this won't work.
-                            if(value){
-                                if (typeof $FB  != "undefined"){
-                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
-                                }
-                            }
-                        },true);
-                        scope.$apply();
-                    },0);
-                });
-            }
-
             scope.resizeContent = function() {
 
-                if (scope.isFromNetwork('facebook') || scope.isFromNetwork('twitter')) {
+                if (scope.isFromNetwork('twitter')) {
                     return;
                 }
 
@@ -214,55 +196,6 @@ function($FB,$timeout){
         scope: true,
         link: function(scope,element,attrs) {
 
-            if (scope.isFromNetwork('facebook')) {
-                element.ready(function(){
-                    $timeout(function(){
-                        scope.$FB = $FB;
-                        scope.$apply();
-                        scope.$watch('$FB.loaded',function(value) {
-                            // It needs authentication, this won't work.
-                            if(value){
-                                if (typeof $FB  != "undefined"){
-                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
-                                }
-                            }
-                        },true);
-                        scope.$apply();
-                    },0);
-                });
-            }
-
-            /*
-            if (scope.isFromNetwork('twitter')) {
-
-                if (!window.twttr) {
-                    window.twttr = (function (d,s,id) {
-                      var t, js, fjs = d.getElementsByTagName(s)[0];
-                      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
-                      js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-                      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-                    }(document, "script", "twitter-wjs"));
-                }
-
-                twttr.ready(function(){
-
-                    twttr.events.bind('rendered', function (twElement) {
-                        scope.$emit("TW.render");
-                    });
-
-                    twttr.widgets.createTweet(
-                        scope.content.external_id,
-                        element[0],
-                        function (el) {
-                            scope.$emit("TW.render");
-                        },
-                        {}
-                    );
-
-                });
-                
-            }
-            */
         } 
     }
 
@@ -592,24 +525,6 @@ function(appSv,$window){
                 }
             }
 
-            if (scope.isFromNetwork('facebook')) {
-                element.ready(function(){
-                    $timeout(function(){
-                        scope.$FB = $FB;
-                        scope.$apply();
-                        scope.$watch('$FB.loaded',function(value) {
-                            // It needs authentication, this won't work.
-                            if(value){
-                                if (typeof $FB  != "undefined"){
-                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
-                                }
-                            }
-                        },true);
-                        scope.$apply();
-                    },0);
-                });
-            }
-
             scope.resizeContent = function() {
 
                 var container = angular.element(document.querySelector('.content_detalle .section'));
@@ -667,24 +582,6 @@ ayTemaDs.directive('contentDetailQuote',[function(){
                 if ($window.innerWidth > 768) {
                     $(right[0]).css('height',myHeight+'px');
                 }
-            }
-
-            if (scope.isFromNetwork('facebook')) {
-                element.ready(function(){
-                    $timeout(function(){
-                        scope.$FB = $FB;
-                        scope.$apply();
-                        scope.$watch('$FB.loaded',function(value) {
-                            // It needs authentication, this won't work.
-                            if(value){
-                                if (typeof $FB  != "undefined"){
-                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
-                                }
-                            }
-                        },true);
-                        scope.$apply();
-                    },0);
-                });
             }
 
             scope.resizeContent = function() {
@@ -746,27 +643,9 @@ function($FB,$timeout,appSv,$window){
                 }
             }
 
-            if (scope.isFromNetwork('facebook')) {
-                element.ready(function(){
-                    $timeout(function(){
-                        scope.$FB = $FB;
-                        scope.$apply();
-                        scope.$watch('$FB.loaded',function(value) {
-                            // It needs authentication, this won't work.
-                            if(value){
-                                if (typeof $FB  != "undefined"){
-                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
-                                }
-                            }
-                        },true);
-                        scope.$apply();
-                    },0);
-                });
-            }
-
             scope.resizeContent = function() {
 
-                if (scope.isFromNetwork('facebook') || scope.isFromNetwork('twitter')) {
+                if (scope.isFromNetwork('twitter')) {
                     return;
                 }
 

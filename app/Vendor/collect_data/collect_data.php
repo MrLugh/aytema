@@ -293,13 +293,11 @@ class CollectData {
 			if (empty($account['token'])) {
 				$aux_account = $this->accountWithToken($account['network']);
 
-				if (empty($aux_account)) {
-					continue;
+				if (!empty($aux_account)) {
+					// Using a valid token and secret!
+					$account['token']	= $aux_account['token'];
+					$account['secret']	= $aux_account['secret'];
 				}
-
-				// Using a valid token and secret!
-				$account['token']	= $aux_account['token'];
-				$account['secret']	= $aux_account['secret'];
 
 			}
 

@@ -40,11 +40,6 @@ function contentVideoCo($scope,$sce,contentSv) {
 		return $scope.thumbnail;
 	}
 
-	$scope.getDefaultThumbnail = function() {
-
-
-	}
-
 	$scope.showVideo = function() {
 
 		$scope.$parent.showVideo($scope.content);
@@ -264,11 +259,6 @@ function contentTrackCo($scope,$sce,contentSv) {
 		$scope.loadThumbnail= true;
 
 		return $scope.thumbnail;
-	}
-
-	$scope.getDefaultThumbnail = function() {
-
-
 	}
 
 	$scope.showTrack = function() {

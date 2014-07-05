@@ -8,23 +8,6 @@ function($FB,$timeout,appSv,$window){
         scope: true,
         link: function(scope,element,attrs) {
 
-            if (scope.isFromNetwork('facebook')) {
-                element.ready(function(){
-                    $timeout(function(){
-                        scope.$FB = $FB;
-                        scope.$apply();
-                        scope.$watch('$FB.loaded',function(value) {
-                            // It needs authentication, this won't work.
-                            if(value){
-                                if (typeof $FB  != "undefined"){
-                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
-                                }
-                            }
-                        },true);
-                        scope.$apply();
-                    },0);
-                });
-            }
         } 
     }
 
@@ -106,23 +89,6 @@ function($FB,$timeout){
         scope: true,
         link: function(scope,element,attrs) {
 
-            if (scope.isFromNetwork('facebook')) {
-                element.ready(function(){
-                    $timeout(function(){
-                        scope.$FB = $FB;
-                        scope.$apply();
-                        scope.$watch('$FB.loaded',function(value) {
-                            // It needs authentication, this won't work.
-                            if(value){
-                                if (typeof $FB  != "undefined"){
-                                    $FB.XFBML.parse($('#'+element[0].id+' .fb_iframe_widget').get(0));
-                                }
-                            }
-                        },true);
-                        scope.$apply();
-                    },0);
-                });
-            }
         } 
     }
 

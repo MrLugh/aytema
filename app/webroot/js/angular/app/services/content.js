@@ -11,6 +11,9 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var limit		= 8;
 	var loading		= false;
 
+	var badImages	= [];
+	var images 		= [];
+
 	var loadContent = function(params) {
 
 		if (loading) {
@@ -362,6 +365,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		return href;
 	}
 
+	var isBadImage = function(image) {
+		return badImages.indexOf(image) != -1;
+	}
+
 	var getThumbnail = function(content) {
 
 		var source = '';
@@ -373,27 +380,37 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if (content.concept == 'video') {
 
 			if (content.network == 'vimeo') {
-				source = content.data.thumbnails.thumbnail[1]['_content'];
+				if (!this.isBadImage(content.data.thumbnails.thumbnail[1]['_content'])) {
+					source = content.data.thumbnails.thumbnail[1]['_content'];
+				}
 			}
 
 			if (content.network == 'youtube') {
-				source = content.data.thumbnail;
+				if (!this.isBadImage(content.data.thumbnail)) {
+					source = content.data.thumbnail;
+				}
 			}
 
 			if (content.network == 'tumblr') {
 				if (angular.isDefined(content.data['thumbnail_url'])) {
-					source = content.data['thumbnail_url'];
+					if (!this.isBadImage(content.data['thumbnail_url'])) {
+						source = content.data['thumbnail_url'];
+					}
 				}
 			}
 
 			if (content.network == 'facebook') {
 				if (angular.isDefined(content.data['picture'])) {
-					source = content.data['picture'];
+					if (!this.isBadImage(content.data['picture'])) {
+						source = content.data['picture'];
+					}					
 				}
 
 				if (angular.isDefined(content.data['format']) && content.data['format'].length>0) {
 					var format = content.data['format'][content.data['format'].length-1];
-					source = format.picture;
+					if (!this.isBadImage(format.picture)) {
+						source = format.picture;
+					}
 				}
 			}
 
@@ -402,24 +419,31 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if (content.concept == 'track') {
 			if (content.network == 'tumblr') {
 				if (angular.isDefined(content.data['thumbnail_url'])) {
-					source = content.data['thumbnail_url'];
+					if (!this.isBadImage(content.data['thumbnail_url'])) {
+						source = content.data['thumbnail_url'];
+					}
 				}
 				if (angular.isDefined(content.data['album_art'])) {
-					source = content.data['album_art'];
+					if (!this.isBadImage(content.data['album_art'])) {
+						source = content.data['album_art'];
+					}
 				}
 			}
 
 			if (content.network == 'soundcloud') {
 				if (angular.isDefined(content.data['artwork_url']) &&
 					typeof content.data['artwork_url'] == 'string'){
-						source = content.data['artwork_url'].replace("large","t500x500");
+						if (!this.isBadImage(content.data['artwork_url'].replace("large","t500x500"))) {
+							source = content.data['artwork_url'].replace("large","t500x500");
+						}
 				}
 			}
 
 			if (content.network == 'mixcloud') {
 				if (angular.isDefined(content.data['pictures'])) {
-					source = content.data['pictures']['extra_large'];
-					;
+					if (!this.isBadImage(content.data['pictures']['extra_large'])) {
+						source = content.data['pictures']['extra_large'];
+					}
 				}
 			}
 		}
@@ -427,34 +451,41 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if (content.concept == 'photo')	{
 
 			if (content.network == 'tumblr') {
-				source = content.data.photos[0].original_size.url;
+				if (!this.isBadImage(content.data.photos[0].original_size.url)) {
+					source = content.data.photos[0].original_size.url;
+				}
 			}
 
 			if (content.network == 'facebook') {
-				//source = content.data.picture.replace(/_s./g,'_n.');
-				source = content.data.source;
+				//source = content.data.picture.replace(/_s./g,'_n.');				
+				if (!this.isBadImage(content.data.source)) {
+					source = content.data.source;
+				}
 			}
 		}
 
 		if (content.concept == 'post')	{
 
 			if (content.network == 'facebook') {
-				//console.log(content.data.picture);
 				if (angular.isDefined(content.data['picture'])) {
 
 					var original = content.data['picture'];
-					source = content.data['picture'];
+					if (!this.isBadImage(content.data['picture'])) {
+						source = content.data['picture'];
+					}
 					
 					if (source.search(/([a-z]?)[0-9]+x[0-9]+\//gmi) > -1) {
-						console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-						console.log(source);
-						source = source.replace(/([a-z]?)[0-9]+x[0-9]+\//gmi,"");
-						console.log(source);
+
+						if (!this.isBadImage(source.replace(/([a-z]?)[0-9]+x[0-9]+\//gmi,""))) {
+							source = source.replace(/([a-z]?)[0-9]+x[0-9]+\//gmi,"");
+						}
 					}
 
 					var url = source.split("url=");
 					if (url.length > 1) {
-						source = decodeURIComponent(url[1]);
+						if (!this.isBadImage(decodeURIComponent(url[1]))) {
+							source = decodeURIComponent(url[1]);
+						}						
 					}
 
 				}
@@ -470,7 +501,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 						"&markers="+encodeURI(content.data.address)+
 						"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
 			}
-		}		
+		}
 
 		return source;
 	}
@@ -872,9 +903,11 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		},
 		isContentEnabled: function(content) {
 			return content.status == "enabled";
-		},		
+		},
 		cleanSource:cleanSource,
 		loadContent:loadContent,
+
+		isBadImage:isBadImage,
 		
 		getContentsByFilters:getContentsByFilters,
 		
@@ -938,7 +971,23 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		},
 		getPageList: function(page) {
 			return pagesList[page];
-		}
+		},
+		getImages: function() {
+			return mages;
+		},		
+		getBadImages: function() {
+			return badImages;
+		},
+		addBadImages: function(src){
+			if (badImages.indexOf(src) == -1) {
+				badImages.push(src);
+			}
+		},
+		addImages: function(src){
+			if (images.indexOf(src) == -1) {
+				images.push(src);
+			}
+		},
 	};
 
 }]);

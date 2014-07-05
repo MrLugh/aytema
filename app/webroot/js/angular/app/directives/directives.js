@@ -488,3 +488,48 @@ function (contentSv) {
         });
     }
 }]);
+
+ayTemaDs.directive('thumbnail', ['contentSv',
+function (contentSv) {
+    return {
+        scope: {
+            content:'=thumbnail'
+        },
+
+        link: function(scope, element, attrs) {
+
+            scope.contentSv = contentSv;
+            var errorSrc = 'http://cloudcial.com/img/themes/clubber/default-content-thumbnail.jpg';            
+            scope.src = attrs.src;
+            if ( !angular.isDefined(scope.src) || scope.src.length == 0) {
+                scope.src = attrs.ngSrc;
+            }
+            if ( !angular.isDefined(scope.src) || scope.src.length == 0) {
+                scope.src = $(element).css('background-image');
+            }
+
+            //console.log(scope.src);
+
+            scope.getThumbnail = function() {
+                return contentSv.getThumbnail(scope.content);
+            }
+            scope.$watch("src",function(){
+                element.attr('src', scope.src);
+            });
+
+            element.bind('error', function() {
+                scope.$apply(function() {
+                    contentSv.addBadImages(scope.src);
+                    scope.src = scope.getThumbnail();
+                    if (scope.src.length == 0) {
+                        scope.src = errorSrc;
+                    }
+                });
+            });
+
+            element.bind('load', function() {
+                element.attr('src', element.attr('src'));
+            });
+        }
+    };
+}]);
