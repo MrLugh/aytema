@@ -270,6 +270,15 @@ function adminContentPostCo($scope,contentSv,$sce) {
 		return $scope.content.network == network;
 	}
 
+	if ($scope.content.external_id == '413579985522155520') {
+		// entities.media!
+		console.log($scope.content.data.entities);
+	}
+
+	if ($scope.isFromNetwork('twitter')) {
+		console.log($scope.content.data.entities);
+	}
+
 	$scope.canEmbedFb = function() {
 		return $scope.content.data.type != 'status';
 	}	

@@ -18,6 +18,14 @@ body {
     scrollbar-arrow-color: #C1C1D1;
 }
 
+* {
+  text-shadow: rgb(3, 3, 3) 1px 1px 1px;
+}
+
+img {
+  max-width: 100%;
+}
+
 a,a:hover,a:active,a:focus,
 img,img:hover,img:active,img:focus {
     outline: none;

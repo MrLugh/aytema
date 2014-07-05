@@ -342,6 +342,34 @@ function contentPostCo($scope,contentSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
+	$scope.getThumbnail = function() {
+
+		if ($scope.loadThumbnail) {
+			return $scope.thumbnail;
+		}
+
+		$scope.thumbnail	= contentSv.getThumbnail($scope.content);
+		$scope.loadThumbnail= true;
+
+		return $scope.thumbnail;
+	}
+
+	$scope.hasThumbnail = function() {
+		$scope.getThumbnail();
+		return $scope.thumbnail.length > 0;
+	}
+
+	$scope.canShowThumbnail = function() {
+		return $scope.hasThumbnail();
+	}
+
+	$scope.$watch("content",function(value){
+		$scope.thumbnail= "";
+
+		$scope.loadThumbnail= false;
+	});
+
+
 }
 
 function contentChatCo($scope,contentSv) {
