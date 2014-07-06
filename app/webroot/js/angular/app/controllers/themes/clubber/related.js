@@ -2,7 +2,6 @@ function relatedCo($scope,$sce,contentSv) {
 
     $scope.contentSv = contentSv;
     $scope.relateds  = [];
-    $scope.defaultThumbnail = "http://cloudcial.com/img/themes/clubber/default-content-thumbnail.jpg";
 
     $scope.loadRelatedContent = function() {
 
@@ -39,9 +38,6 @@ function relatedCo($scope,$sce,contentSv) {
 	$scope.getRelatedThumbnail = function(index) {
 		var content = $scope.relateds[index];
         var thumbnail = contentSv.getThumbnail(content);
-        if (thumbnail.length == 0) {
-            thumbnail = $scope.defaultThumbnail;
-        }
 		return thumbnail;
 	}
 

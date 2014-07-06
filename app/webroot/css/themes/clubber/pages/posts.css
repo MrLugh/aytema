@@ -16,6 +16,17 @@
 
 .pagePosts ul li .post {
     position: relative;
+    margin: 20px;
+}
+
+.pagePosts ul li .post .thumbnail {
+    max-height: 150px;
+    display: inline-block;
+    float: left;
+}
+
+.pagePosts ul li .post .content_caption {
+    display: inline-block;
 }
 
 .pagePosts ul li .pagePostContainer {
