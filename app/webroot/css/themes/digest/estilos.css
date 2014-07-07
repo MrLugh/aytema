@@ -41,6 +41,16 @@ img {
   max-width: 100%;
 }
 
+a,a:hover,a:active,a:focus,
+img,img:hover,img:active,img:focus {
+    outline: none;
+}
+
+a,a:hover,a:active,a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
 .app {
   text-align:center;
   margin-left:auto;

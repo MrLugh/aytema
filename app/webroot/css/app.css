@@ -133,6 +133,11 @@ img,img:hover,img:active,img:focus {
     outline: none;
 }
 
+a,a:hover,a:active,a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
