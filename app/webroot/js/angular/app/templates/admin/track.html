@@ -1,5 +1,7 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="track {{content.network}}_{{content.concept}}">
-	<img thumbnail="content" ng-src="{{getThumbnail()}}" />
+	<div ng-if="canShowThumbnail()">
+		<img thumbnail="content" ng-src="{{getThumbnail()}}" />
+	</div>
 	<div ng-if="canShowPlayer()" class="track_embed" ng-bind-html="getPlayer()"></div>
 	<div ng-if="isEmpty()">EMPTY</div>
 	<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
