@@ -1,8 +1,8 @@
 <div class="pagePosts">
 
-	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pagePostsItem'}" ng-class="pagePostsWithplayerClass()">
+	<ul ng-class="pagePostsWithplayerClass()">
 
-		<li ng-repeat="content in postlist" class="pagePostsItem" masonry-simple-item>
+		<li ng-repeat="content in postlist" class="pagePostsItem">
 			<content-post></content-post>
 		</li>
 
