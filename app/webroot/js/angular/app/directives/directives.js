@@ -501,7 +501,14 @@ function (contentSv) {
             scope.isBg = false;
 
             scope.contentSv = contentSv;
-            var errorSrc = 'http://cloudcial.com/img/default-content-thumbnail.jpg';
+
+            scope.errorSrc = [
+                'http://cloudcial.com/img/noimage.png',
+                'http://cloudcial.com/img/no-image.png',
+                'http://cloudcial.com/img/no_thumb.png',
+                'http://cloudcial.com/img/default-content-thumbnail.jpg',
+            ]
+
             scope.src = attrs.src;
             if ( !angular.isDefined(scope.src) || scope.src.length == 0) {
                 scope.src = attrs.ngSrc;
@@ -514,6 +521,11 @@ function (contentSv) {
                 ) {
                     scope.isBg = true;
                 }
+            }
+
+            scope.getDefaultImage = function() {
+                var errorIndex = ~~(Math.random() * (scope.errorSrc.length - 1 - 0 + 1)) + 0
+                return scope.errorSrc[errorIndex];
             }
 
             scope.getThumbnail = function() {
@@ -532,7 +544,7 @@ function (contentSv) {
                     contentSv.addBadImages(scope.src);
                     scope.src = scope.getThumbnail();
                     if (scope.src.length == 0) {
-                        scope.src = errorSrc;
+                        scope.src = scope.getDefaultImage();
                     }
                 });
             });
