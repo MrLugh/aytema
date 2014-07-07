@@ -16,7 +16,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.current	= 0;
 	$scope.content	= {};
 	$scope.controlHover = false;
-	$scope.mode 	= true;
+	$scope.mode 	= false;
 
 	$scope.indexComments= 0;
 	$scope.isComments	= false; 
