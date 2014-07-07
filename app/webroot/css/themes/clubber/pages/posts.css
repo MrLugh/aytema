@@ -23,6 +23,7 @@
     max-height: 150px;
     display: inline-block;
     float: left;
+    background-color: transparent;
 }
 
 .pagePosts ul li .post .content_caption {
