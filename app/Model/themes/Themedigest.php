@@ -27,8 +27,8 @@ Class Themedigest {
         'contentsizes' => array(
             'facebook' => array(
                 'photo'=>'medium',
-                'post'=>'xlarge',
-                'video'=>'large',
+                'post'=>'medium',
+                'video'=>'medium',
             ),
             'twitter' => array(
                 'post'=>'large',
