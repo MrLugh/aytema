@@ -4,7 +4,7 @@
 
 		<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':'content_photo_hide'" />
 
-		<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0" ng-style="getDescriptionStyle()"> 
+		<div class="content_caption" ng-style="getDescriptionStyle()"> 
 			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 			<p ng-bind-html="getDescription()"></p>
 		</div>

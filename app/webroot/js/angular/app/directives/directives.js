@@ -508,7 +508,6 @@ function (contentSv) {
             }
             if ( !angular.isDefined(scope.src) || scope.src.length == 0) {
                 scope.src = $(element).css('background-image');
-                console.log(scope.src);
                 if (angular.isDefined(scope.src) &&
                     scope.src.length > 0 && 
                     scope.src != 'none'
@@ -521,15 +520,11 @@ function (contentSv) {
                 return contentSv.getThumbnail(scope.content);
             }
             scope.$watch("src",function(){
-                console.log(scope.isBg);
                 if (!scope.isBg) {
                     element.attr('src', scope.src);
                 } else {
                     $(element).css('background-image',scope.src);
                 }
-                console.log(element.attr('src'));
-                console.log($(element).css('background-image'));
-                console.log(element[0]);
             });
 
             element.bind('error', function() {
