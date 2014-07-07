@@ -10,7 +10,7 @@ function ($window) {
 
             scope.scrollToTop = function() {
                 $('body').animate({scrollTop: $('body').offset().top}, "fast");
-            }            
+            }
 
             scope.$watch('show',function(){
                 if (scope.show) {

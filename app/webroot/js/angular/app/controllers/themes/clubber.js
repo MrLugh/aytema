@@ -161,7 +161,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		if ($scope.isActive(page)) {
 			return;
 		}
-
+		$('body').animate({scrollTop: $('body').offset().top}, "fast");
 		$scope.current = page;
 	}
 
