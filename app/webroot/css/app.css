@@ -131,8 +131,6 @@ input, button {
 a,a:hover,a:active,a:focus,
 img,img:hover,img:active,img:focus {
     outline: none;
-    border: none;
-    text-decoration: none;
 }
 
 ul {
