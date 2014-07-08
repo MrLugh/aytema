@@ -6,7 +6,7 @@ Class Themedigest {
         'filters' => array(
             'home'      => array(
                 'concepts'  => array('all'),
-                'networks'  => array('cloudcial')
+                //'networks'  => array('cloudcial')
             ),
             'videos'    => array(
                 'concepts'  => array('video'),
@@ -14,14 +14,14 @@ Class Themedigest {
             ),
             'tracks'    => array(
                 'concepts'  => array('track'),
-                'networks'  => array('soundcloud','mixcloud','tumblr')
+                //'networks'  => array('soundcloud','mixcloud','tumblr')
             ),
             'photos'    => array(
                 'concepts'  => array('photo'),
             ),
             'posts'     => array(
                 'concepts'  => array('post','quote','chat'),
-                'networks'  => array('twitter','facebook','tumblr')
+                //'networks'  => array('twitter','facebook','tumblr')
             )
         ),
         'contentsizes' => array(
@@ -31,34 +31,34 @@ Class Themedigest {
                 'video'=>'medium',
             ),
             'twitter' => array(
-                'post'=>'large',
+                'post'=>'medium',
             ),
             'tumblr' => array(
                 'photo'=>'medium',
                 'post'=>'medium',
-                'chat'=>'small',
+                'chat'=>'medium',
                 'quote'=>'medium',
-                'video'=>'large',
-                'track'=>'large',
+                'video'=>'medium',
+                'track'=>'medium',
                 'link'=>'medium',
             ),
             'soundcloud' => array(
-                'track'=>'large',
+                'track'=>'medium',
             ),
             'mixcloud' => array(
-                'track'=>'large',
+                'track'=>'medium',
             ),
             'youtube' => array(
-                'video'=>'large',
+                'video'=>'medium',
             ),
             'vimeo' => array(
-                'video'=>'large',
+                'video'=>'medium',
             ),
             'cloudcial'    => array(
                 'photo'=>'medium',
                 'post'=>'medium',
-                'video'=>'large',
-                'track'=>'large',
+                'video'=>'medium',
+                'track'=>'medium',
                 'event'=>'medium',
             ),
         ),

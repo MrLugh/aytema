@@ -171,8 +171,9 @@
 }
 
 
-.pagePosts ul li iframe {
+.pagePosts iframe {
     width: 100%!important;
     margin: 0 auto!important;
     text-align: center!important;
+    border:none!important;
 }
