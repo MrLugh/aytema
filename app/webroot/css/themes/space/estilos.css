@@ -656,8 +656,8 @@ iframe,object,embed {
 }
 .twitter_post iframe {
   position: absolute!important;
-  top: 50px;
-  left: 35%;
+  top: 0px;
+  left: 10%;
 }
 
 
