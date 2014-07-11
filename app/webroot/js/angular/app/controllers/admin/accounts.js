@@ -12,6 +12,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.showingAccount	= false;
 	$scope.account			= {};
 	$scope.current			= false;
+	$scope.scrollTop 		= 0;
 
 	$scope.networkAdd	= '';
 
@@ -203,6 +204,10 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.showAccount = function(index) {
 		$scope.current			= index;
 		$scope.account 			= $scope.list[$scope.current];
+		var element 			= angular.element(document.querySelector("#account_"+$scope.current));
+		if (element[0].offsetTop != 0) {
+			$scope.scrollTop		= element[0].offsetTop;
+		}
 		$scope.showingAccount 	= true;
 	}
 
@@ -211,6 +216,10 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		$scope.showingAccount 	= false;
 		$scope.current			= false;
 		$scope.currentAccount	= [];
+
+		$('html, body').animate({
+			scrollTop: $scope.scrollTop
+		}, 500);
 	}
 
 	$scope.move = function(direction) {

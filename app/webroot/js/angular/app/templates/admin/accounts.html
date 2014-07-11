@@ -62,7 +62,7 @@
 
 			<ul id="accountList" infinite-scroll="moreAccounts()" ng-style="getContainerStyle()">
 
-				<li ng-repeat="account in list" class="account {{account.network}}Account">
+				<li ng-repeat="account in list" id="account_{{$index}}" class="account {{account.network}}Account">
 
 					<div class="accountLayerInfo">
 

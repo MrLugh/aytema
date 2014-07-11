@@ -118,7 +118,6 @@ function adminContentPhotoCo($scope,contentSv) {
 		}
 
 		if ($scope.content.network == 'facebook') {
-			console.log($scope.content.data.source);
 			var element = $scope.content.data;
 			var photo = {
 				src 		: contentSv.getThumbnail($scope.content),

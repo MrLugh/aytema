@@ -479,6 +479,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 						if (!this.isBadImage(source.replace(/([a-z]?)[0-9]+x[0-9]+\//gmi,""))) {
 							source = source.replace(/([a-z]?)[0-9]+x[0-9]+\//gmi,"");
 						}
+
+						if (!this.isBadImage(source.replace(/\/v\/+/gmi,"/"))) {
+							source = source.replace(/\/v\/+/gmi,"/");
+						}						
 					}
 
 					var url = source.split("url=");
