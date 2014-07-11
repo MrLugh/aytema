@@ -150,9 +150,8 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 				$row	= self::set_external_user_name_to_row($account['login'],$row);
 				$row	= self::set_content_to_row($photo,$row);
 
-				$stats = array(
-					'activities'	=> $photo['note_count'],
-				);
+				$stats = array();
+				!(empty($photo['note_count'])) ? $stats['activities'] = $photo['note_count']:null;
 
 				$row	= self::set_stats_to_row($stats,$row);
 
@@ -199,9 +198,8 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 				$row	= self::set_external_user_name_to_row($account['login'],$row);
 				$row	= self::set_content_to_row($quote,$row);	
 
-				$stats = array(
-					'activities'	=> $quote['note_count'],
-				);
+				$stats = array();
+				!(empty($quote['note_count'])) ? $stats['activities'] = $quote['note_count']:null;
 
 				$row	= self::set_stats_to_row($stats,$row);
 
@@ -249,10 +247,9 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 				$row	= self::set_external_user_name_to_row($account['login'],$row);
 				$row	= self::set_content_to_row($track,$row);
 
-				$stats = array(
-					'activities'=> $track['note_count'],
-					'plays'		=> $track['plays'],
-				);
+				$stats = array();
+				!(empty($track['note_count'])) ? $stats['activities'] = $track['note_count']:null;
+				!(empty($track['plays'])) ? $stats['plays'] = $track['plays']:null;
 
 				$row	= self::set_stats_to_row($stats,$row);
 
@@ -298,9 +295,8 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 				$row	= self::set_external_user_name_to_row($account['login'],$row);
 				$row	= self::set_content_to_row($post,$row);
 
-				$stats = array(
-					'activities'=> $post['note_count'],
-				);
+				$stats = array();
+				!(empty($post['note_count'])) ? $stats['activities'] = $post['note_count']:null;
 
 				$row	= self::set_stats_to_row($stats,$row);
 
@@ -348,9 +344,8 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 				$row	= self::set_external_user_name_to_row($account['login'],$row);
 				$row	= self::set_content_to_row($video,$row);
 
-				$stats = array(
-					'activities'=> $video['note_count'],
-				);
+				$stats = array();
+				!(empty($video['note_count'])) ? $stats['activities'] = $video['note_count']:null;
 
 				$row	= self::set_stats_to_row($stats,$row);
 
@@ -397,9 +392,8 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 				$row	= self::set_external_user_name_to_row($account['login'],$row);
 				$row	= self::set_content_to_row($link,$row);
 
-				$stats = array(
-					'activities'=> $link['note_count'],
-				);
+				$stats = array();
+				!(empty($link['note_count'])) ? $stats['activities'] = $link['note_count']:null;
 
 				$row	= self::set_stats_to_row($stats,$row);
 
@@ -446,9 +440,8 @@ class TumblrContentHubDs extends AbstractContentHubDs {
 				$row	= self::set_external_user_name_to_row($account['login'],$row);
 				$row	= self::set_content_to_row($chat,$row);
 
-				$stats = array(
-					'activities'=> $chat['note_count'],
-				);
+				$stats = array();
+				!(empty($chat['note_count'])) ? $stats['activities'] = $chat['note_count']:null;
 
 				$row	= self::set_stats_to_row($stats,$row);
 

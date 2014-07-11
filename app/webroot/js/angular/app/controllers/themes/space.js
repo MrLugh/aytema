@@ -252,7 +252,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 						src = src.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
 						var image = new Image();
 						image.onload = function() {
-							console.log("load");
 							$scope.scrollToElement(element);
 						}
 

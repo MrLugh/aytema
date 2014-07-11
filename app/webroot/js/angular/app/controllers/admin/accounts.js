@@ -21,8 +21,10 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	$scope.showDropdown = function(network) {
 
+		$scope.addErrorMsg  = "";
+		$scope.addError 	= false; 	
 		if ($scope.networkAdd == network) {
-			$scope.networkAdd = '';
+			$scope.networkAdd = "";
 			return;
 		}
 		$scope.networkAdd = network;
@@ -139,6 +141,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	$scope.userSv = userSv;
 
+
 	$scope.$watch('search', function(value) {
 		$scope.setList();
 	});
@@ -164,7 +167,6 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	$scope.addFollow = function(network) {
 
-		//$scope.networkAdd = '';
 		var username = document.querySelector('input[name="userAccount"]');
 		var href = "/"+network+"/addFollow?username="+username.value;
 
@@ -208,7 +210,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		$scope.account 			= {};
 		$scope.showingAccount 	= false;
 		$scope.current			= false;
-		$scope.currentAccount	= []
+		$scope.currentAccount	= [];
 	}
 
 	$scope.move = function(direction) {
