@@ -205,7 +205,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		$scope.current			= index;
 		$scope.account 			= $scope.list[$scope.current];
 		var element 			= angular.element(document.querySelector("#account_"+$scope.current));
-		if (element[0].offsetTop != 0) {
+		if (angular.isDefined(element) && element[0].offsetTop != 0) {
 			$scope.scrollTop		= element[0].offsetTop;
 		}
 		$scope.showingAccount 	= true;

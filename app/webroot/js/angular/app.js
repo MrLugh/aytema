@@ -19,25 +19,25 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
 
   $sceDelegateProvider.resourceUrlWhitelist(['^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?\(vimeo|youtube|facebook|mixcloud|twitter|soundcloud|cloudcial)\.com(/.*)?$', 'self']);
 
-    $routeProvider.when('/', {
+    $routeProvider.when('/dashboard', {
     	templateUrl: getPath('tpl')+'/index.html',
     	controller: appCo,
     	reloadOnSearch: false
     });
 
-    $routeProvider.when('/accounts', {
+    $routeProvider.when('/dashboard/accounts', {
     	templateUrl: getPath('tpl')+'/index.html',
     	controller: appCo,
     	reloadOnSearch: false
     });
 
-    $routeProvider.when('/themes', {
+    $routeProvider.when('/dashboard/themes', {
     	templateUrl: getPath('tpl')+'/index.html',
     	controller: appCo,
     	reloadOnSearch: false
     });
     
-    $routeProvider.otherwise({redirectTo: '/'});
+    $routeProvider.otherwise({redirectTo: '/dashboard'});
 }]);
 
 ayTemaApp.run([function(){}]);
