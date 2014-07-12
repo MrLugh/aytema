@@ -41,7 +41,13 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
         templateUrl: getPath('tpl')+'/index.html',
         controller: cloudcialCo,
         reloadOnSearch: false
-    });    
+    });
+
+    $routeProvider.when('/users', {
+        templateUrl: getPath('tpl')+'/cloudcial/users.html',
+        controller: usersCo,
+        reloadOnSearch: false
+    });
     
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

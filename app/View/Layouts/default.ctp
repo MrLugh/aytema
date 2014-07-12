@@ -71,7 +71,8 @@
     echo $this->Html->script('angular/app/controllers/admin/content.js');
     echo $this->Html->script('angular/app/controllers/admin/themes.js');
     echo $this->Html->script('angular/app/controllers/themes.js');
-    echo $this->Html->script('angular/app/controllers/cloudcial.js');    
+    echo $this->Html->script('angular/app/controllers/cloudcial/cloudcial.js');
+    echo $this->Html->script('angular/app/controllers/cloudcial/users.js');
 
         // Themes
     echo $this->Html->script('angular/app/controllers/themes/digest.js');
