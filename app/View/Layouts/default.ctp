@@ -71,6 +71,7 @@
     echo $this->Html->script('angular/app/controllers/admin/content.js');
     echo $this->Html->script('angular/app/controllers/admin/themes.js');
     echo $this->Html->script('angular/app/controllers/themes.js');
+    echo $this->Html->script('angular/app/controllers/users.js');
 
         // Themes
     echo $this->Html->script('angular/app/controllers/themes/digest.js');

@@ -29,16 +29,17 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
-
 		echo $this->fetch('meta');
 
 		echo $this->fetch('css');
-		echo $this->Html->css('bootstrap');
+	    echo $this->Html->css('bootstrap');
+	    echo $this->Html->css('font-awesome.min');
 
 		echo $this->fetch('script');
 	    echo $this->Html->script('jquery');
 	    echo $this->Html->script('bootstrap');
+	    echo $this->Html->script('modernizr.min.js');
+	    echo $this->Html->script('underscore.min');
 		?>
 </head>
 <body>

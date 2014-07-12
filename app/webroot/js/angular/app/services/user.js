@@ -78,11 +78,10 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    return deferred.promise;
 	}
 
-	var search = function(username) {
+	var search = function(params) {
 
 		var deferred = $q.defer();
 
-		var params = {username:username};
 		var vars = [];
 		for (x in params) {
 			vars.push(x+"="+params[x]);

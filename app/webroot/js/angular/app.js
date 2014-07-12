@@ -35,7 +35,7 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
     	templateUrl: getPath('tpl')+'/index.html',
     	controller: appCo,
     	reloadOnSearch: false
-    });    
+    });
     
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

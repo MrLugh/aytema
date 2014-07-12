@@ -12,7 +12,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 	$scope.currentImage  = 0;
 
 	$scope.searchUsers = function() {
-		userSv.search($scope.userSearch).then(function(data){
+		userSv.search({username:$scope.userSearch}).then(function(data){
 			$scope.usersList = [];
 			for (var x in data.users) {
 				var user = data.users[x];
@@ -53,9 +53,9 @@ function aytemaCo($scope,$location,userSv,appSv) {
 
 	$scope.checkStep = function() {
 
-		if ($scope.isLogged() && $location.path() == '/themes') {
+		if ($scope.isLogged() && $location.path() == '/dashboard/themes') {
 			$scope.activateStep(2);
-		} else if ($scope.isLogged() && $location.path() == '/share') {
+		} else if ($scope.isLogged() && $location.path() == '/dashboard/share') {
 			$scope.activateStep(3);
 		} else if($scope.isLogged()) {
 			$scope.activateStep(1);

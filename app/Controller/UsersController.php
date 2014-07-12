@@ -95,6 +95,7 @@ class UsersController extends AppController {
     public function register() {
 
         $this->set('user',json_encode(""));
+        $this->layout = 'anonymous';        
 
         if (isset($this->request->data['User']['username'])) {
             $this->request->data['User']['username'] = strtolower($this->request->data['User']['username']);
@@ -119,9 +120,13 @@ class UsersController extends AppController {
                         'network'           => 'cloudcial',
                         'external_user_id'  => $findUser['User']['id'],
                         'profile_url'       => 'http://cloudcial.com/users/'.$data['User']['username'],
+                        'profile_image'     => User::$default_image,
                         'status'            => 'Allowed'
                     );
                     $this->Socialnet->save($account);
+
+                    $this->Auth->login($findUser['User']);
+
                     $this->redirect('/');
                 }
             }
