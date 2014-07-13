@@ -511,6 +511,9 @@ ul {
   font-weight: 900;
   font-size: 2.1em;
   text-shadow: 1px 0 3px #000;
+}
+
+.latestPhotos .title, .latestPhotos .caption {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;  
