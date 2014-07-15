@@ -507,21 +507,7 @@ function (contentSv) {
                 'http://cloudcial.com/img/no-image.png',
                 'http://cloudcial.com/img/no_thumb.png',
                 'http://cloudcial.com/img/default-content-thumbnail.jpg',
-            ]
-
-            scope.src = attrs.src;
-            if ( !angular.isDefined(scope.src) || scope.src.length == 0) {
-                scope.src = attrs.ngSrc;
-            }
-            if ( !angular.isDefined(scope.src) || scope.src.length == 0) {
-                scope.src = $(element).css('background-image');
-                if (angular.isDefined(scope.src) &&
-                    scope.src.length > 0 && 
-                    scope.src != 'none'
-                ) {
-                    scope.isBg = true;
-                }
-            }
+            ];
 
             scope.getDefaultImage = function() {
                 var errorIndex = ~~(Math.random() * (scope.errorSrc.length - 1 - 0 + 1)) + 0
@@ -531,26 +517,34 @@ function (contentSv) {
             scope.getThumbnail = function() {
                 return contentSv.getThumbnail(scope.content);
             }
+
+            scope.src = scope.getThumbnail();
+
             scope.$watch("src",function(){
-                if (!scope.isBg) {
-                    element.attr('src', scope.src);
-                } else {
-                    $(element).css('background-image',scope.src);
+
+                var img = new Image();
+
+                img.onerror = function() {
+                    scope.$apply(function() {
+                        contentSv.addBadImages(img.src);
+                        scope.src = scope.getThumbnail();
+                        if (scope.src.length == 0) {
+                            scope.src = scope.getDefaultImage();
+                        }
+                    });
                 }
-            });
 
-            element.bind('error', function() {
-                scope.$apply(function() {
-                    contentSv.addBadImages(scope.src);
-                    scope.src = scope.getThumbnail();
-                    if (scope.src.length == 0) {
-                        scope.src = scope.getDefaultImage();
+                img.onload = function() {
+
+                    if (element[0].tagName != 'DIV') {
+                        element.attr('src', img.src);
+                    } else {
+                        $(element).css('background-image','url('+img.src+')');
                     }
-                });
-            });
+                }
 
-            element.bind('load', function() {
-                element.attr('src', element.attr('src'));
+                img.src = scope.src;
+
             });
         }
     };

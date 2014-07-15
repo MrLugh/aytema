@@ -457,7 +457,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'facebook') {
-				//source = content.data.picture.replace(/_s./g,'_n.');				
+				//source = content.data.picture.replace(/_s./g,'_n.');
 				if (!this.isBadImage(content.data.source)) {
 					source = content.data.source;
 				}
@@ -469,7 +469,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			if (content.network == 'facebook') {
 				if (angular.isDefined(content.data['picture'])) {
 
-					var original = content.data['picture'];
 					if (!this.isBadImage(content.data['picture'])) {
 						source = content.data['picture'];
 					}
@@ -482,14 +481,21 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 						if (!this.isBadImage(source.replace(/\/v\/+/gmi,"/"))) {
 							source = source.replace(/\/v\/+/gmi,"/");
-						}						
+						}
 					}
 
-					var url = source.split("url=");
-					if (url.length > 1) {
-						if (!this.isBadImage(decodeURIComponent(url[1]))) {
-							source = decodeURIComponent(url[1]);
-						}						
+					if (source.search('safe_image.php') > -1) {
+
+						var urls = source.split("&");
+						for (var x in urls ) {
+							if (urls[x].search("url=")>-1) {
+								var url = decodeURIComponent(urls[x].split("url=").slice(-1)[0]);
+								if (!this.isBadImage(url)) {
+									source = url;
+								}
+							}
+						}
+
 					}
 
 				}
@@ -983,6 +989,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			return badImages;
 		},
 		addBadImages: function(src){
+			console.log("add badgimage");
+			console.log(src);
 			if (badImages.indexOf(src) == -1) {
 				badImages.push(src);
 			}
