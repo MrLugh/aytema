@@ -500,6 +500,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 				}
 			}
+
 		}
 
 		if (content.concept == 'event')	{
