@@ -538,7 +538,7 @@ function (contentSv) {
 
                 img.onload = function() {
 
-                    if (element[0].tagName != 'DIV') {
+                    if (element[0].tagName == 'IMG') {
                         element.attr('src', scope.src);
                     } else {
                         $(element).css('background-image','url('+scope.src+')');
