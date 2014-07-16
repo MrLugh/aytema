@@ -285,7 +285,7 @@ ul {
 }
 
 iframe,object,embed {
-	margin: 0 auto;
+	margin: 0 auto!important;
 }
 
 .post iframe, .post object, .post embed {

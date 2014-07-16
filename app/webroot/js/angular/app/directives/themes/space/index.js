@@ -19,19 +19,6 @@ function(){
 }]);
 
 
-ayTemaDs.directive('addToQueue',['contentSv',
-function(contentSv) {
-    return function(scope, elm, attr) {
-
-        $(elm[0]).click(function(event) {
-
-            scope.$apply(contentSv.addToQueue(scope.content));
-
-        });
-        
-    };
-}]);
-
 ayTemaDs.directive('onHoverPosition',['contentSv',
 function(contentSv) {
     return function(scope, elm, attr) {

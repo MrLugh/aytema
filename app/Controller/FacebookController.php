@@ -196,7 +196,8 @@ class FacebookController extends AppController {
 		$conditions = array(
        		'Socialnet.user_id'			=> $user_id,
        		'Socialnet.network'			=> self::$network,
-       		'Socialnet.type'			=> ''
+       		'Socialnet.type'			=> '',
+       		'Socialnet.token != '		=> ''
        	);
 
 		$masters 		= $this->Socialnet->find('all', array('conditions' => $conditions));

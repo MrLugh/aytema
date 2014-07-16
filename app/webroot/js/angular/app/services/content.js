@@ -866,6 +866,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	var addToQueue = function(content) {
 
+		if (this.getPlayer(content).length == 0) {
+			return;
+		}
+
 		for (var x in queue) {
 			var item = queue[x];
 			if (item.id == content.id) {
@@ -873,7 +877,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 		}
 		queue.push(content);
-
 	}
 
 	var deleteFromQueue = function(content) {

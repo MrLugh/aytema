@@ -522,11 +522,13 @@ function (contentSv) {
 
             scope.$watch("src",function(){
 
+                if(scope.src.length == 0) return;
+
                 var img = new Image();
 
                 img.onerror = function() {
                     scope.$apply(function() {
-                        contentSv.addBadImages(img.src);
+                        contentSv.addBadImages(scope.src);
                         scope.src = scope.getThumbnail();
                         if (scope.src.length == 0) {
                             scope.src = scope.getDefaultImage();
@@ -537,9 +539,9 @@ function (contentSv) {
                 img.onload = function() {
 
                     if (element[0].tagName != 'DIV') {
-                        element.attr('src', img.src);
+                        element.attr('src', scope.src);
                     } else {
-                        $(element).css('background-image','url('+img.src+')');
+                        $(element).css('background-image','url('+scope.src+')');
                     }
                 }
 
@@ -547,5 +549,18 @@ function (contentSv) {
 
             });
         }
+    };
+}]);
+
+ayTemaDs.directive('addToQueue',['contentSv',
+function(contentSv) {
+    return function(scope, elm, attr) {
+
+        $(elm[0]).click(function(event) {
+
+            scope.$apply(contentSv.addToQueue(scope.content));
+
+        });
+        
     };
 }]);
