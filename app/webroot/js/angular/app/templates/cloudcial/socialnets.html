@@ -1,0 +1,20 @@
+<form class="navbar-form navbar-left" role="search">
+	<div class="">
+		<input type="text" ng-model="socialnetSearch" name="socialnetSearch" placeholder="Search socialnets" class="form-control">
+	</div>
+</form>
+
+<ul ng-if="socialnets.length > 0" class="socialnets">
+
+	<li ng-repeat="socialnet in socialnets" class="socialnet">
+
+		<div style="background-image:url('{{socialnet.profile_image || 'http://cloudcial.com/img/no-image.png'}}');" class="overlay_cover"></div>
+
+		<div class="external_user_id">
+			<strong>{{socialnet.external_user_id | capitalize}}</strong>
+		</div>
+
+
+	</li>
+
+</ul>
