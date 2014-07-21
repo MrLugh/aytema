@@ -35,7 +35,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.showFooter = false;
 
 	userSv.loadThemeConfig('space');
-	userSv.loadAccounts();
+	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 
 	$scope.isLogged = function() {
 		return userSv.isLogged();

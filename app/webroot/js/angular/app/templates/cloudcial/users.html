@@ -4,20 +4,23 @@
 	</div>
 </form>
 
-<ul ng-if="users.length > 0">
+<ul ng-if="users.length > 0" class="users">
 
-	<li ng-repeat="user in users" style="width:20%;height:250px;position:relative;display:inline-block;">
+	<li ng-repeat="user in users" class="user">
 
-		<div style="background-image:url('{{user.profile_image || 'http://cloudcial.com/img/no-image.png'}}');background-size:cover;background-position:center;position:absolute;width:100%;height:100%;z-index:1;"></div>
+		<div style="background-image:url('{{user.profile_image || 'http://cloudcial.com/img/no-image.png'}}');" class="overlay_cover"></div>
 
-		<div style="position:relative;padding:10px;z-index:2;">
-			<strong style="padding:4px;background-color:#A52A2A;color:#252328;font-size:20px;">{{user.username | capitalize}}</strong>
+		<div class="username">
+			<strong>{{user.username | capitalize}}</strong>
 		</div>
 
-		<a href="/users/{{user.username}}" style="position:absolute;bottom:0;z-index:3;padding:10px;font-size:16px;color:#A52A2A">
-			<i class="fa fa-chevron-circle-right" tooltip="{{user.theme}} theme" tooltip-placement="right"></i>
-		</a>
 
+		<div class="theme">
+			Theme: <strong>{{user.theme | capitalize}}</strong>
+			<a href="/users/{{user.username}}" class="profile_link">
+				<i class="fa fa-chevron-circle-right" tooltip="{{user.theme}} theme"></i>
+			</a>
+		</div>
 
 	</li>
 

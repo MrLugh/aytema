@@ -55,9 +55,19 @@ class UsersController extends AppController {
 
     public function index() {
 
-        $username = isset($this->request->query['username']) ? $this->request->query['username'] : '';
+        $search = isset($this->request->query['search']) ? $this->request->query['search'] : '';
+        isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
+        isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
+
         $users = $this->User->find('all', array(
-            'conditions'=> array('User.username like'=>"%{$username}%"),
+            'conditions'=> array('or' => array(
+                'User.username like'=>"%{$search}%",
+                'User.theme like'=>"%{$search}%",
+                'User.firstname like'=>"%{$search}%",
+                'User.lastname like'=>"%{$search}%",
+            )),
+            'limit'     => $limit,
+            'offset'    => $offset,            
             )
         );
         $this->set(array(

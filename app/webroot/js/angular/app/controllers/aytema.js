@@ -1,7 +1,7 @@
 function aytemaCo($scope,$location,userSv,appSv) {
 
 	$scope.user = userSv.getUser();
-	userSv.loadAccounts();
+	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 
 	$scope.steps= $scope.user.steps;
 	$scope.userSearch= '';
@@ -12,7 +12,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 	$scope.currentImage  = 0;
 
 	$scope.searchUsers = function() {
-		userSv.search({username:$scope.userSearch}).then(function(data){
+		userSv.search({search:$scope.userSearch}).then(function(data){
 			$scope.usersList = [];
 			for (var x in data.users) {
 				var user = data.users[x];

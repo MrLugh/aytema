@@ -49,11 +49,9 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    return deferred.promise;
 	}
 
-	var loadAccounts = function() {
+	var loadAccounts = function(params) {
 
 		var deferred = $q.defer();
-
-		var params = {username:user.username,status:'Allowed'};
 
 		var vars = [];
 		for (x in params) {

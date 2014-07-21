@@ -18,6 +18,10 @@
     echo $this->Html->css('accounts-responsive');
     echo $this->Html->css('themes');
     echo $this->Html->css('themes-responsive');
+    echo $this->Html->css('users');
+    echo $this->Html->css('users-responsive');
+    echo $this->Html->css('socialnets');
+    echo $this->Html->css('socialnets-responsive');
     ?>
 
     <!-- Js -->
@@ -73,6 +77,7 @@
     echo $this->Html->script('angular/app/controllers/themes.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/cloudcial.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/users.js');
+    echo $this->Html->script('angular/app/controllers/cloudcial/socialnets.js');
 
         // Themes
     echo $this->Html->script('angular/app/controllers/themes/digest.js');

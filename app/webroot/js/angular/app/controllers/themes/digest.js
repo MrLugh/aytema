@@ -29,7 +29,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 	$scope.pages 	= [];
 
 	userSv.loadThemeConfig('digest');
-	userSv.loadAccounts();
+	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 
     $scope.showConfig = false;
 
@@ -61,7 +61,7 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		var accounts= $scope.accounts;
 
 		if (!accounts.length && !userSv.isLoading()) {
-			userSv.loadAccounts();
+			userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 			return filters;
 		}
 

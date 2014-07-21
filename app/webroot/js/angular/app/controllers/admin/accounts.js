@@ -58,7 +58,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 	}
 	$scope.initFilters();
-	userSv.loadAccounts();
+	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 
 	$scope.setList = function() {
 
@@ -174,7 +174,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		userSv.addFollow(href).then(function(data){
 			if (data.status != 'error') {
 				$scope.addError = false;
-				userSv.loadAccounts();
+				userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 			} else {
 				$scope.addError = true;
 				$scope.addErrorMsg = data.status_msg;
@@ -196,7 +196,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		var timer = setInterval(function() {
 		    if($scope.popupAccount.closed) {  
 		        clearInterval(timer);
-				userSv.loadAccounts();
+				userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 		    }  
 		}, 1000);
 	}

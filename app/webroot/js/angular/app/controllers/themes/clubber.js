@@ -30,7 +30,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.limit 	= 50;
 
 	userSv.loadThemeConfig('clubber');
-	userSv.loadAccounts();
+	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 
 	$scope.isLogged = function() {
 		return userSv.isLogged();

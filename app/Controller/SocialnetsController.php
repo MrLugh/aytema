@@ -19,9 +19,13 @@ class SocialnetsController extends AppController {
         $conditions = array();
         $status     = isset($this->request->query['status']) ? $this->request->query['status'] : '';
         $username   = isset($this->request->query['username']) ? $this->request->query['username'] : NULL;
+        isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
+        isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
 
         $findUser = $this->User->findByUsername($username);
-        $conditions['Socialnet.user_id'] = $findUser['User']['id'];
+        if (!empty($findUser)) {
+            $conditions['Socialnet.user_id'] = $findUser['User']['id'];
+        }
 
         if (!empty($status)) {
             $conditions['Socialnet.status'] = $status;
@@ -29,6 +33,8 @@ class SocialnetsController extends AppController {
 
         $socialnets = $this->Socialnet->find('all',array(
             'conditions' => $conditions,
+            'limit'     => $limit,
+            'offset'    => $offset,            
             'order'     => array('Socialnet.created' => 'desc'),
         ));
         foreach ($socialnets as $key => $socialnet) {
