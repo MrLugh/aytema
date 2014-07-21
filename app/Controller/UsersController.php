@@ -56,14 +56,10 @@ class UsersController extends AppController {
     public function index() {
 
         $username = isset($this->request->query['username']) ? $this->request->query['username'] : '';
-        $users = array();
-        if (!empty($username)) {
-            $users = $this->User->find('all', array(
-                'conditions'=> array('User.username like'=>"%{$username}%"),
-                )
-            );
-        }
-
+        $users = $this->User->find('all', array(
+            'conditions'=> array('User.username like'=>"%{$username}%"),
+            )
+        );
         $this->set(array(
             'users' => $users,
             '_serialize' => array('users')

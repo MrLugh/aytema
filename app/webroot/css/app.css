@@ -120,10 +120,6 @@ a {
 }
 */
 
-* {
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
-}
-
 input, button {
  text-shadow: none; 
 }

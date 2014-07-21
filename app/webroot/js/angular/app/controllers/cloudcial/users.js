@@ -1,4 +1,20 @@
 function usersCo($scope,appSv,userSv) {
 
-	
+	$scope.userSv	= userSv;
+
+	$scope.userSearch = '';
+
+	$scope.searchUsers = function() {
+		userSv.search({username:$scope.userSearch}).then(function(data){
+			$scope.users = [];
+			for (var x in data.users) {
+				var user = data.users[x];
+				$scope.users.push(user['User']);
+			}
+		});
+	}
+
+	$scope.$watch('userSearch', function(value) {
+		$scope.searchUsers();
+	});
 }
