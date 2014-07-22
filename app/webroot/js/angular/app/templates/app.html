@@ -8,7 +8,7 @@
 
 		<div class="container" ng-style="getMenuContainerStyle()">
 
-			<div class="profileImageContainer" ng-if="profileImages.length>0">
+			<div class="profileImageContainer" ng-if="isLogged() && profileImages.length>0">
 				<i ng-if="profileImages.length>1" class="fa fa-arrow-left left" ng-click="moveProfileImage(-1)" tooltip="Previous Image" tooltip-placement="right"></i>
 				<div id="profileImage" ng-style="getProfileImageStyle()"></div>
 				<i ng-if="profileImages.length>1" class="fa fa-arrow-right right" ng-click="moveProfileImage(1)" tooltip="Next Image" tooltip-placement="right"></i>

@@ -1,6 +1,10 @@
 .users {
-	width: 100%;
-	overflow-x: hidden;
+	max-width: 100%;
+}
+
+.userSearch {
+	display: inline-block;
+	width: auto;
 }
 
 .user {

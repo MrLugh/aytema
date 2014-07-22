@@ -1,6 +1,10 @@
 .socialnets {
-	width: 100%;
-	overflow-x: hidden;
+	max-width: 100%;
+}
+
+.socialnetSearch {
+	display: inline-block;
+	width: auto;
 }
 
 .socialnet {
