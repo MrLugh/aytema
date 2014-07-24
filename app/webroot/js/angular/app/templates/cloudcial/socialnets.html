@@ -10,10 +10,15 @@
 
 		<div style="background-image:url('{{socialnet.profile_image || 'http://cloudcial.com/img/no-image.png'}}');" class="overlay_cover"></div>
 
-		<div class="external_user_id">
-			<strong>{{socialnet.external_user_id | capitalize}}</strong>
+		<div class="username">
+			<strong>{{socialnet.login | capitalize}}</strong>
 		</div>
 
+		<div class="link">
+			<a href="#/socialnets/{{socialnet.network}}/{{socialnet.external_user_id}}" class="network_link">
+				<i class="fa fa-chevron-circle-right"></i>
+			</a>
+		</div>
 
 	</li>
 

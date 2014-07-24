@@ -128,7 +128,7 @@
 					<h3 class="title">Follow me <span ng-style="getHighlightStyle()">on:</span></h3>
 
 					<li ng-repeat="account in accounts" class="social-link inline">
-						<a href="{{account.Socialnet.profile_url}}" target="_blank">
+						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}">
 							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
 							<img alt="{{account.Socialnet.network}} profile" ng-src="{{networkIcon(account.Socialnet.network)}}" class="socialIcon" />					
 						</a>

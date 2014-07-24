@@ -78,6 +78,7 @@
     echo $this->Html->script('angular/app/controllers/cloudcial/cloudcial.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/users.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/socialnets.js');
+    echo $this->Html->script('angular/app/controllers/cloudcial/socialnet.js');
 
         // Themes
     echo $this->Html->script('angular/app/controllers/themes/digest.js');

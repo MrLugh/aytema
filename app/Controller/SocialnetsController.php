@@ -58,7 +58,7 @@ class SocialnetsController extends AppController {
             'message'   => $message,
             '_serialize'=> array('message')
         ));
-    }  
+    }
 
 }
 

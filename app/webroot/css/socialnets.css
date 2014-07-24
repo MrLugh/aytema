@@ -70,25 +70,25 @@
 	z-index:1;	
 }
 
-.socialnet .socialnetname {
+.socialnet .username {
 	position:relative;
 	padding:10px;
 	z-index:2;
 }
 
-.socialnet .socialnetname strong {
+.socialnet .username strong {
 	padding:4px;
 	background-color:#A52A2A;
 	color:#252328;
 	font-size:20px;
 }
 
-.socialnet .profile_link {
+.socialnet .network_link {
 	font-size:16px;
 	color:#adafae;
 }
 
-.socialnet .theme {
+.socialnet .link {
 	position:absolute;
 	bottom:0;
 	background-color:#252328;

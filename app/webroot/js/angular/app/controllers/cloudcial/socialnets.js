@@ -1,5 +1,7 @@
 function socialnetsCo($scope,appSv,userSv) {
 
+	console.log("socialnets");
+
 	$scope.userSv	= userSv;
 	$scope.socialnetSearch = '';
 	$scope.limit = 10;
@@ -9,7 +11,6 @@ function socialnetsCo($scope,appSv,userSv) {
 			$scope.socialnets = [];
 			for (var x in data.socialnets) {
 				var socialnet = data.socialnets[x];
-				console.log(socialnet);
 				$scope.socialnets.push(socialnet['Socialnet']);
 			}
 		});
