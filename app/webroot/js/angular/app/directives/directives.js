@@ -522,7 +522,7 @@ function (contentSv) {
 
             scope.$watch("src",function(){
 
-                if(scope.src.length == 0 || scope.src == 'none') return;
+                //if(scope.src == 'none') return;
 
                 var img = new Image();
 
