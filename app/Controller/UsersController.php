@@ -61,10 +61,10 @@ class UsersController extends AppController {
 
         $users = $this->User->find('all', array(
             'conditions'=> array('or' => array(
-                'User.username like'=>"%{$search}%",
-                'User.theme like'=>"%{$search}%",
-                'User.firstname like'=>"%{$search}%",
-                'User.lastname like'=>"%{$search}%",
+                'User.username LIKE'=>"%{$search}%",
+                'User.theme LIKE'=>"%{$search}%",
+                'User.firstname LIKE'=>"%{$search}%",
+                'User.lastname LIKE'=>"%{$search}%",
             )),
             'limit'     => $limit,
             'offset'    => $offset,            

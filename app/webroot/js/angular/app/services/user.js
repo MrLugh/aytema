@@ -63,6 +63,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 			url +="?"+vars.join("&");
 		}
 
+
 	    $http({method: 'GET', url: url,data:params}).
 	    success(function(data, status, headers, config) {
 	    	accounts= data.socialnets;

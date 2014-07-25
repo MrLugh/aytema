@@ -39,8 +39,6 @@ class ContentsController extends AppController {
             $this->render();
         }
 
-        //echo "<pre>";var_dump($findUser);echo "</pre>";
-
         $params['Content.status'] = 'enabled';
 
         if (!empty($accounts)) {

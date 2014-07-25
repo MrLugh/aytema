@@ -564,3 +564,38 @@ function(contentSv) {
         
     };
 }]);
+
+
+ayTemaDs.directive('scrollMore',['$window',
+function($window) {
+    return function(scope,element,attr) {
+
+        scope.loading = false;
+
+        scope.scrollToTop = function() {
+            $('body').animate({scrollTop: $('body').offset().top}, "fast");
+        }
+
+        var scroll = function() {
+            var bottom = $(window).height() + $(window).scrollTop();
+            var height = $(document).height();
+
+            var scrollPercent = Math.round(100*bottom/height);
+            if(!scope.loading && scrollPercent > 95) {
+                scope.loading = true;
+                scope.$apply(attr.scrollMore);
+            }
+        }
+
+        var destroy = function() {
+            element.unbind('$destroy',destroy);
+            angular.element($window).unbind('scroll',scroll);
+        }
+
+        angular.element($window).bind('scroll',scroll);
+        element.bind('$destroy',destroy);
+        
+    };
+}]);
+
+

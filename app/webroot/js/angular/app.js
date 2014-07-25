@@ -49,7 +49,7 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
         reloadOnSearch: false
     });
 
-    $routeProvider.when('/socialnets/:network/:external_user_id', {
+    $routeProvider.when('/socialnets/:network/:external_user_id/:login', {
         templateUrl: getPath('tpl')+'/cloudcial/socialnet.html',
         controller: socialnetCo,
         reloadOnSearch: false
@@ -60,7 +60,6 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
         controller: socialnetsCo,
         reloadOnSearch: false
     });
-
     
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

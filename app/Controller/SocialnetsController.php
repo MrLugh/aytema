@@ -17,8 +17,9 @@ class SocialnetsController extends AppController {
     public function index() {
 
         $conditions = array();
-        $status     = isset($this->request->query['status']) ? $this->request->query['status'] : '';
-        $username   = isset($this->request->query['username']) ? $this->request->query['username'] : NULL;
+        $status     = isset($this->request->query['status'])    ? $this->request->query['status']   : '';
+        $username   = isset($this->request->query['username'])  ? $this->request->query['username'] : NULL;
+        $search     = isset($this->request->query['search'])    ? $this->request->query['search']   : NULL;
         isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
         isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
 
@@ -31,11 +32,19 @@ class SocialnetsController extends AppController {
             $conditions['Socialnet.status'] = $status;
         }
 
+        if (!empty($search)) {
+            $conditions['or'] = array(
+                "Socialnet.network LIKE " => "%{$search}%",
+                "Socialnet.login LIKE " => "%{$search}%",
+            );
+        }
+
         $socialnets = $this->Socialnet->find('all',array(
-            'conditions' => $conditions,
+            'conditions'=> $conditions,
             'limit'     => $limit,
             'offset'    => $offset,            
             'order'     => array('Socialnet.created' => 'desc'),
+            'group'     => 'Socialnet.network,Socialnet.external_user_id'
         ));
         foreach ($socialnets as $key => $socialnet) {
             $socialnets[$key]['Socialnet']['stats'] = json_decode($socialnet['Socialnet']['stats'],true);

@@ -32,7 +32,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		params['offset']	= offset;
 		params['limit']		= limit;
 
-
 		var vars = [];
 		for (x in params) {
 			vars.push(x+"="+params[x]);

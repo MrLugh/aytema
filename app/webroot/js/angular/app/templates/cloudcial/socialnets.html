@@ -1,25 +1,47 @@
-<form class="navbar-form navbar-left" role="search">
-	<div class="">
-		<input type="text" ng-model="socialnetSearch" name="socialnetSearch" placeholder="Search socialnets" class="form-control socialnetSearch">
+<div class="accountsContainer">
+
+	<div class="filterList">
+
+		<i class="fa fa-search filtersControl" ng-click="manageFilters()" tooltip="Filter"></i>
+
+		<ul ng-show="showFilters">
+			<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-class="filterClass(key)"  tooltip="On/Off {{network.network|networkBrand}}" ng-hide="countByNetwork(network.network) == 0" class="btn-group">
+				<i ng-class="networkIcon(network.network)"></i>
+				<span>{{countByNetwork(network.network)}}</span>
+			</li>
+			<li>
+				<input type="text" ng-model="socialnetSearch" name="accountSearch" placeholder="Search socialnets" class="form-control socialnetSearch inline">
+			</li>
+		</ul>
+
 	</div>
-</form>
 
-<ul ng-if="socialnets.length > 0" class="socialnets">
+	<ul scroll-more="moreAccounts()" ng-style="getContainerStyle()">
 
-	<li ng-repeat="socialnet in socialnets" class="socialnet">
+		<li ng-repeat="account in socialnets" id="account_{{$index}}" class="account {{account.network}}Account">
 
-		<div style="background-image:url('{{socialnet.profile_image || 'http://cloudcial.com/img/no-image.png'}}');" class="overlay_cover"></div>
+			<div class="accountLayerInfo">
 
-		<div class="username">
-			<strong>{{socialnet.login | capitalize}}</strong>
-		</div>
+				<div class="controls">
+					<a href="#/socialnets/{{account.network}}/{{account.external_user_id}}/{{account.login}}" class="network_link">
+						<i class="fa fa-search" tooltip="View content" tooltip-placement="bottom"></i>
+					</a>
+				</div>
 
-		<div class="link">
-			<a href="#/socialnets/{{socialnet.network}}/{{socialnet.external_user_id}}" class="network_link">
-				<i class="fa fa-chevron-circle-right"></i>
-			</a>
-		</div>
+				<ul class="center">
+					<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
+						<i tooltip="{{key}}: {{stat}}" tooltip-placement="bottom" ng-class="statIcon(key)"></i> {{stat}}
+					</li>
+					<p>{{account.login}}</p>
+				</ul>
 
-	</li>
+			</div>
 
-</ul>
+			<div class="accountLayerImage" style="background-image:url('{{account.profile_image || 'http://cloudcial.com/img/no-image.png'}}');">
+				<i ng-class="networkIcon(account.network)"></i>
+			</div>
+
+		</li>
+	</ul>
+
+</div>

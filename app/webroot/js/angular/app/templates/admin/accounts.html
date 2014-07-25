@@ -13,7 +13,7 @@
 			<i class="fa fa-search filtersControl" ng-click="manageFilters()" tooltip="Filter"></i>
 
 			<ul ng-show="showFilters">
-				<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-class="filterClass(key)"  tooltip="On/Off {{network.network|networkBrand}}" ng-hide="countByNetwork(network.network) == 0" class="btn-group">
+				<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-class="filterClass(key)"  tooltip="On/Off {{network.network|networkBrand}}" class="btn-group">
 					<i ng-class="networkIcon(network.network)"></i>
 					<span>{{countByNetwork(network.network)}}</span>
 				</li>
@@ -60,7 +60,7 @@
 
 		<div class="list">
 
-			<ul id="accountList" infinite-scroll="moreAccounts()" ng-style="getContainerStyle()">
+			<ul id="accountList" ng-style="getContainerStyle()">
 
 				<li ng-repeat="account in list" id="account_{{$index}}" class="account {{account.network}}Account">
 

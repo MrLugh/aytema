@@ -47,8 +47,6 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 
 		var filters = {'networks':[]};
 
-		filters = {'networks':[]};
-
 		for (x in $scope.networks){
 			network = $scope.networks[x];
 			filters['networks'].push(x);
