@@ -48,7 +48,7 @@ class SocialnetsController extends AppController {
             'conditions'=> $conditions,
             'limit'     => $limit,
             'offset'    => $offset,            
-            'order'     => array('Socialnet.created' => 'desc'),
+            'order'     => array('Socialnet.id' => 'desc'),
         ));
 
         foreach ($socialnets as $key => $socialnet) {

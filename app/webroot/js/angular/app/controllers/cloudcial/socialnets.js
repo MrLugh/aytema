@@ -12,9 +12,9 @@ function socialnetsCo($scope,appSv,userSv,contentSv) {
 
 	$scope.showFilters 	= false;
 
-	$scope.match = function(list,account) {
-		for (var x in list) {
-			var socialnet = list[x];
+	$scope.match = function(account) {
+		for (var x in $scope.socialnets) {
+			var socialnet = $scope.socialnets[x];
 			if (socialnet.network == account.network && 
 				socialnet.external_user_id == account.external_user_id) {
 				return true;
@@ -38,11 +38,13 @@ function socialnetsCo($scope,appSv,userSv,contentSv) {
 			if (data.socialnets.length>0) {
 				for (var x in data.socialnets) {
 					var socialnet = data.socialnets[x];
-					if (!$scope.match($scope.socialnets,socialnet['Socialnet'])) {
+					if (!$scope.match(socialnet['Socialnet'])) {
 						$scope.socialnets.push(socialnet['Socialnet']);
 					}
 				}
-				$scope.offset = data.socialnets.length;
+				$scope.socialnets = _.sortBy( $scope.socialnets, function(o) {return o.id} );
+				$scope.socialnets.reverse();
+				$scope.offset = $scope.socialnets.length;
 			}
 			$scope.loading = false;
 		});
