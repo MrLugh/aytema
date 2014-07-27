@@ -17,11 +17,12 @@ class SocialnetsController extends AppController {
     public function index() {
 
         $conditions = array();
-        $status     = isset($this->request->query['status'])    ? $this->request->query['status']   : '';
-        $username   = isset($this->request->query['username'])  ? $this->request->query['username'] : NULL;
-        $search     = isset($this->request->query['search'])    ? $this->request->query['search']   : NULL;
-        isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
-        isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
+        $status     = isset($this->request->data['status'])    ? $this->request->data['status']   : '';
+        $username   = isset($this->request->data['username'])  ? $this->request->data['username'] : NULL;
+        $search     = isset($this->request->data['search'])    ? $this->request->data['search']   : NULL;
+        $networks   = isset($this->request->data['networks'])  ? $this->request->data['networks'] : NULL;
+        isset($this->request->data['offset']) ? $offset= $this->request->data['offset']   : $offset   = 0;
+        isset($this->request->data['limit'])  ? $limit = $this->request->data['limit']    : $limit    = 10;
 
         $findUser = $this->User->findByUsername($username);
         if (!empty($findUser)) {
@@ -39,13 +40,17 @@ class SocialnetsController extends AppController {
             );
         }
 
+        if (!empty($networks)) {
+            $conditions['Socialnet.network'] = $networks;
+        }
+
         $socialnets = $this->Socialnet->find('all',array(
             'conditions'=> $conditions,
             'limit'     => $limit,
             'offset'    => $offset,            
             'order'     => array('Socialnet.created' => 'desc'),
-            'group'     => 'Socialnet.network,Socialnet.external_user_id'
         ));
+
         foreach ($socialnets as $key => $socialnet) {
             $socialnets[$key]['Socialnet']['stats'] = json_decode($socialnet['Socialnet']['stats'],true);
         }

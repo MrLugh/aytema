@@ -7,12 +7,16 @@ function usersCo($scope,appSv,userSv) {
 	$scope.offset = 0;
 
 	$scope.searchUsers = function() {
-		userSv.search({
-			search:$scope.userSearch,
-			limit:$scope.limit,
-			offset:$scope.offset
-		})
+
+		var params = {
+			'search':$scope.userSearch,
+			'limit':$scope.limit,
+			'offset':$scope.offset
+		};
+
+		userSv.search(params)
 		.then(function(data){
+			console.log(data);
 			if (data.users.length>0) {
 				for (var x in data.users) {
 					var user = data.users[x];

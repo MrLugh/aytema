@@ -55,9 +55,9 @@ class UsersController extends AppController {
 
     public function index() {
 
-        $search = isset($this->request->query['search']) ? $this->request->query['search'] : '';
-        isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
-        isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
+        $search = isset($this->request->data['search']) ? $this->request->data['search'] : '';
+        isset($this->request->data['offset']) ? $offset= $this->request->data['offset']   : $offset   = 0;
+        isset($this->request->data['limit'])  ? $limit = $this->request->data['limit']    : $limit    = 10;
 
         $users = $this->User->find('all', array(
             'conditions'=> array('or' => array(
@@ -70,6 +70,13 @@ class UsersController extends AppController {
             'offset'    => $offset,            
             )
         );
+
+        if (!empty($users)) {
+            foreach ($users as $key => $user) {
+                unset($users[$key]['User']['password']);
+            }
+        }
+
         $this->set(array(
             'users' => $users,
             '_serialize' => array('users')

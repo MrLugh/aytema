@@ -12,22 +12,37 @@ function socialnetsCo($scope,appSv,userSv,contentSv) {
 
 	$scope.showFilters 	= false;
 
+	$scope.match = function(list,account) {
+		for (var x in list) {
+			var socialnet = list[x];
+			if (socialnet.network == account.network && 
+				socialnet.external_user_id == account.external_user_id) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	$scope.searchSocialnets = function() {
-		userSv.loadAccounts({
+
+		var params = {
 			status:'Allowed',
 			search:$scope.socialnetSearch,
 			limit:$scope.limit,
-			offset:$scope.offset
-		})
+			offset:$scope.offset,
+			networks:$scope.filters.networks
+		};
+
+		userSv.loadAccounts(params)
 		.then(function(data){
 			if (data.socialnets.length>0) {
 				for (var x in data.socialnets) {
 					var socialnet = data.socialnets[x];
-					if ($scope.socialnets.indexOf(socialnet['Socialnet']) == -1) {
+					if (!$scope.match($scope.socialnets,socialnet['Socialnet'])) {
 						$scope.socialnets.push(socialnet['Socialnet']);
-					}					
+					}
 				}
-				$scope.offset += $scope.limit;
+				$scope.offset = data.socialnets.length;
 			}
 			$scope.loading = false;
 		});
@@ -67,7 +82,6 @@ function socialnetsCo($scope,appSv,userSv,contentSv) {
 		}
 
 		$scope.filters = filters;
-
 	}
 
 	$scope.filter = function(index) {
@@ -78,7 +92,7 @@ function socialnetsCo($scope,appSv,userSv,contentSv) {
 		var ixNetwork = $scope.filters.networks.indexOf(account.network);
 
 		if (ixNetwork != -1) {
-			delete $scope.filters.networks[ixNetwork];
+			$scope.filters.networks.splice(ixNetwork,1);
 		} else {
 			$scope.filters.networks.push(account.network);
 		}
@@ -99,5 +113,12 @@ function socialnetsCo($scope,appSv,userSv,contentSv) {
 		$scope.socialnets = [];
 		$scope.searchSocialnets();
 	});
+
+	$scope.$watch('filters.networks', function(value) {
+		$scope.offset = 0;
+		$scope.socialnets = [];
+		$scope.searchSocialnets();
+	},true);
+
 	$scope.initFilters();
 }

@@ -53,23 +53,18 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 		var deferred = $q.defer();
 
-		var vars = [];
-		for (x in params) {
-			vars.push(x+"="+params[x]);
-		}
-
 		var url = '/socialnets/index.json';
-		if (vars.length) {
-			url +="?"+vars.join("&");
-		}
 
-
-	    $http({method: 'GET', url: url,data:params}).
-	    success(function(data, status, headers, config) {
+	    $http({
+	    	method: 'POST',
+	    	url: url,
+	    	data:params
+	   	})
+	   	.success(function(data, status, headers, config) {
 	    	accounts= data.socialnets;
 	    	deferred.resolve(data);
-	    }).
-	    error(function(data, status, headers, config) {
+	    })
+	    .error(function(data, status, headers, config) {
 	    	console.log('error');
 	    	deferred.resolve();	    	
 	    });
@@ -80,21 +75,18 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	var search = function(params) {
 
 		var deferred = $q.defer();
-
-		var vars = [];
-		for (x in params) {
-			vars.push(x+"="+params[x]);
-		}		
+		
 		var url = '/users/index.json';
-		if (vars.length) {
-			url +="?"+vars.join("&");
-		}		
 
-	    $http({method: 'GET', url: url,data:params}).
-	    success(function(data, status, headers, config) {
+	    $http({
+	    	method: 'POST',
+	    	url: url,
+	    	data:params
+	    })
+	    .success(function(data, status, headers, config) {
 	    	deferred.resolve(data);
-	    }).
-	    error(function(data, status, headers, config) {
+	    })
+	    .error(function(data, status, headers, config) {
 	    	console.log('error');
 	    	deferred.resolve();
 	    });
