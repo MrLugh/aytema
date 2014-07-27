@@ -67,7 +67,8 @@ class UsersController extends AppController {
                 'User.lastname LIKE'=>"%{$search}%",
             )),
             'limit'     => $limit,
-            'offset'    => $offset,            
+            'offset'    => $offset,
+            'order'     => array('User.id' => 'desc'),
             )
         );
 

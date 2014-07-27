@@ -6,16 +6,6 @@ function usersCo($scope,appSv,userSv) {
 	$scope.limit = 10;
 	$scope.offset = 0;
 
-	$scope.match = function(list,finduser) {
-		for (var x in list) {
-			var user = list[x];
-			if (user.id == finduser.id) {
-				return true;
-			}
-		}
-		return false;
-	}	
-
 	$scope.searchUsers = function() {
 
 		var params = {
@@ -29,10 +19,8 @@ function usersCo($scope,appSv,userSv) {
 			if (data.users.length>0) {
 				for (var x in data.users) {
 					var user = data.users[x];
-					if (!$scope.match($scope.users,user['User'])) {
-						$scope.users.push(user['User']);
+					$scope.users.push(user['User']);
 					}
-				}
 				$scope.offset = data.users.length;
 			}
 			$scope.loading = false;
