@@ -500,9 +500,11 @@
   color:#000;
   border-color: #FA6E28 #ff5500;
 
+  /*
   background-color: #f50;
   background-image: -webkit-linear-gradient(top,#f70 0%,#f30 100%);
   background-image: linear-gradient(to bottom,#f70 0%,#f30 100%);
+  */
 }
 
 .soundcloudAccountPageHeader {

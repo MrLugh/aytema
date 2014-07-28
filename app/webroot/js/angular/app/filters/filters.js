@@ -17,3 +17,9 @@ ayTemaFs.filter('capitalize', function() {
 		return input.substring(0,1).toUpperCase()+input.substring(1);
 	}
 });
+
+ayTemaFs.filter('unslug', function() {
+	return function(input, scope) {
+		return input.toLowerCase().replace(/-+/g,' ').replace(/\s+/g, ' ').replace(/[^a-z0-9-]/g, ' ');
+	}
+});

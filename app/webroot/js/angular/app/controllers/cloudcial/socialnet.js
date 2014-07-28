@@ -132,7 +132,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv) {
 
 	$scope.conceptIcon = function(concept) {
 		return contentSv.getConceptIcon(concept);
-	}	
+	}
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
