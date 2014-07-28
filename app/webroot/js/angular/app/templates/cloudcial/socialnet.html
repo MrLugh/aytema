@@ -1,46 +1,45 @@
 <div class="socialnet">
 
-	<div class="socialnetMenu">
+	<div class="socialnetMenu" ng-if="isAccount()">
 		<ul class="center">
-			<li ng-click="scrollToSection('page_profile')" style="background-image:url('{{account.profile_image}}');border-radius:50%;width:55px;height:55px;" class="item"></li>
+			<li ng-click="scrollToSection('page_profile')" style="background-image:url('{{account.profile_image}}');border-radius:50%;width:55px;height:55px;border-radius:50%;border-width: 5px;border-style:solid;" class="item {{account.network}}Account"></li>
 			<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item">
 				<i tooltip="{{getPluralizedConcepts(page)|capitalize}}" tooltip-placement="top" ng-class="conceptIcon(page)"></i> 
 			</li>
 		</ul>
-
 	</div>
 
-	<div id="page_profile" style="height:{{appSv.getHeight()}}px;width:100%;text-align:center;">
+	<div id="page_profile" ng-if="isAccount()" style="height:{{appSv.getHeight()}}px;width:100%;">
 
-		<div class="inline center" style="width:250px;height:250px;background-image:url('{{account.profile_image}}');background-size:cover;background-repeat:no-repeat;background-position:center;border-radius:50%;"></div>
+		<div class="left center {{account.network}}Account" style="width:350px;height:350px;background-image:url('{{account.profile_image}}');background-size:cover;background-repeat:no-repeat;background-position:center;border-radius:50%;border-width: 15px;border-style:solid;margin:20px;"></div>
 
-		<ul class="center" style="width:100%;">
+		<h1 class="inline" style="font-size:100px;">{{account.login|capitalize}}</h1>
+
+		<ul>
 			<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat inline" style="font-size:40px;">
 				<i tooltip="{{key}}: {{stat}}" tooltip-placement="bottom" ng-class="statIcon(key)"></i> {{stat}}
 			</li>
-		</ul>
+		</ul>		
 
 	</div>
 
-	<div ng-repeat="page in pages" ng-if="content[page].list.length>0" id="page_{{page}}" style="height:{{appSv.getHeight()}}px;width:100%;" class="socialnetSlide">
-		<i class="fa fa-arrow-left prev" ng-click="movePage(page,-1)"></i>
-		<i class="fa fa-arrow-right next" ng-click="movePage(page,1)"></i>
+	<div ng-if="isAccount()" ng-repeat="page in pages" ng-if="content[page].list.length>0" id="page_{{page}}" style="height:{{appSv.getHeight()}}px;width:100%;" class="socialnetSlide">
+		<i class="fa fa-chevron-left prev" ng-click="movePage(page,-1)"></i>
+		<i class="fa fa-chevron-right next" ng-click="movePage(page,1)"></i>
 		<ul class="center">
 			<li ng-repeat="content in content[page].list" ng-switch="content.concept" class="content center" id="content_{{$index}}" ng-if="isCurrent(page,$index)">
 
-				<admin-content-video ng-switch-when='video'></admin-content-video>
-				<admin-content-photo ng-switch-when='photo'></admin-content-photo>
-				<admin-content-track ng-switch-when='track'></admin-content-track>
-				<admin-content-post  ng-switch-when='post' ></admin-content-post>
-				<admin-content-quote ng-switch-when='quote'></admin-content-quote>
-				<admin-content-chat  ng-switch-when='chat' ></admin-content-chat>
-				<admin-content-link  ng-switch-when='link' ></admin-content-link>
-				<admin-content-event ng-switch-when='event'></admin-content-event>
+				<content-video ng-switch-when='video'></content-video>
+				<content-photo ng-switch-when='photo'></content-photo>
+				<content-track ng-switch-when='track'></content-track>
+				<content-post  ng-switch-when='post' ></content-post>
+				<content-quote ng-switch-when='quote'></content-quote>
+				<content-chat  ng-switch-when='chat' ></content-chat>
+				<content-link  ng-switch-when='link' ></content-link>
+				<content-event ng-switch-when='event'></content-event>
 
 			</li>
 		</ul>
-
-
 	</div>
 
 

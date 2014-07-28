@@ -6,16 +6,26 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv) {
 	$scope.limit 	= 10;
 	$scope.content 	= {};
 
-	userSv.loadAccounts({
-		networks:[$routeParams.network],
-		external_user_id:$routeParams.external_user_id,
-		limit:1
-	})
-	.then(function(data){
-		if (data.socialnets.length > 0) {
-			$scope.account = data.socialnets[0]['Socialnet'];
-		}
-	});
+	$scope.network 			= $routeParams.network;
+	$scope.external_user_id	= $routeParams.external_user_id;
+
+	$scope.loadAccount = function() {
+		userSv.loadAccounts({
+			networks:[$routeParams.network],
+			external_user_id:$routeParams.external_user_id,
+			limit:1
+		})
+		.then(function(data){
+			if (data.socialnets.length > 0) {
+				$scope.account = data.socialnets[0]['Socialnet'];
+			}
+		});
+	}
+	$scope.loadAccount();
+
+	$scope.isAccount = function() {
+		return angular.isDefined($scope.account) && $scope.account != {};
+	}
 
 	$scope.getContent = function(concept) {
 
@@ -57,12 +67,14 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv) {
 		}
 		$scope.concepts = concepts;
 
-		$scope.pages = [];
+		$scope.pages 	= [];
+		$scope.content  = {};
 		for (var x in $scope.concepts) {
 
 			var concept = $scope.concepts[x];
 
 			$scope.pages.push(concept);
+
 
 			if (!angular.isDefined($scope.content[concept])) {
 				$scope.content[concept] = {'offset':0,'list':[],'current':0};

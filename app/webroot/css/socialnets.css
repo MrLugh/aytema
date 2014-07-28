@@ -31,17 +31,17 @@
 	position: relative;
 }
 
-.socialnetSlide .next {
-	font-size: 50px;
+.socialnetSlide .next, .socialnetSlide .prev {
+	font-size: 150px;
 	position:absolute;
-	top:calc(50% - 50px);
+	top:calc(50% - 75px);
+}
+
+.socialnetSlide .next {
 	right: 0;
 }
 
 .socialnetSlide .prev {
-	font-size: 50px;
-	position:absolute;
-	top:calc(50% - 50px);
 	left: 0;
 }
 

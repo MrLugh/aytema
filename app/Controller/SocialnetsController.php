@@ -21,6 +21,7 @@ class SocialnetsController extends AppController {
         $username   = isset($this->request->data['username'])  ? $this->request->data['username'] : NULL;
         $search     = isset($this->request->data['search'])    ? $this->request->data['search']   : NULL;
         $networks   = isset($this->request->data['networks'])  ? $this->request->data['networks'] : NULL;
+        $external_id= isset($this->request->data['external_user_id'])  ? $this->request->data['external_user_id'] : NULL;
         isset($this->request->data['offset']) ? $offset= $this->request->data['offset']   : $offset   = 0;
         isset($this->request->data['limit'])  ? $limit = $this->request->data['limit']    : $limit    = 10;
 
@@ -32,6 +33,10 @@ class SocialnetsController extends AppController {
         if (!empty($status)) {
             $conditions['Socialnet.status'] = $status;
         }
+
+        if (!empty($external_id)) {
+            $conditions['Socialnet.external_user_id'] = $external_id;
+        }        
 
         if (!empty($search)) {
             $conditions['or'] = array(
