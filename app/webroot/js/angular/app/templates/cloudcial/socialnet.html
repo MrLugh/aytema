@@ -13,9 +13,9 @@
 
 		<div class="left center {{account.network}}Account" style="width:350px;height:350px;background-image:url('{{account.profile_image}}');background-size:cover;background-repeat:no-repeat;background-position:center;border-radius:50%;border-width: 15px;border-style:solid;margin:20px;"></div>
 
-		<h1 class="inline" style="font-size:100px;">{{account.login|capitalize}}</h1>
+		<h1 class="inline {{account.network}}Account" style="font-size:100px;background:none;">{{account.login|capitalize}}</h1>
 
-		<ul>
+		<ul class="{{account.network}}Account">
 			<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat inline" style="font-size:40px;">
 				<i tooltip="{{key}}: {{stat}}" tooltip-placement="bottom" ng-class="statIcon(key)"></i> {{stat}}
 			</li>
@@ -23,7 +23,7 @@
 
 	</div>
 
-	<div ng-if="isAccount()" ng-repeat="page in pages" ng-if="content[page].list.length>0" id="page_{{page}}" style="height:{{appSv.getHeight()}}px;width:100%;" class="socialnetSlide">
+	<div ng-if="isAccount()" ng-repeat="page in pages" ng-if="content[page].list.length>0" id="page_{{page}}" style="height:{{appSv.getHeight()}}px;width:100%;" class="socialnetSlide {{account.network}}Account">
 		<i class="fa fa-chevron-left prev" ng-click="movePage(page,-1)"></i>
 		<i class="fa fa-chevron-right next" ng-click="movePage(page,1)"></i>
 		<ul class="center">
