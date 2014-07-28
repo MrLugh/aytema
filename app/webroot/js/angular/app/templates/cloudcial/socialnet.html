@@ -2,7 +2,7 @@
 
 	<div class="socialnetMenu" ng-if="isAccount()">
 		<ul class="center">
-			<li ng-click="scrollToSection('page_profile')" style="background-image:url('{{account.profile_image}}');border-radius:50%;width:55px;height:55px;border-radius:50%;border-width: 5px;border-style:solid;" class="item {{account.network}}Account"></li>
+			<li ng-click="scrollToSection('page_profile')" style="background-image:url('{{account.profile_image}}');border-radius:50%;width:55px;height:55px;border-radius:50%;border-width: 5px;border-style:solid;" class="item profileMenu {{account.network}}Account"></li>
 			<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item">
 				<i tooltip="{{getPluralizedConcepts(page)|capitalize}}" tooltip-placement="top" ng-class="conceptIcon(page)"></i> 
 			</li>
