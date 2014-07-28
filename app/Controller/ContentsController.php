@@ -31,21 +31,17 @@ class ContentsController extends AppController {
         //echo "<pre>";var_dump($this->request->query);echo "</pre>";
 
         $findUser = $this->User->findByUsername($username);
-        if (empty($findUser)) {
-            $this->set(array(
-                'contents'  => array(),
-                '_serialize'=> array('contents')
-            ));
-            $this->render();
-        }
 
         $params['Content.status'] = 'enabled';
 
         if (!empty($accounts)) {
-            $socialnets = $this->Socialnet->find('all', array(
-                'conditions'=> array('Socialnet.id'=>$accounts,'Socialnet.user_id'=>$findUser['User']['id']),
-                )
-            );
+
+            $conditions = array('Socialnet.id'=>$accounts);
+            if (!empty($findUser)) {
+                $conditions['Socialnet.user_id'] = $findUser['User']['id'];
+            }
+
+            $socialnets = $this->Socialnet->find('all', array('conditions'=> $conditions));
             foreach ($socialnets as $key => $account) {
                 $params['OR'][] = array(
                     'Content.network'=>$account['Socialnet']['network'],

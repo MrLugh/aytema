@@ -63,6 +63,16 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 		},
 	};
 
+	var pluralizedConcepts = {
+		photo:'photos',
+		video:'videos',
+		post:'posts',
+		track:'tracks',
+		quote:'quotes',
+		link:'links',
+		chat:'chats'
+	};
+
 	var sizes = ['small','medium','large','xlarge'];
 
 	var appIds = {
@@ -171,6 +181,9 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
     	},
     	getMyWH: function() {
     		return myWH;
+    	},
+    	getPluralizedConcepts: function() {
+    		return pluralizedConcepts;
     	}
 	}
 
