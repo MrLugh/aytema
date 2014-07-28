@@ -28,19 +28,19 @@
 	</div>
 
 	<div ng-if="isAccount()" ng-repeat="page in pages" ng-if="content[page].list.length>0" id="page_{{page}}" style="height:{{appSv.getHeight()}}px;width:100%;" class="socialnetSlide {{account.network}}Account">
-		<i class="fa fa-chevron-left prev" ng-click="movePage(page,-1)"></i>
-		<i class="fa fa-chevron-right next" ng-click="movePage(page,1)"></i>
+		<i class="fa fa-chevron-left prev" ng-click="movePage(page,-1)" ng-if="content[page].list.length>1"></i>
+		<i class="fa fa-chevron-right next" ng-click="movePage(page,1)" ng-if="content[page].list.length>1"></i>
 		<ul class="center">
 			<li ng-repeat="content in content[page].list" ng-switch="content.concept" class="content center" id="content_{{$index}}" ng-if="isCurrent(page,$index)">
 
-				<content-video ng-switch-when='video'></content-video>
-				<content-photo ng-switch-when='photo'></content-photo>
-				<content-track ng-switch-when='track'></content-track>
-				<content-post  ng-switch-when='post' ></content-post>
-				<content-quote ng-switch-when='quote'></content-quote>
-				<content-chat  ng-switch-when='chat' ></content-chat>
-				<content-link  ng-switch-when='link' ></content-link>
-				<content-event ng-switch-when='event'></content-event>
+				<admin-content-video ng-switch-when='video'></admin-content-video>
+				<admin-content-photo ng-switch-when='photo'></admin-content-photo>
+				<admin-content-track ng-switch-when='track'></admin-content-track>
+				<admin-content-post  ng-switch-when='post' ></admin-content-post>
+				<admin-content-quote ng-switch-when='quote'></admin-content-quote>
+				<admin-content-chat  ng-switch-when='chat' ></admin-content-chat>
+				<admin-content-link  ng-switch-when='link' ></admin-content-link>
+				<admin-content-event ng-switch-when='event'></admin-content-event>
 
 			</li>
 		</ul>
