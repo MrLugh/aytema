@@ -196,7 +196,7 @@
   border-color: #19151F #252328;
   border-style: dotted;
   border-style: solid;
-  background-color: #19151F;
+  /*background-color: #19151F;*/
 
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
   -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
