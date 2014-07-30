@@ -1,4 +1,4 @@
-function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv) {
+function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
 
 	$scope.appSv 	= appSv;
 	$scope.networks = appSv.getNetworks();
