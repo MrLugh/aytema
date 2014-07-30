@@ -126,6 +126,13 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
 		}
 
 		$scope.content[concept].current = indexCurrent;
+
+		if ( $scope.content[concept].list.length - 1 - $scope.content[concept].current < 5 ) {
+
+		}
+		$scope.getContent(concept);
+
+
 	}
 
 	$scope.scrollTo = function(element) {
