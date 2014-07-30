@@ -396,6 +396,18 @@ function ($window,$timeout) {
         var options = attrs.caroufredsel;
         options =  eval("(function(){return " + options + ";})()");
 
+        scope.$watch(attrs.caroufredsel, function() {
+            angular.element(document.querySelector(options.selector)).carouFredSel(options);
+        });
+
+        var destroy = function() {
+            element.unbind('$destroy',destroy);
+            angular.element(document.querySelector(options.selector)).trigger("destroy");
+        }
+        element.bind('$destroy',destroy);
+
+        /*
+
         scope.caroufredsel = function() {
             element.ready(function(){
                 $timeout(function(){
@@ -403,6 +415,7 @@ function ($window,$timeout) {
                 },1000);
             });
         }
+
 
         if (scope.$last === true) {
         
@@ -414,6 +427,8 @@ function ($window,$timeout) {
             }
             element.bind('$destroy',destroy);
         }
+
+        */
 
     }
 }]);

@@ -72,6 +72,28 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    return deferred.promise;
 	}
 
+	var loadUsersForAccount = function(params) {
+
+		var deferred = $q.defer();
+
+		var url = '/users/usersInSocialnet.json';
+
+	    $http({
+	    	method: 'POST',
+	    	url: url,
+	    	data:params
+	   	})
+	   	.success(function(data, status, headers, config) {
+	    	deferred.resolve(data);
+	    })
+	    .error(function(data, status, headers, config) {
+	    	console.log('error');
+	    	deferred.resolve();	    	
+	    });
+
+	    return deferred.promise;
+	}	
+
 	var search = function(params) {
 
 		var deferred = $q.defer();
@@ -262,6 +284,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		search:search,
 		addFollow:addFollow,
 		loadAccounts:loadAccounts,
+		loadUsersForAccount:loadUsersForAccount,
 		getAccounts:getAccounts,
 		deleteAccount:deleteAccount,
 		getThemeConfig:getThemeConfig,

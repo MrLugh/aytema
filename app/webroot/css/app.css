@@ -143,7 +143,7 @@ ul {
 
 i, *.active i {
   padding: 0px 2px;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  text-shadow: rgb(3, 3, 3) 2px 2px 2px;
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
@@ -151,12 +151,12 @@ i, *.active i {
 }
 
 *.active i {
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  text-shadow: rgb(3, 3, 3) 2px 2px 2px;
 }
 
 i:hover,*.active i:hover {
   transition: border 0.1s ease 0s;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  text-shadow: rgb(3, 3, 3) 2px 2px 2px;
 }
 
 .center {
@@ -341,9 +341,8 @@ i:hover,*.active i:hover {
 #header .menu li:hover, #header .menu li.active {
   border-left: 4px solid #38353D;
   transition: border 0.1s ease 0s;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  text-shadow: rgb(3, 3, 3) 2px 2px 2px;
 }
-
 
 #header .menu li.active {
   border-left: 4px solid #A52A2A

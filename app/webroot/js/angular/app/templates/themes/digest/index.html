@@ -79,12 +79,12 @@
 			<div class="right-column well" ng-style="getContentStyle(content)" ng-repeat="content in contentModal">
 
 				<span class="user_info">
-					<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">
+					<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}">
 						<img class="profile" ng-src="{{getProfileImg()}}" alt="Go to profile">
 					</a>
 					<div>
 						<h3> {{getCurrentProperty('external_user_name')}}</h3>
-						<a ng-href="{{getAccountLink(currentContent,content.external_user_id)}}" target="_blank">
+						<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}">
 							<img alt="" ng-src="http://cloudcial.com/img/themes/digest/{{getCurrentProperty('network')}}.png">
 							<p> / {{getCurrentProperty('external_user_name')}}</p>
 						</a>
@@ -122,8 +122,8 @@
 							<a id="prev2" class="prev" href="#/"><img alt="" src="http://cloudcial.com/img/themes/digest/arrow-left.png"></a>
 							<a id="next2" class="next" href="#/"><img alt="" src="http://cloudcial.com/img/themes/digest/arrow-right.png"></a>
 							<div class="carousel_container">
-								<ul id="carousel">
-									<li ng-repeat="related in relateds" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+								<ul id="carousel" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+									<li ng-repeat="related in relateds">
 										<a href="#/" ng-click="showRelated($index)" skip-default >
 											<i ng-hide="getRelatedThumbnail($index).length>0" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
 											<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">
@@ -142,7 +142,7 @@
 
 		</div>
 
-		<a href="#/" ng-click="move(-1)" tooltip="{{getNavigatorTitle(-1)}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)" ng-style="getStyle()">
+		<a href="#/" ng-click="move(-1)" tooltip="{{getNavigatorTitle(-1)|capitalize}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)" ng-style="getStyle()">
 			<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
 			<div class="more-user" ng-show="getNavigatorThumbnail(-1).length>0">
 				<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
@@ -151,7 +151,7 @@
 			<img class="social-media" ng-src="http://cloudcial.com/img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
 		</a>
 
-		<a href="#/" ng-click="move(1)" tooltip="{{getNavigatorTitle(1)}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)" ng-style="getStyle()">
+		<a href="#/" ng-click="move(1)" tooltip="{{getNavigatorTitle(1)|capitalize}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)" ng-style="getStyle()">
 			<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
 			<div class="more-user" ng-show="getNavigatorThumbnail(1).length>0">
 				<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
@@ -164,7 +164,7 @@
 
 
 
-	<div class="arrows arrows_home arrow_left" ng-style="getStyle()" tooltip="{{getPageArrowTitle(-1)}}" tooltip-placement="right">
+	<div class="arrows arrows_home arrow_left" ng-style="getStyle()" tooltip="{{getPageArrowTitle(-1)}}|capitalize" tooltip-placement="right">
 	 	<a href="#/" skip-default ng-click="movePage(-1)">
 	 		<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="Previous page">
 	 	</a>
@@ -179,7 +179,7 @@
 
 			<div class="stats both">
 				<ul>
-					<li ng-repeat="(key,stat) in content.stats" tooltip="{{key}}:{{stat}}">
+					<li ng-repeat="(key,stat) in content.stats" tooltip="{{key|capitalize}}:{{stat}}">
 						<div ng-if="canShowStat(stat)" >
 							<i ng-class="statIcon(key)"></i> {{stat}}
 						</div>
@@ -198,7 +198,12 @@
 			    <content-link  ng-switch-when='link' ></content-link>
 			    <content-event ng-switch-when='event'></content-event>
 
-				<span class="user_info"><a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank"><img ng-src="http://cloudcial.com/img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon"><p> / {{content.external_user_name}}</p></a></span>
+				<span class="user_info">
+					<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}">
+						<img ng-src="http://cloudcial.com/img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon">
+						<p> / {{content.external_user_name}}</p>
+					</a>
+				</span>
 
 			</div>
 
@@ -208,7 +213,7 @@
 
 	</ul>
 
-	<div class="arrows arrows_home arrow_right" ng-style="getStyle()" tooltip="{{getPageArrowTitle(1)}}" tooltip-placement="left">
+	<div class="arrows arrows_home arrow_right" ng-style="getStyle()" tooltip="{{getPageArrowTitle(1)|capitalize}}" tooltip-placement="left">
 		<a href="#/" skip-default ng-click="movePage(1)">
 			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="Next page">
 		</a>

@@ -33,6 +33,7 @@
 	Router::connect('/users/register', array('controller' => 'users', 'action' => 'register'));
 	Router::connect('/users/index', array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/users/setProfileImage', array('controller' => 'users', 'action' => 'setProfileImage'));
+	Router::connect('/users/usersInSocialnet', array('controller' => 'users', 'action' => 'usersInSocialnet'));
 	Router::connect('/users/:username',
 		array('controller' => 'users', 'action' => 'view'),
 		array('pass'=>array('username'))

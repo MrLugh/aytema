@@ -73,7 +73,7 @@
 
 						<ul class="center">
 							<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
-								<i tooltip="{{key}}: {{stat}}" tooltip-placement="bottom" ng-class="statIcon(key)"></i> {{stat}}
+								<i tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" ng-class="statIcon(key)"></i> {{stat}}
 							</li>							
 						</ul>
 

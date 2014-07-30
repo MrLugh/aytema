@@ -23,7 +23,7 @@ class SocialnetsController extends AppController {
         $networks   = isset($this->request->data['networks'])  ? $this->request->data['networks'] : NULL;
         $external_id= isset($this->request->data['external_user_id'])  ? $this->request->data['external_user_id'] : NULL;
         isset($this->request->data['offset']) ? $offset= $this->request->data['offset']   : $offset   = 0;
-        isset($this->request->data['limit'])  ? $limit = $this->request->data['limit']    : $limit    = 10;
+        isset($this->request->data['limit'])  ? $limit = $this->request->data['limit']    : $limit    = null;
 
         $findUser = $this->User->findByUsername($username);
         if (!empty($findUser)) {

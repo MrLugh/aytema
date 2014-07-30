@@ -40,7 +40,7 @@
 
 		<ul class="stats">
 			<li ng-repeat="(key,stat) in account.stats" class="stat">
-				<div ng-if="canShowStat(stat)" tooltip="{{key}}: {{stat}}" tooltip-placement="left">
+				<div ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="right">
 					<i ng-class="statIcon(key)"></i> {{stat}}
 				</div>
 			</li>
@@ -65,7 +65,7 @@
 
 				<div class="stats left">
 					<ul>
-						<li ng-repeat="(key,stat) in content.stats" tooltip="{{key}}:{{stat}}">
+						<li ng-repeat="(key,stat) in content.stats" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="right">
 							<div ng-if="canShowStat(stat)" >
 								<i ng-class="statIcon(key)"></i> {{stat}}
 							</div>

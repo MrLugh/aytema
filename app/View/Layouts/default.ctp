@@ -32,6 +32,7 @@
     echo $this->Html->script('underscore.min');
     echo $this->Html->script('masonry.pkgd');
     echo $this->Html->script('imagesloaded.pkgd');
+    echo $this->Html->script('carouFredSel');
     ?>
 
     <!-- Config -->

@@ -68,7 +68,7 @@
 				<div class="content_bar" ng-style="getContentBarStyle()">
 
 					<span class="user_info">
-						<a ng-href="{{getAccountLink($index,content.external_user_id)}}" target="_blank" ng-style="getFooterContrastStyle()">
+						<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}" ng-style="getFooterContrastStyle()">
 							<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" ng-style="getProfileStyle()" />
 							{{content.external_user_name}}
 							<img alt="{{content.network}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
@@ -120,7 +120,7 @@
 				<i class="fa fa-arrow-circle-down"></i>
 			</a>
 
-			<a href="#/" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()}}" ng-style="getControlsButtonStyle()">
+			<a href="#/" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()|capitalize}}" ng-style="getControlsButtonStyle()">
 				<i ng-class="getModeIconClass()"></i>
 			</a>
 

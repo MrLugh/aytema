@@ -6,8 +6,28 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv) {
 	$scope.limit 	= 10;
 	$scope.content 	= {};
 
+	$scope.current  = 'page_profile';
+
 	$scope.network 			= $routeParams.network;
 	$scope.external_user_id	= $routeParams.external_user_id;
+
+
+	$scope.loadUsers = function() {
+		userSv.loadUsersForAccount({
+			network:$scope.account.network,
+			external_user_id:$scope.account.external_user_id
+		})
+		.then(function(data){
+			if (data.users.length > 0) {
+				$scope.users = [];
+				for (var x in data.users) {
+					var user = data.users[x]['User'];
+					$scope.users.push(user);
+				}
+			}
+		});
+	}
+
 
 	$scope.loadAccount = function() {
 		userSv.loadAccounts({
@@ -18,6 +38,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv) {
 		.then(function(data){
 			if (data.socialnets.length > 0) {
 				$scope.account = data.socialnets[0]['Socialnet'];
+				$scope.loadUsers();
 			}
 		});
 	}
@@ -97,11 +118,11 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv) {
 			indexCurrent--;
 		}
 
-		if (indexCurrent == $scope.pages.length) {
+		if (indexCurrent == $scope.content[concept].list.length) {
 			indexCurrent = 0;
 		}
 		if (indexCurrent < 0) {		
-			indexCurrent = $scope.pages.length - 1;
+			indexCurrent = $scope.content[concept].list - 1;
 		}
 
 		$scope.content[concept].current = indexCurrent;
@@ -115,6 +136,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv) {
 
 	$scope.scrollToSection = function(section) {
 		var element = angular.element(document.querySelector("#"+section));
+		$scope.current = section;
 		$scope.scrollTo(element);
 	}
 

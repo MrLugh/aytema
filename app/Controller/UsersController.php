@@ -8,7 +8,14 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
 
-        $this->Auth->allow('register','login','index','view','setProfileImage');
+        $this->Auth->allow(
+            'register',
+            'login',
+            'index',
+            'view',
+            'setProfileImage',
+            'usersInSocialnet'
+        );
         $this->loadModel('Theme');
         $this->loadModel('Socialnet');
 
@@ -135,7 +142,7 @@ class UsersController extends AppController {
                         'external_user_id'  => $findUser['User']['id'],
                         'profile_url'       => 'http://cloudcial.com/users/'.$data['User']['username'],
                         'profile_image'     => User::$default_image,
-                        'status'            => 'Allowed'
+                        'status'            => 'enabled'
                     );
                     $this->Socialnet->save($account);
 
@@ -170,5 +177,39 @@ class UsersController extends AppController {
         ));
 
     }
+
+
+    public function usersInSocialnet() {
+        $external_id= isset($this->request->data['external_user_id'])   ? $this->request->data['external_user_id']  : '';
+        $network    = isset($this->request->data['network'])            ? $this->request->data['network']           : '';
+
+        $users = $this->User->find('all', array(
+            'conditions'=> array(
+                'User.status'=>"enabled",
+                'Socialnet.network' => $network,
+                'Socialnet.external_user_id' => $external_id
+            ),
+            'joins'     => array(
+                array(
+                    'table' => 'socialnets',
+                    'alias' => 'Socialnet',
+                    'type'  => 'INNER',
+                    'conditions' => 'Socialnet.user_id = User.id'
+                )
+            ),
+            'order'     => array('User.id' => 'desc'),
+        ));
+
+        if (!empty($users)) {
+            foreach ($users as $key => $user) {
+                unset($users[$key]['User']['password']);
+            }
+        }
+
+        $this->set(array(
+            'users' => $users,
+            '_serialize' => array('users')
+        ));        
+    }    
 
 }
