@@ -66,7 +66,7 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
 						$scope.content[concept].list.push(content);
 					}
 					$scope.content[concept].offset = $scope.content[concept].list.length;
-					contentSv.setPageList(concept,$scope.content[concept]);
+					//contentSv.setPageList(concept,$scope.content[concept]);
 				}
 			},
 			function(reason) {
@@ -80,6 +80,8 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
 	}	
 
 	$scope.generatePagesList = function() {
+
+		$scope.content 	= {};
 
 		var concepts = [];
 		for (var x in $scope.networks[$scope.account.network]['concepts']){
@@ -96,7 +98,6 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
 
 			$scope.pages.push(concept);
 
-
 			if (!angular.isDefined($scope.content[concept])) {
 				$scope.content[concept] = {'offset':0,'list':[],'current':0};
 				$scope.getContent(concept);
@@ -110,7 +111,7 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
 
 	$scope.movePage = function(concept,direction) {
 
-		var indexCurrent = $scope.content[concept].current;
+		var indexCurrent = angular.copy($scope.content[concept].current);
 
 		if (direction > 0) {
 			indexCurrent++;
@@ -122,16 +123,14 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
 			indexCurrent = 0;
 		}
 		if (indexCurrent < 0) {		
-			indexCurrent = $scope.content[concept].list - 1;
+			indexCurrent = $scope.content[concept].list.length - 1;
 		}
 
 		$scope.content[concept].current = indexCurrent;
 
 		if ( $scope.content[concept].list.length - 1 - $scope.content[concept].current < 5 ) {
-
+			$scope.getContent(concept);
 		}
-		$scope.getContent(concept);
-
 
 	}
 
