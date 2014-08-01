@@ -142,7 +142,7 @@ class UsersController extends AppController {
                         'external_user_id'  => $findUser['User']['id'],
                         'profile_url'       => 'http://cloudcial.com/users/'.$data['User']['username'],
                         'profile_image'     => User::$default_image,
-                        'status'            => 'enabled'
+                        'status'            => 'Allowed'
                     );
                     $this->Socialnet->save($account);
 

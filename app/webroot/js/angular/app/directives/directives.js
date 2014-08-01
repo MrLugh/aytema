@@ -396,8 +396,14 @@ function ($window,$timeout) {
         var options = attrs.caroufredsel;
         options =  eval("(function(){return " + options + ";})()");
 
+        scope.caroufredsel = function() {
+            $timeout(function(){
+                angular.element(document.querySelector(options.selector)).carouFredSel(options);
+            },0);
+        }
+
         scope.$watch(attrs.caroufredsel, function() {
-            angular.element(document.querySelector(options.selector)).carouFredSel(options);
+            scope.caroufredsel();
         });
 
         var destroy = function() {
@@ -406,29 +412,7 @@ function ($window,$timeout) {
         }
         element.bind('$destroy',destroy);
 
-        /*
-
-        scope.caroufredsel = function() {
-            element.ready(function(){
-                $timeout(function(){
-                    angular.element(document.querySelector(options.selector)).carouFredSel(options);
-                },1000);
-            });
-        }
-
-
-        if (scope.$last === true) {
-        
-            scope.caroufredsel();
-
-            var destroy = function() {
-                element.unbind('$destroy',destroy);
-                angular.element(document.querySelector(options.selector)).trigger("destroy");
-            }
-            element.bind('$destroy',destroy);
-        }
-
-        */
+        angular.element($window).bind('resize', scope.caroufredsel());
 
     }
 }]);

@@ -20,8 +20,22 @@
 	}
 
 	.socialnet .profileImage {
-		width:200px;
-		height:200px;
+		width:160px;
+		height:160px;
+		border-width:5px;
+	}
+
+	.socialnet .profileLink, .socialnet .profileLink h1 {
+		font-size: 60px;
+	}
+
+	.socialnet .stats {
+		min-height: inherit;
+	}	
+
+	.socialnet .stat {
+		font-size:20px;
+		margin-left: 5px;
 	}
 
 }
