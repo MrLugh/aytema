@@ -80,6 +80,7 @@
     echo $this->Html->script('angular/app/controllers/cloudcial/users.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/socialnets.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/socialnet.js');
+    echo $this->Html->script('angular/app/controllers/cloudcial/content.js');
 
         // Themes
     echo $this->Html->script('angular/app/controllers/themes/digest.js');
@@ -103,8 +104,9 @@
     echo $this->Html->script('angular/app/directives/aytema.js');
     echo $this->Html->script('angular/app/directives/admin/accounts.js');
     echo $this->Html->script('angular/app/directives/admin/account.js');
-    echo $this->Html->script('angular/app/directives/admin/content.js');   
+    echo $this->Html->script('angular/app/directives/admin/content.js');
     echo $this->Html->script('angular/app/directives/admin/themes.js');
+    echo $this->Html->script('angular/app/directives/cloudcial/content.js');
     ?>
 
 

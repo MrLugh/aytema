@@ -1,0 +1,21 @@
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="photo {{content.network}}_{{content.concept}}">
+
+	<div ng-if="current != {}" style="background-image:url('{{current.src}}');" class="overlay_cover"></div>
+	<div ng-if="current != {}" thumbnail="content" style="background-image:url('{{current.src}}');" class="overlay_photo"></div>
+
+	<div ng-if="loaded" style="position:absolute;top:0;left:0;">
+		<a href="#/" ng-click="move(-1)" alt="Previous photo" ng-if="moreThanOne()" class="prev" ng-style="getControlsStyle()" skip-default >
+			<i class="fa fa-chevron-circle-left"></i>
+	 	</a>
+
+		<a href="#/" ng-click="move(1)" alt="Next photo" ng-if="moreThanOne()" class="next"  ng-style="getControlsStyle()" skip-default>
+			<i class="fa fa-chevron-circle-right"></i>
+		</a>
+	</div>
+
+	<div class="content_caption" ng-style="getDescriptionStyle()"> 
+		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+		<p ng-bind-html="getDescription()"></p>
+	</div>
+
+</div>
