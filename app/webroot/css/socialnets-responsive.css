@@ -1,0 +1,27 @@
+@media (max-width: 768px) {
+
+	.socialnet .users {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.socialnet .users .list_carousel .carousel_container .user {
+		width: 60px;
+		height: 60px;
+	}
+
+	.socialnet .username {
+		display: none;
+	}
+
+	.socialnet .users .list_carousel .carousel_container .user .theme {
+		font-size: 8px;
+		padding:5px;
+	}
+
+	.socialnet .profileImage {
+		width:200px;
+		height:200px;
+	}
+
+}

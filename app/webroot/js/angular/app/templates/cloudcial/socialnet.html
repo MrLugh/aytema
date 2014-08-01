@@ -4,38 +4,25 @@
 		<ul class="center">
 			<li ng-click="scrollToSection('page_profile')" style="background-image:url('{{account.profile_image}}');" class="item profile {{account.network}}Account {{current == 'page_profile' ? 'active':''}}"></li>
 			<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
-				<i tooltip="{{getPluralizedConcepts(page)|capitalize}}: {{content[page].list.length}}" tooltip-placement="top" ng-class="conceptIcon(page)"></i>
+				<i tooltip="{{getPluralizedConcepts(page)|capitalize}}: {{content[page].list.length}}" tooltip-placement="left" ng-class="conceptIcon(page)"></i>
 			</li>
 		</ul>
 	</div>
 
-	<div id="page_profile" ng-if="isAccount()" style="height:{{appSv.getHeight()}}px;">
-
-		<a href="{{account.profile_url}}" target="_blank">
-			<div class="left center profileImage {{account.network}}Account" style="background-image:url('{{account.profile_image}}');"></div>
-		</a>
-
-		<a href="{{account.profile_url}}" class="profileLink" target="_blank">
-			<h1 class="inline {{account.network}}AccountRgba" >{{account.login|unslug|capitalize}}</h1>
-		</a>
-
-		<ul class="{{account.network}}AccountRgba">
-			<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat inline">
-				<i ng-class="statIcon(key)"></i>
-				<span>{{stat}}</span>
-			</li>
-		</ul>
+	<div id="page_profile" ng-if="isAccount()" style="height:{{appSv.getHeight()}}px;" class="{{account.network}}AccountRgba">
 
 		<div class="users" ng-if="users.length>0">
 
 			<h3>People using this network:</h3>
 
-			<div class="wrapper" ng-if="users.length>0">
+			<div class="wrapper {{account.network}}Account" ng-if="users.length>0">
+
 				<div class="list_carousel">
-					<a id="prev2" class="prev" href="#/">
+
+					<a id="prev2" class="prev {{account.network}}Account" href="#/">
 						<i class="fa fa-chevron-circle-left"></i>
 					</a>
-					<a id="next2" class="next" href="#/">
+					<a id="next2" class="next {{account.network}}Account" href="#/">
 						<i class="fa fa-chevron-circle-right"></i>
 					</a>
 					<div class="carousel_container left">
@@ -59,6 +46,21 @@
 			</div>
 
 		</div>
+
+		<a href="{{account.profile_url}}" target="_blank">
+			<div class="left center profileImage {{account.network}}Account" style="background-image:url('{{account.profile_image}}');"></div>
+		</a>
+
+		<a href="{{account.profile_url}}" class="profileLink" target="_blank">
+			<h1 class="inline {{account.network}}AccountRgba" >{{account.login|unslug|capitalize}}</h1>
+		</a>
+
+		<ul class="stats {{account.network}}AccountRgba">
+			<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat inline">
+				<i ng-class="statIcon(key)"></i>
+				<span>{{stat}}</span>
+			</li>
+		</ul>
 
 	</div>
 
