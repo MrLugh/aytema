@@ -29,16 +29,16 @@
 
 .accountsContainer .addList {
   top:0;
-  -webkit-box-shadow: 0px 5px 5px 0px rgba(37, 35, 40, 0.8);
-  -moz-box-shadow:    0px 5px 5px 0px rgba(37, 35, 40, 0.8);
-  box-shadow:         0px 5px 5px 0px rgba(37, 35, 40, 0.8);  
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(37, 35, 40, 0.5);
+  -moz-box-shadow:    0px 5px 5px 0px rgba(37, 35, 40, 0.5);
+  box-shadow:         0px 5px 5px 0px rgba(37, 35, 40, 0.5);  
 }
 
 .accountsContainer .filterList {
   bottom: 0;
-  -webkit-box-shadow: 0px -5px 5px 0px rgba(37, 35, 40, 0.8);
-  -moz-box-shadow:    0px -5px 5px 0px rgba(37, 35, 40, 0.8);
-  box-shadow:         0px -5px 5px 0px rgba(37, 35, 40, 0.8);
+  -webkit-box-shadow: 0px -5px 5px 0px rgba(37, 35, 40, 0.5);
+  -moz-box-shadow:    0px -5px 5px 0px rgba(37, 35, 40, 0.5);
+  box-shadow:         0px -5px 5px 0px rgba(37, 35, 40, 0.5);
 }
 
 .accountsContainer .filterList li {
@@ -429,9 +429,9 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
 
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(37, 35, 40, 0.8);
-  -moz-box-shadow:    0px 0px 15px 0px rgba(37, 35, 40, 0.8);
-  box-shadow:         0px 0px 15px 0px rgba(37, 35, 40, 0.8); 
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(37, 35, 40, 0.5);
+  -moz-box-shadow:    0px 0px 15px 0px rgba(37, 35, 40, 0.5);
+  box-shadow:         0px 0px 15px 0px rgba(37, 35, 40, 0.5); 
 
   overflow: hidden;
 }
@@ -479,6 +479,12 @@
   border-color: #393B30 #2D2E26;
 }
 
+.cloudcialAccountRgba {
+  background-color: rgba(45, 46, 38, 0.8);
+  color:#5AC3C4;
+  border-color: #393B30 #2D2E26;
+}
+
 .cloudcialAccountPageHeader {
   border-bottom: 4px solid;
   border-color: #393B30 #2D2E26;
@@ -486,6 +492,12 @@
 
 .facebookAccount {
   background-color: #3b5998;
+  color:#000;
+  border-color: #4E6DAD #3b5998;
+}
+
+.facebookAccountRgba {
+  background-color: rgba(59, 89, 152, 0.5);
   color:#000;
   border-color: #4E6DAD #3b5998;
 }
@@ -507,6 +519,12 @@
   */
 }
 
+.soundcloudAccountRgba {
+  background-color: rgba(255, 85, 0, 0.5);
+  color:#000;
+  border-color: #FA6E28 #ff5500;
+}
+
 .soundcloudAccountPageHeader {
   border-bottom: 4px solid;
   border-color: #FA6E28 #ff5500;
@@ -518,6 +536,12 @@
 
 .tumblrAccount {
   background-color: #48576d;
+  color:#fff;
+  border-color: #62728A #48576d;
+}
+
+.tumblrAccountRgba {
+  background-color: rgba(72, 87, 109, 0.5);
   color:#fff;
   border-color: #62728A #48576d;
 }
@@ -537,6 +561,12 @@
   border-color: #31BCF7 #2aa9e0;
 }
 
+.twitterAccountRgba {
+  background-color: rgba(42, 169, 224, 0.5);
+  color:#fff;
+  border-color: #31BCF7 #2aa9e0;
+}
+
 .twitterAccountPageHeader {
   border-bottom: 4px solid;
   border-color: #31BCF7 #2aa9e0;
@@ -552,6 +582,12 @@
   border-color: #FC2B43 #f4001c;
 }
 
+.youtubeAccountRgba {
+  background-color: rgba(244, 0, 28, 0.5);
+  color:#fff;
+  border-color: #FC2B43 #f4001c;
+}
+
 .youtubeAccountPageHeader {
   border-bottom: 4px solid;
   border-color: #FC2B43 #f4001c;
@@ -562,7 +598,13 @@
 }
 
 .vimeoAccount {
-  background-color:#3d3d3d;
+  background-color: #3d3d3d;
+  color:#fff;
+  border-color: #fff #3d3d3d;
+}
+
+.vimeoAccountRgba {
+  background-color: rgba(61, 61, 61, 0.5);
   color:#fff;
   border-color: #fff #3d3d3d;
 }
@@ -581,6 +623,12 @@
   color:#fff;
   border-color: #4D4A4A #6d6e71;
 }
+
+.mixcloudAccountRgba {
+  background-color: rgba(109, 110, 113, 0.5);
+  color:#fff;
+  border-color: #4D4A4A #6d6e71;
+}  
 
 .mixcloudAccountPageHeader {
   border-bottom: 4px solid;

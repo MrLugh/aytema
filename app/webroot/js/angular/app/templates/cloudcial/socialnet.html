@@ -16,10 +16,10 @@
 		</a>
 
 		<a href="{{account.profile_url}}" class="profileLink" target="_blank">
-			<h1 class="inline {{account.network}}Account" >{{account.login|unslug|capitalize}}</h1>
+			<h1 class="inline {{account.network}}AccountRgba" >{{account.login|unslug|capitalize}}</h1>
 		</a>
 
-		<ul class="{{account.network}}Account">
+		<ul class="{{account.network}}AccountRgba">
 			<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat inline">
 				<i ng-class="statIcon(key)"></i>
 				<span>{{stat}}</span>
@@ -62,7 +62,7 @@
 
 	</div>
 
-	<div ng-if="isAccount() && content[page].list.length>0" ng-repeat="page in pages" id="page_{{page}}" style="height:{{appSv.getHeight()}}px;" class="socialnetSlide {{account.network}}Account">
+	<div ng-if="isAccount() && content[page].list.length>0" ng-repeat="page in pages" id="page_{{page}}" style="height:{{appSv.getHeight()}}px;" class="socialnetSlide {{account.network}}AccountRgba">
 		<i class="fa fa-chevron-left prev" ng-click="movePage(page,-1)" ng-if="content[page].list.length>1"></i>
 		<i class="fa fa-chevron-right next" ng-click="movePage(page,1)" ng-if="content[page].list.length>1"></i>
 		<ul class="center">
