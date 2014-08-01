@@ -11,9 +11,10 @@
 /* Socialnet detail */
 .socialnetMenu {
 	position:fixed;
-	bottom:0;
-	width:100%;
+	right:0;
 	z-index: 1;
+	bottom: 0;
+	background:none;
 }
 
 .socialnetMenu .profile {
@@ -58,8 +59,8 @@
 }
 
 .socialnet .users {
-	height: 150px;
-	width: 360px;
+	height: 350px;
+	width: 480px;
 	text-align: center;
 	float: left;
 }
@@ -104,6 +105,7 @@
 	height: 120px;
 	background-size: cover;
 	background-position: center;
+	margin: 20px;
 }
 
 .socialnet .users .list_carousel .carousel_container .user .username {
@@ -117,7 +119,7 @@
 
 .socialnetMenu .item {
 	display: inline-block;
-	font-size:55px;
+	font-size:25px;
 }
 
 .socialnetMenu .item.active {
@@ -147,9 +149,9 @@
 }
 
 .socialnetSlide .next, .socialnetSlide .prev {
-	font-size: 150px;
+	font-size: 40px;
 	position:absolute;
-	top:calc(50% - 75px);
+	top:calc(50% - 20px);
 }
 
 .socialnetSlide .next {

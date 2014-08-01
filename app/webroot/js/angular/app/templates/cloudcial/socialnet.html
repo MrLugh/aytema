@@ -1,6 +1,6 @@
 <div class="socialnet">
 
-	<div class="socialnetMenu" ng-if="isAccount()">
+	<div class="socialnetMenu {{account.network}}Account" ng-if="isAccount()">
 		<ul class="center">
 			<li ng-click="scrollToSection('page_profile')" style="background-image:url('{{account.profile_image}}');" class="item profile {{account.network}}Account {{current == 'page_profile' ? 'active':''}}"></li>
 			<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
