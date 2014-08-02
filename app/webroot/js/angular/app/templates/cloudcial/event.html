@@ -1,6 +1,6 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="event {{content.network}}_{{content.concept}}">
 
-	<div class="content_caption" ng-style="getDescriptionStyle()"> 
+	<div class="content_caption {{content.network}}AccountRgba" ng-style="getDescriptionStyle()"> 
 		<h2>{{content.data.name}} {{content.data.date}} @ {{content.data.place}}</h2>
 		<a ng-if="content.data.ticket.length > 0" ng-href="{{content.data.ticket}}" target="_blank" class="right event_map">Buy Tickets</a>
 	</div>
