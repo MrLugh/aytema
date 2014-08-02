@@ -161,6 +161,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 		if ($scope.configLoaded && $scope.accountsLoaded) {
 			$scope.initFilters();
+			$scope.setList();			
 		}
 	});
 

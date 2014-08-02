@@ -992,8 +992,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			return badImages;
 		},
 		addBadImages: function(src){
-			console.log("add badgimage");
-			console.log(src);
 			if (badImages.indexOf(src) == -1) {
 				badImages.push(src);
 			}
