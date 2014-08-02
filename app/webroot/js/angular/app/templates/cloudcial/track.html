@@ -11,7 +11,7 @@
 
 	</div>
 
-	<div class="content_caption" ng-style="getDescriptionStyle()"> 
+	<div class="content_caption {{content.network}}AccountRgba" ng-style="getDescriptionStyle()"> 
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>
 	</div>	
