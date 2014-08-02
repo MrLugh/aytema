@@ -4,6 +4,8 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
 	$scope.contentSv= contentSv;
 	$scope.networks = appSv.getNetworks();
 
+	$scope.mode 	= appSv.getNavigationMode();
+
 	$scope.limit 	= 10;
 	$scope.content 	= {};
 
@@ -225,6 +227,14 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
 		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
 	}
 
+	$scope.changeMode = function() {
+		appSv.setNavigationMode(!$scope.mode);
+	}
+
+	$scope.getModeTitle = function() {
+		return $scope.mode ? 'Text mode' : 'Full Height mode';
+	}
+
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
@@ -236,6 +246,10 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
 		}
 	});
 
+	$scope.$watch("appSv.getNavigationMode()",function(mode){
+		$scope.mode = mode;
+	});	
+
 	$scope.$watch("contentSv.getQueue()",function(queue){
 		if (queue.length>0) {
 			$scope.showFooter = true;
@@ -244,7 +258,7 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
 
 	$scope.$watchCollection("[showFooter]",function(values){
 		$scope.getFooterStyle();
-	});	
+	});
 
 	angular.element($window).bind('resize',function() {
 		if (angular.isDefined($scope.current)) {

@@ -1,4 +1,4 @@
-function contentVideoCo($scope,$sce,contentSv,userSv) {
+function contentVideoCo($scope,$sce,contentSv,userSv,appSv) {
 
 	//console.log($scope.content);
 
@@ -7,6 +7,8 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 
 	$scope.loadPlayer	= false;
 	$scope.loadThumbnail= false;
+
+	$scope.appSv = appSv;
 
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
@@ -123,13 +125,15 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 }
 
 
-function contentPhotoCo($scope,contentSv,userSv) {
+function contentPhotoCo($scope,contentSv,userSv,appSv) {
 
 	//console.log($scope.content);
 
 	$scope.photolist	= [];
 	$scope.current 		= {};
 	$scope.currentPos	= 0;
+
+	$scope.appSv = appSv;
 
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
@@ -238,7 +242,7 @@ function contentPhotoCo($scope,contentSv,userSv) {
 
 }
 
-function contentTrackCo($scope,$sce,contentSv,userSv) {
+function contentTrackCo($scope,$sce,contentSv,userSv,appSv) {
 
 	//console.log($scope.content);
 
@@ -247,6 +251,8 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 
 	$scope.loadPlayer	= false;
 	$scope.loadThumbnail= false;
+
+	$scope.appSv = appSv;
 
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
@@ -359,11 +365,13 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 
 }
 
-function contentPostCo($scope,contentSv,$sce,userSv) {
+function contentPostCo($scope,contentSv,$sce,userSv,appSv) {
 
 	//console.log($scope.content);
 
 	$scope.thumbnail= "";
+
+	$scope.appSv = appSv;
 
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
@@ -444,9 +452,11 @@ function contentPostCo($scope,contentSv,$sce,userSv) {
 
 }
 
-function contentChatCo($scope,contentSv) {
+function contentChatCo($scope,contentSv,appSv) {
 
 	//console.log($scope.content);
+
+	$scope.appSv = appSv;
 
 	$scope.getTitle = function() {
 
@@ -460,7 +470,9 @@ function contentChatCo($scope,contentSv) {
 
 }
 
-function contentQuoteCo($scope,contentSv) {
+function contentQuoteCo($scope,contentSv,appSv) {
+
+	$scope.appSv = appSv;
 
 	$scope.getQuoteText = function() {
 
@@ -474,9 +486,11 @@ function contentQuoteCo($scope,contentSv) {
 
 }
 
-function contentLinkCo($scope,contentSv,$sce) {
+function contentLinkCo($scope,contentSv,$sce,appSv) {
 
 	//console.log($scope.content);
+
+	$scope.appSv = appSv;
 
 	$scope.getUrl = function() {
 
@@ -489,9 +503,11 @@ function contentLinkCo($scope,contentSv,$sce) {
 	}
 }
 
-function contentEventCo($scope,contentSv,$sce,userSv) {
+function contentEventCo($scope,contentSv,$sce,userSv,appSv) {
 
 	//console.log($scope.content);
+
+	$scope.appSv = appSv;
 	
     $scope.getDescriptionStyle = function() {
 

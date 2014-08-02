@@ -4,6 +4,8 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
     var winH = 0;
     var myWH = 0;
 
+    var navigationMode = 0;
+
 	var networks = {
 		'cloudcial'	: {
 			network : 'cloudcial',
@@ -184,7 +186,13 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
     	},
     	getPluralizedConcepts: function() {
     		return pluralizedConcepts;
-    	}
+    	},
+    	getNavigationMode: function() {
+    		return navigationMode;
+    	},
+    	setNavigationMode: function(mode) {
+    		navigationMode = mode;
+    	}    	
 	}
 
 }]);
