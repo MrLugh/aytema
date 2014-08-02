@@ -37,10 +37,4 @@
 		font-size:20px;
 		margin-left: 5px;
 	}
-
-	.socialnetSlide .content .overlay_photo {
-		background-size:contain;
-		background-attachment: initial;
-	}
-
 }
