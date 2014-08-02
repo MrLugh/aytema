@@ -19,10 +19,15 @@
 	right:0;
 	z-index: 4;
 	top: 0;
-	background:none;
-	margin: 15px;
+	margin-right: 0;
 	display: table;
 }
+
+.socialnetMenu .item {
+	display: table-cell;
+	font-size:25px;
+}
+
 
 .socialnetMenu .profile {
 	border-radius: 50%;
@@ -112,11 +117,6 @@
 .socialnet .users .list_carousel .carousel_container .user .theme {
 	font-size: 12px;
 	padding:2px;
-}
-
-.socialnetMenu .item {
-	display: table-cell;
-	font-size:25px;
 }
 
 .socialnet .profileImage {
@@ -234,9 +234,10 @@
   opacity:1;
   filter: alpha(opacity=100);
   z-index: 2;
-  background-size:contain;
+  /*background-size:contain;*/
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .socialnetSlide .content .next,

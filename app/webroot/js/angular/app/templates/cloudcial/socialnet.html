@@ -1,13 +1,11 @@
 <div class="socialnet">
 
-	<div class="socialnetMenu {{account.network}}Account" ng-if="isAccount()">
-		<ul class="center">
-			<li ng-click="scrollToSection('page_profile')" style="background-image:url('{{account.profile_image}}');" class="item profile {{account.network}}Account {{current == 'page_profile' ? 'active':''}}"></li>
-			<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
-				<i tooltip="{{getPluralizedConcepts(page)|capitalize}}: {{content[page].list.length}}" tooltip-placement="left" ng-class="conceptIcon(page)"></i>
-			</li>
-		</ul>
-	</div>
+	<ul class="socialnetMenu {{account.network}}AccountRgba" ng-if="isAccount()">
+		<li ng-click="scrollToSection('page_profile')" style="background-image:url('{{account.profile_image}}');" class="item profile {{account.network}}Account {{current == 'page_profile' ? 'active':''}}"></li>
+		<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
+			<i tooltip="{{getPluralizedConcepts(page)|capitalize}}: {{content[page].list.length}}" tooltip-placement="left" ng-class="conceptIcon(page)"></i>
+		</li>
+	</ul>
 
 	<div id="page_profile" ng-if="isAccount()" style="height:{{appSv.getHeight()}}px;">
 

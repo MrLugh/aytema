@@ -1,4 +1,4 @@
-function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
+function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$window) {
 
 	$scope.appSv 	= appSv;
 	$scope.networks = appSv.getNetworks();
@@ -10,7 +10,6 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
 
 	$scope.network 			= $routeParams.network;
 	$scope.external_user_id	= $routeParams.external_user_id;
-
 
 	$scope.loadUsers = function() {
 		userSv.loadUsersForAccount({
@@ -171,7 +170,12 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv) {
 		if (angular.isDefined(account)) {
 			$scope.generatePagesList();
 		}
-	});    
+	});
 
+	angular.element($window).bind('resize',function() {
+		if (angular.isDefined($scope.current)) {
+			$scope.scrollToSection($scope.current);
+		}
+	});
 
 }
