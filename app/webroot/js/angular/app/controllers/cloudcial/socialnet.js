@@ -1,6 +1,7 @@
-function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$window) {
+function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
 
 	$scope.appSv 	= appSv;
+	$scope.contentSv= contentSv;
 	$scope.networks = appSv.getNetworks();
 
 	$scope.limit 	= 10;
@@ -10,6 +11,9 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$window) {
 
 	$scope.network 			= $routeParams.network;
 	$scope.external_user_id	= $routeParams.external_user_id;
+
+	$scope.showFooter = false;
+
 
 	$scope.loadUsers = function() {
 		userSv.loadUsersForAccount({
@@ -108,9 +112,19 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$window) {
 		return $scope.content[concept].current == index;
 	}
 
+	$scope.resetIframes = function(index) {
+
+	    angular.forEach(document.querySelectorAll("#content_"+index+" iframe"), function(iframe, index) {
+	    	iframe.src = iframe.src;
+	    });
+	}
+
+
 	$scope.movePage = function(concept,direction) {
 
 		var indexCurrent = angular.copy($scope.content[concept].current);
+
+		$scope.resetIframes(indexCurrent);
 
 		if (direction > 0) {
 			indexCurrent++;
@@ -161,6 +175,56 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$window) {
 		return contentSv.getConceptIcon(concept);
 	}
 
+    $scope.footer = function() {
+    	$scope.showFooter = !$scope.showFooter;
+    };
+
+    $scope.getFooterStyle = function() {
+
+    	var style = {};
+	   	if ($scope.showFooter == true) {
+	   		style['bottom'] =  0;
+	   		return style;
+    	}
+    	style['bottom'] = -$scope.footerHeight + 'px';
+
+	   	return style;
+    }
+
+    $scope.getFooterButtonStyle = function() {
+
+    	var style = {};
+
+	   	if ($scope.showFooter == true) {
+	   		style['bottom'] = '100%';
+    	} else {
+    		style['bottom'] = '0';
+    	}
+	   	return style;
+    };
+
+	$scope.getQueueStyle = function() {
+		return {'width':appSv.getWidth() + 'px'};
+	}
+
+	$scope.hasPlayer = function(index) {
+
+		var content = contentSv.getQueue()[index];
+		if (!angular.isDefined(content)) {
+			return false;
+		}
+		return true;
+	}
+
+	$scope.getPlayer = function(index) {
+
+		var content = contentSv.getQueue()[index];
+		if (!angular.isDefined(content)) {
+			return $sce.trustAsHtml("");
+		}
+		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
+	}
+
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
@@ -171,6 +235,16 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$window) {
 			$scope.generatePagesList();
 		}
 	});
+
+	$scope.$watch("contentSv.getQueue()",function(queue){
+		if (queue.length>0) {
+			$scope.showFooter = true;
+		}
+	},true);
+
+	$scope.$watchCollection("[showFooter]",function(values){
+		$scope.getFooterStyle();
+	});	
 
 	angular.element($window).bind('resize',function() {
 		if (angular.isDefined($scope.current)) {

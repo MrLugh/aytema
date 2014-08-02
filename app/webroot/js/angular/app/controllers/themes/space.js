@@ -267,7 +267,17 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
 	}
 
+	$scope.resetIframes = function(index) {
+
+	    angular.forEach(document.querySelectorAll("#content_"+index+" iframe"), function(iframe, index) {
+	    	iframe.src = iframe.src;
+	    });
+	}
+
+
 	$scope.move = function(direction) {
+
+		$scope.resetIframes($scope.current);
 
 		if (direction > 0) {
 			$scope.current++;

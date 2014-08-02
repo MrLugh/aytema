@@ -9,7 +9,6 @@
 
 	<div id="page_profile" ng-if="isAccount()" style="height:{{appSv.getHeight()}}px;">
 
-
 		<a href="{{account.profile_url}}" target="_blank">
 			<div class="left center profileImage {{account.network}}Account" style="background-image:url('{{account.profile_image}}');"></div>
 		</a>
@@ -80,6 +79,23 @@
 
 			</li>
 		</ul>
+	</div>
+
+	<div class="footer" ng-style="getFooterStyle()" get-footer-height>
+
+		<a href="#/" class="footercontrol" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>
+			<i class="fa fa-play-circle" ng-style="getFooterContrastStyle()"></i>
+		</a>
+
+		<div ng-show="showFooter" class="queued {{account.network}}AccountRgba">
+			<ul ng-style="getQueueStyle()">
+				<li ng-repeat="content in contentSv.getQueue()" class="{{content.network}}_{{content.concept}}" style="position:relative;" ng-if="hasPlayer($index)">
+					<i class="fa fa-times-circle both" ng-click="contentSv.deleteFromQueue(content)"></i>
+					<div class="player both" ng-bind-html="getPlayer($index)"></div>
+				</li>
+			</ul>
+		</div>
+
 	</div>
 
 

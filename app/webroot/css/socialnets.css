@@ -17,8 +17,8 @@
 .socialnetMenu {
 	position:fixed;
 	right:0;
-	z-index: 4;
 	top: 0;
+	z-index: 4;
 	margin-right: 0;
 	display: table;
 }
@@ -302,4 +302,115 @@
 .socialnetSlide .content .track {
   width: 100%;
   height: 100%
+}
+
+
+/* Footer */
+.socialnet .footer {
+  position: fixed;
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;
+  z-index: 3;
+  max-height: 250px;
+}
+
+.socialnet .footercontrol {
+  display: block;
+  position: absolute;
+  padding: 10px 20px;
+  text-align: center;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.socialnet .footercontrol i {
+  font-size: 52px;
+  line-height: 69px;
+  margin: 0 auto;
+}
+
+.socialnet .queued.ng-enter {
+  left:-100%;
+}
+
+.socialnet .queued.ng-enter.ng-enter-active {
+  left: 0;
+}
+
+.socialnet .queued.ng-leave {
+  left: 0;
+}
+
+.socialnet .queued.ng-leave.ng-leave-active {
+  left: -100%;
+}
+
+.socialnet .queued {
+  height: 250px;
+  width: 100%;
+  z-index: 4;
+}
+
+.socialnet .queued ul {
+  height: 250px;
+  max-height: 250px;
+  width: 100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  scrollbar-face-color: #ffffff;
+  scrollbar-shadow-color: #2D2C4D;  
+  scrollbar-highlight-color:#7D7E94;  
+  scrollbar-3dlight-color: #7D7E94;  
+  scrollbar-darkshadow-color: #2D2C4D;  
+  scrollbar-track-color: #7D7E94;  
+  scrollbar-arrow-color: #C1C1D1; 
+}
+
+.socialnet .queued ul::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.socialnet .queued ul::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5); 
+}
+
+.socialnet .queued ul li {
+  display: inline-block;
+  height: 250px!important;
+  padding: 10px;
+  border-right:1px solid grey;
+}
+
+.socialnet .queued ul li i {
+  font-size: 25px;
+  line-height: 25px;
+  color: #fff;
+  float: right;
+}
+
+.socialnet .queued iframe,
+.socialnet .queued object,
+.socialnet .queued embed,
+.socialnet .queued video,
+.socialnet .queued audio {
+  height: 190px;
+  width: 200px;
+  display: inline-block!important;
 }

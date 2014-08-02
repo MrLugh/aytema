@@ -159,6 +159,10 @@ i:hover,*.active i:hover {
   text-shadow: rgb(3, 3, 3) 2px 2px 2px;
 }
 
+iframe,object,embed {
+  margin: 0 auto!important;
+}
+
 .center {
   text-align: center;
 }
