@@ -600,24 +600,26 @@ function($window) {
 ayTemaDs.directive('parallax', ['$window', function($window) {
   return {
     restrict: 'A',
+    /*
     scope: {
       parallaxRatio: '@',
       parallaxVerticalOffset: '@',
       parallaxHorizontalOffset: '@',
     },
+    */
     link: function($scope, elem, $attrs) {
       var setPosition = function () {
         // horizontal positioning
-        elem.css('left', $scope.parallaxHorizontalOffset + "px");
+        elem.css('left', attrs.parallaxHorizontalOffset + "px");
 
-        var calcValY = $window.pageYOffset * ($scope.parallaxRatio ? $scope.parallaxRatio : 1.1 );
+        var calcValY = $window.pageYOffset * (attrs.parallaxRatio ? attrs.parallaxRatio : 1.1 );
         if (calcValY <= $window.innerHeight) {
-          var topVal = (calcValY < $scope.parallaxVerticalOffset ? $scope.parallaxVerticalOffset : calcValY);
+          var topVal = (calcValY < attrs.parallaxVerticalOffset ? attrs.parallaxVerticalOffset : calcValY);
           elem.css('top', topVal + "px");
         }
       };
 
-      setPosition();
+      //setPosition();
 
       angular.element($window).bind("scroll", setPosition);
       angular.element($window).bind("touchmove", setPosition);
@@ -630,12 +632,14 @@ ayTemaDs.directive('parallaxBackground', ['$window', function($window) {
     restrict: 'A',
     transclude: true,
     template: '<div ng-transclude></div>',
+    /*
     scope: {
       parallaxRatio: '@',
     },
+    */
     link: function($scope, elem, attrs) {
       var setPosition = function () {
-        var calcValY = (elem.prop('offsetTop') - $window.pageYOffset) * ($scope.parallaxRatio ? $scope.parallaxRatio : 1.1 );
+        var calcValY = (elem.prop('offsetTop') - $window.pageYOffset) * (attrs.parallaxRatio ? attrs.parallaxRatio : 1.1 );
         // horizontal positioning
         elem.css('background-position', "50% " + calcValY + "px");
       };

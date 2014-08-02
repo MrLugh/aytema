@@ -156,36 +156,41 @@
 	left: 0;
 }
 
+.socialnetSlide .contents {
+	width: auto;
+	height: 100%;
+	overflow:hidden;
+	position: relative;
+}
 
-.socialnet .content {
+/* Content */
+
+.socialnetSlide .content {
+	position: absolute;
+	margin: 0 auto;
+	padding: 0;
+	background: none;
+	border:none;
+	overflow: hidden;
+	overflow-y: auto;
 	width: 100%;
 	height: 100%;
+	text-align:center;
+	display: inline-block;
+	left:-100%;
+	-webkit-transition:all 0.5s ease;
+	-moz-transition:all 0.5s ease;
+	-o-transition:all 0.5s ease;
+	transition:all 0.5s ease;	
+}
+
+.socialnet .content_hover {
+	left: 0;
 }
 
 .socialnet .content img {
 	max-height: 100%;
 	max-width: 100%;
-}
-
-
-/* Content */
-
-.socialnetSlide .contents {
-	width: 100%;
-	height: 100%;
-}
-
-.socialnetSlide .content {
-  position: relative;
-  margin: 0 auto;
-  padding: 0;
-  background: none;
-  border:none;
-  overflow: hidden;
-  overflow-y: auto;
-  width: 100%;
-  height: 100%;
-  text-align:center;
 }
 
 
@@ -200,10 +205,10 @@
 }
 
 .socialnetSlide .content .overlay_cover {
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
   position:absolute;
   width: 100%;
   height: 100%;
@@ -217,10 +222,10 @@
 }
 
 .socialnetSlide .content .overlay_photo {
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
   position:absolute;
   width: 100%;
   height: 100%;
@@ -232,7 +237,6 @@
   background-size:contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .socialnetSlide .content .next,
@@ -249,10 +253,10 @@
   padding:20px;
   font-size: 15px!important;
   text-align: center;
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
   opacity: 1;
   filter: alpha(opacity=1);
 }
