@@ -51,7 +51,8 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
 
     $routeProvider.when('/socialnets/:network/:external_user_id', {
         templateUrl: getPath('tpl')+'/cloudcial/socialnet.html',
-        controller: socialnetCo
+        controller: socialnetCo,
+        reloadOnSearch: false
     });
 
     $routeProvider.when('/socialnets', {
@@ -63,4 +64,11 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
 
-ayTemaApp.run([function(){}]);
+//ayTemaApp.run([function(){}]);
+
+ayTemaApp.run(function($rootScope, $location, $anchorScroll, $routeParams) {
+  $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
+    $location.hash($routeParams.scrollTo);
+    $anchorScroll();  
+  });
+});

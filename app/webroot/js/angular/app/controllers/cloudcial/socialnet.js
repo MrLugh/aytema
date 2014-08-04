@@ -1,7 +1,10 @@
-function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
+function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$window,$anchorScroll,$timeout) {
 
 	$scope.appSv 	= appSv;
 	$scope.contentSv= contentSv;
+	$scope.$location = $location;
+	$scope.$anchorScroll = $anchorScroll;
+
 	$scope.networks = appSv.getNetworks();
 
 	$scope.mode 	= appSv.getNavigationMode();
@@ -11,10 +14,13 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
 
 	$scope.current  = 'page_profile';
 
+	$scope.currentQueue = 0;
+
 	$scope.network 			= $routeParams.network;
 	$scope.external_user_id	= $routeParams.external_user_id;
 
 	$scope.showFooter = false;
+	$scope.isFullWidth= false;
 
 
 	$scope.loadUsers = function() {
@@ -121,6 +127,30 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
 	    });
 	}
 
+	$scope.moveQueue = function(direction) {
+
+		var indexCurrent = $scope.currentQueue;
+
+		if (direction > 0) {
+			indexCurrent++;
+		} else {
+			indexCurrent--;
+		}
+
+		if (indexCurrent == contentSv.getQueue().length) {
+			indexCurrent = 0;
+		}
+		if (indexCurrent < 0) {		
+			indexCurrent = contentSv.getQueue().length - 1;
+		}
+
+		$scope.currentQueue = indexCurrent;
+    	if ($scope.isFullWidth) {
+    		$scope.scrollToQueue('queue_'+$scope.currentQueue);
+    	}
+
+	}
+
 
 	$scope.movePage = function(concept,direction) {
 
@@ -181,6 +211,21 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
     	$scope.showFooter = !$scope.showFooter;
     };
 
+    $scope.scrollToQueue = function(id) {
+    	$timeout(function(){
+	    	$scope.$location.hash(id);
+	        $scope.$anchorScroll();
+    	},600);
+    }
+
+    $scope.fullWidht = function(index) {
+    	$scope.currentQueue = index;
+    	$scope.isFullWidth = !$scope.isFullWidth;
+    	if ($scope.isFullWidth) {
+    		$scope.scrollToQueue('queue_'+index);
+    	}
+    };
+
     $scope.getFooterStyle = function() {
 
     	var style = {};
@@ -206,7 +251,14 @@ function socialnetCo($scope,$routeParams,appSv,userSv,contentSv,$sce,$window) {
     };
 
 	$scope.getQueueStyle = function() {
-		return {'width':appSv.getWidth() + 'px'};
+		var style = {'width':appSv.getWidth() + 'px'};
+
+		style['overflow-x'] = 'auto';
+		if ($scope.isFullWidth) {
+			style['overflow-x'] = 'hidden';
+		}
+
+		return style;
 	}
 
 	$scope.hasPlayer = function(index) {
