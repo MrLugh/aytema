@@ -64,11 +64,4 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
 
-//ayTemaApp.run([function(){}]);
-
-ayTemaApp.run(function($rootScope, $location, $anchorScroll, $routeParams) {
-  $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
-    $location.hash($routeParams.scrollTo);
-    $anchorScroll();  
-  });
-});
+ayTemaApp.run([function(){}]);

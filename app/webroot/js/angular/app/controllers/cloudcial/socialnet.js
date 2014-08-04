@@ -213,9 +213,13 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 
     $scope.scrollToQueue = function(id) {
     	$timeout(function(){
-	    	$scope.$location.hash(id);
-	        $scope.$anchorScroll();
-    	},600);
+
+    		var element = angular.element(document.querySelector("#"+id));
+			$('.queuedList').animate({
+				scrollLeft: element[0].offsetLeft
+			}, 500);
+
+    	},500);
     }
 
     $scope.fullWidht = function(index) {
@@ -253,10 +257,12 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 	$scope.getQueueStyle = function() {
 		var style = {'width':appSv.getWidth() + 'px'};
 
+		/*
 		style['overflow-x'] = 'auto';
 		if ($scope.isFullWidth) {
 			style['overflow-x'] = 'hidden';
 		}
+		*/
 
 		return style;
 	}
