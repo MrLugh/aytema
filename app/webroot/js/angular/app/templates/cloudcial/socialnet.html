@@ -1,6 +1,8 @@
 <div class="socialnet">
 
-	<a href="#/socialnets"><i class="fa fa-arrow-left"></i> Back To List</a>
+	<a href="#/socialnets" tooltip="Back To Socialnets" tooltip-placement="right">
+		<i class="fa fa-arrow-left"></i> Back
+	</a>
 
 	<ul class="socialnetMenu {{account.network}}Account" ng-if="isAccount()">
 		<li ng-show="current != 'page_profile'" ng-click="changeMode()" class="item" style="padding-right:20px;">
@@ -71,7 +73,7 @@
 		<i class="fa fa-chevron-left prev" ng-click="movePage(page,-1)" ng-if="content[page].list.length>1"></i>
 		<i class="fa fa-chevron-right next" ng-click="movePage(page,1)" ng-if="content[page].list.length>1"></i>
 		<ul class="contents center">
-			<li ng-repeat="content in content[page].list" ng-switch="content.concept" class="content center {{isCurrent(page,$index) ? 'content_hover':''}}" id="content_{{$index}}">
+			<li ng-repeat="content in content[page].list" ng-switch="content.concept" class="content {{isCurrent(page,$index) ? 'content_hover':''}}" id="content_{{$index}}">
 
 				<content-video ng-switch-when='video'></content-video>
 				<content-photo ng-switch-when='photo'></content-photo>
