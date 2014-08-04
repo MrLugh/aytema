@@ -316,6 +316,9 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 		if (angular.isDefined($scope.current)) {
 			$scope.scrollToSection($scope.current);
 		}
+    	if ($scope.isFullWidth) {
+    		$scope.scrollToQueue('queue_'+$scope.currentQueue);
+    	}
 	});
 
 }
