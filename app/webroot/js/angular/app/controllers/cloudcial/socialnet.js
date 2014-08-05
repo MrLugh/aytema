@@ -120,9 +120,9 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 		return $scope.content[concept].current == index;
 	}
 
-	$scope.resetIframes = function(index) {
+	$scope.resetIframes = function(selector) {
 
-	    angular.forEach(document.querySelectorAll("#content_"+index+" iframe"), function(iframe, index) {
+	    angular.forEach(document.querySelectorAll("#"+selector+" iframe"), function(iframe, index) {
 	    	iframe.src = iframe.src;
 	    });
 	}
@@ -130,6 +130,10 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 	$scope.moveQueue = function(direction) {
 
 		var indexCurrent = $scope.currentQueue;
+
+		if ($scope.isFullWidth) {
+			$scope.resetIframes("queue_"+indexCurrent);
+		}
 
 		if (direction > 0) {
 			indexCurrent++;
@@ -156,7 +160,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 
 		var indexCurrent = angular.copy($scope.content[concept].current);
 
-		$scope.resetIframes(indexCurrent);
+		$scope.resetIframes("content_"+indexCurrent);
 
 		if (direction > 0) {
 			indexCurrent++;
@@ -322,6 +326,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 		if (angular.isDefined($scope.current)) {
 			$scope.scrollToSection($scope.current);
 		}
+    	
     	if ($scope.isFullWidth) {
     		$scope.scrollToQueue('queue_'+$scope.currentQueue);
     	}

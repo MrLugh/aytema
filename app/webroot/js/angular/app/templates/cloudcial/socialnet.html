@@ -97,10 +97,10 @@
 		<div ng-show="showFooter" class="queued {{account.network}}Account">
 			<ul ng-style="getQueueStyle()" class="queuedList">
 				<li ng-repeat="content in contentSv.getQueue()" id="queue_{{$index}}" class="{{content.network}}_{{content.concept}}" style="position:relative;" ng-if="hasPlayer($index)">
-					<i ng-if="isFullWidth && contentSv.getQueue().length>1" ng-click="moveQueue(1)" class="fa fa-arrow-right"></i>
-					<i ng-if="isFullWidth && contentSv.getQueue().length>1" ng-click="moveQueue(-1)" class="fa fa-arrow-left"></i>
 					<i class="fa fa-times-circle" ng-click="contentSv.deleteFromQueue(content)" tooltip="Delete from queue" tooltip-placement="left"></i>
 					<i class="fa fa-eye" ng-click="fullWidht($index)" tooltip="Full Size" tooltip-placement="left"></i>
+					<i ng-if="isFullWidth && contentSv.getQueue().length>1" ng-click="moveQueue(1)" class="fa fa-arrow-right"></i>
+					<i ng-if="isFullWidth && contentSv.getQueue().length>1" ng-click="moveQueue(-1)" class="fa fa-arrow-left"></i>
 					<div class="player both" ng-bind-html="getPlayer($index)"></div>
 				</li>
 			</ul>
