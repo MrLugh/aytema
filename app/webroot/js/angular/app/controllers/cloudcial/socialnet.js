@@ -131,9 +131,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 
 		var indexCurrent = $scope.currentQueue;
 
-		if ($scope.isFullWidth) {
-			$scope.resetIframes("queue_"+indexCurrent);
-		}
+		var oldest = $scope.currentQueue;
 
 		if (direction > 0) {
 			indexCurrent++;
@@ -151,6 +149,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 		$scope.currentQueue = indexCurrent;
     	if ($scope.isFullWidth) {
     		$scope.scrollToQueue('queue_'+$scope.currentQueue);
+			$scope.resetIframes("queue_"+oldest);
     	}
 
 	}
@@ -160,7 +159,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 
 		var indexCurrent = angular.copy($scope.content[concept].current);
 
-		$scope.resetIframes("content_"+indexCurrent);
+		var oldest = angular.copy($scope.content[concept].current);
 
 		if (direction > 0) {
 			indexCurrent++;
@@ -180,6 +179,8 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 		if ( $scope.content[concept].list.length - 1 - $scope.content[concept].current < 5 ) {
 			$scope.getContent(concept);
 		}
+
+		$scope.resetIframes("content_"+oldest);
 
 	}
 
