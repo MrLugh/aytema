@@ -122,9 +122,11 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 
 	$scope.resetIframes = function(selector) {
 
-	    angular.forEach(document.querySelectorAll("#"+selector+" iframe"), function(iframe, index) {
-	    	iframe.src = iframe.src;
-	    });
+		$timeout(function(){
+		    angular.forEach(document.querySelectorAll("#"+selector+" iframe"), function(iframe, index) {
+		    	iframe.src = iframe.src;
+		    });
+		},1000);
 	}
 
 	$scope.moveQueue = function(direction) {
