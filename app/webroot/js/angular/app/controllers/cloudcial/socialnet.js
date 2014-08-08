@@ -1,9 +1,8 @@
-function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$window,$anchorScroll,$timeout) {
+function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$window,$timeout) {
 
 	$scope.appSv 	= appSv;
 	$scope.contentSv= contentSv;
 	$scope.$location = $location;
-	$scope.$anchorScroll = $anchorScroll;
 
 	$scope.networks = appSv.getNetworks();
 
@@ -317,6 +316,8 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 
 	$scope.$watch("contentSv.getQueue()",function(queue){
 		if (queue.length>0) {
+			$scope.currentQueue = queue.length - 1;
+			$scope.scrollToQueue('queue_'+$scope.currentQueue);
 			$scope.showFooter = true;
 		}
 	},true);
