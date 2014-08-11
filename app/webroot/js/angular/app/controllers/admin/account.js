@@ -153,9 +153,11 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.getContentClass = function(content) {
 
+		/*
 		if ( content.concept == 'post' && (content.network == 'facebook' || content.network == 'twitter') ) {
 			return 'large';
 		}
+		*/
 
 		return 'medium';
 	}

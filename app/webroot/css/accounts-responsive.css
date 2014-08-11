@@ -1,4 +1,4 @@
-@media (max-width: 480px) {
+@media (max-width: 768px) {
 
   .accountsContainer .list li {
     margin: 0;
@@ -54,22 +54,6 @@
   }
   #accountPageList .large {
     width: calc(100% - 32px);
-  }
-  #accountPageList .xlarge {
-    width: calc(100% - 32px);
-  }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-
-  #accountPageList .small {
-    width: calc(25% - 32px);
-  }
-  #accountPageList .medium {
-    width: calc(50% - 32px);
-  }
-  #accountPageList .large {
-    width: calc(75% - 32px);
   }
   #accountPageList .xlarge {
     width: calc(100% - 32px);
