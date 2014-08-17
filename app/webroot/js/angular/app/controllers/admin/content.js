@@ -138,8 +138,6 @@ function adminContentPhotoCo($scope,contentSv) {
 
 	$scope.getDescription = function() {	
 
-		console.log($scope.current);
-
 		if ($scope.current.description.length) {
 			return $scope.current.description;
 		}
@@ -417,7 +415,17 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 			'data'				: $scope.event
 		}
 
-		contentSv.createContent(event);
+		contentSv.createContent(event).then(function(data){
+			$scope.event = {
+				'name'		: '',
+				'address'	: '',
+				'date'		: new Date(),
+				'time'		: '',
+				'door'		: '',
+				'place'		: '',
+				'ticket'	: ''
+			}			
+		});
 	}
 
 	$scope.format =  function(date) {
@@ -435,7 +443,8 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor
-			'url': '/contents/addFile.json'
+			'url': '/contents/addFile.json',
+			'acceptedFiles': 'image/gif,image/jpeg,image/png'
 		},
 		'eventHandlers': {
 			'success': function (file, response) {

@@ -299,9 +299,6 @@ class ContentsController extends AppController {
                         if ($_FILES['file']['error'] == 0) {
 
                             $fileName = $_FILES['file']['name'];
-                            if (file_exists($uploadPath . '/' . $fileName)) {
-                                $fileName = date('His') . $fileName;
-                            }
 
                             $this->checkPath($uploadPath);
                             $full_path = $uploadPath . '/' . $fileName;
