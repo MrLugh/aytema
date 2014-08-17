@@ -118,8 +118,6 @@ function(){
 
 }]);
 
-
-
 ayTemaDs.directive('adminAddPhoto',[
 function(){
     
@@ -128,6 +126,32 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'adminAddPhotoCo',
+        scope: true
+    }
+
+}]);
+
+ayTemaDs.directive('adminAddTrack',[
+function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/admin/add/track.html',
+        restrict : 'E',
+        replace : true,
+        controller:'adminAddTrackCo',
+        scope: true
+    }
+
+}]);
+
+ayTemaDs.directive('adminAddVideo',[
+function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/admin/add/video.html',
+        restrict : 'E',
+        replace : true,
+        controller:'adminAddVideoCo',
         scope: true
     }
 

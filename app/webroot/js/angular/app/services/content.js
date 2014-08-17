@@ -554,6 +554,11 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				source = '<iframe src="'+src+'" frameborder="0" allowfullscreen></iframe>';
 			}
 
+			if (content.network == 'cloudcial') {
+				console.log(content);
+				source = '<video><source src="'+content.data.path+'" type='+content.data.mime+'></video>';
+			}
+
 		}
 
 		if (content.concept == 'track') {
@@ -576,6 +581,11 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				if (angular.isDefined(content.data['embed'])) {
 					source = content.data['embed'];
 				}
+			}
+
+			if (content.network == 'cloudcial') {
+				console.log(content);
+				source = '<audio controls><source src="'+content.data.path+'"><p>Your browser does not support audio playback</p></audio>';
 			}
 		}
 

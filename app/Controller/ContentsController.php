@@ -260,11 +260,38 @@ class ContentsController extends AppController {
         if (preg_match("/\bimage\b/i",$_FILES['file']['type'])) {
             return 'photo';
         }
+        if (preg_match("/\baudio\b/i",$_FILES['file']['type'])) {
+            return 'track';
+        }
+        if (preg_match("/\bvideo\b/i",$_FILES['file']['type'])) {
+            return 'video';
+        }
     }
 
     private function mimeTypesByFile($type) {
         if ($type == 'photo') {
             return array("image/gif", "image/jpeg", "image/png");
+        }
+        if ($type == 'track') {
+            return array(
+                "audio/mpeg",
+                "audio/mp3",
+                "audio/mp4",
+                "audio/ogg",
+                "audio/wav",
+                "audio/webm",
+                "audio/aac"
+            );
+        }
+
+        if ($type == 'video') {
+            return array(
+                "video/mp4",
+                "video/m4v",
+                "video/ogg",
+                "video/ogv",
+                "video/webm"
+            );
         }
     }
 
@@ -306,7 +333,8 @@ class ContentsController extends AppController {
                             if (move_uploaded_file($_FILES['file']['tmp_name'], $full_path)) {
                                 
                                 $data = array(
-                                    'path'  => "files/users/{$user_id}/{$concept}/{$fileName}",
+                                    'path'  => "/files/users/{$user_id}/{$concept}/{$fileName}",
+                                    'mime'  => $_FILES['file']['type']
                                 );
 
                                 $this->set(array(
@@ -332,7 +360,12 @@ class ContentsController extends AppController {
                         }
                     }
                 }
-            }
+            }/* else {
+                $this->set(array(
+                    'error'  => 'File not uploaded.',
+                    '_serialize'=> array('error')
+                ));
+            }*/
         }
 
     }

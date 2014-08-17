@@ -175,7 +175,7 @@ function adminContentPhotoCo($scope,contentSv) {
 
 function adminContentTrackCo($scope,$sce,contentSv) {
 
-	//console.log($scope.content);
+	console.log($scope.content);
 
 	$scope.player	= "";
 	$scope.thumbnail= "";
@@ -460,6 +460,65 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 			},
 			'error': function (file, response) {
 				console.log("error");
+				console.log(response);
+			},
+		}
+	};
+
+}
+
+function adminAddTrackCo($scope,contentSv,userSv,$sce) {
+
+	$scope.dropzoneConfig = {
+		'options': { // passed into the Dropzone constructor
+			'url': '/contents/addFile.json',
+			'acceptedFiles': 'audio/mpeg,audio/mp3,audio/mp4,audio/ogg,audio/wav,audio/webm,audio/aac'
+		},
+		'eventHandlers': {
+			'success': function (file, response) {
+				var data = response.data;
+				data.title 		= '';
+				data.description= '';
+				var content = {
+					'network'			: 'cloudcial',
+					'concept'			: 'track',
+					'data'				: response.data
+				}
+				contentSv.createContent(content);
+			},
+			'error': function (file, response) {
+				console.log("error");
+				console.log(file);
+				console.log(response);
+			},
+		}
+	};
+
+}
+
+function adminAddVideoCo($scope,contentSv,userSv,$sce) {
+
+	$scope.dropzoneConfig = {
+		'options': { // passed into the Dropzone constructor
+			'url': '/contents/addFile.json',
+			'acceptedFiles': "video/mp4,video/m4v,video/ogg,video/ogv,video/webm",
+			//'maxFilesize' : 100
+		},
+		'eventHandlers': {
+			'success': function (file, response) {
+				var data = response.data;
+				data.title 		= '';
+				data.description= '';
+				var content = {
+					'network'			: 'cloudcial',
+					'concept'			: 'video',
+					'data'				: response.data
+				}
+				contentSv.createContent(content);
+			},
+			'error': function (file, response) {
+				console.log("error");
+				console.log(file);
 				console.log(response);
 			},
 		}
