@@ -22,6 +22,7 @@
     echo $this->Html->css('users-responsive');
     echo $this->Html->css('socialnets');
     echo $this->Html->css('socialnets-responsive');
+    echo $this->Html->css('dropzone');
     ?>
 
     <!-- Js -->
@@ -33,6 +34,7 @@
     echo $this->Html->script('masonry.pkgd');
     echo $this->Html->script('imagesloaded.pkgd');
     echo $this->Html->script('carouFredSel');
+    echo $this->Html->script('dropzone');
     ?>
 
     <!-- Config -->

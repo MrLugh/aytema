@@ -449,6 +449,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		if (content.concept == 'photo')	{
 
+			if (content.network == 'cloudcial') {
+				source = content.data.path;
+			}
+
 			if (content.network == 'tumblr') {
 				if (!this.isBadImage(content.data.photos[0].original_size.url)) {
 					source = content.data.photos[0].original_size.url;
@@ -646,7 +650,11 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				title = content.data['name'];
 			}
 
-		}		
+		}
+
+		if (content.network == 'cloudcial') {
+			description = content.data['title'];
+		}
 
 		return title.replace(/-/g, ' ');
 	}
@@ -697,6 +705,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		if (content.network == 'youtube') {
 			description = content.data['content'];
+		}
+
+		if (content.network == 'cloudcial') {
+			description = content.data['description'];
 		}
 
 		return description;
@@ -901,6 +913,27 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    return deferred.promise;		
 	}
 
+	var createFile = function(fd) {
+		var deferred = $q.defer();
+
+		var url = '/contents/addFile.json';
+
+	    $http.post(url, fd, {
+	        withCredentials: true,
+	        headers: {'Content-Type': undefined },
+	        transformRequest: angular.identity
+	    }).
+	    success(function(data, status, headers, config) {
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	console.log('error');
+	    	deferred.resolve(data);
+	    });
+
+	    return deferred.promise;		
+	}	
+
 	return {
 		getDicContent: function() {
 			return dicContent;
@@ -951,6 +984,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getTumblrShareOptions:getTumblrShareOptions,
 
 		createContent:createContent,
+		createFile:createFile,
 
 		addToQueue:addToQueue,
 		getQueue: function() {

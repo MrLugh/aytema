@@ -105,7 +105,6 @@ function(){
 
 }]);
 
-
 ayTemaDs.directive('adminAddEvent',[
 function(){
     
@@ -114,6 +113,21 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'adminAddEventCo',
+        scope: true
+    }
+
+}]);
+
+
+
+ayTemaDs.directive('adminAddPhoto',[
+function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/admin/add/photo.html',
+        restrict : 'E',
+        replace : true,
+        controller:'adminAddPhotoCo',
         scope: true
     }
 

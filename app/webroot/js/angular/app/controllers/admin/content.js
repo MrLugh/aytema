@@ -89,8 +89,6 @@ function adminContentVideoCo($scope,$sce,contentSv) {
 
 function adminContentPhotoCo($scope,contentSv) {
 
-	//console.log($scope.content);
-
 	$scope.photolist	= [];
 	$scope.current 		= {};
 	$scope.currentPos	= 0;
@@ -115,17 +113,16 @@ function adminContentPhotoCo($scope,contentSv) {
 
 				$scope.photolist.push(photo);
 			}
-		}
-
-		if ($scope.content.network == 'facebook') {
+		} else {
 			var element = $scope.content.data;
 			var photo = {
 				src 		: contentSv.getThumbnail($scope.content),
 				description : contentSv.getDescription($scope.content),
 			};
 
-			$scope.photolist.push(photo);
+			$scope.photolist.push(photo);			
 		}
+
 
 		return '';
 	}
@@ -140,6 +137,8 @@ function adminContentPhotoCo($scope,contentSv) {
 	}
 
 	$scope.getDescription = function() {	
+
+		console.log($scope.current);
 
 		if ($scope.current.description.length) {
 			return $scope.current.description;
@@ -429,5 +428,32 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 		day = day.length > 1 ? day : '0' + day;
 		return year + '-' + month + '-' + day;
 	}
+
+}
+
+function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
+
+	$scope.dropzoneConfig = {
+		'options': { // passed into the Dropzone constructor
+			'url': '/contents/addFile.json'
+		},
+		'eventHandlers': {
+			'success': function (file, response) {
+				var data = response.data;
+				data.title 		= '';
+				data.description= '';
+				var content = {
+					'network'			: 'cloudcial',
+					'concept'			: 'photo',
+					'data'				: response.data
+				}
+				contentSv.createContent(content);
+			},
+			'error': function (file, response) {
+				console.log("error");
+				console.log(response);
+			},
+		}
+	};
 
 }

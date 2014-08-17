@@ -83,11 +83,10 @@
 
 	</div>
 
-	<div ng-if="isAdding" style="position:absolute;width:80%;left:10%;top:10%;z-index:4;" class="well">
+	<div ng-if="isAdding" class="addContent well">
 		<div ng-switch="toAdd">
 			<p class="right">
-				Create new {{toAdd}} or 
-				<button class="btn btn-primary" ng-click="hideAddContent()">Close It</button>
+				<i class="fa fa-times-circle" ng-click="hideAddContent()"></i>
 			</p>
 			<admin-add-event ng-switch-when='event'></admin-add-event>
 		    <admin-add-video ng-switch-when='video'></admin-add-video>

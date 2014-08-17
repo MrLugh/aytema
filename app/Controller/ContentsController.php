@@ -12,7 +12,7 @@ class ContentsController extends AppController {
 
     public function beforeFilter() {
 
-        $this->Auth->allow('index','view','relateds');
+        $this->Auth->allow('index','view','relateds','addFile');
         $this->loadModel('Socialnet');
         $this->loadModel('User');
     }    
@@ -27,8 +27,6 @@ class ContentsController extends AppController {
         isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
         isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
         isset($this->request->query['username']) ? $username = $this->request->query['username'] : $username = null;
-
-        //echo "<pre>";var_dump($this->request->query);echo "</pre>";
 
         $findUser = $this->User->findByUsername($username);
 
@@ -64,8 +62,6 @@ class ContentsController extends AppController {
         //TEST
         //$params['Content.concept'] = array('photo'=>'photo');
 
-
-        //echo "<pre>";var_dump($params);echo "</pre>";
 
         $contents = $this->Content->find('all', array(
             'conditions'=> $params,
@@ -253,7 +249,95 @@ class ContentsController extends AppController {
         $this->set(array(
             'content'  => $new,
             '_serialize'=> array('content')
-        ));        
+        ));
+    }
+
+    private function getFileType() {
+        if (empty($_FILES) || !isset($_FILES['file']['type'])) {
+            return null;
+        }
+
+        if (preg_match("/\bimage\b/i",$_FILES['file']['type'])) {
+            return 'photo';
+        }
+    }
+
+    private function mimeTypesByFile($type) {
+        if ($type == 'photo') {
+            return array("image/gif", "image/jpeg", "image/png");
+        }
+    }
+
+    public function checkPath($uploadPath) {
+        if(!is_dir($uploadPath)) {
+            $oldumask = umask(0);
+            mkdir($uploadPath, 0777, true);
+            umask($oldumask);
+        }        
+    }
+
+    public function addFile() {
+
+        $user_id = $this->Auth->user('id');
+
+        if ($this->request->is('post')) {
+
+            if (!empty($_FILES)) {
+
+                $concept = $this->getFileType();
+
+                $fileTypes = $this->mimeTypesByFile($concept);
+
+                $uploadPath = WWW_ROOT . "files/users/{$user_id}/{$concept}";
+
+                $this->checkPath($uploadPath);
+
+                foreach ($fileTypes as $key => $type) {
+
+                    if ( $_FILES['file']['type'] ==  $type ) {
+
+                        if ($_FILES['file']['error'] == 0) {
+
+                            $fileName = $_FILES['file']['name'];
+                            if (file_exists($uploadPath . '/' . $fileName)) {
+                                $fileName = date('His') . $fileName;
+                            }
+
+                            $this->checkPath($uploadPath);
+                            $full_path = $uploadPath . '/' . $fileName;
+
+                            if (move_uploaded_file($_FILES['file']['tmp_name'], $full_path)) {
+                                
+                                $data = array(
+                                    'path'  => "files/users/{$user_id}/{$concept}/{$fileName}",
+                                );
+
+                                $this->set(array(
+                                    'data'  => $data,
+                                    '_serialize'=> array('data')
+                                ));
+
+                            } else {
+
+
+                                $this->set(array(
+                                    'error'  => 'There was a problem uploading file. Please try again.',
+                                    '_serialize'=> array('error')
+                                ));
+
+                            }
+
+                        } else {
+                            $this->set(array(
+                                'error'  => 'Error uploading file.',
+                                '_serialize'=> array('error')
+                            ));
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
 }
