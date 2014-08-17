@@ -4,15 +4,17 @@
 	<div class="both">
 
 	    <div class="row">
+	   	<form ng-submit="save()">
+
 	        <div class="col-md-6">
 	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.name" placeholder="Event name" required/>
+					<input type="text" class="form-control" ng-model="event.name" placeholder="Event name" ng-required="true"/>
 				</p>
 	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.place" placeholder="Event place" required/>
+					<input type="text" class="form-control" ng-model="event.place" placeholder="Event place" ng-required="true"/>
 				</p>				
 	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.address" placeholder="Address:Country, City, Street Name Street Number" required />
+					<input type="text" class="form-control" ng-model="event.address" placeholder="Address:Country, City, Street Name Street Number" ng-required="true" />
 					<div ng-if="address.length > 0">
 						<img alt="Google map on {{address}}" ng-src="{{getMapSrc()}}" />
 					</div>
@@ -21,7 +23,7 @@
 
 	        <div class="col-md-6">
 	            <p class="input-group">
-	            	<input type="text" class="form-control" datepicker-popup="yyyy-MM-dd" ng-model="event.date" is-open="opened" min="minDate" datepicker-options="dateOptions" date-disabled="disabledWeek(date, mode)" required close-text="Close" placeholder="Event Date" />
+	            	<input type="text" class="form-control" datepicker-popup="yyyy-MM-dd" ng-model="event.date" is-open="opened" min="minDate" datepicker-options="dateOptions" date-disabled="disabledWeek(date, mode)" ng-required="true" close-text="Close" placeholder="Event Date" />
 	            	<span class="input-group-btn">
 	            		<button class="btn btn-default" ng-click="openDatePicker($event)">
 	            			<i class="glyphicon glyphicon-calendar"></i>
@@ -29,19 +31,20 @@
 	            	</span>
 	            </p>
 	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.time" placeholder="Time" required />
+					<input type="text" class="form-control" ng-model="event.time" placeholder="Time" ng-required="true" />
 				</p>
 	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.door" placeholder="Door time" required />
+					<input type="text" class="form-control" ng-model="event.door" placeholder="Door time" ng-required="true" />
 				</p>
 	            <p class="input-group">
 					<input type="text" class="form-control" ng-model="event.ticket" placeholder="Tickets url" />
 				</p>
 
-           		<button class="btn btn-primary" ng-click="save()">Save</button>
+           		<button type="submit" class="btn btn-primary">Save</button>
 
 	        </div>
 
+	    </form>
 		</div>
 		
 
