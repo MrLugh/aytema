@@ -255,6 +255,10 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 
 	$scope.getPageArrowTitle = function(direction) {
 
+		if ($scope.pages.length == 0) {
+			return '';
+		}
+
 		var indexCurrent = $scope.pages.indexOf($scope.current);
 
 		if (direction > 0) {

@@ -92,7 +92,7 @@ a {
   border: none;
 }
 
-a:hover, a:active, a:focus, iframe, object, embed, input::-moz-focus-inner {
+a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focus-inner {
   outline: 0;
   border: 0;
 }
@@ -560,6 +560,12 @@ p {
 }
 
 .content .soundcloud_track iframe, .content .tumblr_track iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.contet audio,
+.contet video {
   width: 100%;
   height: 100%;
 }
