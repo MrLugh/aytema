@@ -273,6 +273,12 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	    angular.forEach(document.querySelectorAll("#content_"+index+" iframe"), function(iframe, index) {
 	    	iframe.src = iframe.src;
 	    });
+	    angular.forEach(document.querySelectorAll("#content_"+index+" video"), function(iframe, index) {
+	    	iframe.src = iframe.src;
+	    });
+	    angular.forEach(document.querySelectorAll("#content_"+index+" audio"), function(iframe, index) {
+	    	iframe.src = iframe.src;
+	    });
 	}
 
 

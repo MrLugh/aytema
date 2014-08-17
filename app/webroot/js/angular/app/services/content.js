@@ -555,7 +555,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'cloudcial') {
-				console.log(content);
 				source = '<video controls><source src="'+content.data.path+'" type='+content.data.mime+' /></video>';
 			}
 

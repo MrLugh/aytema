@@ -272,7 +272,7 @@ body::-webkit-scrollbar-thumb {
   opacity:1;
   filter: alpha(opacity=100);
   z-index: 2;
-  /*background-size:contain;*/
+  background-size:contain;
   background-position: center;
   background-repeat: no-repeat;
 }

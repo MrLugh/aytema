@@ -125,6 +125,12 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 		    angular.forEach(document.querySelectorAll("#"+selector+" iframe"), function(iframe, index) {
 		    	iframe.src = iframe.src;
 		    });
+		    angular.forEach(document.querySelectorAll("#"+selector+" video"), function(iframe, index) {
+		    	iframe.src = iframe.src;
+		    });
+		    angular.forEach(document.querySelectorAll("#"+selector+" audio"), function(iframe, index) {
+		    	iframe.src = iframe.src;
+		    });
 		},1000);
 	}
 

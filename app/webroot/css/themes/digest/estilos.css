@@ -564,8 +564,8 @@ p {
   height: 100%;
 }
 
-.contet audio,
-.contet video {
-  width: 100%;
-  height: 100%;
+.content audio,
+.content video {
+  width: 100%!important;
+  height: 100%!important;
 }
