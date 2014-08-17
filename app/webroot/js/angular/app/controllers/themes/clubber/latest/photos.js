@@ -19,16 +19,14 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 				};
 
 				$scope.photolist.push(photo);
-			}
-
-			if (content.network == 'facebook') {
+			} else {
 				var element = content.data;
 				var photo = {
 					src 		: contentSv.getThumbnail(content),
 					title		: contentSv.getTitle(content)
 				};
 
-				$scope.photolist.push(photo);
+				$scope.photolist.push(photo);				
 			}
 
 		}

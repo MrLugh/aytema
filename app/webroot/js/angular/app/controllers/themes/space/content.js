@@ -151,9 +151,7 @@ function contentPhotoCo($scope,contentSv,userSv) {
 
 				$scope.photolist.push(photo);
 			}
-		}
-
-		if ($scope.content.network == 'facebook') {
+		} else {
 			var element = $scope.content.data;
 			var photo = {
 				src 		: contentSv.getThumbnail($scope.content),
