@@ -21,7 +21,9 @@ function($FB,$timeout,appSv,$window){
                 var toResize    = angular.element(
                     element[0].querySelector('iframe')  ||
                     element[0].querySelector('object')  ||
-                    element[0].querySelector('embed')
+                    element[0].querySelector('embed')   ||
+                    element[0].querySelector('audio')   ||
+                    element[0].querySelector('video')
                 );
 
                 if (toResize.length == 0) {
@@ -247,7 +249,9 @@ function(appSv,$window){
                 var toResize    = angular.element(
                     element[0].querySelector('iframe')  || 
                     element[0].querySelector('object')  ||
-                    element[0].querySelector('embed')
+                    element[0].querySelector('embed')   ||
+                    element[0].querySelector('audio')   ||
+                    element[0].querySelector('video')
                 );
 
                 var player      = angular.element(element[0].querySelector('.player'));
@@ -336,7 +340,9 @@ function (appSv,$window) {
                     element[0].querySelector('img.content_photo')  ||
                     element[0].querySelector('iframe')  || 
                     element[0].querySelector('object')   ||
-                    element[0].querySelector('embed')
+                    element[0].querySelector('embed')   ||
+                    element[0].querySelector('audio')   ||
+                    element[0].querySelector('video')
                 );
 
                 if ($window.innerWidth <= 768) {
@@ -443,7 +449,9 @@ function(appSv,$window){
                 var toResize    = angular.element(
                     element[0].querySelector('iframe')  || 
                     element[0].querySelector('object')  ||
-                    element[0].querySelector('embed')
+                    element[0].querySelector('embed')   ||
+                    element[0].querySelector('audio')   ||
+                    element[0].querySelector('video')
                 );
 
                 var player      = angular.element(element[0].querySelector('.player'));
