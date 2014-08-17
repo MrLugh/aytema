@@ -525,3 +525,32 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 	};
 
 }
+
+function adminAddPostCo($scope,contentSv,userSv,$sce) {
+
+	$scope.post = {
+		'title'			: '',
+		'description'	: '',
+		'thumbnail'		: ''
+	}
+
+	$scope.save = function() {
+
+		$scope.event.date = $scope.format(new Date($scope.event.date));
+
+		var post = {
+			'network'			: 'cloudcial',
+			'concept'			: 'post',
+			'data'				: $scope.post
+		}
+
+		contentSv.createContent(event).then(function(data){
+			$scope.post = {
+				'title'			: '',
+				'description'	: '',
+				'thumbnail'		: ''
+			}
+		});
+	}
+
+}

@@ -157,3 +157,15 @@ function(){
 
 }]);
 
+ayTemaDs.directive('adminAddPost',[
+function(){
+    
+    return {
+        templateUrl : getPath('tpl')+'/admin/add/post.html',
+        restrict : 'E',
+        replace : true,
+        controller:'adminAddPostCo',
+        scope: true
+    }
+
+}]);
