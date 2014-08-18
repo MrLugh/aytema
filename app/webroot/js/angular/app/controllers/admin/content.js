@@ -530,7 +530,7 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
 
 
 	$scope.tinymceOptions = {
-    	//selector : ".tinymce",
+    	selector : ".tinymce",
 	    theme: "modern",
 	    height:300,
 	    plugins: [
