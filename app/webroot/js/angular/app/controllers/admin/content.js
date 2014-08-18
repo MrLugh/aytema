@@ -536,8 +536,6 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
 
 	$scope.save = function() {
 
-		$scope.event.date = $scope.format(new Date($scope.event.date));
-
 		var post = {
 			'network'			: 'cloudcial',
 			'concept'			: 'post',
