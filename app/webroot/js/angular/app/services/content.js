@@ -662,7 +662,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		}
 
 		if (content.network == 'cloudcial') {
-			description = content.data['title'];
+			title = content.data['title'];
 		}
 
 		return title.replace(/-/g, ' ');

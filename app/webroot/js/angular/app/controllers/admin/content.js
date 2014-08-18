@@ -542,7 +542,7 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
 			'data'				: $scope.post
 		}
 
-		contentSv.createContent(event).then(function(data){
+		contentSv.createContent(post).then(function(data){
 			$scope.post = {
 				'title'			: '',
 				'description'	: '',

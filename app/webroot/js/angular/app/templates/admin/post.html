@@ -3,7 +3,7 @@
 		<div ng-bind-html="getEmbed()"></div>
 	</div>
 	<div ng-if="!isFromNetwork('twitter')">
-		<img thumbnail="content" ng-src="{{getThumbnail()}}" />
+		<img ng-src="{{getThumbnail()}}" />
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>
 	</div>
