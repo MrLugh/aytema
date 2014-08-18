@@ -12,6 +12,7 @@ var ayTemaApp = angular.module('ayTemaApp',[
 	'ngTouch',
 	'ngCookies',
 	'ui.bootstrap',
+    'ui.tinymce'
 ]);
 
 ayTemaApp.config(['$routeProvider','$httpProvider','$sceDelegateProvider',

@@ -6,17 +6,9 @@
 	    <div class="row">
 	   	<form ng-submit="save()">
 
-	        <div class="col-md-6">
-	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="post.title" placeholder="post title" ng-required="true"/>
-				</p>
-			</div>
+			<input type="text" class="form-control" ng-model="post.title" placeholder="post title" ng-required="true"/>
 
-	        <div class="col-md-6">
-	            <p class="input-group">
-	            	<textarea ng-model="post.description" placeholder="post title" ng-required="true"></textarea>
-				</p>
-			</div>			
+           	<textarea ng-model="post.description" class="tinymce" placeholder="post title" ng-required="true" ui-tinymce="tinymceOptions"></textarea>
 
        		<button type="submit" class="btn btn-primary">Save</button>
 

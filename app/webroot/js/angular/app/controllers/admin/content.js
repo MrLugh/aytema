@@ -528,6 +528,26 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 
 function adminAddPostCo($scope,contentSv,userSv,$sce) {
 
+
+	$scope.tinymceOptions = {
+    	//selector : ".tinymce",
+	    theme: "modern",
+	    height:300,
+	    plugins: [
+	        ["advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker"],
+	        ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking"],
+	        ["save table contextmenu directionality emoticons template paste "]
+	    ],
+	    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link  | print preview media",
+	    relative_urls:false,
+        file_browser_callback: function(field_name, url, type, win) {
+            if(type=='image') $('#my_form input').click();
+        },
+        handle_event_callback: function (e) {
+        // put logic here for keypress
+        }
+    };
+
 	$scope.post = {
 		'title'			: '',
 		'description'	: '',

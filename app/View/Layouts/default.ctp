@@ -35,6 +35,7 @@
     echo $this->Html->script('imagesloaded.pkgd');
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('dropzone');
+    echo $this->Html->script('tinymce/tinymce.min');
     ?>
 
     <!-- Config -->
@@ -92,7 +93,8 @@
     <?php
     echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap');
     echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap-tpls');
-    ?>    
+    echo $this->Html->script('angular/plugins/ui-tinymce/tinymce');
+    ?>
 
     <!-- Apps -->
     <?php
