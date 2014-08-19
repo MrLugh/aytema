@@ -8,7 +8,6 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	var setUser = function(data) {
 		user =  data;
 		user['steps'] = {1:false,2:false,3:false};
-		user['theme'] = 'digest';
 	}
 
 	var login = function(params) {

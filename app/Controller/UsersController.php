@@ -44,6 +44,7 @@ class UsersController extends AppController {
                         'id'            => $this->Auth->user('id'),
                         'username'      => $this->Auth->user('username'),
                         'profile_image' => $findUser['User']['profile_image'],
+                        'theme'         => $findUser['User']['theme'],
                     ),
                     '_serialize' => array('message','user')
                 ));
