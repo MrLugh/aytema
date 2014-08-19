@@ -6,7 +6,6 @@
 
 	.pageTracks .track_full_player iframe, .pageTracks .track_full_player track, .pageTracks .track_full_player embed {	
 		height: 450px;
-		width: 600px;
 	}	
 
 }
@@ -22,7 +21,6 @@
 
 	.pageTracks .track_full_player iframe, .pageTracks .track_full_player track, .pageTracks .track_full_player embed {	
 		height: 350px;
-		width: 450px;
 	}	
 }
 
@@ -30,7 +28,6 @@
 
 	.pageTracks .track_full_player iframe, .pageTracks .track_full_player track, .pageTracks .track_full_player embed {	
 		height: 350px;
-		width: 350px;
 	}
 
 }

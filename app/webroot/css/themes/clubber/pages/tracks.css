@@ -218,6 +218,7 @@
     top:0;
     left: 0;
     height: 250px;
+    width: 100%;
     margin: 0 auto;
     -webkit-transition: all 0.56s ease;
     -moz-transition: all 0.56s ease;

@@ -75,31 +75,34 @@
 				<content-link  ng-switch-when='link' ></content-link>
 				<content-event ng-switch-when='event'></content-event>
 
-				<span class="user_info left">
-					<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}">
-						<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" />
-						{{content.external_user_name}}
-						<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
-					</a>
-				</span>
 
-				<ul class="share left well">
-					<li class="left inline">
-	                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
-	                		<img src="http://cloudcial.com/img/themes/simple/twitter.png" alt="Twitter" />
-	                	</a>
-	                </li>
-	                <li class="left inline">
-	                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-	                		<img src="http://cloudcial.com/img/themes/simple/facebook.png" alt="Facebook" />
-	                	</a>
-	                </li>
-	                <li class="left inline">
-	                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
-	                		<img src="http://cloudcial.com/img/themes/simple/tumblr.png" alt="Tumblr" />
-	                	</a>
-	                </li>
-	            </ul>
+				<div>
+					<span class="user_info left">
+						<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}">
+							<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" />
+							{{content.external_user_name}}
+							<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
+						</a>
+					</span>
+
+					<ul class="share left well">
+						<li class="left inline">
+		                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
+		                		<img src="http://cloudcial.com/img/themes/simple/twitter.png" alt="Twitter" />
+		                	</a>
+		                </li>
+		                <li class="left inline">
+		                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
+		                		<img src="http://cloudcial.com/img/themes/simple/facebook.png" alt="Facebook" />
+		                	</a>
+		                </li>
+		                <li class="left inline">
+		                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
+		                		<img src="http://cloudcial.com/img/themes/simple/tumblr.png" alt="Tumblr" />
+		                	</a>
+		                </li>
+		            </ul>
+		        </div>
 
 				<fb-comments ng-if="$index == current" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
 
@@ -111,7 +114,9 @@
 
 	<div class="footer" ng-style="getFooterStyle()" get-footer-height>
 
-		<a href="#/" class="footercontrol" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>Player <i class="fa fa-cogs"></i></a>
+		<a href="#/" class="footercontrol" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>
+			<i class="fa fa-play-circle" ng-style="getFooterButtonStyle()"></i>
+		</a>
 
 		<div ng-show="showFooter" class="queued">
 			<ul ng-style="getQueueStyle()">
@@ -124,7 +129,7 @@
 
 	</div>
 
-	<a href="#/" skip-default ng-click="move(-1)" ng-if="list.length>1" class="control control_prev {{getNavigatorNetwork(-1)}}_bg left" control-hover="prev" style="top:{{menuHeight+4}}px;" tooltip="{{getNavigatorTitle(-1)|capitalize}}" tooltip-placement="right" ng-style="getControlStyle(-1)">
+	<a href="#/" skip-default ng-click="move(-1)" ng-if="list.length>1" class="control control_prev {{getNavigatorNetwork(-1)}}AccountRgba left" control-hover="prev" style="top:{{menuHeight+4}}px;" tooltip="{{getNavigatorTitle(-1)|capitalize}}" tooltip-placement="right" ng-style="getControlStyle(-1)">
 		<img class="social-media right" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(-1)}}-big.png" alt=""/>
 		<i class="social-icon right" ng-class="getNavigatorConceptIcon(-1)"></i>
 		<div ng-show="getNavigatorThumbnail(-1).length>0">
@@ -132,7 +137,7 @@
 		</div>
 	</a>
 
-	<a href="#/" skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}_bg right" tooltip-placement="left" control-hover="next" style="top:{{menuHeight+4}}px;" tooltip="{{getNavigatorTitle(1)|capitalize}}" ng-style="getControlStyle(1)">
+	<a href="#/" skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}AccountRgba right" tooltip-placement="left" control-hover="next" style="top:{{menuHeight+4}}px;" tooltip="{{getNavigatorTitle(1)|capitalize}}" ng-style="getControlStyle(1)">
 		<img class="social-media left" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(1)}}-big.png" alt=""/>
 		<i class="social-icon left" ng-class="getNavigatorConceptIcon(1)"></i>
 		<div ng-show="getNavigatorThumbnail(1).length>0">

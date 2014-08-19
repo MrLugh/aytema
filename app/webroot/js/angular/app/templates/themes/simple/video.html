@@ -2,9 +2,9 @@
 	<div thumbnail="content" style="background:url('{{getThumbnail()}}');background-size:cover;background-position: center center;" class="overlay_photo"></div>
 	<div class="overlay_content">
 		<img thumbnail="content" ng-src="{{getThumbnail()}}" class="content_photo" />
-		<div class="content_caption"> 
+		<div class="content_caption" ng-style="getControlsStyle()"> 
 			<a href="#/" add-to-queue="getPlayer()" skip-default class="right">
-				<img src="http://cloudcial.com/img/themes/simple/playButton.png" width="40px" height="40px" />
+				<i class="fa fa-play-circle" ng-style="getControlsStyle()"></i>
 			</a>
 			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 			<p ng-bind-html="getDescription()"></p>

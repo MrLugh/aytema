@@ -6,7 +6,6 @@
 
 	.pageVideos .video_full_player iframe, .pageVideos .video_full_player video, .pageVideos .video_full_player embed {
 		height: 450px;
-		width: 600px;
 	}
 
 }
@@ -22,16 +21,7 @@
 
 	.pageVideos .video_full_player iframe, .pageVideos .video_full_player video, .pageVideos .video_full_player embed {
 		height: 350px;
-		width: 450px;
 	}	
-}
-
-@media (max-width: 768px) {
-
-	.pageVideos .video_full_player iframe, .pageVideos .video_full_player video, .pageVideos .video_full_player embed {
-		width: 350px;
-	}
-
 }
 
 

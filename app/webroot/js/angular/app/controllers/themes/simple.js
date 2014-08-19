@@ -419,11 +419,17 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.getFooterStyle = function() {
 
     	var width = "100%";
+    	var style = {};
     	if (!angular.equals({},$scope.config)) {
     		width = $scope.config.custom.width;
+
+			var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+			var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+    		style['background-color'] = rgbString;
     	}
 
-    	var style = {'width':width};
+    	style['width'] = width;
+
 	   	if ($scope.showFooter == true) {
 	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
 	   		return style;	   		
@@ -433,10 +439,23 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     }
 
     $scope.getFooterButtonStyle = function() {
+    	var style = {};
+
 	   	if ($scope.showFooter == true) {
-	   		return {'bottom':'100%'};
+	   		style['bottom'] = '100%';
+    	} else {
+    		style['bottom'] = '0';
     	}
-	   	return {'bottom':'0'};
+
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return style;
+    	}
+
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+
+    	style['background-color'] = rgbString;
+	   	return style;
     };	    
 
     $scope.getMenuStyle = function() {
