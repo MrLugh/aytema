@@ -430,6 +430,11 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'soundcloud') {
+
+				if (angular.isDefined(content.data['user']['avatar_url'])) {
+					source = content.data['user']['avatar_url'];
+				}
+
 				if (angular.isDefined(content.data['artwork_url']) &&
 					typeof content.data['artwork_url'] == 'string'){
 						if (!this.isBadImage(content.data['artwork_url'].replace("large","t500x500"))) {
@@ -439,6 +444,13 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'mixcloud') {
+
+				if (angular.isDefined(content.data['user']['pictures'])) {
+					if (!this.isBadImage(content.data['user']['pictures']['extra_large'])) {
+						source = content.data['user']['pictures']['extra_large'];
+					}
+				}
+
 				if (angular.isDefined(content.data['pictures'])) {
 					if (!this.isBadImage(content.data['pictures']['extra_large'])) {
 						source = content.data['pictures']['extra_large'];
