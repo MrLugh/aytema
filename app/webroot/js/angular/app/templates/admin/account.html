@@ -25,17 +25,15 @@
 	</div>
 
 
-	<div class="accountPageHeader {{account.network}}AccountPageHeader both">
+	<div class="accountPageHeader {{account.network}}AccountPageHeader both" ng-style="getPageHeaderStyle()" get-menu-height>
 
 		<div class="controls">
-			<i class="fa fa-arrow-left left" ng-click="move(-1)" tooltip="Previous Account" tooltip-placement="bottom"></i>
-			<i class="fa fa-arrow-right left" ng-click="move(1)" tooltip="Next Account" tooltip-placement="bottom"></i>
-		
-			<img ng-src="{{account.profile_image}}" class="profileImage img-circle inline" />
-			<strong>{{account.login}}</strong>
+			<i class="fa fa-arrow-left left control-left" ng-click="move(-1)" tooltip="Previous Account" tooltip-placement="right"></i>
+			<i class="fa fa-arrow-right left control-right" ng-click="move(1)" tooltip="Next Account" tooltip-placement="right"></i>
 
-			<i class="fa fa-times-circle-o left both" ng-click="closeAccount()" tooltip="Close Account"></i>
-			<i ng-click="moreContent()" class="fa fa-plus-circle left" tooltip="More Content"></i>
+			<i class="fa fa-plus-circle left control-more" ng-click="moreContent()" tooltip="More Content" tooltip-placement="right"></i>
+			<i class="fa fa-times-circle-o left control-close" ng-click="closeAccount()" tooltip="Close Account" tooltip-placement="right"></i>
+
 		</div>
 
 		<ul class="stats">
@@ -46,11 +44,14 @@
 			</li>
 		</ul>
 
+		<img ng-src="{{account.profile_image}}" class="profileImage img-circle inline right" />
+		<strong class="right inline">{{account.login}}</strong>
+
 	</div>
 
 	<div class="both">
 
-		<ul id="accountPageList" class="masonry" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.adminContent'}">
+		<ul id="accountPageList" class="masonry" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.adminContent'}" style="padding-top:{{getMenuHeight()}}px;">
 
 			<li ng-repeat="content in list" class="adminContent" ng-class="getContentClass(content)" ng-style="getContentStyle(content)" ng-switch="content.concept" masonry-item>
 

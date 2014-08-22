@@ -233,10 +233,13 @@ iframe,object,embed {
   height: 120px;
   position: relative;
   float: left;
+
+  /*
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
   transition:all 0.5s ease;  
+  */
 }
 
 #header #profileImage {
@@ -249,10 +252,13 @@ iframe,object,embed {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
+
+  /*
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
   transition:all 0.5s ease;
+  */
 }
 
 #header .profileImageContainer i {
@@ -328,10 +334,13 @@ iframe,object,embed {
 
 #header .menu li i {
   color:#adafae;
+
+  /*
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
   transition:all 0.5s ease;  
+  */
 }
 
 #header .menu li:hover i {
@@ -416,10 +425,12 @@ iframe,object,embed {
   position: absolute;
   z-index: 1;
 
+  /*
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
   transition:all 0.5s ease;  
+  */
 }
 
 .navbar {

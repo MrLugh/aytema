@@ -107,7 +107,8 @@
 }
 
 .accountsContainer .profileImage {
-  height:60px;
+  height:40px;
+  margin: 10px;
 }
 
 .accountsContainer .account {
@@ -347,34 +348,59 @@
   background-color: #252328;  
   color: #adafae;
   display: block;
-  width:100%;
-  padding:10px;
+  padding:0px;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin: 0;
   position: fixed;
+  right: 0;
   z-index: 3;
 }
 
 
 .accountPageHeader .controls {
-  margin: 0px 50px 0px 50px;
-  border-radius: 20px;
   float: left;
+  border-radius: 20px;
+  z-index: 4;
+  font-size: 20px;
+  padding: 0;
+  margin: 0 auto;
+  color: #adafae;
+  background-color: #252328;
 }
 
 .accountPageHeader .controls i {
   font-size: 20px;
   line-height: 42px;
   margin: 0 auto;
-  color: #fff;
-  padding: 0 20px;
+}
+
+.accountPageHeader .controls i.control-left {
+  position:relative;
+  left: 45px;
+}
+
+.accountPageHeader .controls i.control-right {
+  position:relative;
+  left: 60px;
+}
+
+.accountPageHeader .controls i.control-more {
+  position:relative;
+  left: 75px;
+}
+
+.accountPageHeader .controls i.control-close {
+  position:relative;
+  left: 90px;
 }
 
 .accountPageHeader .stats {
   width: auto;
   height: auto;
-  float: left;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;  
+  position: relative;
+  left: 100px;
+  margin: 10px;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
 .accountPageHeader .stats li {
@@ -390,9 +416,6 @@
   height: 100%;
   width: 100%;
   text-align: center;
-  /*background-color: #383131;*/
-  /*color: #adafae;*/
-  padding-top: 140px;
   overflow: hidden;
 }
 
@@ -465,13 +488,6 @@
 
 .adminContent iframe, .adminContent object, .adminContent embed, .adminContent video, .adminContent audio {
   width: 100%;
-}
-
-.accountPageHeader {
-  display: block;
-  width:100%;
-  padding:10px;
-  overflow: hidden;
 }
 
 .cloudcialAccount {

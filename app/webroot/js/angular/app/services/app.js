@@ -5,6 +5,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
     var myWH = 0;
 
     var navigationMode = 0;
+    var dashboardMenuMode = 0;
 
 	var networks = {
 		'cloudcial'	: {
@@ -156,6 +157,12 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 		getThemes: function() {
 			return themes;
 		},
+		setDashboardMenuMode: function(mode) {
+        	dashboardMenuMode = mode;
+        },
+		getDashboardMenuMode: function() {
+        	return dashboardMenuMode;
+        },
     	setWidth: function(value) {
         	winW = value;
         },

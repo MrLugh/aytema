@@ -175,7 +175,7 @@ function adminContentPhotoCo($scope,contentSv) {
 
 function adminContentTrackCo($scope,$sce,contentSv) {
 
-	console.log($scope.content);
+	//console.log($scope.content);
 
 	$scope.player	= "";
 	$scope.thumbnail= "";

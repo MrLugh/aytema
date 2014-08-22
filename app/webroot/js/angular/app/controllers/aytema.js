@@ -66,6 +66,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 
 	$scope.manageControl = function() {
 		$scope.showMenu = !$scope.showMenu;
+		appSv.setDashboardMenuMode($scope.showMenu);
 	}
 
 	$scope.getHeaderClass = function() {
@@ -108,18 +109,6 @@ function aytemaCo($scope,$location,userSv,appSv) {
 			'left':'50px'
 		}
 
-	}
-
-	$scope.getMenuContainerStyle = function() {
-		if ($scope.showMenu) {
-			return {
-				'left' :'0'
-			}
-		}
-
-		return {
-			'left':'-50px'
-		}
 	}
 
 	$scope.initProfileImages = function() {

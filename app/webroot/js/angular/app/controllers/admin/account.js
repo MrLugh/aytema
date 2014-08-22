@@ -2,6 +2,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.user 	= userSv.getUser();
 	$scope.networks = appSv.getNetworks();
+	$scope.appSv	= appSv;
 
 	$scope.list		= [];
 	$scope.concepts	= [];
@@ -193,6 +194,17 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			$scope.scrollToTop();
 		}
 	});
+
+	$scope.$watch('appSv.getDashboardMenuMode()', function() {
+		$scope.getPageHeaderStyle();
+	});	
+
+	$scope.getPageHeaderStyle = function() {
+
+		var minus = appSv.getDashboardMenuMode() ? 300 : 50;
+		var style = {'width':'calc(100% - '+minus+'px)'};
+		return style;
+	}	
 
 	$scope.conceptIcon = function(concept) {
 		return contentSv.getConceptIcon(concept);
