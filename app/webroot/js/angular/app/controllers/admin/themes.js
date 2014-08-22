@@ -7,6 +7,8 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.showPreview	= false;
 	$scope.showFilters	= false;
 
+	$scope.search 		= '';
+
 	$scope.scrollCurrent = function() {
 
 		var current = $scope.current;
@@ -23,7 +25,7 @@ function adminThemesCo($scope,appSv,userSv) {
 			}
 		},1500);
 
-	}	
+	}
 
 	$scope.manageFilters = function() {
 		$scope.showFilters = !$scope.showFilters;
@@ -50,12 +52,26 @@ function adminThemesCo($scope,appSv,userSv) {
 		return ($scope.current == index) ? 'theme themeActive' : 'theme';
 	}
 
+	$scope.matchBySearch = function(theme) {
+		if ($scope.search.length == 0) {
+			return true;
+		}
+
+		if (theme.key.search($scope.search) != -1) {
+			return true;
+		}
+
+		return false;
+	}
+
 	$scope.setList = function() {
 
 		var list= [];
 		for (x in $scope.themes) {
 			theme = $scope.themes[x];
-			list.push(theme);
+			if ($scope.matchBySearch(theme)) {
+				list.push(theme);
+			}			
 		}
 
 		$scope.list = list;
@@ -144,5 +160,9 @@ function adminThemesCo($scope,appSv,userSv) {
 
 		return $scope.list[current].name;
 	}
+
+	$scope.$watch('search',function(){
+		$scope.setList();
+	});
 
 }
