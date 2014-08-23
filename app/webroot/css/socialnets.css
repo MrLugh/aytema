@@ -232,6 +232,7 @@
   z-index: 1;
   background-size:cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
 .socialnetSlide .content .overlay_photo {
@@ -250,6 +251,7 @@
   background-size:contain;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .socialnetSlide .content .next,

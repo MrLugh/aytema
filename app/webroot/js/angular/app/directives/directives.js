@@ -600,13 +600,11 @@ function($window) {
 ayTemaDs.directive('parallax', ['$window', function($window) {
   return {
     restrict: 'A',
-    /*
     scope: {
       parallaxRatio: '@',
       parallaxVerticalOffset: '@',
       parallaxHorizontalOffset: '@',
     },
-    */
     link: function($scope, elem, $attrs) {
       var setPosition = function () {
         // horizontal positioning
@@ -632,11 +630,9 @@ ayTemaDs.directive('parallaxBackground', ['$window', function($window) {
     restrict: 'A',
     transclude: true,
     template: '<div ng-transclude></div>',
-    /*
     scope: {
       parallaxRatio: '@',
     },
-    */
     link: function($scope, elem, attrs) {
       var setPosition = function () {
         var calcValY = (elem.prop('offsetTop') - $window.pageYOffset) * (attrs.parallaxRatio ? attrs.parallaxRatio : 1.1 );
