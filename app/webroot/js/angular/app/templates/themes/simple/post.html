@@ -3,8 +3,14 @@
 		<div ng-bind-html="getEmbed()"></div>
 	</div>
 	<div ng-if="!isFromNetwork('twitter')">
-		<img thumbnail="content" ng-src="{{getThumbnail()}}" />
-		<h2 ng-if="getTitle().length>0" ng-style="getControlsStyle()">{{getTitle()}}</h2>
-		<p ng-bind-html="getDescription()" ng-style="getControlsStyle()"></p>
+
+		<div thumbnail="content" style="background:url('{{getThumbnail()}}');background-size:cover;background-position: center center;" class="overlay_photo"></div>
+		<div class="content_caption" ng-style="getControlsStyle()" ng-if="getTitle().length>0 || getDescription().length>0">
+			<div class="content_caption" ng-style="getControlsStyle()"> 
+				<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+				<p ng-bind-html="getDescription()"></p>
+			</div>
+		</div>
+
 	</div>
 </div>
