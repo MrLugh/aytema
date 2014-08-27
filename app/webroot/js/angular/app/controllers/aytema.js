@@ -26,6 +26,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 			$scope.steps[x] = false;
 		}
 		$scope.steps[step] = true;
+		$('html, body').animate({scrollTop: 0},0);
 	}
 
 	$scope.getMenuItemClass = function(step) {
