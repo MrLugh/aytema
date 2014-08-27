@@ -93,6 +93,8 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
             }]
         }
 
+        console.log(networkStatsData);
+
 		accountStats = {
             chart: {
                 plotBackgroundColor: null,

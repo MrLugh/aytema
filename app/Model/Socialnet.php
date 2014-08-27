@@ -1,5 +1,6 @@
 <?php
 
+App::import('model','Content');
 App::import('model','YoutubeSocialnet');
 App::import('model','FacebookSocialnet');
 App::import('model','InstagramSocialnet');
@@ -48,6 +49,32 @@ Class Socialnet extends AppModel {
 		} catch(Exeption $e) {
 
 		}
+
+	}
+
+	public function updateTotalStats($external_user_id,$network) {
+
+		$Content = ClassRegistry::init('Content');
+
+        $stats = $Content->find('all', array(
+            'conditions'=> array('Content.network'=>$network,'Content.external_user_id'=>$external_user_id),
+            'fields'	=> array('Content.concept','COUNT(Content.concept) as total'),
+            'group'		=> 'Content.concept'
+            )
+        );
+
+        $accountStats	= array();
+
+        foreach ($stats as $key => $stat) {
+			$accountStats[$stat['Content']['concept']] = $stat[0]['total'];
+        }
+
+        $socialnet = $this->find('first',array(
+            'conditions'=> array('Socialnet.external_user_id'=>$external_user_id,'Socialnet.network'=>$network),
+        ));
+
+        $socialnet['Socialnet']['stats'] = json_encode($accountStats);
+        $this->save($socialnet['Socialnet']);
 
 	}
 

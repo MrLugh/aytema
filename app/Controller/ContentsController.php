@@ -246,6 +246,9 @@ class ContentsController extends AppController {
         $content = new Content();
         $new = $content->save($new['Content']);
         $new['Content']['data']                 = unserialize($new['Content']['data']);
+
+        $this->Socialnet->updateTotalStats($this->Auth->user('id'),'cloudcial');
+
         $this->set(array(
             'content'  => $new,
             '_serialize'=> array('content')

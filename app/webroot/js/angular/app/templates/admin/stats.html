@@ -1,25 +1,25 @@
 <div class="statsContainer">
 
-	<div id="networkStats" style="width:50%;height:350px;" class="left"></div>
+	<div id="networkStats" class="left"></div>
 
-	<div id="accountStats" style="width:50%;height:350px;" class="right"></div>
+	<div id="accountStats" class="right"></div>
 
 	<div id="byNetworksStats">
 		
-		<div ng-repeat="(network, stats) in byNetworks" class="inline center {{network}}Account" style="margin:20px;border-radius:6px;">
+		<div ng-repeat="(network, stats) in byNetworks" class="inline center {{network}}Account networkStatContainer">
 
-			<p class="center" style="margin:14px;">
-				<i class="fa {{contentSv.getNetworkIcon(network)}}" style="font-size:40px;"></i>
-				<strong class="{{network}}Account" style="border-radius:50%;border-width:4px;border-style:solid;padding:6px;">{{totalNetworks[network].y}}</strong>
+			<p class="head">
+				<i class="fa {{contentSv.getNetworkIcon(network)}}"></i>
+				<strong class="{{network}}Account">{{totalNetworks[network].y}}</strong>
 				{{network|networkBrand}} accounts
 			</p>
 
-			<ul style="background:#fff;">
+			<ul class="statList">
 
-				<li ng-repeat="(stat,value) in stats" ng-if="value" class="center inline" style="color:#252328;padding:10px 25px;{{!$last ? 'border-right:1px solid #f5f5f5;':''}}margin:5px 0px;">
+				<li ng-repeat="(stat,value) in stats" ng-if="value" class="center inline statItem" style="{{!$last ? 'border-right:1px solid #f5f5f5;':''}}">
 					
-					<p class="center" style="font-size:22px;"><strong>{{value}}</strong></p>
-					<i class="fa {{contentSv.getStatIcon(stat)}}" tooltip="{{stat}}" tooltip-placement="bottom" style="color:#adafae;font-size:20px;"></i>
+					<p class="center"><strong>{{value|statValueFormat:{ significantFigures: 2, autoFormatDecimals:true } }}</strong></p>
+					<i class="fa {{contentSv.getStatIcon(stat)}}" tooltip="{{stat}}" tooltip-placement="bottom"></i>
 
 				</li>	
 

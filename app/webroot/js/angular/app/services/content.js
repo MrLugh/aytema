@@ -117,19 +117,27 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		    icon_class= "fa fa-users";
 		} else if (stat_name == 'friends') {
 		    icon_class= "fa fa-sitemap";
-		} else if (stat_name == 'videos') {  
+		} else if (stat_name == 'videos'	||
+			stat_name == 'video') {
+
 		    icon_class= "fa fa-video-camera";
 		} else if (stat_name == 'tracks'	||
+			stat_name == 'track'			||
 			stat_name == 'cloudcasts') {
 
 		    icon_class= "fa fa-music";
-		} else if (stat_name == 'photos') {
+		} else if (stat_name == 'photos'	||
+			stat_name == 'photo') {
+
 		    icon_class= "fa fa-camera";
 		} else if (stat_name == 'posts' ||
+			stat_name == 'post'			||
 			stat_name == 'statuses') {
 
 		    icon_class= "fa fa-file-text";
-		} else if (stat_name == 'quotes') {
+		} else if (stat_name == 'quotes'	||
+			stat_name == 'quote') {
+
 		    icon_class= "fa fa-quote-left";
 		} else if (stat_name == 'blogs' ||
 			stat_name == 'playlists'	||
@@ -140,7 +148,9 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		    icon_class= "fa fa-list";
 		} else if (stat_name == 'following') {
 		    icon_class= "fa fa-star";
-		} else if (stat_name == 'events') {
+		} else if (stat_name == 'events'	||
+			stat_name == 'event') {
+
 		    icon_class= "fa fa-calendar";
 		}
 
@@ -183,26 +193,32 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		var downloads	= ['downloads'];
 		downloads.indexOf(stat_name) != -1 ? name = 'downloads':null;
 
-		var tracks		= ['tracks','cloudcasts'];
+		var tracks		= ['tracks','cloudcasts','track'];
 		tracks.indexOf(stat_name) != -1 ? name = 'tracks':null;
 
-		var photos		= ['photo'];
+		var photos		= ['photo','photos'];
 		photos.indexOf(stat_name) != -1 ? name = 'photos':null;
 
-		var videos		= ['videos'];
+		var videos		= ['videos','video'];
 		videos.indexOf(stat_name) != -1 ? name = 'videos':null;
 
-		var posts		= ['posts','statuses'];
+		var posts		= ['posts','statuses','post'];
 		posts.indexOf(stat_name) != -1 ? name = 'posts':null;
 
-		var events		= ['events'];
+		var events		= ['events','event'];
 		events.indexOf(stat_name) != -1 ? name = 'events':null;
 
-		var quotes		= ['quotes'];
+		var quotes		= ['quotes','quote'];
 		quotes.indexOf(stat_name) != -1 ? name = 'quotes':null;
 
 		var lists		= ['blogs','playlists','channels','albums','lists'];
 		lists.indexOf(stat_name) != -1 ? name = 'lists':null;
+
+		var links		= ['links','link'];
+		links.indexOf(stat_name) != -1 ? name = 'links':null;
+
+		var chats		= ['chat','chat'];
+		chats.indexOf(stat_name) != -1 ? name = 'chats':null;
 
 		return name;
 	};	

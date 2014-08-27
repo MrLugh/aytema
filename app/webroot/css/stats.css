@@ -5,3 +5,56 @@
   margin: 0 auto;
   overflow-x:hidden;
 }
+
+.statsContainer i {
+	/*text-shadow: none;*/
+}
+
+.statsContainer #networkStats {
+	width:50%;
+	height:350px;
+}
+
+.statsContainer #accountStats {
+	width:50%;
+	height:350px;
+}
+
+.statsContainer #byNetworksStats .networkStatContainer {
+	margin:20px;
+	border-radius:6px;
+}
+
+.statsContainer #byNetworksStats .networkStatContainer .head {
+	margin:14px;
+}
+
+.statsContainer #byNetworksStats .networkStatContainer .head i {
+	font-size:40px;
+}
+
+.statsContainer #byNetworksStats .networkStatContainer .head strong {
+	border-radius:50%;
+	border-width:4px;
+	border-style:solid;
+	padding:6px;
+}
+
+.statsContainer #byNetworksStats .networkStatContainer .statList {
+	background:#fff;
+}
+
+.statsContainer #byNetworksStats .networkStatContainer .statList .statItem {
+	color:#252328;
+	padding:10px 25px;
+	margin:5px 0px;
+}
+
+.statsContainer #byNetworksStats .networkStatContainer .statList .statItem p {
+	font-size:22px;
+}
+
+.statsContainer #byNetworksStats .networkStatContainer .statList .statItem i {
+	color:#adafae;
+	font-size:20px;
+}

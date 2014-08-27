@@ -8,6 +8,8 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.concepts	= [];
 	$scope.loading 	= false;
 
+	console.log($scope.account.stats);
+
 	$scope.masonryLoading = false;
 
 	$scope.offset 	= 0;
