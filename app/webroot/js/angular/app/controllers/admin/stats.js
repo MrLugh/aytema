@@ -88,7 +88,7 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
             },
             series: [{
                 type: 'pie',
-                name: 'Social Networks',
+                name: 'Total',
                 data: networkStatsData
             }]
         }
@@ -118,7 +118,7 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
             },
             series: [{
                 type: 'pie',
-                name: 'Social Stats',
+                name: 'Total',
                 data: accountStatsData
             }]
         }        
