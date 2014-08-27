@@ -30,7 +30,6 @@ function ($window) {
             }
 
             var scroll = function() {
-                console.log("scrolling from themes directive for theme");
 
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
