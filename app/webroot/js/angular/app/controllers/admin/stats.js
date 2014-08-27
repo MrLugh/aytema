@@ -93,8 +93,6 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
             }]
         }
 
-        console.log(networkStatsData);
-
 		accountStats = {
             chart: {
                 plotBackgroundColor: null,
@@ -137,9 +135,5 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
 		}
 	},true);
 
-    $( window ).resize(function() {
-        $("#networkStats").highcharts(networkStats);
-        $("#accountStats").highcharts(accountStats);
-    });
 
 }
