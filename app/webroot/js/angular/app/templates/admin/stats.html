@@ -1,8 +1,8 @@
 <div class="statsContainer">
 
-	<div id="networkStats"></div>
+	<div id="networkStats" style="width:50%;" class="left"></div>
 
-	<div id="accountStats"></div>
+	<div id="accountStats" style="width:50%;" class="right"></div>
 
 	<div id="byNetworksStats">
 		
@@ -11,6 +11,7 @@
 			<p class="center" style="margin:14px;">
 				<i class="fa {{contentSv.getNetworkIcon(network)}}" style="font-size:40px;"></i>
 				<strong class="{{network}}Account" style="border-radius:50%;border-width:4px;border-style:solid;padding:6px;">{{totalNetworks[network].y}}</strong>
+				{{network|networkBrand}} accounts
 			</p>
 
 			<ul style="background:#fff;">
