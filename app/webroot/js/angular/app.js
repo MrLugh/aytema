@@ -38,6 +38,12 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
     	reloadOnSearch: false
     });
 
+    $routeProvider.when('/dashboard/stats', {
+        templateUrl: getPath('tpl')+'/admin/dashboard.html',
+        controller: appCo,
+        reloadOnSearch: false
+    });    
+
     $routeProvider.when('/', {
         templateUrl: getPath('tpl')+'/index.html',
         controller: cloudcialCo,

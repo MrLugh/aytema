@@ -14,6 +14,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['event','photo','video','track','post'],
 			oauth	: false,
 			follow	: false,
+			color	:'#2D2E26'
 		},
 		'facebook' : {
 			network : 'facebook',
@@ -21,6 +22,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['post','photo','video'],
 			oauth	: true,
 			follow	: true,
+			color	:'#3b5998'
 		},
 		'twitter' : {
 			network : 'twitter',
@@ -28,6 +30,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['post'],
 			oauth	: true,
 			follow	: true,
+			color	:'#2aa9e0'
 		},
 		'tumblr' : {
 			network : 'tumblr',
@@ -35,6 +38,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['photo','video','track','post','quote','chat','link'],
 			oauth	: true,
 			follow	: true,
+			color	: '#48576d'
 		},
 		'soundcloud' : {
 			network : 'soundcloud',			
@@ -42,6 +46,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['track'],
 			oauth	: true,
 			follow	: true,
+			color	: '#ff5500'
 		},
 		'mixcloud' : {
 			network : 'mixcloud',
@@ -49,6 +54,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['track'],
 			oauth	: false,
 			follow	: true,
+			color	: '#6d6e71'
 		},
 		'vimeo' : {
 			network : 'vimeo',
@@ -56,6 +62,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['video'],
 			oauth	: true,
 			follow	: true,
+			color	: '#3d3d3d'
 		},
 		'youtube' : {
 			network : 'youtube',
@@ -63,6 +70,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			concepts: ['video'],
 			oauth	: true,
 			follow	: false,
+			color	: '#f4001c'
 		},
 	};
 

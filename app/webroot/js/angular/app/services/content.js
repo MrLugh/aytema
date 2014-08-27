@@ -134,6 +134,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		} else if (stat_name == 'blogs' ||
 			stat_name == 'playlists'	||
 			stat_name == 'channels'		||
+			stat_name == 'lists'		||
 			stat_name == 'albums') {
 
 		    icon_class= "fa fa-list";
@@ -143,8 +144,68 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		    icon_class= "fa fa-calendar";
 		}
 
+		if (icon_class.length == 0) console.log(stat_name);
+
 		return icon_class;
 	};
+
+	var getStatGroupName = function(stat_name) {
+
+		var name = "";
+
+		var followers 	= ['followers','subscribers','subscriptions','contacts'];
+		followers.indexOf(stat_name) != -1 ? name = 'followers':null;
+
+		var following 	= ['following'];
+		following.indexOf(stat_name) != -1 ? name = 'following':null;
+
+		var likes 		= ['favorites','favourites','likes'];
+		likes.indexOf(stat_name) != -1 ? name = 'likes':null;
+
+		var dislikes	= ['dislikes'];
+		dislikes.indexOf(stat_name) != -1 ? name = 'dislikes':null;
+
+		var friends 	= ['friends'];
+		friends.indexOf(stat_name) != -1 ? name = 'friends':null;
+
+		var comments 	= ['comments'];
+		comments.indexOf(stat_name) != -1 ? name = 'comments':null;
+
+		var plays 		= ['plays','listen'];
+		plays.indexOf(stat_name) != -1 ? name = 'plays':null;
+
+		var activities	= ['activities'];
+		activities.indexOf(stat_name) != -1 ? name = 'activities':null;
+
+		var views		= ['views'];
+		views.indexOf(stat_name) != -1 ? name = 'views':null;
+
+		var downloads	= ['downloads'];
+		downloads.indexOf(stat_name) != -1 ? name = 'downloads':null;
+
+		var tracks		= ['tracks','cloudcasts'];
+		tracks.indexOf(stat_name) != -1 ? name = 'tracks':null;
+
+		var photos		= ['photo'];
+		photos.indexOf(stat_name) != -1 ? name = 'photos':null;
+
+		var videos		= ['videos'];
+		videos.indexOf(stat_name) != -1 ? name = 'videos':null;
+
+		var posts		= ['posts','statuses'];
+		posts.indexOf(stat_name) != -1 ? name = 'posts':null;
+
+		var events		= ['events'];
+		events.indexOf(stat_name) != -1 ? name = 'events':null;
+
+		var quotes		= ['quotes'];
+		quotes.indexOf(stat_name) != -1 ? name = 'quotes':null;
+
+		var lists		= ['blogs','playlists','channels','albums','lists'];
+		lists.indexOf(stat_name) != -1 ? name = 'lists':null;
+
+		return name;
+	};	
 
 	var getConceptIcon = function(concept) {
 
@@ -981,6 +1042,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getStatIcon:getStatIcon,
 		getConceptIcon:getConceptIcon,
 		getNetworkIcon:getNetworkIcon,
+		getStatGroupName:getStatGroupName,
 		
 		deleteContent:deleteContent,
 		activateContent:activateContent,

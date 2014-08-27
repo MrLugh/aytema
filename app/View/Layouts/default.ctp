@@ -18,6 +18,8 @@
     echo $this->Html->css('accounts-responsive');
     echo $this->Html->css('themes');
     echo $this->Html->css('themes-responsive');
+    echo $this->Html->css('stats');
+    echo $this->Html->css('stats-responsive');    
     echo $this->Html->css('users');
     echo $this->Html->css('users-responsive');
     echo $this->Html->css('socialnets');
@@ -36,6 +38,7 @@
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('dropzone');
     echo $this->Html->script('tinymce/tinymce.min');
+    echo $this->Html->script('highcharts');
     ?>
 
     <!-- Config -->
@@ -78,6 +81,7 @@
     echo $this->Html->script('angular/app/controllers/admin/account.js');
     echo $this->Html->script('angular/app/controllers/admin/content.js');
     echo $this->Html->script('angular/app/controllers/admin/themes.js');
+    echo $this->Html->script('angular/app/controllers/admin/stats.js');
     echo $this->Html->script('angular/app/controllers/themes.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/cloudcial.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/users.js');
@@ -110,6 +114,7 @@
     echo $this->Html->script('angular/app/directives/admin/account.js');
     echo $this->Html->script('angular/app/directives/admin/content.js');
     echo $this->Html->script('angular/app/directives/admin/themes.js');
+    echo $this->Html->script('angular/app/directives/admin/stats.js');
     echo $this->Html->script('angular/app/directives/cloudcial/content.js');
     ?>
 

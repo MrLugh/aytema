@@ -31,7 +31,12 @@
 					<a href="#/themes" skip-default>Themes</a>
 				</li>
 
-				<li ng-if="isLogged()" ng-class="getMenuItemClass(3)" ng-click="activateStep(3)" tooltip="Share" tooltip-placement="right">
+				<li ng-if="isLogged()" ng-class="getMenuItemClass(3)" ng-click="activateStep(3)" tooltip="Stats" tooltip-placement="right">
+				    <i class="fa fa-bar-chart-o"></i>
+					<a href="#/stats" skip-default>Stats</a>
+				</li>				
+
+				<li ng-if="isLogged()" ng-class="getMenuItemClass(4)" ng-click="activateStep(4)" tooltip="Share" tooltip-placement="right">
 				    <i class="fa fa-share-alt"></i>
 					<a href="#/share" skip-default>Share</a>
 				</li>
@@ -86,7 +91,13 @@
 
  		<div ng-if="steps.3" class="step_3">
 
- 			<p>Step 3</p>
+ 			<admin-stats></admin-stats>
+
+ 		</div>
+
+ 		<div ng-if="steps.4" class="step_4">
+
+ 			<p>Share</p>
 
  		</div>
 

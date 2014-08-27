@@ -55,8 +55,10 @@ function aytemaCo($scope,$location,userSv,appSv) {
 
 		if ($scope.isLogged() && $location.path() == '/dashboard/themes') {
 			$scope.activateStep(2);
-		} else if ($scope.isLogged() && $location.path() == '/dashboard/share') {
+		} else if ($scope.isLogged() && $location.path() == '/dashboard/stats') {
 			$scope.activateStep(3);
+		} else if ($scope.isLogged() && $location.path() == '/dashboard/share') {
+			$scope.activateStep(4);
 		} else if($scope.isLogged()) {
 			$scope.activateStep(1);
 		}

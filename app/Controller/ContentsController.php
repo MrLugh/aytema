@@ -15,7 +15,7 @@ class ContentsController extends AppController {
         $this->Auth->allow('index','view','relateds','addFile');
         $this->loadModel('Socialnet');
         $this->loadModel('User');
-    }    
+    }
 
     public function index() {
 
@@ -251,6 +251,8 @@ class ContentsController extends AppController {
             '_serialize'=> array('content')
         ));
     }
+
+    /* Upload Files Functions */
 
     private function getFileType() {
         if (empty($_FILES) || !isset($_FILES['file']['type'])) {
