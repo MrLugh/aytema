@@ -1,10 +1,11 @@
 <div class="socialnet">
 
-	<a href="#/socialnets" tooltip="Back To Socialnets" tooltip-placement="right">
-		<i class="fa fa-arrow-left"></i> Back
-	</a>
-
 	<ul class="socialnetMenu {{account.network}}Account" ng-if="isAccount()">
+		<li class="item">
+			<a href="#/socialnets" tooltip="Back To Socialnets" tooltip-placement="bottom">
+				<i class="fa fa-arrow-left"></i> Back
+			</a>
+		</li>
 		<li ng-show="current != 'page_profile'" ng-click="changeMode()" class="item" style="padding-right:20px;">
 			Mode:<i class="{{!mode ? 'fa fa-text-height':'fa fa-picture-o'}}" tooltip="{{getModeTitle()}}" tooltip-placement="bottom"></i>
 		</li>

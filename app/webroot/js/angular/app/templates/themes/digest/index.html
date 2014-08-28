@@ -179,7 +179,7 @@
 
 			<div class="stats both">
 				<ul>
-					<li ng-repeat="(key,stat) in content.stats" tooltip="{{key|capitalize}}:{{stat}}">
+					<li ng-repeat="(key,stat) in content.stats" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom">
 						<div ng-if="canShowStat(stat)" >
 							<i ng-class="statIcon(key)"></i> {{stat}}
 						</div>
