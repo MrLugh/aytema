@@ -19,7 +19,7 @@
 				<li ng-repeat="(stat,value) in stats" ng-if="value" class="center inline statItem" style="{{!$last ? 'border-right:1px solid #f5f5f5;':''}}">
 					
 					<p class="center"><strong>{{value|statValueFormat:{ significantFigures: 2, autoFormatDecimals:true } }}</strong></p>
-					<i class="fa {{contentSv.getStatIcon(stat)}}" tooltip="{{stat}}" tooltip-placement="left"></i>
+					<i class="fa {{contentSv.getStatIcon(stat)}}" tooltip="{{stat}}: {{value}}" tooltip-placement="bottom"></i>
 
 				</li>	
 
