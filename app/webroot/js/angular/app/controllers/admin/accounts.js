@@ -61,11 +61,16 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.setList = function() {
 
 		$scope.list = [];
+
 		for (x in $scope.accounts) {
 			var account = $scope.accounts[x]['Socialnet'];
 			if ($scope.filters.networks.indexOf(account.network) != -1)	{
 				if ($scope.matchBySearch(account)) {
-					$scope.list.push(account);
+					if (account.network != 'cloudcial') {
+						$scope.list.push(account);
+					} else {
+						$scope.list.unshift(account);
+					}
 				}
 			}
 		}
