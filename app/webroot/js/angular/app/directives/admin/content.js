@@ -113,7 +113,9 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'adminAddEventCo',
-        scope: true
+        scope: {
+            content:"="
+        }
     }
 
 }]);
@@ -126,7 +128,9 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'adminAddPhotoCo',
-        scope: true
+        scope: {
+            content:"="
+        }
     }
 
 }]);
@@ -139,7 +143,9 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'adminAddTrackCo',
-        scope: true
+        scope: {
+            content:"="
+        }
     }
 
 }]);
@@ -152,7 +158,9 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'adminAddVideoCo',
-        scope: true
+        scope: {
+            content:"="
+        }
     }
 
 }]);
@@ -165,7 +173,9 @@ function(){
         restrict : 'E',
         replace : true,
         controller:'adminAddPostCo',
-        scope: true
+        scope: {
+            content:"="
+        }
     }
 
 }]);

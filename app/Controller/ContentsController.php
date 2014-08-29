@@ -255,6 +255,28 @@ class ContentsController extends AppController {
         ));
     }
 
+    public function update() {
+
+        $content = $this->request->data['content'];
+        $content['data'] = serialize($content['data']);
+
+        if ($this->Auth->user('id') == $content['external_user_id']) {
+            $new = new Content();
+            $new = $new->save($content);
+            $new['Content']['data'] = unserialize($new['Content']['data']);
+            $this->set(array(
+                'content'  => $new,
+                '_serialize'=> array('content')
+            ));
+        } else {
+            throw new Exception("Error Processing Request", 1);
+        }
+
+        
+
+    }
+
+
     /* Upload Files Functions */
 
     private function getFileType() {

@@ -8,8 +8,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.concepts	= [];
 	$scope.loading 	= false;
 
-	console.log($scope.account.stats);
-
 	$scope.masonryLoading = false;
 
 	$scope.offset 	= 0;
@@ -219,6 +217,13 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.showAddContent = function(concept) {
 		$scope.isAdding = true;
 		$scope.toAdd	= concept;
+		$scope.objAdd	= {};
+	}
+
+	$scope.showEditContent = function(index) {
+		$scope.isAdding = true;
+		$scope.toAdd	= $scope.list[index].concept;
+		$scope.objAdd	= $scope.list[index];
 	}
 
 	$scope.hideAddContent = function() {

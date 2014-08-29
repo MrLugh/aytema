@@ -993,10 +993,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		delete queue[queue.indexOf(content)];
 	}
 
-	var createContent = function(content) {
+	var saveContent = function(content) {
 		var deferred = $q.defer();
 
-		var url = '/contents/add.json';
+		var url = angular.isDefined(content.id) ? '/contents/update.json' : '/contents/add.json';
 
 	    $http({method: 'POST', url: url,data:{content:content}}).
 	    success(function(data, status, headers, config) {
@@ -1082,7 +1082,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getFacebookShareOptions:getFacebookShareOptions,
 		getTumblrShareOptions:getTumblrShareOptions,
 
-		createContent:createContent,
+		saveContent:saveContent,
 		createFile:createFile,
 
 		addToQueue:addToQueue,

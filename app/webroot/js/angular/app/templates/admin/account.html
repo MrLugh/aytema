@@ -76,7 +76,8 @@
 
 				<div class="both">
 					<i ng-click="delete($index)" class="fa fa-trash-o" tooltip="Hide content"></i>
-				</div>	
+					<i ng-click="showEditContent($index)" class="fa fa-pencil" ng-if="content.network == 'cloudcial'" tooltip="Edit content"></i>
+				</div>
 
 			</li>
 
@@ -89,11 +90,11 @@
 			<p class="right">
 				<i class="fa fa-times-circle" ng-click="hideAddContent()"></i>
 			</p>
-			<admin-add-event ng-switch-when='event'></admin-add-event>
-		    <admin-add-video ng-switch-when='video'></admin-add-video>
-		    <admin-add-photo ng-switch-when='photo'></admin-add-photo>
-		    <admin-add-track ng-switch-when='track'></admin-add-track>
-		    <admin-add-post  ng-switch-when='post' ></admin-add-post>
+			<admin-add-event content="objAdd" ng-switch-when='event'></admin-add-event>
+		    <admin-add-video content="objAdd" ng-switch-when='video'></admin-add-video>
+		    <admin-add-photo content="objAdd" ng-switch-when='photo'></admin-add-photo>
+		    <admin-add-track content="objAdd" ng-switch-when='track'></admin-add-track>
+		    <admin-add-post  content="objAdd" ng-switch-when='post' ></admin-add-post>
 		</div>
 	</div>
 

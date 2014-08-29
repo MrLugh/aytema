@@ -6,9 +6,9 @@
 	    <div class="row">
 	   	<form ng-submit="save()">
 
-			<input type="text" class="form-control" ng-model="post.title" placeholder="post title" ng-required="true"/>
+			<input type="text" class="form-control" ng-model="post.data.title" placeholder="post title" ng-required="true"/>												
 
-           	<textarea ng-model="post.description" class="tinymce" placeholder="post title" ng-required="true" ui-tinymce="tinymceOptions"></textarea>
+           	<textarea ng-model="post.data.description" class="tinymce" placeholder="post title" ng-required="true" ui-tinymce="tinymceOptions"></textarea>
 
        		<button type="submit" class="btn btn-primary">Save</button>
 

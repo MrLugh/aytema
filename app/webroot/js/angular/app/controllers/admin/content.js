@@ -371,14 +371,26 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 
 	$scope.user = userSv.getUser();
 
-	$scope.event = {
-		'name'		: '',
-		'address'	: '',
-		'date'		: new Date(),
-		'time'		: '',
-		'door'		: '',
-		'place'		: '',
-		'ticket'	: ''
+	$scope.isEdit = function() {
+		return !angular.equals($scope.content,{});
+	}
+
+	if (!$scope.isEdit()) {
+		$scope.event = {
+			'network'	: 'cloudcial',
+			'concept'	: 'event',
+			'data'		: {
+				'name'		: '',
+				'address'	: '',
+				'date'		: new Date(),
+				'time'		: '',
+				'door'		: '',
+				'place'		: '',
+				'ticket'	: ''
+			}
+		}
+	} else {
+		$scope.event = angular.copy($scope.content);
 	}
 
   	$scope.dateOptions = {
@@ -391,7 +403,7 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
 		"&size=850x850"+
-		"&markers="+encodeURI($scope.event.address)+
+		"&markers="+encodeURI($scope.event.data.address)+
 		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
 	}
 
@@ -406,25 +418,9 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 	};
 
 	$scope.save = function() {
-
-		$scope.event.date = $scope.format(new Date($scope.event.date));
-
-		var event = {
-			'network'			: 'cloudcial',
-			'concept'			: 'event',
-			'data'				: $scope.event
-		}
-
-		contentSv.createContent(event).then(function(data){
-			$scope.event = {
-				'name'		: '',
-				'address'	: '',
-				'date'		: new Date(),
-				'time'		: '',
-				'door'		: '',
-				'place'		: '',
-				'ticket'	: ''
-			}			
+		$scope.event.data.date = $scope.format(new Date($scope.event.data.date));
+		contentSv.saveContent($scope.event).then(function(data){
+			$scope.event = data.content['Content'];
 		});
 	}
 
@@ -441,22 +437,27 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 
 function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 
+	$scope.contentSv = contentSv;
+
+	$scope.save = function () {
+		contentSv.saveContent($scope.photo).then(function(data){
+			$scope.photo = data.content['Content'];
+		});
+	}
+
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
-			'acceptedFiles': 'image/gif,image/jpeg,image/png'
+			'acceptedFiles': 'image/gif,image/jpeg,image/png',
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
-				var data = response.data;
-				data.title 		= '';
-				data.description= '';
-				var content = {
-					'network'			: 'cloudcial',
-					'concept'			: 'photo',
-					'data'				: response.data
-				}
-				contentSv.createContent(content);
+
+				angular.forEach(response.data, function(value,key) {
+					$scope.photo.data[key] = value;
+				});
+
+				$scope.save();
 			},
 			'error': function (file, response) {
 				console.log("error");
@@ -464,6 +465,33 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 			},
 		}
 	};
+
+	$scope.isEdit = function() {
+		return !angular.equals($scope.content,{});
+	}
+
+	if ($scope.isEdit()) {
+
+		$scope.photo = angular.copy($scope.content);
+
+		$scope.dropzoneConfig.options.maxFiles = 1;
+		
+		$scope.dropzoneConfig.options.init = function() {
+			this.on("maxfilesexceeded", function(file){
+				$scope.alert = "No more files please!";
+			});
+		}
+	} else {
+
+		$scope.photo = {
+			'network'	: 'cloudcial',
+			'concept'	: 'photo',
+			'data'		: {
+				'title'	: '',
+				'description'	: '',
+			}
+		}		
+	}
 
 }
 
@@ -484,7 +512,7 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 					'concept'			: 'track',
 					'data'				: response.data
 				}
-				contentSv.createContent(content);
+				contentSv.saveContent(content);
 			},
 			'error': function (file, response) {
 				console.log("error");
@@ -514,7 +542,7 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 					'concept'			: 'video',
 					'data'				: response.data
 				}
-				contentSv.createContent(content);
+				contentSv.saveContent(content);
 			},
 			'error': function (file, response) {
 				console.log("error");
@@ -552,26 +580,23 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
         }
     };
 
-	$scope.post = {
-		'title'			: '',
-		'description'	: '',
-		'thumbnail'		: ''
-	}
-
-	$scope.save = function() {
-
-		var post = {
-			'network'			: 'cloudcial',
-			'concept'			: 'post',
-			'data'				: $scope.post
-		}
-
-		contentSv.createContent(post).then(function(data){
-			$scope.post = {
+	if (angular.equals($scope.content,{})) {
+		$scope.post = {
+			'network'	: 'cloudcial',
+			'concept'	: 'post',
+			'data'		: {
 				'title'			: '',
 				'description'	: '',
 				'thumbnail'		: ''
 			}
+		}
+	} else {
+		$scope.post = angular.copy($scope.content);
+	}
+
+	$scope.save = function() {
+		contentSv.saveContent($scope.post).then(function(data){
+			$scope.post = data.content['Content'];
 		});
 	}
 
