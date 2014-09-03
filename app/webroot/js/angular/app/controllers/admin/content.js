@@ -545,7 +545,12 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 			'network'	: 'cloudcial',
 			'concept'	: 'track',
 			'data'		: {
-				'title'	: '',
+				'title'			: '',
+				'artist'		: '',
+				'album'			: '',
+				'year'			: '',
+				'genre'			: '',
+				'duration'		: '',
 				'description'	: '',
 			}
 		}

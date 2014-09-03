@@ -8,6 +8,11 @@
 	<form ng-show="isEdit()" ng-submit="save()">
 		<div ng-bind-html="getPlayer()"></div>
 		<input type="text" name="title" ng-model="track.data.title" placeholder="Title" />
+		<input type="text" name="artist" ng-model="track.data.artist" placeholder="Artist" />
+		<input type="text" name="album" ng-model="track.data.album" placeholder="Album" />
+		<input type="text" name="year" ng-model="track.data.year" placeholder="Year" />
+		<input type="text" name="genre" ng-model="track.data.genre" placeholder="Genre" />
+		<input type="text" name="duration" ng-model="track.data.duration" placeholder="Duration hh:mm:ss" />
 		<textarea name="description" ng-model="track.data.description" placeholder="Description"></textarea>
 		<button type="submit" class="btn btn-primary">Save</button>
 	</form>
