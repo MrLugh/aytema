@@ -539,13 +539,6 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 
 		$scope.track = angular.copy($scope.content);
 
-		$scope.dropzoneConfig.options.maxFiles = 1;
-		
-		$scope.dropzoneConfig.options.init = function() {
-			this.on("maxfilesexceeded", function(file){
-				$scope.alert = "Just one file please!";
-			});
-		}
 	} else {
 
 		$scope.track = {
