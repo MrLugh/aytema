@@ -672,7 +672,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'cloudcial') {
-				console.log(content);
 				source = '<audio controls><source src="'+content.data.path+'"><p>Your browser does not support audio playback</p></audio>';
 			}
 		}
@@ -996,7 +995,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var saveContent = function(content) {
 		var deferred = $q.defer();
 
-		var url = angular.isDefined(content.id) ? '/contents/update.json' : '/contents/add.json';
+		var url = angular.isDefined(content['id']) ? '/contents/update.json' : '/contents/add.json';
 
 	    $http({method: 'POST', url: url,data:{content:content}}).
 	    success(function(data, status, headers, config) {

@@ -1,7 +1,5 @@
 <?php
 
-App::import('Vendor', 'stdclass', array('file' => 'fb_stdclass.php'));
-
 Class TwitterSocialnet extends AppModel {
 
 	const REQUEST_TOKEN_HOST 	= "https://api.twitter.com/oauth/request_token";
@@ -91,7 +89,7 @@ Class TwitterSocialnet extends AppModel {
 		$response = $this->oauth->getLastResponseInfo();
 
 		if($response['http_code'] == 200) {
-			return json_decode($this->oauth->getLastResponse());
+			return json_decode($this->oauth->getLastResponse(),true);
 		}
 
 		return false;
@@ -99,6 +97,7 @@ Class TwitterSocialnet extends AppModel {
 	}
 
 	public function getPosts($account, $params = array()) {
+
 
 		$this->setToken($account['token'], $account['secret']);
 		
@@ -116,23 +115,25 @@ Class TwitterSocialnet extends AppModel {
 
 		$this->oauth->fetch($path.'.json', $args, OAUTH_HTTP_METHOD_GET);
 		$response = $this->oauth->getLastResponseInfo();
-  		
+
 		if($response['http_code'] == 200) {
-			//return json_decode($this->oauth->getLastResponse());
 			// Get embed
-			$posts = json_decode($this->oauth->getLastResponse());
-			$posts = Fb_stdclass::object_to_array($posts);
+			$posts = json_decode($this->oauth->getLastResponse(),true);
 			foreach ($posts as $key => $post) {
-				$embed = $this->getPostEmbed($account,$post['id']);
-				$embed = Fb_stdclass::object_to_array($embed);
-				if (isset($embed['html'])) {
-					$posts[$key]['embed'] = $embed['html'];
-				}
+				try {
+					$embed = $this->getPostEmbed($account,$post['id']);
+					if (isset($embed['html'])) {
+						$posts[$key]['embed'] = $embed['html'];
+					}
+				} catch (Exception $e) {
+					continue;
+				}					
 			}
 			return $posts;
 		}
   		
 		return false;
+
 	}
 
 	/** Public methods **/

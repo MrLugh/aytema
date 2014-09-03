@@ -122,7 +122,7 @@ Class SoundcloudSocialnet {
 
 		$params = $this->processApiParams($params);
 	
-		return json_decode($this->soundcloud->get($path, $params));
+		return json_decode($this->soundcloud->get($path, $params),true);
 	}
 
 	/** Public methods **/

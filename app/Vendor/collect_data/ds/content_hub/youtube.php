@@ -1,7 +1,6 @@
 <?php
 
 App::import('Vendor', 'abstract', array('file' => 'collect_data/ds/content_hub/abstract.php'));
-App::import('Vendor', 'stdclass', array('file' => 'fb_stdclass.php'));
 App::import('Model','Content');
 
 class YoutubeContentHubDs extends AbstractContentHubDs {

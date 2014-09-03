@@ -283,7 +283,6 @@ class ContentsController extends AppController {
         if (empty($_FILES) || !isset($_FILES['file']['type'])) {
             return null;
         }
-
         if (preg_match("/\bimage\b/i",$_FILES['file']['type'])) {
             return 'photo';
         }

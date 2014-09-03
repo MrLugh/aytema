@@ -478,7 +478,7 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 		
 		$scope.dropzoneConfig.options.init = function() {
 			this.on("maxfilesexceeded", function(file){
-				$scope.alert = "No more files please!";
+				$scope.alert = "Just one file please!";
 			});
 		}
 	} else {
@@ -497,6 +497,19 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 
 function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 
+	$scope.contentSv = contentSv;
+
+	$scope.save = function () {
+		contentSv.saveContent($scope.track).then(function(data){
+			$scope.track = data.content['Content'];
+		});
+	}
+
+	$scope.getPlayer = function() {
+		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer($scope.track)));
+	}
+
+
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
@@ -504,23 +517,46 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
-				var data = response.data;
-				data.title 		= '';
-				data.description= '';
-				var content = {
-					'network'			: 'cloudcial',
-					'concept'			: 'track',
-					'data'				: response.data
-				}
-				contentSv.saveContent(content);
+
+				angular.forEach(response.data, function(value,key) {
+					$scope.track.data[key] = value;
+				});
+
+				$scope.save();
 			},
 			'error': function (file, response) {
 				console.log("error");
-				console.log(file);
 				console.log(response);
 			},
 		}
 	};
+
+	$scope.isEdit = function() {
+		return !angular.equals($scope.content,{});
+	}
+
+	if ($scope.isEdit()) {
+
+		$scope.track = angular.copy($scope.content);
+
+		$scope.dropzoneConfig.options.maxFiles = 1;
+		
+		$scope.dropzoneConfig.options.init = function() {
+			this.on("maxfilesexceeded", function(file){
+				$scope.alert = "Just one file please!";
+			});
+		}
+	} else {
+
+		$scope.track = {
+			'network'	: 'cloudcial',
+			'concept'	: 'track',
+			'data'		: {
+				'title'	: '',
+				'description'	: '',
+			}
+		}
+	}
 
 }
 

@@ -1,7 +1,6 @@
 <?php
 
 App::import('Vendor', 'vimeo', array('file' => 'vimeo/vimeo.php'));
-App::import('Vendor', 'stdclass', array('file' => 'fb_stdclass.php'));
 
 Class VimeoSocialnet extends AppModel {
 

@@ -1,7 +1,6 @@
 <?php
 
 App::import('Vendor', 'abstract', array('file' => 'collect_data/ds/content_hub/abstract.php'));
-App::import('Vendor', 'stdclass', array('file' => 'fb_stdclass.php'));
 App::import('model','Content');
 
 class TwitterContentHubDs extends AbstractContentHubDs {
@@ -90,7 +89,7 @@ class TwitterContentHubDs extends AbstractContentHubDs {
 
 		if ($posts !==false and count($posts))
 		{
-			$posts = Fb_stdclass::object_to_array($posts);
+
 			foreach ($posts as $k=>$post)
 			{
 				$split= explode(" ",$post['created_at']);

@@ -1,7 +1,6 @@
 <?php
 
 App::import('Vendor', 'abstract', array('file' => 'collect_data/ds/content_hub/abstract.php'));
-App::import('Vendor', 'stdclass', array('file' => 'fb_stdclass.php'));
 App::import('model','Content');
 
 class SoundcloudContentHubDs extends AbstractContentHubDs {
@@ -93,7 +92,7 @@ class SoundcloudContentHubDs extends AbstractContentHubDs {
 
 		if ($tracks !==false and count($tracks))
 		{
-			$tracks = Fb_stdclass::object_to_array($tracks);
+
 			foreach ($tracks as $k=>$track)
 			{
 				$track['id']	= (string)$track['id'];
