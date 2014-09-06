@@ -1,17 +1,22 @@
 <div>
-	<h3>Photos</h3>
 
-	<span> Types: {{dropzoneConfig.options.acceptedFiles}}</span>
+	<div>
+		<h3>Photos</h3>
 
-	<strong>{{alert}}</strong>
+		<span> Types: {{dropzoneConfig.options.acceptedFiles}}</span>
 
-	<form ng-show="isEdit()" ng-submit="save()">
-		<img ng-src="{{contentSv.getThumbnail(photo)}}" style="width:80px;" />
+		<strong>{{alert}}</strong>
+
+	</div>
+
+	<div thumbnail="photo" class="dropzone left" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="photo-dropzone" style="background-image:url({{contentSv.getThumbnail(photo)}});">
+		<span style="position:absolute;top:40%;width:100%;left:0;background:rgba(0,0,0,0.4);color:white;text-align:center;">Add/Change Image</span>
+	</div>
+
+	<form ng-show="isEdit()" ng-submit="save()" class="right navbar-form navbar-rigth">
 		<input type="text" name="title" ng-model="photo.data.title" placeholder="Title" />
 		<textarea name="description" ng-model="photo.data.description" placeholder="Description"></textarea>
 		<button type="submit" class="btn btn-primary">Save</button>
 	</form>
 
-	<div class="dropzone" dropzone="dropzoneConfig" id="photo-dropzone"></div>
-	
 </div>

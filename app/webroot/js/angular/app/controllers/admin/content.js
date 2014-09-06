@@ -439,9 +439,12 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 
 	$scope.contentSv = contentSv;
 
+	$scope.dropzone = false; 
+
 	$scope.save = function () {
 		contentSv.saveContent($scope.photo).then(function(data){
 			$scope.photo = data.content['Content'];
+			$scope.content = data.content['Content'];
 		});
 	}
 
@@ -453,9 +456,18 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 		'eventHandlers': {
 			'success': function (file, response) {
 
+				var oldPath = $scope.photo.data['path'] ? $scope.photo.data['path']:false;
+
 				angular.forEach(response.data, function(value,key) {
 					$scope.photo.data[key] = value;
 				});
+
+				if ($scope.isEdit()) {
+					if (oldPath) {
+						contentSv.deleteFile(oldPath);
+					}
+					$scope.dropzone.removeAllFiles(true);
+				}
 
 				$scope.save();
 			},

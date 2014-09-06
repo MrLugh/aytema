@@ -351,7 +351,7 @@ class ContentsController extends AppController {
 
                         if ($_FILES['file']['error'] == 0) {
 
-                            $fileName = $_FILES['file']['name'];
+                            $fileName = date("Y-m-d") . "_" . $_FILES['file']['name'];
 
                             $this->checkPath($uploadPath);
                             $full_path = $uploadPath . '/' . $fileName;
@@ -394,6 +394,16 @@ class ContentsController extends AppController {
             }*/
         }
 
+    }
+
+    public function deleteFile() {
+        $path = str_replace("//", "/", WWW_ROOT . $this->request->data['path']);
+        unlink($path);
+        var_dump(expression);
+        $this->set(array(
+            'status'  => "ok",
+            '_serialize'=> array('status')
+        ));    
     }
 
 }
