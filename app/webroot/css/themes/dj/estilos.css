@@ -90,6 +90,8 @@ a,a:hover,a:active,a:focus {
 
 ul {
   list-style-type: none;
+  padding:none;
+  margin:none;
 }
 
 .next {
@@ -124,6 +126,7 @@ h3 {
    text-transform: uppercase;
    text-align: center;
    margin: 0;
+   text-align: center;
 }
 
 .overlay_cover {
@@ -225,6 +228,7 @@ h3 {
 #page_profile h3 { 
 	font-size: 150px;
 	text-shadow: 4px 3px 0px rgba(0, 0, 0, 0.37);
+	font-family: 'Rock Salt', cursive;
 }
 
 .profile {
