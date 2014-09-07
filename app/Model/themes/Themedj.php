@@ -5,22 +5,22 @@ Class Themedj {
     static $config = array(
         'colors' => array(
             'background' => array(
-                'value' => '#A69E9E',
+                'value' => '#131313',
                 'label' => 'Body background',
             ),
             'contentBackground' => array(
-                'value' => '#3B3232',
+                'value' => '#f3f3f3',
                 'label' => 'Content background',
             ),
             'contentText' => array(
-                'value' => '#F7F1E6',
+                'value' => '#080808',
                 'label' => 'Content text',
             ),
         ),
         'fonts' => array(
             'selected' => array(
-                'family'=> "'Ubuntu', sans-serif",
-                'size'  => '13px',
+                'family'=> "'Open Sans', sans-serif",
+                'size'  => '20px',
             ),
             'list' => array(
                 'Playfair Display' => "'Playfair Display', serif",
@@ -32,6 +32,8 @@ Class Themedj {
                 'Lora' => "'Lora', serif",
                 'Montserrat' => "'Montserrat', sans-serif",
                 'Arvo' => "'Arvo', serif",
+                'Rock+Salt' => "'Rock+Salt', cursive",
+                'Oswald' => "'Oswald', sans-serif",
                 'Junge' => "'Junge', serif"
             ),
         ),

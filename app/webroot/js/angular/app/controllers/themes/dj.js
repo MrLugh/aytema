@@ -4,16 +4,19 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.contentSv= contentSv;
 	$scope.userSv	= userSv;
 	$scope.user 	= userSv.getUser();
+	$scope.networks = appSv.getNetworks();
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
+
+	$scope.limit 	= 10;
+	$scope.content 	= {};
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
     $scope.showConfig = false;
 	$scope.tabs = [
 		{ title:"Colors", key:"colors", active: true },
-		{ title:"background Image", key:"background" },
 		{ title:"Fonts", key:"fonts" },
 		{ title:"Width", key:"width" },
 	];
@@ -23,7 +26,90 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.isLogged = function() {
 		return userSv.isLogged();
-	}	
+	}
+
+	$scope.generatePagesList = function() {
+
+		$scope.content 	= {};
+
+		var concepts = [];
+
+		for (var y in $scope.accounts) {
+			var account = $scope.accounts[y]['Socialnet'];
+			for (var x in $scope.networks[account.network]['concepts']){
+				concept = $scope.networks[account.network]['concepts'][x];
+				if (concepts.indexOf(concept) == -1) {
+					concepts.push(concept);
+				}	
+			}
+		}
+		$scope.concepts = concepts;
+		console.log(concepts);
+
+		$scope.pages 	= [];
+		$scope.content  = {};
+		for (var x in $scope.concepts) {
+
+			var concept = $scope.concepts[x];
+
+			$scope.pages.push(concept);
+
+			if (!angular.isDefined($scope.content[concept])) {
+				$scope.content[concept] = {'offset':0,'list':[],'current':0};
+				$scope.getContent(concept);
+			}
+		}
+
+		console.log($scope.pages);
+		console.log($scope.content);
+	}
+
+	$scope.getContent = function(concept) {
+
+		var params = [];
+
+		var networks = [];
+		var accounts = [];
+		angular.forEach($scope.accounts, function(account,key) {
+			if (networks.indexOf(account.Socialnet.network) == -1) {
+				networks.push(account.Socialnet.network);
+			}
+			if (accounts.indexOf(account.Socialnet.id) == -1) {
+				accounts.push(account.Socialnet.id);
+			}
+		});
+
+		params['concepts']	= [concept];
+		params['networks']	= networks;
+		params['offset']	= $scope.content[concept].offset;
+		params['limit']		= $scope.limit;
+		params['accounts']	= accounts;
+
+		contentSv.getContentsByFilters(params).then(
+			function(data) {
+				var contents = data.contents;
+				if (data.contents.length) {
+					for (var x in contents) {
+						content = contents[x].Content;
+						$scope.content[concept].list.push(content);
+					}
+					$scope.content[concept].offset = $scope.content[concept].list.length;
+					//contentSv.setPageList(concept,$scope.content[concept]);
+				}
+			},
+			function(reason) {
+				//console.log('Failed: ', reason);
+			},
+			function(update) {
+				//console.log('Got notification: ', update);
+			}
+		);
+
+	}
+
+	$scope.getPluralizedConcepts = function(concept) {
+		return appSv.getPluralizedConcepts()[concept];
+	}
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 
@@ -32,19 +118,20 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			$scope.accountsLoaded = true;
 		}
 
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
+		if ($scope.accountsLoaded) {
+			$scope.generatePagesList();
 		}
 	},true);
 
 	$scope.$watch("userSv.getThemeConfig()",function(configNew,configOld){
+
 		if (!angular.equals(configNew, configOld)) {
 			$scope.config = configNew;
 			$scope.configLoaded = true;
 		}
 
 		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
+
 		}
 	});
 
@@ -69,57 +156,22 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		}		
 	},true);
 
-	$scope.$watch("userSv.getThemeConfig().custom.background",function(background){
-		if (angular.isDefined(background)) {
-			$scope.config.custom.background = background;
-			$scope.setBackground();
-		}		
-	},true);
-
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
     });
 
-	$scope.scrollToElement = function(element) {
+	$scope.scrollTo = function(element) {
 		$('html, body').animate({
 			scrollTop: element[0].offsetTop
 		}, 500);
 	}
 
-	$scope.scrollCurrent = function() {
-
-
-		var element = angular.element(document.querySelector("#content_"+$scope.current));
-
-		if (angular.isDefined(element[0])) {
-			angular.element(document).ready(function(){
-
-				var bg 	= angular.element(document.querySelector("#content_"+$scope.current+" .overlay_photo"));
-
-				if (angular.isDefined(bg[0])) {
-
-					var src = $(bg).css('background-image');
-
-					if (src =! 'none') {
-						src = src.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-						var image = new Image();
-						image.onload = function() {
-							$scope.scrollToElement(element);
-						}
-
-						image.src = src;						
-					} else {
-						$scope.scrollToElement(element);
-					}
-				} else {
-					$scope.scrollToElement(element);
-				}
-			});
-		}
-
+	$scope.scrollToSection = function(section) {
+		var element = angular.element(document.querySelector("#"+section));
+		$scope.current = section;
+		$scope.scrollTo(element);
 	}
-
 	$scope.resetIframes = function(index) {
 
 	    angular.forEach(document.querySelectorAll("#content_"+index+" iframe"), function(iframe, index) {
@@ -205,47 +257,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		return style;
 	}
 
-	$scope.filterNetwork = function(network) {
-
-		var index = $scope.networks.indexOf(network);
-		if (index != -1) {
-			var networks = [];
-			for (var x in $scope.networks) {
-				var network = $scope.networks[x];
-				if (x != index) {
-					networks.push(network);
-				}
-			}
-			$scope.networks = networks;
-		} else {
-			$scope.networks.push(network);
-		}
-		$scope.generateFilters();
-		$scope.offset	= 0;
-		$scope.list 	= [];
-		$scope.setList();
-	}
-
-	$scope.filterConcept = function(concept) {
-
-		var index = $scope.concepts.indexOf(concept);
-		if (index != -1) {
-			var concepts = [];
-			for (var x in $scope.concepts) {
-				var concept = $scope.concepts[x];
-				if (x != index) {
-					concepts.push(concept);
-				}
-			}
-			$scope.concepts = concepts;
-		} else {
-			$scope.concepts.push(concept);
-		}
-		$scope.offset	= 0;
-		$scope.list 	= [];
-		$scope.setList();
-	}
-
 	$scope.getStyle = function() {
 
     	if (!angular.isDefined($scope.config.custom)) {
@@ -284,22 +295,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		return style;
 	}
 
-	$scope.getQueueStyle = function() {
-		return {'width':appSv.getWidth() + 'px'};
-	}
-
-
-	$scope.getAccountLink = function(index,external_user_id) {
-		for (var x in $scope.accounts) {
-			var account = $scope.accounts[x].Socialnet;
-			if (account.external_user_id == external_user_id && 
-				account.network == $scope.list[index].network ) {
-				return account.profile_url;
-			}
-		}
-		return '';
-	}
-
 	$scope.getProfileImg = function(index) {
 		var external_user_id = $scope.list[index].external_user_id;
 		for (var x in $scope.accounts) {
@@ -310,14 +305,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			}
 		}
 		return '';
-	}
-
-	$scope.hideOnHover = function() {
-
-		if ($scope.controlHover) {
-			return {'display':'none'}
-		}
-		return {'display':'block'}
 	}
 
     $scope.adminTheme = function() {
@@ -366,22 +353,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
 	}
 
-	$scope.getModeTitle = function() {
-		return $scope.mode ? 'Text mode' : 'Full Height mode';
-	}
-
-	$scope.changeMode = function() {
-		$scope.mode = !$scope.mode;
-	}
-
-	$scope.getModeIconClass = function() {
-		return $scope.mode ? 'fa fa-text-height' : 'fa fa-picture-o';
-	}
-
-	$scope.getListClass = function() {
-		return $scope.mode ? 'list_full' : 'list_text';
-	}
-
 	$scope.getControlsStyle = function() {
     	if (!angular.isDefined($scope.config.custom)) {
     		return {};
@@ -417,50 +388,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	   	return {'left':'0'};
     };
 
-    $scope.getFooterStyle = function() {
-
-    	var style = {};
-
-    	var width = "100%";
-    	if (!angular.equals({},$scope.config)) {
-    		width = $scope.config.custom.width;
-
-			var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-			var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-    		style['background-color'] = rgbString;
-    	}
-
-    	style['¨width'] = width;		
-
-	   	if ($scope.showFooter == true) {
-	   		style['bottom'] =  0;
-	   		return style;
-    	}
-    	style['bottom'] = -$scope.footerHeight + 'px';
-
-	   	return style;
-    }
-
-    $scope.getFooterButtonStyle = function() {
-
-    	var style = {};
-
-	   	if ($scope.showFooter == true) {
-	   		style['bottom'] = '100%';
-    	} else {
-    		style['bottom'] = '0';
-    	}
-
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return style;
-    	}
-
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-
-    	style['background-color'] = rgbString;
-	   	return style;
-    };	    
 
     $scope.getMenuStyle = function() {
 
@@ -474,64 +401,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		};
     }
 
-    $scope.getProfileStyle = function() {
-
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-    	return {
-    		'border': '2px solid '+$scope.config.custom.colors.contentText.value
-    	}
-    }
-
-    $scope.getContentBarStyle = function() {
-
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-
-    	return {
-    		'background-color':rgbString,
-			'color':$scope.config.custom.colors.contentText.value
-		}
-
-	}
-
-    $scope.getContentStyle = function() {
-
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-    	var style = {
-			//'background-color':$scope.config.custom.colors.contentBackground.value,
-			'color':$scope.config.custom.colors.contentText.value,    		
-    	}
-
-		if ($scope.config.custom.width != "100%") {
-    		style['width']	= '90%';
-		}
-
-		style['height'] = appSv.getHeight() - $scope.menuHeight + 'px';
-		
-    	return style;
-
-    }
-
-    $scope.getFooterContrastStyle = function() {
-
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-		var color = $scope.config.custom.colors.contentBackground.value.replace("#","");
-		return {'color':contentSv.getContrast50(color)}
-    }
-
     $scope.getContentClass = function(index) {
 
     	if ($scope.current != index) {
@@ -540,24 +409,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
     	var current = $scope.list[$scope.current];
     	return 'content_hover';
     }
-
-	$scope.hasPlayer = function(index) {
-
-		var content = contentSv.getQueue()[index];
-		if (!angular.isDefined(content)) {
-			return false;
-		}
-		return true;
-	}
-
-	$scope.getPlayer = function(index) {
-
-		var content = contentSv.getQueue()[index];
-		if (!angular.isDefined(content)) {
-			return $sce.trustAsHtml("");
-		}
-		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
-	}
 
 	$scope.setBackground = function() {
 

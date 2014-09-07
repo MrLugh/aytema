@@ -14,7 +14,6 @@
 					<admin-colors ng-switch-when='colors'></admin-colors>
 					<admin-fonts ng-switch-when='fonts'></admin-fonts>
 					<admin-width ng-switch-when='width'></admin-width>
-					<admin-background ng-switch-when='background'></admin-background>
 				</div>
 			</tab>
 
@@ -22,38 +21,45 @@
 
 	</div>
 
+	<ul class="" style="position:fixed;bottom:0;z-index:2;">
+		<li ng-click="scrollToSection('page_profile')" style="background-image:url('{{user.profile_image}}');" class="item inline profile {{current == 'page_profile' ? 'active':''}}"></li>
+		<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item inline {{current == 'page_'+page ? 'active':''}}">
+			<i tooltip="{{getPluralizedConcepts(page)|capitalize}}: {{content[page].list.length}}" ng-class="conceptIcon(page)"></i>
+		</li>
+	</ul>	
+
 	<div id="page_profile" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>{{user.username|uppercase}}</h3>
 
 	</div>
 
-	<div id="page_track" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.track.list.length>0" id="page_track" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Tracks</h3>
 
 	</div>
 
-	<div id="page_video" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.video.list.length>0" id="page_video" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Videos</h3>
 
 	</div>
 
-	<div id="page_photo" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.photo.list.length>0" id="page_photo" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Photos</h3>
 
 	</div>
 
 
-	<div id="page_event" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.event.list.length>0" id="page_event" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Events</h3>
 
 	</div>
 
-	<div id="page_post" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.post.list.length>0" id="page_post" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Posts</h3>
 
