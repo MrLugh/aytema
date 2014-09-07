@@ -4,6 +4,7 @@ App::import('model','/themes/Themedigest');
 App::import('model','/themes/Themesimple');
 App::import('model','/themes/Themespace');
 App::import('model','/themes/Themeclubber');
+App::import('model','/themes/Themedj');
 
 Class Theme extends AppModel {
 

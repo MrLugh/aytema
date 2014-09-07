@@ -1,25 +1,12 @@
 function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
+	$scope.appSv 	= appSv;
 	$scope.contentSv= contentSv;
 	$scope.userSv	= userSv;
 	$scope.user 	= userSv.getUser();
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
-
-	$scope.limit 	= 10;
-	$scope.offset	= 0;
-	$scope.list 	= [];
-	$scope.filters	= {'concepts':[],'networks':[]};
-	$scope.networks = [];
-	$scope.concepts = [];
-	$scope.current	= 0;
-	$scope.content	= {};
-	$scope.controlHover = false;
-	$scope.mode 	= false;
-
-	$scope.indexComments= 0;
-	$scope.isComments	= false; 
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -30,9 +17,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		{ title:"Fonts", key:"fonts" },
 		{ title:"Width", key:"width" },
 	];
-	$scope.activeAdminTab = 'colors';
-
-	$scope.showFooter = false;
 
 	userSv.loadThemeConfig('dj');
 	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
@@ -40,120 +24,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.isLogged = function() {
 		return userSv.isLogged();
 	}	
-
-	$scope.initFilters = function() {
-
-		var filters	= {'concepts':[],'networks':[]};
-		var networks= appSv.getNetworks();
-
-		for (var x in $scope.accounts) {
-			var account = $scope.accounts[x]['Socialnet'];
-			if (filters['networks'].indexOf(account.network) == -1){
-				filters['networks'].push(account.network);
-			}
-
-			var concepts = networks[account.network]['concepts'];
-
-			for (var y in concepts){
-				var concept = concepts[y];
-				if (filters['concepts'].indexOf(concept) == -1){
-					filters['concepts'].push(concept);
-				}
-			}
-		}
-
-		if (!angular.equals($scope.filters, filters)) {
-			$scope.filters = filters;
-		}
-
-		$scope.networks = filters.networks;
-		$scope.concepts = filters.concepts;
-		
-	}
-
-	$scope.generateFilters = function() {
-
-		var newConcepts = [];
-		var networks= appSv.getNetworks();
-
-		for (var x in $scope.networks) {
-			var network = $scope.networks[x];
-			var concepts = networks[network]['concepts'];
-			for (var y in concepts){
-				var concept = concepts[y];
-				if (newConcepts.indexOf(concept) == -1){
-					newConcepts.push(concept);
-				}
-			}
-		}
-
-		$scope.concepts = newConcepts;
-	}
-
-	$scope.moreContent = function() {
-		if (!contentSv.isLoading()) {
-			$scope.setList();
-		}
-	}	
-
-
-	$scope.setList = function() {
-
-		if (!contentSv.isLoading() && $scope.configLoaded) {
-
-			if ($scope.offset == 0) {
-				$scope.content = {};
-				$scope.current = 0;
-			}
-
-			if ($scope.concepts.length == 0) {
-				$scope.list = [];
-				return;
-			}
-
-			var params			= [];
-			params['concepts']	= JSON.parse(JSON.stringify($scope.concepts));
-			params['offset']	= $scope.offset;
-			params['limit']		= $scope.limit;
-			params['accounts']	= [];
-
-			params['username']	= $scope.user.username;
-			if (angular.isDefined($scope.user['id'])) {
-				params['user_id']	= $scope.user.id;
-			}
-
-			for (var x in $scope.accounts) {
-				var account = $scope.accounts[x].Socialnet;
-				if ($scope.networks.indexOf(account.network) != -1) {
-					params['accounts'].push(account.id);
-				}
-			}
-
-			contentSv.getContentsByFilters(params).then(
-				function(data) {
-					var contents = data.contents;
-					if (data.contents.length) {
-						for (var x in contents) {
-							content = contents[x].Content;
-							$scope.list.push(content);
-						}
-						$scope.offset += $scope.limit;
-						if (angular.isDefined($scope.list[$scope.current])) {
-							$scope.content = $scope.list[$scope.current];
-							$scope.scrollCurrent();
-						}
-					}
-				},
-				function(reason) {
-					//console.log('Failed: ', reason);
-				},
-				function(update) {
-					//console.log('Got notification: ', update);
-				}
-			);
-		}
-	}
-
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 
@@ -163,7 +33,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 
 		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.initFilters();
 			$scope.setList();
 		}
 	},true);
@@ -175,7 +44,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 
 		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.initFilters();
 			$scope.setList();
 		}
 	});
@@ -208,26 +76,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		}		
 	},true);
 
-	$scope.$watch("contentSv.getQueue()",function(queue){
-		if (queue.length>0) {
-			$scope.showFooter = true;
-		}
-	},true);
-
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
-        $scope.getStyle();
     });
-
-	$scope.$watchCollection("[showFooter]",function(values){
-		$scope.getFooterStyle();
-	});
-
-	$scope.$watchCollection("[controlHover,current]",function(values){
-		$scope.getContentStyle();
-		$scope.hideOnHover();
-	});
 
 	$scope.scrollToElement = function(element) {
 		$('html, body').animate({
