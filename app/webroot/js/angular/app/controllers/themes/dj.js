@@ -111,6 +111,12 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		return appSv.getPluralizedConcepts()[concept];
 	}
 
+	$scope.getPlayer = function(content) {
+
+		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
+	}
+
+
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 
 		if (accounts.length > 0) {
@@ -183,34 +189,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	    angular.forEach(document.querySelectorAll("#content_"+index+" audio"), function(iframe, index) {
 	    	iframe.src = iframe.src;
 	    });
-	}
-
-
-	$scope.move = function(direction) {
-
-		$scope.resetIframes($scope.current);
-
-		if (direction > 0) {
-			$scope.current++;
-		} else {
-			$scope.current--;	
-		}
-
-		if ($scope.current == $scope.list.length) {
-			$scope.current = 0;
-		}
-		if ($scope.current < 0) {		
-			$scope.current = $scope.list.length - 1;
-		}
-
-		if (angular.isDefined($scope.list[$scope.current])) {
-			$scope.content = $scope.list[$scope.current];
-			$scope.scrollCurrent();
-		}
-
-		if ( $scope.list.length - 1 - $scope.current < 5 ) {
-			$scope.moreContent();
-		}
 	}
 
 	$scope.showComments = function(index) {
