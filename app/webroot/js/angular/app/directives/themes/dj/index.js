@@ -9,10 +9,6 @@ function(){
         scope: true,
         link: function(scope,element,attrs) {
 
-            $( window ).resize(function() {
-                scope.$apply(scope.scrollCurrent());
-            });
-
         }
     }
 
