@@ -34,32 +34,32 @@
 
 	</div>
 
-	<div id="page_track" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.track.list.length>0" id="page_track" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Tracks</h3>
 
 	</div>
 
-	<div id="page_video" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.video.list.length>0" id="page_video" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Videos</h3>
 
 	</div>
 
-	<div id="page_photo" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.photo.list.length>0" id="page_photo" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Photos</h3>
 
 	</div>
 
 
-	<div id="page_event" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.event.list.length>0" id="page_event" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Events</h3>
 
 	</div>
 
-	<div id="page_post" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.post.list.length>0" id="page_post" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Posts</h3>
 
