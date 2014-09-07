@@ -14,13 +14,19 @@
 					<admin-colors ng-switch-when='colors'></admin-colors>
 					<admin-fonts ng-switch-when='fonts'></admin-fonts>
 					<admin-width ng-switch-when='width'></admin-width>
-					<admin-background ng-switch-when='background'></admin-background>
 				</div>
 			</tab>
 
 		</tabset>
 
 	</div>
+
+	<ul class="">
+		<li ng-click="scrollToSection('page_profile')" style="background-image:url('');" class="item profile {{current == 'page_profile' ? 'active':''}}"></li>
+		<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
+			<i tooltip="{{getPluralizedConcepts(page)|capitalize}}: {{content[page].list.length}}" tooltip-placement="bottom" ng-class="conceptIcon(page)"></i>
+		</li>
+	</ul>	
 
 	<div id="page_profile" style="height:{{appSv.getHeight()}}px;">
 

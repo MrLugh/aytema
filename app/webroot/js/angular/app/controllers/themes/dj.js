@@ -13,7 +13,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.showConfig = false;
 	$scope.tabs = [
 		{ title:"Colors", key:"colors", active: true },
-		{ title:"background Image", key:"background" },
 		{ title:"Fonts", key:"fonts" },
 		{ title:"Width", key:"width" },
 	];
@@ -23,21 +22,58 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.isLogged = function() {
 		return userSv.isLogged();
-	}	
+	}
+
+	$scope.generatePagesList = function() {
+
+		$scope.content 	= {};
+
+		var concepts = [];
+
+		for (var y in $scope.networks) {
+			var network = $scope.networks[y];
+			for (var x in $scope.networks[$scope.account.network]['concepts']){
+				concept = $scope.networks[$scope.account.network]['concepts'][x];
+				if (concepts.indexOf(concept) == -1) {
+					concepts.push(concept);
+				}	
+			}
+		}
+		$scope.concepts = concepts;
+
+		$scope.pages 	= [];
+		$scope.content  = {};
+		for (var x in $scope.concepts) {
+
+			var concept = $scope.concepts[x];
+
+			$scope.pages.push(concept);
+
+			if (!angular.isDefined($scope.content[concept])) {
+				$scope.content[concept] = {'offset':0,'list':[],'current':0};
+				$scope.getContent(concept);
+			}
+		}
+	}
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
+
+		console.log(accounts);
 
 		if (accounts.length > 0) {
 			$scope.accounts = accounts;
 			$scope.accountsLoaded = true;
 		}
 
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.setList();
+		if ($scope.accountsLoaded) {
+			$scope.generatePagesList();
 		}
 	},true);
 
 	$scope.$watch("userSv.getThemeConfig()",function(configNew,configOld){
+
+		console.log(configNew);
+
 		if (!angular.equals(configNew, configOld)) {
 			$scope.config = configNew;
 			$scope.configLoaded = true;
@@ -66,13 +102,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		if (angular.isDefined(width)) {
 			$scope.config.custom.width = width;
 			$scope.getAppStyle();
-		}		
-	},true);
-
-	$scope.$watch("userSv.getThemeConfig().custom.background",function(background){
-		if (angular.isDefined(background)) {
-			$scope.config.custom.background = background;
-			$scope.setBackground();
 		}		
 	},true);
 
