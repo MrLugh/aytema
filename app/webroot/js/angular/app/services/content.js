@@ -490,6 +490,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				}
 			}
 
+			if (content.network == 'cloudcial') {
+				source = content.data.thumbnail;
+			}
+
 		}
 
 		if (content.concept == 'track') {
@@ -533,6 +537,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 						source = content.data['pictures']['extra_large'];
 					}
 				}
+			}
+
+			if (content.network == 'cloudcial') {
+				source = content.data.thumbnail;
 			}
 		}
 

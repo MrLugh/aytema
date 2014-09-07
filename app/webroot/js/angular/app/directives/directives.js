@@ -648,9 +648,7 @@ ayTemaDs.directive('dropzone', [function() {
             config:'=dropzone'
         },
         link: function(scope, element, attrs) {
-
-            console.log(scope);
-               
+              
             // create a Dropzone for the element with the given options
             scope.instance = new Dropzone(element[0], scope.config.options);
          
