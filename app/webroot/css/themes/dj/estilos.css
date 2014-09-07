@@ -1,0 +1,22 @@
+/*gral styles*/
+
+h3 {
+   font-size: 20px;	
+   color: #ffffff;
+   text-transform: uppercase;
+   text-align: center;
+   margin: 0;
+}
+
+/*header*/
+#page_profile { 
+  background: url("../../../img/themes/dj/bg_header.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#page_profile h3 { 
+	font-size: 150px;
+	text-shadow: 4px 3px 0px rgba(0, 0, 0, 0.37);
+}
