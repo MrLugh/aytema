@@ -235,28 +235,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		return contentSv.getConceptIcon(concept);
 	}
 
-	$scope.filterNetworkStyle = function(network) {
-
-		var style = {'opacity':1};
-
-		if ($scope.networks.indexOf(network) == -1) {
-			style['opacity'] = '0.3';
-		}
-
-		return style;
-	}
-
-	$scope.filterConceptStyle = function(concept) {
-
-		var style = {'opacity':1};
-
-		if ($scope.concepts.indexOf(concept) == -1) {
-			style['opacity'] = '0.3';
-		}
-
-		return style;
-	}
-
 	$scope.getStyle = function() {
 
     	if (!angular.isDefined($scope.config.custom)) {
