@@ -107,7 +107,9 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	}
 
-
+	$scope.getPluralizedConcepts = function(concept) {
+		return appSv.getPluralizedConcepts()[concept];
+	}
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 
@@ -159,45 +161,17 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
         appSv.setHeight(sizes[1]);
     });
 
-	$scope.scrollToElement = function(element) {
+	$scope.scrollTo = function(element) {
 		$('html, body').animate({
 			scrollTop: element[0].offsetTop
 		}, 500);
 	}
 
-	$scope.scrollCurrent = function() {
-
-
-		var element = angular.element(document.querySelector("#content_"+$scope.current));
-
-		if (angular.isDefined(element[0])) {
-			angular.element(document).ready(function(){
-
-				var bg 	= angular.element(document.querySelector("#content_"+$scope.current+" .overlay_photo"));
-
-				if (angular.isDefined(bg[0])) {
-
-					var src = $(bg).css('background-image');
-
-					if (src =! 'none') {
-						src = src.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-						var image = new Image();
-						image.onload = function() {
-							$scope.scrollToElement(element);
-						}
-
-						image.src = src;						
-					} else {
-						$scope.scrollToElement(element);
-					}
-				} else {
-					$scope.scrollToElement(element);
-				}
-			});
-		}
-
+	$scope.scrollToSection = function(section) {
+		var element = angular.element(document.querySelector("#"+section));
+		$scope.current = section;
+		$scope.scrollTo(element);
 	}
-
 	$scope.resetIframes = function(index) {
 
 	    angular.forEach(document.querySelectorAll("#content_"+index+" iframe"), function(iframe, index) {

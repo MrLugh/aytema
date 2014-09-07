@@ -21,10 +21,10 @@
 
 	</div>
 
-	<ul class="">
-		<li ng-click="scrollToSection('page_profile')" style="background-image:url('');" class="item profile {{current == 'page_profile' ? 'active':''}}"></li>
-		<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
-			<i tooltip="{{getPluralizedConcepts(page)|capitalize}}: {{content[page].list.length}}" tooltip-placement="bottom" ng-class="conceptIcon(page)"></i>
+	<ul class="" style="position:fixed;bottom:0;z-index:2;">
+		<li ng-click="scrollToSection('page_profile')" style="background-image:url('');" class="item inline profile {{current == 'page_profile' ? 'active':''}}">Home</li>
+		<li ng-repeat="page in pages" ng-if="content[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item inline {{current == 'page_'+page ? 'active':''}}">
+			<i tooltip="{{getPluralizedConcepts(page)|capitalize}}: {{content[page].list.length}}" ng-class="conceptIcon(page)"></i>
 		</li>
 	</ul>	
 
