@@ -155,6 +155,14 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 				getPath('img')+'/themes/clubber/clubber_theme_09.png',
 			]
 		},
+		{
+			'name'		: 'Dj',
+			'key'		: 'dj',
+			'thumbnails': [
+				getPath('img')+'/themes/dj/dj_theme_01.png',
+				getPath('img')+'/themes/dj/dj_theme_02.png',
+			]
+		},
 	];
 
 	return {
