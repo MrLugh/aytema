@@ -28,59 +28,81 @@
 		</li>
 	</ul>	
 
-	<div id="page_profile" style="height:{{appSv.getHeight()}}px;">
+	<div id="page_profile" class="page" style="height:{{appSv.getHeight()}}px;">
 
 		<h3 style="line-height:{{appSv.getHeight()}}px;">{{user.username|uppercase}}</h3>
 		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[0])" skip-default><i class="fa fa-angle-down"></i></a>
 
 	</div>
 
-	<div ng-if="content.track.list.length>0" id="page_track" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.post.list.length>0" id="page_post" class="page" style="height:{{appSv.getHeight()}}px;">
+
+		<div class="triangle-topleft yellow"></div>
+		<h3>Posts</h3>
+
+	</div>
+
+	<div ng-if="content.video.list.length>0" id="page_video" class="page" style="height:{{appSv.getHeight()}}px;">
+
+		<div class="triangle-bottomright black"></div>
+		<h3>Videos</h3>
+
+	</div>
+
+	<div ng-if="content.track.list.length>0" id="page_track" class="page" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Tracks</h3>
 
 	</div>
 
-	<div ng-if="content.video.list.length>0" id="page_video" style="height:{{appSv.getHeight()}}px;">
-
-		<h3>Videos</h3>
-
-	</div>
-
-	<div ng-if="content.photo.list.length>0" id="page_photo" style="height:{{appSv.getHeight()}}px;position:relative;left:0;">
+	<div ng-if="content.photo.list.length>0" id="page_photo" class="page" style="height:{{appSv.getHeight()}}px;position:relative;left:0;">
 
 		<h3>Photos</h3>
 
 	</div>
 
-
-	<div ng-if="content.event.list.length>0" id="page_event" style="height:{{appSv.getHeight()}}px;">
+	<div ng-if="content.event.list.length>0" id="page_event" class="page" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Events</h3>
 
 	</div>
 
-	<div ng-if="content.post.list.length>0" id="page_post" style="height:{{appSv.getHeight()}}px;">
-
-		<h3>Posts</h3>
-
-	</div>
-
-	<div id="page_about" style="height:{{appSv.getHeight()}}px;">
-
+	<div id="page_about" class="page" style="height:{{appSv.getHeight()}}px;">
+ 
+		<div class="triangle-topleft black"></div>
 		<h3>About</h3>
+		<img class="users-photo" src="../../../img/themes/dj/guido-elordi.jpg">
+		<div class="auriculares"></div>
+		<div class="content content-info">
+			<p>Lorem fistrum a peich está la cosa muy malar diodeno amatomaa la caidita ese hombree. Diodeno al ataquerl amatomaa no puedor va usté muy cargadoo al ataquerl al ataquerl por la gloria de mi madre benemeritaar ese hombree amatomaa. Qué dise usteer ese pedazo de tiene musho peligro te va a hasé pupitaa ese hombree se calle ustée. Se calle ustée fistro de la pradera qué dise usteer condemor mamaar. Ese hombree a gramenawer sexuarl al ataquerl ese hombree sexuarl. Por la gloria de mi madre diodenoo ese pedazo de ese pedazo de la caidita qué dise usteer apetecan pupita de la pradera al ataquerl llevame al sircoo. Ese que llega mamaar al ataquerl a wan.</p>
+		</div>
 
 	</div>
 
-	<div id="page_contact" style="height:{{appSv.getHeight()}}px;">
+	<div id="page_contact" class="page" style="height:{{appSv.getHeight()}}px;">
 
+		<div class="triangle-bottomright yellow"></div>
 		<h3>Contact</h3>
+		  <div class="content contacto"> 
+		        <form role="form" class="bs-example">
+			      <div class="col-sm-12">
+			        <div class="form-group">
+			          <input type="text" placeholder="Nombre" id="exampleInputNombre" class="form-control">
+			        </div>
+			        <div class="form-group">
+			          <input type="email" placeholder="Email" id="exampleInputEmail" class="form-control">
+			        </div>
+			        <div class="form-group">
+			        <textarea placeholder="Mensaje" rows="3" class="form-control"></textarea>
+			         </div>
+			        <button class="btn btn-default pull-right" type="submit">enviar</button>
+			      </div>
+		      </form>
+		    </div>		
 
 	</div>
 
 	<div id="footer">
-
-		Footer
 
 	</div>
 

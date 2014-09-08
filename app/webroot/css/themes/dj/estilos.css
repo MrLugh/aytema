@@ -1,10 +1,13 @@
 body {
-  color: #000; 
-  overflow: hidden;
+  color: #080808; 
+  overflow: auto;
   -webkit-transition:all 0.66s ease;
   -moz-transition:all 0.66s ease;
   -o-transition:all 0.66s ease;
   transition:all 0.66s ease;
+  background-color: #131313;
+  font-family: 'Open Sans', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
+  font-weight: 200;
 }
 
 * {
@@ -36,6 +39,15 @@ body {
   cursor: pointer ;
 }
 
+*::-moz-selection{
+   background-color: #efb526;
+   color: #131313;
+}
+
+*::selection {
+   background: #efb526;
+   color: #131313;
+}
 img {
   max-width: 100%;
 }
@@ -107,6 +119,7 @@ a {
   color: #000!important;
   outline: 0;
   border: none;
+  transition: all 0.5s ease;
 }
 
 a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focus-inner {
@@ -117,18 +130,30 @@ a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focu
 a:hover 
 { 
   text-decoration: none; 
-  opacity: 0.8; 
+  color: #efb526;
+
+}
+
+button {
+	 transition: all 0.5s ease;
 }
 
 h3 {
-   font-size: 20px;	
+   font-size: 30px;	
    color: #ffffff;
    text-transform: uppercase;
    text-align: center;
    margin: 0;
-   text-align: center;
+   font-family: 'Oswald', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
+   letter-spacing: 0.2em;
+   padding: 45px 5px;
+
 }
 
+p {
+	font-size: 20px;
+	line-height: 40px;
+}
 .overlay_cover {
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
@@ -217,6 +242,58 @@ h3 {
   color: #fff;
 }
 
+.content {
+	max-width: 1120px;
+	margin: 0 auto;
+}
+
+/*colors*/
+
+.yellow {
+	border-top-color: #eab526!important;
+	border-bottom-color: #eab526!important;
+}
+.black {
+	border-top-color: #131313!important;
+	border-bottom-color: #131313!important;
+}
+/*shapes*/
+.page { 
+	position: relative;
+} 
+
+.triangle-topleft { 
+	width: 0;
+	height: 0;
+	border-top: 516px solid;
+	border-right: 257px solid transparent;
+	position: absolute;
+}
+.triangle-bottomright { 
+	width: 0;
+	height: 0;
+	border-bottom: 516px solid;
+	border-left:  257px solid transparent;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+/*menu*/
+#menu { 
+	font-family: 'Oswald', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
+	letter-spacing: 0.25em;
+}
+#menu .active { 
+   color: #ffb740;	
+}
+#menu span {
+   transition: all 0.5s ease;
+
+}
+#menu span:hover {
+   color: #ffb740;		
+}
 /*header*/
 #page_profile { 
   background: url("../../../img/themes/dj/bg_header.jpg") no-repeat center center fixed; 
@@ -227,8 +304,11 @@ h3 {
 }
 #page_profile h3 { 
 	font-size: 150px;
+	font-size: 7.9vw	;
 	text-shadow: 4px 3px 0px rgba(0, 0, 0, 0.37);
 	font-family: 'Rock Salt', cursive;
+	letter-spacing: -0.05em;
+	padding: 0;
 }
 .arrow-down {
     animation: 2s linear 0s normal none infinite hoverup;
@@ -260,4 +340,146 @@ h3 {
 .profile {
   padding-right: 20px;
   font-family: 'Rock Salt', cursive;
+}
+
+/*tracks*/
+
+#page_track { 
+  background: url("../../../img/themes/dj/bg_music.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*page_video*/
+
+#page_video { 
+  background-color: #f3f3f3;
+}
+#page_video h3 { 
+  color: #080808;
+}
+
+/*page_photo*/
+
+#page_photo { 
+  background: url("../../../img/themes/dj/bg_gallery.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*page_event*/
+
+#page_event { 
+  background-color: #f3f3f3;
+}
+#page_event h3 { 
+  color: #080808;
+}
+
+/*page_post*/
+
+
+/*about*/
+
+#page_about { 
+  background-color: #f3f3f3;
+}
+#page_about h3 { 
+  color: #080808;
+}
+.auriculares  {
+    background: url("../../../img/themes/dj/auriculares.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 262px;
+    left: 43%;
+    margin: 0 auto;
+    position: absolute;
+    width: 259px;
+}
+img.users-photo  {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid #ebb627;
+    left: 43%;
+    width: 260px;
+    position: absolute;	
+}
+#page_about .content-info {
+	margin-top: 300px;
+}
+/*contact*/
+#page_contact form {
+  margin-top: 28px;
+}
+#page_contact .btn {
+  width: 100%; 
+  height: 63px;
+  font-size: 16px;
+  color: #ffb740;
+  background-color: #080808;
+  text-transform: uppercase;
+  border-radius: 0;
+  font-weight: 600;
+  border: 1px solid #2b2b2b;
+}
+#page_contact .btn:hover {
+  color: #080808;
+  border: 1px solid #FFB740;
+  background-color: #ffb740;
+
+}
+
+.form-control {
+  text-align: center;
+  height: 63px;
+  border-radius: 0;
+  font-size: 16px;
+  color: #f3f3f3;
+  background-color: #080808;
+  border: 1px solid #2b2b2b;
+  
+
+}
+textarea.form-control {
+    min-height: 164px;
+    color: #f3f3f3;
+}
+.form-control:-moz-placeholder {
+  text-align: center;
+  color: #f3f3f3;
+}
+
+.form-control::-moz-placeholder {
+  text-align: center;
+  color: #f3f3f3;
+}
+
+.form-control:-ms-input-placeholder {
+  text-align: center;
+  color: #f3f3f3;
+}
+
+.form-control::-webkit-input-placeholder {
+  text-align: center;
+  color: #f3f3f3;
+}
+.form-control:focus {
+  border-color: #efb526;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 1px rgba(239, 181, 38, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 1px rgba(239, 181, 38, 0.6);
+}
+.form-group {
+    margin-bottom: 28px;
+}
+
+/*footer*/
+
+#footer { 
+  background: url("../../../img/themes/dj/bg_footer.jpg") no-repeat center center; 
+  height: 137px;
 }

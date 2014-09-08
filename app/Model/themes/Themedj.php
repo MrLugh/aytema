@@ -20,7 +20,7 @@ Class Themedj {
         'fonts' => array(
             'selected' => array(
                 'family'=> "'Oswald', sans-serif",
-                'size'  => '20px',
+                'size'  => '30px',
             ),
             'list' => array(
                 'Playfair Display' => "'Playfair Display', serif",
