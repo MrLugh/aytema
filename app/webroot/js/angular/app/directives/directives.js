@@ -491,10 +491,6 @@ function (contentSv) {
 ayTemaDs.directive('thumbnail', ['contentSv',
 function (contentSv) {
     return {
-        scope: {
-            content:'=thumbnail'
-        },
-
         link: function(scope, element, attrs) {
 
             scope.isBg = false;
@@ -600,12 +596,7 @@ function($window) {
 ayTemaDs.directive('parallax', ['$window', function($window) {
   return {
     restrict: 'A',
-    scope: {
-      parallaxRatio: '@',
-      parallaxVerticalOffset: '@',
-      parallaxHorizontalOffset: '@',
-    },
-    link: function($scope, elem, $attrs) {
+    link: function(scope, elem, $attrs) {
       var setPosition = function () {
         // horizontal positioning
         elem.css('left', attrs.parallaxHorizontalOffset + "px");
@@ -630,10 +621,7 @@ ayTemaDs.directive('parallaxBackground', ['$window', function($window) {
     restrict: 'A',
     transclude: true,
     template: '<div ng-transclude></div>',
-    scope: {
-      parallaxRatio: '@',
-    },
-    link: function($scope, elem, attrs) {
+    link: function(scope, elem, attrs) {
       var setPosition = function () {
         var calcValY = (elem.prop('offsetTop') - $window.pageYOffset) * (attrs.parallaxRatio ? attrs.parallaxRatio : 1.1 );
         // horizontal positioning
@@ -643,7 +631,7 @@ ayTemaDs.directive('parallaxBackground', ['$window', function($window) {
       // set our initial position - fixes webkit background render bug
       angular.element($window).bind('load', function(e) {
         setPosition();
-        $scope.$apply();
+        scope.$apply();
       });
 
       angular.element($window).bind("scroll", setPosition);
@@ -652,18 +640,22 @@ ayTemaDs.directive('parallaxBackground', ['$window', function($window) {
   };
 }]);
 
-ayTemaDs.directive('dropzone', function () {
-  return function (scope, element, attrs) {
-    var config, dropzone;
- 
-    config = scope[attrs.dropzone];
- 
-    // create a Dropzone for the element with the given options
-    dropzone = new Dropzone(element[0], config.options);
- 
-    // bind the given event handlers
-    angular.forEach(config.eventHandlers, function (handler, event) {
-      dropzone.on(event, handler);
-    });
-  };
-});
+ayTemaDs.directive('dropzone', [function() {
+    return {
+        restrict: 'A',
+        scope: {
+            instance: '=dropzoneInstance',
+            config:'=dropzone'
+        },
+        link: function(scope, element, attrs) {
+              
+            // create a Dropzone for the element with the given options
+            scope.instance = new Dropzone(element[0], scope.config.options);
+         
+            // bind the given event handlers
+            angular.forEach(scope.config.eventHandlers, function (handler, event) {
+              scope.instance.on(event, handler);
+            });
+        }
+    }
+}]);

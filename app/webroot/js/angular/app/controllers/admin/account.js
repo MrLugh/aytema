@@ -73,11 +73,16 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
-					var contents = data.contents;
 
+					$scope.loading 	= false;
+
+					if (!angular.isDefined(data.contents)) {
+						return false;
+					}
+
+					var contents = data.contents;
 					if (contents.length) {
 						for (var x in contents) {
-
 							content = contents[x].Content;
 							if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
 								$scope.list.push(content);
@@ -85,7 +90,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 						}
 						$scope.offset += $scope.limit;
 					}
-					$scope.loading 	= false;
 				},
 				function(reason) {
 					console.log('Failed: ', reason);

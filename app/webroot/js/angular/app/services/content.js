@@ -490,6 +490,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				}
 			}
 
+			if (content.network == 'cloudcial') {
+				source = content.data.thumbnail;
+			}
+
 		}
 
 		if (content.concept == 'track') {
@@ -533,6 +537,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 						source = content.data['pictures']['extra_large'];
 					}
 				}
+			}
+
+			if (content.network == 'cloudcial') {
+				source = content.data.thumbnail;
 			}
 		}
 
@@ -1031,6 +1039,24 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    return deferred.promise;		
 	}	
 
+	var deleteFile = function(path) {
+		var deferred = $q.defer();
+
+		var url = '/contents/deleteFile.json';
+
+	    $http({method: 'POST', url: url,data:{path:path}}).
+	    success(function(data, status, headers, config) {
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	console.log('error');
+	    	user = {};
+	    	deferred.resolve(data);
+	    });
+
+	    return deferred.promise;		
+	}
+
 	return {
 		getDicContent: function() {
 			return dicContent;
@@ -1083,6 +1109,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		saveContent:saveContent,
 		createFile:createFile,
+		deleteFile:deleteFile,
 
 		addToQueue:addToQueue,
 		getQueue: function() {

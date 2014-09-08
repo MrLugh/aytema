@@ -439,9 +439,12 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 
 	$scope.contentSv = contentSv;
 
+	$scope.dropzone = false; 
+
 	$scope.save = function () {
 		contentSv.saveContent($scope.photo).then(function(data){
 			$scope.photo = data.content['Content'];
+			$scope.content = data.content['Content'];
 		});
 	}
 
@@ -453,9 +456,18 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 		'eventHandlers': {
 			'success': function (file, response) {
 
+				var oldPath = $scope.photo.data['path'] ? $scope.photo.data['path']:false;
+
 				angular.forEach(response.data, function(value,key) {
 					$scope.photo.data[key] = value;
 				});
+
+				if ($scope.isEdit()) {
+					if (oldPath && oldPath != $scope.photo.data.path) {
+						contentSv.deleteFile(oldPath);
+					}
+					$scope.dropzone.removeAllFiles(true);
+				}
 
 				$scope.save();
 			},
@@ -502,12 +514,45 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 	$scope.save = function () {
 		contentSv.saveContent($scope.track).then(function(data){
 			$scope.track = data.content['Content'];
+			$scope.content = data.content['Content'];
 		});
 	}
 
 	$scope.getPlayer = function() {
 		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer($scope.track)));
 	}
+
+	$scope.dropzoneThumbnailConfig = {
+		'options': { // passed into the Dropzone constructor
+			'url': '/contents/addFile.json',
+			'acceptedFiles': 'image/gif,image/jpeg,image/png',
+		},
+		'eventHandlers': {
+			'success': function (file, response) {
+
+				console.log("thumbnail track");
+				console.log(response);
+
+				var oldPath = $scope.track.data['thumbnail'] ? $scope.track.data['thumbnail']:false;
+
+				$scope.track.data['thumbnail'] = response.data.path;
+				if ($scope.isEdit()) {
+					$scope.content.data['thumbnail'] = response.data.path;
+					if (oldPath && oldPath != $scope.track.data.thumbnail) {
+						contentSv.deleteFile(oldPath);
+					}
+					$scope.dropzoneThumbnail.removeAllFiles(true);
+				}
+
+				$scope.save();
+
+			},
+			'error': function (file, response) {
+				console.log("error");
+				console.log(response);
+			},
+		}
+	};
 
 
 	$scope.dropzoneConfig = {
@@ -518,11 +563,24 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 		'eventHandlers': {
 			'success': function (file, response) {
 
+				console.log("track");
+				console.log(response);
+
+				var oldPath = $scope.track.data['path'] ? $scope.track.data['path']:false;
+
 				angular.forEach(response.data, function(value,key) {
 					$scope.track.data[key] = value;
 				});
 
+				if ($scope.isEdit()) {
+					if (oldPath && oldPath != $scope.track.data.path) {
+						contentSv.deleteFile(oldPath);
+					}
+					$scope.dropzone.removeAllFiles(true);
+				}
+
 				$scope.save();
+
 			},
 			'error': function (file, response) {
 				console.log("error");
@@ -552,6 +610,7 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 				'genre'			: '',
 				'duration'		: '',
 				'description'	: '',
+				'thumbnail'		: '',
 			}
 		}
 	}
@@ -559,6 +618,51 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 }
 
 function adminAddVideoCo($scope,contentSv,userSv,$sce) {
+
+	$scope.contentSv = contentSv;
+
+	$scope.save = function () {
+		contentSv.saveContent($scope.video).then(function(data){
+			$scope.video = data.content['Content'];
+			$scope.content = data.content['Content'];
+		});
+	}
+
+	$scope.getPlayer = function() {
+		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer($scope.video)));
+	}	
+
+	$scope.dropzoneThumbnailConfig = {
+		'options': { // passed into the Dropzone constructor
+			'url': '/contents/addFile.json',
+			'acceptedFiles': 'image/gif,image/jpeg,image/png',
+		},
+		'eventHandlers': {
+			'success': function (file, response) {
+
+				console.log("thumbnail video");
+				console.log(response);
+
+				var oldPath = $scope.video.data['thumbnail'] ? $scope.video.data['thumbnail']:false;
+
+				$scope.video.data['thumbnail'] = response.data.path;
+				if ($scope.isEdit()) {
+					$scope.content.data['thumbnail'] = response.data.path;
+					if (oldPath && oldPath != $scope.video.data.thumbnail) {
+						contentSv.deleteFile(oldPath);
+					}
+					$scope.dropzoneThumbnail.removeAllFiles(true);
+				}
+
+				$scope.save();
+
+			},
+			'error': function (file, response) {
+				console.log("error");
+				console.log(response);
+			},
+		}
+	};
 
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor
@@ -568,15 +672,25 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
-				var data = response.data;
-				data.title 		= '';
-				data.description= '';
-				var content = {
-					'network'			: 'cloudcial',
-					'concept'			: 'video',
-					'data'				: response.data
+
+				console.log("video");
+				console.log(response);
+
+				var oldPath = $scope.video.data['path'] ? $scope.video.data['path']:false;
+
+				angular.forEach(response.data, function(value,key) {
+					$scope.video.data[key] = value;
+				});
+
+				if ($scope.isEdit()) {
+					if (oldPath && oldPath != $scope.video.data.path) {
+						contentSv.deleteFile(oldPath);
+					}
+					$scope.dropzone.removeAllFiles(true);
 				}
-				contentSv.saveContent(content);
+
+				$scope.save();
+
 			},
 			'error': function (file, response) {
 				console.log("error");
@@ -585,6 +699,32 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 			},
 		}
 	};
+
+	$scope.isEdit = function() {
+		return !angular.equals($scope.content,{});
+	}
+
+	if ($scope.isEdit()) {
+
+		$scope.video = angular.copy($scope.content);
+
+	} else {
+
+		$scope.video = {
+			'network'	: 'cloudcial',
+			'concept'	: 'video',
+			'data'		: {
+				'title'			: '',
+				'artist'		: '',
+				'album'			: '',
+				'year'			: '',
+				'genre'			: '',
+				'duration'		: '',
+				'description'	: '',
+				'thumbnail'		: '',
+			}
+		}
+	}	
 
 }
 
