@@ -18,7 +18,8 @@ body {
     scrollbar-darkshadow-color: #2D2C4D; 
     scrollbar-track-color: #7D7E94;  
     scrollbar-arrow-color: #C1C1D1;
-    outline: none;    
+    outline: none;
+    font-family: 'Rock Salt', cursive;
 }
 
 *::-webkit-scrollbar {
@@ -320,22 +321,6 @@ p {
     position: absolute;
     z-index: 25;
 }
-	@keyframes hoverup {
-	0%, 100% {
-	    transform: translateY(0px);
-	}
-	50% {
-	    transform: translateY(10px);
-	}
-	}
-	@keyframes hoverup {
-	0%, 100% {
-	    transform: translateY(0px);
-	}
-	50% {
-	    transform: translateY(10px);
-	}
-}
 
 .profile {
   padding-right: 20px;
@@ -482,4 +467,37 @@ textarea.form-control {
 #footer { 
   background: url("../../../img/themes/dj/bg_footer.jpg") no-repeat center center; 
   height: 137px;
+}
+
+@keyframes hoverup {
+  0%, 100% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(10px);
+  }
+}
+@-moz-keyframes hoverup {
+  0%, 100% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(10px);
+  }
+}
+@-o-keyframes hoverup {
+  0%, 100% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(10px);
+  }
+}
+@-webkit-keyframes hoverup {
+  0%, 100% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(10px);
+  }
 }
