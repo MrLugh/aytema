@@ -644,7 +644,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'cloudcial') {
-				source = '<video controls><source src="'+content.data.path+'" type='+content.data.mime+' /></video>';
+				source = '<video controls preload="none"><source src="'+content.data.path+'" type='+content.data.mime+' /></video>';
 			}
 
 		}
@@ -672,7 +672,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'cloudcial') {
-				source = '<audio controls><source src="'+content.data.path+'"><p>Your browser does not support audio playback</p></audio>';
+				source = '<audio controls preload="none"><source src="'+content.data.path+'"><p>Your browser does not support audio playback</p></audio>';
 			}
 		}
 
