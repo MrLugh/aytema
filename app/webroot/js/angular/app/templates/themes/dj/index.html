@@ -21,7 +21,7 @@
 
 	</div>
 
-	<ul class="" style="position:fixed;bottom:0;z-index:2;width:100%;margin: 0;background-color: #020202;color: #ffffff;line-height: 83px;font-size: 20px; text-transform: uppercase;">
+	<ul ng-show="current != 'page_profile'" id="menu" style="position:fixed;bottom:0;z-index:10;width:100%;margin: 0;background-color: #020202;color: #ffffff;line-height: 83px;font-size: 20px; text-transform: uppercase;">
 		<li ng-click="scrollToSection('page_profile')" style="padding: 0 30px;" class="item inline profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</li>
 		<li ng-repeat="page in pages" ng-if="content[page].list.length>0" style="padding: 0 30px;" ng-click="scrollToSection('page_{{page}}')" class="item inline {{current == 'page_'+page ? 'active':''}}">
 			<span>{{getPluralizedConcepts(page)|capitalize}}</span>
@@ -31,7 +31,7 @@
 	<div id="page_profile" style="height:{{appSv.getHeight()}}px;">
 
 		<h3 style="line-height:{{appSv.getHeight()}}px;">{{user.username|uppercase}}</h3>
-		<a class="arrow-down" href="#page_track"><i class="fa fa-angle-down"></i></a>
+		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[0])" skip-default><i class="fa fa-angle-down"></i></a>
 
 	</div>
 

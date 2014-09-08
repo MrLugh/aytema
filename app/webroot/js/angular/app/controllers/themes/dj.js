@@ -11,6 +11,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.limit 	= 10;
 	$scope.content 	= {};
+	$scope.current	= 'page_profile';
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -44,7 +45,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			}
 		}
 		$scope.concepts = concepts;
-		console.log(concepts);
 
 		$scope.pages 	= [];
 		$scope.content  = {};
@@ -60,8 +60,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			}
 		}
 
-		console.log($scope.pages);
-		console.log($scope.content);
 	}
 
 	$scope.getContent = function(concept) {
@@ -135,31 +133,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			$scope.config = configNew;
 			$scope.configLoaded = true;
 		}
-
-		if ($scope.configLoaded && $scope.accountsLoaded) {
-
-		}
-	});
-
-	$scope.$watch("userSv.getThemeConfig().custom.colors",function(colors){
-		if (angular.isDefined(colors)) {
-			$scope.config.custom.colors = colors;
-			$scope.setColor();
-		}		
-	},true);
-
-	$scope.$watch("userSv.getThemeConfig().custom.fonts",function(fonts){
-		if (angular.isDefined(fonts)) {
-			$scope.config.custom.fonts = fonts;
-			$scope.setFont();
-		}		
-	},true);	
-
-	$scope.$watch("userSv.getThemeConfig().custom.width",function(width){
-		if (angular.isDefined(width)) {
-			$scope.config.custom.width = width;
-			$scope.getAppStyle();
-		}		
 	},true);
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
@@ -176,6 +149,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.scrollToSection = function(section) {
 		var element = angular.element(document.querySelector("#"+section));
 		$scope.current = section;
+		console.log($scope.current);
 		$scope.scrollTo(element);
 	}
 	$scope.resetIframes = function(index) {
@@ -294,19 +268,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.setColor = function() {
 
-		var element = angular.element(document.querySelector('#list'));
-		//$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-
-		var element = angular.element(document.querySelector('.link_comments'));
-		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
-
 	}
 
 	$scope.setFont = function() {
 
-		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('font-family',$scope.config.custom.fonts.selected.family);
-		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
 	}
 
 	$scope.getControlsStyle = function() {
@@ -357,19 +322,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		};
     }
 
-    $scope.getContentClass = function(index) {
-
-    	if ($scope.current != index) {
-    		return '';
-    	}
-    	var current = $scope.list[$scope.current];
-    	return 'content_hover';
-    }
-
 	$scope.setBackground = function() {
 
-		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('background','url("/'+$scope.config.custom.background.selected+'") repeat');
 
 	}
 }
