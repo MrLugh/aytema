@@ -380,25 +380,6 @@ p {
   text-align: left;
 }
 
-.rows-slider-wrap{width:100%;margin:50px auto 40px auto;position:relative;padding:0 40px 10px 65px;outline:0}
-.rows-slider-wrap_adaptive{padding:0 90px 10px;width:auto;min-width:230px}
-.rows-slider-wrap:after{position:absolute;height:1px;background-color:#000;left:0;right:0;bottom:-20px;content:''}
-.rows-slider-wrap li{display:inline-block;width:221px;height:165px;margin:0 10px 10px 0;cursor:pointer;vertical-align:top;position:relative;-webkit-perspective:1000;overflow:hidden}
-.rows-slider-wrap li>div{position:relative;overflow:hidden;width:221px;height:165px;display:table-cell;vertical-align: middle;background-color:rgba(27, 21, 16, 0.5);}
-.rows-slider-wrap li span{color:#0a1402;display:inline-block;font-size:36px;letter-spacing:0;position:absolute;left:0;right:0;top:0;bottom:0;text-align:center;line-height:165px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.text{bottom:0 !important;top:auto !important;line-height:normal !important;background:#fff}
-.rows-slider-wrap_5{width:1171px}
-.rows-slider-wrap_5 ul li>span{font:normal 13px Tahoma;padding:143px 0 0 0;z-index:1;text-transform:uppercase}
-.rows-slider-wrap_5 ul li>span:after{position:absolute;top:0;left:0;background:url("../../../img/cat-slider-over.png");width:221px;height:165px;content:'';z-index:-1}
-.rows-slider__controls-left,.rows-slider__controls-right{width:59px;height:63px;position:absolute;top:50%;margin-top:-35px;cursor:pointer;overflow:hidden;display:inline-block;z-index:1}
-.rows-slider__controls-left{background:url("../../../img/themes/dj/prev.png");left:0;background-position: center;background-repeat: no-repeat;background-color:rgba(230, 127, 77, 0.7);}
-.rows-slider__controls-right{background:url("../../../img/themes/dj/next.png");right:0;background-position: center;background-repeat: no-repeat;background-color:rgba(230, 127, 77, 0.7);}
-.rows-slider__controls_disabled{cursor:default}
-.rows-slider__controls-right.rows-slider__controls_disabled{background:none;left:0;}
-.rows-slider__controls-left.rows-slider__controls_disabled{background:none;left:0;}
-
-
-
 /*page_event*/
 
 #page_event { 
@@ -511,6 +492,107 @@ textarea.form-control {
   background: url("../../../img/themes/dj/bg_footer.jpg") no-repeat center center; 
   height: 137px;
 }
+
+/* Sliders */
+.rows-slider-wrap {
+  width:100%;margin:50px auto 40px auto;position:relative;padding:0 40px 10px 65px;outline:0
+}
+.rows-slider-wrap_adaptive {
+  padding:0 90px 10px;
+  width:auto;
+  min-width:230px;
+}
+.rows-slider-wrap:after {
+  position:absolute;
+  height:1px;
+  background-color:#000;
+  left:0;
+  right:0;
+  bottom:-20px;
+  content:'';
+}
+.rows-slider-wrap li {
+  display:inline-block;
+  width:221px;
+  height:165px;
+  margin:0 10px 10px 0;
+  cursor:pointer;
+  vertical-align:top;
+  position:relative;-
+  webkit-perspective:1000;
+  overflow:hidden;
+}
+.rows-slider-wrap li>div {
+  position:relative;
+  overflow:hidden;
+  width:221px;
+  height:165px;
+  display:table-cell;
+  vertical-align: middle;
+  background-color:rgba(27, 21, 16, 0.5);
+}
+.rows-slider-wrap li span {
+  color:#0a1402;
+  display:inline-block;
+  font-size:36px;
+  letter-spacing:0;
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  text-align:center;
+  line-height:165px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:17px;
+  padding: 10px;
+  font-family: 'Oswald', sans-serif;
+}
+.text {
+  bottom:0 !important;
+  top:auto !important;
+  line-height:normal !important;
+  background-color:rgba(230, 127, 77, 0.7);
+}
+.rows-slider__controls-left,.rows-slider__controls-right {
+  width:59px;
+  height:63px;
+  position:absolute;
+  top:50%;
+  margin-top:-35px;
+  cursor:pointer;
+  overflow:hidden;
+  display:inline-block;
+  z-index:1
+}
+.rows-slider__controls-left {
+  background:url("../../../img/themes/dj/prev.png");
+  left:0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color:rgba(230, 127, 77, 0.7);
+}
+.rows-slider__controls-right {
+  background:url("../../../img/themes/dj/next.png");
+  right:0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color:rgba(230, 127, 77, 0.7);
+}
+.rows-slider__controls_disabled {
+  cursor:default
+}
+.rows-slider__controls-right.rows-slider__controls_disabled {
+  background:none;left:0;
+}
+.rows-slider__controls-left.rows-slider__controls_disabled {
+  background:none;left:0;
+}
+
+
+/* Animations */
 
 @keyframes hoverup {
   0%, 100% {

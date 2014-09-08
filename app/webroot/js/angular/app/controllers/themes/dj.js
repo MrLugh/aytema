@@ -20,8 +20,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.showConfig = false;
 	$scope.tabs = [
 		{ title:"Background", key:"background", active: true },
-		{ title:"Colors", key:"colors"},
-		{ title:"Width", key:"width" },
 	];
 
 	userSv.loadThemeConfig('dj');
@@ -135,8 +133,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		if (!angular.equals(configNew, configOld)) {
 			$scope.config = configNew;
 			$scope.configLoaded = true;
-			console.log("config");
-			console.log($scope.config);
 			$scope.setBackground();
 		}
 	},true);
@@ -180,34 +176,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
     	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
     }	
 
-	$scope.networkIcon = function(network) {
-		return "http://cloudcial.com/img/socialnet/icons/ce_"+network+".png";
-	}
-
-	$scope.statIcon = function(stat_name) {
-		return contentSv.getStatIcon(stat_name);
-	}
-
-	$scope.conceptIcon = function(concept) {
-		return contentSv.getConceptIcon(concept);
-	}
-
-	$scope.getStyle = function() {
-
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-
-		appSv.setMyWH(appSv.getHeight() - $scope.menuHeight);
-		return {
-			'min-height':appSv.getHeight() - $scope.menuHeight + 'px',
-			'opacity': ($scope.isComments) ? '0':'1',
-			'margin-top': $scope.menuHeight + 'px',
-			//'background-color': $scope.config.custom.colors.background.value
-		};
-	}
-
 	$scope.getCommentsColor = function() {
 
 		var color = $scope.config.custom.colors.background.value.replace("#","");
@@ -230,18 +198,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		return style;
 	}
 
-	$scope.getProfileImg = function(index) {
-		var external_user_id = $scope.list[index].external_user_id;
-		for (var x in $scope.accounts) {
-			var account = $scope.accounts[x].Socialnet;
-			if (account.external_user_id == external_user_id && 
-				account.network == $scope.list[index].network ) {
-				return account.profile_image;
-			}
-		}
-		return '';
-	}
-
     $scope.adminTheme = function() {
     	$scope.showConfig = !$scope.showConfig;
     };
@@ -249,56 +205,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.footer = function() {
     	$scope.showFooter = !$scope.showFooter;
     };
-
-    $scope.getAppStyle = function() {
-    	var width = "100%";
-    	if (!angular.equals({},$scope.config)) {
-    		width = $scope.config.custom.width;
-    	}
-
-    	return {'width':width};
-    }
-
-    $scope.getAppClass = function() {
-
-    	if (angular.equals({},$scope.config)) {
-    		return '';
-    	}
-
-    	if ($scope.config.custom.width != "100%") {
-    		return 'boxed';
-    	}
-    	return '';
-    }
-
-	$scope.setColor = function() {
-
-	}
-
-	$scope.setFont = function() {
-
-	}
-
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-    	return {
-    		'top':$scope.menuHeight + 'px',
-    		'background-color':$scope.config.custom.colors.contentBackground.value
-    	}
-	}
-
-	$scope.getControlsButtonStyle = function() {
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':$scope.config.custom.colors.contentText.value,
-		};		
-	}
 
     $scope.getConfigStyle = function() {
 	   	if ($scope.showConfig == true) {
@@ -314,18 +220,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	   	return {'left':'0'};
     };
 
-
-    $scope.getMenuStyle = function() {
-
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-		return {
-			'background-color':$scope.config.custom.colors.contentBackground.value,
-			'color':$scope.config.custom.colors.contentText.value,
-		};
-    }
 
 	$scope.setBackground = function() {
 
