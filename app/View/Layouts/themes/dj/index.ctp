@@ -20,10 +20,10 @@
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('minicolors');
+    echo $this->Html->css('dropzone');
+    echo $this->Html->css('admin');
     echo $this->Html->css('themes/dj/estilos');
     echo $this->Html->css('themes/dj/estilos-responsive');
-    echo $this->Html->css('admin');
-    echo $this->Html->css('dropzone');
     ?>
 
     <!-- Js -->

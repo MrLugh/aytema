@@ -37,7 +37,8 @@
     echo $this->Html->css('minicolors');
     echo $this->Html->css('themes/clubber/bootstrap-overwrite');
     echo $this->Html->css('themes/clubber/estilos');
-    echo $this->Html->css('themes/clubber/estilos-responsive');    
+    echo $this->Html->css('themes/clubber/estilos-responsive');
+    echo $this->Html->css('dropzone');
     echo $this->Html->css('admin');
     echo $this->Html->css('themes/clubber/pages/photos');
     echo $this->Html->css('themes/clubber/pages/videos');
@@ -63,6 +64,7 @@
     echo $this->Html->script('imagesloaded.pkgd');
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('touchSwipe.min');
+    echo $this->Html->script('dropzone');
     ?>
 
     <!-- Config -->

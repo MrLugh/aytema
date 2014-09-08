@@ -35,9 +35,9 @@
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('minicolors');
+    echo $this->Html->css('admin');
     echo $this->Html->css('themes/simple/estilos');
     echo $this->Html->css('themes/simple/estilos-responsive');
-    echo $this->Html->css('admin');
     ?>
 
     <!-- Js -->

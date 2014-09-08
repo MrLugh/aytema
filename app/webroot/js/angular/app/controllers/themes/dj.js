@@ -15,6 +15,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.validPages = ['photo','track','video','post','event'];
 
+	$scope.showDetail = false;	
+
 	$scope.config		= {};
 	$scope.configLoaded = false;
     $scope.showConfig = false;
@@ -27,6 +29,16 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.isLogged = function() {
 		return userSv.isLogged();
+	}
+
+	$scope.manageDetail = function() {
+		$scope.showDetail = !$scope.showDetail;
+		if ($scope.showDetail) {
+			var element = angular.element(document.querySelector("#page_detail"));
+			$scope.scrollTo(element);
+		} else {
+			$scope.scrollTo($scope.current);
+		}
 	}
 
 	$scope.generatePagesList = function() {

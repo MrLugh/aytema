@@ -96,11 +96,11 @@ Class Themedigest {
         ),
         'width' => '100%',
         'background' => array(
-            'selected'   => 'img/themes/digest/bg.png',
+            'selected'   => '/img/themes/digest/bg.png',
             'list' => array(
-                'dot'   => "img/themes/digest/bg-dot.png",
-                'mask'  => "img/themes/digest/bg.png",
-                'grey'  => "img/themes/digest/bg.jpg"
+                'dot'   => "/img/themes/digest/bg-dot.png",
+                'mask'  => "/img/themes/digest/bg.png",
+                'grey'  => "/img/themes/digest/bg.jpg"
             ),
         )
     );	

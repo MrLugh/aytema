@@ -147,11 +147,15 @@ h3 {
    font-family: 'Oswald', sans-serif;
    letter-spacing: 0.2em;
    padding: 45px 5px;
+   position: relative;
+   z-index: 2;
 }
 
 p {
 	font-size: 20px;
 	line-height: 40px;
+   position: relative;
+   z-index: 2;
 }
 .overlay_cover {
   -webkit-transition:all 0.5s ease;
@@ -267,8 +271,9 @@ p {
 	border-top: 516px solid;
 	border-right: 257px solid transparent;
 	position: absolute;
+  z-index: 1;
 }
-.triangle-bottomright { 
+.triangle-bottomright {
 	width: 0;
 	height: 0;
 	border-bottom: 516px solid;
@@ -276,6 +281,7 @@ p {
 	position: absolute;
 	bottom: 0;
 	right: 0;
+  z-index: 1;
 }
 
 /*menu*/
@@ -493,6 +499,38 @@ textarea.form-control {
   height: 137px;
 }
 
+
+
+/* Detail */
+#page_detail {
+  position: absolute;
+  overflow: hidden;
+  background-color: white;
+  -webkit-transition:all 0.56s ease;
+  -moz-transition:all 0.56s ease;
+  -o-transition:all 0.56s ease;
+  transition:all 0.56s ease;
+  background-color: rgba(2, 16, 27, 0.5);
+  z-index: 3;
+}
+
+
+#page_detail.ng-enter {
+    left:100%;
+}
+
+#page_detail.ng-enter.ng-enter-active {
+    left: 0;
+}
+
+#page_detail.ng-leave {
+    left: 0;
+}
+
+#page_detail.ng-leave.ng-leave-active {
+    left: 100%;
+}
+
 /* Sliders */
 .rows-slider-wrap {
   width:100%;margin:50px auto 40px auto;position:relative;padding:0 40px 10px 65px;outline:0
@@ -573,6 +611,7 @@ textarea.form-control {
   background-position: center;
   background-repeat: no-repeat;
   background-color:rgba(230, 127, 77, 0.7);
+  background-size: contain;
 }
 .rows-slider__controls-right {
   background:url("../../../img/themes/dj/next.png");
@@ -580,6 +619,7 @@ textarea.form-control {
   background-position: center;
   background-repeat: no-repeat;
   background-color:rgba(230, 127, 77, 0.7);
+  background-size: contain;
 }
 .rows-slider__controls_disabled {
   cursor:default

@@ -58,6 +58,7 @@
 	<div ng-if="content.track.list.length>0" id="page_track" class="page" style="height:{{appSv.getHeight()}}px;">
 
 		<h3>Tracks</h3>
+		<a href="#" ng-click="manageDetail()" skip-default>DETAIL</a>
 
 	</div>
 
@@ -65,11 +66,11 @@
 
 		<h3>Photos</h3>
 
-		<div ng-if="current == 'page_photo'" slider-rows="{'adaptive': true,'visible': 4,'effect': 'zoom','hover': 'rotate','click': 'zoom','text': {'direction': 'left','selector': 'span'}}" class="rows-slider-wrap rows-slider-wrap_adaptive">
+		<div slider-rows="{'adaptive': true,'visible': 4,'effect': 'zoom','hover': 'rotate','click': 'zoom','text': {'direction': 'left','selector': 'span'}}" class="rows-slider-wrap rows-slider-wrap_adaptive">
 			<ul>
 				<li ng-repeat="photo in content.photo.list" ng-if="$index <= content.photo.list.length/2">
 					<div>
-						<img src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align"/>
+						<img src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align" ng-click="manageDetail()"/>
 					</div>
 					<span class="text">{{contentSv.getTitle(photo)}}</span>
 				</li>
@@ -78,7 +79,7 @@
 			<ul>
 				<li ng-repeat="photo in content.photo.list" ng-if="$index > content.photo.list.length/2">
 					<div>
-						<img src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align"/>
+						<img src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align" ng-click="manageDetail()"/>
 					</div>
 					<span class="text">{{contentSv.getTitle(photo)}}</span>
 				</li>
@@ -130,6 +131,11 @@
 
 	<div id="footer">
 
+	</div>
+
+
+	<div id="page_detail" ng-show="showDetail" style="height:{{appSv.getHeight()}}px;">
+		DETAIL
 	</div>
 
 </div>
