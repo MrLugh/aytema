@@ -149,7 +149,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.scrollToSection = function(section) {
 		var element = angular.element(document.querySelector("#"+section));
 		$scope.current = section;
-		console.log($scope.current);
 		$scope.scrollTo(element);
 	}
 	$scope.resetIframes = function(index) {
