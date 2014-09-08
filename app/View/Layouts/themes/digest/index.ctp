@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9" />
 
     <meta property="fb:app_id" content="211895592326072">
-    <meta property="og:title" content="Ay Tema"/>
+    <meta property="og:title" content="Cloud Cial"/>
     <meta property="og:type" content="article"/>
     <meta property="og:site_name" content="CloudCial.com"/>
 

@@ -6,29 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9" />
 
     <meta property="fb:app_id" content="211895592326072">
-    <meta property="og:title" content="Ay Tema"/>
+    <meta property="og:title" content="Cloud Cial"/>
     <meta property="og:type" content="article"/>
     <meta property="og:site_name" content="CloudCial.com"/>
 
     <title>Dj Theme</title>
-    <!--
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    -->
     <script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
-    <script type="text/javascript">
-      WebFontConfig = {
-        google: { families: [ 'Playfair+Display:400,400italic,700,700italic:latin', 'Open+Sans:400,400italic,700,700italic:latin', 'Josefin+Sans:400,400italic,700,700italic:latin', 'Asap:400,400italic,700,700italic:latin', 'Ubuntu:400,400italic,700,700italic:latin', 'Raleway:400,700:latin', 'Lora:400,400italic,700,700italic:latin', 'Montserrat:400,700:latin', 'Arvo:400,400italic,700,700italic:latin', 'Junge::latin', 'Rock+Salt', 'Junge::latin', 'Oswald' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })();
-    </script>
+    <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
 
     <!-- Css -->
     <?php
