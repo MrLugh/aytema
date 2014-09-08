@@ -23,6 +23,7 @@
     echo $this->Html->css('themes/dj/estilos');
     echo $this->Html->css('themes/dj/estilos-responsive');
     echo $this->Html->css('admin');
+    echo $this->Html->css('dropzone');
     ?>
 
     <!-- Js -->
@@ -36,6 +37,7 @@
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('touchSwipe.min');
     echo $this->Html->script('slider-rows.min');
+    echo $this->Html->script('dropzone');
     ?>
 
     <!-- Config -->

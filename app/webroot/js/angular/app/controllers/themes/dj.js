@@ -224,7 +224,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.setBackground = function() {
 
 		var element = angular.element(document.querySelector('#page_profile'));
-		$(element[0]).css('background-image','url("/'+$scope.config.custom.background.selected+'")');
+		$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
 
 	}
 

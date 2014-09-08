@@ -2,6 +2,11 @@
 
 	<div class="both">
 		<span class="left">Image</span>
+
+		<div class="dropzone right" dropzone="dropzoneConfig" dropzone-instance="dropzone">
+			<span><i class="fa fa-cloud-upload"></i> Upload</span>
+		</div>
+
 		<select 
 			ng-model="config.custom.background.selected"
 			ng-options="name for (name,background) in config.custom.background.list">

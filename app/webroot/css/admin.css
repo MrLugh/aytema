@@ -135,3 +135,38 @@
 #config .colors .item-color-element {
   display: inline-block;
 }
+
+#config .dropzone {
+  width:50px;
+  height:50px;
+  min-height:initial;
+  border:4px dashed green;
+  min-height: initial;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  background: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#config #thumbnail-dropzone {
+  width: auto;
+  height: auto;
+}
+
+#config .dropzone .dz-default.dz-message {
+  background-image: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#config .dropzone .dz-preview {
+  display: inline-block;
+}

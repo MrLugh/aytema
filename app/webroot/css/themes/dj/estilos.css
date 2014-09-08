@@ -1,6 +1,6 @@
 body {
   color: #080808; 
-  overflow: hidden;
+  overflow: auto;
   -webkit-transition:all 0.66s ease;
   -moz-transition:all 0.66s ease;
   -o-transition:all 0.66s ease;
@@ -314,7 +314,7 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
