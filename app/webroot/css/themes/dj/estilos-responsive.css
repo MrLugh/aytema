@@ -1,0 +1,22 @@
+@media (max-width: 480px) {
+	#page_video .list_carousel li, .video_thumbnail {
+		width:  200px;
+		height: 200px;
+	}
+
+	.detail_container .player {
+	  width: 100%;
+	}
+
+	.detail_container .content_caption {
+		max-height: 300px;
+	}
+
+	.detail_container iframe,
+	.detail_container object,
+	.detail_container embed,
+	.detail_container video,
+	.detail_container audio {
+		height: auto;
+	}
+}

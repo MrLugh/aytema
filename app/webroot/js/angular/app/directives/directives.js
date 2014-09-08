@@ -428,7 +428,6 @@ function ($window,$timeout) {
         scope.sliderRows = function() {
             $timeout(function(){
                 scope.slider = new SliderRows(options);
-                console.log(scope.slider);
             },0);
         }
 

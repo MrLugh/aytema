@@ -11,37 +11,11 @@ body {
 }
 
 * {
-    scrollbar-face-color: #000000;
-    scrollbar-shadow-color: #2D2C4D;
-    scrollbar-highlight-color:#7D7E94;  
-    scrollbar-3dlight-color: #7D7E94;  
-    scrollbar-darkshadow-color: #2D2C4D; 
-    scrollbar-track-color: #7D7E94;  
-    scrollbar-arrow-color: #C1C1D1;
     outline: none;
-}
-
-*::-webkit-scrollbar {
-    width: 12px;
-}
-
-*::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 10px;
-}
-
-*::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
 *[ ng-click ] {
   cursor: pointer ;
-}
-
-*::-moz-selection{
-   background-color: #efb526;
-   color: #131313;
 }
 
 *::selection {
@@ -219,58 +193,6 @@ p {
 
 }
 
-.content_caption {
-  text-align: left;
-  position: relative;
-  padding:20px;
-  font-size: 15px!important;
-  text-align: center;
-  -webkit-transition:all 0.5s ease;
-  -moz-transition:all 0.5s ease;
-  -o-transition:all 0.5s ease;
-  transition:all 0.5s ease;
-  opacity: 1;
-  filter: alpha(opacity=1);
-}
-
-.content_caption i {
-  font-size: 40px;
-  line-height: 23px;
-  margin: 0 15px;
-}
-
-.content_caption * {
-  display: inline-block;
-  border: none;
-  background: none;
-  border-radius: 0;
-  padding: 0;
-  margin: 0;
-}
-
-.content_caption h1,
-.content_caption h2,
-.content_caption h3 {
-  margin: 0 auto;
-  font-size: 20px!important;
-  display: block!important;
-}
-
-.content_caption p a {
-  color: #fff;
-  font-style: italic;
-}
-.content_caption p {
-  margin: 0;
-  font-size: 13px!important;
-  padding: 0 20px;
-  font-style: italic;
-
-}
-.content_caption blockquote small {
-  color: #fff;
-}
-
 .content {
 	max-width: 1120px;
 	margin: 0 auto;
@@ -326,7 +248,7 @@ p {
   text-transform: uppercase;
 }
 #menu .active { 
-   color: #ffb740;	
+   color: #ffb740;
 }
 #menu span {
    transition: all 0.5s ease;
@@ -469,7 +391,6 @@ p {
 .pageVideoContainer:hover .overlay {
     opacity: 1;
     background-color:rgba(19, 19, 19, 0.85);
-
 }
 
 .pageVideoContainer .overlay .overlay-inner {
@@ -712,12 +633,14 @@ textarea.form-control {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
   -webkit-transition:all 0.56s ease;
   -moz-transition:all 0.56s ease;
   -o-transition:all 0.56s ease;
   transition:all 0.56s ease;
-  background-color: rgba(2, 16, 27, 0.9);
+  background-color: rgb(2, 16, 27);
   z-index: 3;
 }
 
@@ -744,6 +667,95 @@ textarea.form-control {
   padding: 15px;
   color:#fff;
   font-size: 20px;
+}
+
+.detail_container {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.detail_container iframe,
+.detail_container object,
+.detail_container embed,
+.detail_container video,
+.detail_container audio {
+  position: relative;
+  top:0;
+  left: 0;
+  height: 450px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #000;
+  display: inline-block;
+  -webkit-transition: all 0.56s ease;
+  -moz-transition: all 0.56s ease;
+  -o-transition: all 0.56s ease;
+  transition: all 0.56s ease;
+}
+
+.detail_container .player {
+  width: 70%;
+}
+
+.detail_container .content_caption {
+  width: 30%;
+  height: 450px;
+  text-align: left;
+  position: relative;
+  z-index: 3;
+  padding:20px;
+  font-size: 15px!important;
+  text-overflow:ellipsis;
+  font-size:17px;
+  padding: 10px;
+  background-color: #ffb740;
+  font-family: 'Oswald', sans-serif;
+  overflow-y: hidden;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
+  opacity: 1;
+  filter: alpha(opacity=1);
+}
+
+.detail_container .content_caption i {
+  font-size: 40px;
+  line-height: 23px;
+  margin: 0 15px;
+}
+
+.detail_container .content_caption * {
+  display: inline-block;
+  border: none;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.detail_container .content_caption h1,
+.detail_container .content_caption h2,
+.detail_container .content_caption h3 {
+  margin: 0 auto;
+  font-size: 20px!important;
+  display: block!important;
+}
+
+.detail_container .content_caption p a {
+  color: #fff;
+  font-style: italic;
+}
+.detail_container .content_caption p {
+  margin: 0;
+  font-size: 13px!important;
+  padding: 0 20px;
+  font-style: italic;
+
+}
+.detail_container .content_caption blockquote small {
+  color: #fff;
 }
 
 /* Sliders */
@@ -850,14 +862,26 @@ textarea.form-control {
 }
 
 
-#page_video .list_carousel {
+.list_carousel {
   max-width: 1576px;
   margin: 0 auto;
 }
 
-#page_video .prev, #page_video .next {
+.list_carousel li {
+  padding: 0;
+  margin: 0px 6px 0 5px;
+  display: block;
+  float: left;
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.prev, .next {
   position: absolute;
-  height: 100%;
   z-index: 3;
   width:67px;
   height:106px;
@@ -868,37 +892,40 @@ textarea.form-control {
 
 #page_video .prev {
   left: 30px;
+  width:67px;
+  height:106px;
+  top: 25%;
+  background-size: contain;
+}
+
+.prev {
+  left: 0;
   text-align: left;
   background-image:url("../../../img/themes/dj/prev-big.png");  
 }
 
-#page_video .next {
+.next {
   right: 30px;
   text-align: right;
   background-image:url("../../../img/themes/dj/next-big.png");  
 }
 
-#page_video .prev i, #page_video .next i {
+.prev i,.next i {
   position: relative;
   font-size: 20px;
   top:calc(50% - 10px);
 }
 
-#page_video .carousel_container {
+.carousel_container {
   width: 100%;
   overflow: hidden;
 }
 
-#page_video .caroufredsel_wrapper {
+.caroufredsel_wrapper {
   width: auto!important;
   position: relative;
   overflow: hidden;
 }
-
-#page_video .list_carousel {
-  overflow: hidden;
-}
-
 
 #page_video .list_carousel li {
   padding: 0;
@@ -910,7 +937,22 @@ textarea.form-control {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.relateds {
+  text-align: center;
+  background-color: #ffb740;
+}
+
+.relateds .carousel_container {
+  width: calc(100% - 120px)!important;
   position: relative;
+  left: 59px;
+}
+
+.relateds .list_carousel li { 
+  width: 200px;
+  height: 200px;
 }
 
 /* Animations */
