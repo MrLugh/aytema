@@ -37,7 +37,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			var element = angular.element(document.querySelector("#page_detail"));
 			$scope.scrollTo(element);
 		} else {
-			$scope.scrollTo($scope.current);
+			$scope.scrollToSection($scope.current);
 		}
 	}
 
