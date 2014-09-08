@@ -18,6 +18,12 @@ Class Themedj {
             ),
         ),
         'width' => '100%',
+        'background' => array(
+            'selected'   => 'img/themes/dj/bg_header.jpg',
+            'list' => array(
+                'header'   => "img/themes/dj/bg_header.jpg",
+            ),
+        )
     );
 
 

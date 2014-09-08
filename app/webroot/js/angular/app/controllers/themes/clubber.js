@@ -238,7 +238,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		if (!angular.equals(content, {})) {
 			$scope.checkHasContent();
 		}
-	},true);	
+	},true);
 
 	/*
 	$scope.$watchCollection('[winW,winH]',function(sizes){

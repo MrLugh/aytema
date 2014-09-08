@@ -1,6 +1,6 @@
 body {
   color: #080808; 
-  overflow: auto;
+  overflow: hidden;
   -webkit-transition:all 0.66s ease;
   -moz-transition:all 0.66s ease;
   -o-transition:all 0.66s ease;
@@ -309,13 +309,14 @@ p {
 
 
 /*header*/
-#page_profile { 
-  background: url("../../../img/themes/dj/bg_header.jpg") no-repeat center center fixed; 
+#page_profile {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 #page_profile h3 { 
 	font-size: 150px;

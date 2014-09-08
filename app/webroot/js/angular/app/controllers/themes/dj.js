@@ -19,7 +19,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.configLoaded = false;
     $scope.showConfig = false;
 	$scope.tabs = [
-		{ title:"Colors", key:"colors", active: true },
+		{ title:"Background", key:"background", active: true },
+		{ title:"Colors", key:"colors"},
 		{ title:"Width", key:"width" },
 	];
 
@@ -134,6 +135,9 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		if (!angular.equals(configNew, configOld)) {
 			$scope.config = configNew;
 			$scope.configLoaded = true;
+			console.log("config");
+			console.log($scope.config);
+			$scope.setBackground();
 		}
 	},true);
 
@@ -325,6 +329,9 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.setBackground = function() {
 
+		var element = angular.element(document.querySelector('#page_profile'));
+		$(element[0]).css('background-image','url("/'+$scope.config.custom.background.selected+'")');
 
 	}
+
 }

@@ -427,7 +427,6 @@ function ($window,$timeout) {
                 options =  eval("(function(){return " + options + ";})()");
                 options.container = element[0];
                 scope.slider = new SliderRows(options);
-                console.log(scope.slider);
             },0);
         }
 
