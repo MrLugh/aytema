@@ -13,12 +13,13 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.content 	= {};
 	$scope.current	= 'page_profile';
 
+	$scope.validPages = ['photo','track','video','post','event'];
+
 	$scope.config		= {};
 	$scope.configLoaded = false;
     $scope.showConfig = false;
 	$scope.tabs = [
 		{ title:"Colors", key:"colors", active: true },
-		{ title:"Fonts", key:"fonts" },
 		{ title:"Width", key:"width" },
 	];
 
@@ -39,7 +40,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			var account = $scope.accounts[y]['Socialnet'];
 			for (var x in $scope.networks[account.network]['concepts']){
 				concept = $scope.networks[account.network]['concepts'][x];
-				if (concepts.indexOf(concept) == -1) {
+				if (concepts.indexOf(concept) == -1 && 
+					$scope.validPages.indexOf(concept) != -1) {
 					concepts.push(concept);
 				}	
 			}

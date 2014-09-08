@@ -596,7 +596,7 @@ function($window) {
 ayTemaDs.directive('parallax', ['$window', function($window) {
   return {
     restrict: 'A',
-    link: function(scope, elem, $attrs) {
+    link: function(scope, elem, attrs) {
       var setPosition = function () {
         // horizontal positioning
         elem.css('left', attrs.parallaxHorizontalOffset + "px");

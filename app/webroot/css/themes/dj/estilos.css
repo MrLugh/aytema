@@ -144,10 +144,9 @@ h3 {
    text-transform: uppercase;
    text-align: center;
    margin: 0;
-   font-family: 'Oswald', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
+   font-family: 'Oswald', sans-serif;
    letter-spacing: 0.2em;
    padding: 45px 5px;
-
 }
 
 p {
@@ -283,17 +282,32 @@ p {
 #menu { 
 	font-family: 'Oswald', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
 	letter-spacing: 0.25em;
+  position:fixed;
+  bottom:0;
+  z-index:10;
+  width:100%;
+  margin: 0;
+  background-color: #020202;
+  color: #ffffff;
+  line-height: 83px;
+  font-size: 17px;
+  text-transform: uppercase;
 }
 #menu .active { 
    color: #ffb740;	
 }
 #menu span {
    transition: all 0.5s ease;
-
 }
 #menu span:hover {
-   color: #ffb740;		
+   color: #ffb740;
 }
+#menu .item {
+  padding: 0 30px;
+  display: inline-block;
+}
+
+
 /*header*/
 #page_profile { 
   background: url("../../../img/themes/dj/bg_header.jpg") no-repeat center center fixed; 
@@ -301,6 +315,7 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-attachment: fixed;
 }
 #page_profile h3 { 
 	font-size: 150px;
@@ -312,6 +327,10 @@ p {
 }
 .arrow-down {
     animation: 2s linear 0s normal none infinite hoverup;
+    -webkit-animation: 2s linear 0s normal none infinite hoverup;
+    -moz-animation: 2s linear 0s normal none infinite hoverup;
+    -o-animation: 2s linear 0s normal none infinite hoverup;
+
     bottom: 100px;
     color: #fff!important;
     font-size: 47px;
@@ -338,7 +357,7 @@ p {
 
 /*page_video*/
 
-#page_video { 
+#page_video {
   background-color: #f3f3f3;
 }
 #page_video h3 { 

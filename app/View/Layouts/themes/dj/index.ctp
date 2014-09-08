@@ -13,6 +13,7 @@
     <title>Dj Theme</title>
     <script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
     <!-- Css -->
     <?php

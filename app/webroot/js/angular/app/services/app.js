@@ -79,6 +79,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 		video:'videos',
 		post:'posts',
 		track:'tracks',
+		event:'events',
 		quote:'quotes',
 		link:'links',
 		chat:'chats'
