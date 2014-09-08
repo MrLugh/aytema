@@ -35,6 +35,7 @@
     echo $this->Html->script('imagesloaded.pkgd');    
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('touchSwipe.min');
+    echo $this->Html->script('slider-rows.min');
     ?>
 
     <!-- Config -->

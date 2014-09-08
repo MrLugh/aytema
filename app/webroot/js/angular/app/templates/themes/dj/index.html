@@ -64,6 +64,26 @@
 
 		<h3>Photos</h3>
 
+		<div slider-rows="{'adaptive': true,'visible': 4,'effect': 'zoom','hover': 'rotate','click': 'zoom','text': {'direction': 'left','selector': 'span'}}" class="rows-slider-wrap rows-slider-wrap_adaptive">
+			<ul>
+				<li ng-repeat="photo in content.photo.list" ng-if="$index <= content.photo.list.length/2">
+					<div>
+						<img src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align"/>
+					</div>
+					<span class="text">{{contentSv.getTitle(photo)}}</span>
+				</li>
+			</ul>
+
+			<ul>
+				<li ng-repeat="photo in content.photo.list" ng-if="$index > content.photo.list.length/2">
+					<div>
+						<img src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align"/>
+					</div>
+					<span class="text">{{contentSv.getTitle(photo)}}</span>
+				</li>
+			</ul>
+		</div>
+
 	</div>
 
 	<div ng-if="content.event.list.length>0" id="page_event" class="page" style="height:{{appSv.getHeight()}}px;">
@@ -76,7 +96,7 @@
  
 		<div class="triangle-topleft black"></div>
 		<h3>About</h3>
-		<img class="users-photo" src="../../../img/themes/dj/guido-elordi.jpg">
+		<img class="users-photo" src="{{user.profile_image}}">
 		<div class="auriculares"></div>
 		<div class="content content-info">
 			<p>Lorem fistrum a peich está la cosa muy malar diodeno amatomaa la caidita ese hombree. Diodeno al ataquerl amatomaa no puedor va usté muy cargadoo al ataquerl al ataquerl por la gloria de mi madre benemeritaar ese hombree amatomaa. Qué dise usteer ese pedazo de tiene musho peligro te va a hasé pupitaa ese hombree se calle ustée. Se calle ustée fistro de la pradera qué dise usteer condemor mamaar. Ese hombree a gramenawer sexuarl al ataquerl ese hombree sexuarl. Por la gloria de mi madre diodenoo ese pedazo de ese pedazo de la caidita qué dise usteer apetecan pupita de la pradera al ataquerl llevame al sircoo. Ese que llega mamaar al ataquerl a wan.</p>

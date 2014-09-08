@@ -417,6 +417,27 @@ function ($window,$timeout) {
     }
 }]);
 
+ayTemaDs.directive('sliderRows',['$window','$timeout',
+function ($window,$timeout) {
+    return function (scope, element, attrs) {
+
+        scope.sliderRows = function() {
+            $timeout(function(){
+                var options = attrs.sliderRows;
+                options =  eval("(function(){return " + options + ";})()");
+                options.container = element[0];
+                scope.slider = new SliderRows(options);
+                console.log(scope.slider);
+            },0);
+        }
+
+        scope.$watch(attrs.sliderRows, function(newConfig,oldConfig) {
+            scope.sliderRows();
+        });
+    }
+}]);
+
+
 ayTemaDs.directive('minicolor',['$timeout',
 function ($timeout) {
     return function (scope, element, attrs) {
