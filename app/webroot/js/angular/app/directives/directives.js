@@ -434,6 +434,12 @@ function ($window,$timeout) {
         scope.$watch(attrs.sliderRows, function(newConfig,oldConfig) {
             scope.sliderRows();
         });
+
+        var destroy = function() {
+            element.unbind('$destroy',destroy);
+            delete scope.slider;
+        }
+        element.bind('$destroy',destroy);
     }
 }]);
 

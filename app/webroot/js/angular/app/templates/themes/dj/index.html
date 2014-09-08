@@ -65,7 +65,7 @@
 
 		<h3>Photos</h3>
 
-		<div slider-rows="{'adaptive': true,'visible': 4,'effect': 'zoom','hover': 'rotate','click': 'zoom','text': {'direction': 'left','selector': 'span'}}" class="rows-slider-wrap rows-slider-wrap_adaptive">
+		<div ng-if="current == 'page_photo'" slider-rows="{'adaptive': true,'visible': 4,'effect': 'zoom','hover': 'rotate','click': 'zoom','text': {'direction': 'left','selector': 'span'}}" class="rows-slider-wrap rows-slider-wrap_adaptive">
 			<ul>
 				<li ng-repeat="photo in content.photo.list" ng-if="$index <= content.photo.list.length/2">
 					<div>
