@@ -21,7 +21,6 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 	$scope.showFooter = false;
 	$scope.isFullWidth= false;
 
-
 	$scope.loadUsers = function() {
 		userSv.loadUsersForAccount({
 			network:$scope.account.network,
@@ -37,7 +36,6 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 			}
 		});
 	}
-
 
 	$scope.loadAccount = function() {
 		userSv.loadAccounts({
@@ -304,6 +302,35 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 	$scope.getModeTitle = function() {
 		return $scope.mode ? 'Text mode' : 'Full Height mode';
 	}
+
+	$scope.moveSocialnet = function(direction) {
+		var list = appSv.getSocialnets();
+		var current = -1;
+
+		for (var x in list) {
+			var socialnet = list[x];
+			if (socialnet.id == $scope.account.id) {
+				current = x;				
+			}
+		}
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == appSv.getSocialnets().length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = appSv.getSocialnets().length - 1;
+		}
+
+		var socialnet = list[current];
+		$location.path("/socialnets/"+socialnet.network+"/"+socialnet.external_user_id);
+	}
+	
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);

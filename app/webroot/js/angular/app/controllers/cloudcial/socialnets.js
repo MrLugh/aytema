@@ -44,6 +44,7 @@ function socialnetsCo($scope,appSv,userSv,contentSv) {
 				}
 				$scope.socialnets = _.sortBy( $scope.socialnets, function(o) {return o.id} );
 				$scope.socialnets.reverse();
+				appSv.setSocialnets($scope.socialnets);
 				$scope.offset = $scope.socialnets.length;
 			}
 			$scope.loading = false;

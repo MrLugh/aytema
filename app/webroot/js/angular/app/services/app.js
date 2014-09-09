@@ -7,6 +7,8 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
     var navigationMode = 0;
     var dashboardMenuMode = 0;
 
+    var socialnets = [];
+
 	var networks = {
 		'cloudcial'	: {
 			network : 'cloudcial',
@@ -216,7 +218,13 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
     	},
     	setNavigationMode: function(mode) {
     		navigationMode = mode;
-    	}    	
+    	},
+    	setSocialnets: function(accounts) {
+    		socialnets = accounts;
+    	},
+    	getSocialnets: function() {
+    		return socialnets;
+    	}
 	}
 
 }]);

@@ -507,6 +507,10 @@
   border-color: #393B30 #2D2E26;
 }
 
+.cloudcialAccount a {
+  color:#889191;
+}
+
 .facebookAccount {
   background-color: #3b5998;
   color:#000;
@@ -522,6 +526,10 @@
 .facebookAccountPageHeader {
   border-bottom: 4px solid;
   border-color: #4E6DAD #3b5998;
+}
+
+.facebookAccount a {
+  color:#000;
 }
 
 .soundcloudAccount {
