@@ -667,6 +667,18 @@ textarea.form-control {
   padding: 15px;
   color:#fff;
   font-size: 20px;
+  -webkit-transition: all 0.56s ease;
+  -moz-transition: all 0.56s ease;
+  -o-transition: all 0.56s ease;
+  transition: all 0.56s ease;
+}
+
+#page_detail i.controlNext:hover,
+#page_detail i.controlPrev:hover,
+#page_detail i.controlClose:hover {
+  background-color: #efb526;
+  color:#000;
+
 }
 
 .detail_container {
