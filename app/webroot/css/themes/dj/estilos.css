@@ -683,7 +683,7 @@ textarea.form-control {
   position: relative;
   top:0;
   left: 0;
-  height: 450px;
+  height: 400px;
   width: 100%;
   margin: 0 auto;
   background-color: #000;
@@ -700,7 +700,7 @@ textarea.form-control {
 
 .detail_container .content_caption {
   width: 30%;
-  height: 450px;
+  height: 400px;
   text-align: left;
   position: relative;
   z-index: 3;
@@ -865,6 +865,7 @@ textarea.form-control {
 .list_carousel {
   max-width: 1576px;
   margin: 0 auto;
+  position: relative;
 }
 
 .list_carousel li {
@@ -888,14 +889,8 @@ textarea.form-control {
   top: 25%;
   background-color: transparent;
   background-size: contain;
-}
-
-#page_video .prev {
-  left: 30px;
-  width:67px;
-  height:106px;
-  top: 25%;
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .prev {
@@ -905,9 +900,29 @@ textarea.form-control {
 }
 
 .next {
-  right: 30px;
+  right: 0;
   text-align: right;
   background-image:url("../../../img/themes/dj/next-big.png");  
+}
+
+#page_video .prev {
+  left: 30px;
+}
+
+#page_video .next {
+  right: 30px;
+}
+
+#prev_related {
+  background-image:url("../../../img/themes/dj/prev.png");  
+}
+
+#next_related {
+  background-image:url("../../../img/themes/dj/next.png");  
+}
+
+#page_video .next {
+  right: 30px;
 }
 
 .prev i,.next i {
