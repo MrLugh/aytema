@@ -41,84 +41,88 @@
 
 	</div>
 
-	<div ng-if="contents.post.list.length>0" id="page_post" class="page" style="height:{{appSv.getHeight()}}px;">
+	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()}}px;" ng-switch="page">
 
-		<div class="triangle-topleft yellow"></div>
-		<h3>Posts</h3>
+		<div ng-switch-when="post">
 
-	</div>
+			<div class="triangle-topleft yellow"></div>
+			<h3>Posts</h3>
 
-	<div ng-if="contents.video.list.length>0" id="page_video" class="page" style="height:{{appSv.getHeight()}}px;">
+		</div>
 
-		<div class="triangle-bottomright black"></div>
-		<h3>Videos</h3>
+		<div ng-switch-when="video">
 
-		<div class="wrapper">
-			<div class="list_carousel">
-				<a id="prev_video" class="prev" href="#/"></a>
-				<a id="next_video" class="next" href="#/"></a>
-				<div class="carousel_container left">
-					<ul id="carousel_videos" caroufredsel="{'selector':'#carousel_videos','auto':false,'prev':'#prev_video','next':'#next_video','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-						<li ng-repeat="video in contents.video.list" ng-show="contentSv.getThumbnail(video).length">
+			<div class="triangle-bottomright black"></div>
+			<h3>Videos</h3>
 
-							<div class="pageVideoContainer">
+			<div class="wrapper">
+				<div class="list_carousel">
+					<a id="prev_video" class="prev" href="#/"></a>
+					<a id="next_video" class="next" href="#/"></a>
+					<div class="carousel_container left">
+						<ul id="carousel_videos" caroufredsel="{'selector':'#carousel_videos','auto':false,'prev':'#prev_video','next':'#next_video','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+							<li ng-repeat="video in contents.video.list" ng-show="contentSv.getThumbnail(video).length">
 
-							    <div class="overlay">
-							      <i class="fa fa-play-circle" ng-click="showDetail(video)"></i>
-							      <div class="overlay-inner">
-									<h2 ng-if="contentSv.getTitle(video).length>0">{{contentSv.getTitle(video)}}</h2>
-									<p ng-bind-html="getDescription(video)"></p>
-							      </div>
-							    </div>
+								<div class="pageVideoContainer">
 
-								<div style="background-image:url({{contentSv.getThumbnail(video)}});" class="video_thumbnail" ></div>
+								    <div class="overlay">
+								      <i class="fa fa-play-circle" ng-click="showDetail(video)"></i>
+								      <div class="overlay-inner">
+										<h2 ng-if="contentSv.getTitle(video).length>0">{{contentSv.getTitle(video)}}</h2>
+										<p ng-bind-html="getDescription(video)"></p>
+								      </div>
+								    </div>
 
-							</div>
+									<div style="background-image:url({{contentSv.getThumbnail(video)}});" class="video_thumbnail" ></div>
 
-						</li>
-					</ul>
+								</div>
+
+							</li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
 				</div>
-				<div class="clearfix"></div>
 			</div>
+
 		</div>
 
-	</div>
+		<div ng-switch-when="track">
 
-	<div ng-if="contents.track.list.length>0" id="page_track" class="page" style="height:{{appSv.getHeight()}}px;">
+			<h3>Tracks</h3>
 
-		<h3>Tracks</h3>
-
-	</div>
-
-	<div ng-if="contents.photo.list.length>0" id="page_photo" class="page" style="height:{{appSv.getHeight()}}px;position:relative;left:0;">
-
-		<h3>Photos</h3>
-
-		<div slider-rows="{'adaptive': true,'visible': 4,'effect': 'zoom','hover': 'rotate','click': 'zoom','text': {'direction': 'left','selector': 'span'}}" class="rows-slider-wrap rows-slider-wrap_adaptive">
-			<ul>
-				<li ng-repeat="photo in contents.photo.list" ng-if="$index <= contents.photo.list.length/2">
-					<div>
-						<img ng-src="{{contentSv.getThumbnail(photo)}}" style="margin:0 auto;width:100%;"/>
-					</div>
-					<span class="text">{{contentSv.getTitle(photo)}}</span>
-				</li>
-			</ul>
-
-			<ul>
-				<li ng-repeat="photo in contents.photo.list" ng-if="$index > contents.photo.list.length/2">
-					<div>
-						<img ng-src="{{contentSv.getThumbnail(photo)}}" style="margin:0 auto;width:100%;"/>
-					</div>
-					<span class="text">{{contentSv.getTitle(photo)}}</span>
-				</li>
-			</ul>
 		</div>
 
-	</div>
+		<div ng-switch-when="photo">
 
-	<div ng-if="contents.event.list.length>0" id="page_event" class="page" style="height:{{appSv.getHeight()}}px;">
+			<h3>Photos</h3>
 
-		<h3>Events</h3>
+			<div slider-rows="{'adaptive': true,'visible': 4,'effect': 'zoom','hover': 'rotate','click': 'zoom','text': {'direction': 'left','selector': 'span'}}" class="rows-slider-wrap rows-slider-wrap_adaptive">
+				<ul>
+					<li ng-repeat="photo in contents.photo.list" ng-if="$index <= contents.photo.list.length/2">
+						<div>
+							<img ng-src="{{contentSv.getThumbnail(photo)}}" style="margin:0 auto;width:100%;"/>
+						</div>
+						<span class="text">{{contentSv.getTitle(photo)}}</span>
+					</li>
+				</ul>
+
+				<ul>
+					<li ng-repeat="photo in contents.photo.list" ng-if="$index > contents.photo.list.length/2">
+						<div>
+							<img ng-src="{{contentSv.getThumbnail(photo)}}" style="margin:0 auto;width:100%;"/>
+						</div>
+						<span class="text">{{contentSv.getTitle(photo)}}</span>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div ng-switch-when="event">
+
+			<h3>Events</h3>
+
+		</div>
 
 	</div>
 
@@ -185,7 +189,6 @@
 			<div class="comments both">
 				<fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true" class="comments_container"></fb-comments>
 			</div>
-
 
 		</div>
 
