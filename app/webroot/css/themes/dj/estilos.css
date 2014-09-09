@@ -214,6 +214,7 @@ p {
 /*shapes*/
 .page { 
 	position: relative;
+  overflow: hidden;
 } 
 
 .triangle-topleft { 
@@ -283,10 +284,10 @@ p {
   border-radius:50%;
   border-style:solid;
   border-width:5px;
-  -webkit-transition:all 0.2s ease 0s;
-  -moz-transition:all 0.2s ease 0s;
-  -o-transition:all 0.2s ease 0s;
-  transition:all 0.2s ease 0s;
+  -webkit-transition:all 0.89s ease 0s;
+  -moz-transition:all 0.89s ease 0s;
+  -o-transition:all 0.89s ease 0s;
+  transition:all 0.89s ease 0s;
 }
 #page_profile .init:hover {
   color: #ffc229;
@@ -307,10 +308,10 @@ p {
 	padding: 0;
   position: relative;
   z-index: 1;
-  -webkit-transition:all 0.2s ease 0s;
-  -moz-transition:all 0.2s ease 0s;
-  -o-transition:all 0.2s ease 0s;
-  transition:all 0.2s ease 0s;
+  -webkit-transition:all 0.89s ease 0s;
+  -moz-transition:all 0.89s ease 0s;
+  -o-transition:all 0.89s ease 0s;
+  transition:all 0.89s ease 0s;
   -webkit-transform: scale(1) rotate(0deg);
   -moz-transform:    scale(1) rotate(0deg);
   -ms-transform:     scale(1) rotate(0deg);
@@ -326,19 +327,25 @@ p {
   -o-transform:      scale(1.2) rotate(-2deg);
   transform:         scale(1.2) rotate(-2deg);
 }
-.arrow-down {
-    animation: 2s linear 0s normal none infinite hoverup;
-    -webkit-animation: 2s linear 0s normal none infinite hoverup;
-    -moz-animation: 2s linear 0s normal none infinite hoverup;
-    -o-animation: 2s linear 0s normal none infinite hoverup;
 
-    bottom: 100px;
-    color: #fff!important;
-    font-size: 47px;
-    left: 50%;
-    margin-left: -15px;
-    position: absolute;
-    z-index: 3;
+.arrow-down {
+  animation: 2s linear 0s normal none infinite hoverup;
+  -webkit-animation: 2s linear 0s normal none infinite hoverup;
+  -moz-animation: 2s linear 0s normal none infinite hoverup;
+  -o-animation: 2s linear 0s normal none infinite hoverup;
+
+  -webkit-transition:all 0.89s ease 0s;
+  -moz-transition:all 0.89s ease 0s;
+  -o-transition:all 0.89s ease 0s;
+  transition:all 0.89s ease 0s;
+
+  bottom: 100px;
+  color: #fff!important;
+  font-size: 47px;
+  left: calc(50% - 24px);
+  margin-left: -15px;
+  position: absolute;
+  z-index: 3;
 }
 
 .profile {

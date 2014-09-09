@@ -26,11 +26,11 @@
 		<li ng-repeat="page in pages" ng-if="contents[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
 			<span>{{getPluralizedConcepts(page)|capitalize}}</span>
 		</li>
-		<li ng-click="scrollToSection('page_about')" class="item {{current == 'page_about' ? 'active':''}}">
-			<span>About Me</span>
-		</li>
 		<li ng-click="scrollToSection('page_contact')" class="item {{current == 'page_contact' ? 'active':''}}">
 			<span>Contact</span>
+		</li>
+		<li ng-click="scrollToSection('page_about')" class="item {{current == 'page_about' ? 'active':''}}">
+			<span>About Me</span>
 		</li>
 	</ul>
 
@@ -133,19 +133,6 @@
 
 	</div>
 
-	<div id="page_about" class="page" style="height:{{appSv.getHeight()}}px;">
- 
-		<div ng-if="pages.length % 2 == 0" class="triangle-bottomright yellow"></div>
-		<div ng-if="pages.length != 0" class="triangle-topleft black"></div>
-		<h3>About</h3>
-		<img class="users-photo" ng-src="{{user.profile_image}}">
-		<div class="auriculares"></div>
-		<div class="content content-info">
-			<p>Lorem fistrum a peich está la cosa muy malar diodeno amatomaa la caidita ese hombree. Diodeno al ataquerl amatomaa no puedor va usté muy cargadoo al ataquerl al ataquerl por la gloria de mi madre benemeritaar ese hombree amatomaa. Qué dise usteer ese pedazo de tiene musho peligro te va a hasé pupitaa ese hombree se calle ustée. Se calle ustée fistro de la pradera qué dise usteer condemor mamaar. Ese hombree a gramenawer sexuarl al ataquerl ese hombree sexuarl. Por la gloria de mi madre diodenoo ese pedazo de ese pedazo de la caidita qué dise usteer apetecan pupita de la pradera al ataquerl llevame al sircoo. Ese que llega mamaar al ataquerl a wan.</p>
-		</div>
-
-	</div>
-
 	<div id="page_contact" class="page" style="height:{{appSv.getHeight()}}px;">
 
 		<div ng-if="pages.length % 2 == 0" class="triangle-topleft yellow"></div>
@@ -167,6 +154,19 @@
 			      </div>
 		      </form>
 		    </div>		
+
+	</div>
+
+	<div id="page_about" class="page" style="height:{{appSv.getHeight()}}px;">
+ 
+		<div ng-if="pages.length % 2 == 0" class="triangle-bottomright yellow"></div>
+		<div ng-if="pages.length != 0" class="triangle-topleft black"></div>
+		<h3>About</h3>
+		<img class="users-photo" ng-src="{{user.profile_image}}">
+		<div class="auriculares"></div>
+		<div class="content content-info">
+			<p>Lorem fistrum a peich está la cosa muy malar diodeno amatomaa la caidita ese hombree. Diodeno al ataquerl amatomaa no puedor va usté muy cargadoo al ataquerl al ataquerl por la gloria de mi madre benemeritaar ese hombree amatomaa. Qué dise usteer ese pedazo de tiene musho peligro te va a hasé pupitaa ese hombree se calle ustée. Se calle ustée fistro de la pradera qué dise usteer condemor mamaar. Ese hombree a gramenawer sexuarl al ataquerl ese hombree sexuarl. Por la gloria de mi madre diodenoo ese pedazo de ese pedazo de la caidita qué dise usteer apetecan pupita de la pradera al ataquerl llevame al sircoo. Ese que llega mamaar al ataquerl a wan.</p>
+		</div>
 
 	</div>
 
