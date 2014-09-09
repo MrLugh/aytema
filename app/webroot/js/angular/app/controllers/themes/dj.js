@@ -14,6 +14,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.current	= 'page_profile';
 	$scope.content	= {};
 
+	$scope.isHover	= false;
+
 	$scope.validPages = ['photo','track','video','post','event'];
 
 	$scope.showingDetail = false;
@@ -183,6 +185,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
     });
+
+	$scope.setInitHover = function(value) {
+		$scope.isHover = value;
+	}
 
 	$scope.scrollTo = function(element) {
 		$('html, body').animate({

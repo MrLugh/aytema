@@ -1,6 +1,7 @@
 body {
   color: #080808; 
   overflow: auto;
+  overflow-x: hidden;
   -webkit-transition:all 0.66s ease;
   -moz-transition:all 0.66s ease;
   -o-transition:all 0.66s ease;
@@ -186,10 +187,10 @@ p {
   left:0;
   z-index: 2;
   opacity: 0;
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;
+  -webkit-transition:all 0.2s ease 0s;
+  -moz-transition:all 0.2s ease 0s;
+  -o-transition:all 0.2s ease 0s;
+  transition:all 0.2s ease 0s;
 
 }
 
@@ -274,16 +275,18 @@ p {
   background-repeat: no-repeat;
 }
 #page_profile .init {
+  position: relative;
+  z-index: 1;
   font-size:80px;
   width:100px;
   height:100px;
   border-radius:50%;
   border-style:solid;
   border-width:5px;
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;
+  -webkit-transition:all 0.2s ease 0s;
+  -moz-transition:all 0.2s ease 0s;
+  -o-transition:all 0.2s ease 0s;
+  transition:all 0.2s ease 0s;
 }
 #page_profile .init:hover {
   color: #ffc229;
@@ -302,6 +305,26 @@ p {
 	font-family: 'Rock Salt', cursive;
 	letter-spacing: -0.05em;
 	padding: 0;
+  position: relative;
+  z-index: 1;
+  -webkit-transition:all 0.2s ease 0s;
+  -moz-transition:all 0.2s ease 0s;
+  -o-transition:all 0.2s ease 0s;
+  transition:all 0.2s ease 0s;
+  -webkit-transform: scale(1) rotate(0deg);
+  -moz-transform:    scale(1) rotate(0deg);
+  -ms-transform:     scale(1) rotate(0deg);
+  -o-transform:      scale(1) rotate(0deg);
+  transform:         scale(1) rotate(0deg);  
+}
+#page_profile h3.hover { 
+  color: #ffc229;
+  background-color: rgba(0,0,0,0.7);
+  -webkit-transform: scale(1.2) rotate(-2deg);
+  -moz-transform:    scale(1.2) rotate(-2deg);
+  -ms-transform:     scale(1.2) rotate(-2deg);
+  -o-transform:      scale(1.2) rotate(-2deg);
+  transform:         scale(1.2) rotate(-2deg);
 }
 .arrow-down {
     animation: 2s linear 0s normal none infinite hoverup;
@@ -402,10 +425,10 @@ p {
 }
 
 .pageTrackContainer .overlay {
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;
+  -webkit-transition:all 0.2s ease 0s;
+  -moz-transition:all 0.2s ease 0s;
+  -o-transition:all 0.2s ease 0s;
+  transition:all 0.2s ease 0s;
 }
 
 .pageTrackContainer:hover .overlay {
@@ -669,10 +692,10 @@ textarea.form-control {
   margin: 0;
   padding: 0;
   overflow: auto;
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;
+  -webkit-transition:all 0.2s ease 0s;
+  -moz-transition:all 0.2s ease 0s;
+  -o-transition:all 0.2s ease 0s;
+  transition:all 0.2s ease 0s;
   background-color: rgb(2, 16, 27);
   z-index: 3;
 }
@@ -700,10 +723,10 @@ textarea.form-control {
   padding: 15px;
   color:#fff;
   font-size: 20px;
-  -webkit-transition: all 0.56s ease;
-  -moz-transition: all 0.56s ease;
-  -o-transition: all 0.56s ease;
-  transition: all 0.56s ease;
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 
 #page_detail i.controlNext:hover,
@@ -733,10 +756,10 @@ textarea.form-control {
   margin: 0 auto;
   background-color: #000;
   display: inline-block;
-  -webkit-transition: all 0.56s ease;
-  -moz-transition: all 0.56s ease;
-  -o-transition: all 0.56s ease;
-  transition: all 0.56s ease;
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 
 .detail_container .player {
