@@ -782,7 +782,7 @@ textarea.form-control {
 .rows-slider-wrap li {
   display:inline-block;
   width:308px;
-  height:308px;
+  height: 200px;
   margin:0 10px 10px 0;
   cursor:pointer;
   vertical-align:top;
@@ -794,7 +794,7 @@ textarea.form-control {
   position:relative;
   overflow:hidden;
   width:308px;
-  height:308px;
+  height: 200px;
   display:table-cell;
   vertical-align: middle;
   background-color:rgba(19, 19, 19, 0.85);
@@ -812,7 +812,7 @@ textarea.form-control {
   bottom:0;
   text-align:center;
   line-height:288px;
-  height: 308px;
+  height: 200px;
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
