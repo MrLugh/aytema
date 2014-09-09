@@ -46,7 +46,6 @@ function relatedCo($scope,$sce,contentSv) {
 	}
 
     $scope.$watch('content',function(){
-        console.log($scope.content);
         $scope.loadRelatedContent();
     },true);
 
