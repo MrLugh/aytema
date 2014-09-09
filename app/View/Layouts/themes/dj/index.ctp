@@ -85,6 +85,7 @@
         echo $this->Html->script('angular/app/controllers/themes');
         echo $this->Html->script('angular/app/controllers/themes/dj');
         echo $this->Html->script('angular/app/controllers/themes/dj/content');
+        echo $this->Html->script('angular/app/controllers/themes/dj/related');
     ?>
 
     <!-- Plugins -->

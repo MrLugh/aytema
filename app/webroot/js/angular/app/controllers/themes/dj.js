@@ -10,12 +10,13 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accountsLoaded = false;
 
 	$scope.limit 	= 40;
-	$scope.content 	= {};
+	$scope.contents	= {};
 	$scope.current	= 'page_profile';
+	$scope.content	= {};
 
 	$scope.validPages = ['photo','track','video','post','event'];
 
-	$scope.showDetail = false;	
+	$scope.showingDetail = false;
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -31,20 +32,20 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		return userSv.isLogged();
 	}
 
-	$scope.manageDetail = function() {
-		console.log("manageDetail");
-		$scope.showDetail = !$scope.showDetail;
-		if ($scope.showDetail) {
+	$scope.showDetail = function(content) {
+		$scope.showingDetail = !$scope.showingDetail;
+		if ($scope.showingDetail) {
 			var element = angular.element(document.querySelector("#page_detail"));
 			$scope.scrollTo(element);
 		} else {
 			$scope.scrollToSection($scope.current);
 		}
+		$scope.content = content;
 	}
 
 	$scope.generatePagesList = function() {
 
-		$scope.content 	= {};
+		$scope.contents 	= {};
 
 		var concepts = [];
 
@@ -61,15 +62,15 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.concepts = concepts;
 
 		$scope.pages 	= [];
-		$scope.content  = {};
+		$scope.contents  = {};
 		for (var x in $scope.concepts) {
 
 			var concept = $scope.concepts[x];
 
 			$scope.pages.push(concept);
 
-			if (!angular.isDefined($scope.content[concept])) {
-				$scope.content[concept] = {'offset':0,'list':[],'current':0};
+			if (!angular.isDefined($scope.contents[concept])) {
+				$scope.contents[concept] = {'offset':0,'list':[],'current':0};
 				$scope.getContent(concept);
 			}
 		}
@@ -93,7 +94,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 		params['concepts']	= [concept];
 		params['networks']	= networks;
-		params['offset']	= $scope.content[concept].offset;
+		params['offset']	= $scope.contents[concept].offset;
 		params['limit']		= $scope.limit;
 		params['accounts']	= accounts;
 
@@ -103,10 +104,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 				if (data.contents.length) {
 					for (var x in contents) {
 						content = contents[x].Content;
-						$scope.content[concept].list.push(content);
+						$scope.contents[concept].list.push(content);
 					}
-					$scope.content[concept].offset = $scope.content[concept].list.length;
-					//contentSv.setPageList(concept,$scope.content[concept]);
+					$scope.contents[concept].offset = $scope.contents[concept].list.length;
+					//contentSv.setPageList(concept,$scope.contents[concept]);
 				}
 			},
 			function(reason) {
@@ -128,6 +129,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
 	}
 
+	$scope.getDescription = function(content) {
+
+		return $sce.trustAsHtml(contentSv.getDescription(content));
+	}
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 
@@ -179,37 +184,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	    });
 	}
 
-	$scope.showComments = function(index) {
-		$scope.isComments	= !$scope.isComments;
-		$scope.indexComments= index;
-	}
-
     $scope.getContentCommentsHash = function() {
-    	var c = $scope.list[$scope.indexComments];
+    	var c = $scope.content;
     	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
     }	
-
-	$scope.getCommentsColor = function() {
-
-		var color = $scope.config.custom.colors.background.value.replace("#","");
-
-		if (contentSv.getContrast50(color) == 'white') {
-			return "dark";
-		}
-		return "light";
-	}
-
-	$scope.getCommentsStyle = function() {
-		var style = {
-			'height':appSv.getHeight() - $scope.menuHeight + 'px',
-			'top':$scope.menuHeight + 'px',
-			'left':($scope.isComments) ? '0':'-100%',
-			'background-color':$scope.config.custom.colors.background.value,
-			'color':$scope.config.custom.colors.contentText.value
-		}
-
-		return style;
-	}
 
     $scope.adminTheme = function() {
     	$scope.showConfig = !$scope.showConfig;

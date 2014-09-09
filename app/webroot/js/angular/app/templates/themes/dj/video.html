@@ -1,17 +1,7 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="video {{content.network}}_{{content.concept}}">
-
-	<div class="pageVideoContainer">
-
-	    <div class="overlay">
-	      <div class="overlay-inner">
-			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
-			<p ng-bind-html="getDescription()"></p>
-	      </div>
-	      <i class="fa fa-play-circle" ng-click="showVideo()"></i>
-	    </div>
-
-		<div thumbnail="content" style="background-image:url({{getThumbnail()}});" class="video_thumbnail" ></div>
-
+	<div class="player left inline" ng-bind-html="getPlayer()"></div>
+	<div class="content_caption left inline">	
+		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+		<p ng-bind-html="getDescription()"></p>
 	</div>
-	
 </div>

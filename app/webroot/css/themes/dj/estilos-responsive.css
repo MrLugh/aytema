@@ -1,0 +1,6 @@
+@media (max-width: 480px) {
+	#page_video .list_carousel li, .video_thumbnail {
+		width:  200px;
+		height: 200px;
+	}
+}
