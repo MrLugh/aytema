@@ -78,7 +78,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		source = source.replace(/height="(.*?)"/g,'');
 		source = source.replace(/height='(.*?)'/g,'');
 
-		
 		source = source.replace('autoplay=1','autoplay=0');
 		source = source.replace('auto_play=true','auto_play=false');
 		source = source.replace('autostart=true','autostart=false');
@@ -617,6 +616,25 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		return source;
 	}
 
+	var youtubeParser = function(url){
+    	var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    	var match = url.match(regExp);
+    	if (match&&match[7].length==11){
+        	return match[7];
+    	}else{
+        	return '';
+    	}
+	}
+
+	var vimeoParser = function(url){
+		var regExp = /(videos|video|channels|\.com)\/([\d]+)/;
+		var parseUrl = url.match(regExp);
+		if (angular.isDefined(parseUrl[2])) {
+			return parseUrl[2];
+		}
+		return '';
+	}	
+
 	var getPlayer = function(content) {
 
 		var source = '';
@@ -631,13 +649,22 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				if (angular.isDefined(content.data['player'])) {
 					if (angular.isArray(content.data['player'])) {
 						source = content.data['player'][0]['embed_code'];
+						if (this.youtubeParser(source).length) {
+							var src = 'http://www.youtube.com/embed/'+this.youtubeParser(source)+'?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0';
+							source = '<iframe src="'+src+'" frameborder="0" allowfullscreen></iframe>';
+						}
+						if (this.vimeoParser(source).length) {
+							var id = this.vimeoParser(source);
+							source = '<iframe src="http://player.vimeo.com/video/'+id+'?title=0&byline=0&portrait=0" width="250" height="188" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+						}
+						console.log(content);
 					}
 				}
 			}
 
 			if (content.network == 'vimeo') {
 				var id = content.external_id;
-				source = '<iframe src="http://player.vimeo.com/video/'+id+'" width="250" height="188" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+				source = '<iframe src="http://player.vimeo.com/video/'+id+'?title=0&byline=0&portrait=0" width="250" height="188" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
 			}
 
 			if (content.network == 'facebook') {
@@ -1090,6 +1117,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		getFacebookContentHrefEmbed:getFacebookContentHrefEmbed,
 
+		youtubeParser:youtubeParser,
+		vimeoParser:vimeoParser,
 		getThumbnail:getThumbnail,
 		getPlayer:getPlayer,
 		getEmbed:getEmbed,

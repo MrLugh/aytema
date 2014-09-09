@@ -98,7 +98,7 @@
 			<ul>
 				<li ng-repeat="photo in contents.photo.list" ng-if="$index <= contents.photo.list.length/2">
 					<div>
-						<img ng-src="{{contentSv.getThumbnail(photo)}}" style="margin:0 auto;"/>
+						<img ng-src="{{contentSv.getThumbnail(photo)}}" style="margin:0 auto;width:100%;"/>
 					</div>
 					<span class="text">{{contentSv.getTitle(photo)}}</span>
 				</li>
@@ -107,7 +107,7 @@
 			<ul>
 				<li ng-repeat="photo in contents.photo.list" ng-if="$index > contents.photo.list.length/2">
 					<div>
-						<img ng-src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align"/>
+						<img ng-src="{{contentSv.getThumbnail(photo)}}" style="margin:0 auto;width:100%;"/>
 					</div>
 					<span class="text">{{contentSv.getTitle(photo)}}</span>
 				</li>
