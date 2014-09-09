@@ -33,14 +33,15 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.showDetail = function(content) {
-		$scope.showingDetail = !$scope.showingDetail;
-		if ($scope.showingDetail) {
+		if (!angular.equals({}, content)) {
 			var element = angular.element(document.querySelector("#page_detail"));
 			$scope.scrollTo(element);
 			angular.element(document.querySelector("body")).css('overflow','hidden');
+			$scope.showingDetail = true;
 		} else {
 			$scope.scrollToSection($scope.current);
 			angular.element(document.querySelector("body")).css('overflow','initial');
+			$scope.showingDetail = false;
 		}
 		$scope.content = content;
 	}
@@ -192,13 +193,13 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 	$scope.resetIframes = function(index) {
 
-	    angular.forEach(document.querySelectorAll("#content_"+index+" iframe"), function(iframe, index) {
+	    angular.forEach(document.querySelectorAll("#content"+index+" iframe"), function(iframe, index) {
 	    	iframe.src = iframe.src;
 	    });
-	    angular.forEach(document.querySelectorAll("#content_"+index+" video"), function(iframe, index) {
+	    angular.forEach(document.querySelectorAll("#content"+index+" video"), function(iframe, index) {
 	    	iframe.src = iframe.src;
 	    });
-	    angular.forEach(document.querySelectorAll("#content_"+index+" audio"), function(iframe, index) {
+	    angular.forEach(document.querySelectorAll("#content"+index+" audio"), function(iframe, index) {
 	    	iframe.src = iframe.src;
 	    });
 	}

@@ -26,7 +26,6 @@ function relatedCo($scope,$sce,contentSv) {
                     for (var x in contents) {
                         content = contents[x].Content;
                         $scope.relateds.push(content);
-                        console.log(content.id);
                     }
                 }
             },
