@@ -248,7 +248,7 @@ p {
   text-transform: uppercase;
 }
 #menu .active { 
-   color: #ffb740;	
+   color: #ffb740;
 }
 #menu span {
    transition: all 0.5s ease;
@@ -611,6 +611,7 @@ textarea.form-control {
   text-overflow:ellipsis;
   font-size:17px;
   padding: 10px;
+  background-color: #ffb740;
   font-family: 'Oswald', sans-serif;
   overflow-y: hidden;
   -webkit-transition:all 0.5s ease;
