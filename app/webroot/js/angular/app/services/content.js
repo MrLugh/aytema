@@ -649,15 +649,14 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				if (angular.isDefined(content.data['player'])) {
 					if (angular.isArray(content.data['player'])) {
 						source = content.data['player'][0]['embed_code'];
-						if (this.youtubeParser(source).length) {
+						if (content.data.video_type=="youtube" && this.youtubeParser(source).length) {
 							var src = 'http://www.youtube.com/embed/'+this.youtubeParser(source)+'?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0';
 							source = '<iframe src="'+src+'" frameborder="0" allowfullscreen></iframe>';
 						}
-						if (this.vimeoParser(source).length) {
+						if (content.data.video_type=="vimeo" && this.vimeoParser(source).length) {
 							var id = this.vimeoParser(source);
 							source = '<iframe src="http://player.vimeo.com/video/'+id+'?title=0&byline=0&portrait=0" width="250" height="188" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
 						}
-						console.log(content);
 					}
 				}
 			}
