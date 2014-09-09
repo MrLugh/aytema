@@ -187,7 +187,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.scrollTo = function(element) {
 		$('html, body').animate({
 			scrollTop: element[0].offsetTop
-		}, 500);
+		}, 1000);
 	}
 
 	$scope.scrollToSection = function(section) {

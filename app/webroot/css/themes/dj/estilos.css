@@ -208,6 +208,8 @@ p {
 	border-top-color: #131313!important;
 	border-bottom-color: #131313!important;
 }
+
+
 /*shapes*/
 .page { 
 	position: relative;
@@ -299,7 +301,7 @@ p {
   font-family: 'Rock Salt', cursive;
 }
 
-/*tracks*/
+/*page_track*/
 
 #page_track { 
   background: url("../../../img/themes/dj/bg_music.jpg") no-repeat center center fixed; 
@@ -307,13 +309,9 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-/*page_track*/
-
-#page_track {
   background-color: #f3f3f3;
 }
+
 #page_track h3 { 
   color: #080808;
 }
@@ -494,6 +492,19 @@ p {
 }
 .pageTrackContainer .overlay .overlay-inner p a:hover {
     text-decoration: none;
+}
+
+
+/*page_video*/
+
+#page_video {
+  /*background: url("../../../img/themes/dj/bg_footer.jpg") no-repeat center center fixed;*/
+  background-color: #f3f3f3;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
 }
 
 /*page_photo*/
