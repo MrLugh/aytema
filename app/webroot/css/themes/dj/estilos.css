@@ -368,7 +368,7 @@ p {
 .pageVideoContainer:hover .overlay {
     top:250px;
     opacity: 1;
-    background-color:rgba(230, 127, 77, 0.7);
+    background-color:#ffb740;
 }
 
 .pageVideoContainer .overlay .overlay-inner {
@@ -743,7 +743,7 @@ textarea.form-control {
   left:0;
   background-position: center;
   background-repeat: no-repeat;
-  background-color:rgba(230, 127, 77, 0.7);
+  background-color:#ffb740;
   background-size: contain;
 }
 .rows-slider__controls-right {
@@ -751,7 +751,7 @@ textarea.form-control {
   right:0;
   background-position: center;
   background-repeat: no-repeat;
-  background-color:rgba(230, 127, 77, 0.7);
+  background-color:#ffb740;
   background-size: contain;
 }
 .rows-slider__controls_disabled {
@@ -791,7 +791,7 @@ textarea.form-control {
   width:59px;
   height:63px;
   top:45%;
-  background-color:rgba(230, 127, 77, 0.7);
+  background-color:#ffb740;
   background-size: contain;
 }
 
@@ -831,6 +831,13 @@ textarea.form-control {
 
 .relateds {
   text-align: center;
+  background-color: #ffb740;
+}
+
+.relateds .carousel_container {
+  width: calc(100% - 120px)!important;
+  position: relative;
+  left: 59px;
 }
 
 .relateds .list_carousel li { 

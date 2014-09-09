@@ -47,9 +47,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.moveDetail = function(direction) {
 
-		console.log($scope.contents,$scope.content.concept);
-		console.log($scope.contents[$scope.content.concept]);
-
 		var currentPos = $scope.contents[$scope.content.concept].list.indexOf($scope.content);
 
         if (direction > 0) {currentPos++;} else {currentPos--;}

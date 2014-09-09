@@ -16,6 +16,8 @@ function relatedCo($scope,$sce,contentSv) {
         var params = [];
         params['id']        = content.id;
         params['limit']     = 20;
+        params['network']   = $scope.content.network;
+
 
         contentSv.getRelatedContent(params).then(
             function(data) {
@@ -24,8 +26,8 @@ function relatedCo($scope,$sce,contentSv) {
                     for (var x in contents) {
                         content = contents[x].Content;
                         $scope.relateds.push(content);
+                        console.log(content.id);
                     }
-                    console.log($scope.relateds);
                 }
             },
             function(reason) {
