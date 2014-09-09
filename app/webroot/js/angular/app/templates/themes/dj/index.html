@@ -53,6 +53,26 @@
 		<div class="triangle-bottomright black"></div>
 		<h3>Videos</h3>
 
+		<div class="wrapper">
+			<div class="list_carousel">
+				<a id="prev_video" class="prev" href="#/"></a>
+				<a id="next_video" class="next" href="#/"></a>
+				<div class="carousel_container left">
+					<ul id="carousel_videos" caroufredsel="{'selector':'#carousel_videos','auto':false,'prev':'#prev_video','next':'#next_video','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+						<li ng-repeat="content in content.video.list">
+							<!--
+							<a href="#/" ng-click="showDetail('video',$index)" skip-default >
+								<i class="fa fa-plus-circle" style="maring:auto 0;top:45%;left:45%;position:relative;font-size:20px;"></i>
+							</a>
+							-->
+							<content-video></content-video>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
 	</div>
 
 	<div ng-if="content.track.list.length>0" id="page_track" class="page" style="height:{{appSv.getHeight()}}px;">
@@ -70,7 +90,7 @@
 			<ul>
 				<li ng-repeat="photo in content.photo.list" ng-if="$index <= content.photo.list.length/2">
 					<div>
-						<img src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align" ng-click="manageDetail()"/>
+						<img ng-src="{{contentSv.getThumbnail(photo)}}" style="margin:0 auto;"/>
 					</div>
 					<span class="text">{{contentSv.getTitle(photo)}}</span>
 				</li>
@@ -79,7 +99,7 @@
 			<ul>
 				<li ng-repeat="photo in content.photo.list" ng-if="$index > content.photo.list.length/2">
 					<div>
-						<img src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align" ng-click="manageDetail()"/>
+						<img ng-src="{{contentSv.getThumbnail(photo)}}" style="max-width:100%;margin:0 auto;text-align"/>
 					</div>
 					<span class="text">{{contentSv.getTitle(photo)}}</span>
 				</li>
@@ -98,7 +118,7 @@
  
 		<div class="triangle-topleft black"></div>
 		<h3>About</h3>
-		<img class="users-photo" src="{{user.profile_image}}">
+		<img class="users-photo" ng-src="{{user.profile_image}}">
 		<div class="auriculares"></div>
 		<div class="content content-info">
 			<p>Lorem fistrum a peich está la cosa muy malar diodeno amatomaa la caidita ese hombree. Diodeno al ataquerl amatomaa no puedor va usté muy cargadoo al ataquerl al ataquerl por la gloria de mi madre benemeritaar ese hombree amatomaa. Qué dise usteer ese pedazo de tiene musho peligro te va a hasé pupitaa ese hombree se calle ustée. Se calle ustée fistro de la pradera qué dise usteer condemor mamaar. Ese hombree a gramenawer sexuarl al ataquerl ese hombree sexuarl. Por la gloria de mi madre diodenoo ese pedazo de ese pedazo de la caidita qué dise usteer apetecan pupita de la pradera al ataquerl llevame al sircoo. Ese que llega mamaar al ataquerl a wan.</p>

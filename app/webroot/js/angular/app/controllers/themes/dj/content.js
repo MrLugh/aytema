@@ -1,4 +1,4 @@
-function contentVideoCo($scope,$sce,contentSv,userSv) {
+function contentVideoCo($scope,$sce,contentSv) {
 
 	//console.log($scope.content);
 
@@ -40,40 +40,24 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 		return $scope.thumbnail;
 	}
 
+	$scope.showVideo = function() {
+
+		$scope.$parent.showVideo($scope.content);
+	}
+
 	$scope.getTitle = function() {	
 
 		return contentSv.getTitle($scope.content);
 	}
 
+	$scope.hasDescription = function() {
+
+		return contentSv.getDescription($scope.content).length;
+	}
+
 	$scope.getDescription = function() {
 
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
-	}
-
-    $scope.getDescriptionStyle = function() {
-
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-
-    	return {
-    		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
-		}
-
-	}
-
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
 	}
 
 	$scope.hasThumbnail = function() {
@@ -101,16 +85,6 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 		return !$scope.hasThumbnail() && !$scope.hasPlayer();
 	}
 
-	$scope.getBgImage = function() {
-		if (!$scope.hasThumbnail()) {
-			return {}
-		}
-
-		return {
-			'background-image':"url('"+$scope.getThumbnail()+"')"
-		}
-	}
-
 	$scope.$watch("content",function(value){
 		//console.log("Watch video content ",value.id,$scope.content.id);
 		$scope.player	= "";
@@ -123,13 +97,14 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 }
 
 
-function contentPhotoCo($scope,contentSv,userSv) {
+function contentPhotoCo($scope,userSv,contentSv) {
 
 	//console.log($scope.content);
 
 	$scope.photolist	= [];
 	$scope.current 		= {};
 	$scope.currentPos	= 0;
+	$scope.userSv		= userSv;
 
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
@@ -182,31 +157,40 @@ function contentPhotoCo($scope,contentSv,userSv) {
 		return '';
 	}
 
-    $scope.getDescriptionStyle = function() {
-
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-
-    	return {
-    		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
-		}
-
-	}
-
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
+	$scope.getOverlayStyle = function() {
 
 		return {
-			'color':userSv.getThemeConfig().custom.colors.background.value,
-		};		
+			'background-color': userSv.getThemeConfig().custom.colors.background.value,
+		}
 	}
+
+	$scope.getTitleStyle = function() {
+
+		return {
+			'background-color': userSv.getThemeConfig().custom.colors.contentBackground.value,
+			'color': userSv.getThemeConfig().custom.colors.contentText.value
+		}
+	}	
+
+	$scope.getDescriptionStyle = function() {
+
+		var color = userSv.getThemeConfig().custom.colors.background.value.replace("#","");
+
+		var contrast = "#000000";
+		if (contentSv.getContrast50(color) == 'white') {
+			contrast = "#ffffff";
+		}
+
+		return {
+			'background-color': userSv.getThemeConfig().custom.colors.background.value,
+			'color': contrast
+		}
+	}
+
+	$scope.showPhoto = function() {
+
+		$scope.$parent.showPhoto($scope.content);
+	}	
 
 	$scope.move = function(direction) {
 
@@ -236,10 +220,9 @@ function contentPhotoCo($scope,contentSv,userSv) {
 
 }
 
-function contentTrackCo($scope,$sce,contentSv,userSv) {
+function contentTrackCo($scope,$sce,contentSv) {
 
-	//console.log($scope.content);
-
+	console.log($scope.content);
 	$scope.player	= "";
 	$scope.thumbnail= "";
 
@@ -275,6 +258,11 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 		return $scope.thumbnail;
 	}
 
+	$scope.showTrack = function() {
+
+		$scope.$parent.showTrack($scope.content);
+	}	
+
 	$scope.getTitle = function() {
 
 		return contentSv.getTitle($scope.content);
@@ -284,32 +272,6 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}	
-
-    $scope.getDescriptionStyle = function() {
-
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-
-    	return {
-    		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
-		}
-
-	}
-
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
-	}
 
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();
@@ -336,16 +298,6 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 		return !$scope.hasThumbnail() && !$scope.hasPlayer();
 	}
 
-	$scope.getBgImage = function() {
-		if (!$scope.hasThumbnail()) {
-			return {}
-		}
-
-		return {
-			'background-image':"url('"+$scope.getThumbnail()+"')"
-		}
-	}
-
 	$scope.$watch("content",function(value){
 		//console.log("Watch track content ",value.id,$scope.content.id);		
 		$scope.player	= "";
@@ -357,11 +309,9 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 
 }
 
-function contentPostCo($scope,contentSv,$sce,userSv) {
+function contentPostCo($scope,contentSv,$sce) {
 
 	//console.log($scope.content);
-
-	$scope.thumbnail= "";
 
 	$scope.isFromNetwork = function(network) {
 		return $scope.content.network == network;
@@ -381,7 +331,6 @@ function contentPostCo($scope,contentSv,$sce,userSv) {
 	}
 
 	$scope.getTitle = function() {
-
 		return contentSv.getTitle($scope.content);
 	}
 
@@ -390,27 +339,11 @@ function contentPostCo($scope,contentSv,$sce,userSv) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
-    $scope.getDescriptionStyle = function() {
-
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-
-    	return {
-    		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
-		}
-
-	}	
-
 	$scope.getThumbnail = function() {
 
 		if ($scope.loadThumbnail) {
 			return $scope.thumbnail;
-		}		
+		}
 
 		$scope.thumbnail	= contentSv.getThumbnail($scope.content);
 		$scope.loadThumbnail= true;
@@ -421,24 +354,18 @@ function contentPostCo($scope,contentSv,$sce,userSv) {
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();
 		return $scope.thumbnail.length > 0;
-	}	
+	}
 
-	$scope.getBgImage = function() {
-		if (!$scope.hasThumbnail()) {
-			return {}
-		}
-
-		return {
-			'background-image':"url('"+$scope.getThumbnail()+"')"
-		}
+	$scope.canShowThumbnail = function() {
+		return $scope.hasThumbnail();
 	}
 
 	$scope.$watch("content",function(value){
-		//console.log("Watch video content ",value.id,$scope.content.id);
 		$scope.thumbnail= "";
 
 		$scope.loadThumbnail= false;
-	});	
+	});
+
 
 }
 
@@ -447,7 +374,6 @@ function contentChatCo($scope,contentSv) {
 	//console.log($scope.content);
 
 	$scope.getTitle = function() {
-
 		return contentSv.getTitle($scope.content);
 	}
 
@@ -487,32 +413,24 @@ function contentLinkCo($scope,contentSv,$sce) {
 	}
 }
 
-function contentEventCo($scope,contentSv,$sce,userSv) {
+function contentEventCo($scope,contentSv,$sce) {
 
 	//console.log($scope.content);
 	
-    $scope.getDescriptionStyle = function() {
-
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		var rgb = contentSv.hexToRgb(userSv.getThemeConfig().custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-
-    	return {
-    		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
-		}
-
-	}
-	
 	$scope.getMapSrc = function() {
+
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
 		"&size=850x850"+
 		"&markers="+encodeURI($scope.content.data.address)+
 		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
 	}
+
+	$scope.getDayStyle = function() {
+		
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	}	
 
 }

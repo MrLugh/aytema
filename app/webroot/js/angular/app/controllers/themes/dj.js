@@ -9,7 +9,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 40;
+	$scope.limit 	= 10;
 	$scope.content 	= {};
 	$scope.current	= 'page_profile';
 
@@ -32,6 +32,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.manageDetail = function() {
+		console.log("manageDetail");
 		$scope.showDetail = !$scope.showDetail;
 		if ($scope.showDetail) {
 			var element = angular.element(document.querySelector("#page_detail"));
