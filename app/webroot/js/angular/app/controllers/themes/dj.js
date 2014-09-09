@@ -9,7 +9,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 10;
+	$scope.limit 	= 40;
 	$scope.content 	= {};
 	$scope.current	= 'page_profile';
 

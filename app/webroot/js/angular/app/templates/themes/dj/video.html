@@ -4,8 +4,8 @@
 
 	    <div class="overlay">
 	      <div class="overlay-inner">
-	        <h2>{{getTitle()}}</h2>
-	        <p>{{getDescription()}}</p>
+			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+			<p ng-bind-html="getDescription()"></p>
 	      </div>
 	      <i class="fa fa-play-circle" ng-click="showVideo()"></i>
 	    </div>

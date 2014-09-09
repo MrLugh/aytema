@@ -422,6 +422,10 @@ p {
     height: 100%;
 }
 
+.pageVideoContainer .overlay {
+  height: 150px;
+}
+
 .pageVideoContainer .overlay i {
     position: absolute;
     top: calc(50% - 28px);
@@ -440,9 +444,28 @@ p {
 }
 
 .pageVideoContainer:hover .overlay {
-    top:0;
+    top:250px;
     opacity: 1;
     background-color:rgba(230, 127, 77, 0.7);
+}
+
+.pageVideoContainer .overlay .overlay-inner {
+  color:#0a1402;
+  display:inline-block;
+  font-size:36px;
+  letter-spacing:0;
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  text-align:center;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:17px;
+  padding: 10px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .pageVideoContainer .overlay .overlay-inner p a {
