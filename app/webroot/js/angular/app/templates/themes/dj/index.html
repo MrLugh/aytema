@@ -37,14 +37,14 @@
 	<div id="page_profile" class="page" style="height:{{appSv.getHeight()}}px;" parallax-background parallax-ratio="0.5">
 
 		<h3 style="line-height:{{appSv.getHeight()}}px;">{{user.username|uppercase}}</h3>
-		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[0])" skip-default><i class="fa fa-angle-down"></i></a>
+		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[0])" skip-default><i class="fa fa-angle-down init"></i></a>
 
 	</div>
 
 	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()}}px;" ng-switch="page">
 
-		<div ng-if="$index % 2 == 0" class="triangle-topleft black"></div>
-		<div ng-if="$index % 2 != 0" class="triangle-bottomright yellow"></div>
+		<div ng-if="$index % 2 == 0" class="triangle-bottomright black"></div>
+		<div ng-if="$index % 2 != 0" class="triangle-topleft yellow"></div>
 
 		<div ng-switch-when="post">
 
@@ -148,7 +148,7 @@
 
 	<div id="page_contact" class="page" style="height:{{appSv.getHeight()}}px;">
 
-		<div ng-if="pages.length % 2 == 0" class="triangle-topleft black"></div>
+		<div ng-if="pages.length % 2 == 0" class="triangle-topleft yellow"></div>
 		<div ng-if="pages.length != 0" class="triangle-bottomright yellow"></div>
 		<h3>Contact</h3>
 		  <div class="content contacto"> 

@@ -273,6 +273,28 @@ p {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+#page_profile .init {
+  font-size:80px;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  border-style:solid;
+  border-width:5px;
+  -webkit-transition:all 0.56s ease;
+  -moz-transition:all 0.56s ease;
+  -o-transition:all 0.56s ease;
+  transition:all 0.56s ease;
+}
+#page_profile .init:hover {
+  color: #ffc229;
+  border-color:#ffc229;
+  background-color:#000;
+  -webkit-transform: scale(1.2);
+  -moz-transform:    scale(1.2);
+  -ms-transform:     scale(1.2);
+  -o-transform:      scale(1.2);
+  transform:         scale(1.2);
+}
 #page_profile h3 { 
 	font-size: 150px;
 	font-size: 7.9vw	;
@@ -333,10 +355,10 @@ p {
   -ms-transform:     none;
   -o-transform:      none;
   transform:         none;  
-    -webkit-transition: transform 0.2s ease 0s;
-    -moz-transition: transform 0.2s ease 0s;
-    -o-transition: transform 0.2s ease 0s;
-    transition: transform 0.2s ease 0s; 
+  -webkit-transition: transform 0.2s ease 0s;
+  -moz-transition: transform 0.2s ease 0s;
+  -o-transition: transform 0.2s ease 0s;
+  transition: transform 0.2s ease 0s;
 
 
 }
