@@ -7,7 +7,7 @@
 				<ul id="carousel_related" caroufredsel="{'selector':'#carousel_related', 'auto':false,'prev':'#prev_related','next':'#next_related','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
 					<li ng-repeat="related in relateds" style="background-image:url('{{contentSv.getThumbnail(related)}}');" ng-if="contentSv.getThumbnail(related).length">
 						<a href="#/" ng-click="showRelated($index)" skip-default >
-							<i ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;font-size:30px;" ng-click="showDetail(related)"></i>
+							<i ng-class="contentSv.getConceptIcon(related.concept)" ng-click="showDetail(related)"></i>
 						</a>
 					</li>
 				</ul>
