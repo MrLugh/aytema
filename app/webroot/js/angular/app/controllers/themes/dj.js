@@ -35,15 +35,19 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.showDetail = function(content) {
 		if (!angular.equals({}, content)) {
 			var element = angular.element(document.querySelector("#page_detail"));
-			$scope.scrollTo(element);
 			angular.element(document.querySelector("body")).css('overflow','hidden');
 			$scope.showingDetail = true;
+			setTimeout(function(){
+				$scope.scrollTo(element);
+			},500);
+			
 		} else {
 			$scope.scrollToSection($scope.current);
 			angular.element(document.querySelector("body")).css('overflow','initial');
 			$scope.showingDetail = false;
 		}
 		$scope.content = content;
+		$scope.details = [$scope.content];
 	}
 
 	$scope.moveDetail = function(direction) {
@@ -60,7 +64,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
             currentPos = 0;
         }
 
-        $scope.content = $scope.contents[$scope.content.concept].list[currentPos];
+        $scope.showDetail($scope.contents[$scope.content.concept].list[currentPos]);
 	}	
 
 	$scope.generatePagesList = function() {

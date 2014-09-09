@@ -50,7 +50,7 @@ ayTemaDs.directive('contentTrack',[function(){
         restrict : 'E',
         replace : true,
         controller:'contentTrackCo',
-        scope: true        
+        scope: true
     }
 
 }]);

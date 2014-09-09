@@ -50,30 +50,30 @@
 
 		</div>
 
-		<div ng-switch-when="video">
+		<div ng-switch-when="track">
 
 			<div class="triangle-bottomright black"></div>
-			<h3>Videos</h3>
+			<h3>Tracks</h3>
 
 			<div class="wrapper">
 				<div class="list_carousel">
-					<a id="prev_video" class="prev" href="#/"></a>
-					<a id="next_video" class="next" href="#/"></a>
+					<a id="prev_track" class="prev" href="#/"></a>
+					<a id="next_track" class="next" href="#/"></a>
 					<div class="carousel_container left">
-						<ul id="carousel_videos" caroufredsel="{'selector':'#carousel_videos','auto':false,'prev':'#prev_video','next':'#next_video','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-							<li ng-repeat="video in contents.video.list" ng-show="contentSv.getThumbnail(video).length">
+						<ul id="carousel_tracks" caroufredsel="{'selector':'#carousel_tracks','auto':false,'prev':'#prev_track','next':'#next_track','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+							<li ng-repeat="track in contents.track.list" ng-show="contentSv.getThumbnail(track).length">
 
-								<div class="pageVideoContainer">
+								<div class="pageTrackContainer">
 
 								    <div class="overlay">
-								      <i class="fa fa-play-circle" ng-click="showDetail(video)"></i>
+								      <i class="fa fa-play-circle" ng-click="showDetail(track)"></i>
 								      <div class="overlay-inner">
-										<h2 ng-if="contentSv.getTitle(video).length>0">{{contentSv.getTitle(video)}}</h2>
-										<p ng-bind-html="getDescription(video)"></p>
+										<h2 ng-if="contentSv.getTitle(track).length>0">{{contentSv.getTitle(track)}}</h2>
+										<p ng-bind-html="getDescription(track)"></p>
 								      </div>
 								    </div>
 
-									<div style="background-image:url({{contentSv.getThumbnail(video)}});" class="video_thumbnail" ></div>
+									<div style="background-image:url({{contentSv.getThumbnail(track)}});" class="track_thumbnail" ></div>
 
 								</div>
 
@@ -86,9 +86,9 @@
 
 		</div>
 
-		<div ng-switch-when="track">
+		<div ng-switch-when="video">
 
-			<h3>Tracks</h3>
+			<h3>Videos</h3>
 
 		</div>
 
@@ -179,7 +179,7 @@
 
 		<i ng-click="showDetail({})" class="fa fa-times controlClose right"></i>
 
-		<div ng-switch="content.concept" class="detail_container both">
+		<div ng-repeat="content in details" ng-switch="content.concept" class="detail_container both">
 
 			<content-video ng-switch-when='video'></content-video>
 			<content-photo ng-switch-when='photo'></content-photo>

@@ -309,16 +309,16 @@ p {
   background-size: cover;
 }
 
-/*page_video*/
+/*page_track*/
 
-#page_video {
+#page_track {
   background-color: #f3f3f3;
 }
-#page_video h3 { 
+#page_track h3 { 
   color: #080808;
 }
 
-.video_thumbnail {
+.track_thumbnail {
   display: block;
   width: 308px;
   height: 308px;
@@ -343,7 +343,7 @@ p {
 
 }
 
-.pageVideoContainer:hover .video_thumbnail {
+.pageTrackContainer:hover .track_thumbnail {
   -webkit-transform: scale(1.2) rotate(10deg);
   -moz-transform:    scale(1.2) rotate(10deg);
   -ms-transform:     scale(1.2) rotate(10deg);
@@ -356,7 +356,7 @@ p {
 }
 
 
-.pageVideoContainer {
+.pageTrackContainer {
     display: block;
     overflow: hidden;
     padding: 0;
@@ -367,11 +367,11 @@ p {
     height: 100%;
 }
 
-.pageVideoContainer .overlay {
+.pageTrackContainer .overlay {
   height: 308px;
 }
 
-.pageVideoContainer .overlay i {
+.pageTrackContainer .overlay i {
     position: absolute;
     right: 22px;
     bottom: 10px;
@@ -381,19 +381,19 @@ p {
     color:#ffc229;
 }
 
-.pageVideoContainer .overlay {
+.pageTrackContainer .overlay {
   -webkit-transition:all 0.56s ease;
   -moz-transition:all 0.56s ease;
   -o-transition:all 0.56s ease;
   transition:all 0.56s ease;
 }
 
-.pageVideoContainer:hover .overlay {
+.pageTrackContainer:hover .overlay {
     opacity: 1;
     background-color:rgba(19, 19, 19, 0.85);
 }
 
-.pageVideoContainer .overlay .overlay-inner {
+.pageTrackContainer .overlay .overlay-inner {
   color:#ffc229;
   display:inline-block;
   font-size:36px;
@@ -411,7 +411,7 @@ p {
   padding: 10px;
   font-family: 'Oswald', sans-serif;
 }
-.pageVideoContainer .overlay .overlay-inner h2 {
+.pageTrackContainer .overlay .overlay-inner h2 {
   font-family: 'Oswald', sans-serif;
   padding: 0px 30px;	
 	 text-overflow: ellipsis;
@@ -424,11 +424,11 @@ p {
 	  transition:all 0.3s ease 0s;	    	
 }
 
-.pageVideoContainer:hover .overlay .overlay-inner h2 {
+.pageTrackContainer:hover .overlay .overlay-inner h2 {
 	margin-left: 0px;
 }
 
-.pageVideoContainer .overlay .overlay-inner p {
+.pageTrackContainer .overlay .overlay-inner p {
 	line-height:37px;
 	 padding: 0px 30px;
 	 text-overflow: ellipsis;
@@ -445,12 +445,12 @@ p {
 
 }
 
-.pageVideoContainer:hover .overlay .overlay-inner p {
+.pageTrackContainer:hover .overlay .overlay-inner p {
 	margin-left: 0px;
 }
 
     
-.pageVideoContainer .overlay .overlay-inner blockquote {
+.pageTrackContainer .overlay .overlay-inner blockquote {
 	border-left: none;
 	margin: 0;
 	padding:0;
@@ -460,13 +460,13 @@ p {
 	  display: inherit;
 }
 
-.pageVideoContainer .overlay .overlay-inner blockquote p {
+.pageTrackContainer .overlay .overlay-inner blockquote p {
 	font-size: 20px;
 }
-.pageVideoContainer .overlay .overlay-inner blockquote p a {
+.pageTrackContainer .overlay .overlay-inner blockquote p a {
 	margin: 0;
 }
-.pageVideoContainer .overlay .overlay-inner strong {
+.pageTrackContainer .overlay .overlay-inner strong {
 	font-weight: 400;
 	 text-overflow: ellipsis;
 	 white-space: nowrap;
@@ -474,25 +474,25 @@ p {
 	  display: inherit;		
 }
 
-.pageVideoContainer .overlay .overlay-inner b {
+.pageTrackContainer .overlay .overlay-inner b {
 	font-weight: 400;
 	 text-overflow: ellipsis;
 	 white-space: nowrap;
 	  overflow: hidden;	
 	  display: inherit;	
 }
-.pageVideoContainer .overlay .overlay-inner p p {
+.pageTrackContainer .overlay .overlay-inner p p {
     color: #f3f3f3;
     padding: 0px;
 }
-.pageVideoContainer .overlay .overlay-inner p a {
+.pageTrackContainer .overlay .overlay-inner p a {
     font-style: italic;
     text-decoration: underline;
     color: #f3f3f3!important;
     padding: 0px;
      margin: 0 10px;
 }
-.pageVideoContainer .overlay .overlay-inner p a:hover {
+.pageTrackContainer .overlay .overlay-inner p a:hover {
     text-decoration: none;
 }
 
@@ -696,6 +696,10 @@ textarea.form-control {
 
 .detail_container .player {
   width: 70%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .detail_container .content_caption {
@@ -905,11 +909,11 @@ textarea.form-control {
   background-image:url("../../../img/themes/dj/next-big.png");  
 }
 
-#page_video .prev {
+#page_track .prev {
   left: 30px;
 }
 
-#page_video .next {
+#page_track .next {
   right: 30px;
 }
 
@@ -921,7 +925,7 @@ textarea.form-control {
   background-image:url("../../../img/themes/dj/next.png");  
 }
 
-#page_video .next {
+#page_track .next {
   right: 30px;
 }
 
@@ -942,7 +946,7 @@ textarea.form-control {
   overflow: hidden;
 }
 
-#page_video .list_carousel li {
+#page_track .list_carousel li {
   padding: 0;
   margin: 0px 6px 0 5px;
   display: block;

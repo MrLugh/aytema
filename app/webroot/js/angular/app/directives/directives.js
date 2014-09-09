@@ -686,3 +686,62 @@ ayTemaDs.directive('dropzone', [function() {
         }
     }
 }]);
+
+ayTemaDs.directive('player', ['$window','contentSv', function($window,contentSv) {
+  return {
+    restrict: 'C',
+    link: function(scope, elem, attrs) {
+
+        scope.hasAudio = function() {
+            return elem.find("audio").length;
+        };
+
+        scope.hasVideo = function() {
+            return elem.find("video").length;
+        }
+
+        scope.setThumbnail = function(tag) {
+            var thumb = contentSv.getThumbnail(scope.content);
+            elem.find(tag).css('background-image','url("'+thumb+'")');
+            elem.find(tag).addClass('cover');
+        }
+
+        scope.$watch('hasAudio()',function(){
+            console.log("hasAudio ",scope.hasAudio());
+            if (scope.hasAudio() &&
+                angular.isDefined(scope.content) &&
+                scope.content.network == 'cloudcial' &&
+                scope.content.concept == 'track') {
+                    scope.setThumbnail('audio');
+            }
+        },true);
+
+        scope.$watch('hasVideo()',function(){
+            console.log("hasVideo ",scope.hasVideo());
+            if (scope.hasVideo() &&
+                angular.isDefined(scope.content) &&
+                scope.content.network == 'cloudcial' &&
+                scope.content.concept == 'video') {
+                    scope.setThumbnail('video');
+            }
+        },true);
+
+        scope.$watch('content',function(){
+            console.log("content ",content);
+            if (scope.hasAudio() &&
+                angular.isDefined(scope.content) &&
+                scope.content.network == 'cloudcial' &&
+                scope.content.concept == 'track') {
+                    scope.setThumbnail('audio');
+            }
+            if (scope.hasVideo() &&
+                angular.isDefined(scope.content) &&
+                scope.content.network == 'cloudcial' &&
+                scope.content.concept == 'video') {
+                    scope.setThumbnail('video');
+            }
+        },true);        
+
+    }  // link function
+  };
+}]);
