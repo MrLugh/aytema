@@ -37,11 +37,33 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		if ($scope.showingDetail) {
 			var element = angular.element(document.querySelector("#page_detail"));
 			$scope.scrollTo(element);
+			angular.element(document.querySelector("body")).css('overflow','hidden');
 		} else {
 			$scope.scrollToSection($scope.current);
+			angular.element(document.querySelector("body")).css('overflow','initial');
 		}
 		$scope.content = content;
 	}
+
+	$scope.moveDetail = function(direction) {
+
+		console.log($scope.contents,$scope.content.concept);
+		console.log($scope.contents[$scope.content.concept]);
+
+		var currentPos = $scope.contents[$scope.content.concept].list.indexOf($scope.content);
+
+        if (direction > 0) {currentPos++;} else {currentPos--;}
+
+        if (currentPos < 0 ) {
+            currentPos = $scope.contents[$scope.content.concept].list.length - 1;
+        }
+
+        if (currentPos == $scope.contents[$scope.content.concept].list.length ) {
+            currentPos = 0;
+        }
+
+        $scope.content = $scope.contents[$scope.content.concept].list[currentPos];
+	}	
 
 	$scope.generatePagesList = function() {
 

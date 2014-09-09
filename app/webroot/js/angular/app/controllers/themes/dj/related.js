@@ -15,6 +15,7 @@ function relatedCo($scope,$sce,contentSv) {
 
         var params = [];
         params['id']        = content.id;
+        params['concept']   = content.concept;
         params['network']   = content.network;
         params['limit']     = 20;
 
