@@ -180,12 +180,13 @@
 			<content-link  ng-switch-when='link' ></content-link>
 			<content-event ng-switch-when='event'></content-event>
 
-		</div>
+			<related-contents></related-contents>
 
-		<related-contents></related-contents>
+			<div class="comments both">
+				<fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true" class="comments_container"></fb-comments>
+			</div>
 
-		<div class="comments both">
-			<fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true" class="comments_container"></fb-comments>
+
 		</div>
 
 
