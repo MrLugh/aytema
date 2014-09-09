@@ -707,7 +707,6 @@ ayTemaDs.directive('player', ['$window','contentSv', function($window,contentSv)
         }
 
         scope.$watch('hasAudio()',function(){
-            console.log("hasAudio ",scope.hasAudio());
             if (scope.hasAudio() &&
                 angular.isDefined(scope.content) &&
                 scope.content.network == 'cloudcial' &&
@@ -717,7 +716,6 @@ ayTemaDs.directive('player', ['$window','contentSv', function($window,contentSv)
         },true);
 
         scope.$watch('hasVideo()',function(){
-            console.log("hasVideo ",scope.hasVideo());
             if (scope.hasVideo() &&
                 angular.isDefined(scope.content) &&
                 scope.content.network == 'cloudcial' &&
@@ -727,7 +725,6 @@ ayTemaDs.directive('player', ['$window','contentSv', function($window,contentSv)
         },true);
 
         scope.$watch('content',function(){
-            console.log("content ",content);
             if (scope.hasAudio() &&
                 angular.isDefined(scope.content) &&
                 scope.content.network == 'cloudcial' &&
