@@ -91,6 +91,35 @@
 
 			<h3>Videos</h3>
 
+			<div class="wrapper">
+				<div class="list_carousel">
+					<a id="prev_video" class="prev" href="#/"></a>
+					<a id="next_video" class="next" href="#/"></a>
+					<div class="carousel_container left">
+						<ul id="carousel_videos" caroufredsel="{'selector':'#carousel_videos','auto':false,'prev':'#prev_video','next':'#next_video','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+							<li ng-repeat="video in contents.video.list" ng-show="contentSv.getThumbnail(video).length">
+
+								<div class="pageContentContainer">
+
+								    <div class="overlay">
+								      <i class="fa fa-play-circle" ng-click="showDetail(video)"></i>
+								      <div class="overlay-inner">
+										<h2 ng-if="contentSv.getTitle(video).length>0">{{contentSv.getTitle(video)}}</h2>
+										<p ng-bind-html="getDescription(video)"></p>
+								      </div>
+								    </div>
+
+									<div style="background-image:url({{contentSv.getThumbnail(video)}});" class="content_thumbnail" ></div>
+
+								</div>
+
+							</li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+
 		</div>
 
 		<div ng-switch-when="photo">

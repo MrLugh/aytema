@@ -561,6 +561,30 @@ p {
   position: relative;
 }
 
+#page_video h3 { 
+  color: #080808;
+}
+
+#page_video .prev {
+  left: 30px;
+}
+
+#page_video .next {
+  right: 30px;
+}
+
+#page_video .list_carousel li {
+  padding: 0;
+  margin: 0px 6px 0 5px;
+  display: block;
+  float: left;
+  width: 308px;
+  height: 308px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /*page_photo*/
 
 #page_photo { 
@@ -1033,10 +1057,6 @@ textarea.form-control {
   top:calc(50% - 50px);
   color: #fff!important;
   text-align: center;
-}
-
-#page_track .next {
-  right: 30px;
 }
 
 .prev i,.next i {
