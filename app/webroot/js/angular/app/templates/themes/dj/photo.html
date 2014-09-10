@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="content_caption right inline"> 
-		<img ng-src="{{userSv.getNetworkProfileImage(content.network,content.external_user_id)}}" style="height:40px;border-radius:50%;"/>
+		<img ng-src="{{userSv.getNetworkProfileImage(content.network,content.external_user_id)}}" class="account_profile"/>
 		<p>{{content.external_user_name}}:</p>
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>

@@ -197,6 +197,8 @@ p {
 .content {
 	margin: 0 auto;
 	max-width: 1120px;
+  z-index: 2;
+  position: relative;
 }
 
 /*colors*/
@@ -581,6 +583,8 @@ p {
 }
 
 #page_video .list_carousel li {
+  position: relative;
+  z-index: 4;
   padding: 0;
   margin: 0px 6px 0 5px;
   display: block;
@@ -964,6 +968,17 @@ textarea.form-control {
 .detail_container .content_caption blockquote small {
   color: #fff;
 }
+
+.account_profile {
+  height:40px;
+  width: 40px;
+  max-width: 100%;
+  border-radius:50%!important;
+  border-width: 2px!important;
+  border-style: solid!important;
+  border-color:#ffc229!important;
+}
+
 
 /* Sliders */
 .rows-slider-wrap {

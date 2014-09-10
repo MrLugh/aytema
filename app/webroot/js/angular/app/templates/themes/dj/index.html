@@ -56,7 +56,7 @@
 
 			<h3>Tracks</h3>
 
-			<div class="wrapper">
+			<div class="content wrapper">
 				<div class="list_carousel">
 					<a id="prev_track" class="prev" href="#/"></a>
 					<a id="next_track" class="next" href="#/"></a>
@@ -91,7 +91,7 @@
 
 			<h3>Videos</h3>
 
-			<div class="wrapper">
+			<div class="content wrapper">
 				<div class="list_carousel">
 					<a id="prev_video" class="prev" href="#/"></a>
 					<a id="next_video" class="next" href="#/"></a>
@@ -126,7 +126,7 @@
 
 			<h3>Photos</h3>
 
-			<div slider-rows="{'adaptive': true,'visible': 4,'effect': 'zoom','hover': 'rotate','click': 'zoom','text': {'direction': 'left','selector': 'span'}}" class="rows-slider-wrap rows-slider-wrap_adaptive">
+			<div slider-rows="{'adaptive': true,'visible': 4,'effect': 'zoom','hover': 'rotate','click': 'zoom','text': {'direction': 'left','selector': 'span'}}" class="rows-slider-wrap rows-slider-wrap_adaptive content">
 				<ul>
 					<li ng-repeat="photo in contents.photo.list" ng-if="$index <= contents.photo.list.length/2">
 						<div>
@@ -167,22 +167,22 @@
 		<div ng-if="pages.length % 2 == 0" class="triangle-topleft yellow"></div>
 		<div ng-if="pages.length != 0" class="triangle-bottomright yellow"></div>
 		<h3>Contact</h3>
-		  <div class="content contacto"> 
-		        <form role="form" class="bs-example">
-			      <div class="col-sm-12">
-			        <div class="form-group">
-			          <input type="text" placeholder="Nombre" id="exampleInputNombre" class="form-control">
-			        </div>
-			        <div class="form-group">
-			          <input type="email" placeholder="Email" id="exampleInputEmail" class="form-control">
-			        </div>
-			        <div class="form-group">
-			        <textarea placeholder="Mensaje" rows="3" class="form-control"></textarea>
-			         </div>
-			        <button class="btn btn-default pull-right" type="submit">enviar</button>
-			      </div>
-		      </form>
-		    </div>		
+		<div class="content contacto"> 
+		    <form role="form" class="bs-example">
+		      <div class="col-sm-12">
+		        <div class="form-group">
+		          <input type="text" placeholder="Nombre" id="exampleInputNombre" class="form-control">
+		        </div>
+		        <div class="form-group">
+		          <input type="email" placeholder="Email" id="exampleInputEmail" class="form-control">
+		        </div>
+		        <div class="form-group">
+		        <textarea placeholder="Mensaje" rows="3" class="form-control"></textarea>
+		         </div>
+		        <button class="btn btn-default pull-right" type="submit">enviar</button>
+		      </div>
+		  </form>
+		</div>
 
 	</div>
 
@@ -191,6 +191,7 @@
 		<div ng-if="pages.length % 2 == 0" class="triangle-bottomright yellow"></div>
 		<div ng-if="pages.length != 0" class="triangle-topleft yellow"></div>
 		<h3>About</h3>
+
 		<img class="users-photo" ng-src="{{user.profile_image}}">
 		<div class="auriculares"></div>
 		<div class="content content-info">
@@ -222,7 +223,7 @@
 					<li>
 					  <a class="" href="#"><i class="fa fa-tumblr"></i></a>
 					</li>					
-				</ul>	                
+				</ul>
             </div>
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Recent photos</h4>
