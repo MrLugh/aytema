@@ -177,7 +177,6 @@ p {
   background-repeat: no-repeat;
   position: relative;
   width: 70%;
-  margin-bottom: 50px;
 }
 
 .overlay {
@@ -747,7 +746,6 @@ textarea.form-control {
   width: 80%;
   height: 100%;
   margin: 0 auto;
-  margin-bottom: 30px;
   position: absolute;
   left: 10%;
   top:10%;
@@ -780,7 +778,8 @@ textarea.form-control {
 .detail_container embed,
 .detail_container video,
 .detail_container audio,
-.detail_container .photo {
+.detail_container .photo,
+.detail_container .event {
   position: relative;
   top:0;
   left: 0;
@@ -801,7 +800,6 @@ textarea.form-control {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  margin-bottom: 50px;
 }
 
 .detail_container .content_caption {
@@ -815,7 +813,6 @@ textarea.form-control {
   text-overflow:ellipsis;
   font-size:17px;
   padding: 10px;
-  margin-bottom: 50px;
   color:#fff;
   background-color: rgba(0,0,0,0.3);
   font-family: 'Oswald', sans-serif;

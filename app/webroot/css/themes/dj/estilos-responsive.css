@@ -16,7 +16,9 @@
 	.detail_container object,
 	.detail_container embed,
 	.detail_container video,
-	.detail_container audio {
+	.detail_container audio,
+	.detail_container .photo,
+	.detail_container .event {
 		height: auto;
 	}
 }
