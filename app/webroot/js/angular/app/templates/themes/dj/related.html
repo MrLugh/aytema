@@ -1,8 +1,8 @@
 <div ng-show="relateds.length>0" class="relateds both">
 	<div class="wrapper" ng-if="relateds.length>0">
 		<div class="list_carousel" ng-show="relateds.length>0">
-			<a id="prev_related" class="prev" href="#/"></a>
-			<a id="next_related" class="next" href="#/"></a>
+			<a id="prev_related" class="prev" href="#/"><i class="fa fa-chevron-left"></i></a>
+			<a id="next_related" class="next" href="#/"><i class="fa fa-chevron-right"></i></a>
 			<div class="carousel_container left" ng-if="relateds.length>0">
 				<ul id="carousel_related" caroufredsel="{'selector':'#carousel_related', 'auto':false,'prev':'#prev_related','next':'#next_related','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
 					<li ng-repeat="related in relateds" style="background-image:url('{{contentSv.getThumbnail(related)}}');" ng-if="contentSv.getThumbnail(related).length">
