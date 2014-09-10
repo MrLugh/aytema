@@ -1,16 +1,6 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="video {{content.network}}_{{content.concept}}">
-	<div thumbnail="content" ng-style="getBgImage()" class="overlay_cover"></div>
-	<div ng-style="getBgImage()" class="overlay_photo">
-		
-		<div style="font-size:70px;position: absolute;top: calc(50% - 35px);margin: 0 auto;left: calc(50% - 35px);}">
-			<a href="#/" add-to-queue="getPlayer()" skip-default>
-				<i class="fa fa-play-circle" ng-style="getControlsStyle()"></i>
-			</a>
-		</div>
-
-	</div>
-
-	<div class="content_caption" ng-style="getDescriptionStyle()"> 
+	<div class="player left inline" ng-bind-html="getPlayer()"></div>
+	<div class="content_caption left inline">	
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>
 	</div>

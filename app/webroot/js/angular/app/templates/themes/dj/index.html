@@ -64,7 +64,7 @@
 						<ul id="carousel_tracks" caroufredsel="{'selector':'#carousel_tracks','auto':false,'prev':'#prev_track','next':'#next_track','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
 							<li ng-repeat="track in contents.track.list" ng-show="contentSv.getThumbnail(track).length">
 
-								<div class="pageTrackContainer">
+								<div class="pageContentContainer">
 
 								    <div class="overlay">
 								      <i class="fa fa-play-circle" ng-click="showDetail(track)"></i>
@@ -74,7 +74,7 @@
 								      </div>
 								    </div>
 
-									<div style="background-image:url({{contentSv.getThumbnail(track)}});" class="track_thumbnail" ></div>
+									<div style="background-image:url({{contentSv.getThumbnail(track)}});" class="content_thumbnail" ></div>
 
 								</div>
 

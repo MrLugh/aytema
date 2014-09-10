@@ -399,7 +399,7 @@ function ($window,$timeout) {
         scope.caroufredsel = function() {
             $timeout(function(){
                 angular.element(document.querySelector(options.selector)).carouFredSel(options);
-            },0);
+            },500);
         }
 
         scope.$watch(attrs.caroufredsel, function() {

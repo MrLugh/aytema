@@ -49,6 +49,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			$scope.showingDetail = false;
 		}
 		$scope.content = content;
+		$scope.details = [];
 		$scope.details = [$scope.content];
 	}
 
