@@ -32,7 +32,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.isLogged = function() {
 		return userSv.isLogged();
-	}
+	};
 
 	$scope.showDetail = function(content) {
 		if (!angular.equals({}, content)) {
@@ -51,7 +51,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.content = content;
 		$scope.details = [];
 		$scope.details = [$scope.content];
-	}
+	};
 
 	$scope.moveDetail = function(direction) {
 
@@ -68,7 +68,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
         }
 
         $scope.showDetail($scope.contents[$scope.content.concept].list[currentPos]);
-	}	
+	};
 
 	$scope.generatePagesList = function() {
 
@@ -102,7 +102,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			}
 		}
 
-	}
+	};
 
 	$scope.getContent = function(concept) {
 
@@ -145,21 +145,21 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			}
 		);
 
-	}
+	};
 
 	$scope.getPluralizedConcepts = function(concept) {
 		return appSv.getPluralizedConcepts()[concept];
-	}
+	};
 
 	$scope.getPlayer = function(content) {
 
 		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
-	}
+	};
 
 	$scope.getDescription = function(content) {
 
 		return $sce.trustAsHtml(contentSv.getDescription(content));
-	}
+	};
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 
@@ -189,19 +189,20 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.setInitHover = function(value) {
 		$scope.isHover = value;
-	}
+	};
 
 	$scope.scrollTo = function(element) {
 		$('html, body').animate({
 			scrollTop: element[0].offsetTop
 		}, 1000);
-	}
+	};
 
 	$scope.scrollToSection = function(section) {
 		var element = angular.element(document.querySelector("#"+section));
 		$scope.current = section;
 		$scope.scrollTo(element);
-	}
+	};
+
 	$scope.resetIframes = function(index) {
 
 	    angular.forEach(document.querySelectorAll("#content"+index+" iframe"), function(iframe, index) {
@@ -213,12 +214,16 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	    angular.forEach(document.querySelectorAll("#content"+index+" audio"), function(iframe, index) {
 	    	iframe.src = iframe.src;
 	    });
-	}
+	};
+
+	$scope.networkIcon = function(network) {
+		return contentSv.getNetworkIcon(network);
+	};
 
     $scope.getContentCommentsHash = function() {
     	var c = $scope.content;
     	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
-    }	
+    };	
 
     $scope.adminTheme = function() {
     	$scope.showConfig = !$scope.showConfig;
@@ -248,6 +253,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		var element = angular.element(document.querySelector('#page_profile'));
 		$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
 
-	}
+	};
 
 }

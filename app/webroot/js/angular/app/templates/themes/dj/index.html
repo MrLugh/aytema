@@ -211,42 +211,21 @@
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Social</h4>
 				<ul class="social">
-					<li>
-					  <a class="" href="#"><i class="fa fa-soundcloud"></i></a>
+					<li ng-repeat="account in accounts" ng-if="account.Socialnet.network == 'cloudcial' || account.Socialnet.token.length" class="social-link inline">
+						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.network}} {{account.Socialnet.login}}">
+							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
+							<i ng-class="networkIcon(account.Socialnet.network)"></i>
+						</a>
 					</li>
-					<li>
-					  <a class="" href="#"><i class="fa fa-youtube"></i></a>
-					</li>
-					<li>
-					  <a class="" href="#"><i class="fa fa-facebook"></i></a>
-					</li>
-					<li>
-					  <a class="" href="#"><i class="fa fa-tumblr"></i></a>
-					</li>					
 				</ul>
             </div>
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Recent photos</h4>
 					<div class="recent-photos">
-	                     <a class="" href="#">
-	                     	<img style="margin:0 auto;width:100%;" ng-src="http://31.media.tumblr.com/5e779cbbbc7fa6677a09ca3d62d2ed1d/tumblr_nbhr0lkL251qzif7oo1_1280.jpg" src="http://31.media.tumblr.com/5e779cbbbc7fa6677a09ca3d62d2ed1d/tumblr_nbhr0lkL251qzif7oo1_1280.jpg">
+						<a href="#/" ng-repeat="photo in contents.photo.list|limitTo:6" ng-click="showDeatil(photo)" skip-default>
+	                     	<img style="margin:0 auto;max-width:100%;" ng-src="{{contentSv.getThumbnail(photo)}}"/>
 	                     </a>
-	                     <a class="" href="#">
-                            <img style="margin:0 auto;width:100%;" ng-src="http://33.media.tumblr.com/aecbf4e34fa26a00ad13a3e596e9d63f/tumblr_na741tQjM71s6taa7o1_1280.jpg" src="http://33.media.tumblr.com/aecbf4e34fa26a00ad13a3e596e9d63f/tumblr_na741tQjM71s6taa7o1_1280.jpg">
-	                     </a>
-	                     <a class="" href="#">
-	                     	<img style="margin:0 auto;width:100%;" ng-src="http://33.media.tumblr.com/7cf1b5fa9c72bf1be2d4831a6410f9fd/tumblr_nb9vu9TGJ11rub0hvo1_500.jpg" src="http://33.media.tumblr.com/7cf1b5fa9c72bf1be2d4831a6410f9fd/tumblr_nb9vu9TGJ11rub0hvo1_500.jpg">
-	                     </a>
-	                     <a class="" href="#">
-	                     	<img style="margin:0 auto;width:100%;" ng-src="http://40.media.tumblr.com/48735c5c7b047900f21d21ca9d76df81/tumblr_n8cmb5nsK91t6bh5fo1_500.jpg" src="http://40.media.tumblr.com/48735c5c7b047900f21d21ca9d76df81/tumblr_n8cmb5nsK91t6bh5fo1_500.jpg">
-	                     </a>
-	                     <a class="" href="#">
-	                     	<img style="margin:0 auto;width:100%;" ng-src="http://40.media.tumblr.com/bd6b52b2789a0815950ae1558bf28b53/tumblr_mwwkmhAxkL1qerok2o1_1280.jpg" src="http://40.media.tumblr.com/bd6b52b2789a0815950ae1558bf28b53/tumblr_mwwkmhAxkL1qerok2o1_1280.jpg">
-	                     </a>
-	                     <a class="" href="#">
-	                     	<img style="margin:0 auto;width:100%;" ng-src="http://38.media.tumblr.com/bedcfb582b3b29fe1370fc743b18669d/tumblr_nazor6jQ3h1rylrd2o1_1280.jpg" src="http://38.media.tumblr.com/bedcfb582b3b29fe1370fc743b18669d/tumblr_nazor6jQ3h1rylrd2o1_1280.jpg">
-	                     </a>	                     	                     	                     	                     	                     
-	                </div>                
+	                </div>
             </div>
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Links</h4>

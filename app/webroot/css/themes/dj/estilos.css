@@ -720,8 +720,9 @@ textarea.form-control {
 
 #footer { 
   padding: 20px 0;
-  margin-bottom: 90px;
-
+  padding-bottom: 90px;
+  background-image:url("../../../img/themes/dj/bg-dot.png");
+  background-color:rgba(36, 31, 31, 0.9);
 }
 
 #footer .content { 
@@ -782,15 +783,21 @@ textarea.form-control {
     overflow: hidden;
 }
 #footer .social li {
-    display: block;
-    float: left;
-    margin-bottom: 5px;
-    padding-left: 5px;    
+  display: block;
+  float: left;
+  margin: 10px;
+  padding: 0;
+  text-align: center;
 }
 #footer .social li a {
-    color: #878787!important;
-    font-size: 20px;
-    padding-left: 15px;
+  color: #878787!important;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#footer .profileImage {
+  height: 50px;
 }
 
 
