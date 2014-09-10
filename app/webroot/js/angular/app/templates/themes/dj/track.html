@@ -1,6 +1,8 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="track {{content.network}}_{{content.concept}}">
 	<div class="player left inline" ng-bind-html="getPlayer()"></div>
 	<div class="content_caption left inline">	
+		<img ng-src="{{userSv.getNetworkProfileImage(content.network,content.external_user_id)}}" style="height:40px;border-radius:50%;"/>
+		<p>{{content.external_user_name}}:</p>
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>
 	</div>

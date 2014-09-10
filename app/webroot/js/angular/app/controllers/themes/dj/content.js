@@ -1,4 +1,4 @@
-function contentVideoCo($scope,$sce,contentSv) {
+function contentVideoCo($scope,userSv,$sce,contentSv) {
 
 	//console.log($scope.content);
 
@@ -19,7 +19,7 @@ function contentVideoCo($scope,$sce,contentSv) {
 	$scope.getPlayer = function() {
 
 		if ($scope.loadPlayer) {
-			return $sce.trustAsHtml(contentSv.cleanSource($scope.player));
+			return userSv,$sce.trustAsHtml(contentSv.cleanSource($scope.player));
 		}
 
 		$scope.player		= contentSv.getPlayer($scope.content);
@@ -57,7 +57,7 @@ function contentVideoCo($scope,$sce,contentSv) {
 
 	$scope.getDescription = function() {
 
-		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
+		return userSv,$sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
 	$scope.hasThumbnail = function() {
@@ -220,7 +220,7 @@ function contentPhotoCo($scope,userSv,contentSv) {
 
 }
 
-function contentTrackCo($scope,$sce,contentSv) {
+function contentTrackCo($scope,userSv,$sce,contentSv) {
 
 	$scope.player	= "";
 	$scope.thumbnail= "";
@@ -235,7 +235,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 	$scope.getPlayer = function() {
 
 		if ($scope.loadPlayer) {
-			return $sce.trustAsHtml(contentSv.cleanSource($scope.player));
+			return userSv,$sce.trustAsHtml(contentSv.cleanSource($scope.player));
 			//return contentSv.cleanSource($scope.player);
 		}
 
@@ -269,7 +269,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 
 	$scope.getDescription = function() {
 
-		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
+		return userSv,$sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}	
 
 	$scope.hasThumbnail = function() {
@@ -308,7 +308,7 @@ function contentTrackCo($scope,$sce,contentSv) {
 
 }
 
-function contentPostCo($scope,contentSv,$sce) {
+function contentPostCo($scope,contentSv,userSv,$sce) {
 
 	//console.log($scope.content);
 
@@ -326,7 +326,7 @@ function contentPostCo($scope,contentSv,$sce) {
 
 	$scope.getEmbed = function() {
 
-		return $sce.trustAsHtml(contentSv.getEmbed($scope.content));
+		return userSv,$sce.trustAsHtml(contentSv.getEmbed($scope.content));
 	}
 
 	$scope.getTitle = function() {
@@ -335,7 +335,7 @@ function contentPostCo($scope,contentSv,$sce) {
 
 	$scope.getDescription = function() {
 
-		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
+		return userSv,$sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
 	$scope.getThumbnail = function() {
@@ -397,7 +397,7 @@ function contentQuoteCo($scope,contentSv) {
 
 }
 
-function contentLinkCo($scope,contentSv,$sce) {
+function contentLinkCo($scope,contentSv,userSv,$sce) {
 
 	//console.log($scope.content);
 
@@ -408,11 +408,11 @@ function contentLinkCo($scope,contentSv,$sce) {
 
 	$scope.getDescription = function() {
 
-		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
+		return userSv,$sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 }
 
-function contentEventCo($scope,contentSv,$sce) {
+function contentEventCo($scope,contentSv,userSv,$sce) {
 
 	//console.log($scope.content);
 	
@@ -430,6 +430,6 @@ function contentEventCo($scope,contentSv,$sce) {
 		return {
 			'color': $scope.config.custom.colors.contentBackground.value
 		}
-	}	
+	}
 
 }

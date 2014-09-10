@@ -8,7 +8,9 @@
 		<a href="#/" ng-click="move(1)" alt="Next photo" ng-if="moreThanOne()" skip-default class="next"></a>
 	</div>
 
-		<div class="content_caption right inline"> 
+	<div class="content_caption right inline">
+		<img ng-src="{{userSv.getNetworkProfileImage(content.network,content.external_user_id)}}" style="height:40px;border-radius:50%;"/>
+		<p>{{content.external_user_name}}:</p>
 		<h2>{{content.data.name}} {{content.data.date}} @ {{content.data.place}}</h2>
 		<a ng-if="content.data.ticket.length > 0" ng-href="{{content.data.ticket}}" target="_blank" class="right event_map">Buy Tickets</a>
 	</div>

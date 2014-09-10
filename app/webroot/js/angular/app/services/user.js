@@ -286,6 +286,16 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		loadUsersForAccount:loadUsersForAccount,
 		getAccounts:getAccounts,
 		deleteAccount:deleteAccount,
+		getNetworkProfileImage:function(network,external_user_id) {
+			for (var x in accounts) {
+				var account = accounts[x]['Socialnet'];
+				if (account.network == network &&
+					account.external_user_id == external_user_id) {
+					return account.profile_image;
+				}
+			}
+			return '';
+		},
 		getThemeConfig:getThemeConfig,
 		setThemeConfigFilters:setThemeConfigFilters,
 		setThemeConfigContentsizes:setThemeConfigContentsizes,
