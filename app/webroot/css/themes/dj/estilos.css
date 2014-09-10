@@ -15,10 +15,6 @@ body {
   cursor: pointer ;
 }
 
-*::selection {
-   background: #efb526;
-   color: #131313;
-}
 img {
   max-width: 100%;
 }

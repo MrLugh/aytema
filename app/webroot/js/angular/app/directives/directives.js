@@ -707,6 +707,10 @@ ayTemaDs.directive('player', ['$window','contentSv', function($window,contentSv)
             var thumb = contentSv.getThumbnail(scope.content);
             elem.find(tag).css('background-image','url("'+thumb+'")');
             elem.find(tag).addClass('cover');
+            if (scope.hasVideo()) {
+                elem.find(tag).addAttr('poster',thumb);
+            }
+            
         }
 
         scope.$watch('hasAudio()',function(){
