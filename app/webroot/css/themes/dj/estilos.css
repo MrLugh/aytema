@@ -2,12 +2,6 @@ body {
   color: #080808; 
   overflow: auto;
   overflow-x: hidden;
-  /*
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;
-  */
   background-color: #131313;
   font-family: 'Open Sans', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
   font-weight: 200;
@@ -96,7 +90,10 @@ a {
   color: #000!important;
   outline: 0;
   border: none;
-  transition: all 0.5s ease;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
 }
 
 a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focus-inner {
@@ -112,7 +109,10 @@ a:hover
 }
 
 button {
-	 transition: all 0.5s ease;
+  -webkit-transition:all 0.5s ease;
+  -moz-transition:all 0.5s ease;
+  -o-transition:all 0.5s ease;
+  transition:all 0.5s ease;
 }
 
 h3 {
@@ -245,7 +245,7 @@ p {
 	font-family: 'Oswald', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
 	letter-spacing: 0.25em;
   position:fixed;
-  bottom:0;
+  bottom: 0;
   z-index:10;
   width:100%;
   margin: 0;
@@ -254,6 +254,10 @@ p {
   line-height: 83px;
   font-size: 17px;
   text-transform: uppercase;
+  -webkit-transition:all 0.66s ease;
+  -moz-transition:all 0.66s ease;
+  -o-transition:all 0.66s ease;
+  transition:all 0.66s ease;
 }
 #menu .active { 
    color: #ffb740;

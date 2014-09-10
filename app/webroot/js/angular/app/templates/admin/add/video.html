@@ -22,7 +22,7 @@
 
 	<div ng-bind-html="getPlayer()" style="width:300px;height:300px;" class="left"></div>
 
-	<form ng-show="isEdit()" ng-submit="save()" class="left navbar-form navbar-left">
+	<form ng-show="isEdit()" ng-submit="save()" class="right navbar-form navbar-right">
 		<input type="text" name="title" ng-model="video.data.title" placeholder="Title" />
 		<input type="text" name="artist" ng-model="video.data.artist" placeholder="Artist" />
 		<input type="text" name="album" ng-model="video.data.album" placeholder="Album" />

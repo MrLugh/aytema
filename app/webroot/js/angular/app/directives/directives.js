@@ -396,9 +396,12 @@ function ($window,$timeout) {
         var options = attrs.caroufredsel;
         options =  eval("(function(){return " + options + ";})()");
 
+        element.css('opacity',0);
+
         scope.caroufredsel = function() {
             $timeout(function(){
                 angular.element(document.querySelector(options.selector)).carouFredSel(options);
+                element.css('opacity',1);
             },500);
         }
 
