@@ -21,4 +21,7 @@
 	.detail_container .event {
 		height: auto;
 	}
+	.content-seccion {
+		width: 100%;
+	}	
 }

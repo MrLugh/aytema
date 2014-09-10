@@ -200,6 +200,69 @@
 	</div>
 
 	<div id="footer">
+		<div class="row content">
+            <div class="col-xs-6 col-sm-3 content-seccion">
+				<ul>
+					<li ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</li>
+				</ul>		
+                <span>"Lorem fistrum a peich está la cosa muy malar"</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 content-seccion">
+                <h4>Social</h4>
+				<ul class="social">
+					<li>
+					  <a class="" href="#"><i class="fa fa-soundcloud"></i></a>
+					</li>
+					<li>
+					  <a class="" href="#"><i class="fa fa-youtube"></i></a>
+					</li>
+					<li>
+					  <a class="" href="#"><i class="fa fa-facebook"></i></a>
+					</li>
+					<li>
+					  <a class="" href="#"><i class="fa fa-tumblr"></i></a>
+					</li>					
+				</ul>	                
+            </div>
+            <div class="col-xs-6 col-sm-3 content-seccion">
+                <h4>Recent photos</h4>
+					<div class="recent-photos">
+	                     <a class="" href="#">
+	                     	<img style="margin:0 auto;width:100%;" ng-src="http://31.media.tumblr.com/5e779cbbbc7fa6677a09ca3d62d2ed1d/tumblr_nbhr0lkL251qzif7oo1_1280.jpg" src="http://31.media.tumblr.com/5e779cbbbc7fa6677a09ca3d62d2ed1d/tumblr_nbhr0lkL251qzif7oo1_1280.jpg">
+	                     </a>
+	                     <a class="" href="#">
+                            <img style="margin:0 auto;width:100%;" ng-src="http://33.media.tumblr.com/aecbf4e34fa26a00ad13a3e596e9d63f/tumblr_na741tQjM71s6taa7o1_1280.jpg" src="http://33.media.tumblr.com/aecbf4e34fa26a00ad13a3e596e9d63f/tumblr_na741tQjM71s6taa7o1_1280.jpg">
+	                     </a>
+	                     <a class="" href="#">
+	                     	<img style="margin:0 auto;width:100%;" ng-src="http://33.media.tumblr.com/7cf1b5fa9c72bf1be2d4831a6410f9fd/tumblr_nb9vu9TGJ11rub0hvo1_500.jpg" src="http://33.media.tumblr.com/7cf1b5fa9c72bf1be2d4831a6410f9fd/tumblr_nb9vu9TGJ11rub0hvo1_500.jpg">
+	                     </a>
+	                     <a class="" href="#">
+	                     	<img style="margin:0 auto;width:100%;" ng-src="http://40.media.tumblr.com/48735c5c7b047900f21d21ca9d76df81/tumblr_n8cmb5nsK91t6bh5fo1_500.jpg" src="http://40.media.tumblr.com/48735c5c7b047900f21d21ca9d76df81/tumblr_n8cmb5nsK91t6bh5fo1_500.jpg">
+	                     </a>
+	                     <a class="" href="#">
+	                     	<img style="margin:0 auto;width:100%;" ng-src="http://40.media.tumblr.com/bd6b52b2789a0815950ae1558bf28b53/tumblr_mwwkmhAxkL1qerok2o1_1280.jpg" src="http://40.media.tumblr.com/bd6b52b2789a0815950ae1558bf28b53/tumblr_mwwkmhAxkL1qerok2o1_1280.jpg">
+	                     </a>
+	                     <a class="" href="#">
+	                     	<img style="margin:0 auto;width:100%;" ng-src="http://38.media.tumblr.com/bedcfb582b3b29fe1370fc743b18669d/tumblr_nazor6jQ3h1rylrd2o1_1280.jpg" src="http://38.media.tumblr.com/bedcfb582b3b29fe1370fc743b18669d/tumblr_nazor6jQ3h1rylrd2o1_1280.jpg">
+	                     </a>	                     	                     	                     	                     	                     
+	                </div>                
+            </div>
+            <div class="col-xs-6 col-sm-3 content-seccion">
+                <h4>Links</h4>
+				<ul class="links">
+					<li ng-repeat="page in pages" ng-if="contents[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
+						<span>{{getPluralizedConcepts(page)|capitalize}}</span>
+					</li>
+					<li ng-click="scrollToSection('page_contact')" class="item {{current == 'page_contact' ? 'active':''}}">
+						<span>Contact</span>
+					</li>
+					<li ng-click="scrollToSection('page_about')" class="item {{current == 'page_about' ? 'active':''}}">
+						<span>About Me</span>
+					</li>
+				</ul>	
+            </div>
+          </div>
+
 
 	</div>
 

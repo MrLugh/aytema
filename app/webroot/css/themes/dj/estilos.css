@@ -200,6 +200,7 @@ p {
 
 .content {
 	margin: 0 auto;
+	max-width: 1120px;
 }
 
 /*colors*/
@@ -363,7 +364,7 @@ p {
 }
 
 #page_track h3 { 
-  color: #080808;
+  color: #f3f3f3;
 }
 
 .content_thumbnail {
@@ -709,10 +710,79 @@ textarea.form-control {
 /*footer*/
 
 #footer { 
-  background: url("../../../img/themes/dj/bg_footer.jpg") no-repeat center center; 
-  height: 137px;
+  padding: 20px 0;
+  margin-bottom: 90px;
+
 }
 
+#footer .content { 
+	max-width: 1120px;
+}
+
+#footer span {
+    color: #878787;
+    text-align: left!important;
+}
+
+#footer .profile {
+    color: #f3f3f3;
+    margin: 10px 0;
+    text-align: left!important;
+}
+
+#footer h4 { 
+	text-align: left;
+	color: #f3f3f3;
+	font-family: "Oswald",sans-serif;
+	text-transform: uppercase;
+}
+
+#footer .recent-photos a { 
+    display: block;
+    float: left;
+    margin-bottom: 5px;
+    padding-right: 5px;
+	  -webkit-transition:all 0.4s ease-in-out 0s;
+	  -moz-transition:all 0.4s ease-in-out 0s;
+	  -o-transition:all 0.4s ease-in-out 0s;
+	  transition:all 0.4s ease-in-out 0s;    
+	  width: 80px!important;
+	  height: 40px!important;
+	  overflow: hidden;	  
+}
+
+#footer .recent-photos a:hover { 
+	opacity: 0.8;
+}
+
+#footer .recent-photos a img { 
+    opacity: 1;
+	  -webkit-transition:opacity 0.2s ease-in-out 0s;
+	  -moz-transition:opacity 0.2s ease-in-out 0s;
+	  -o-transition:opacity 0.2s ease-in-out 0s;
+	  transition:opacity 0.2s ease-in-out 0s; 
+}
+
+#footer .links li {
+    text-align: left;
+    display: table;
+}
+.social {
+    display: block;
+    margin-bottom: 30px !important;
+    overflow: hidden;
+}
+#footer .social li {
+    display: block;
+    float: left;
+    margin-bottom: 5px;
+    padding-left: 5px;    
+}
+#footer .social li a {
+    color: #878787!important;
+    font-size: 20px;
+    padding-left: 15px;
+}
 
 
 /* Detail */
