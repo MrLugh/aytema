@@ -229,6 +229,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
     	$scope.showConfig = !$scope.showConfig;
     };
 
+    $scope.getTitleHeight = function() {
+    	return angular.element(document.querySelector("#"+$scope.current)).find("h3")[0].offsetHeight;
+    }
+
     $scope.footer = function() {
     	$scope.showFooter = !$scope.showFooter;
     };

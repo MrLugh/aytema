@@ -21,7 +21,7 @@
 
 	</div>
 
-	<ul ng-show="current != 'page_profile' && !showingDetail" id="menu">
+	<ul ng-show="current != 'page_profile' && !showingDetail" id="menu" get-menu-height>
 		<li ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</li>
 		<li ng-repeat="page in pages" ng-if="contents[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
 			<span>{{getPluralizedConcepts(page)|capitalize}}</span>
@@ -34,14 +34,14 @@
 		</li>
 	</ul>
 
-	<div id="page_profile" class="page" style="height:{{appSv.getHeight()}}px;" parallax-background parallax-ratio="0.5">
+	<div id="page_profile" style="height:{{appSv.getHeight()}}px;" parallax-background parallax-ratio="0.5">
 
 		<h3 style="line-height:{{appSv.getHeight()}}px;" class="{{isHover?'hover':''}}">{{user.username|uppercase}}</h3>
 		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[0])" skip-default><i class="fa fa-angle-down init" ng-mouseover="setInitHover(true)" ng-mouseout="setInitHover(false)"></i></a>
 
 	</div>
 
-	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()}}px;" ng-switch="page" parallax-background parallax-ratio="0.5">
+	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()-getMenuHeight()}}px;" ng-switch="page" parallax-background parallax-ratio="0.5">
 
 		<div ng-if="$index % 2 == 0" class="triangle-bottomright black"></div>
 		<div ng-if="$index % 2 != 0" class="triangle-topleft yellow"></div>
@@ -61,12 +61,12 @@
 					<a id="prev_track" class="prev" href="#/"></a>
 					<a id="next_track" class="next" href="#/"></a>
 					<div class="carousel_container left">
-						<ul id="carousel_tracks" caroufredsel="{'selector':'#carousel_tracks','auto':false,'prev':'#prev_track','next':'#next_track','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-							<li ng-repeat="track in contents.track.list" ng-show="contentSv.getThumbnail(track).length">
+						<ul id="carousel_tracks" caroufredsel="{'selector':'#carousel_tracks','auto':false,'prev':'#prev_track','next':'#next_track','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}" style="height:{{appSv.getHeight()-getMenuHeight()-getTitleHeight()}}px!important;">
+							<li ng-repeat="track in contents.track.list" ng-show="contentSv.getThumbnail(track).length" style="height:{{appSv.getHeight()-getMenuHeight()-getTitleHeight()}}px;">
 
 								<div class="pageContentContainer">
 
-								    <div class="overlay">
+								    <div class="overlay" style="height:{{appSv.getHeight()-getMenuHeight()-getTitleHeight()}}px;">
 								      <i class="fa fa-play-circle" ng-click="showDetail(track)"></i>
 								      <div class="overlay-inner">
 										<h2 ng-if="contentSv.getTitle(track).length>0">{{contentSv.getTitle(track)}}</h2>
@@ -74,7 +74,7 @@
 								      </div>
 								    </div>
 
-									<div style="background-image:url({{contentSv.getThumbnail(track)}});" class="content_thumbnail" ></div>
+									<div style="background-image:url({{contentSv.getThumbnail(track)}});height:{{appSv.getHeight()-getMenuHeight()-getTitleHeight()}}px;" class="content_thumbnail"></div>
 
 								</div>
 
@@ -162,7 +162,7 @@
 
 	</div>
 
-	<div id="page_contact" class="page" style="height:{{appSv.getHeight()}}px;">
+	<div id="page_contact" class="page" style="height:{{appSv.getHeight()-getMenuHeight()}}px;">
 
 		<div ng-if="pages.length % 2 == 0" class="triangle-topleft yellow"></div>
 		<div ng-if="pages.length != 0" class="triangle-bottomright yellow"></div>
@@ -186,7 +186,7 @@
 
 	</div>
 
-	<div id="page_about" class="page" style="height:{{appSv.getHeight()}}px;">
+	<div id="page_about" class="page" style="height:{{appSv.getHeight()-getMenuHeight()}}px;">
  
 		<div ng-if="pages.length % 2 == 0" class="triangle-bottomright yellow"></div>
 		<div ng-if="pages.length != 0" class="triangle-topleft yellow"></div>
@@ -247,7 +247,7 @@
 	</div>
 
 
-	<div id="page_detail" ng-show="showingDetail" style="height:{{appSv.getHeight()}}px;">
+	<div id="page_detail" ng-show="showingDetail" style="height:{{appSv.getHeight()-getMenuHeight()}}px;">
 		
 		<i ng-click="moveDetail(-1)" class="fa fa-chevron-left controlPrev left"></i>
 		<i ng-click="moveDetail(1)" class="fa fa-chevron-right controlNext left"></i>

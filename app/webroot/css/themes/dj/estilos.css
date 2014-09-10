@@ -370,14 +370,14 @@ p {
   background-color: #f3f3f3;
 }
 
-#page_track h3 { 
+#page_track h3 {
   color: #f3f3f3;
 }
 
 .content_thumbnail {
   display: block;
   width: 308px;
-  height: 308px;
+  height: 100%;
   margin: 0 auto;
 
   background-position: center;
@@ -395,8 +395,6 @@ p {
   -moz-transition: transform 0.2s ease 0s;
   -o-transition: transform 0.2s ease 0s;
   transition: transform 0.2s ease 0s;
-
-
 }
 
 .pageContentContainer {
@@ -417,31 +415,32 @@ p {
 
 
 .pageContentContainer {
-    display: block;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    text-decoration: none;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-}
-
-.pageContentContainer .overlay {
-  height: 308px;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 
 .pageContentContainer .overlay i {
-    position: absolute;
-    right: 22px;
-    bottom: 10px;
-    font-size: 45px;
-    cursor: pointer;
-    z-index: 3;
-    color:#ffc229;
+  position: absolute;
+  right: 22px;
+  bottom: 10px;
+  font-size: 45px;
+  cursor: pointer;
+  z-index: 3;
+  color:#ffc229;
 }
 
 .pageContentContainer .overlay {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   -webkit-transition:all 0.2s ease 0s;
   -moz-transition:all 0.2s ease 0s;
   -o-transition:all 0.2s ease 0s;
@@ -589,7 +588,6 @@ p {
   display: block;
   float: left;
   width: 308px;
-  height: 308px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -718,7 +716,7 @@ textarea.form-control {
 
 /*footer*/
 
-#footer { 
+#footer {
   padding: 20px 0;
   padding-bottom: 90px;
   background-image:url("../../../img/themes/dj/bg-dot.png");
@@ -1179,7 +1177,7 @@ textarea.form-control {
   display: block;
   float: left;
   width: 308px;
-  height: 308px;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

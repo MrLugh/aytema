@@ -181,8 +181,8 @@ function ($timeout) {
     }
 }]);
 
-ayTemaDs.directive('getMenuHeight',[
-function () {
+ayTemaDs.directive('getMenuHeight',['$window',
+function ($window) {
     return function(scope,element,attrs) {
 
         scope.getMenuHeight = function() {
@@ -205,6 +205,10 @@ function () {
             scope.$apply(function(){
                 scope.menuHeight = scope.getMenuHeight();
             });
+        });
+
+        angular.element($window).bind('resize', function(){
+            scope.menuHeight = scope.getMenuHeight();
         });
     }
 }]);
@@ -396,14 +400,11 @@ function ($window,$timeout) {
         var options = attrs.caroufredsel;
         options =  eval("(function(){return " + options + ";})()");
 
-        element.css('opacity',0);
-
         scope.caroufredsel = function() {
             $timeout(function(){
                 angular.element(document.querySelector(options.selector)).carouFredSel(options);
-                element.css('opacity',1);
             },500);
-        }
+        };
 
         scope.$watch(attrs.caroufredsel, function() {
             scope.caroufredsel();
