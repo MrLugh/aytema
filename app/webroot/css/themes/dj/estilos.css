@@ -195,8 +195,7 @@ p {
 }
 
 .content {
-	margin: 0 auto;
-	max-width: 1120px;
+  margin: 0 auto;
   z-index: 2;
   position: relative;
 }
