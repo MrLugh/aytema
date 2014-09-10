@@ -371,11 +371,61 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 
 	$scope.user = userSv.getUser();
 
+	$scope.dropzone = false;
+
+	$scope.save = function() {
+		$scope.event.data.date = $scope.format(new Date($scope.event.data.date));
+		contentSv.saveContent($scope.event).then(function(data){
+			$scope.event = data.content['Content'];
+			$scope.content = data.content['Content'];
+		});
+	}	
+
 	$scope.isEdit = function() {
 		return !angular.equals($scope.content,{});
 	}
 
-	if (!$scope.isEdit()) {
+	$scope.dropzoneConfig = {
+		'options': { // passed into the Dropzone constructor
+			'url': '/contents/addFile.json',
+			'acceptedFiles': 'image/gif,image/jpeg,image/png',
+		},
+		'eventHandlers': {
+			'success': function (file, response) {
+
+				var oldPath = $scope.event.data['thumbnail'] ? $scope.event.data['thumbnail']:false;
+
+				$scope.event.data['thumbnail'] = response.data.path;
+
+				if ($scope.isEdit()) {
+					if (oldPath && oldPath != $scope.event.data.path) {
+						contentSv.deleteFile(oldPath);
+					}
+					$scope.dropzone.removeAllFiles(true);
+				}
+
+				$scope.save();
+			},
+			'error': function (file, response) {
+				console.log("error");
+				console.log(response);
+			},
+		}
+	};	
+
+	if ($scope.isEdit()) {
+
+		$scope.event = angular.copy($scope.content);
+
+		$scope.dropzoneConfig.options.maxFiles = 1;
+		
+		$scope.dropzoneConfig.options.init = function() {
+			this.on("maxfilesexceeded", function(file){
+				$scope.alert = "Just one file please!";
+			});
+		}
+
+	} else {
 		$scope.event = {
 			'network'	: 'cloudcial',
 			'concept'	: 'event',
@@ -386,11 +436,10 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 				'time'		: '',
 				'door'		: '',
 				'place'		: '',
-				'ticket'	: ''
+				'ticket'	: '',
+				'thumbnail'	: ''
 			}
-		}
-	} else {
-		$scope.event = angular.copy($scope.content);
+		}		
 	}
 
   	$scope.dateOptions = {
@@ -416,13 +465,6 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 	$scope.disabledWeek = function(date, mode) {
 		return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
 	};
-
-	$scope.save = function() {
-		$scope.event.data.date = $scope.format(new Date($scope.event.data.date));
-		contentSv.saveContent($scope.event).then(function(data){
-			$scope.event = data.content['Content'];
-		});
-	}
 
 	$scope.format =  function(date) {
 		var year = date.getFullYear();

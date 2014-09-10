@@ -5,6 +5,6 @@
 	<span ng-if="time.length > 0">{{content.data.time}}</span>
 	<span ng-if="door.length > 0">{{content.data.door}}</span>
 	<a ng-href="{{content.data.ticket}}" target="_blank">Buy Tickets</a>
-	<img alt="Google map on {{content.data.address}}" ng-src="{{getMapSrc()}}" />
+	<img alt="Google map on {{content.data.address}}" ng-src="{{contentSv.getThumbnail(content)}}" />
 
 </div>

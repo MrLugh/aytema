@@ -3,7 +3,10 @@
 
 	<div class="both">
 
-	    <div class="row">
+		<div thumbnail="event" class="dropzone right" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="event-dropzone" style="background-image:url({{contentSv.getThumbnail(event)}});">
+			<span style="position:absolute;top:40%;width:100%;left:0;background:rgba(0,0,0,0.4);color:white;text-align:center;">Add/Change Image</span>
+		</div>
+
 	   	<form ng-submit="save()">
 
 	        <div class="col-md-6">
@@ -46,9 +49,7 @@
 		<div ng-if="event.data.address.length > 0">
 			<img alt="Google map on {{address}}" ng-src="{{getMapSrc()}}" style="width:200px;height:200px;" />
 		</div>
-
-		</div>
-		
+	
 
 	</div>
 

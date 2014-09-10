@@ -2,6 +2,6 @@
 
 	<h2 ng-style="getControlsStyle()">{{content.data.name}} {{content.data.date}} @ {{content.data.place}}</h2>
 	<a ng-if="content.data.ticket.length > 0" ng-href="{{content.data.ticket}}" target="_blank" class="right event_map">Buy Tickets</a>
-	<img alt="Google map on {{content.data.address}}" ng-src="{{getMapSrc()}}" />
+	<img alt="Google map on {{content.data.address}}" ng-src="{{contentSv.getThumbnail(content)}}" />
 
 </div>
