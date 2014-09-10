@@ -163,7 +163,11 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			'key'		: 'dj',
 			'thumbnails': [
 				getPath('img')+'/themes/dj/dj_theme_01.png',
-				getPath('img')+'/themes/dj/dj_theme_02.jpg',
+				getPath('img')+'/themes/dj/dj_theme_02.png',
+				getPath('img')+'/themes/dj/dj_theme_03.png',
+				getPath('img')+'/themes/dj/dj_theme_04.png',
+				getPath('img')+'/themes/dj/dj_theme_05.png',
+				getPath('img')+'/themes/dj/dj_theme_06.png',
 			]
 		},
 	];
