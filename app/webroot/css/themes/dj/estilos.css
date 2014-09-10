@@ -289,6 +289,12 @@ p {
   font-size:80px;
   width:100px;
   height:100px;
+  padding: 40px;
+  -webkit-transform: scale(1);
+  -moz-transform:    scale(1);
+  -ms-transform:     scale(1);
+  -o-transform:      scale(1);
+  transform:         scale(1);  
   -webkit-transition:all 0.89s ease 0s;
   -moz-transition:all 0.89s ease 0s;
   -o-transition:all 0.89s ease 0s;
