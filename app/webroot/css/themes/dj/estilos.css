@@ -740,9 +740,7 @@ textarea.form-control {
 #page_detail i.controlNext:hover,
 #page_detail i.controlPrev:hover,
 #page_detail i.controlClose:hover {
-  background-color: #efb526;
-  color:#000;
-
+  background-color: rgba(0,0,0,0.3);
 }
 
 .detail_container {
@@ -788,7 +786,7 @@ textarea.form-control {
   left: 0;
   height: 400px;
   width: 100%;
-  background-color: #000;
+  background-color: rgba(0,0,0,0.3);
   display: inline-block;
   -webkit-transition: all 0.2s ease 0s;
   -moz-transition: all 0.2s ease 0s;
@@ -798,6 +796,7 @@ textarea.form-control {
 
 .detail_container .player {
   width: 70%;
+  background-color: rgba(0,0,0,0.3);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -817,7 +816,8 @@ textarea.form-control {
   font-size:17px;
   padding: 10px;
   margin-bottom: 50px;
-  background-color: #ffb740;
+  color:#fff;
+  background-color: rgba(0,0,0,0.3);
   font-family: 'Oswald', sans-serif;
   overflow-y: hidden;
   -webkit-transition:all 0.5s ease;
@@ -1067,7 +1067,7 @@ textarea.form-control {
 
 .relateds {
   text-align: center;
-  background-color: #ffb740;
+  background-color: rgba(0,0,0,0.3);;
 }
 
 .relateds .carousel_container {
