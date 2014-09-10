@@ -162,7 +162,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			'name'		: 'Dj',
 			'key'		: 'dj',
 			'thumbnails': [
-				getPath('img')+'/themes/dj/dj_theme_01.jpg',
+				getPath('img')+'/themes/dj/dj_theme_01.png',
 				getPath('img')+'/themes/dj/dj_theme_02.jpg',
 			]
 		},
