@@ -580,19 +580,6 @@ p {
   right: 30px;
 }
 
-#page_video .list_carousel li {
-  position: relative;
-  z-index: 4;
-  padding: 0;
-  margin: 0px 6px 0 5px;
-  display: block;
-  float: left;
-  width: 308px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 /*page_photo*/
 
 #page_photo { 
@@ -1104,6 +1091,7 @@ textarea.form-control {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  z-index: 2;
 }
 
 .prev, .next {
@@ -1169,18 +1157,6 @@ textarea.form-control {
   width: auto!important;
   position: relative;
   overflow: hidden;
-}
-
-#page_track .list_carousel li {
-  padding: 0;
-  margin: 0px 6px 0 5px;
-  display: block;
-  float: left;
-  width: 308px;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .relateds {
