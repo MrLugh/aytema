@@ -158,6 +158,35 @@
 
 			<h3>Events</h3>
 
+			<div class="content wrapper">
+				<div class="list_carousel">
+					<a id="prev_event" class="prev" href="#/"></a>
+					<a id="next_event" class="next" href="#/"></a>
+					<div class="carousel_container left">
+						<ul id="carousel_event" caroufredsel="{'selector':'#carousel_event','auto':false,'prev':'#prev_event','next':'#next_event','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+							<li ng-repeat="event in contents.event.list" ng-show="contentSv.getThumbnail(event).length">
+
+								<div class="pageContentContainer">
+
+								    <div class="overlay">
+								      <i class="fa fa-calendar" ng-click="showDetail(event)"></i>
+								      <div class="overlay-inner">
+										<h2 ng-if="contentSv.getTitle(event).length>0">{{contentSv.getTitle(event)}}</h2>
+										<p ng-bind-html="getDescription(event)"></p>
+								      </div>
+								    </div>
+
+									<div style="background-image:url({{contentSv.getThumbnail(event)}});" class="content_thumbnail" ></div>
+
+								</div>
+
+							</li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+
 		</div>
 
 	</div>
