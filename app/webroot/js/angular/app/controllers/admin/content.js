@@ -486,7 +486,6 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 	$scope.save = function () {
 		contentSv.saveContent($scope.photo).then(function(data){
 			$scope.photo = data.content['Content'];
-			$scope.content = data.content['Content'];
 		});
 	}
 
@@ -595,6 +594,7 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 			},
 		}
 	};
+	$scope.dropzoneThumbnailConfig.options.maxFiles = 1;
 
 
 	$scope.dropzoneConfig = {
@@ -705,6 +705,7 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 			},
 		}
 	};
+	$scope.dropzoneThumbnailConfig.options.maxFiles = 1;
 
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor

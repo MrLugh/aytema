@@ -9,8 +9,8 @@
 
 	</div>
 
-	<div thumbnail="photo" class="dropzone left" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="photo-dropzone" style="background-image:url({{contentSv.getThumbnail(photo)}});">
-		<span style="position:absolute;top:40%;width:100%;left:0;background:rgba(0,0,0,0.4);color:white;text-align:center;">Add/Change Image</span>
+	<div class="dropzone left" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="photo-dropzone" style="background-image:url({{contentSv.getThumbnail(photo)}});">
+		<span ng-show="isEdit()" style="position:absolute;top:40%;width:100%;left:0;background:rgba(0,0,0,0.4);color:white;text-align:center;">Add/Change Image</span>
 	</div>
 
 	<form ng-show="isEdit()" ng-submit="save()" class="left navbar-form navbar-left">
