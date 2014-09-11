@@ -707,7 +707,7 @@ textarea.form-control {
   padding: 20px 0;
   padding-bottom: 90px;
   background-image:url("../../../img/themes/dj/bg-dot.png");
-  background-color:rgba(36, 31, 31, 0.9);
+  background-color:rgba(16, 16, 16, 0.9);
 }
 
 #footer .content { 
@@ -800,7 +800,7 @@ textarea.form-control {
   -moz-transition:all 0.2s ease 0s;
   -o-transition:all 0.2s ease 0s;
   transition:all 0.2s ease 0s;
-  background-color: rgb(2, 16, 27);
+  background-color: #f3f3f3;
   z-index: 3;
 }
 
@@ -825,18 +825,20 @@ textarea.form-control {
 #page_detail i.controlPrev,
 #page_detail i.controlClose {
   padding: 15px;
-  color:#fff;
+  color:#f3f3f3;
   font-size: 20px;
   -webkit-transition: all 0.2s ease 0s;
   -moz-transition: all 0.2s ease 0s;
   -o-transition: all 0.2s ease 0s;
   transition: all 0.2s ease 0s;
+  background-color:#131313;
 }
 
 #page_detail i.controlNext:hover,
 #page_detail i.controlPrev:hover,
 #page_detail i.controlClose:hover {
-  background-color: rgba(0,0,0,0.3);
+  background-color: #ffc229;
+  color:#131313;
 }
 
 .detail_container {
@@ -851,7 +853,7 @@ textarea.form-control {
   -moz-transition:opacity 0.4s linear;
   -o-transition:opacity 0.4s linear;
   transition:opacity 0.4s linear;
-  background-color: rgb(2, 16, 27);
+  background-color: #f3f3f3;
 }
 
 .detail_container.ng-enter {
@@ -882,7 +884,7 @@ textarea.form-control {
   left: 0;
   height: 400px;
   width: 100%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: #131313;
   display: inline-block;
   -webkit-transition: all 0.2s ease 0s;
   -moz-transition: all 0.2s ease 0s;
@@ -892,7 +894,7 @@ textarea.form-control {
 
 .detail_container .player {
   width: 70%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: #f3f3f3;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -911,7 +913,7 @@ textarea.form-control {
   font-size:17px;
   padding: 10px;
   color:#fff;
-  background-color: rgba(0,0,0,0.3);
+  background-color: #131313;
   font-family: 'Oswald', sans-serif;
   overflow-y: hidden;
   -webkit-transition:all 0.5s ease;
@@ -940,9 +942,12 @@ textarea.form-control {
 .detail_container .content_caption h1,
 .detail_container .content_caption h2,
 .detail_container .content_caption h3 {
-  margin: 0 auto;
-  font-size: 20px!important;
+  margin: 10px auto;
+  font-size: 30px!important;
   display: block!important;
+  letter-spacing: 0.1em;
+  font-family: 'Oswald', sans-serif;
+  padding: 0 10px;
 }
 
 .detail_container .content_caption p a {
@@ -951,9 +956,13 @@ textarea.form-control {
 }
 .detail_container .content_caption p {
   margin: 0;
-  font-size: 13px!important;
-  padding: 0 20px;
+  font-size: 15px!important;
+  padding: 0 10px;
   font-style: italic;
+  line-height: 21px;
+  font-family: 'Open Sans', sans-serif;
+
+
 
 }
 .detail_container .content_caption blockquote small {
@@ -968,8 +977,23 @@ textarea.form-control {
   border-width: 2px!important;
   border-style: solid!important;
   border-color:#ffc229!important;
+  margin-bottom: 15px!important;
 }
 
+/*fb iframe*/
+.fbFeedbackContent .composer {
+	border: none!important;
+	background-color:rgba(19, 19, 19, 1)!important;
+}
+
+.comments_container {
+    font-family: "Oswald",sans-serif;
+    font-size: 15px;
+    line-height: 35px;
+}
+.fbConnectWidgetFooter .fbFooterBorder {
+	border:none!important;
+}
 
 /* Sliders */
 .rows-slider-wrap {
@@ -1148,6 +1172,10 @@ textarea.form-control {
   top:calc(50% - 10px);
 }
 
+.prev i:hover, .next i:hover {
+	color:#ffc229;
+}
+
 .carousel_container {
   width: 100%;
   overflow: hidden;
@@ -1161,7 +1189,7 @@ textarea.form-control {
 
 .relateds {
   text-align: center;
-  background-color: rgba(0,0,0,0.3);;
+  background-color: #131313;
 }
 
 .relateds .carousel_container {
@@ -1181,7 +1209,23 @@ textarea.form-control {
   position:relative;
   top:calc(50% - 10px);
   left:calc(50% - 10px);
+  color:#f3f3f3;
 }
+
+.relateds .list_carousel li a {
+    background-color: rgba(0, 0, 0, 0.6);
+    display: block;
+    height: 100%;
+    width: 100% !important;
+}
+.relateds .list_carousel li a:hover {
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+    filter: alpha(opacity=0);    
+}
+
+
+
 
 /* Animations */
 

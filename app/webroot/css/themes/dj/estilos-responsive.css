@@ -1,3 +1,16 @@
+@media (max-width: 768px) {
+
+	.detail_container .player {
+	  width: 100%;
+	}
+
+	.detail_container .content_caption {
+		width: 100%;
+		height: auto!important;
+	}
+
+}
+
 @media (max-width: 480px) {
 	#page_video .list_carousel li, .video_thumbnail {
 		width:  200px;
@@ -10,6 +23,7 @@
 
 	.detail_container .content_caption {
 		max-height: 300px;
+		width: 100%;
 	}
 
 	.detail_container iframe,
