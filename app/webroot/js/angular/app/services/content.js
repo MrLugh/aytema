@@ -791,7 +791,12 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		}
 
 		if (content.network == 'cloudcial') {
-			title = content.data['title'];
+			if (content.concept == 'event')	{
+				title = content.data['name'];
+			} else {
+				title = content.data['title'];
+			}
+			
 		}
 
 		return title.replace(/-/g, ' ');
@@ -846,7 +851,13 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		}
 
 		if (content.network == 'cloudcial') {
-			description = content.data['description'];
+
+			if (content.concept == 'event') {
+				description = content.data['place'];
+			} else {
+				description = content.data['description'];
+			}
+			
 		}
 
 		return description;
