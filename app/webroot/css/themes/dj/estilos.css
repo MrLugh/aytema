@@ -279,6 +279,7 @@ p {
   background-position: center top;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 #page_profile .init {
   position: relative;
@@ -615,6 +616,7 @@ p {
 
 #page_about { 
   background-color: #f3f3f3;
+  overflow: hidden;
 }
 #page_about h3 { 
   color: #080808;
@@ -640,6 +642,9 @@ img.users-photo  {
 	margin-top: 300px;
 }
 /*contact*/
+#page_contact {
+  overflow: hidden;
+}
 #page_contact form {
   margin-top: 28px;
 }
