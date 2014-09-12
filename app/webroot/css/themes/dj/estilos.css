@@ -1159,7 +1159,7 @@ textarea.form-control {
   right: 30px;
 }
 
-#prev_related {
+#prev_related, .photo .prev {
   background:none;
   height: 100px;
   top:calc(50% - 50px);
@@ -1167,7 +1167,7 @@ textarea.form-control {
   text-align: center;
 }
 
-#next_related {
+#next_related, .photo .next {
   background:none;
   height: 100px;
   top:calc(50% - 50px);
