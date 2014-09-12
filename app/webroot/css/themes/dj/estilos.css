@@ -610,6 +610,14 @@ p {
   background-color: #131313;
 }
 
+#page_event .content_thumbnail {
+  -webkit-transform: scale(1) rotate(0deg);
+  -moz-transform:    scale(1) rotate(0deg);
+  -ms-transform:     scale(1) rotate(0deg);
+  -o-transform:      scale(1) rotate(0deg);
+  transform:         scale(1) rotate(0deg);
+}
+
 #page_event .event_menu {
   width: 300px;
 }
