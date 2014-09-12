@@ -163,10 +163,10 @@
 				<div class="left inline event_menu">
 					<ul>
 						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)">
-							<div class="event-date-container">
+							<a href="#/" ng-click="setCurrentEvent(event)" class="event-date-container" skip-default>
 								<p class="event-date-day">{{event.data.date|date:'EEEE'}}</p>
 								<p class="event-date-long">{{event.data.date|date:'longDate'}}</p>
-							</div>
+							</a>
 						</li>
 					</ul>
 					<a href="#/" ng-click="getContent('event')" skip-default>View More</a>
@@ -177,7 +177,7 @@
 					<div class="pageContentContainer">
 
 					    <div class="overlay">
-					      <i class="fa fa-play-circle" ng-click="setCurrentEvent(currentEvent)"></i>
+					      <i class="fa fa-play-circle" ng-click="showDetail(currentEvent)"></i>
 					      <div class="overlay-inner">
 							<h2 ng-if="contentSv.getTitle(currentEvent).length>0">{{contentSv.getTitle(currentEvent)}}</h2>
 							<p ng-bind-html="getDescription(currentEvent)"></p>

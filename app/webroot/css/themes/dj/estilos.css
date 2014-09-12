@@ -618,6 +618,10 @@ p {
   overflow: auto;
 }
 
+#page_event .event_menu ul li {
+  border-bottom: 2px solid grey;
+}
+
 #page_event .event_container {
   width: calc(100% - 200px);
   height: 100%;  
