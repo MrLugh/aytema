@@ -159,32 +159,37 @@
 			<h3>Events</h3>
 
 			<div class="content wrapper">
-				<div class="list_carousel">
-					<a id="prev_event" class="prev" href="#/"></a>
-					<a id="next_event" class="next" href="#/"></a>
-					<div class="carousel_container left">
-						<ul id="carousel_event" caroufredsel="{'selector':'#carousel_event','auto':false,'prev':'#prev_event','next':'#next_event','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-							<li ng-repeat="event in contents.event.list" ng-show="contentSv.getThumbnail(event).length">
 
-								<div class="pageContentContainer">
-
-								    <div class="overlay">
-								      <i class="fa fa-calendar" ng-click="showDetail(event)"></i>
-								      <div class="overlay-inner">
-										<h2 ng-if="contentSv.getTitle(event).length>0">{{contentSv.getTitle(event)}}</h2>
-										<p ng-bind-html="getDescription(event)"></p>
-								      </div>
-								    </div>
-
-									<div style="background-image:url({{contentSv.getThumbnail(event)}});" class="content_thumbnail" ></div>
-
-								</div>
-
-							</li>
-						</ul>
-					</div>
-					<div class="clearfix"></div>
+				<div class="left inline event_menu">
+					<ul>
+						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)" class="{{currentEvent == event ? 'active':''}}">
+							<a href="#/" ng-click="setCurrentEvent(event)" class="event-date-container" skip-default>
+								<p class="event-date-day">{{event.data.date|date:'EEEE'|uppercase}}</p>
+								<p class="event-date-long">{{event.data.date|date:'longDate'}}</p>
+							</a>
+						</li>
+					</ul>
+					<a href="#/" ng-click="getContent('event')" class="more" skip-default>View More</a>
 				</div>
+
+				<div class="right inline event_container">
+
+					<div class="pageContentContainer">
+
+					    <div class="overlay">
+					      <i class="fa fa-calendar" ng-click="showDetail(currentEvent)"></i>
+					      <div class="overlay-inner">
+							<h2 ng-if="contentSv.getTitle(currentEvent).length>0">{{contentSv.getTitle(currentEvent)}}</h2>
+							<p ng-bind-html="getDescription(currentEvent)"></p>
+					      </div>
+					    </div>
+
+						<div style="background-image:url({{contentSv.getThumbnail(currentEvent)}});" class="content_thumbnail" ></div>
+
+					</div>
+
+				</div>				
+
 			</div>
 
 		</div>

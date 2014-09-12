@@ -14,6 +14,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.current	= 'page_profile';
 	$scope.content	= {};
 
+	$scope.currentEvent = {};
+
 	$scope.isHover	= false;
 
 	$scope.validPages = ['photo','track','video','post','event'];
@@ -132,6 +134,13 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 					for (var x in contents) {
 						content = contents[x].Content;
 						$scope.contents[concept].list.push(content);
+
+						if (content.concept == 'event' &&
+							angular.equals({}, $scope.currentEvent)
+							) {
+								$scope.setCurrentEvent(content);
+						}
+
 					}
 					$scope.contents[concept].offset = $scope.contents[concept].list.length;
 					//contentSv.setPageList(concept,$scope.contents[concept]);
@@ -258,5 +267,9 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
 
 	};
+
+	$scope.setCurrentEvent = function(event) {
+		$scope.currentEvent = event;
+	}
 
 }
