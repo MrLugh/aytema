@@ -83,7 +83,7 @@ ul {
 
 a { 
   text-decoration:none; 
-  color: #000!important;
+  color: #000;
   outline: 0;
   border: none;
   -webkit-transition:all 0.5s ease;
@@ -620,6 +620,10 @@ p {
 
 #page_event .event_menu ul li {
   border-bottom: 2px solid grey;
+}
+
+#page_event .event_menu ul li.active, #page_event .event_menu ul li.active a {
+  color: #ffc229;
 }
 
 #page_event .event_container {

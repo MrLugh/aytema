@@ -162,7 +162,7 @@
 
 				<div class="left inline event_menu">
 					<ul>
-						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)">
+						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)" class="{{currentEvent == event ? 'active':''}}">
 							<a href="#/" ng-click="setCurrentEvent(event)" class="event-date-container" skip-default>
 								<p class="event-date-day">{{event.data.date|date:'EEEE'}}</p>
 								<p class="event-date-long">{{event.data.date|date:'longDate'}}</p>
