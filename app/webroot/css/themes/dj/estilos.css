@@ -605,9 +605,10 @@ p {
   color: #080808;
 }
 #page_event .content {
-  max-width: 1120px;
-  height: 350px;
+  max-width: 1074px;
+  height: 482px;
   background-color: #131313;
+  padding: 32px 23px;
 }
 
 #page_event .content_thumbnail {
@@ -620,22 +621,29 @@ p {
 
 #page_event .event_menu {
   width: 300px;
+  font-family: "Oswald",sans-serif;
 }
 
 #page_event .event_menu ul {
-  height: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
+    height: 378px;
+    margin-bottom: 10px !important;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #page_event .event_menu ul li {
-  border-bottom: 2px solid grey;
-  height: 100px;
-  overflow: hidden;
+    border-bottom: 1px solid #1c1c1c;
+    height: 70px;
+    overflow: hidden;
+  -webkit-transition:all 0.5s ease 0s;
+  -moz-transition:all 0.5s ease 0s;
+  -o-transition:all 0.5s ease 0s;
+  transition:all 0.5s ease 0s;    
 }
 
 #page_event .event_menu ul li .event-date-day {
-
+	line-height: 30px;
+    margin: 0;
 }
 
 #page_event .event_menu ul li .event-date-container {
@@ -647,28 +655,47 @@ p {
   color: #ffc229;
   text-align: left;
   margin-left:0px;
-  background-color:rgba(19, 19, 19, 0.85);
   display: block;
+  padding: 10px 13px 10px 0;
+  letter-spacing: 0.05em;
 }
 
 #page_event .event_menu ul li.active .event-date-container {
-  margin-left:5px;
-  background-color:rgba(46, 42, 42, 0.85);  
+    background-color: #1c1c1c;
+    border-left: 5px solid #ffc229;
+    height: 70px;
+    padding-left: 10px;
+    cursor: auto;
 }
-
+#page_event .event_menu ul li:hover  {
+    background-color: rgba(28, 28, 28, 0.85);
+    padding-left: 10px;
+}
+#page_event .event_menu ul li.active:hover  {
+    padding-left: 0px;
+}
+#page_event .event_menu ul li.active:hover .event-date-container  {
+    padding-left: 10px;
+}
 #page_event .event_menu ul li .event-date-long {
-  color: #fff;
-  font-size: 14px;
+  color: #f3f3f3;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  line-height: 17px;
+  font-weight: 400;
 }
 
 #page_event .event_container {
   width: calc(100% - 300px);
-  height: 100%;  
+  height: 378px;  
+  padding-left: 20px;
 }
 
 #page_event .event_menu .more {
-  color:#fff;
-  text-transform: uppercase;
+    color: #fff;
+    float: right;
+    text-transform: uppercase;
 }
 
 /*page_post*/
