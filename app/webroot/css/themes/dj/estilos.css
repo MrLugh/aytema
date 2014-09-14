@@ -635,23 +635,15 @@ p {
     border-bottom: 1px solid #1c1c1c;
     height: 70px;
     overflow: hidden;
-  -webkit-transition:all 0.5s ease 0s;
-  -moz-transition:all 0.5s ease 0s;
-  -o-transition:all 0.5s ease 0s;
-  transition:all 0.5s ease 0s;    
 }
 
 #page_event .event_menu ul li .event-date-day {
 	line-height: 30px;
-    margin: 0;
+  margin: 0;
 }
 
 #page_event .event_menu ul li .event-date-container {
   position: relative;
-  -webkit-transition:all 0.5s ease 0s;
-  -moz-transition:all 0.5s ease 0s;
-  -o-transition:all 0.5s ease 0s;
-  transition:all 0.5s ease 0s;
   color: #ffc229;
   text-align: left;
   margin-left:0px;
