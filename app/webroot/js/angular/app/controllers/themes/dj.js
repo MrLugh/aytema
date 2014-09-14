@@ -46,9 +46,11 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			},500);
 			
 		} else {
-			$scope.scrollToSection($scope.current);
 			angular.element(document.querySelector("body")).css('overflow','initial');
 			$scope.showingDetail = false;
+			setTimeout(function(){
+				$scope.scrollToSection($scope.current);
+			},500);			
 		}
 		$scope.content = content;
 		$scope.details = [];
