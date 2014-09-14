@@ -414,7 +414,13 @@ function contentLinkCo($scope,contentSv,userSv,$sce) {
 
 function contentEventCo($scope,contentSv,userSv,$sce) {
 
-	//console.log($scope.content);
+	console.log($scope.content);
+
+	$scope.showingMap = false;
+
+	$scope.modeMap = function() {
+		$scope.showingMap = !$scope.showingMap;
+	}
 	
 	$scope.getMapSrc = function() {
 

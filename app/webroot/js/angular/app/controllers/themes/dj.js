@@ -41,8 +41,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			var element = angular.element(document.querySelector("#page_detail"));
 			$scope.showingDetail = true;
 			setTimeout(function(){
-				angular.element(document.querySelector("body")).css('overflow','hidden');
 				$scope.scrollTo(element);
+				angular.element(document.querySelector("body")).css('overflow','hidden');
 			},500);
 			
 		} else {
