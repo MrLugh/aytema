@@ -421,33 +421,6 @@ function ($window,$timeout) {
     }
 }]);
 
-ayTemaDs.directive('sliderRows',['$window','$timeout',
-function ($window,$timeout) {
-    return function (scope, element, attrs) {
-
-        var options = attrs.sliderRows;
-        options =  eval("(function(){return " + options + ";})()");
-        options.container = element[0];
-
-        scope.sliderRows = function() {
-            $timeout(function(){
-                scope.slider = new SliderRows(options);
-            },0);
-        }
-
-        scope.$watch(attrs.sliderRows, function(newConfig,oldConfig) {
-            scope.sliderRows();
-        });
-
-        var destroy = function() {
-            element.unbind('$destroy',destroy);
-            delete scope.slider;
-        }
-        element.bind('$destroy',destroy);
-    }
-}]);
-
-
 ayTemaDs.directive('minicolor',['$timeout',
 function ($timeout) {
     return function (scope, element, attrs) {
