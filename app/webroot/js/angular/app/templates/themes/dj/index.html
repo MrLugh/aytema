@@ -97,33 +97,26 @@
 
 			<h3>Photos</h3>
 
-			<div class="content wrapper">
-				<div class="list_carousel">
-					<a id="prev_photo" class="prev" href="#/"></a>
-					<a id="next_photo" class="next" href="#/"></a>
-					<div class="carousel_container left">
-						<ul id="carousel_photos" caroufredsel="{'selector':'#carousel_photos','auto':false,'prev':'#prev_photo','next':'#next_photo','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-							<li ng-repeat="photo in contents.photo.list" ng-show="contentSv.getThumbnail(photo).length">
+			<div class="content">
+				<ul>
+					<li ng-repeat="photo in contents.photo.list" ng-show="contentSv.getThumbnail(photo).length">
 
-								<div class="pageContentContainer">
+						<div class="pageContentContainer">
 
-								    <div class="overlay">
-								      <i class="fa fa-camera" ng-click="showDetail(photo)"></i>
-								      <div class="overlay-inner">
-										<h2 ng-if="contentSv.getTitle(photo).length>0">{{contentSv.getTitle(photo)}}</h2>
-										<p ng-bind-html="getDescription(photo)"></p>
-								      </div>
-								    </div>
+						    <div class="overlay">
+						      <i class="fa fa-camera" ng-click="showDetail(photo)"></i>
+						      <div class="overlay-inner">
+								<h2 ng-if="contentSv.getTitle(photo).length>0">{{contentSv.getTitle(photo)}}</h2>
+								<p ng-bind-html="getDescription(photo)"></p>
+						      </div>
+						    </div>
 
-									<div style="background-image:url({{contentSv.getThumbnail(photo)}});" class="content_thumbnail" ></div>
+							<div style="background-image:url({{contentSv.getThumbnail(photo)}});" class="content_thumbnail"></div>
 
-								</div>
+						</div>
 
-							</li>
-						</ul>
-					</div>
-					<div class="clearfix"></div>
-				</div>
+					</li>
+				</ul>
 			</div>
 
 		</div>

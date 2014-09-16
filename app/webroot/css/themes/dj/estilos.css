@@ -592,9 +592,37 @@ p {
   position: relative;
 }
 
+#page_photo .content {
+  max-width: 1074px;
+}
+
 #page_photo ul { 
   text-align: left;
+  overflow-y: auto;
+  overflow-x:hidden;
+  max-height: 400px;
+  width: 100%;
 }
+
+#page_photo ul li {
+  position: relative;
+  width: 25%;
+  height: 200px;
+  display: inline-block;
+}
+
+#page_photo .pageContentContainer:hover .content_thumbnail {
+  -webkit-transform: scale(1.2);
+  -moz-transform:    scale(1.2);
+  -ms-transform:     scale(1.2);
+  -o-transform:      scale(1.2);
+  transform:         scale(1.2);
+  -webkit-transition: transform 0.3s ease 0s;
+  -moz-transition: transform 0.3s ease 0s;
+  -o-transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;  
+}
+
 
 /*page_event*/
 
