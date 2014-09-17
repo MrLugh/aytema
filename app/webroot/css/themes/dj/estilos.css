@@ -7,6 +7,28 @@ body {
   font-weight: 200;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255, 194, 41,0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 194, 41,0.4); 
+}
+
 * {
     outline: none;
 }
@@ -408,12 +430,15 @@ p {
   -ms-transform:     scale(1.2) rotate(10deg);
   -o-transform:      scale(1.2) rotate(10deg);
   transform:         scale(1.2) rotate(10deg);
-	-webkit-transition: transform 0.3s ease 0s;
-	-moz-transition: transform 0.3s ease 0s;
-	-o-transition: transform 0.3s ease 0s;
-	transition: transform 0.3s ease 0s;  
 }
 
+.odd .pageContentContainer:hover .content_thumbnail {
+  -webkit-transform: scale(1.2) rotate(-10deg);
+  -moz-transform:    scale(1.2) rotate(-10deg);
+  -ms-transform:     scale(1.2) rotate(-10deg);
+  -o-transform:      scale(1.2) rotate(-10deg);
+  transform:         scale(1.2) rotate(-10deg);
+}
 
 .pageContentContainer {
   display: block;
@@ -602,6 +627,8 @@ p {
   overflow-x:hidden;
   max-height: 400px;
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 #page_photo ul li {
@@ -609,6 +636,7 @@ p {
   width: 25%;
   height: 200px;
   display: inline-block;
+  overflow: hidden;
 }
 
 #page_photo .pageContentContainer:hover .content_thumbnail {
@@ -653,16 +681,25 @@ p {
 }
 
 #page_event .event_menu ul {
-    height: 378px;
-    margin-bottom: 10px !important;
-    overflow-x: hidden;
-    overflow-y: auto;
+  height: 378px;
+  margin-bottom: 10px !important;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #page_event .event_menu ul li {
-    border-bottom: 1px solid #1c1c1c;
-    height: 70px;
-    overflow: hidden;
+  border-bottom: 1px solid #1c1c1c;
+  height: 70px;
+  overflow: hidden;
+  opacity: 0.4;
+  -webkit-transition:opacity 0.2s ease-in-out 0s;
+  -moz-transition:opacity 0.2s ease-in-out 0s;
+  -o-transition:opacity 0.2s ease-in-out 0s;
+  transition:opacity 0.2s ease-in-out 0s;
+}
+
+#page_event .event_menu ul li.active {
+  opacity: 1;
 }
 
 #page_event .event_menu ul li .event-date-day {

@@ -62,7 +62,7 @@
 					<a id="next_track" class="next" href="#/"></a>
 					<div class="carousel_container left">
 						<ul id="carousel_tracks" caroufredsel="{'selector':'#carousel_tracks','auto':false,'prev':'#prev_track','next':'#next_track','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-							<li ng-repeat="track in contents.track.list" ng-show="contentSv.getThumbnail(track).length">
+							<li ng-repeat="track in contents.track.list" ng-show="contentSv.getThumbnail(track).length" class="{{$index % 2 ? 'odd':''}}">
 
 								<div class="pageContentContainer">
 
@@ -99,7 +99,7 @@
 
 			<div class="content">
 				<ul>
-					<li ng-repeat="photo in contents.photo.list" ng-show="contentSv.getThumbnail(photo).length">
+					<li ng-repeat="photo in contents.photo.list" ng-show="contentSv.getThumbnail(photo).length" class="{{$index % 2 ? 'odd':''}}">
 
 						<div class="pageContentContainer">
 
@@ -129,7 +129,7 @@
 
 				<div class="left inline event_menu">
 					<ul>
-						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)" class="{{currentEvent == event ? 'active':''}}">
+						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)" class="{{currentEvent == event ? 'active':''}} {{$index % 2 ? 'odd':''}}">
 							<a href="#/" ng-click="setCurrentEvent(event)" class="event-date-container" skip-default>
 								<p class="event-date-day">{{event.data.date|date:'EEEE'|uppercase}}</p>
 								<p class="event-date-long">{{event.data.date|date:'longDate'}}</p>
