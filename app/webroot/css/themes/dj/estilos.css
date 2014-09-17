@@ -1319,6 +1319,8 @@ textarea.form-control {
 .relateds {
   text-align: center;
   background-color: #131313;
+  height: 180px;
+  overflow: hidden;
 }
 
 .relateds .carousel_container {
