@@ -822,11 +822,6 @@ p {
   display: initial;
 }
 
-#page_post ul li .content_caption i.view_detail {
-  float: right;
-  clear: both;
-}
-
 /*about*/
 
 #page_about { 
@@ -1114,7 +1109,8 @@ textarea.form-control {
 .detail_container video,
 .detail_container audio,
 .detail_container .photo,
-.detail_container .event {
+.detail_container .event,
+.detail_container .post {
   position: relative;
   top:0;
   left: 0;

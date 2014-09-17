@@ -1,17 +1,11 @@
-<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}_detail" class="post {{content.network}}_{{content.concept}}">
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}_detail" class="post {{content.network}}_{{content.concept}}" style="position:relative;">
 
-	<div ng-if="isFromNetwork('twitter')">
-		<div ng-bind-html="getEmbed()"></div>
-	</div>
-	<div ng-if="!isFromNetwork('twitter')" ng-style="getDescriptionStyle()">
+	<div thumbnail="content" style="background-image:url('{{getThumbnail()}}');" class="overlay_photo left inline"></div>
 
-		<div thumbnail="content" ng-style="getBgImage()" class="overlay_cover"></div>
-		<div thumbnail="content" ng-style="getBgImage()" class="overlay_photo">
-
-		<div class="content_caption" ng-style="getDescriptionStyle()"> 
-			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
-			<p ng-bind-html="getDescription()"></p>
-		</div>
-
+	<div class="content_caption right inline"> 
+		<img ng-src="{{userSv.getNetworkProfileImage(content.network,content.external_user_id)}}" class="account_profile"/>
+		<p>{{content.external_user_name}}:</p>
+		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+		<p ng-bind-html="getDescription()"></p>
 	</div>
 </div>

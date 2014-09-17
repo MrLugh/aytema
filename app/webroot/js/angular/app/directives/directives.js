@@ -496,7 +496,9 @@ ayTemaDs.directive('thumbnail', ['contentSv',
 function (contentSv) {
     return {
         restrict: 'A',
-        scope: true,
+        scope: {
+            content: '=thumbnail',
+        },
         link: function(scope, element, attrs) {
 
             scope.isBg = false;
@@ -516,7 +518,7 @@ function (contentSv) {
             }
 
             scope.getContentThumbnail = function() {
-                return contentSv.getThumbnail(scope.$eval(attrs.thumbnail));
+                return contentSv.getThumbnail(scope.content);
             }
 
             scope.src = scope.getContentThumbnail();
