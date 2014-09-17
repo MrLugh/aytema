@@ -272,6 +272,13 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.setCurrentEvent = function(event) {
 		$scope.currentEvent = event;
-	}
+	};
+
+	$scope.canShowPost = function(post) {
+		return (
+			contentSv.getTitle(post).length +
+			contentSv.getDescription(post).length
+		) > 0;
+	};
 
 }

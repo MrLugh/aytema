@@ -50,6 +50,25 @@
 
 			<h3>Posts</h3>
 
+			<div class="content post_container">
+				<ul>
+					<li ng-repeat="post in contents.post.list" ng-if="canShowPost(post)" class="{{$index % 2 ? 'odd':''}}">
+
+						<div class="pageContentContainer">
+
+							<div thumbnail="{{post}}" style="background-image:url({{contentSv.getThumbnail(post)}});" class="content_thumbnail inline left"></div>
+							<div class="content_caption left">
+								<i ng-class="contentSv.getConceptIcon('post') view_detail" ng-click="showDetail(post)"></i>
+								<h2 ng-if="contentSv.getTitle(post).length>0">{{contentSv.getTitle(post)}}</h2>
+								<p ng-bind-html="getDescription(post)"></p>
+							</div>
+
+					    </div>
+
+					</li>
+				</ul>
+			</div>			
+
 		</div>
 
 		<div ng-switch-when="track">
@@ -125,7 +144,7 @@
 
 			<h3>Events</h3>
 
-			<div class="content wrapper">
+			<div class="content">
 
 				<div class="left inline event_menu">
 					<ul>
@@ -155,7 +174,7 @@
 
 					</div>
 
-				</div>				
+				</div>
 
 			</div>
 

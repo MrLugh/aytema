@@ -495,6 +495,8 @@ function (contentSv) {
 ayTemaDs.directive('thumbnail', ['contentSv',
 function (contentSv) {
     return {
+        restrict: 'A',
+        scope: true,
         link: function(scope, element, attrs) {
 
             scope.isBg = false;
@@ -513,11 +515,11 @@ function (contentSv) {
                 return scope.errorSrc[errorIndex];
             }
 
-            scope.getThumbnail = function() {
-                return contentSv.getThumbnail(scope.content);
+            scope.getContentThumbnail = function() {
+                return contentSv.getThumbnail(scope.$eval(attrs.thumbnail));
             }
 
-            scope.src = scope.getThumbnail();
+            scope.src = scope.getContentThumbnail();
 
             scope.$watch("src",function(){
 
@@ -528,7 +530,7 @@ function (contentSv) {
                 img.onerror = function() {
                     scope.$apply(function() {
                         contentSv.addBadImages(scope.src);
-                        scope.src = scope.getThumbnail();
+                        scope.src = scope.getContentThumbnail();
                         if (scope.src.length == 0) {
                             scope.src = scope.getDefaultImage();
                         }
