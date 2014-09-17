@@ -813,7 +813,7 @@ p {
   width: calc(100% - 280px);
 }
 
-#page_post ul li .content_caption > h2 {
+#page_post ul li .content_caption > h2, #page_post ul li .content_caption > i {
   color: #ffb740;
 }
 
