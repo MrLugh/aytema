@@ -1106,6 +1106,13 @@ textarea.form-control {
   right: 30px;
 }
 
+#page_track .content_thumbnail {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+}
+
 /*page_video*/
 
 #page_video {
