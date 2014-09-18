@@ -219,7 +219,11 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.diff = Math.abs($scope.pages.indexOf(angular.copy(section).replace("page_","")) -
 			$scope.pages.indexOf(angular.copy($scope.current).replace("page_","")));
 		
-		var time = 500 * $scope.diff;
+		var time = 1000 * $scope.diff;
+		if ($scope.diff >= $scope.pages.length / 2) {
+			time = 2000;
+		}
+
 
 		console.log($scope.current,section);
 
