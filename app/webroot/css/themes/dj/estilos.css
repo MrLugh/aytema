@@ -73,6 +73,10 @@ a,a:hover,a:active,a:focus {
   display: inline-block;
 }
 
+.center {
+  text-align: center;
+}
+
 .left {
   float: left;
 }
@@ -948,6 +952,13 @@ textarea.form-control {
   margin-bottom: 15px!important;
 }
 
+.more {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Oswald",sans-serif;
+}
+
+
 /*fb iframe*/
 .fbFeedbackContent .composer {
 	border: none!important;
@@ -1110,6 +1121,29 @@ textarea.form-control {
   right: 30px;
 }
 
+#page_track .content_thumbnail {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+}
+
+#page_track .more {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+#page_track .more i {
+  font-size: 40px;
+  color: #fff;
+}
+
+#page_track img.users-photo {
+  top: 0;
+  left: 0;
+  position: relative;
+}
+
 /*page_video*/
 
 #page_video {
@@ -1132,6 +1166,30 @@ textarea.form-control {
 
 #page_video .next {
   right: 30px;
+}
+
+#page_video .content_thumbnail {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+}
+
+#page_video .more {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+#page_video .more i {
+  font-size: 40px;
+  color: #fff;
+}
+
+#page_video img.users-photo {
+  top: 0;
+  left: 0;
+  position: relative;
 }
 
 /*page_photo*/
@@ -1201,6 +1259,12 @@ textarea.form-control {
   -ms-transform:     scale(1) rotate(0deg);
   -o-transform:      scale(1) rotate(0deg);
   transform:         scale(1) rotate(0deg);
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+}  
 }
 
 #page_event .event_menu {
@@ -1210,6 +1274,7 @@ textarea.form-control {
 
 #page_event .event_menu ul {
   height: 378px;
+  width: 230px;
   margin-bottom: 10px !important;
   overflow-x: hidden;
   overflow-y: auto;
@@ -1278,9 +1343,10 @@ textarea.form-control {
 }
 
 #page_event .event_menu .more {
-    color: #fff;
-    float: right;
-    text-transform: uppercase;
+  color: #fff;
+  float: right;
+  text-transform: uppercase;
+  font-family: "Oswald",sans-serif;
 }
 
 /*page_post*/
@@ -1343,6 +1409,12 @@ textarea.form-control {
 
 #page_post ul li .content_caption > h2, #page_post ul li .content_caption > i {
   color: #ffb740;
+}
+
+#page_post ul li .content_caption > i {
+    bottom: 20px;
+    position: absolute;
+    right: 0;
 }
 
 #page_post ul li .content_caption * {

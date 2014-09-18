@@ -9,7 +9,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 50;
+	$scope.limit 	= 8;
 	$scope.contents	= {};
 	$scope.current	= 'page_profile';
 	$scope.content	= {};
@@ -41,7 +41,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			var element = angular.element(document.querySelector("#page_detail"));
 			$scope.showingDetail = true;
 			setTimeout(function(){
-				$scope.scrollTo(element);
+				$scope.scrollToSection("page_detail");
 				angular.element(document.querySelector("body")).css('overflow','hidden');
 			},500);
 			
@@ -92,7 +92,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 		$scope.concepts = concepts;
 
-		$scope.pages 	= [];
+		$scope.pages 	= ['detail','profile'];
 		$scope.contents  = {};
 		for (var x in $scope.concepts) {
 
@@ -106,6 +106,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			}
 		}
 
+		$scope.pages.push('contact');
+		$scope.pages.push('about');
 	};
 
 	$scope.getContent = function(concept) {
@@ -202,16 +204,31 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.isHover = value;
 	};
 
-	$scope.scrollTo = function(element) {
+	$scope.scrollTo = function(element,time) {
 		$('html, body').animate({
 			scrollTop: element[0].offsetTop
-		}, 1000);
+		}, time);
 	};
 
 	$scope.scrollToSection = function(section) {
 		var element = angular.element(document.querySelector("#"+section));
-		$scope.current = section;
-		$scope.scrollTo(element);
+
+		var concept = $scope.pages.indexOf(angular.copy(section).replace("page_",""));
+		var current = $scope.pages.indexOf(angular.copy($scope.current).replace("page_",""));
+		
+		$scope.diff = Math.abs($scope.pages.indexOf(angular.copy(section).replace("page_","")) -
+			$scope.pages.indexOf(angular.copy($scope.current).replace("page_","")));
+		
+		var time = 500 * $scope.diff;
+
+		console.log($scope.current,section);
+
+		if (section != 'page_detail') {
+			$scope.current = section;	
+		}
+		
+
+		$scope.scrollTo(element, time);
 	};
 
 	$scope.resetIframes = function(index) {

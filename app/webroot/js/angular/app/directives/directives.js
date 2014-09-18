@@ -406,9 +406,18 @@ function ($window,$timeout) {
             },500);
         };
 
+        scope.childElementCount = function () {
+            return element[0].childElementCount;
+        }
+
         scope.$watch(attrs.caroufredsel, function() {
             scope.caroufredsel();
         });
+
+
+        scope.$watch('childElementCount()', function() {
+            scope.caroufredsel();
+        });        
 
         var destroy = function() {
             element.unbind('$destroy',destroy);
@@ -506,10 +515,8 @@ function (contentSv) {
             scope.contentSv = contentSv;
 
             scope.errorSrc = [
-                'http://cloudcial.com/img/noimage.png',
                 'http://cloudcial.com/img/no-image.png',
-                'http://cloudcial.com/img/no_thumb.png',
-                'http://cloudcial.com/img/default-content-thumbnail.jpg',
+                'http://cloudcial.com/img/no_thumb.png'
             ];
 
             scope.getDefaultImage = function() {
