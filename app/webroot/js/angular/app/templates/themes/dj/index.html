@@ -37,11 +37,11 @@
 	<div id="page_profile" style="height:{{appSv.getHeight()}}px;" parallax-background parallax-ratio="0.5">
 
 		<h3 style="line-height:{{appSv.getHeight()}}px;" class="{{isHover?'hover':''}}">{{user.username|uppercase}}</h3>
-		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[0])" skip-default><i class="fa fa-angle-down init" ng-mouseover="setInitHover(true)" ng-mouseout="setInitHover(false)"></i></a>
+		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[2])" skip-default><i class="fa fa-angle-down init" ng-mouseover="setInitHover(true)" ng-mouseout="setInitHover(false)"></i></a>
 
 	</div>
 
-	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()-getMenuHeight()}}px;" ng-switch="page" parallax-background parallax-ratio="0.5">
+	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0 && page != 'profile' && page != 'about' && page != 'contact'&& page != 'detail'" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()-getMenuHeight()}}px;" ng-switch="page" parallax-background parallax-ratio="0.5">
 
 		<div ng-if="$index % 2 == 0" class="triangle-bottomright black"></div>
 		<div ng-if="$index % 2 != 0" class="triangle-topleft yellow"></div>
@@ -67,6 +67,7 @@
 
 					</li>
 				</ul>
+				<a href="#/" ng-click="getContent('post')" class="more right" skip-default>Load More</a>
 			</div>			
 
 		</div>
@@ -98,6 +99,17 @@
 								</div>
 
 							</li>
+
+							<li class="center">
+
+								<img class="users-photo" ng-src="{{user.profile_image}}">
+
+								<h3 class="{{isHover?'hover':''}} more">Load More
+									<a href="#" ng-click="getContent('track')" skip-default><i class="init {{contentSv.getConceptIcon('track')}}" ng-mouseover="setInitHover(true)" ng-mouseout="setInitHover(false)"></i></a>
+								</h3>
+
+							</li>
+
 						</ul>
 					</div>
 					<div class="clearfix"></div>
@@ -133,6 +145,15 @@
 								</div>
 
 							</li>
+							<li class="center">
+
+								<img class="users-photo" ng-src="{{user.profile_image}}">
+
+								<h3 class="{{isHover?'hover':''}} more">Load More
+									<a href="#" ng-click="getContent('video')" skip-default><i class="init {{contentSv.getConceptIcon('video')}}" ng-mouseover="setInitHover(true)" ng-mouseout="setInitHover(false)"></i></a>
+								</h3>
+
+							</li>
 						</ul>
 					</div>
 					<div class="clearfix"></div>
@@ -165,6 +186,7 @@
 
 					</li>
 				</ul>
+				<a href="#/" ng-click="getContent('photo')" class="more right" skip-default>Load More</a>
 			</div>
 
 		</div>
@@ -249,7 +271,7 @@
 
 	</div>
 
-	<div id="footer">
+	<div id="footer" style="height:{{appSv.getHeight()}}px;">
 		<div class="row content">
             <div class="col-xs-6 col-sm-3 content-seccion">
 				<ul>
@@ -260,7 +282,7 @@
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Social</h4>
 				<ul class="social">
-					<li ng-repeat="account in accounts" ng-if="account.Socialnet.network == 'cloudcial' || account.Socialnet.token.length" class="social-link inline">
+					<li ng-repeat="account in accounts" class="social-link inline">
 						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.network}} {{account.Socialnet.login}}">
 							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
 							<i ng-class="networkIcon(account.Socialnet.network)"></i>
@@ -271,7 +293,7 @@
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Recent photos</h4>
 					<div class="recent-photos">
-						<a href="#/" ng-repeat="photo in contents.photo.list|limitTo:6" ng-click="showDeatil(photo)" skip-default>
+						<a href="#/" ng-repeat="photo in contents.photo.list|limitTo:12" ng-click="showDeatil(photo)" skip-default>
 	                     	<img style="margin:0 auto;max-width:100%;" ng-src="{{contentSv.getThumbnail(photo)}}"/>
 	                     </a>
 	                </div>
