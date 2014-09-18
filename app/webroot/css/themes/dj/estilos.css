@@ -954,6 +954,10 @@ textarea.form-control {
 	background-color:rgba(19, 19, 19, 1)!important;
 }
 
+.detail_container .comments iframe {
+  background-color: transparent;
+}
+
 .comments_container {
     font-family: "Oswald",sans-serif;
     font-size: 15px;
