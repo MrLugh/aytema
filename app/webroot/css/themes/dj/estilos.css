@@ -1348,6 +1348,12 @@ textarea.form-control {
   color: #ffb740;
 }
 
+#page_post ul li .content_caption > i {
+    bottom: 20px;
+    position: absolute;
+    right: 0;
+}
+
 #page_post ul li .content_caption * {
   background: transparent;
   display: initial;
