@@ -1405,6 +1405,7 @@ textarea.form-control {
   height: 100%;
   display: block;
   width: calc(100% - 280px);
+  padding-right: 40px;
 }
 
 #page_post ul li .content_caption > h2, #page_post ul li .content_caption > i {
