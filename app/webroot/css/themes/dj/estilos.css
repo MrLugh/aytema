@@ -1254,17 +1254,18 @@ textarea.form-control {
 }
 
 #page_event .content_thumbnail {
+  width: 100%;
+
   -webkit-transform: scale(1) rotate(0deg);
   -moz-transform:    scale(1) rotate(0deg);
   -ms-transform:     scale(1) rotate(0deg);
   -o-transform:      scale(1) rotate(0deg);
   transform:         scale(1) rotate(0deg);
 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;  
-}  
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;  
 }
 
 #page_event .event_menu {
