@@ -68,14 +68,14 @@
     z-index:3;
 }
 .modalContent .arrow_left .more-user {
-    left: 100%;
+    left: 10%;
 }
 .modalContent .arrow_left:hover .more-user {
     opacity: 1;
     top: 35%;
 }
 .modalContent .arrow_right .more-user  {
-    right: 100%;
+    right: 10%;
 }
 .modalContent .arrow_right:hover .more-user {
     opacity: 1;
