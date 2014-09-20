@@ -9,11 +9,19 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 8;
+	$scope.limit 	= {
+		'photo':8,
+		'video':3,
+		'track':3,
+		'event':4,
+		'post':2,
+	};
 	$scope.contents	= {};
 	$scope.current	= 'page_profile';
 	$scope.content	= {};
 
+
+	$scope.page_intervals = {};
 	$scope.currentEvent = {};
 
 	$scope.isHover	= false;
@@ -128,7 +136,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		params['concepts']	= [concept];
 		params['networks']	= networks;
 		params['offset']	= $scope.contents[concept].offset;
-		params['limit']		= $scope.limit;
+		params['limit']		= $scope.limit[concept];
 		params['accounts']	= accounts;
 
 		contentSv.getContentsByFilters(params).then(
@@ -148,6 +156,22 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 					}
 					$scope.contents[concept].offset = $scope.contents[concept].list.length;
 					//contentSv.setPageList(concept,$scope.contents[concept]);
+					
+					var list = document.querySelector("#"+concept+"_list");
+					if (list) {
+						$scope.page_intervals[concept] = setInterval(function(){
+							if ($scope.page_intervals[concept]) {
+								clearInterval($scope.page_intervals[concept]);
+							}
+							list = document.querySelector("#"+concept+"_list");
+							var to_top = ['post','photo'];
+							if (to_top.indexOf(concept) != -1) {
+								$(list).animate({
+									scrollTop: angular.element(list)[0].scrollHeight
+								},1000);
+							}
+						},1000);
+					}
 				}
 			},
 			function(reason) {
@@ -224,8 +248,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			time = 2000;
 		}
 
-
-		console.log($scope.current,section);
 
 		if (section != 'page_detail') {
 			$scope.current = section;	
