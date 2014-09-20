@@ -402,6 +402,7 @@ function ($window,$timeout) {
 
         scope.caroufredsel = function() {
             $timeout(function(){
+                console.log();
                 angular.element(document.querySelector(options.selector)).carouFredSel(options);
             },500);
         };
