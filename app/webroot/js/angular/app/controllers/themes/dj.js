@@ -5,6 +5,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.userSv	= userSv;
 	$scope.user 	= userSv.getUser();
 	$scope.networks = appSv.getNetworks();
+	delete $scope.networks['twitter'];
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
@@ -87,9 +88,13 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.contents 	= {};
 
 		var concepts = [];
+		console.log($scope.networks);
 
 		for (var y in $scope.accounts) {
 			var account = $scope.accounts[y]['Socialnet'];
+			if (!angular.isDefined($scope.networks[account.network])) {
+				continue;
+			}
 			for (var x in $scope.networks[account.network]['concepts']){
 				concept = $scope.networks[account.network]['concepts'][x];
 				if (concepts.indexOf(concept) == -1 && 
@@ -125,12 +130,18 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		var networks = [];
 		var accounts = [];
 		angular.forEach($scope.accounts, function(account,key) {
-			if (networks.indexOf(account.Socialnet.network) == -1) {
-				networks.push(account.Socialnet.network);
+
+			if (angular.isDefined($scope.networks[account.Socialnet.network])) {
+
+				if (networks.indexOf(account.Socialnet.network) == -1) {
+					networks.push(account.Socialnet.network);
+				}
+				if (accounts.indexOf(account.Socialnet.id) == -1) {
+					accounts.push(account.Socialnet.id);
+				}
+
 			}
-			if (accounts.indexOf(account.Socialnet.id) == -1) {
-				accounts.push(account.Socialnet.id);
-			}
+
 		});
 
 		params['concepts']	= [concept];
@@ -171,6 +182,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 								},1000);
 							}
 						},1000);
+					}
+
+					if (concept == 'post') {
+						console.log(data.contents);
 					}
 				}
 			},
