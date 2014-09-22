@@ -1229,6 +1229,10 @@ textarea.form-control {
   overflow: hidden;
 }
 
+#page_photo .content_thumbnail {
+  width: 100%;
+}
+
 #page_photo .pageContentContainer:hover .content_thumbnail {
   -webkit-transform: scale(1.2);
   -moz-transform:    scale(1.2);
