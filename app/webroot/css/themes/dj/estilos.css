@@ -814,7 +814,6 @@ textarea.form-control {
   position: absolute;
   left: 10%;
   top:10%;
-  overflow: hidden;
   -webkit-transition:opacity 0.4s linear;
   -moz-transition:opacity 0.4s linear;
   -o-transition:opacity 0.4s linear;
@@ -1069,8 +1068,8 @@ textarea.form-control {
 .relateds .carousel_container {
   width: calc(100% - 120px)!important;
   position: relative;
-  left: 59px;
   margin: 40px 0!important;
+  height: 100px;
 }
 
 .relateds .list_carousel li { 

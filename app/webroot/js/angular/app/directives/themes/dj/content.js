@@ -32,7 +32,7 @@ function(appSv,$window,$timeout){
                     $(images[x]).load(function(){
                         loaded++;
                         if (loaded == scope.photolist.length) {
-                            scope.$apply(scope.loaded = true);
+                            scope.loaded = true;
                         }
                     });
                 }
