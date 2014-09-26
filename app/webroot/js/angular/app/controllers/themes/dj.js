@@ -88,7 +88,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.contents 	= {};
 
 		var concepts = [];
-		console.log($scope.networks);
 
 		for (var y in $scope.accounts) {
 			var account = $scope.accounts[y]['Socialnet'];
@@ -184,9 +183,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 						},1000);
 					}
 
-					if (concept == 'post') {
-						console.log(data.contents);
-					}
 				}
 			},
 			function(reason) {
@@ -258,9 +254,9 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.diff = Math.abs($scope.pages.indexOf(angular.copy(section).replace("page_","")) -
 			$scope.pages.indexOf(angular.copy($scope.current).replace("page_","")));
 		
-		var time = 1000 * $scope.diff;
+		var time = 1000;
 		if ($scope.diff >= $scope.pages.length / 2) {
-			time = 2000;
+			time = 1500;
 		}
 
 
