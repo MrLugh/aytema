@@ -1070,6 +1070,7 @@ textarea.form-control {
   position: relative;
   margin: 40px 0!important;
   height: 100px;
+  left: 60px;
 }
 
 .relateds .list_carousel li { 
