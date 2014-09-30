@@ -143,7 +143,6 @@ ul {
 
 i, *.active i {
   padding: 0px 2px;
-  text-shadow: rgb(3, 3, 3) 2px 2px 2px;
   -webkit-transition:all 0.5s ease;
   -moz-transition:all 0.5s ease;
   -o-transition:all 0.5s ease;
@@ -156,7 +155,6 @@ i, *.active i {
 
 i:hover,*.active i:hover {
   transition: border 0.1s ease 0s;
-  text-shadow: rgb(3, 3, 3) 2px 2px 2px;
 }
 
 iframe,object,embed {
