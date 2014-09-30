@@ -65,6 +65,8 @@ function($FB,$timeout){
         replace : true,
         link: function(scope,element,attrs) {
 
+            scope.showComments = false;
+
             element.ready(function(){
                 $timeout(function(){
                     scope.$FB = $FB;
