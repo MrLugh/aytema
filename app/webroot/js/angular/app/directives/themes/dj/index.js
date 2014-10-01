@@ -20,7 +20,9 @@ function(){
             $( window ).resize(function() {
                 clearTimeout(scrollTimer);
                 scrollTimer = setTimeout(function(){
-                    scope.scrollToSection(scope.current);
+                    if (!scope.showingDetail) {
+                        scope.scrollToSection(scope.current);
+                    }
                 },500);
             });
 
