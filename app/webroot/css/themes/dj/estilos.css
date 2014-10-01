@@ -717,21 +717,22 @@ textarea.form-control {
 }
 
 #footer .recent-photos a img { 
-    opacity: 1;
-	  -webkit-transition:opacity 0.2s ease-in-out 0s;
-	  -moz-transition:opacity 0.2s ease-in-out 0s;
-	  -o-transition:opacity 0.2s ease-in-out 0s;
-	  transition:opacity 0.2s ease-in-out 0s; 
+  opacity: 1;
+  -webkit-transition:opacity 0.2s ease-in-out 0s;
+  -moz-transition:opacity 0.2s ease-in-out 0s;
+  -o-transition:opacity 0.2s ease-in-out 0s;
+  transition:opacity 0.2s ease-in-out 0s; 
 }
 
 #footer .links li {
-    text-align: left;
-    display: table;
+  text-align: left;
+  display: table;
 }
 .social {
-    display: block;
-    margin-bottom: 30px !important;
-    overflow: hidden;
+  display: block;
+  margin-bottom: 30px !important;
+  overflow-y: auto;
+  height: 350px;
 }
 #footer .social li {
   display: block;

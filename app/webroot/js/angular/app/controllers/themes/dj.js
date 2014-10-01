@@ -11,7 +11,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accountsLoaded = false;
 
 	$scope.limit 	= {
-		'photo':8,
+		'photo':12,
 		'video':6,
 		'track':6,
 		'event':4,
