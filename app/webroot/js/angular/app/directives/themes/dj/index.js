@@ -9,6 +9,15 @@ function(){
         scope: true,
         link: function(scope,element,attrs) {
 
+            var scrollTimer = -1;
+
+            $( window ).resize(function() {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(function(){
+                    scope.scrollToSection(scope.current);
+                },500);
+            });            
+
         }
     }
 

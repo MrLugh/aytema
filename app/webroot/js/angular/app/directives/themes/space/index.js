@@ -9,8 +9,13 @@ function(){
         scope: true,
         link: function(scope,element,attrs) {
 
+            var scrollTimer = -1;
+
             $( window ).resize(function() {
-                scope.$apply(scope.scrollCurrent());
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(function(){
+                    scope.scrollCurrent();
+                },500);
             });
 
         }
