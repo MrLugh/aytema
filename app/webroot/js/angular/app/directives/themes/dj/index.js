@@ -16,7 +16,19 @@ function(){
                 scrollTimer = setTimeout(function(){
                     scope.scrollToSection(scope.current);
                 },500);
-            });            
+            });
+
+            $( window ).scroll(function() {
+
+                var current = scope.current;
+                for (var x in scope.pages) {
+                    var page = angular.element(document.querySelector("#page_"+scope.pages[x]));
+                    if ($(window).scrollTop() + 100 > page[0].offsetTop) {
+                        current = 'page_'+scope.pages[x];
+                    }
+                }
+                scope.$apply(function(){scope.current = current;});
+            });
 
         }
     }
