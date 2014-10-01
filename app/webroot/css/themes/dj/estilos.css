@@ -1,7 +1,6 @@
 body {
   color: #080808; 
-  overflow: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: #131313;
   font-family: 'Open Sans', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
   font-weight: 200;
@@ -305,6 +304,7 @@ p {
   width:100px;
   height:100px;
   padding: 40px;
+  display: none;
   -webkit-transform: scale(1);
   -moz-transform:    scale(1);
   -ms-transform:     scale(1);
@@ -706,22 +706,15 @@ textarea.form-control {
 	  -webkit-transition:all 0.4s ease-in-out 0s;
 	  -moz-transition:all 0.4s ease-in-out 0s;
 	  -o-transition:all 0.4s ease-in-out 0s;
-	  transition:all 0.4s ease-in-out 0s;    
+	  transition:all 0.4s ease-in-out 0s;
 	  width: 80px!important;
 	  height: 40px!important;
 	  overflow: hidden;	  
+    opacity: 0.7;
 }
 
 #footer .recent-photos a:hover { 
-	opacity: 0.8;
-}
-
-#footer .recent-photos a img { 
-  opacity: 1;
-  -webkit-transition:opacity 0.2s ease-in-out 0s;
-  -moz-transition:opacity 0.2s ease-in-out 0s;
-  -o-transition:opacity 0.2s ease-in-out 0s;
-  transition:opacity 0.2s ease-in-out 0s; 
+	opacity: 1;
 }
 
 #footer .links li {
@@ -732,7 +725,7 @@ textarea.form-control {
   display: block;
   margin-bottom: 30px !important;
   overflow-y: auto;
-  height: 350px;
+  height: 200px;
 }
 #footer .social li {
   display: block;
@@ -748,7 +741,23 @@ textarea.form-control {
   margin: 0 auto;
 }
 
+#footer .social li a i {
+  position: relative;
+  z-index: 1;
+  left:-50px;
+  -webkit-transition:all 0.4s ease-in-out 0s;
+  -moz-transition:all 0.4s ease-in-out 0s;
+  -o-transition:all 0.4s ease-in-out 0s;
+  transition:all 0.4s ease-in-out 0s;
+}
+
+#footer .social li:hover a i {
+  left: 0;
+}
+
 #footer .profileImage {
+  position: relative;
+  z-index: 2;
   height: 50px;
 }
 

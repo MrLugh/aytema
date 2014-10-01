@@ -37,11 +37,11 @@
 	<div id="page_profile" style="height:{{appSv.getHeight()}}px;" parallax-background parallax-ratio="0.5">
 
 		<h3 style="line-height:{{appSv.getHeight()}}px;" class="{{isHover?'hover':''}}">{{user.username|uppercase}}</h3>
-		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[2])" skip-default><i class="fa fa-angle-down init" ng-mouseover="setInitHover(true)" ng-mouseout="setInitHover(false)"></i></a>
+		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[2])" skip-default><i id="menu_init" class="fa fa-angle-down init" ng-mouseover="setInitHover(true)" ng-mouseout="setInitHover(false)"></i></a>
 
 	</div>
 
-	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0 && page != 'profile' && page != 'about' && page != 'contact'&& page != 'detail'" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()-getMenuHeight()}}px;" ng-switch="page" parallax-background parallax-ratio="0.5">
+	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0 && page != 'profile' && page != 'about' && page != 'contact'&& page != 'detail'" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()}}px;" ng-switch="page" parallax-background parallax-ratio="0.5">
 
 		<div ng-if="$index % 2 == 0" class="triangle-bottomright black"></div>
 		<div ng-if="$index % 2 != 0" class="triangle-topleft yellow"></div>
@@ -145,7 +145,7 @@
 								</div>
 
 							</li>
-							<li class="center">
+							<li class="center" style="background-color:rgba(0,0,0,0.3)">
 
 								<img class="users-photo" ng-src="{{user.profile_image}}">
 
@@ -233,7 +233,7 @@
 
 	</div>
 
-	<div id="page_contact" class="page" style="height:{{appSv.getHeight()-getMenuHeight()}}px;">
+	<div id="page_contact" class="page" style="height:{{appSv.getHeight()}}px;">
 
 		<div ng-if="pages.length % 2 == 0" class="triangle-topleft yellow"></div>
 		<div ng-if="pages.length != 0" class="triangle-bottomright yellow"></div>
@@ -257,7 +257,7 @@
 
 	</div>
 
-	<div id="page_about" class="page" style="height:{{appSv.getHeight()-getMenuHeight()}}px;">
+	<div id="page_about" class="page" style="height:{{appSv.getHeight()}}px;">
  
 		<div ng-if="pages.length % 2 == 0" class="triangle-bottomright yellow"></div>
 		<div ng-if="pages.length != 0" class="triangle-topleft yellow"></div>
@@ -318,7 +318,7 @@
 	</div>
 
 
-	<div id="page_detail" ng-show="showingDetail" style="height:{{appSv.getHeight()-getMenuHeight()}}px;">
+	<div id="page_detail" ng-show="showingDetail" style="height:{{appSv.getHeight()}}px;">
 		
 		<i ng-click="moveDetail(-1)" class="fa fa-chevron-left controlPrev left"></i>
 		<i ng-click="moveDetail(1)" class="fa fa-chevron-right controlNext left"></i>

@@ -11,6 +11,12 @@ function(){
 
             var scrollTimer = -1;
 
+            setTimeout(function(){
+                $("#menu_init").show(500);
+                $("body").css('overflow','auto');
+                $("body").css('overflowX','hidden');                
+            },2500);
+
             $( window ).resize(function() {
                 clearTimeout(scrollTimer);
                 scrollTimer = setTimeout(function(){
@@ -22,8 +28,13 @@ function(){
 
                 var current = scope.current;
                 for (var x in scope.pages) {
+
+                    if (scope.showingDetail) {
+                        continue;
+                    }
+
                     var page = angular.element(document.querySelector("#page_"+scope.pages[x]));
-                    if ($(window).scrollTop() + 100 > page[0].offsetTop) {
+                    if ($(window).scrollTop() + 50 > page[0].offsetTop) {
                         current = 'page_'+scope.pages[x];
                     }
                 }

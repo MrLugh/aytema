@@ -12,9 +12,9 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.limit 	= {
 		'photo':12,
-		'video':6,
-		'track':6,
-		'event':4,
+		'video':3,
+		'track':3,
+		'event':3,
 		'post':2,
 	};
 	$scope.contents	= {};
