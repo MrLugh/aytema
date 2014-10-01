@@ -1,9 +1,7 @@
 body {
   font-family: "Josefin Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
-  /*background-color: #383131;*/
-  background-image:url(http://cloudcial.com/img/admin/bg-dot.png);
-  background-image:url(http://cloudcial.com/img/admin/bg.jpg);
+  background-color: rgba(0, 0, 0, 0.58);
 }
 
 .ng-enter {

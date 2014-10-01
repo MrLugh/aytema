@@ -84,6 +84,11 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
                     allowPointSelect: true,
                     cursor: 'pointer',
                     showInLegend: false,
+                    dataLabels: {
+                        style: {
+                            color:'#fff'
+                        }
+                    }
                 }
             },
             series: [{
@@ -114,6 +119,11 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
                     allowPointSelect: true,
                     cursor: 'pointer',
                     showInLegend: false,
+                    dataLabels: {
+                        style: {
+                            color:'#fff'
+                        }
+                    }
                 }
             },
             series: [{

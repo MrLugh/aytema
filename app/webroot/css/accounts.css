@@ -423,12 +423,10 @@
 #accountPageList .stats {
   width: auto;
   height: auto;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
 #accountPageList .stats li {
   margin:4px;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
   
  

@@ -11,7 +11,7 @@
 			<img src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="Next photo" />
 		</a>
 	</div>
-	<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" />
+	<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" thumbnail="content" />
 
 	<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 	<p ng-bind-html="getDescription()"></p>
