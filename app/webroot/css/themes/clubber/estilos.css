@@ -423,6 +423,7 @@ ul {
 
   background-size:cover;
   background-position:center center;
+  background-repeat: no-repeat;
 
   -webkit-box-shadow: 2px 7px 0 rgba(0, 0, 0, 0.8);
   -moz-box-shadow:    2px 7px 0 rgba(0, 0, 0, 0.8);

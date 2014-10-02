@@ -8,6 +8,11 @@
     height: 200px;
   }
 
+  .latestVideos .carousel-inner,
+  .latestTracks .carousel-inner {
+    height: 200px;
+  }
+
   .latestEvents li.event {
     height: auto;
   }
@@ -78,7 +83,12 @@
 
   .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
     height: 250px;
-  } 
+  }
+
+  .latestVideos .carousel-inner,
+  .latestTracks .carousel-inner {
+    height: 250px;
+  }
 
 }
 
@@ -88,11 +98,21 @@
     height: 350px;
   }
 
+  .latestVideos .carousel-inner,
+  .latestTracks .carousel-inner {
+    height: 350px;
+  }
+
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
 
   .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
+    height: 250px;
+  }
+
+  .latestVideos .carousel-inner,
+  .latestTracks .carousel-inner {
     height: 250px;
   }
 
