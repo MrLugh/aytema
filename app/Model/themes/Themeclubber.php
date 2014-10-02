@@ -28,7 +28,7 @@ Class Themeclubber {
                 'label' => 'Body background',
             ),
             'contentBackground' => array(
-                'value' => '#A52A2A',
+                'value' => '#00D5FF',
                 'label' => 'Content background',
             ),
             'contentText' => array(
@@ -38,7 +38,7 @@ Class Themeclubber {
         ),
         'fonts' => array(
             'selected' => array(
-                'family'=> "'Playfair Display', serif",
+                'family'=> "'Ubuntu', sans-serif",
                 'size'  => '13px',
             ),
             'list' => array(

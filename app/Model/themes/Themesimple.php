@@ -19,7 +19,7 @@ Class Themesimple {
         ),
         'fonts' => array(
             'selected' => array(
-                'family'=> "'Playfair Display', serif",
+                'family'=> "'Ubuntu', sans-serif",
                 'size'  => '13px',
             ),
             'list' => array(

@@ -359,14 +359,33 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 		$scope.getFooterStyle();
 	});
 
+	var scrollTimer = -1;
+
 	angular.element($window).bind('resize',function() {
 		if (angular.isDefined($scope.current)) {
-			$scope.scrollToSection($scope.current);
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(function(){
+                $scope.scrollToSection($scope.current);
+            },500);
 		}
     	
     	if ($scope.isFullWidth) {
     		$scope.scrollToQueue('queue_'+$scope.currentQueue);
     	}
 	});
+
+	angular.element($window).scroll(function() {
+
+        var current = $scope.current;
+        for (var x in $scope.pages) {
+
+            var page = angular.element(document.querySelector("#page_"+$scope.pages[x]));
+            if ($(window).scrollTop() + 50 > page[0].offsetTop) {
+                current = 'page_'+$scope.pages[x];
+            }
+        }
+        $scope.current = current;
+	});
+
 
 }
