@@ -129,20 +129,14 @@
 
 	</div>
 
-	<a href="#/" skip-default ng-click="move(-1)" ng-if="list.length>1" class="control control_prev {{getNavigatorNetwork(-1)}}AccountRgba left" control-hover="prev" style="top:{{menuHeight+4}}px;" tooltip="{{getNavigatorTitle(-1)|capitalize}}" tooltip-placement="right" ng-style="getControlStyle(-1)">
-		<img class="social-media right" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(-1)}}-big.png" alt=""/>
+	<a href="#/" thumbnail="getNavigatorContent(-1)" skip-default ng-click="move(-1)" ng-if="list.length>1" class="control control_prev {{getNavigatorNetwork(-1)}}AccountRgba left" control-hover="prev" style="top:{{menuHeight+4}}px;" ng-style="getControlStyle(-1)">
+		<img class="social-media right" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(-1)}}-big.png" alt="" tooltip="{{getNavigatorTitle(-1)|capitalize}}" tooltip-placement="right"/>
 		<i class="social-icon right" ng-class="getNavigatorConceptIcon(-1)"></i>
-		<div ng-show="getNavigatorThumbnail(-1).length>0">
-			<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" class="control_thumbnail"/>
-		</div>
 	</a>
 
-	<a href="#/" skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}AccountRgba right" tooltip-placement="left" control-hover="next" style="top:{{menuHeight+4}}px;" tooltip="{{getNavigatorTitle(1)|capitalize}}" ng-style="getControlStyle(1)">
-		<img class="social-media left" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(1)}}-big.png" alt=""/>
+	<a href="#/" thumbnail="getNavigatorContent(1)"  skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}AccountRgba right" control-hover="next" style="top:{{menuHeight+4}}px;" ng-style="getControlStyle(1)">
+		<img class="social-media left" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(1)}}-big.png" alt="" tooltip="{{getNavigatorTitle(1)|capitalize}}" tooltip-placement="left"/>
 		<i class="social-icon left" ng-class="getNavigatorConceptIcon(1)"></i>
-		<div ng-show="getNavigatorThumbnail(1).length>0">
-			<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" class="control_thumbnail"/>
-		</div>
 	</a>
 
 </div>

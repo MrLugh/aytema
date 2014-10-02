@@ -538,13 +538,13 @@ function (contentSv) {
                 var img = new Image();
 
                 img.onerror = function() {
-                    scope.$apply(function() {
-                        contentSv.addBadImages(scope.src);
-                        scope.src = scope.getContentThumbnail();
-                        if (scope.src.length == 0) {
-                            scope.src = scope.getDefaultImage();
-                        }
-                    });
+                    
+                    contentSv.addBadImages(scope.src);
+                    scope.src = scope.getContentThumbnail();
+                    if (scope.src.length == 0) {
+                        scope.src = scope.getDefaultImage();
+                    }
+
                 }
 
                 img.onload = function() {
@@ -558,6 +558,10 @@ function (contentSv) {
 
                 img.src = scope.src;
 
+            });
+
+            scope.$watch("content",function(){
+                scope.src = scope.getContentThumbnail();
             });
         }
     };

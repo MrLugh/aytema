@@ -206,9 +206,15 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.getNavigatorThumbnail(-1);
 		$scope.getNavigatorTitle(-1);
 		$scope.getNavigatorNetwork(-1);
+		$scope.getNavigatorContent(-1);
+
+
 		$scope.getNavigatorThumbnail(1);
 		$scope.getNavigatorTitle(1);
 		$scope.getNavigatorNetwork(1);
+		$scope.getNavigatorContent(1);
+
+
 		$scope.getContentStyle();
 		$scope.hideOnHover();
 	});
@@ -516,13 +522,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var style = {};
 
-		if ($scope.getNavigatorThumbnail(direction).length>0) {			
-			style['background']			= 'url('+$scope.getNavigatorThumbnail(direction)+')';
-			style['background-size']	= 'cover';
-			style['background-position']= 'center center';
-		}
-
-		//style['background-color'] = $scope.config.custom.colors.contentBackground.value;
 		style['color'] = $scope.config.custom.colors.contentText.value;
 
 		return style;
@@ -536,6 +535,30 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     	var current = $scope.list[$scope.current];
     	return 'content_hover '+current.network+'_color';
     }
+
+	$scope.getNavigatorContent = function(direction) {
+
+		var current = $scope.current;
+
+		if (direction > 0) {
+			current++;
+		} else {
+			current--;
+		}
+
+		if (current == $scope.list.length) {
+			current = 0;
+		}
+		if (current < 0) {		
+			current = $scope.list.length - 1;
+		}
+
+		if (!angular.isDefined($scope.list[current])) {
+			return '';
+		}
+		var content = $scope.list[current];
+		return content;
+	}    
 
     $scope.getNavigatorIndex = function(direction) {
 
