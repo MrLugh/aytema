@@ -438,6 +438,9 @@
   height: 190px;
   width: 200px;
   display: inline-block!important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .socialnet .footerFull {

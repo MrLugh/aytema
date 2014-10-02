@@ -181,6 +181,10 @@ function contentPhotoCo($scope,contentSv,userSv,appSv) {
 
 	$scope.getDescription = function() {	
 
+		if (!angular.isDefined($scope.current)) {
+			return '';
+		}
+
 		if ($scope.current.description.length) {
 			return $scope.current.description;
 		}

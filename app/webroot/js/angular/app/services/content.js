@@ -133,7 +133,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			stat_name == 'post'			||
 			stat_name == 'statuses') {
 
-		    icon_class= "fa fa-file-text";
+		    icon_class= "fa fa-newspaper-o";
 		} else if (stat_name == 'quotes'	||
 			stat_name == 'quote') {
 
