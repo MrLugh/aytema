@@ -2,10 +2,10 @@ body {
 	text-align: center;
 	margin: 0 auto;
 	overflow: hidden;
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 }
 
 * {
@@ -134,10 +134,10 @@ ul {
 	text-align: center;
 	margin: 0 auto;
 
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	overflow: hidden;
 	padding:0;
 	margin: 0;
@@ -168,10 +168,10 @@ ul {
 	padding: 0;
 	background: none;
 	border:none;
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	overflow-x: hidden;
 	overflow-y: auto;
 	width: 90%;
@@ -190,10 +190,10 @@ ul {
 }
 
 .content .content_photo {
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	position: relative;
 	left:0;
 	display: none;
@@ -212,10 +212,10 @@ ul {
 }
 
 .content .overlay_photo {
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	position:absolute;
 	width:100%;
 	height:100%;
@@ -228,10 +228,10 @@ ul {
 }
 
 .content .overlay_content {
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	position:relative;
 	width:100%;
 	height:100%;
@@ -240,10 +240,10 @@ ul {
 }
 
 .content .overlay_contain {
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	position:absolute;
 	width:100%;
 	height:100%;
@@ -295,10 +295,10 @@ iframe,object,embed {
 	padding: 20px;
 	text-align: left;
 	min-height: 80px;
-	-webkit-transition: all 0.56s ease;
-	-moz-transition: all 0.56s ease;
-	-o-transition: all 0.56s ease;
-	transition: all 0.56s ease;
+	-webkit-transition: all 0.56s ease-in-out 0s;
+	-moz-transition: all 0.56s ease-in-out 0s;
+	-o-transition: all 0.56s ease-in-out 0s;
+	transition: all 0.56s ease-in-out 0s;
 	position: relative;
 	opacity: 0;
 	margin: 0 auto;
@@ -341,10 +341,10 @@ iframe,object,embed {
 }
 
 .content .user_info {
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	/*
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
@@ -365,10 +365,10 @@ iframe,object,embed {
 }
 
 .content .share {
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	/*
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
@@ -389,9 +389,9 @@ iframe,object,embed {
 }
 
 .content .player {
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	display: inline-block;
 }
 
@@ -406,10 +406,10 @@ iframe,object,embed {
 
 
 .control {
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
 	overflow: hidden;
 	padding:0;
 	margin: 0;
@@ -457,10 +457,10 @@ iframe,object,embed {
 
 .control_thumbnail {
 	width: 100%;
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;	
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;	
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
 	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
@@ -651,10 +651,10 @@ iframe,object,embed {
 }
 
 .social-media {
-	-webkit-transition:all 0.56s ease;
-	-moz-transition:all 0.56s ease;
-	-o-transition:all 0.56s ease;
-	transition:all 0.56s ease;	
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;	
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
 	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
@@ -662,10 +662,10 @@ iframe,object,embed {
 
 .footer {
   position: fixed;
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;
+  -webkit-transition:all 0.66s ease-in-out 0s;
+  -moz-transition:all 0.66s ease-in-out 0s;
+  -o-transition:all 0.66s ease-in-out 0s;
+  transition:all 0.66s ease-in-out 0s;
   z-index: 3;
   max-height: 250px;
 }

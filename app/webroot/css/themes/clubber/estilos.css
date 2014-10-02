@@ -73,10 +73,10 @@ blockquote {
 i, *.active i {
   padding: 5px;
   text-shadow: rgb(3, 3, 3) 1px 1px 1px;
-  -webkit-transition:all 0.5s ease;
-  -moz-transition:all 0.5s ease;
-  -o-transition:all 0.5s ease;
-  transition:all 0.5s ease;  
+  -webkit-transition:all 0.5s ease-in-out 0s;
+  -moz-transition:all 0.5s ease-in-out 0s;
+  -o-transition:all 0.5s ease-in-out 0s;
+  transition:all 0.5s ease-in-out 0s;  
 }
 
 *.active i {
@@ -136,10 +136,10 @@ ul {
   text-transform: uppercase; 
   padding:8px 15px 8px 15px;
   /*color: #fff!important;*/
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;  
+  -webkit-transition:all 0.56s ease-in-out 0s;
+  -moz-transition:all 0.56s ease-in-out 0s;
+  -o-transition:all 0.56s ease-in-out 0s;
+  transition:all 0.56s ease-in-out 0s;  
 }
 
 .boxed {
@@ -186,10 +186,10 @@ ul {
   top:0;
   left:0;
 
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;  
+  -webkit-transition:all 0.56s ease-in-out 0s;
+  -moz-transition:all 0.56s ease-in-out 0s;
+  -o-transition:all 0.56s ease-in-out 0s;
+  transition:all 0.56s ease-in-out 0s;  
 }
 
 #container .page.ng-enter {
@@ -233,10 +233,10 @@ ul {
   right: 0;
   width: 50px;
   height: 50px;
-  -webkit-transition:all 0.36s ease;
-  -moz-transition:all 0.36s ease;
-  -o-transition:all 0.36s ease;
-  transition:all 0.36s ease;
+  -webkit-transition:all 0.36s ease-in-out 0s;
+  -moz-transition:all 0.36s ease-in-out 0s;
+  -o-transition:all 0.36s ease-in-out 0s;
+  transition:all 0.36s ease-in-out 0s;
   font-size: 45px;
 }
 
@@ -416,10 +416,10 @@ ul {
   float: left;
   border: 6px;
 
-  -webkit-transition:all 0.96s ease;
-  -moz-transition:all 0.96s ease;
-  -o-transition:all 0.96s ease;
-  transition:all 0.96s ease;  
+  -webkit-transition:all 0.96s ease-in-out 0s;
+  -moz-transition:all 0.96s ease-in-out 0s;
+  -o-transition:all 0.96s ease-in-out 0s;
+  transition:all 0.96s ease-in-out 0s;  
 
   background-size:cover;
   background-position:center center;
@@ -436,10 +436,10 @@ ul {
 }
 
 .latestPhotos .photo_contain {
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;
+  -webkit-transition:all 0.66s ease-in-out 0s;
+  -moz-transition:all 0.66s ease-in-out 0s;
+  -o-transition:all 0.66s ease-in-out 0s;
+  transition:all 0.66s ease-in-out 0s;
   position:absolute;
   width: 100%;
   height: 100%;
@@ -487,10 +487,10 @@ ul {
   max-width: 100%;
   overflow: hidden;
 
-  -webkit-transition:opacity 0.76s ease;
-  -moz-transition:opacity 0.76s ease;
-  -o-transition:opacity 0.76s ease;
-  transition:opacity 0.76s ease;      
+  -webkit-transition:opacity 0.76s ease-in-out 0s;
+  -moz-transition:opacity 0.76s ease-in-out 0s;
+  -o-transition:opacity 0.76s ease-in-out 0s;
+  transition:opacity 0.76s ease-in-out 0s;      
 }
 
 .latestPhotos .carousel-inner {

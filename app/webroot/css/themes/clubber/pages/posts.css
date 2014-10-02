@@ -44,10 +44,10 @@
     height: auto;
     max-width: 100%;
     margin: 0 auto;
-    -webkit-transition: all 0.56s ease;
-    -moz-transition: all 0.56s ease;
-    -o-transition: all 0.56s ease;
-    transition: all 0.56s ease;
+    -webkit-transition: all 0.56s ease-in-out 0s;
+    -moz-transition: all 0.56s ease-in-out 0s;
+    -o-transition: all 0.56s ease-in-out 0s;
+    transition: all 0.56s ease-in-out 0s;
 
     -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
     -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
@@ -68,10 +68,10 @@
     z-index: 2;
     opacity: 0;
     /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    -o-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
 }
 
 .pagePosts ul li .pagePostContainer .overlay .overlay-inner {

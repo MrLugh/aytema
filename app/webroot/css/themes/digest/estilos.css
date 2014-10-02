@@ -2,10 +2,10 @@
 body {
   color: #000; 
   overflow: hidden;
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;
+  -webkit-transition:all 0.66s ease-in-out 0s;
+  -moz-transition:all 0.66s ease-in-out 0s;
+  -o-transition:all 0.66s ease-in-out 0s;
+  transition:all 0.66s ease-in-out 0s;
 }
 
 * {
@@ -285,10 +285,10 @@ p {
 /* arrows*/
 
 .arrows {
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;  
+  -webkit-transition:all 0.66s ease-in-out 0s;
+  -moz-transition:all 0.66s ease-in-out 0s;
+  -o-transition:all 0.66s ease-in-out 0s;
+  transition:all 0.66s ease-in-out 0s;  
     float: left;
     position: absolute;
     width: 6%;
@@ -381,10 +381,10 @@ p {
 
 
 .content_photo {
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;
+  -webkit-transition:all 0.56s ease-in-out 0s;
+  -moz-transition:all 0.56s ease-in-out 0s;
+  -o-transition:all 0.56s ease-in-out 0s;
+  transition:all 0.56s ease-in-out 0s;
 }
 
 
@@ -403,10 +403,10 @@ p {
 }
 
 .modalContent {
-  -webkit-transition:all 0.56s ease;
-  -moz-transition:all 0.56s ease;
-  -o-transition:all 0.56s ease;
-  transition:all 0.56s ease;  
+  -webkit-transition:all 0.56s ease-in-out 0s;
+  -moz-transition:all 0.56s ease-in-out 0s;
+  -o-transition:all 0.56s ease-in-out 0s;
+  transition:all 0.56s ease-in-out 0s;  
   position: relative;
   left: 0;
   width: 100%;
@@ -517,19 +517,19 @@ p {
   position: fixed;
   display: block;
   top:100%;
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;  
+  -webkit-transition:all 0.66s ease-in-out 0s;
+  -moz-transition:all 0.66s ease-in-out 0s;
+  -o-transition:all 0.66s ease-in-out 0s;
+  transition:all 0.66s ease-in-out 0s;  
 }
 
 .scrollToTop, .user_message {
   position: relative;
   top:-100%;
-  -webkit-transition:all 0.66s ease;
-  -moz-transition:all 0.66s ease;
-  -o-transition:all 0.66s ease;
-  transition:all 0.66s ease;  
+  -webkit-transition:all 0.66s ease-in-out 0s;
+  -moz-transition:all 0.66s ease-in-out 0s;
+  -o-transition:all 0.66s ease-in-out 0s;
+  transition:all 0.66s ease-in-out 0s;  
 }
 
 .scrollToTop img {
