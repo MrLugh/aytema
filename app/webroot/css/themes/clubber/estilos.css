@@ -492,6 +492,10 @@ ul {
   transition:opacity 0.76s ease;      
 }
 
+.latestPhotos .carousel-inner {
+  height: 430px;
+}
+
 .latestPhotos .carousel-inner .active .text_container {
   opacity: 1;
 }
@@ -553,6 +557,7 @@ ul {
 .latestVideos .carousel-inner,
 .latestTracks .carousel-inner {
   width: 100%;
+  height: 350px;
 }
 
 /* latest videos */
