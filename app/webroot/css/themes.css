@@ -50,11 +50,6 @@
 	transition:all 0.56s ease;
 }
 
-.themesContainer .themeActive, .themesContainer .theme:hover {
-	background-color: #252328;
-}
-	
-
 .themesContainer .theme .themeThumbnail {
 	position: absolute;
 	background-size: contain;
