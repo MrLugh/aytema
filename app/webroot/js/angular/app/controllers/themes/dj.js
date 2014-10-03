@@ -11,11 +11,11 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accountsLoaded = false;
 
 	$scope.limit 	= {
-		'photo':12,
-		'video':3,
-		'track':3,
-		'event':3,
-		'post':2,
+		'photo':8,
+		'video':6,
+		'track':6,
+		'event':6,
+		'post':6,
 	};
 	$scope.contents	= {};
 	$scope.current	= 'page_profile';
@@ -120,6 +120,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 		$scope.pages.push('contact');
 		$scope.pages.push('about');
+		$scope.pages.push('footer');
 	};
 
 	$scope.getContent = function(concept) {

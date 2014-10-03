@@ -21,7 +21,7 @@
 
 	</div>
 
-	<ul ng-show="current != 'page_profile' && !showingDetail" id="menu" get-menu-height>
+	<ul ng-show="current != 'page_profile' && current != 'page_footer' && !showingDetail" id="menu" get-menu-height>
 		<li ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</li>
 		<li ng-repeat="page in pages" ng-if="contents[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
 			<span>{{getPluralizedConcepts(page)|capitalize}}</span>
@@ -271,7 +271,7 @@
 
 	</div>
 
-	<div id="footer" style="height:{{appSv.getHeight()}}px;">
+	<div id="page_footer" class="page" style="height:{{appSv.getHeight()}}px;">
 		<div class="row content">
             <div class="col-xs-6 col-sm-3 content-seccion">
 				<ul>
@@ -281,7 +281,7 @@
             </div>
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Social</h4>
-				<ul class="social" style="height:{{appSv.getHeight()-getMenuHeight()-110}}px;overflow-y:auto;">
+				<ul class="social" style="height:{{appSv.getHeight()-120}}px;overflow-y:auto;">
 					<li ng-repeat="account in accounts" class="social-link inline">
 						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.network}} {{account.Socialnet.login}}">
 							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
@@ -290,13 +290,17 @@
 					</li>
 				</ul>
             </div>
-            <div class="col-xs-6 col-sm-3 content-seccion">
-                <h4>Recent photos</h4>
-					<div class="recent-photos">
-						<a href="#/" ng-repeat="photo in contents.photo.list|limitTo:12" ng-click="showDeatil(photo)" skip-default>
-	                     	<img style="margin:0 auto;max-width:100%;" ng-src="{{contentSv.getThumbnail(photo)}}"/>
-	                     </a>
+            <div class="col-xs-6 col-sm-3 content-seccion" style="height:{{appSv.getHeight()-80}}px;overflow-y:auto;">
+            	<div ng-repeat="page in validPages">
+	                <div class="clearfix"></div>
+	                <h4 ng-if="contents[page].list.length">Recent {{getPluralizedConcepts(page)|capitalize}}</h4>
+					<div ng-if="contents[page].list.length" class="recent-content">
+						<a href="#/" ng-repeat="content in contents[page].list|withThumbnail|limitTo:6" ng-click="showDetail(content)" skip-default>
+	                     	<img style="margin:0 auto;max-width:100%;" ng-src="{{contentSv.getThumbnail(content)}}"/>
+	                    </a>
 	                </div>
+	              	<div class="clearfix"></div>
+            	</div>
             </div>
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Links</h4>

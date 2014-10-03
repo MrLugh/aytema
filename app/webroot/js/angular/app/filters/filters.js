@@ -24,6 +24,18 @@ ayTemaFs.filter('unslug', function() {
 	}
 });
 
+ayTemaFs.filter('withThumbnail', function(contentSv) {
+	return function(contents) {
+		var list = [];
+	    angular.forEach(contents, function(content, index) {
+	    	if (contentSv.getThumbnail(content).length) {
+	    		this.push(content);
+	    	}
+	    },list);
+		return list;
+	}
+});
+
 ayTemaFs.filter('statValueFormat', function() {
 	return function(num, params) {
 
