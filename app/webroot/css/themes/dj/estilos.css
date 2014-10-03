@@ -674,6 +674,7 @@ textarea.form-control {
   padding-bottom: 90px;
   background-image:url("../../../img/themes/dj/bg-dot.png");
   background-color:rgba(16, 16, 16, 0.9);
+  overflow: hidden;
 }
 
 #footer .content { 
@@ -725,7 +726,6 @@ textarea.form-control {
   display: block;
   margin-bottom: 30px !important;
   overflow-y: auto;
-  height: 200px;
 }
 #footer .social li {
   display: block;
@@ -744,15 +744,10 @@ textarea.form-control {
 #footer .social li a i {
   position: relative;
   z-index: 1;
-  left:-50px;
   -webkit-transition:all 0.4s ease-in-out 0s;
   -moz-transition:all 0.4s ease-in-out 0s;
   -o-transition:all 0.4s ease-in-out 0s;
   transition:all 0.4s ease-in-out 0s;
-}
-
-#footer .social li:hover a i {
-  left: 0;
 }
 
 #footer .profileImage {

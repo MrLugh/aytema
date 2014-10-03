@@ -281,7 +281,7 @@
             </div>
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Social</h4>
-				<ul class="social">
+				<ul class="social" style="height:{{appSv.getHeight()-getMenuHeight()-110}}px;overflow-y:auto;">
 					<li ng-repeat="account in accounts" class="social-link inline">
 						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.network}} {{account.Socialnet.login}}">
 							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
