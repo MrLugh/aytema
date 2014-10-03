@@ -21,18 +21,40 @@
 
 	</div>
 
-	<ul ng-show="current != 'page_profile' && current != 'page_footer' && !showingDetail" id="menu" get-menu-height>
-		<li ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</li>
-		<li ng-repeat="page in pages" ng-if="contents[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
-			<span>{{getPluralizedConcepts(page)|capitalize}}</span>
-		</li>
-		<li ng-click="scrollToSection('page_contact')" class="item {{current == 'page_contact' ? 'active':''}}">
-			<span>Contact</span>
-		</li>
-		<li ng-click="scrollToSection('page_about')" class="item {{current == 'page_about' ? 'active':''}}">
-			<span>About Me</span>
-		</li>
-	</ul>
+	<nav id="menu" ng-show="current != 'page_profile' && current != 'page_footer' && !showingDetail" class="navbar navbar-default" role="navigation">
+	 
+		<div class="container">
+
+			<span ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</span>
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
+					<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
+					<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
+				</button>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav right" get-menu-height>
+					<li ng-repeat="page in pages" ng-if="contents[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
+						<span>{{getPluralizedConcepts(page)|capitalize}}</span>
+					</li>
+					<li ng-click="scrollToSection('page_contact')" class="item {{current == 'page_contact' ? 'active':''}}">
+						<span>Contact</span>
+					</li>
+					<li ng-click="scrollToSection('page_about')" class="item {{current == 'page_about' ? 'active':''}}">
+						<span>About Me</span>
+					</li>
+				</ul>			
+
+			</div>
+
+		</div>
+
+	</nav>	
 
 	<div id="page_profile" style="height:{{appSv.getHeight()}}px;" parallax-background parallax-ratio="0.5">
 

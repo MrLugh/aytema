@@ -28,13 +28,17 @@
 }
 
 @media (max-width: 480px) {
-	#page_video .list_carousel li, .video_thumbnail {
+	#page_video .list_carousel li,
+	#page_track .list_carousel li {
 		width:  200px;
 		height: 200px;
+	}
+
+	#page_photo ul li {
+		width: 50%;
 	}
 
 	.content-seccion {
 		width: 100%;
 	}	
-	
 }

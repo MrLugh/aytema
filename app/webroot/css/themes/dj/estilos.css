@@ -264,9 +264,11 @@ p {
   margin: 0;
   background-color: #020202;
   color: #ffffff;
+  border: none;
   line-height: 83px;
   font-size: 17px;
   text-transform: uppercase;
+  border-radius: 0;
   -webkit-transition:all 0.66s ease-in-out 0s;
   -moz-transition:all 0.66s ease-in-out 0s;
   -o-transition:all 0.66s ease-in-out 0s;
@@ -284,6 +286,12 @@ p {
 #menu .item {
   padding: 0 30px;
   display: inline-block;
+}
+
+#menu .container {
+  padding: 0;
+  margin: 0;
+  width:100%;
 }
 
 /*header*/
@@ -375,6 +383,7 @@ p {
 .profile {
   padding-right: 20px;
   font-family: 'Rock Salt', cursive;
+  float: left;
 }
 
 .content_thumbnail {
