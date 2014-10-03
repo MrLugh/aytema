@@ -753,15 +753,18 @@ textarea.form-control {
 #page_footer .social li {
   display: block;
   float: left;
-  margin: 10px;
+  margin: 0;
+  margin-bottom: 5px;
   padding: 0;
-  text-align: center;
+  text-align: left;
+  width: 50%;
 }
 #page_footer .social li a {
   color: #878787!important;
   font-size: 20px;
   text-align: center;
   margin: 0 auto;
+  padding: 10px;
 }
 
 #page_footer .social li a i {
@@ -777,6 +780,7 @@ textarea.form-control {
   position: relative;
   z-index: 2;
   height: 50px;
+  border: 2px solid rgba(255, 194, 41,0.8);;
 }
 
 

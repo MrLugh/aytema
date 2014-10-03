@@ -303,16 +303,16 @@
             </div>
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Social</h4>
-				<ul class="social" style="height:{{appSv.getHeight()-120}}px;overflow-y:auto;">
+				<ul class="social" style="height:{{appSv.getHeight()-80}}px;overflow-y:auto;">
 					<li ng-repeat="account in accounts" class="social-link inline">
-						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.network}} {{account.Socialnet.login}}">
+						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.login}}">
 							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
 							<i ng-class="networkIcon(account.Socialnet.network)"></i>
 						</a>
 					</li>
 				</ul>
             </div>
-            <div class="col-xs-6 col-sm-3 content-seccion" style="height:{{appSv.getHeight()-80}}px;overflow-y:auto;">
+            <div class="col-xs-6 col-sm-3 content-seccion" style="height:{{appSv.getHeight()}}px;overflow-y:auto;">
             	<div ng-repeat="page in validPages">
 	                <div class="clearfix"></div>
 	                <h4 ng-if="contents[page].list.length">Recent {{getPluralizedConcepts(page)|capitalize}}</h4>
