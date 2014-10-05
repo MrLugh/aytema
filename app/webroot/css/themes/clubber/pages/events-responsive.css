@@ -1,127 +1,26 @@
-
 @media (min-width: 1025px) {
 
 	.pageEvents ul li {
 	    width: calc(33% - 1px);
-	}	
+	}
 
 }
 
 @media (max-width: 1024px) {
 
-	.pageEvents ul li .overlay .overlay-inner h2 {
-		font-size: 12px;
-	}
-	.pageEvents ul li .overlay .overlay-inner p {
-		line-height: 12px;
-	}
-	.pageEvents ul li {
-	    width: calc(50% - 1px);
-	}	
-	  .pageEvents .event-date-container {
-	  width: 25%;
-	}
 
-	.pageEvents .event-date-container .event-date-day {
-	  font-size: 55px;
-	  line-height: 55px;
-	}
-
-	.pageEvents .event-date-container .event-date-month {
-	  font-size: 14px;
-	}
-
-	.pageEvents .event-map-container {
-	  width: 30%;
-	}
-
-	.pageEvents .event-map-container .event_map {
-	  max-width: 100%;
-	}
-
-	.pageEvents .event-info-container {
-	  width: 43%;
-	}
-
-	.pageEvents .event-info-container h2 {
-	  font-size: 14px;
-	  font-weight: 900;
-	}		
 }
 
 @media (max-width: 768px) {
-	.pageEvents ul li {
-	    width: 100%;
-	}	
-	.pageEvents .event-date-container {
-	  width: 25%;
-	}
-
-	.pageEvents .event-map-container {
-	  width: 30%;
-	}
-
-	.pageEvents .event-map-container .event_map {
-	  max-width: 100%;
-	}
-
-	.pageEvents .event-info-container {
-	  width: 43%;
-	}
 
 }
 
 
 @media (max-width: 480px) {
 
-	.pageEvents ul li .overlay .overlay-inner h2 {
-		font-size: 22px;
-	}	
-	.pageEvents ul li .overlay .overlay-inner p {
-		line-height: 16px;
-	}
-
-	.pageEvents ul li .pageEventContainer .overlay	{
-		display: none;
-	}
-
 	.pageEvents ul li {
 	    width: 100%;
 	}
-	  .pageEvents li.event {
-	    height: auto;
-	  }
-
-	.pageEvents .event-date-container {
-	  width: 25%;
-	}
-
-	.pageEvents .event-date-container .event-date-day {
-	  font-size: 30px;
-	  line-height: 30px;
-	}
-
-	.pageEvents .event-date-container .event-date-month {
-	  font-size: 11px;
-	}
-
-	.pageEvents .event-map-container {
-	  width: 30%;
-	}
-
-	.pageEvents .event-map-container .event_map {
-	  max-width: 100%;
-	}
-
-	.pageEvents .event-info-container {
-	  width: 43%;
-	}
-
-	.pageEvents .event-info-container h2 {
-	  font-size: 14px;
-	  font-weight: 900;
-	}	
-
 }
 
 

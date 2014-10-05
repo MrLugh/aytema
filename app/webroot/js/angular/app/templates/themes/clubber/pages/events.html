@@ -1,8 +1,8 @@
 <div class="pageEvents">
 
-	<ul>
+	<ul masonry-simple="{'gutter':6,'isAnimated':false,'itemSelector':'.pageEventsItem'}" ng-class="pagePhotosWithplayerClass()">
 
-		<li ng-repeat="content in eventlist" class="pageEventsItem">
+		<li ng-repeat="content in eventlist" class="pageEventsItem" masonry-simple-item id="page_events_{{$index}}">
 			<content-event></content-event>
 		</li>
 
