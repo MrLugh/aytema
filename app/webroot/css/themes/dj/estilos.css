@@ -254,6 +254,10 @@ p {
 }
 
 /*menu*/
+.navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
+
 #menu { 
 	font-family: 'Oswald', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
 	letter-spacing: 0.25em;

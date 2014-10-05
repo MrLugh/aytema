@@ -25,6 +25,31 @@
 	    overflow: hidden;
 	    height: auto;
 	}
+
+	#page_post ul li .content_thumbnail {
+	  width: 125px;
+	}
+
+	#page_post ul li .content_caption {
+		width: calc(100% - 125px);
+		margin: 0;
+		padding: 0;
+		padding-left: 20px;
+	}
+
+	#page_post ul li .content_caption > i {
+		left: 0;
+		right: initial;
+	}
+
+	#page_post ul li .content_caption > h2, #page_post ul li .content_caption > i {
+	  color: #ffb740;
+	  font-size: 16px!important;
+	}
+
+	#page_post ul li .content_caption > p, #page_post ul li .content_caption > p {
+		font-size: 12px!important;
+	}
 }
 
 @media (max-width: 480px) {
