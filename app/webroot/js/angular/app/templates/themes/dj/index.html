@@ -79,10 +79,10 @@
 						<div class="pageContentContainer">
 
 							<div thumbnail="post" style="background-image:url({{contentSv.getThumbnail(post)}});" class="content_thumbnail cover inline left"></div>
+							<i class="view_detail {{contentSv.getConceptIcon('post')}}" ng-click="showDetail(post)"></i>
 							<div class="content_caption left">
 								<h2 ng-if="contentSv.getTitle(post).length>0">{{contentSv.getTitle(post)}}</h2>
 								<p ng-bind-html="getDescription(post)"></p>
-								<i class="view_detail {{contentSv.getConceptIcon('post')}}" ng-click="showDetail(post)"></i>
 							</div>
 
 					    </div>

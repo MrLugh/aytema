@@ -1455,14 +1455,15 @@ textarea.form-control {
   padding-right: 40px;
 }
 
-#page_post ul li .content_caption > h2, #page_post ul li .content_caption > i {
+#page_post ul li .content_caption > h2, #page_post ul li i {
   color: #ffb740;
 }
 
-#page_post ul li .content_caption > i {
+#page_post ul li i {
     bottom: 20px;
     position: absolute;
-    right: 0;
+    right: 20px;
+    z-index: 3;
 }
 
 #page_post ul li .content_caption * {

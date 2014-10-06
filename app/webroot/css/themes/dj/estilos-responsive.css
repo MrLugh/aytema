@@ -35,14 +35,16 @@
 		margin: 0;
 		padding: 0;
 		padding-left: 20px;
+		overflow: auto;
 	}
 
-	#page_post ul li .content_caption > i {
-		left: 0;
+	#page_post ul li i {
+		left: 110px;
+		bottom: 20px;
 		right: initial;
 	}
 
-	#page_post ul li .content_caption > h2, #page_post ul li .content_caption > i {
+	#page_post ul li .content_caption > h2, #page_post ul li i {
 	  color: #ffb740;
 	  font-size: 16px!important;
 	}
@@ -66,4 +68,8 @@
 	.content-seccion {
 		width: 100%;
 	}	
+
+	#page_post ul li .content_thumbnail {
+	  width: 70px;
+	}
 }
