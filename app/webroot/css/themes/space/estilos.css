@@ -301,6 +301,7 @@ iframe,object,embed {
   padding:20px;
   font-size: 15px!important;
   opacity: 0;
+  top:-100%;
   filter: alpha(opacity=0);
   text-align: center;
   /*
@@ -315,6 +316,7 @@ iframe,object,embed {
   -moz-transition:all 0.66s ease-in-out 0s;
   -o-transition:all 0.66s ease-in-out 0s;
   transition:all 0.66s ease-in-out 0s;
+  top:0;
   opacity: 1;
   filter: alpha(opacity=1);
 }
@@ -389,7 +391,7 @@ iframe,object,embed {
   z-index: 3;
   width: 100%;
   bottom:0;
-  left: -100%;
+  bottom: -100%;
   opacity: 0;
   filter: alpha(opacity=0);
 }
@@ -400,7 +402,7 @@ iframe,object,embed {
   -o-transition:all 0.66s ease-in-out 0s;
   transition:all 0.66s ease-in-out 0s;  
   opacity: 1;
-  left: 0;
+  bottom: 0;
   filter: alpha(opacity=100);
 }
 
