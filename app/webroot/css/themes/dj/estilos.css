@@ -256,6 +256,9 @@ p {
 /*menu*/
 .navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background-color: transparent;
+  border: none;
+  right: 5px;
+  top: 15px;  
 }
 
 #menu { 
@@ -283,13 +286,27 @@ p {
 }
 #menu span {
    transition: all 0.5s ease-in-out 0s;
+    height: 4px;
+    margin-bottom: 5px;
+    width: 40px;   
 }
 #menu span:hover {
    color: #ffb740;
 }
+.navbar-default .navbar-toggle .icon-bar {
+	background-color:#ffc229;
+}
+.navbar-default .navbar-toggle:hover .icon-bar {
+	background-color:#fff;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	border-color: transparent;
+}
 #menu .item {
   padding: 0 30px;
   display: inline-block;
+  height: auto;
 }
 
 #menu .container {
