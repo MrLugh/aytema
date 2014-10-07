@@ -61,6 +61,15 @@
 		height: 200px;
 	}
 
+	#page_track .content_thumbnail, #page_video .content_thumbnail {
+		width:  200px;
+		height: 200px;
+	}
+
+	img.users-photo {
+		width: 100px;
+	}
+
 	#page_photo ul li {
 		width: 50%;
 	}
