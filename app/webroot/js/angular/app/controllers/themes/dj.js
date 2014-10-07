@@ -230,6 +230,9 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		if (page == 'detail') {
 			return 'detail';
 		}
+		if (page == 'footer') {
+			return 'footer';
+		}
 		return appSv.getPluralizedConcepts()[page];		
 	};
 

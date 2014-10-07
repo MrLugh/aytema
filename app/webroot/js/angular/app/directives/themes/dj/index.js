@@ -9,7 +9,7 @@ function(){
         scope: true,
         link: function(scope,element,attrs) {
 
-            var scrollTimer = -1;
+            var resizeTimer = -1;
 
             setTimeout(function(){
                 $("#menu_init").show(500);
@@ -19,8 +19,8 @@ function(){
 
             $( window ).resize(function() {
                 $(".navbar-collapse").removeClass("in");
-                clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(function(){
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function(){
                     if (!scope.showingDetail) {
                         scope.scrollToSection(scope.current);
                     }
