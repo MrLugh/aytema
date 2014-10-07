@@ -1479,7 +1479,7 @@ textarea.form-control {
 #page_post ul li i {
     bottom: 20px;
     position: absolute;
-    right: 20px;
+    left: 20px;
     z-index: 3;
 }
 
