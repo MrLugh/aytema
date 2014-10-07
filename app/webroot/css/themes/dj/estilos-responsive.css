@@ -80,3 +80,8 @@
 		float: left;
 		margin: 5px;
 	}
+
+	#page_footer .social {
+		height: 100%;
+	}
+

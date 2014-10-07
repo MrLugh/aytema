@@ -28,12 +28,18 @@
 			<span ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</span>
 
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
-					<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
-					<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
-				</button>
+				<div class="navbar-toggle">
+					<strong>{{getPluralizedPage(current.replace("page_",""))|capitalize}}</strong>
+					<i class="fa fa-chevron-left" ng-click="movePage(-1)" skip-default></i>
+					<i class="fa fa-chevron-right" ng-click="movePage(1)" skip-default></i>
+					<button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
+						<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
+						<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
+					</button>
+				</div>
+
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -292,7 +298,7 @@
 
 	<div id="page_footer" class="page" style="height:{{appSv.getHeight()}}px;">
 		<div class="row content">
-		
+
             <div class="col-xs-6 col-sm-3 content-seccion">
                 <h4>Links</h4>
 				<ul class="links">

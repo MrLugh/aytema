@@ -66,6 +66,23 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.details = [$scope.content];
 	};
 
+	$scope.movePage = function(direction) {
+		var current = angular.copy($scope.current).replace("page_","");
+		var currentPos = $scope.pages.indexOf(current);
+
+        if (direction > 0) {currentPos++;} else {currentPos--;}
+
+        if (currentPos < 0 ) {
+            currentPos = $scope.pages.length - 1;
+        }
+
+        if (currentPos == $scope.pages.length ) {
+            currentPos = 0;
+        }
+
+        $scope.scrollToSection("page_"+$scope.pages[currentPos]);
+	}
+
 	$scope.moveDetail = function(direction) {
 
 		var currentPos = $scope.contents[$scope.content.concept].list.indexOf($scope.content);
@@ -198,6 +215,22 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.getPluralizedConcepts = function(concept) {
 		return appSv.getPluralizedConcepts()[concept];
+	};
+
+	$scope.getPluralizedPage = function(page) {
+		if (page == 'profile') {
+			return 'profiles';
+		}
+		if (page == 'about') {
+			return 'about';
+		}
+		if (page == 'contact') {
+			return 'contact';
+		}
+		if (page == 'detail') {
+			return 'detail';
+		}
+		return appSv.getPluralizedConcepts()[page];		
 	};
 
 	$scope.getPlayer = function(content) {
