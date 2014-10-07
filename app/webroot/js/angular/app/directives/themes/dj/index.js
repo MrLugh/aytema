@@ -14,7 +14,7 @@ function(){
             setTimeout(function(){
                 $("#menu_init").show(500);
                 $("body").css('overflow','auto');
-                $("body").css('overflowX','hidden');                
+                $("body").css('overflowX','hidden');
             },2500);
 
             $( window ).resize(function() {

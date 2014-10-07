@@ -605,21 +605,23 @@ p {
   max-width: 1120px;
 }
 .auriculares  {
-    background: url("../../../img/themes/dj/auriculares.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    height: 262px;
-    left: 43%;
-    margin: 0 auto;
-    position: absolute;
-    width: 259px;
+  background: url("../../../img/themes/dj/auriculares.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  height: 262px;
+  left: calc(50% - 125px);
+  margin: 0 auto;
+  position: absolute;
+  width: 259px;
+  z-index: 1;
 }
 img.users-photo  {
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-    border-radius: 50%;
-    border: 5px solid #ebb627;
-    left: 43%;
-    width: 260px;
-    position: absolute;	
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid #ebb627;
+  left: calc(50% - 125px);
+  width: 260px;
+  position: absolute;
+  z-index: 1;
 }
 #page_about .content-info {
 	margin-top: 300px;
@@ -704,7 +706,8 @@ textarea.form-control {
   padding-bottom: 90px;
   background-image:url("../../../img/themes/dj/bg-dot.png");
   background-color:rgba(16, 16, 16, 0.9);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x:hidden;
 }
 
 #page_footer .content { 
@@ -791,7 +794,6 @@ textarea.form-control {
 #page_footer .social li a i {
   position: relative;
   z-index: 1;
-  margin-left: 10px;
   -webkit-transition:all 0.4s ease-in-out 0s;
   -moz-transition:all 0.4s ease-in-out 0s;
   -o-transition:all 0.4s ease-in-out 0s;

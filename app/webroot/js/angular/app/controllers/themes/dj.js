@@ -52,14 +52,14 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			setTimeout(function(){
 				$scope.scrollToSection("page_detail");
 				angular.element(document.querySelector("body")).css('overflow','hidden');
-			},500);
+			},1000);
 			
 		} else {
 			angular.element(document.querySelector("body")).css('overflow','initial');
 			$scope.showingDetail = false;
 			setTimeout(function(){
 				$scope.scrollToSection($scope.current);
-			},500);			
+			},1000);			
 		}
 		$scope.content = content;
 		$scope.details = [];
