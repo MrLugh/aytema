@@ -18,6 +18,7 @@ function(){
             },2500);
 
             $( window ).resize(function() {
+                $(".navbar-collapse").removeClass("in");
                 clearTimeout(scrollTimer);
                 scrollTimer = setTimeout(function(){
                     if (!scope.showingDetail) {
