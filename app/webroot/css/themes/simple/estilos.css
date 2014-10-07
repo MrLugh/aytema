@@ -223,7 +223,7 @@ ul {
 	opacity:0.9;
 	z-index: 1;
 	background-size: cover;
-	background-position: center center;
+	background-position: top center;
 	background-repeat: no-repeat;
 }
 
