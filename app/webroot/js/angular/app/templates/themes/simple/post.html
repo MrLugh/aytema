@@ -4,7 +4,7 @@
 	</div>
 	<div ng-if="!isFromNetwork('twitter')">
 
-		<div style="background:url('{{getThumbnail()}}');" class="overlay_photo"></div>
+		<div style="background-image:url('{{getThumbnail()}}');" class="overlay_photo"></div>
 		<div class="content_caption" ng-style="getControlsStyle()" ng-if="getTitle().length>0 || getDescription().length>0">
 			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 			<p ng-bind-html="getDescription()"></p>
