@@ -12,10 +12,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.limit 	= {
 		'photo':8,
-		'video':6,
-		'track':6,
-		'event':6,
-		'post':6,
+		'video':2,
+		'track':2,
+		'event':2,
+		'post':2,
 	};
 	$scope.contents	= {};
 	$scope.current	= 'page_profile';
