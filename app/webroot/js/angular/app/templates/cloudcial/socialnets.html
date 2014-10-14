@@ -38,7 +38,7 @@
 			</div>
 
 			<div class="accountLayerImage" style="background-image:url('{{account.profile_image || 'http://cloudcial.com/img/no-image.png'}}');">
-				<i ng-class="networkIcon(account.network)"></i>
+				<i class="{{account.network}}Account" ng-class="networkIcon(account.network)" style="padding:5px;line-height:15px;"></i>
 			</div>
 
 		</li>
