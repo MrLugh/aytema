@@ -192,7 +192,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 						}
 						$scope.page_intervals[concept] = setInterval(function(){
 							clearInterval($scope.page_intervals[concept]);
-							console.log(concept,$scope.page_intervals[concept]);
 							list = document.querySelector("#"+concept+"_list");
 							var to_top = ['post','photo'];
 							if (to_top.indexOf(concept) != -1) {
