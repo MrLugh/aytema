@@ -304,7 +304,13 @@
 	<div id="page_footer" class="page" style="height:{{appSv.getHeight()}}px;">
 		<div class="row content">
 
-            <div class="col-xs-6 col-sm-3 content-seccion">
+            <div class="content-section">
+				<ul>
+					<li ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</li>
+				</ul>		
+                <span>"Lorem fistrum a peich está la cosa muy malar"</span>
+            </div>
+            <div class="content-section">
                 <h4>Links</h4>
 				<ul class="links">
 					<li ng-repeat="page in pages" ng-if="contents[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
@@ -318,19 +324,8 @@
 					</li>
 				</ul>	
             </div>
-            <div class="col-xs-6 col-sm-3 content-seccion">
-                <h4>Social</h4>
-				<ul class="social" style="height:{{appSv.getHeight()-80}}px;overflow-y:auto;">
-					<li ng-repeat="account in accounts" class="social-link inline">
-						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.login}}">
-							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
-							<i ng-class="networkIcon(account.Socialnet.network)"></i>
-						</a>
-					</li>
-				</ul>
-            </div>
-            <div class="col-xs-6 col-sm-3 content-seccion" style="height:{{appSv.getHeight()}}px;overflow-y:auto;">
-            	<div ng-repeat="page in validPages">
+            <div class="content-section">
+            	<div ng-repeat="page in validPages" class="recent">
 	                <div class="clearfix"></div>
 	                <h4 ng-if="contents[page].list.length">Recent {{getPluralizedConcepts(page)|capitalize}}</h4>
 					<div ng-if="contents[page].list.length" class="recent-content">
@@ -341,13 +336,17 @@
 	              	<div class="clearfix"></div>
             	</div>
             </div>
-            <div class="col-xs-6 col-sm-3 content-seccion">
-				<ul>
-					<li ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</li>
-				</ul>		
-                <span>"Lorem fistrum a peich está la cosa muy malar"</span>
+            <div class="content-section">
+                <h4>Social</h4>
+				<ul class="social">
+					<li ng-repeat="account in accounts" class="social-link inline">
+						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.login}}">
+							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
+							<!--<i ng-class="networkIcon(account.Socialnet.network)"></i>-->
+						</a>
+					</li>
+				</ul>
             </div>
-
           </div>
 	</div>
 
