@@ -229,7 +229,7 @@
 
 				<div class="left inline event_menu">
 					<ul id="{{page}}_list">
-						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)" class="{{currentEvent == event ? 'active':''}} {{$index % 2 ? 'odd':''}}" style="background-image:url({{contentSv.getThumbnail(y)}});">
+						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)" class="{{currentEvent == event ? 'active':''}} {{$index % 2 ? 'odd':''}}" style="background-image:url({{contentSv.getThumbnail(event)}});">
 							<a href="#/" ng-click="setCurrentEvent(event)" class="event-date-container" skip-default>
 								<p class="event-date-day">{{event.data.date|date:'EEEE'|uppercase}}</p>
 								<p class="event-date-long">{{event.data.date|date:'MMM d,y'}}</p>
