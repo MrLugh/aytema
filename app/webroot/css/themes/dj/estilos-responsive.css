@@ -87,4 +87,24 @@
 	#page_photo ul li {
 		width: 100%;
 	}
+
+	#page_event .event_menu {
+		width: 100%;
+	}
+
+	#page_event .event_menu ul {
+		width: 100%;
+	}
+
+	#page_event .event_menu ul li {
+		height: 120px;
+	}
+
+	#page_event .event_menu ul li.active .event-date-container {
+		height: 120px;
+	}
+
+	#page_event .event_container {
+		display: none;
+	}
 }

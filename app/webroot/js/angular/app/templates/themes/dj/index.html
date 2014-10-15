@@ -109,9 +109,9 @@
 
 			<div class="content wrapper">
 				<div class="list_carousel">
-					<a id="prev_track" class="prev" href="#/"></a>
-					<a id="next_track" class="next" href="#/"></a>
-					<div class="carousel_container left"  style="height:{{appSv.getHeight() - 150 - menuHeight}}px;">
+					<a id="prev_track" class="prev" href="#/" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;"></a>
+					<a id="next_track" class="next" href="#/" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;"></a>
+					<div class="carousel_container left" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;">
 						<ul id="{{page}}_list" caroufredsel="{'selector':'#{{page}}_list','auto':false,'prev':'#prev_track','next':'#next_track','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
 							<li ng-repeat="track in contents.track.list" class="{{$index % 2 ? 'odd':''}}" style="height:100%">
 
@@ -154,8 +154,8 @@
 
 			<div class="content wrapper">
 				<div class="list_carousel">
-					<a id="prev_video" class="prev" href="#/"></a>
-					<a id="next_video" class="next" href="#/"></a>
+					<a id="prev_video" class="prev" href="#/" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;"></a>
+					<a id="next_video" class="next" href="#/" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;"></a>
 					<div class="carousel_container left"  style="height:{{appSv.getHeight() - 150 - menuHeight}}px;">
 						<ul id="{{page}}_list" caroufredsel="{'selector':'#{{page}}_list','auto':false,'prev':'#prev_video','next':'#next_video','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
 							<li ng-repeat="video in contents.video.list" ng-show="contentSv.getThumbnail(video).length" class="{{$index % 2 ? 'odd':''}}" style="height:100%">
@@ -225,14 +225,14 @@
 
 			<h3>Events</h3>
 
-			<div class="content">
+			<div class="content" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;">
 
 				<div class="left inline event_menu">
 					<ul id="{{page}}_list">
-						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)" class="{{currentEvent == event ? 'active':''}} {{$index % 2 ? 'odd':''}}">
+						<li ng-repeat="event in contents.event.list" ng-click="setCurrentEvent(event)" class="{{currentEvent == event ? 'active':''}} {{$index % 2 ? 'odd':''}}" style="background-image:url({{contentSv.getThumbnail(y)}});">
 							<a href="#/" ng-click="setCurrentEvent(event)" class="event-date-container" skip-default>
 								<p class="event-date-day">{{event.data.date|date:'EEEE'|uppercase}}</p>
-								<p class="event-date-long">{{event.data.date|date:'longDate'}}</p>
+								<p class="event-date-long">{{event.data.date|date:'MMM d,y'}}</p>
 							</a>
 						</li>
 					</ul>
@@ -251,7 +251,7 @@
 					      </div>
 					    </div>
 
-						<div style="background-image:url({{contentSv.getThumbnail(currentEvent)}});" class="content_thumbnail" ></div>
+						<div style="background-image:url({{contentSv.getThumbnail(currentEvent)}});" class="content_thumbnail"></div>
 
 					</div>
 
