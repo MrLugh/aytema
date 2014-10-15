@@ -14,7 +14,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		'photo':4,
 		'video':25,
 		'track':25,
-		'event':4,
+		'event':6,
 		'post':2,
 	};
 	$scope.contents	= {};
