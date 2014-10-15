@@ -1057,7 +1057,7 @@ textarea.form-control {
   display: block;
   float: left;
   width: 400px;
-  height: 400px;
+  height: auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1070,7 +1070,7 @@ textarea.form-control {
   z-index: 3;
   width:67px;
   height:106px;
-  top: 25%;
+  top: 45%;
   background-color: transparent;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1124,6 +1124,7 @@ textarea.form-control {
   width: auto!important;
   position: relative;
   overflow: hidden;
+  height:100%!important;
 }
 
 .relateds {
@@ -1168,7 +1169,7 @@ textarea.form-control {
 
 /*page_track*/
 
-#page_track { 
+#page_track {
   background: url("../../../img/themes/dj/bg_music.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1212,6 +1213,10 @@ textarea.form-control {
   position: relative;
   margin-top: 40px;
   background-color:rgba(19, 19, 19, 0.85);
+}
+
+#page_track .caroufredsel_wrapper, #page_track #track_list {
+	height:100%!important;
 }
 
 /*page_video*/
@@ -1264,6 +1269,10 @@ textarea.form-control {
   background-color:rgba(19, 19, 19, 0.85);
 }
 
+#page_video .caroufredsel_wrapper, #page_video #video_list {
+	height:100%!important;
+}
+
 /*page_photo*/
 
 #page_photo { 
@@ -1285,7 +1294,6 @@ textarea.form-control {
   text-align: left;
   overflow-y: auto;
   overflow-x:hidden;
-  max-height: 400px;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -1435,11 +1443,10 @@ textarea.form-control {
   max-width: 1074px;
 }
 
-#page_post ul { 
+#page_post ul {
   text-align: left;
   overflow-y: auto;
   overflow-x:hidden;
-  max-height: 400px;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -1496,7 +1503,7 @@ textarea.form-control {
     bottom: 20px;
     position: absolute;
     left: 20px;
-    z-index: 3;
+    z-index: 4;
 }
 
 #page_post ul li .content_caption * {

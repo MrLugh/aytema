@@ -402,7 +402,6 @@ function ($window,$timeout) {
 
         scope.caroufredsel = function() {
             $timeout(function(){
-                console.log();
                 angular.element(document.querySelector(options.selector)).carouFredSel(options);
             },500);
         };
@@ -639,8 +638,6 @@ ayTemaDs.directive('parallax', ['$window', function($window) {
 ayTemaDs.directive('parallaxBackground', ['$window', function($window) {
   return {
     restrict: 'A',
-    transclude: true,
-    template: '<div ng-transclude></div>',
     link: function(scope, elem, attrs) {
       var setPosition = function () {
         var calcValY = (elem.prop('offsetTop') - $window.pageYOffset) * (attrs.parallaxRatio ? attrs.parallaxRatio : 1.1 );

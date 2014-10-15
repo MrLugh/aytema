@@ -11,10 +11,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accountsLoaded = false;
 
 	$scope.limit 	= {
-		'photo':8,
-		'video':2,
-		'track':2,
-		'event':2,
+		'photo':4,
+		'video':25,
+		'track':25,
+		'event':4,
 		'post':2,
 	};
 	$scope.contents	= {};
@@ -51,11 +51,11 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			$scope.showingDetail = true;
 			setTimeout(function(){
 				$scope.scrollToSection("page_detail");
-				angular.element(document.querySelector("body")).css('overflow','hidden');
+				//angular.element(document.querySelector("body")).css('overflow','hidden');
 			},1000);
 			
 		} else {
-			angular.element(document.querySelector("body")).css('overflow','initial');
+			//angular.element(document.querySelector("body")).css('overflow','initial');
 			$scope.showingDetail = false;
 			setTimeout(function(){
 				$scope.scrollToSection($scope.current);
@@ -196,7 +196,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 							if (to_top.indexOf(concept) != -1) {
 								$(list).animate({
 									scrollTop: angular.element(list)[0].scrollHeight
-								},1000);
+								},2500);
 							}
 						},1000);
 					}
