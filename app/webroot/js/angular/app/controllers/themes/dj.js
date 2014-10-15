@@ -187,10 +187,12 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 					
 					var list = document.querySelector("#"+concept+"_list");
 					if (list) {
+						if (angular.isDefined($scope.page_intervals[concept])) {
+							clearInterval($scope.page_intervals[concept]);
+						}
 						$scope.page_intervals[concept] = setInterval(function(){
-							if ($scope.page_intervals[concept]) {
-								clearInterval($scope.page_intervals[concept]);
-							}
+							clearInterval($scope.page_intervals[concept]);
+							console.log(concept,$scope.page_intervals[concept]);
 							list = document.querySelector("#"+concept+"_list");
 							var to_top = ['post','photo'];
 							if (to_top.indexOf(concept) != -1) {

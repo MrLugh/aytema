@@ -193,6 +193,7 @@ function ($window) {
 
         scope.$watch('getMenuHeight()', function(newValue, oldValue, scope) {
             scope.menuHeight = scope.getMenuHeight();
+            console.log("scope.menuHeight ",scope.menuHeight);
         });
 
         $(document).on('shown.bs.collapse',function(elm){
