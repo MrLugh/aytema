@@ -367,7 +367,7 @@ p {
 }
 #page_profile h3 { 
 	font-size: 150px;
-	font-size: 7.9vw	;
+	font-size: 7.9vw;
 	text-shadow: 4px 3px 0px rgba(0, 0, 0, 0.37);
 	font-family: 'Rock Salt', cursive;
 	letter-spacing: -0.05em;
@@ -722,12 +722,18 @@ textarea.form-control {
 }
 
 #page_footer .content {
-	max-width: 1120px;
+	max-width: 1060px;
+	padding: 30px;
 }
 
 #page_footer span {
-  color: #878787;
-  text-align: left!important;
+    color: #878787;
+    display: inline-block;
+    padding: 10px 0;
+    text-align: left !important;
+}
+#page_footer li span {
+    padding: 0;
 }
 
 #page_footer span:hover {
