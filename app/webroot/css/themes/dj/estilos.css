@@ -1555,6 +1555,10 @@ textarea.form-control {
   display: initial;
 }
 
+#page_post .more:hover {
+  color:initial;
+}
+
 /* Generics */
 
 .cover {
