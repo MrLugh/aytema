@@ -25,8 +25,6 @@
 	 
 		<div class="container">
 
-			<span ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</span>
-
 			<div class="navbar-header">
 				<div class="navbar-toggle">
 					<strong>{{getPluralizedPage(current.replace("page_",""))|capitalize}}</strong>
@@ -45,6 +43,9 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 				<ul class="nav navbar-nav right">
+
+					<li ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</li>
+
 					<li ng-repeat="page in pages" ng-if="contents[page].list.length>0" ng-click="scrollToSection('page_{{page}}')" class="item {{current == 'page_'+page ? 'active':''}}">
 						<span>{{getPluralizedConcepts(page)|capitalize}}</span>
 					</li>
@@ -66,10 +67,10 @@
 	</nav>	
 
 	<div id="page_profile" style="height:{{appSv.getHeight()}}px;" parallax-background parallax-ratio="0.5">
-
 		<h3 style="line-height:{{appSv.getHeight()}}px;" class="{{isHover?'hover':''}}">{{user.username|uppercase}}</h3>
-		<a class="arrow-down" href="#" ng-click="scrollToSection('page_'+pages[2])" skip-default><i id="menu_init" class="fa fa-angle-down init" ng-mouseover="setInitHover(true)" ng-mouseout="setInitHover(false)"></i></a>
-
+		<a href="#" style="line-height:100%;" class="arrow-down" ng-click="scrollToSection('page_'+pages[2])" skip-default>
+			<i id="menu_init" class="fa fa-angle-down init" ng-mouseover="setInitHover(true)" ng-mouseout="setInitHover(false)"></i>
+		</a>
 	</div>
 
 	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0 && page != 'profile' && page != 'about' && page != 'contact'&& page != 'detail'" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()}}px;" ng-switch="page" parallax-background parallax-ratio="0.5">
