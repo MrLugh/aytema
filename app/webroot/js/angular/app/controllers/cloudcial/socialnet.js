@@ -380,6 +380,9 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
         for (var x in $scope.pages) {
 
             var page = angular.element(document.querySelector("#page_"+$scope.pages[x]));
+            if (!angular.isDefined(page[0])) {
+            	return false;
+            }
             if ($(window).scrollTop() + 50 > page[0].offsetTop) {
                 current = 'page_'+$scope.pages[x];
             }
