@@ -1190,6 +1190,7 @@ textarea.form-control {
 
 #page_track .content {
   max-width: 1074px;
+  position: static;
 }
 
 #page_track h3 {
@@ -1247,6 +1248,7 @@ textarea.form-control {
 
 #page_video .content {
   max-width: 1074px;
+  position: static;
 }
 
 #page_video h3 { 
