@@ -213,7 +213,6 @@ p {
 .content {
   margin: 0 auto;
   z-index: 2;
-  position: relative;
 }
 
 /*colors*/
@@ -422,7 +421,7 @@ p {
 
 .content_thumbnail {
   display: block;
-  width: 308px;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
 
@@ -1059,7 +1058,6 @@ textarea.form-control {
 /* Sliders */
 .list_carousel {
   margin: 0 auto;
-  position: relative;
 }
 
 .list_carousel li {
@@ -1067,7 +1065,6 @@ textarea.form-control {
   margin: 0px 6px 0 5px;
   display: block;
   float: left;
-  width: 400px;
   height: auto;
   background-size: cover;
   background-position: center;
@@ -1079,8 +1076,7 @@ textarea.form-control {
 .prev, .next {
   position: absolute;
   z-index: 3;
-  width:67px;
-  height:106px;
+  width:30px;
   background-color: transparent;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1188,6 +1184,10 @@ textarea.form-control {
   background-color: #f3f3f3;
 }
 
+#page_track .content {
+  max-width: 1074px;
+}
+
 #page_track h3 {
   color: #f3f3f3;
 }
@@ -1239,6 +1239,10 @@ textarea.form-control {
   -o-background-size: cover;
   background-size: cover;
   position: relative;
+}
+
+#page_video .content {
+  max-width: 1074px;
 }
 
 #page_video h3 { 
@@ -1297,7 +1301,6 @@ textarea.form-control {
 #page_photo .content {
   max-width: 1074px;
   padding: 0 10px;
-
 }
 
 #page_photo ul { 
