@@ -2,7 +2,7 @@
 
 	<div ng-if="current != {}" parallax-background parallax-ratio="0.5" style="background-image:url('{{current.src}}');" class="overlay_photo left inline"></div>
 
-	<div ng-if="loaded" style="position:absolute;width:70%;top:calc(50% - 50px);left:0;z-index:1;w">
+	<div ng-if="loaded" class="controls_photo">
 		<a href="#/" ng-click="move(-1)" alt="Previous photo" ng-if="moreThanOne()" skip-default class="prev"><i class="fa fa-chevron-left"></i></a>
 
 		<a href="#/" ng-click="move(1)" alt="Next photo" ng-if="moreThanOne()" skip-default class="next"><i class="fa fa-chevron-right"></i></a>

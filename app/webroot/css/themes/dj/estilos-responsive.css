@@ -20,7 +20,11 @@
 @media (max-width: 768px) {
 
 	.detail_container .player, .detail_container .overlay_photo {
-	  width: 100%;
+		width: 100%;
+	}
+
+	.detail_container .photo .controls_photo {
+		width: 100%;
 	}
 
 	.detail_container .content_caption {
