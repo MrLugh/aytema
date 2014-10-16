@@ -386,7 +386,7 @@ p {
 }
 #page_profile h3.hover { 
   color: #ffc229;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.3);
   -webkit-transform: scale(1.2) rotate(-2deg);
   -moz-transform:    scale(1.2) rotate(-2deg);
   -ms-transform:     scale(1.2) rotate(-2deg);
@@ -1494,10 +1494,8 @@ textarea.form-control {
 
 #page_post ul li .content_thumbnail {
   width: 250px;
-  height: 160px;
+  height: 100%;
   position: relative;
-  top: 10px;
-  left: 10px;
 }
 
 #page_post .pageContentContainer:hover .content_thumbnail {
