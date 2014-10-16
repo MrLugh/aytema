@@ -765,7 +765,6 @@ textarea.form-control {
   -ms-transform:     scale(0.8);
   -o-transform:      scale(0.8);
   transform:         scale(0.8);
-  opacity: 0.5;
 }
 
 #page_footer .recent-content a:hover { 
@@ -774,7 +773,6 @@ textarea.form-control {
   -ms-transform:     scale(1);
   -o-transform:      scale(1);
   transform:         scale(1);
-  opacity: 1;
 }
 
 #page_footer .links {
@@ -795,7 +793,8 @@ textarea.form-control {
 }
 
 #page_footer .social {
-  width: 100%;
+  max-width: 270px;
+  max-height: 270px;
   display: block;
   margin-bottom: 30px !important;
   overflow-y: auto;
@@ -824,6 +823,12 @@ textarea.form-control {
   height: 50px;
   max-width: 100%;
   border: 2px solid rgba(255, 194, 41,0.8);;
+}
+
+#page_footer .recent {
+  max-width: 270px;
+  max-height: 270px;
+  overflow-y:auto;
 }
 
 #page_footer .content-section {
