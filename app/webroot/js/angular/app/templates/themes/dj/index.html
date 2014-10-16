@@ -76,9 +76,7 @@
 	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0 && page != 'profile' && page != 'about' && page != 'contact'&& page != 'detail'" id="page_{{page}}" class="page" style="height:{{appSv.getHeight()}}px;" ng-switch="page" parallax-background parallax-ratio="0.5">
 
 		<div ng-if="$index % 2 == 0" class="triangle-bottomright yellow"></div>
-		<div ng-if="$index % 2 == 0" class="triangle-topleft black"></div>
-		<div ng-if="$index % 2 != 0" class="triangle-bottomright black"></div>
-		<div ng-if="$index % 2 != 0" class="triangle-topleft yellow"></div>
+		<div ng-if="$index % 2 != 0" class="triangle-topleft black"></div>
 
 		<div ng-switch-when="post">
 
