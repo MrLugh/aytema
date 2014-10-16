@@ -269,9 +269,8 @@
 		<div ng-if="pages.length % 2 == 0" class="triangle-topleft yellow"></div>
 		<div ng-if="pages.length != 0" class="triangle-bottomright yellow"></div>
 		<h3>Contact</h3>
-		<div class="content contacto"> 
+		<div class="content" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;">
 		    <form role="form" class="bs-example">
-		      <div class="col-sm-12">
 		        <div class="form-group">
 		          <input type="text" placeholder="Nombre" id="exampleInputNombre" class="form-control">
 		        </div>
@@ -279,10 +278,9 @@
 		          <input type="email" placeholder="Email" id="exampleInputEmail" class="form-control">
 		        </div>
 		        <div class="form-group">
-		        <textarea placeholder="Mensaje" rows="3" class="form-control"></textarea>
+		        <textarea placeholder="Mensaje" rows="5" class="form-control"></textarea>
 		         </div>
 		        <button class="btn btn-default pull-right" type="submit">enviar</button>
-		      </div>
 		  </form>
 		</div>
 
