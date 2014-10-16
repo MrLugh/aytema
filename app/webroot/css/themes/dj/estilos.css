@@ -1359,6 +1359,7 @@ textarea.form-control {
   padding: 0 10px;
   background-color: #131313;
   padding: 32px 23px;
+  position: relative;
 }
 
 #page_event .content_thumbnail {
@@ -1482,6 +1483,8 @@ textarea.form-control {
   width: 100%;
   padding: 0;
   margin: 0;
+  position: relative;
+  z-index: 2;
 }
 
 #page_post ul li {

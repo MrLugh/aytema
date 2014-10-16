@@ -10,6 +10,7 @@ function(){
         link: function(scope,element,attrs) {
 
             var resizeTimer = -1;
+            var scrollTimer = -1;
 
             setTimeout(function(){
                 $("#menu_init").show(500);
@@ -18,7 +19,7 @@ function(){
             },2500);
 
             $( window ).resize(function() {
-                $(".navbar-collapse").removeClass("in");
+                //$(".navbar-collapse").removeClass("in");
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(function(){
                     if (!scope.showingDetail) {
@@ -29,19 +30,23 @@ function(){
 
             $( window ).scroll(function() {
 
-                var current = scope.current;
-                for (var x in scope.pages) {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(function(){
 
-                    if (scope.showingDetail) {
-                        continue;
-                    }
+                    var current = scope.current;
+                    for (var x in scope.pages) {
 
-                    var page = angular.element(document.querySelector("#page_"+scope.pages[x]));
-                    if ($(window).scrollTop() + 50 > page[0].offsetTop) {
-                        current = 'page_'+scope.pages[x];
+                        if (scope.showingDetail) {
+                            continue;
+                        }
+
+                        var page = angular.element(document.querySelector("#page_"+scope.pages[x]));
+                        if ($(window).scrollTop() + 50 > page[0].offsetTop) {
+                            current = 'page_'+scope.pages[x];
+                        }
                     }
-                }
-                scope.$apply(function(){scope.current = current;});
+                    scope.$apply(function(){scope.current = current;});
+                },1000);
             });
 
         }
