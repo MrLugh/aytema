@@ -123,7 +123,7 @@
 
 <body>
 
-    <div data-ng-app="ayTemaApp" user='<?php echo $user; ?>' controller='appCo' resize>
+    <div data-ng-app="ayTemaApp" user='<?php echo !empty($user) ? json_encode($user) : "{}"; ?>' controller='appCo' resize>
         <ng-view></ng-view>
     </div>
 

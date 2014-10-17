@@ -1,6 +1,6 @@
  <div id="container">
 
- 	<div id="header" ng-style="getHeaderStyle()" ng-class="getHeaderClass()" get-menu-width>
+ 	<div id="header" ng-show="isLogged()" ng-style="getHeaderStyle()" ng-class="getHeaderClass()" get-menu-width>
 
 	 	<div id="menuControl">
 	 		<i class="fa fa-align-justify" tooltip="Menu" tooltip-placement="bottom" ng-click="manageControl()"></i>
@@ -49,8 +49,6 @@
 
 			</ul>
 
-		 	<login ng-if="!isLogged()"></login>
-
 	 		<form class="navbar-form navbar-left" role="search" style="position:relative;">
 	 			<div class="">
 	 				<input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
@@ -76,6 +74,10 @@
 
 
  	<div id="content"  ng-style="getContentStyle()">
+
+ 		<div ng-if="!isLogged()" class="step_1">
+ 			<login></login>
+ 		</div>
 
  		<div ng-if="steps.1" class="step_1">
 

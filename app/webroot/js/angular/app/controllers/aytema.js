@@ -1,9 +1,6 @@
 function aytemaCo($scope,$location,userSv,appSv) {
 
 	$scope.user = userSv.getUser();
-	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
-
-	$scope.steps= $scope.user.steps;
 	$scope.userSearch= '';
 	$scope.usersList = [];
 	$scope.showMenu  = false;
@@ -22,6 +19,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 	}
 
 	$scope.activateStep = function(step) {
+		$scope.steps= $scope.user.steps;
 		for (x in $scope.steps) {
 			$scope.steps[x] = false;
 		}
@@ -65,7 +63,7 @@ function aytemaCo($scope,$location,userSv,appSv) {
 		}
 
 	}
-	$scope.checkStep();
+	//$scope.checkStep();
 
 	$scope.manageControl = function() {
 		$scope.showMenu = !$scope.showMenu;
@@ -165,7 +163,10 @@ function aytemaCo($scope,$location,userSv,appSv) {
 	$scope.$watch('userSv.getUser()',function(user){
 		$scope.user = user;
 		$scope.initProfileImages();
-	},true);
+		if (angular.isDefined($scope.user.username)) {
+			userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
+		}
+	});
 
 	$scope.$watch('userSv.getAccounts()', function(value) {
 		if (angular.isDefined(value) && value.length > 0) {

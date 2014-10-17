@@ -6,8 +6,10 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	var loading		= false;
 
 	var setUser = function(data) {
-		user =  data;
-		user['steps'] = {1:false,2:false,3:false,4:false};
+		if (!angular.isDefined(user['steps'])) {
+			data['steps'] = {1:false,2:false,3:false,4:false};
+		}
+		user =  data;		
 	}
 
 	var login = function(params) {

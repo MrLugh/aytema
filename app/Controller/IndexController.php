@@ -20,7 +20,7 @@ class IndexController extends AppController {
                 'profile_image' => $this->Auth->user('profile_image'),
 	    	);
     	}
-    	$this->set('user',json_encode($user));
+    	$this->set('user',$user);
     }
 
 }

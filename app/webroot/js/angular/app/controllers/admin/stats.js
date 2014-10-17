@@ -28,8 +28,6 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
 			}
 			$scope.totalNetworks[account.network].y++;
 
-            console.log(account);
-
 			for (var y in account.stats) {
 				var stat = parseInt(account.stats[y]);
 				if (!angular.isDefined($scope.totalAccounts[contentSv.getStatGroupName(y)])) {

@@ -11,11 +11,14 @@ ayTemaDs.directive('aytema',[function(){
 }]);
 
 ayTemaDs.directive('user',['userSv',
-function($userSv) {
+function(userSv) {
     return function(scope, elm, attrs) {
 
-        var user = attrs.user;
-        user =  eval("(function(){return " + user + ";})()");
-        $userSv.setUser(user);
+        scope.$watch('attrs.user',function(){
+            var user = eval("(function(){return " + attrs.user + ";})()");
+            if (!angular.equals(user,{})) {
+                userSv.setUser(user);
+            }
+        });
     }
 }]);
