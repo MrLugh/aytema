@@ -324,16 +324,19 @@
 				</ul>	
             </div>
             <div class="content-section">
-            	<div ng-repeat="page in validPages" class="recent">
-	                <div class="clearfix"></div>
-	                <h4 ng-if="contents[page].list.length">Recent {{getPluralizedConcepts(page)|capitalize}}</h4>
-					<div ng-if="contents[page].list.length" class="recent-content">
-						<a href="#/" ng-repeat="content in contents[page].list|withThumbnail|limitTo:3" ng-click="showDetail(content)" skip-default>
-	                     	<img style="margin:0 auto;max-width:100%;" ng-src="{{contentSv.getThumbnail(content)}}"/>
-	                    </a>
-	                </div>
-	              	<div class="clearfix"></div>
-            	</div>
+            	<h4>Recent</h4>
+            	<ul class="social">
+	            	<li ng-repeat="page in validPages" class="recent">
+		                <div class="clearfix"></div>
+		                <h4 ng-if="contents[page].list.length">{{getPluralizedConcepts(page)|capitalize}}</h4>
+						<div ng-if="contents[page].list.length" class="recent-content">
+							<a href="#/" ng-repeat="content in contents[page].list|withThumbnail|limitTo:3" ng-click="showDetail(content)" skip-default>
+		                     	<img style="margin:0 auto;max-width:100%;" ng-src="{{contentSv.getThumbnail(content)}}"/>
+		                    </a>
+		                </div>
+		              	<div class="clearfix"></div>
+	            	</li>
+	            </ul>
             </div>
             <div class="content-section">
                 <h4>Social</h4>

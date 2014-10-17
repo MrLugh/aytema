@@ -95,17 +95,18 @@
 	#page_footer .social {
 		overflow: initial;
 	}
+
+	#page_footer .content-section {
+		width: 100%;
+		margin-bottom: 20px;
 	}
+
 
 }
 
 @media (max-width: 480px) {
 	#page_track img.users-photo, #page_video img.users-photo {
 		width: 100px;
-	}
-
-	.content-section {
-		width: 100%;
 	}
 
 	#page_footer .links li {
@@ -136,10 +137,6 @@
 	#page_about .content p {
 	    font-size: 12px;
 	    line-height: 21px;
-	}
-	#page_footer .content-section {
-		width: 100%;
-		margin-bottom: 90px;
 	}	
 
 }

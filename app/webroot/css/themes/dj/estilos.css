@@ -793,7 +793,6 @@ textarea.form-control {
 }
 
 #page_footer .social {
-  max-width: 270px;
   max-height: 270px;
   display: block;
   overflow-y: auto;
@@ -838,6 +837,14 @@ textarea.form-control {
   border-left: 1px dashed cyan;
   border-color: #19151F #ffc229;
   padding: 25px;
+  -webkit-transition:all 0.56s ease 0s;
+  -moz-transition:all 0.56s ease 0s;
+  -o-transition:all 0.56s ease 0s;
+  transition:all 0.56s ease 0s;
+}
+
+#page_footer .content-section:hover {
+  background-color: rgba(0,0,0,0.2);
 }
 
 
