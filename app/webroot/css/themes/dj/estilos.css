@@ -710,7 +710,7 @@ textarea.form-control {
 /*footer*/
 
 #page_footer {
-  background-image:url("../../../img/themes/dj/bg-dot.png");
+  background-image:url("../../../img/admin/bg_dark_mosaic.png");
   background-color:rgba(16, 16, 16, 0.9);
   overflow-y: auto;
   overflow-x:hidden;
@@ -796,7 +796,6 @@ textarea.form-control {
   max-width: 270px;
   max-height: 270px;
   display: block;
-  margin-bottom: 30px !important;
   overflow-y: auto;
 }
 
@@ -832,8 +831,13 @@ textarea.form-control {
 }
 
 #page_footer .content-section {
-  width: 50%;
+  width: calc(50% - 50px);
   float: left;
+  margin: 25px;
+  border-radius: 20px;
+  border-left: 1px dashed cyan;
+  border-color: #19151F #ffc229;
+  padding: 25px;
 }
 
 

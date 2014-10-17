@@ -92,6 +92,11 @@
 	    line-height: 23px;
 	}
 
+	#page_footer .social {
+		overflow: initial;
+	}
+	}
+
 }
 
 @media (max-width: 480px) {
@@ -133,7 +138,8 @@
 	    line-height: 21px;
 	}
 	#page_footer .content-section {
-	    width: 100%;
+		width: 100%;
+		margin-bottom: 90px;
 	}	
 
 }
@@ -142,6 +148,10 @@
 
 	#page_about .content p {
 	    line-height: 18px;
+	}
+
+	#page_footer .content-section {
+		width: 100%;
 	}
 
 }
