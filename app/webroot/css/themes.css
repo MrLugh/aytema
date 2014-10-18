@@ -40,10 +40,6 @@ w.themesContainer {
 	margin: 0;
 	padding: 0;
 
-	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
-	-moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
-	box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
-
 	-webkit-transition:all 0.56s ease-in-out 0s;
 	-moz-transition:all 0.56s ease-in-out 0s;
 	-o-transition:all 0.56s ease-in-out 0s;

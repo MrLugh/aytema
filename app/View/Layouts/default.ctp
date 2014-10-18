@@ -11,6 +11,7 @@
     <!-- Css -->
     <?php
     echo $this->Html->css('bootstrap');
+    echo $this->Html->css('bootstrap-tour-standalone');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('app');
     echo $this->Html->css('app-responsive');
@@ -31,6 +32,7 @@
     <?php
     echo $this->Html->script('jquery');
     echo $this->Html->script('bootstrap');
+    echo $this->Html->script('bootstrap-tour-standalone');
     echo $this->Html->script('modernizr.min.js');
     echo $this->Html->script('underscore.min');
     echo $this->Html->script('masonry.pkgd');

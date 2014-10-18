@@ -1,6 +1,5 @@
 function appCo($scope,appSv,userSv) {
 
-
 	$scope.user = userSv.getUser();
 
 	$scope.isLogged = function() {

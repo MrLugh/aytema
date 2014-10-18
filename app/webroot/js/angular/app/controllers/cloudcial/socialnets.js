@@ -32,7 +32,7 @@ function socialnetsCo($scope,appSv,userSv,contentSv) {
 			offset:$scope.offset,
 			networks:$scope.filters.networks
 		};
-
+		
 		userSv.loadAccounts(params)
 		.then(function(data){
 			if (data.socialnets.length>0) {

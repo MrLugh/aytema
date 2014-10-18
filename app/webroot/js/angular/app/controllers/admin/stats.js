@@ -7,7 +7,9 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
 
 	accountStats = false;
 
-	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
+    if (userSv.isLogged() && !userSv.getAccounts().length) {
+        userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
+    }	
 
 	$scope.networksGraphData = function() {
 		$scope.totalNetworks = {};

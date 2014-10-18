@@ -26,6 +26,7 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
     	reloadOnSearch: false
     });
 
+    /*
     $routeProvider.when('/dashboard/accounts', {
     	templateUrl: getPath('tpl')+'/admin/dashboard.html',
     	controller: appCo,
@@ -42,7 +43,8 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
         templateUrl: getPath('tpl')+'/admin/dashboard.html',
         controller: appCo,
         reloadOnSearch: false
-    });    
+    });
+    */
 
     $routeProvider.when('/', {
         templateUrl: getPath('tpl')+'/index.html',

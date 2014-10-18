@@ -23,7 +23,7 @@
 				<h1 class="themeName">{{theme.name}}</h1>
 
 				<a ng-href="/themes?type={{theme.key}}&username={{user.username}}" tooltip="Full Edit">
-					<i class="fa fa-cogs"></i>
+					<i class="fa fa-cog"></i>
 				</a>
 				
 				<a href="#/" ng-click="previewSrc($index)" skip-default tooltip="Preview">
@@ -44,7 +44,7 @@
 
 			<p>
 				<a href="{{src}}" tooltip="Full Edit" tooltip-placement="bottom">
-					<i class="fa fa-cogs"></i>
+					<i class="fa fa-cog"></i>
 				</a>
 				{{list[current].name}}
 				<i class="fa fa-times-circle-o" ng-click="closePreview()" tooltip="Close preview" tooltip-placement="bottom"></i>
