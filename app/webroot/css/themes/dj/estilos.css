@@ -741,11 +741,15 @@ textarea.form-control {
   text-align: left!important;
 }
 
-#page_footer h4 { 
+#page_footer h4, #page_footer h5 { 
 	text-align: left;
 	color: #f3f3f3;
 	font-family: "Oswald",sans-serif;
 	text-transform: uppercase;
+}
+
+#page_footer h4 {
+  color:#ffc229;
 }
 
 #page_footer .recent-content a { 

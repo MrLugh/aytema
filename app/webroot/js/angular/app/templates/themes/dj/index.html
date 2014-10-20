@@ -328,7 +328,7 @@
             	<ul class="social">
 	            	<li ng-repeat="page in validPages" class="recent">
 		                <div class="clearfix"></div>
-		                <h4 ng-if="contents[page].list.length">{{getPluralizedConcepts(page)|capitalize}}</h4>
+		                <h5 ng-if="contents[page].list.length">{{getPluralizedConcepts(page)|capitalize}}</h5>
 						<div ng-if="contents[page].list.length" class="recent-content">
 							<a href="#/" ng-repeat="content in contents[page].list|withThumbnail|limitTo:3" ng-click="showDetail(content)" skip-default>
 		                     	<img style="margin:0 auto;max-width:100%;" ng-src="{{contentSv.getThumbnail(content)}}"/>
