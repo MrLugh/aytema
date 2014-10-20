@@ -311,15 +311,10 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 			element: "#menu_share",
 			placement: "right",
 			title: "<strong>Step 3:</strong> Share your profile <i class='fa fa-share-alt'></i>",
-			content: ""
-				+"<p>Browse our great themes</p>"
-				+"<p><i class='fa fa-search'></i>: Theme Preview</p>"
-				+"<p><i class='fa fa-cog'></i>: Full Edit</p>"
-				+"<p><i class='fa fa-cogs'></i>: Use it on view edition to explore custom settings for your theme</p>"
-			,
+			content: "END!",
 			animation: true,
 			onShow: function (tour) {
-				angular.element(document.querySelector("#menu_themes")).trigger("click");
+				angular.element(document.querySelector("#menu_share")).trigger("click");
 			},
 		});
 
