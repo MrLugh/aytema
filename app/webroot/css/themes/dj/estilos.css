@@ -764,11 +764,7 @@ textarea.form-control {
   width: 75px!important;
   height: 40px!important;
   overflow: hidden;
-  -webkit-transform: scale(0.8);
-  -moz-transform:    scale(0.8);
-  -ms-transform:     scale(0.8);
-  -o-transform:      scale(0.8);
-  transform:         scale(0.8);
+  opacity: 0.4;
 }
 
 #page_footer .recent-content a:hover { 
@@ -777,6 +773,7 @@ textarea.form-control {
   -ms-transform:     scale(1);
   -o-transform:      scale(1);
   transform:         scale(1);
+  opacity: 1;
 }
 
 #page_footer .links {
