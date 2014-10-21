@@ -53,6 +53,7 @@ h2 {
 .top-bar a{font-family: 'Cabin Condensed', sans-serif;}
 .top-bar .logo {
 	height: 78px;
+	line-height: 100px;
 }
 .top-bar .logo img {
 	display: inline-block;

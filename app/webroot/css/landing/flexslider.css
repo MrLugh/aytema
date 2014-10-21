@@ -64,7 +64,7 @@ html[xmlns] .slides {display: block;}
 
 /* Direction Nav */
 .flex-direction-nav {*height: 0;}
-.flex-direction-nav a {width: 27px; height: 100px; margin: 60px 0 0; display: block; background: url(http://cloudcial.com/img/landing/bg_direction_nav.png) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
+.flex-direction-nav a {width: 27px; height: 100px; margin: 60px 0 0; display: block; background: url(../../img/landing/bg_direction_nav.png) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
 .flex-direction-nav .flex-next {background-position: 100% 0; right: 50px; }
 .flex-direction-nav .flex-prev {left: 10px !important;}
 .flexslider:hover .flex-next {opacity: 0.8; right: 103px;}

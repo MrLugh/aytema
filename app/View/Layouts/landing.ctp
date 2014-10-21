@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
 <html>
 <head>
 
@@ -12,7 +16,7 @@
 	echo $this->Html->css('landing/foundation.min.css');
 	echo $this->Html->css('landing/style.css');
 	echo $this->Html->css('landing/ie.css');
-	//echo $this->Html->css('landing/flexslider.css');
+	echo $this->Html->css('landing/flexslider.css');
     ?>
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:600' rel='stylesheet' type='text/css'>
@@ -20,20 +24,20 @@
 
     <!-- Js -->
     <?php    
-	echo $this->Html->script('landing/vendor/custom.modernizr.js');
+	//echo $this->Html->script('landing/vendor/custom.modernizr.js');
     ?>
 
 </head>
 
-<body id="body" data-magellan-destination="body" class="body">
+<body id="body" data-magellan-destination="body">
 
-	<div id="top" data-magellan-expedition="fixed" data-magellan-destination="top" class="section landing top">
+	<div id="top" data-magellan-expedition="fixed" data-magellan-destination="top" class="top">
 		<div class="row">
 			<div class="large-12 columns">
 				<nav class="top-bar">
 				  <ul class="title-area">
 				   <li class="name logo">
-				      <a href="#"><img src="http://cloudcial.com/img/aytema-horizontal.png" style="max-width:228px;margin-top: 3px;"  alt=""></a>
+				      	<a href="#"><img src="http://cloudcial.com/img/aytema-horizontal.png" style="max-width:240px;margin-top: 3px;"  alt=""></a>
 				    </li>
 				    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 				  </ul>
