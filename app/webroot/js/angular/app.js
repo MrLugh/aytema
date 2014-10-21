@@ -20,13 +20,19 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
 
   $sceDelegateProvider.resourceUrlWhitelist(['^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?\(vimeo|youtube|facebook|mixcloud|twitter|soundcloud|cloudcial)\.com(/.*)?$', 'self']);
 
+    $routeProvider.when('/', {
+    	templateUrl: getPath('tpl')+'/admin/dashboard.html',
+    	controller: appCo,
+    	reloadOnSearch: false
+    });	
+
+    /*
     $routeProvider.when('/dashboard', {
     	templateUrl: getPath('tpl')+'/admin/dashboard.html',
     	controller: appCo,
     	reloadOnSearch: false
     });
 
-    /*
     $routeProvider.when('/dashboard/accounts', {
     	templateUrl: getPath('tpl')+'/admin/dashboard.html',
     	controller: appCo,
@@ -44,13 +50,14 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
         controller: appCo,
         reloadOnSearch: false
     });
-    */
 
     $routeProvider.when('/', {
         templateUrl: getPath('tpl')+'/index.html',
         controller: cloudcialCo,
         reloadOnSearch: false
     });
+
+	*/
 
     $routeProvider.when('/users', {
         templateUrl: getPath('tpl')+'/cloudcial/users.html',

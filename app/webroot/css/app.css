@@ -193,6 +193,16 @@ iframe,object,embed {
 
 /* Menu */
 
+.cloudcial_logo {
+	position: absolute;
+	bottom:20px;
+	left:20px;
+}
+
+.cloudcial_logo img {
+	max-width:100px;
+}
+
 #menuControl {
   position: absolute;
   z-index: 3;
@@ -207,7 +217,7 @@ iframe,object,embed {
   color: #adafae;
 }
 
-#header {
+#container #header {
   display: block;
   width: 300px;
   height: 100%;
@@ -218,14 +228,14 @@ iframe,object,embed {
   -moz-box-shadow:    5px 0px 5px 0px rgba(37, 35, 40, 0.8);
   box-shadow:         5px 0px 5px 0px rgba(37, 35, 40, 0.8);  
 }
-#header .container {
+#container #header .container {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0px 50px 10px 10px;
 }
 
-#header .profileImageContainer {
+#container #header .profileImageContainer {
   width: 140px;
   height: 120px;
   position: relative;
@@ -239,7 +249,7 @@ iframe,object,embed {
   */
 }
 
-#header #profileImage {
+#container #header #profileImage {
   position: absolute;
   top: 20px;
   left: 30px;
@@ -258,7 +268,7 @@ iframe,object,embed {
   */
 }
 
-#header .profileImageContainer i {
+#container #header .profileImageContainer i {
   top: calc(50% - 7px);
   color: #adafae;
   font-size: 15px;
@@ -269,7 +279,7 @@ iframe,object,embed {
   transition:all 0.5s ease-in-out 0s;
 }
 
-#header .dropdown-menu {
+#container #header .dropdown-menu {
   background-color: #fff!important;
   position: absolute!important;
   float: left!important;
@@ -278,7 +288,7 @@ iframe,object,embed {
   margin: 2px 0 0!important;
 }
 
-#header .userFind {
+#container #header .userFind {
   background-color: #252328;
   color: #A52A2A;
   display: block;
@@ -290,27 +300,27 @@ iframe,object,embed {
   border-bottom: 1px solid #353338;
 }
 
-#header .userFind a { 
+#container #header .userFind a { 
   color: #fff;
 }
 
-#header .userFind:hover {
+#container #header .userFind:hover {
   border-left: 4px solid #A52A2A
   transition: border 0.1s ease 0s; 
   color: #DCEE5C;
 }
 
-#header .userFind a:hover {
+#container #header .userFind a:hover {
   background-color: transparent;
   color: #DCEE5C;
 }
 
-#header .menu {
+#container #header .menu {
   float: none;
   clear: both;
 }
 
-#header .menu li {
+#container #header .menu li {
   background-color: #252328;
   color: #fff;
   display: block;
@@ -320,7 +330,7 @@ iframe,object,embed {
   text-decoration: none;
 }
 
-#header .menu li a {
+#container #header .menu li a {
   color:#fff;
   padding-left: 20px;
   -webkit-transition:all 0.5s ease-in-out 0s;
@@ -329,7 +339,7 @@ iframe,object,embed {
   transition:all 0.5s ease-in-out 0s;  
 }
 
-#header .menu li i {
+#container #header .menu li i {
   color:#adafae;
 
   /*
@@ -340,30 +350,30 @@ iframe,object,embed {
   */
 }
 
-#header .menu li:hover i {
+#container #header .menu li:hover i {
   color:#DCEE5C;
 }
 
-#header .menu li.active i {
+#container #header .menu li.active i {
   color:#A52A2A;
 }
 
-#header .menu li:hover, #header .menu li.active {
+#container #header .menu li:hover, #container #header .menu li.active {
   border-left: 4px solid #38353D;
   transition: border 0.1s ease 0s;
   text-shadow: rgb(3, 3, 3) 2px 2px 2px;
 }
 
-#header .menu li.active {
+#container #header .menu li.active {
   border-left: 4px solid #A52A2A
 }
 
-#header .menu li:hover a, #header .menu li.active a {
+#container #header .menu li:hover a, #container #header .menu li.active a {
   color:#A52A2A;
   padding-left: 25px;
 }
 
-#header .menu li.active a {
+#container #header .menu li.active a {
   color:#DCEE5C;
   padding-left: 25px;
 }
