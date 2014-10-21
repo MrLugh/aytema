@@ -149,17 +149,38 @@
 				<span class="subheading">Allow users to enjoy an instant preview on all devices. Let them view your app's screenshots with this premium-like landing page template.</span>
 		
 				<ul class="clearing-thumbs small-block-grid-3" data-clearing>
-					<li><a href="http://cloudcial.com/img/landing/screenshot-1b.png"><img src="http://cloudcial.com/img/landing/screenshot-1.png"></a></li>
-					<li><a href="http://cloudcial.com/img/landing/screenshot-2b.png"><img src="http://cloudcial.com/img/landing/screenshot-2.png"></a></li>
-					<li><a href="http://cloudcial.com/img/landing/screenshot-3b.png"><img src="http://cloudcial.com/img/landing/screenshot-3.png"></a></li>
-	                <li><a href="http://cloudcial.com/img/landing/screenshot-2b.png"><img src="http://cloudcial.com/img/landing/screenshot-2.png"></a></li>
+
+					<!--
 	                <li><a href="http://cloudcial.com/img/landing/screenshot-1b.png"><img src="http://cloudcial.com/img/landing/screenshot-1.png"></a></li>
-					<li><a href="http://cloudcial.com/img/landing/screenshot-3b.png"><img src="http://cloudcial.com/img/landing/screenshot-3.png"></a></li>
-	                <li><a href="http://cloudcial.com/img/landing/screenshot-3b.png"><img src="http://cloudcial.com/img/landing/screenshot-3.png"></a></li>
-	                
-					<li><a href="http://cloudcial.com/img/landing/screenshot-2b.png"><img src="http://cloudcial.com/img/landing/screenshot-2.png"></a></li>
-	                <li><a href="http://cloudcial.com/img/landing/screenshot-1b.png"><img src="http://cloudcial.com/img/landing/screenshot-1.png"></a></li>
-					
+	                -->
+
+					<li>
+						<a href="img/themes/dj/dj_theme_01.png"><img src="img/themes/dj/dj_theme_01.png"></a>
+					</li>
+					<li>
+						<a href="img/themes/dj/dj_theme_03.png"><img src="img/themes/dj/dj_theme_03.png"></a>
+					</li>
+					<li>
+						<a href="img/themes/digest/digest_theme_02.png"><img src="img/themes/digest/digest_theme_02.png"></a>
+					</li>
+					<li>
+						<a href="img/themes/clubber/clubber_theme_01.png"><img src="img/themes/clubber/clubber_theme_01.png"></a>
+					</li>
+					<li>
+						<a href="img/themes/clubber/clubber_theme_09.png"><img src="img/themes/clubber/clubber_theme_09.png"></a>
+					</li>
+					<li>
+						<a href="img/themes/space/space_theme_01.png"><img src="img/themes/space/space_theme_02.png"></a>
+					</li>
+					<li>
+						<a href="img/themes/space/space_theme_03.png"><img src="img/themes/space/space_theme_03.png"></a>
+					</li>
+					<li>
+						<a href="img/themes/simple/simple_theme_01.png"><img src="img/themes/simple/simple_theme_01.png"></a>
+					</li>
+					<li>
+						<a href="img/themes/simple/simple_theme_02.png"><img src="img/themes/simple/simple_theme_02.png"></a>
+					</li>
 	  			</ul>
 			</div>
 		</div>
