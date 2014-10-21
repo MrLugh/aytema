@@ -378,16 +378,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		var element = angular.element(document.querySelector("#page_"+page +" .content"));
 		var width   = element[0].clientWidth;
 
-		if (width <= 480) {
-			return width;
+		if (width > 480) {
+			return width/2 - 6;
 		}
-		if (width <= 768) {
-			return width/2;
-		}
-		if (width <= 1366) {
-			return width/3 - 10;
-		}
-		return width/4 - 10;
+		return width;
 	}
 
 }

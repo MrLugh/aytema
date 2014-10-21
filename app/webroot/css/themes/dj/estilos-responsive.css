@@ -8,6 +8,18 @@
 
 }
 
+@media (min-width: 1280px) {
+
+	#page_event .event_menu {
+		width:300px;
+	}
+
+	#page_event .event_container {
+		width: calc(100% - 300px);
+	}
+
+}
+
 @media (max-width: 991px) {
 
 	#page_about .content p {

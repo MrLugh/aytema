@@ -214,6 +214,7 @@ p {
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  max-width: 80%;
 }
 
 /*colors*/
@@ -614,9 +615,7 @@ p {
 #page_about h3 { 
   color: #080808;
 }
-#page_about .content { 
-  max-width: 1120px;
-}
+
 .auriculares  {
   background: url("../../../img/themes/dj/auriculares.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
   height: 162px;
@@ -661,10 +660,6 @@ img.users-photo  {
   border: 1px solid #FFB740;
   background-color: #ffb740;
 
-}
-
-#page_contact .content { 
-  max-width: 1120px;
 }
 
 .form-control {
@@ -717,7 +712,6 @@ textarea.form-control {
 }
 
 #page_footer .content {
-	max-width: 1060px;
 	padding: 30px;
 }
 
@@ -1215,7 +1209,6 @@ textarea.form-control {
 }
 
 #page_track .content {
-  max-width: 1074px;
   position: static;
 }
 
@@ -1273,7 +1266,6 @@ textarea.form-control {
 }
 
 #page_video .content {
-  max-width: 1074px;
   position: static;
 }
 
@@ -1331,7 +1323,6 @@ textarea.form-control {
 }
 
 #page_photo .content {
-  max-width: 1074px;
   padding: 0 10px;
 }
 
@@ -1378,7 +1369,6 @@ textarea.form-control {
   color: #080808;
 }
 #page_event .content {
-  max-width: 1074px;
   padding: 0 10px;
   background-color: #131313;
   padding: 32px 23px;
@@ -1494,10 +1484,6 @@ textarea.form-control {
 }
 
 /*page_post*/
-
-#page_post .content {
-  max-width: 1074px;
-}
 
 #page_post ul {
   text-align: left;
