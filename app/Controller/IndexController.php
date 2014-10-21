@@ -4,7 +4,7 @@ class IndexController extends AppController {
 
     public function beforeFilter() {
 
-        $this->Auth->allow('home');
+        $this->Auth->allow('home','dashboard');
 
     }
 
@@ -12,9 +12,9 @@ class IndexController extends AppController {
     public function home() {
 
     	$user = array();
+        $this->layout = "landing";
 
     	if ($this->Auth->user('id')) {
-    		$this->layout = "landing";
 	    	$user = array(
 	    		'id' => $this->Auth->user('id'),
 	    		'username' => $this->Auth->user('username'),
