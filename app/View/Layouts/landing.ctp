@@ -50,7 +50,7 @@
 				      <li data-magellan-arrival="screenshot"><a href="#screenshot">Gallery</a></li>
 				      <li data-magellan-arrival="pricing"><a href="#pricing-table">Pricing</a></li>
 				      <li data-magellan-arrival="contact"><a href="#contact">Contact Us</a></li>
-				      <li><a href="/dashboard">Sig In</a></li>
+				      <li><a href="/dashboard/">Sig In</a></li>
 				    </ul>
 				  </section>
 				</nav>
