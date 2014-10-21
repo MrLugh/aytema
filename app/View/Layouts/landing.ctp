@@ -180,7 +180,7 @@
 					<span class="author">John Dongi</span>
 				  </li>
 				  <li class="quote" data-orbit-slide="headline-3">
-				  	<blockquote>Awesome. Tweaked it a bit and got myself an ideal ladning page.</blockquote>
+				  	<blockquote>Awesome. Tweaked it a bit and got myself an ideal landing page.</blockquote>
 					<span class="author">John Donga</span>
 				  </li>
 				</ul>
