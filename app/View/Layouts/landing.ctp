@@ -2,49 +2,32 @@
 <html>
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
     <title>CloudCial</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Css -->
     <?php
-    echo $this->Html->css('bootstrap');
-    echo $this->Html->css('font-awesome.min');
-
-    //landing
-	echo $this->Html->css('landing/normalize.css');	
+	echo $this->Html->css('landing/normalize.css');
 	echo $this->Html->css('landing/foundation.min.css');
 	echo $this->Html->css('landing/style.css');
 	echo $this->Html->css('landing/ie.css');
-	echo $this->Html->css('landing/flexslider.css');
-	
+	//echo $this->Html->css('landing/flexslider.css');
     ?>
-
-    <!-- Js -->
-    <?php    
-	echo $this->Html->script('landing/vendor/custom.modernizr.js');
-	echo $this->Html->script('landing/jquery-1.8.2.min.js');
-	echo $this->Html->script('landing/foundation.min.js');
-	echo $this->Html->script('landing/functions.js');	
-	echo $this->Html->script('landing/jquery.nicescroll.js');
-	echo $this->Html->script('landing/jquery.localscroll-1.2.7.js');
-	echo $this->Html->script('landing/jquery.scrollTo-1.4.3.1.js');
-	echo $this->Html->script('landing/jquery.flexslider.js');
-	echo $this->Html->script('landing/custom.js');
-
-    ?>
-
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:600' rel='stylesheet' type='text/css'>
 
 
+    <!-- Js -->
+    <?php    
+	echo $this->Html->script('landing/vendor/custom.modernizr.js');
+    ?>
+
 </head>
 
-<body>
+<body id="body" data-magellan-destination="body" class="body">
 
-	<div id="top"  data-magellan-expedition="fixed" class="landing">
+	<div id="top" data-magellan-expedition="fixed" data-magellan-destination="top" class="section landing top">
 		<div class="row">
 			<div class="large-12 columns">
 				<nav class="top-bar">
@@ -57,10 +40,13 @@
 				
 				  <section class="top-bar-section">
 				    <ul class="right" id="menu">
+				      <li data-magellan-arrival="body"><a href="#body">Home</a></li>
 				      <li data-magellan-arrival="features"><a href="#features">Features</a></li>
 				      <li data-magellan-arrival="product"><a href="#product">Product</a></li>
+				      <li data-magellan-arrival="screenshot"><a href="#screenshot">Gallery</a></li>
 				      <li data-magellan-arrival="pricing"><a href="#pricing-table">Pricing</a></li>
 				      <li data-magellan-arrival="contact"><a href="#contact">Contact Us</a></li>
+				      <li><a href="/dashboard">Sig In</a></li>
 				    </ul>
 				  </section>
 				</nav>
@@ -68,25 +54,25 @@
 		</div>
 	</div>
 
-	<header id="header" >
+	<header id="header">
 		<div class="row">
 	    
 	    	<div class="large-6 columns">
 				<div id="teaser-slider-2">
-								<div class="flexslider">
-									<ul class="slides">
-										<li>
-											<img src="http://cloudcial.com/img/landing/slides/iphoneshots-1.jpg" alt="Petrichor - slider">
-										</li>
-										<li>
-											<img src="http://cloudcial.com/img/landing/slides/iphoneshots-2.jpg" alt="Petrichor - slider">
-										</li>
-										<li>
-											<img src="http://cloudcial.com/img/landing/slides/iphoneshots.jpg" alt="Petrichor - slider">
-										</li>
-									</ul>
-								</div> 
-							</div>
+					<div class="flexslider">
+						<ul class="slides">
+							<li>
+								<img src="http://cloudcial.com/img/landing/slides/iphoneshots-1.jpg" alt="Petrichor - slider">
+							</li>
+							<li>
+								<img src="http://cloudcial.com/img/landing/slides/iphoneshots-2.jpg" alt="Petrichor - slider">
+							</li>
+							<li>
+								<img src="http://cloudcial.com/img/landing/slides/iphoneshots.jpg" alt="Petrichor - slider">
+							</li>
+						</ul>
+					</div> 
+				</div>
 			</div>
 	        
 			<div class="large-6 columns">
@@ -156,9 +142,9 @@
 		</div>
 	</div>
 
-	<div id="screenshot" class="section screenshot">
+	<div id="screenshot" data-magellan-destination="screenshot" class="section screenshot">
 		<div class="row">
-			<div class="large-12 columns">
+			<div class="large-12 columns carousel">
 				<h2>Boom. Instant Preview.</h2>
 				<span class="subheading">Allow users to enjoy an instant preview on all devices. Let them view your app's screenshots with this premium-like landing page template.</span>
 		
@@ -182,7 +168,6 @@
 
 	<div id="pricing-table" class="section pricing gray" data-magellan-destination="pricing">
 
-		<!--
 		<div class="row">
 			<div class="large-12 quotes columns">
 				<ul id="quotes1" data-orbit>
@@ -201,7 +186,6 @@
 				</ul>
 			</div>
 		</div>
-		-->
 
 		<div class="row price-table">
 			<div class="large-4 columns">
@@ -293,6 +277,23 @@
 			</div>
 		</div>
 	</footer>
+
+    <!-- Js -->
+    <?php    
+	echo $this->Html->script('landing/jquery-1.8.2.min.js');
+	echo $this->Html->script('landing/foundation.min.js');
+	echo $this->Html->script('landing/functions.js');
+	echo $this->Html->script('landing/jquery.nicescroll.js');
+	echo $this->Html->script('landing/jquery.localscroll-1.2.7.js');
+	echo $this->Html->script('landing/jquery.scrollTo-1.4.3.1.js');
+	echo $this->Html->script('landing/jquery.flexslider.js');
+	echo $this->Html->script('landing/custom.js');
+    ?>
+
+    <!-- Css -->
+    <?php
+	echo $this->Html->css('landing/flexslider.css');
+	?>
 
 </body>
 </html>
