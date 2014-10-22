@@ -112,7 +112,7 @@
 		<div class="row">
 			<div class="large-12 columns">
 				<h2>Simple & easy to use page template creator</h2>
-				<span class="subheading">Introducing the page template creator that lets you present your app in a graceful way.</span>
+				<span class="subheading">Introducing the page template creator that lets you present your profile in a graceful way.</span>
 				<div class="row">
 					<div class="small-4 columns hints iphone">
 						<div class="hint hint-left hint-top">
@@ -202,11 +202,11 @@
 					<span class="author">John Donga</span>
 				  </li>
 				  <li class="quote" data-orbit-slide="headline-2">
-				  	<blockquote>I was going to buy a premium template, but now I am using AppLanding template.</blockquote>
+				  	<blockquote>I was going to buy a premium template, but now I am using cloudcial.</blockquote>
 					<span class="author">John Dongi</span>
 				  </li>
 				  <li class="quote" data-orbit-slide="headline-3">
-				  	<blockquote>Awesome. Tweaked it a bit and got myself an ideal landing page.</blockquote>
+				  	<blockquote>Awesome. Tweaked it a bit and got myself an ideal profile page.</blockquote>
 					<span class="author">John Donga</span>
 				  </li>
 				</ul>
@@ -290,7 +290,7 @@
 		<div class="row">
 			<div class="large-6 columns">
 				<ul class="inline-list">
-				  <li class="copyright">2013 &copy; AppLanding Template</a></li>
+				  <li class="copyright">2014 &copy; CloudCial</a></li>
 				 
 	  			</ul>
 			</div>
