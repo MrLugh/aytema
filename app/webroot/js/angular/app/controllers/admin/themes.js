@@ -13,7 +13,12 @@ function adminThemesCo($scope,appSv,userSv) {
 
 		var current = $scope.current;
 
-		setTimeout(function(){
+		$scope.currentTimer = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username="+$scope.user.username;
+		if ($scope.currentTimer) {
+			clearTimeout($scope.currentTimer);
+		}
+		$scope.currentTimer = setTimeout(function(){
+			clearTimeout($scope.currentTimer);
 			element = angular.element(document.querySelector("#theme_"+current));
 
 			if (angular.isDefined(element[0])) {
@@ -34,10 +39,14 @@ function adminThemesCo($scope,appSv,userSv) {
 	$scope.previewSrc = function(index) {
 		$scope.current = index;
 		$scope.src = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username="+$scope.user.username;
-		$scope.showPreview = true;
-		setTimeout(function(){
+		if ($scope.timer) {
+			clearTimeout($scope.timer);
+		}
+		$scope.timer = setTimeout(function(){
+			clearTimeout($scope.timer);
+			$scope.showPreview = true;
 			$scope.scrollToTop();
-		},1500);
+		},500);
 	}
 
 	$scope.getContainerStyle = function() {

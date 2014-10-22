@@ -152,22 +152,27 @@ w.themesContainer {
 	-o-transition:all 0.56s ease-in-out 0s;
 	transition:all 0.56s ease-in-out 0s;
 	z-index: 3;
+	opacity: 1;
 }
 
 .themesContainer .preview.ng-enter {
-    left:100%;
+    bottom:100%;
+    opacity: 0;
 }
 
 .themesContainer .preview.ng-enter.ng-enter-active {
-    left: 0;
+    bottom: 0;
+    opacity: 1;
 }
 
 .themesContainer .preview.ng-leave {
-    left: 0;
+    bottom: 0;
+    opacity: 1;
 }
 
 .themesContainer .preview.ng-leave.ng-leave-active {
-    left: 100%;
+    bottom: 100%;
+    opacity: 0;
 }
 
 .themesContainer .preview iframe {
