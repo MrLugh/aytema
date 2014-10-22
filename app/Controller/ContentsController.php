@@ -179,7 +179,7 @@ class ContentsController extends AppController {
             $new = $new->save($save);
         }
 
-        $this->redirect(array('controller' => 'index', 'action' => 'home'));
+        $this->redirect(array('controller' => 'index', 'action' => 'dashboard'));
 
     }    
 

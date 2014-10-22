@@ -198,7 +198,7 @@
 			<div class="large-12 quotes columns">
 				<ul id="quotes1" data-orbit>
 				  <li class="quote" data-orbit-slide="headline-1">
-				  	<blockquote>AppLanding page looks great, I missed something like this.</blockquote>
+				  	<blockquote>CloudCial looks great, I missed something like this.</blockquote>
 					<span class="author">John Donga</span>
 				  </li>
 				  <li class="quote" data-orbit-slide="headline-2">
