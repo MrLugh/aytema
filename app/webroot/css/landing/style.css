@@ -879,11 +879,11 @@ footer a.icon:hover {
 /* ICONS */
 @font-face {
 	font-family: 'entypo';
-	src:url('../../fonts/entypo.eot');
-	src:url('../../fonts/entypo.eot?#iefix') format('embedded-opentype'),
-		url('../../fonts/entypo.woff') format('woff'),
-		url('../../fonts/entypo.ttf') format('truetype'),
-		url('../../fonts/entypo.svg#entypo') format('svg');
+	src:url('../../fonts/landing/entypo.eot');
+	src:url('../../fonts/landing/entypo.eot?#iefix') format('embedded-opentype'),
+		url('../../fonts/landing/entypo.woff') format('woff'),
+		url('../../fonts/landing/entypo.ttf') format('truetype'),
+		url('../../fonts/landing/entypo.svg#entypo') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -1734,7 +1734,7 @@ you can use the generic selector below, but it's slower:
 	background: #4e97cc;
 }
 
-.no-touch .hi-icon-effect-3b .hi-icon:hover {
+.no-touch .hi-icon-effect-3b .hi-icon:hover, .hi-icon-effect-3b .hi-icon:hover {
 	color: #f06060;
 	background:#fff;
 	box-shadow: 0 0 0 4px #f06060;
@@ -1748,7 +1748,7 @@ you can use the generic selector below, but it's slower:
 	opacity: 0;
 }
 
-.no-touch .hi-icon-effect-3b .hi-icon:hover:after {
+.no-touch .hi-icon-effect-3b .hi-icon:hover:after, .hi-icon-effect-3b .hi-icon:hover:after {
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
 	-ms-transform: scale(1);

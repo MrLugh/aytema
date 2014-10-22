@@ -23,8 +23,8 @@
 
 
     <!-- Js -->
-    <?php    
-	//echo $this->Html->script('landing/vendor/custom.modernizr.js');
+    <?php 
+	echo $this->Html->script('landing/vendor/custom.modernizr.js');
     ?>
 
 </head>
@@ -80,8 +80,8 @@
 			</div>
 	        
 			<div class="large-6 columns">
-				<h1>Super Landing Page</h1>
-				<span class="subheading">Powerful, Stylish and Modern Responsive Landing Page Template.</span>
+				<h1>Be CloudCial</h1>
+				<span class="subheading">Powerful, Stylish and Modern Responsive Page Template Creator.</span>
 		        <a class="download-btn" href="#" target="_blank"></a>
 			</div>
 			
@@ -92,18 +92,18 @@
 		<div class="row hi-icon-wrap hi-icon-effect-3 hi-icon-effect-3b">
 			<div class="large-4 columns feature">
 				<span class="icon icon-browser hi-icon"></span>
-				<h3>Fully Responsive Template</h3>
-				<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum.</p>
+				<h3>Step 1: Manage your Content</h3>
+				<p>Upload your <strong>photos</strong>, <strong>videos</strong> and <strong>tracks</strong>. Create <strong>events</strong> and <strong>posts</strong>. Connect some social accounts to import their content.</p>
 			</div>
 			<div class="large-4 columns feature">
 				<span class="icon icon-tools hi-icon"></span>
-				<h3>Easily to Customize & Update</h3>
-				<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum.</p>
+				<h3>Step 2: Customize your theme</h3>
+				<p>Explore themes section. Choose the best option. Edit <strong>colors</strong>, <strong>background</strong>, <strong>fonts</strong>, <strong>pages</strong> and more.</p>
 			</div>
 			<div class="large-4 columns feature">
 				<span class="icon icon-trophy hi-icon"></span>
-				<h3>Perfect Landing Page for Apps</h3>
-				<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum.</p>
+				<h3>Step 3: Share your profile url</h3>
+				<p>Let to your social ecosystem know everything about your profile.</p>
 			</div>
 		</div>
 	</div>
@@ -111,13 +111,13 @@
 	<div id="product" class="section product gray" data-magellan-destination="product">
 		<div class="row">
 			<div class="large-12 columns">
-				<h2>Simple & easy to use landing page template</h2>
-				<span class="subheading">Introducing the landing page template that lets you present your app in a graceful way.</span>
+				<h2>Simple & easy to use page template creator</h2>
+				<span class="subheading">Introducing the page template creator that lets you present your app in a graceful way.</span>
 				<div class="row">
 					<div class="small-4 columns hints iphone">
 						<div class="hint hint-left hint-top">
 							<h3>Modern design</h3>
-							<p>Minimalistic and simple design with maximal emphasis. You will be glad to download this template.</p>
+							<p>Minimalistic and simple design with maximal emphasis. You will be glad to use our templates.</p>
 							<span class="arrow"></span>
 						</div>
 						<div class="hint hint-left hint-bottom">
@@ -132,7 +132,7 @@
 					<div class="small-4 columns hints iphone">
 						<div class="hint hint-right hint-top">
 							<h3>Amazing Design</h3>
-							<p>Because your app deserves an amazing landing page too.</p>
+							<p>Because your profile deserves an amazing page too.</p>
 							<span class="arrow"></span>
 						</div>
 						<div class="hint hint-right hint-bottom">
@@ -150,7 +150,7 @@
 		<div class="row">
 			<div class="large-12 columns carousel">
 				<h2>Boom. Instant Preview.</h2>
-				<span class="subheading">Allow users to enjoy an instant preview on all devices. Let them view your app's screenshots with this premium-like landing page template.</span>
+				<span class="subheading">Instant theme preview on all devices using your content.</span>
 		
 				<ul class="clearing-thumbs small-block-grid-3" data-clearing>
 
@@ -185,6 +185,7 @@
 					<li>
 						<a href="img/themes/simple/simple_theme_02.png"><img src="img/themes/simple/simple_theme_02.png"></a>
 					</li>
+
 	  			</ul>
 			</div>
 		</div>
@@ -215,42 +216,42 @@
 		<div class="row price-table">
 			<div class="large-4 columns">
 				<ul class="pricing-table">
-				  <li class="title">Plan Plus</li>
+				  <li class="title">Plan Free</li>
 				  <li class="description">With basic features</li>
-				  <li class="price">$9.99</li>
+				  <li class="price">$0.00</li>
 	  			  <a class="price-table-toggle">+ Show features</a>
 	  			  <ul class="price-table-features">
-					  <li class="bullet-item">Responsive Layout</li>
-					  <li class="bullet-item">Retina Support</li>
-					  <li class="bullet-item">And a lot more</li>
+					  <li class="bullet-item">1 free theme (Ads)</li>
+					  <li class="bullet-item">2 Social Accounts</li>
+					  <li class="bullet-item">0 GB</li>
 				  </ul>
 				  <li class="cta-button"><a class="button secondary radius" href="#">Buy Now</a></li>
 				</ul>
 			</div>
 			<div class="large-4 columns">
 				<ul class="pricing-table featured">
-				  <li class="title">Plan Business</li>
+				  <li class="title">Plan Gold</li>
 				  <li class="description">With advanced features</li>
 				  <li class="price">$19.99</li>
 	  			  <a class="price-table-toggle">+ Show features</a>
 				  <ul class="price-table-features">
-					  <li class="bullet-item">Responsive Layout</li>
-					  <li class="bullet-item">Retina Support</li>
-					  <li class="bullet-item">And a lot more</li>
+					  <li class="bullet-item">All themes (No Ads)</li>
+					  <li class="bullet-item">Unlimited Accounts</li>
+					  <li class="bullet-item">10 GB for contents</li>
 				  </ul>
 				  <li class="cta-button"><a class="button radius" href="#">Buy Now</a></li>
 				</ul>
 			</div>
 			<div class="large-4 columns">
 				<ul class="pricing-table">
-				  <li class="title">Plan Premium</li>
+				  <li class="title">Plan One</li>
 				  <li class="description">With awesome features</li>
 				  <li class="price">$29.99</li>
 				  <a class="price-table-toggle">+ Show features</a>
 				  <ul class="price-table-features">
-					  <li class="bullet-item">Responsive Layout</li>
-					  <li class="bullet-item">Retina Support</li>
-					  <li class="bullet-item">And a lot more</li>
+					  <li class="bullet-item">1 theme (No Ads)</li>
+					  <li class="bullet-item">6 Social Accounts</li>
+					  <li class="bullet-item">1 GB for contents</li>
 				  </ul>
 				  <li class="cta-button"><a class="button secondary radius" href="#">Buy Now</a></li>
 				</ul>
