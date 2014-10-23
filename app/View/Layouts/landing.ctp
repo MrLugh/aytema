@@ -174,7 +174,7 @@
 						<a href="img/themes/clubber/clubber_theme_09.png"><img src="img/themes/clubber/clubber_theme_09.png"></a>
 					</li>
 					<li>
-						<a href="img/themes/space/space_theme_01.png"><img src="img/themes/space/space_theme_02.png"></a>
+						<a href="img/themes/space/space_theme_02.png"><img src="img/themes/space/space_theme_02.png"></a>
 					</li>
 					<li>
 						<a href="img/themes/space/space_theme_03.png"><img src="img/themes/space/space_theme_03.png"></a>
