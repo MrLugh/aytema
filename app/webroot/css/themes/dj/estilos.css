@@ -711,10 +711,6 @@ textarea.form-control {
   overflow-x:hidden;
 }
 
-#page_footer .content {
-	padding: 30px;
-}
-
 #page_footer span {
     color: #878787;
     display: inline-block;

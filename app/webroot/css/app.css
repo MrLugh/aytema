@@ -303,7 +303,21 @@ iframe,object,embed {
   -webkit-box-shadow: 5px 0px 5px 0px rgba(37, 35, 40, 0.8);
   -moz-box-shadow:    5px 0px 5px 0px rgba(37, 35, 40, 0.8);
   box-shadow:         5px 0px 5px 0px rgba(37, 35, 40, 0.8);  
+
+  -webkit-transition:none!important;
+  -moz-transition:none!important;
+  -o-transition:none!important;
+  transition:none!important;
+
+  -moz-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  transform: none;
+
 }
+
+
 #container #header .container {
   width: 100%;
   height: 100%;
