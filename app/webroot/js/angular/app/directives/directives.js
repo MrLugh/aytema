@@ -272,6 +272,8 @@ ayTemaDs.directive('countUp',[
 function () {
     return function(scope,element,attrs) {
 
+        scope.countUp = false;
+
         scope.getNumber = function() {
             return parseInt(attrs.countUp);
         }
@@ -284,10 +286,15 @@ function () {
           prefix : '',
           suffix : '',
         }
-        scope.countUp = new countUp(element[0], 0, scope.getNumber(), 0, 2.5, options);
-        scope.countUp.start();
-        scope.$watch('getNumber()',function(){
-            scope.countUp.start();
+        
+        scope.$watch('getNumber()',function(value){
+            if (value && !scope.countUp) {
+                scope.countUp = new countUp(element[0], 0, value, 0, 2.5, options);
+                scope.countUp.start();
+                var countTimer = setTimeout(function(){
+                    element[0].innerHTML = attrs.countUp;
+                },2550);
+            }
         });
 
         var destroy = function() {
