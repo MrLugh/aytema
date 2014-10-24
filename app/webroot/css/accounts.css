@@ -124,25 +124,10 @@
   color:white;
   border-width: 85px;
 
-  /*
-  border-color: #EDC42C #84BE88 #695C83 #C87A61;
-  border-style: dotted dashed;
-  background-color: black;
-  */
-
-
   border-color: #B7C0C4 #C1C5C7 #C1C5C7 #B7C0C4;
   border-color: #252328 #19151F;
   border-style: solid;
 
-
-  /*
-  border-color: black white;
-  border-style: dotted dashed;
-  background-color: black;
-  */
-
-  
   border-radius: 100%;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -177,27 +162,11 @@
 .accountsContainer .account:hover {
 
   border-width: 25px;
-  /*
-  border-color: #695C83 #C87A61 #EDC42C #84BE88;
-  border-style: dotted dashed;
-  */
-
-  /*
-  border-color: #695C83 #C87A61 #EDC42C #84BE88;
-  border-style: solid;
-  */
-
-  /*
-  border-color: #C1C5C7 #B7C0C4 #B7C0C4 #C1C5C7;
-  border-style: solid;
-  */
-
 
   border-color: #695C83 #C87A61 #EDC42C #84BE88;
   border-color: #19151F #252328;
   border-style: dotted;
   border-style: solid;
-  /*background-color: #19151F;*/
 
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
   -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
@@ -243,10 +212,11 @@
   left: 5%;
   width: 90%;
   height: 90%;
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg); 
-  -o-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
+  animation: 4s linear 0s normal none infinite hoverup;
+  -webkit-animation: 4s linear 0s normal none infinite hoverup;
+  -moz-animation: 4s linear 0s normal none infinite hoverup;
+  -o-animation: 4s linear 0s normal none infinite hoverup;
+  opacity: 0.3;
 }
 
 .accountsContainer .accountLayerInfo {
@@ -455,7 +425,12 @@
   box-shadow:         0px 0px 15px 0px rgba(37, 35, 40, 0.5); 
 
   overflow: hidden;
-  widows: 50%;
+  width: 50%;
+
+  -webkit-transition:none;
+  -moz-transition:none;
+  -o-transition:none;
+  transition:none;    
 }
 
 .adminContent h2 {
@@ -665,21 +640,41 @@
 .accountsContainer .account.ng-enter {
   opacity:0;
   filter: alpha(opacity=0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);  
 }
 
 .accountsContainer .account.ng-enter.ng-enter-active {
   opacity:1;
   filter: alpha(opacity=100);  
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);  
 }
 
 .accountsContainer .account.ng-leave {
   left:0;
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);  
 }
 
 .accountsContainer .account.ng-leave.ng-leave-active {
   left:-100%;
   opacity:0;
   filter: alpha(opacity=0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);  
 }
 
 
@@ -705,20 +700,40 @@
 
 .accountDetail.ng-enter {
   left: 100%;
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);    
 }
 
 .accountDetail.ng-enter.ng-enter-active {
   left: 0;
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);    
 }
 
 .accountDetail.ng-leave {
   opacity: 0;
   filter: alpha(opacity=0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);    
 }
 
 .accountDetail.ng-leave.ng-leave-active {
   opacity: 0;
   filter: alpha(opacity=0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);    
 }
 
 ._4q_, ._6kq {

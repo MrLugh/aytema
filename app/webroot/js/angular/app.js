@@ -6,6 +6,7 @@ var ayTemaApp = angular.module('ayTemaApp',[
 	'ayTema.directives',
 	'ayTema.filters',
 	'ngRoute',
+    'ngResource',
 	'ngAnimate',
 	'ngLocale',
 	'ngSanitize',
@@ -79,5 +80,31 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
     
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
+
+var spinner_timer = -1;
+
+
+ayTemaApp.config(function ($httpProvider) {
+    $httpProvider.responseInterceptors.push('myHttpInterceptor');
+
+    var spinnerFunction = function spinnerFunction(data, headersGetter) {
+        $("#cloudcial_loading").show();
+        return data;
+    };
+
+    $httpProvider.defaults.transformRequest.push(spinnerFunction);
+});
+
+ayTemaApp.factory('myHttpInterceptor', function ($q, $window) {
+    return function (promise) {
+        return promise.then(function (response) {
+            $("#cloudcial_loading").hide();
+            return response;
+        }, function (response) {
+            $("#cloudcial_loading").hide();
+            return $q.reject(response);
+        });
+    };
+});
 
 ayTemaApp.run([function(){}]);

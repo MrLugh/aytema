@@ -112,10 +112,10 @@ w.themesContainer {
 	-o-transition:all 0.56s ease-in-out 0s;
 	transition:all 0.56s ease-in-out 0s;
 
-	-webkit-transform: scale(0.6);
-	-moz-transform: scale(0.6); 
-	-o-transform: scale(0.6);
-	-ms-transform: scale(0.6);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1); 
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
 }
 
 .themesContainer .theme .themeInfo i:hover {
@@ -157,10 +157,10 @@ w.themesContainer {
 
 .themesContainer .preview.ng-enter {
     opacity: 0;
-	-webkit-transform: scale(0.6);
-	-moz-transform: scale(0.6); 
-	-o-transform: scale(0.6);
-	-ms-transform: scale(0.6);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1); 
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
 }
 
 .themesContainer .preview.ng-enter.ng-enter-active {
@@ -181,10 +181,10 @@ w.themesContainer {
 
 .themesContainer .preview.ng-leave.ng-leave-active {
     opacity: 0;
-	-webkit-transform: scale(0.6);
-	-moz-transform: scale(0.6); 
-	-o-transform: scale(0.6);
-	-ms-transform: scale(0.6);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1); 
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
 }
 
 .themesContainer .preview iframe {
