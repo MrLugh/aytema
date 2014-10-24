@@ -267,6 +267,38 @@ function () {
     }
 }]);
 
+
+ayTemaDs.directive('countUp',[
+function () {
+    return function(scope,element,attrs) {
+
+        scope.getNumber = function() {
+            return parseInt(attrs.countUp);
+        }
+
+        var options = {
+          useEasing : true, 
+          useGrouping : true,
+          separator : ',', 
+          decimal : '.' ,
+          prefix : '',
+          suffix : '',
+        }
+        scope.countUp = new countUp(element[0], 0, scope.getNumber(), 0, 2.5, options);
+        scope.countUp.start();
+        scope.$watch('getNumber()',function(){
+            scope.countUp.start();
+        });
+
+        var destroy = function() {
+            scope.countUp.stop();
+        }
+        element.bind('$destroy',destroy);
+        
+    }
+}]);
+
+
 ayTemaDs.directive('fb', ['$FB',
 function($FB) {
     return {

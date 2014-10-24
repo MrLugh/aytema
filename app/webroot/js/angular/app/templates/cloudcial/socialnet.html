@@ -38,7 +38,7 @@
 		<ul class="stats {{account.network}}AccountRgba">
 			<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="top" class="stat inline">
 				<i ng-class="statIcon(key)"></i>
-				<span>{{stat}}</span>
+				<span count-up="{{stat}}">{{stat}}</span>
 			</li>
 		</ul>
 

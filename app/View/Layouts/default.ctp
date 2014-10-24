@@ -39,6 +39,7 @@
     echo $this->Html->script('imagesloaded.pkgd');
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('dropzone');
+    echo $this->Html->script('countUp');
     echo $this->Html->script('tinymce/tinymce.min');
     echo $this->Html->script('highcharts');
     ?>
