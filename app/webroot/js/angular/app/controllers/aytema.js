@@ -159,6 +159,10 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 			$scope.steps.accounts = true;
 			$scope.steps.themes = true;
 			$scope.showPage('themes');
+			var timer = setTimeout(function(){
+				clearTimeout(timer);
+				$scope.showTour(5);
+			},500);			
 			return;
 		}
 
@@ -196,7 +200,7 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
        	$scope.getMenuWidth();
     });
 
-    $scope.showTour = function() {
+    $scope.showTour = function(step) {
 
     	if ($scope.tour) {
     		$scope.tour.end();
@@ -326,7 +330,11 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 		});
 
 		$scope.tour.restart();
-		$scope.tour.start(true);
+		$scope.tour.start(true);		
+		if (angular.isDefined(step)) {
+			$scope.tour.goTo(step);
+			$scope.tour.setCurrentStep(step);
+		}
     }
 
 }
