@@ -1,17 +1,36 @@
-<div class="login">
-	<h2>Login - Sign In</h2>
-	<input type="hidden" name="_method" value="POST"/>
-	<input type="text" name="username" ng-model="username" required placeholder="Username">
-	<input type="password" ng-model="password" name="password" required placeholder="Password">
-	<!--
-	<div class="remember">
-		<input id="remember" ng-model="remember" name="remember" type="checkbox">
-		<label for="remember"></label><strong>Remember me</strong>
+<div class="widgetuser">
+
+	<div>
+		<h2 ng-click="setMode('login')" style="width:48%;text-align:left;" class="inline {{mode=='login'?'active':''}}">Sign In</h2>
+		<h2 ng-click="setMode('register')" style="width:48%;text-align:right;" class="inline {{mode=='register'?'active':''}}">Sign Up</h2>
 	</div>
-	!-->
-	<input type="submit" ng-click="login()" class="animated" value="Login">
-	<p class="login_error">{{loginMessage}}</p>
-	<h2 class="forgot">
-		<a href="/users/register">Sign up</a>
-	</h2>
+
+	<div class="widgetuser_panel login" ng-show="mode=='login'">
+		<input type="hidden" name="_method" value="POST"/>
+		<input type="text" name="username" ng-model="username" required placeholder="Username">
+		<input type="password" ng-model="password" name="password" required placeholder="Password">
+		<div class="remember">
+			<input id="remember" ng-model="remember" name="remember" type="checkbox">
+			<label for="remember"></label><strong>Remember me</strong>
+		</div>
+		<input type="submit" ng-click="login()" class="animated" value="Login">
+		<p class="widgetuser_error">{{message}}</p>
+	</div>
+
+	<div class="widgetuser_panel register" ng-show="mode=='register'">
+		<input type="hidden" name="_method" value="POST"/>
+		<input type="text" name="email" ng-model="email" required placeholder="Email">
+		<input type="text" name="username" ng-model="username" required placeholder="Username">
+		<input type="text" name="firstname" ng-model="firstname" required placeholder="First name">
+		<input type="text" name="lastname" ng-model="lastname" required placeholder="Last name">
+		<input type="password" ng-model="password" name="password" required placeholder="Password">
+		<input type="password" ng-model="password_confirm" name="password_confirm" required placeholder="Confirm Password">
+		<div class="conditions">
+			<input id="conditions" ng-model="conditions" name="conditions" type="checkbox">
+			<label for="conditions"></label><strong>Terms & Conditions</strong>
+		</div>
+		<input type="submit" ng-click="register()" class="animated" value="Register">
+		<p class="widgetuser_error">{{message}}</p>
+	</div>
+
 </div>

@@ -109,7 +109,10 @@ i, *.active i {
 }
 
 i:hover,*.active i:hover {
-  transition: border 0.1s ease 0s;
+  -webkit-transition:border 0.1s ease-in-out;
+  -moz-transition:border 0.1s ease-in-out;
+  -o-transition:border 0.1s ease-in-out;
+  transition:border 0.1s ease-in-out;  
 }
 
 iframe,object,embed {
@@ -174,10 +177,10 @@ iframe,object,embed {
   background-size:contain;
   background-position:center;
   background-repeat:no-repeat;
-  animation: 2s linear 0s normal none infinite hoverup;
-  -webkit-animation: 2s linear 0s normal none infinite hoverup;
-  -moz-animation: 2s linear 0s normal none infinite hoverup;
-  -o-animation: 2s linear 0s normal none infinite hoverup;  
+  animation: 1.5s linear 0s normal none infinite hoverup;
+  -webkit-animation: 1.5s linear 0s normal none infinite hoverup;
+  -moz-animation: 1.5s linear 0s normal none infinite hoverup;
+  -o-animation: 1.5s linear 0s normal none infinite hoverup;  
 }
 
 #cloudcial_loading .loading_img {
@@ -297,6 +300,8 @@ iframe,object,embed {
   -moz-box-shadow:    5px 0px 5px 0px rgba(37, 35, 40, 0.8);
   box-shadow:         5px 0px 5px 0px rgba(37, 35, 40, 0.8);  
 
+  font-family: "Sofia", cursive;
+
   -webkit-transition:none!important;
   -moz-transition:none!important;
   -o-transition:none!important;
@@ -307,7 +312,6 @@ iframe,object,embed {
   -o-transform: none;
   -ms-transform: none;
   transform: none;
-
 }
 
 
@@ -389,7 +393,10 @@ iframe,object,embed {
 
 #container #header .userFind:hover {
   border-left: 4px solid #A52A2A
-  transition: border 0.1s ease 0s; 
+  -webkit-transition:border 0.1s ease-in-out;
+  -moz-transition:border 0.1s ease-in-out;
+  -o-transition:border 0.1s ease-in-out;
+  transition:border 0.1s ease-in-out;
   color: #DCEE5C;
 }
 
@@ -574,35 +581,85 @@ iframe,object,embed {
   display: block!important;
 }
 
-.login {
+.widgetuser {
   width: 350px;
   position: absolute;
   top: 10%;
   left: 50%;
   margin-left: -175px;
+  -webkit-transition:all 0.5s ease-in-out 0s;
+  -moz-transition:all 0.5s ease-in-out 0s;
+  -o-transition:all 0.5s ease-in-out 0s;
+  transition:all 0.5s ease-in-out 0s;
 }
 
-.login * {
+.widgetuser_panel.ng-enter {
+  filter: alpha(opacity=100);
+
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);  
+}
+
+.widgetuser_panel.ng-enter.ng-enter-active {
+  filter: alpha(opacity=100);
+
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);    
+}
+
+.widgetuser_panel.ng-leave {
+  filter: alpha(opacity=100);
+
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.widgetuser_panel.ng-leave.ng-leave-active {
+  filter: alpha(opacity=0);
+
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.widgetuser * {
   margin: 0;
   padding: 0;
   font-family: "Sofia", cursive;
 }
 
-.login h2 {
+.widgetuser h2 {
   color: #a52a2a;
   font-size: 15px;
   font-weight: bold;
   font-size: 3.6em;
   text-align: center;
   margin-bottom: 20px;
+  text-decoration: line-through;
 }
 
-.login a {
+.widgetuser h2.active {
   color: #435160;
   text-decoration: none;
 }
 
-.login input[type="text"], .login input[type="password"] {
+.widgetuser a {
+  color: #435160;
+  text-decoration: none;
+}
+
+.widgetuser input[type="text"], .widgetuser input[type="password"] {
   width: 350px;
   padding: 20px 0px;
   background: transparent;
@@ -612,11 +669,11 @@ iframe,object,embed {
   color: #2E3740;
   font-size: 16px;
 }
-.login input[type=checkbox] {
+.widgetuser input[type=checkbox] {
   display: none;
 }
 
-.login label {
+.widgetuser label {
   display: block;
   position: absolute;
   margin-right: 10px;
@@ -625,20 +682,23 @@ iframe,object,embed {
   border-radius: 50%;
   background: transparent;
   content: "";
-  transition: all 0.3s ease-in-out;
+  -webkit-transition:all 0.3s ease-in-out;
+  -moz-transition:all 0.3s ease-in-out;
+  -o-transition:all 0.3s ease-in-out;
+  transition:all 0.3s ease-in-out;
   cursor: pointer;
   border: 3px solid #435160;
 }
-.login #remember strong {
+.widgetuser #remember strong, .widgetuser #conditions strong {
   font-size: 1em;
 }
 
 
-.login #remember:checked ~ label[for=remember] {
+.widgetuser #remember:checked ~ label[for=remember], .widgetuser #conditions:checked ~ label[for=conditions] {
   background: #435160;
 }
 
-.login input[type="submit"] {
+.widgetuser input[type="submit"] {
   background: #435160;
   border: 0;
   width: 350px;
@@ -647,14 +707,17 @@ iframe,object,embed {
   color: #fff;
   font-size: 12px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  -webkit-transition:all 0.3s ease-in-out;
+  -moz-transition:all 0.3s ease-in-out;
+  -o-transition:all 0.3s ease-in-out;
+  transition:all 0.3s ease-in-out;
 }
-.login input[type="submit"]:hover {
+.widgetuser input[type="submit"]:hover {
   background: #6D7781;
   animation-name: shake;
 }
 
-.login .forgot {
+.widgetuser .forgot {
   margin-top: 60px;
   display: block;
   font-weight: bold;
@@ -664,33 +727,33 @@ iframe,object,embed {
   font-weight: bold;
 }
 
-.login .forgot a {
+.widgetuser .forgot a {
   color: #435160;
 }
 
-.login .forgot a:hover {
+.widgetuser .forgot a:hover {
   color: #6D7781;
 }
 
-.login .remember {
+.widgetuser .remember, .widgetuser .conditions {
   padding: 30px 0px;
   font-size: 12px;
   text-indent: 25px;
   line-height: 15px;
 }
 
-.login .login_error {
+.widgetuser .widgetuser_error {
   margin-top: 20px;
   color: #1FCE6D;
   font-size: 1.4em;
 }
 
-.login::-webkit-input-placeholder {
+.widgetuser::-webkit-input-placeholder {
   color: #435160;
   font-size: 12px;
 }
 
-.login .animated {
+.widgetuser .animated {
   animation-fill-mode: both;
   animation-duration: 1s;
 }

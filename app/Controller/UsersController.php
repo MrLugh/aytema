@@ -3,6 +3,7 @@
 App::import('model','User');
 App::import('model','Theme');
 App::import('model','Socialnet');
+App::uses('Validation', 'Utility');
 
 class UsersController extends AppController {
 
@@ -120,19 +121,53 @@ class UsersController extends AppController {
     public function register() {
 
         $this->set('user',json_encode(""));
-        $this->layout = 'anonymous';        
+        $this->layout = 'anonymous';     
 
-        if (isset($this->request->data['User']['username'])) {
+        if ($this->request->data) {
+            $this->request->data['User'] = $this->request->data;
             $this->request->data['User']['username'] = strtolower($this->request->data['User']['username']);
         }
 
-        if ($this->data &&
-            isset($this->data['User']['password']) &&
-            isset($this->data['User']['password'])) {
+        if ($this->request->is('post')) {
 
-            if ($this->data['User']['password'] === $this->data['User']['password_confirm']) {
+            // validate fields!
+            $validate = '';
+            if (empty($this->request->data['User']['email'])) {
+                $validate = "email is required";
+            } else if (!Validation::email($this->request->data['User']['email'])) {
+                $validate = "Invalid email type";
+            } else if (empty($this->request->data['User']['username'])) {
+                $validate = "username is required";
+            } else if (empty($this->request->data['User']['firstname'])) {
+                $validate = "first name is required";
+            } else if (empty($this->request->data['User']['lastname'])) {
+                $validate = "last name is required";
+            } else if (empty($this->request->data['User']['password'])) {
+                $validate = "password is required";
+            } else if (empty($this->request->data['User']['password_confirm'])) {
+                $validate = "password confirmation is required";
+            } else if (empty($this->request->data['User']['conditions'])) {
+                $validate = "terms and conditions are required";
+            } else if ($this->User->findByEmail($this->request->data['User']['email'])) {
+                $validate = "email already exists";
+            } else if ($this->User->findByUsername($this->request->data['User']['username'])) {
+                $validate = "username already exists";
+            }
+
+            if (!empty($validate)) {
+                $this->set(array(
+                    'message' => array(
+                        'text' => __($validate),
+                        'type' => 'error'
+                    ),
+                    '_serialize' => array('message')
+                ));
+                $this->response->statusCode(404);
+            }
+
+            if ($this->request->data['User']['password'] === $this->request->data['User']['password_confirm']) {
                 $this->User->create();
-                $data = $this->data;
+                $data = $this->request->data;
                 $data['User']['theme'] = Theme::$default;
                 $data['User']['profile_image'] = User::$default_image;
                 if($this->User->save($data)) {
@@ -150,11 +185,44 @@ class UsersController extends AppController {
                     );
                     $this->Socialnet->save($account);
 
-                    $this->Auth->login($findUser['User']);
+                    if ($this->Auth->login()) {
 
+                        $this->User->id = $this->Auth->user('id');
+                        $this->User->saveField('last_login', date('Y-m-d H:i:s') );
+                        $findUser = $this->User->findById($this->Auth->user('id'));
+                        $this->set(array(
+                            'message' => array(
+                                'text' => __('You are registered and logged!'),
+                                'type' => 'success'
+                            ),
+                            'user' => array(
+                                'id'            => $this->Auth->user('id'),
+                                'username'      => $this->Auth->user('username'),
+                                'profile_image' => $findUser['User']['profile_image'],
+                                'theme'         => $findUser['User']['theme'],
+                            ),
+                            '_serialize' => array('message','user')
+                        ));
+                    } else {
+                        $this->set(array(
+                            'message' => array(
+                                'text' => __('Registered! But can\'t logged in...'),
+                                'type' => 'error'
+                            ),
+                            '_serialize' => array('message')
+                        ));
+                        $this->response->statusCode(401);
+                    }
+                    /*
+                    $this->Auth->login($findUser['User']);
                     $this->redirect('/');
+                    */
                 }
             }
+        }
+
+        if (!$this->request->is('post')) {
+            $this->redirect("/dashboard");
         }
     }
 
