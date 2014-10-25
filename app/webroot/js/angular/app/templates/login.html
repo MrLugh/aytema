@@ -3,10 +3,12 @@
 	<input type="hidden" name="_method" value="POST"/>
 	<input type="text" name="username" ng-model="username" required placeholder="Username">
 	<input type="password" ng-model="password" name="password" required placeholder="Password">
-	<div class='agree'>
-		<input id='agree' name='agree' type='checkbox'>
-		<label for='agree'></label>remeber me
-	</div>	
+	<!--
+	<div class="remember">
+		<input id="remember" ng-model="remember" name="remember" type="checkbox">
+		<label for="remember"></label><strong>Remember me</strong>
+	</div>
+	!-->
 	<input type="submit" ng-click="login()" class="animated" value="Login">
 	<p class="login_error">{{loginMessage}}</p>
 	<h2 class="forgot">

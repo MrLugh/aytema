@@ -629,8 +629,12 @@ iframe,object,embed {
   cursor: pointer;
   border: 3px solid #435160;
 }
+.login #remember strong {
+  font-size: 1em;
+}
 
-.login #agree:checked ~ label[for=agree] {
+
+.login #remember:checked ~ label[for=remember] {
   background: #435160;
 }
 
@@ -668,7 +672,7 @@ iframe,object,embed {
   color: #6D7781;
 }
 
-.login .agree {
+.login .remember {
   padding: 30px 0px;
   font-size: 12px;
   text-indent: 25px;
