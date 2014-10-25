@@ -1,4 +1,4 @@
-<div class="app" ng-style="getAppStyle()" ng-class="getAppClass()">
+<div class="app">
 
 	<fb app-id='211895592326072'></fb>
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -99,7 +99,7 @@
 
 					</li>
 				</ul>
-				<a href="#/" ng-click="getContent('post')" class="more right" skip-default>Load More</a>
+				<a href="#/" ng-if="!loadingContent['post']" ng-click="getContent('post')" class="more right" skip-default>Load More</a>
 			</div>			
 
 		</div>
@@ -170,7 +170,7 @@
 								      </div>
 								    </div>
 
-									<div thumbnail="video" style="background-image:url({{contentSv.getThumbnail(video)}});" class="content_thumbnail" ></div>
+									<div thumbnail="video" style="background-image:url({{contentSv.getThumbnail(video)}});" class="content_thumbnail"></div>
 
 								</div>
 
@@ -217,7 +217,7 @@
 
 					</li>
 				</ul>
-				<a href="#/" ng-click="getContent('photo')" class="more right" skip-default>Load More</a>
+				<a href="#/" ng-if="!loadingContent['photo']" ng-click="getContent('photo')" class="more right" skip-default>Load More</a>
 			</div>
 
 		</div>
@@ -237,7 +237,7 @@
 							</a>
 						</li>
 					</ul>
-					<a href="#/" ng-click="getContent('event')" class="more" skip-default>View More</a>
+					<a href="#/" ng-if="!loadingContent['event']" ng-click="getContent('event')" class="more" skip-default>View More</a>
 				</div>
 
 				<div class="right inline event_container">

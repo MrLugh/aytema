@@ -59,6 +59,7 @@ class UsersController extends AppController {
                 $this->response->statusCode(401);
             }
         }
+        $this->redirect("/dashboard");
     }
 
     public function index() {

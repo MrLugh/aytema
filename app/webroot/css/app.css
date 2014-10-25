@@ -4,18 +4,11 @@ body {
   background-color: rgba(0, 0, 0, 0.58);
 }
 
-.ng-enter, .ng-leave.ng-leave-active, .ng-hide-add.ng-hide-add-active, .ng-hide-remove {
+.ng-enter, .ng-leave.ng-leave-active, .ng-hide-add.ng-hide-add-active, .ng-hide-add, .ng-hide-remove {
   -webkit-transition:all 0.5s ease-in-out 0s;
   -moz-transition:all 0.5s ease-in-out 0s;
   -o-transition:all 0.5s ease-in-out 0s;
   transition:all 0.5s ease-in-out 0s; 
-}
-
-.ng-hide-add, .ng-hide-remove {
-  -webkit-transition:all 1s ease-in-out 0s;
-  -moz-transition:all 1s ease-in-out 0s;
-  -o-transition:all 1s ease-in-out 0s;
-  transition:all 1s ease-in-out 0s; 
 }
 
 .ng-enter, .ng-leave.ng-leave-active, .ng-hide-add.ng-hide-add-active, .ng-hide-remove {
@@ -581,26 +574,131 @@ iframe,object,embed {
   display: block!important;
 }
 
-.content-login {
-    border-top: 1px solid #353338;
-    clear: both;
-    padding-top: 20px; 
-}
-.content-login input {
-  margin: 4px 0;
-}
-.content-login .btn-login {
-    background: none repeat scroll 0 0 #adafae;
-    border: medium none;
-    border-radius: 4px;
-    color: #FFFFFF !important;
-    display: block;
-    float: left;
-    font-size: 14px;
-    line-height: 17px;
-    margin: 20px 5px 0;
-    padding: 10px;
-    text-align: center;
-    width: calc(50% - 10px);;
+.login {
+  width: 350px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  margin-left: -175px;
 }
 
+.login * {
+  margin: 0;
+  padding: 0;
+  font-family: "Sofia", cursive;
+}
+
+.login h2 {
+  color: #a52a2a;
+  font-size: 15px;
+  font-weight: bold;
+  font-size: 3.6em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login a {
+  color: #435160;
+  text-decoration: none;
+}
+
+.login input[type="text"], .login input[type="password"] {
+  width: 350px;
+  padding: 20px 0px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #435160;
+  outline: none;
+  color: #2E3740;
+  font-size: 16px;
+}
+.login input[type=checkbox] {
+  display: none;
+}
+
+.login label {
+  display: block;
+  position: absolute;
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: transparent;
+  content: "";
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: 3px solid #435160;
+}
+
+.login #agree:checked ~ label[for=agree] {
+  background: #435160;
+}
+
+.login input[type="submit"] {
+  background: #435160;
+  border: 0;
+  width: 350px;
+  height: 40px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+.login input[type="submit"]:hover {
+  background: #6D7781;
+  animation-name: shake;
+}
+
+.login .forgot {
+  margin-top: 60px;
+  display: block;
+  font-weight: bold;
+  font-size: 2.6em;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.login .forgot a {
+  color: #435160;
+}
+
+.login .forgot a:hover {
+  color: #6D7781;
+}
+
+.login .agree {
+  padding: 30px 0px;
+  font-size: 12px;
+  text-indent: 25px;
+  line-height: 15px;
+}
+
+.login .login_error {
+  margin-top: 20px;
+  color: #1FCE6D;
+  font-size: 1.4em;
+}
+
+.login::-webkit-input-placeholder {
+  color: #435160;
+  font-size: 12px;
+}
+
+.login .animated {
+  animation-fill-mode: both;
+  animation-duration: 1s;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}

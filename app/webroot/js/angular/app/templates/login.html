@@ -1,14 +1,15 @@
-<div class="navbar-form navbar-left content-login">
-<!--<form class="navbar-form navbar-left" role="login">-->
+<div class="login">
+	<h2>Login - Sign In</h2>
 	<input type="hidden" name="_method" value="POST"/>
-	<div class="">
-		<input type="text" name="username" ng-model="username" placeholder="username" required class="form-control"/>
-	</div>
-	<div class="">		
-		<input type="password" name="password" ng-model="password" placeholder="password" maxlength="8" required class="form-control"/>
-	</div>
-		<input type="submit" value="Login" ng-click="login()" class="btn btn-default btn-login"/>
-	<a href="/users/register" class="btn btn-default btn-login">Sign up</a>
-	{{loginMessage}}
-<!--</form>-->
+	<input type="text" name="username" ng-model="username" required placeholder="Username">
+	<input type="password" ng-model="password" name="password" required placeholder="Password">
+	<div class='agree'>
+		<input id='agree' name='agree' type='checkbox'>
+		<label for='agree'></label>Accept rules and conditions
+	</div>	
+	<input type="submit" ng-click="login()" class="animated" value="Login">
+	<p class="login_error">{{loginMessage}}</p>
+	<h2 class="forgot">
+		<a href="/users/register">Sign up</a>
+	</h2>
 </div>

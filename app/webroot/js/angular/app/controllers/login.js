@@ -9,9 +9,6 @@ function loginCo($scope,userSv) {
 		userSv.login({username:$scope.username,password:$scope.password})
 		.then(
 			function(d){
-				$scope.loginMessage = "";
-			},
-			function(d){
 				$scope.loginMessage = d.message.text;
 			}
 		);

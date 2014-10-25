@@ -22,6 +22,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.content	= {};
 
 
+	$scope.loadingContent = {};
+
 	$scope.page_intervals = {};
 	$scope.currentEvent = {};
 
@@ -139,10 +141,13 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.pages.push('about');
 		$scope.pages.push('footer');
 	};
-
 	$scope.getContent = function(concept) {
 
+
+
 		var params = [];
+
+		$scope.loadingContent[concept] = true;
 
 		var networks = [];
 		var accounts = [];
@@ -188,12 +193,12 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 					var list = document.querySelector("#"+concept+"_list");
 					if (list) {
 						if (angular.isDefined($scope.page_intervals[concept])) {
-							clearInterval($scope.page_intervals[concept]);
+							clearTimeout($scope.page_intervals[concept]);
 						}
-						$scope.page_intervals[concept] = setInterval(function(){
-							clearInterval($scope.page_intervals[concept]);
+						$scope.page_intervals[concept] = setTimeout(function(){
+							clearTimeout($scope.page_intervals[concept]);
 							list = document.querySelector("#"+concept+"_list");
-							var to_top = ['post','photo'];
+							var to_top = ['post','photo','event'];
 							if (to_top.indexOf(concept) != -1) {
 								$(list).animate({
 									scrollTop: angular.element(list)[0].scrollHeight
@@ -202,6 +207,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 						},1000);
 					}
 
+					window.addEventListener( 'DOMContentLoaded', $scope.loadingContent[concept] = false, false);
+
+				} else {
+					$scope.loadingContent[concept] = true;
 				}
 			},
 			function(reason) {
