@@ -78,6 +78,13 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 
 	$scope.getContentStyle = function() {
 
+		if (!$scope.isLogged()) {
+			return {
+				'width':'100%',
+				'left':'0px'
+			}
+		}
+
 		if ($scope.showMenu) {
 			return {
 				'width':'calc(100% - '+($scope.menuWidth) +'px)',

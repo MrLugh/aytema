@@ -30,6 +30,8 @@
 	Router::connect('/', array('controller' => 'index', 'action' => 'home'));
 	Router::connect('/dashboard', array('controller' => 'index', 'action' => 'dashboard'));
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
+	Router::connect('/register', array('controller' => 'users', 'action' => 'register'));
+	
 	Router::connect('/users/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/users/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/users/register', array('controller' => 'users', 'action' => 'register'));
