@@ -596,6 +596,8 @@ iframe,object,embed {
   display: block!important;
 }
 
+/* Login and Register */
+
 .widgetuser {
   width: 350px;
   position: absolute;
