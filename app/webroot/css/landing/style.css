@@ -249,6 +249,31 @@ header .large-8 {
 }
 
 /* Buttons */
+
+.try-btn {
+    background-color: #8abe53;
+    background-image: linear-gradient(to bottom, #8abe53, #5d8b2c);
+    background-repeat: repeat-x;
+    border: medium none;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(178, 233, 119, 1) inset, 0 -1px 1px rgba(34, 66, 0, 1) inset;
+    color: #355b0d;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 29px;
+    margin-bottom: 0;
+    padding: 0 20px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(204, 249, 155, 0.47);
+    text-transform: uppercase;
+    transition: all 0.1s ease-in-out 0s;
+    vertical-align: middle;
+}
+
+
+
 .button {
 	padding-left: 40px;
 	padding-right: 40px;

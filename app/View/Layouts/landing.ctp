@@ -46,7 +46,7 @@
 				    <ul class="right" id="menu">
 				      <li data-magellan-arrival="body"><a href="#body">Home</a></li>
 				      <li data-magellan-arrival="features"><a href="#features">Features</a></li>
-				      <li data-magellan-arrival="product"><a href="#product">Product</a></li>
+				      <!--<li data-magellan-arrival="product"><a href="#product">Product</a></li>-->
 				      <li data-magellan-arrival="screenshot"><a href="#screenshot">Gallery</a></li>
 				      <li data-magellan-arrival="pricing"><a href="#pricing-table">Pricing</a></li>
 				      <li data-magellan-arrival="contact"><a href="#contact">Contact Us</a></li>
@@ -81,8 +81,8 @@
 	        
 			<div class="large-6 columns">
 				<h1>Be CloudCial</h1>
-				<span class="subheading">Powerful, Stylish and Modern Responsive Page Template Creator.</span>
-		        <a class="download-btn" href="#" target="_blank"></a>
+				<span class="subheading">Your page with social networking integration.</span>
+		        <a class="try-btn" href="/dashboard/">Try</a>
 			</div>
 			
 		</div>
@@ -108,6 +108,7 @@
 		</div>
 	</div>
 
+	<!--
 	<div id="product" class="section product gray" data-magellan-destination="product">
 		<div class="row">
 			<div class="large-12 columns">
@@ -145,8 +146,9 @@
 			</div>
 		</div>
 	</div>
+	-->
 
-	<div id="screenshot" data-magellan-destination="screenshot" class="section screenshot">
+	<div id="screenshot" data-magellan-destination="screenshot" class="section screenshot gray">
 		<div class="row">
 			<div class="large-12 columns carousel">
 				<h2>Boom. Instant Preview.</h2>
@@ -192,7 +194,7 @@
 	</div>
 
 
-	<div id="pricing-table" class="section pricing gray" data-magellan-destination="pricing">
+	<div id="pricing-table" class="section pricing" data-magellan-destination="pricing">
 
 		<div class="row">
 			<div class="large-12 quotes columns">
