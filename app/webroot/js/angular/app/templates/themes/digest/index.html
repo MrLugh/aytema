@@ -79,12 +79,12 @@
 			<div class="right-column well" ng-style="getContentStyle(content)" ng-repeat="content in contentModal">
 
 				<span class="user_info">
-					<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}">
+					<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
 						<img class="profile" ng-src="{{getProfileImg()}}" alt="Go to profile">
 					</a>
 					<div>
 						<h3> {{getCurrentProperty('external_user_name')}}</h3>
-						<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}">
+						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
 							<img alt="" ng-src="http://cloudcial.com/img/themes/digest/{{getCurrentProperty('network')}}.png">
 							<p> / {{getCurrentProperty('external_user_name')}}</p>
 						</a>
@@ -199,7 +199,7 @@
 			    <content-event ng-switch-when='event'></content-event>
 
 				<span class="user_info">
-					<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}">
+					<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
 						<img ng-src="http://cloudcial.com/img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon">
 						<p> / {{content.external_user_name}}</p>
 					</a>

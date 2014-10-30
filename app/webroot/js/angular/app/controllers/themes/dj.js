@@ -50,18 +50,14 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.showDetail = function(content) {
 		if (!angular.equals({}, content)) {
 			var element = angular.element(document.querySelector("#page_detail"));
+			angular.element(document.querySelector("body")).css('overflow','hidden');
 			$scope.showingDetail = true;
-			setTimeout(function(){
-				$scope.scrollToSection("page_detail");
-				//angular.element(document.querySelector("body")).css('overflow','hidden');
-			},1000);
+			$scope.scrollToSection("page_detail");
 			
 		} else {
-			//angular.element(document.querySelector("body")).css('overflow','initial');
+			angular.element(document.querySelector("body")).css('overflow','initial');
 			$scope.showingDetail = false;
-			setTimeout(function(){
-				$scope.scrollToSection($scope.current);
-			},1000);			
+			$scope.scrollToSection($scope.current);
 		}
 		$scope.content = content;
 		$scope.details = [];
@@ -301,11 +297,10 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.diff = Math.abs($scope.pages.indexOf(angular.copy(section).replace("page_","")) -
 			$scope.pages.indexOf(angular.copy($scope.current).replace("page_","")));
 		
-		var time = 1000;
+		var time = 2500;
 		if ($scope.diff >= $scope.pages.length / 2) {
-			time = 1500;
+			time = 4500;
 		}
-
 
 		if (section != 'page_detail') {
 			$scope.current = section;	

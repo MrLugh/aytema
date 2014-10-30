@@ -1,6 +1,6 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="event {{content.network}}_{{content.concept}}" style="position:relative;">
 
-	<div parallax-background parallax-ratio="0.5" style="background-image:url('{{getThumbnail()}}');" class="overlay_photo left"></div>
+	<div thumbnail="content" style="background-image:url('{{getThumbnail()}}');" class="overlay_photo left"></div>
 
 	<div ng-if="loaded" style="position:absolute;width:70%;top:calc(50% - 50px);left:0;z-index:1;w">
 		<a href="#/" ng-click="move(-1)" alt="Previous photo" ng-if="moreThanOne()" skip-default class="prev"></a>

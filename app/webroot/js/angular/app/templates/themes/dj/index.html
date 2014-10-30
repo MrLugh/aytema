@@ -300,6 +300,16 @@
 
 	</div>
 
+	<div ng-repeat="page in pages" ng-if="contents[page].list.length>0 && page != 'profile' && page != 'about' && page != 'contact'&& page != 'detail'" style="height:{{appSv.getHeight()/2}}px;" class="page latest_page">
+
+		<div ng-repeat="content in contents[page].list|withThumbnail|limitTo:1" class="latest_page_cover" style="background-image:url({{contentSv.getThumbnail(content)}});" ng-click="showDetail(content)"></div>
+
+		<h1 class="latest_page_title">
+			Latest {{page}}
+		</h1>
+
+	</div>	
+
 	<div id="page_footer" class="page" style="height:{{appSv.getHeight()}}px;">
 		<div class="row content">
 
@@ -342,7 +352,7 @@
                 <h4>Social</h4>
 				<ul class="social">
 					<li ng-repeat="account in accounts" class="social-link inline">
-						<a href="http://cloudcial.com/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.login}}">
+						<a href="/dashboard/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.login}}">
 							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
 							<!--<i ng-class="networkIcon(account.Socialnet.network)"></i>-->
 						</a>
@@ -353,7 +363,7 @@
 	</div>
 
 
-	<div id="page_detail" ng-show="showingDetail" style="height:{{appSv.getHeight()}}px;">
+	<div id="page_detail" ng-hide="!showingDetail" style="height:{{appSv.getHeight()}}px;">
 		
 		<i ng-click="moveDetail(-1)" class="fa fa-chevron-left controlPrev left"></i>
 		<i ng-click="moveDetail(1)" class="fa fa-chevron-right controlNext left"></i>

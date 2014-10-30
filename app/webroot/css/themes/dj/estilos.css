@@ -1,6 +1,6 @@
 body {
   color: #080808; 
-  overflow: hidden;
+  /*overflow: hidden;*/
   background-color: #131313;
   font-family: 'Open Sans', sans-serif;/*la puse acá porque en Themedj.php no me la toma por defecto, eliminar de acá luego que este por defecto alla*/
   font-weight: 200;
@@ -85,7 +85,6 @@ a,a:hover,a:active,a:focus {
   -moz-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
-
 
 i {
   -webkit-transition: -webkit-transform 0.3s;
@@ -273,7 +272,49 @@ p {
 
 
 /*shapes*/
-.page { 
+
+.latest_page {
+  background-image:url("../../../img/admin/bg_dark_mosaic.png");
+  background-color:rgba(16, 16, 16, 0.9);
+  background-attachment: fixed;
+  overflow-y: auto;
+  overflow-x:hidden;
+}
+
+.latest_page_cover {
+  background-size: cover;
+  background-attachment:fixed;
+  background-position: center center!important;
+  background-repeat: no-repeat;
+  position: absolute;
+  overflow-x:hidden;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  -webkit-transition:opacity 0.66s ease-in-out 0s;
+  -moz-transition:opacity 0.66s ease-in-out 0s;
+  -o-transition:opacity 0.66s ease-in-out 0s;
+  transition:opacity 0.66s ease-in-out 0s;  
+}
+
+.latest_page:hover .latest_page_cover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.latest_page_title {
+  color:#ffc229;
+  text-shadow: 4px 3px 0px rgba(0, 0, 0, 0.37);
+  font-family: 'Rock Salt', cursive;
+  letter-spacing: -0.05em;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.page {
 	position: relative;
   overflow: hidden;
 } 
@@ -750,6 +791,7 @@ textarea.form-control {
 #page_footer {
   background-image:url("../../../img/admin/bg_dark_mosaic.png");
   background-color:rgba(16, 16, 16, 0.9);
+  background-attachment: fixed;
   overflow-y: auto;
   overflow-x:hidden;
 }
@@ -884,7 +926,7 @@ textarea.form-control {
 
 /* Detail */
 #page_detail {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;

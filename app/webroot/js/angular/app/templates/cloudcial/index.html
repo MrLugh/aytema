@@ -68,7 +68,7 @@
 				<div class="content_bar" ng-style="getContentBarStyle()">
 
 					<span class="user_info">
-						<a ng-href="http://cloudcial.com/#/socialnets/{{content.network}}/{{content.external_user_id}}" ng-style="getFooterContrastStyle()">
+						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}" ng-style="getFooterContrastStyle()">
 							<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" ng-style="getProfileStyle()" />
 							{{content.external_user_name}}
 							<img alt="{{content.network}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
