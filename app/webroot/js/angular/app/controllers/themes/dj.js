@@ -11,11 +11,11 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accountsLoaded = false;
 
 	$scope.limit 	= {
-		'photo':4,
-		'video':25,
-		'track':25,
-		'event':6,
-		'post':2,
+		'photo':8,
+		'video':10,
+		'track':10,
+		'event':4,
+		'post':8,
 	};
 	$scope.contents	= {};
 	$scope.current	= 'page_profile';
