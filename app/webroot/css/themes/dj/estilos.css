@@ -1600,10 +1600,12 @@ textarea.form-control {
 }
 
 #page_post ul li i {
-    bottom: 20px;
-    position: absolute;
-    left: 20px;
-    z-index: 4;
+  bottom: 20px;
+  position: absolute;
+  left: 20px;
+  z-index: 4;
+  font-size: 45px;
+  cursor: pointer;
 }
 
 #page_post ul li .content_caption * {
