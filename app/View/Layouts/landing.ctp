@@ -18,8 +18,8 @@
 	echo $this->Html->css('landing/ie.css');
 	echo $this->Html->css('landing/flexslider.css');
     ?>
-	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 
 
     <!-- Js -->
@@ -37,7 +37,7 @@
 				<nav class="top-bar">
 				  <ul class="title-area">
 				   <li class="name logo">
-				      	<a href="#"><img src="http://cloudcial.com/img/aytema-horizontal.png" style="max-width:240px;margin-top: 3px;"  alt=""></a>
+				      	<a href="#"><img src="http://cloudcial.com/img/cloudcial-horizontal.png" style="max-width:240px;margin-top: 3px;"  alt=""></a>
 				    </li>
 				    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 				  </ul>
@@ -61,6 +61,7 @@
 	<header id="header">
 		<div class="row">
 	    
+	    	<!--
 	    	<div class="large-6 columns">
 				<div id="teaser-slider-2">
 					<div class="flexslider">
@@ -78,13 +79,16 @@
 					</div> 
 				</div>
 			</div>
-	        
-			<div class="large-6 columns">
-				<h1>Be CloudCial</h1>
-				<span class="subheading">Your page with social networking integration.</span>
-		        <a class="try-btn" href="/dashboard/">Try</a>
+			-->
+			<div class="large-12 columns text-center">
+			    <div class="caption-header">
+					<h1>Be CloudCial</h1>
+					<span class="subheading">Your page with social networking integration.</span>
+			        <img class="img-header" src="http://cloudcial.com/img/landing/header-img-01.png" alt="">
+			        <a class="try-btn" href="/dashboard/">Try</a>
+		        </div>
 			</div>
-			
+
 		</div>
 	</header>
 
