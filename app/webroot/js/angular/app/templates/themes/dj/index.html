@@ -381,6 +381,15 @@
 			<content-link  ng-switch-when='link' ></content-link>
 			<content-event ng-switch-when='event'></content-event>
 
+			<ul class="stats both">
+				<li ng-repeat="(key,stat) in content.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat">
+					<div>
+						<i ng-class="contentSv.getStatIcon(key)"></i> 
+						<span count-up="{{stat}}">{{stat}}</span>
+					</div>
+				</li>
+			</ul>
+
 			<related-contents></related-contents>
 
 			<div class="comments both">

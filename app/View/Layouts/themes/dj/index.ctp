@@ -38,6 +38,7 @@
     echo $this->Html->script('touchSwipe.min');
     echo $this->Html->script('slider-rows.min');
     echo $this->Html->script('dropzone');
+    echo $this->Html->script('countUp');
     ?>
 
     <!-- Config -->
