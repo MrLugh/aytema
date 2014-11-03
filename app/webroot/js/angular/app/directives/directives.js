@@ -733,8 +733,8 @@ ayTemaDs.directive('player', ['$window','contentSv', function($window,contentSv)
             var thumb = contentSv.getThumbnail(scope.content);
             elem.find(tag).css('background-image','url("'+thumb+'")');
             elem.find(tag).addClass('cover');
-            if (scope.hasVideo()) {
-                elem.find(tag).addAttr('poster',thumb);
+            if (scope.hasVideo() && angular.isDefined(elem.find(tag)[0])) {
+                elem.find(tag).attr('poster',thumb);
             }
             
         }
