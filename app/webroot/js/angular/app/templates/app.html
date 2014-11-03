@@ -20,18 +20,14 @@
 
 		<div class="container" ng-style="getMenuContainerStyle()">
 
-			<div class="profileImageContainer" ng-if="isLogged() && profileImages.length>0">
-				<i ng-if="profileImages.length>1" class="fa fa-arrow-left left" ng-click="moveProfileImage(-1)" tooltip="Previous Image" tooltip-placement="right"></i>
-				<div id="profileImage" ng-style="getProfileImageStyle()"></div>
-				<i ng-if="profileImages.length>1" class="fa fa-arrow-right right" ng-click="moveProfileImage(1)" tooltip="Next Image" tooltip-placement="right"></i>
-				<div clas="both">
-					<i ng-click="saveProfileImage()" class="fa fa-save left both" tooltip="Save image" tooltip-placement="right"></i>
-				</div>
-			</div>
-
 			<a href="#" class="navbar-brand">{{user.username}}</a>
 
 			<ul class="menu">
+
+				<li id="menu_settings" ng-if="isLogged()" ng-click="showPage('settings')" class="{{currentPage == 'settings' ? 'active':''}}" tooltip="Settings" tooltip-placement="right">
+				    <i class="fa fa-cogs"></i>
+					<a href="#/settings" skip-default>Settings</a>
+				</li>
 
 				<li id="menu_accounts" ng-if="isLogged() && steps.accounts" ng-click="showPage('accounts')" class="{{currentPage == 'accounts' ? 'active':''}}" tooltip="Accounts" tooltip-placement="right">
 				    <i class="fa fa-users"></i>
@@ -104,6 +100,10 @@
  		<div ng-if="isLogged() && currentPage == 'themes'" id="page_themes">
  			<admin-themes></admin-themes>
  		</div>
+
+ 		<div ng-if="isLogged() && currentPage == 'settings'" id="page_settings">
+ 			<admin-settings></admin-settings>
+ 		</div> 
 
  		<div ng-if="isLogged() && currentPage == 'stats'" id="page_stats">
  			<admin-stats></admin-stats>

@@ -98,10 +98,10 @@ ayTemaApp.config(function ($httpProvider) {
 ayTemaApp.factory('myHttpInterceptor', function ($q, $window) {
     return function (promise) {
         return promise.then(function (response) {
-            $("#cloudcial_loading").fadeOut(750);
+            $("#cloudcial_loading").fadeOut(1500);
             return response;
         }, function (response) {
-            $("#cloudcial_loading").fadeOut(750);
+            $("#cloudcial_loading").fadeOut(1500);
             return $q.reject(response);
         });
     };

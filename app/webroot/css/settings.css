@@ -1,0 +1,58 @@
+.settingsContainer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.settingsContainer .profileImageContainer {
+  position: relative;
+  float: left;
+}
+
+.settingsContainer #profileImage {
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.settingsContainer .profileImageContainer i {
+  color: #adafae;
+  font-size: 15px;
+  padding: 10px;
+  position: relative;
+  -webkit-transition:all 0.5s ease-in-out 0s;
+  -moz-transition:all 0.5s ease-in-out 0s;
+  -o-transition:all 0.5s ease-in-out 0s;
+  transition:all 0.5s ease-in-out 0s;
+}
+
+.settingsContainer .profileImageContainer .dropzone {
+  min-height:initial;
+  border: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  background: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.settingsContainer .profileImageContainer .dropzone .dz-default.dz-message {
+  background-image: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.settingsContainer .profileImageContainer .dropzone .dz-preview {
+  display: none;
+}

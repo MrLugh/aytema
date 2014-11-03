@@ -1,0 +1,23 @@
+<div class="settingsContainer">
+
+	<div class="profileImageContainer">
+
+		<h3>Profile Image</h3>
+		
+		<div id="profileImage" ng-style="getProfileImageStyle()" class="left both"></div>
+
+		<div class="left both">
+
+			<i ng-if="profileImages.length>1" class="fa fa-arrow-left left" ng-click="moveProfileImage(-1)" tooltip="Previous Image" tooltip-placement="right"></i>
+			<i ng-if="profileImages.length>1" class="fa fa-arrow-right left" ng-click="moveProfileImage(1)" tooltip="Next Image" tooltip-placement="right"></i>
+			<i ng-click="saveProfileImage()" class="fa fa-save left" tooltip="Save image" tooltip-placement="right"></i>
+			<div class="dropzone left" dropzone="dropzoneConfig" dropzone-instance="dropzoneProfile">
+				<i ng-click="showDropzone()" class="fa fa-cloud-upload" tooltip="Upload Image" tooltip-placement="right"></i>
+			</div>
+
+		</div>
+
+	</div>
+
+
+</div>

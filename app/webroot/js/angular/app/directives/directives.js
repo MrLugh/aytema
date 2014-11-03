@@ -156,7 +156,7 @@ function ($timeout) {
             clearInterval(scope.timer);
         }
 
-        element.bind('$destroy',destroy);        
+        element.bind('$destroy',destroy);
     }
 }]);
 
@@ -712,6 +712,13 @@ ayTemaDs.directive('dropzone', [function() {
             angular.forEach(scope.config.eventHandlers, function (handler, event) {
               scope.instance.on(event, handler);
             });
+
+            var destroy = function() {
+                element.unbind('$destroy',destroy);
+                scope.instance.destroy();
+            }
+
+            element.bind('$destroy',destroy);
         }
     }
 }]);

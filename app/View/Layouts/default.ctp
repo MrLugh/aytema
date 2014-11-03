@@ -19,6 +19,8 @@
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('app');
     echo $this->Html->css('app-responsive');
+    echo $this->Html->css('settings');
+    echo $this->Html->css('settings-responsive');
     echo $this->Html->css('accounts');
     echo $this->Html->css('accounts-responsive');
     echo $this->Html->css('themes');
@@ -42,10 +44,10 @@
     echo $this->Html->script('masonry.pkgd');
     echo $this->Html->script('imagesloaded.pkgd');
     echo $this->Html->script('carouFredSel');
-    echo $this->Html->script('dropzone');
     echo $this->Html->script('countUp');
     echo $this->Html->script('tinymce/tinymce.min');
     echo $this->Html->script('highcharts');
+    echo $this->Html->script('dropzone');
     ?>
 
     <!-- Config -->
@@ -84,6 +86,7 @@
     echo $this->Html->script('angular/app/controllers/app.js');
     echo $this->Html->script('angular/app/controllers/login.js');
     echo $this->Html->script('angular/app/controllers/aytema.js');
+    echo $this->Html->script('angular/app/controllers/admin/settings.js');
     echo $this->Html->script('angular/app/controllers/admin/accounts.js');
     echo $this->Html->script('angular/app/controllers/admin/account.js');
     echo $this->Html->script('angular/app/controllers/admin/content.js');
@@ -117,6 +120,7 @@
     echo $this->Html->script('angular/app/directives/directives.js');
     echo $this->Html->script('angular/app/directives/login.js');
     echo $this->Html->script('angular/app/directives/aytema.js');
+    echo $this->Html->script('angular/app/directives/admin/settings.js');
     echo $this->Html->script('angular/app/directives/admin/accounts.js');
     echo $this->Html->script('angular/app/directives/admin/account.js');
     echo $this->Html->script('angular/app/directives/admin/content.js');

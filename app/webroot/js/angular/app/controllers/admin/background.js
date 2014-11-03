@@ -40,7 +40,6 @@ function adminBackgroundCo($scope,userSv,appSv,contentSv) {
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
-
 				console.log(response.data);
 				$scope.newBg.img = response.data.path;
 				console.log($scope.newBg);

@@ -180,7 +180,7 @@ iframe,object,embed {
   top:0;
   left:0;
   z-index:3;
-  background-color:rgba(37, 35, 40, 0.8);
+  background-color:rgba(255,255,255,0.8);
   text-align:center;
   overflow: hidden;
 }
@@ -209,14 +209,9 @@ iframe,object,embed {
   position:absolute;
   width:100%;
   height:100%;
-  background-image:url(http://cdn.flaticon.com/png/256/34331.png);
   background-image:url(http://cloudcial.com/img/cloudcial-horizontal.png);
   background-position:center;
   background-repeat:no-repeat;
-  animation: 2s linear 0s normal none infinite hoverdown;
-  -webkit-animation: 2s linear 0s normal none infinite hoverdown;
-  -moz-animation: 2s linear 0s normal none infinite hoverdown;
-  -o-animation: 2s linear 0s normal none infinite hoverdown;
 }
 
 @keyframes hoverup {
@@ -344,50 +339,6 @@ iframe,object,embed {
   padding: 0px 50px 10px 10px;
 }
 
-#container #header .profileImageContainer {
-  width: 140px;
-  height: 120px;
-  position: relative;
-  float: left;
-
-  /*
-  -webkit-transition:all 0.5s ease-in-out 0s;
-  -moz-transition:all 0.5s ease-in-out 0s;
-  -o-transition:all 0.5s ease-in-out 0s;
-  transition:all 0.5s ease-in-out 0s;  
-  */
-}
-
-#container #header #profileImage {
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  width: 80px;
-  height: 80px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-
-  /*
-  -webkit-transition:all 0.5s ease-in-out 0s;
-  -moz-transition:all 0.5s ease-in-out 0s;
-  -o-transition:all 0.5s ease-in-out 0s;
-  transition:all 0.5s ease-in-out 0s;
-  */
-}
-
-#container #header .profileImageContainer i {
-  top: calc(50% - 7px);
-  color: #adafae;
-  font-size: 15px;
-  position: relative;
-  -webkit-transition:all 0.5s ease-in-out 0s;
-  -moz-transition:all 0.5s ease-in-out 0s;
-  -o-transition:all 0.5s ease-in-out 0s;
-  transition:all 0.5s ease-in-out 0s;
-}
-
 #container #header .dropdown-menu {
   background-color: #fff!important;
   position: absolute!important;
@@ -430,6 +381,7 @@ iframe,object,embed {
 #container #header .menu {
   float: none;
   clear: both;
+  margin-top: 50px;
 }
 
 #container #header .menu li {
@@ -492,19 +444,6 @@ iframe,object,embed {
 
 .headerClosed .container {
   padding: 0!important;
-}
-
-.headerClosed .navbar-form, .headerClosed .navbar-brand, .headerClosed .profileImageContainer {
-  position: relative;
-  left: -500%;
-  width: 0px;
-  height: 0px;
-  -moz-opacity: 0.80;
-  -khtml-opacity: 0.80;
-  opacity: 0.80;
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=80);
-  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
-  filter:alpha(opacity=80);
 }
 
 .headerClosed .menu {

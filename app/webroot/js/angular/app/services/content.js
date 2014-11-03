@@ -128,7 +128,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		} else if (stat_name == 'photos'	||
 			stat_name == 'photo') {
 
-		    icon_class= "fa fa-camera";
+		    icon_class= "fa fa-camera-retro";
 		} else if (stat_name == 'posts' ||
 			stat_name == 'post'			||
 			stat_name == 'statuses') {
@@ -231,7 +231,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
         } else if (concept == 'track' || concept == 'tracks') {
         	icon_class= "fa fa-music";
         } else if (concept == 'photo' || concept == 'photos') {
-        	icon_class= "fa fa-camera";
+        	icon_class= "fa fa-camera-retro";
         } else if (concept == 'post' || concept == 'posts') {
         	icon_class= "fa fa-file-text";
         } else if (concept == 'quote' || concept == 'quotes') {

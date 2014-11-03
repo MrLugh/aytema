@@ -6,9 +6,6 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 	$scope.showMenu  = false;
 	$scope.currentPage = false;
 
-	$scope.profileImages = [];
-	$scope.currentImage  = 0;
-
 	$scope.steps = {
 		accounts:false,
 		themes:false
@@ -99,54 +96,6 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 
 	}
 
-	$scope.initProfileImages = function() {
-
-		$scope.profileImages = [];
-		$scope.currentImage  = 0;
-
-		for (var x in userSv.getAccounts()) {
-			var account = userSv.getAccounts()[x];
-			if ($scope.profileImages.indexOf(account.Socialnet.profile_image) == -1) {
-				$scope.profileImages.push(account.Socialnet.profile_image);
-			}
-		}
-
-		if ($scope.profileImages.indexOf($scope.user.profile_image) != -1) {
-			$scope.currentImage	= $scope.profileImages.indexOf($scope.user.profile_image);
-		} else if ( angular.isDefined(($scope.user.profile_image)) && $scope.user.profile_image.length>0) {
-			$scope.profileImages.push($scope.user.profile_image);
-			$scope.currentImage	= $scope.profileImages.indexOf($scope.user.profile_image);
-		}
-
-	}
-
-	$scope.getProfileImageStyle = function() {
-		if ($scope.profileImages.length>0) {
-			return {'background-image':'url("'+$scope.profileImages[$scope.currentImage]+'")'}
-		}
-		return {}
-	}
-
-	$scope.moveProfileImage = function(direction) {
-
-		if (direction > 0) {
-			$scope.currentImage++;
-		} else {
-			$scope.currentImage--;		
-		}
-
-		if ($scope.currentImage == $scope.profileImages.length) {
-			$scope.currentImage = 0;
-		}
-		if ($scope.currentImage < 0) {		
-			$scope.currentImage = $scope.profileImages.length - 1;
-		}
-	}
-
-	$scope.saveProfileImage = function() {
-		userSv.saveProfileimage($scope.profileImages[$scope.currentImage]);
-	}
-
 	$scope.wizard = function() {
 
 		if ($scope.steps.accounts && $scope.steps.themes) {
@@ -174,7 +123,6 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 
 	$scope.$watch('userSv.getUser()',function(user){
 		$scope.user = user;
-		$scope.initProfileImages();
 		if ($scope.isLogged() && !userSv.getAccounts().length) {
 			userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 		}
@@ -182,7 +130,6 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 
 	$scope.$watch('userSv.getAccounts()', function(value) {
 		if (angular.isDefined(value) && value.length > 0) {
-			$scope.initProfileImages();
 			$scope.wizard();
 		}
 	});
