@@ -165,7 +165,7 @@ header .large-8 {
 .texture {background: url(../../img/landing/textures/stripes.png) repeat;height: 100%;width: 100%; position: absolute;top:0;left:0}
 #header {
 	/*background:url(../../img/landing/super.jpg) no-repeat -509px -391px !important;*/
-	background:url(../../img/landing/super1.jpg) no-repeat -509px -391px #FCFCFC!important;
+	background:url(../../img/landing/super.jpg) no-repeat -509px -391px #FCFCFC!important;
 	/*height: 499px;*/
 }
 #teaser-slider-2 {

@@ -20,6 +20,7 @@
   margin-top: 20px;
   padding: 0px 20px;
   height: 200px;
+  width: 25%;
 }
 
 .settingsContainer #profileImage {
@@ -74,10 +75,8 @@
   margin-left: 20px;
   margin-top: 20px;
   padding: 0px 20px;
-}
-
-.settingsContainer .biographyContainer .mce-panel {
-  margin-bottom: 20px;
+  height: 430px;
+  width: 50%;
 }
 
 .settingsContainer .userContainer {
@@ -85,7 +84,9 @@
   margin-left: 20px;
   margin-top: 20px;
   padding: 0px 20px;
-  height: 200px;
+  width: 25%;
+  height: 430px;
+  text-align: center;
 }
 
 .settingsContainer .userContainer input[type="text"], .settingsContainer .userContainer input[type="password"] {
@@ -95,7 +96,6 @@
   border: 0;
   border-bottom: 1px solid #435160;
   outline: none;
-  color: #2E3740;
   font-size: 16px;
 }
 .settingsContainer .userContainer input[type=checkbox] {

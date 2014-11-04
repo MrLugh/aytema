@@ -1,9 +1,10 @@
 function adminSettingsCo($scope,appSv,userSv) {
 
-	$scope.user		= userSv.getUser();
-
 	$scope.profileImages= [];
 	$scope.currentImage = 0;
+
+	$scope.user = userSv.getUser();
+	console.log($scope.user);
 
 	$scope.biography = "<p><strong>Biography</strong> test</p>";
 
@@ -100,7 +101,7 @@ function adminSettingsCo($scope,appSv,userSv) {
 	$scope.tinymceOptions = {
     	selector : ".tinymce",
 	    theme: "modern",
-	    height:200,
+	    height:230,
 	    width:'100%',
 	    plugins: [
 	        ["advlist autolink link image lists charmap preview hr anchor pagebreak"],
