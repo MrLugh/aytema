@@ -61,7 +61,7 @@ a {
 }
 
 *[ ng-click ] {
-    cursor: pointer ;
+    cursor: pointer!important;
 }
 
 /*
