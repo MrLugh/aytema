@@ -5,6 +5,8 @@ function adminSettingsCo($scope,appSv,userSv) {
 	$scope.profileImages= [];
 	$scope.currentImage = 0;
 
+	$scope.biography = "<p><strong>Biography</strong> test</p>";
+
 	$scope.initProfileImages = function() {
 
 		$scope.profileImages = [];
@@ -94,5 +96,28 @@ function adminSettingsCo($scope,appSv,userSv) {
 			$scope.alert = "Just one file please!";
 		});
 	}
+
+	$scope.tinymceOptions = {
+    	selector : ".tinymce",
+	    theme: "modern",
+	    height:200,
+	    width:'100%',
+	    plugins: [
+	        ["advlist autolink link image lists charmap preview hr anchor pagebreak"],
+	        ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking"],
+	        ["save table contextmenu directionality emoticons template paste "]
+	    ],
+	    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link  | preview",
+	    relative_urls:false,
+        file_browser_callback: function(field_name, url, type, win) {
+        	console.log(field_name);
+        	console.log(url);
+        	console.log(type);
+        	console.log(win);
+        },
+        handle_event_callback: function (e) {
+        // put logic here for keypress
+        }
+    };
 
 }

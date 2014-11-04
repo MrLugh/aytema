@@ -6,28 +6,40 @@
 	padding: 0;
 }
 
-.settingsContainer .profileImageContainer {
-  position: relative;
+.settingsContainer .settingsWidget {
+  color: #adafae;
+  background-color: #252328;
+  text-align: center;
+  border-radius: 4px;
   float: left;
 }
 
+.settingsContainer .profileImageContainer {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 20px;
+  padding: 0px 20px;
+  height: 200px;
+}
+
 .settingsContainer #profileImage {
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 120px;
+  margin: 0;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 4px;
+  -webkit-transition: background 0.5s ease-in-out 0s;
+  -moz-transition: background 0.5s ease-in-out 0s;
+  -o-transition: background 0.5s ease-in-out 0s;
+  transition: background 0.5s ease-in-out 0s;
 }
 
 .settingsContainer .profileImageContainer i {
-  color: #adafae;
   font-size: 15px;
   padding: 10px;
   position: relative;
-  -webkit-transition:all 0.5s ease-in-out 0s;
-  -moz-transition:all 0.5s ease-in-out 0s;
-  -o-transition:all 0.5s ease-in-out 0s;
-  transition:all 0.5s ease-in-out 0s;
 }
 
 .settingsContainer .profileImageContainer .dropzone {
@@ -54,5 +66,38 @@
 }
 
 .settingsContainer .profileImageContainer .dropzone .dz-preview {
+  display: none;
+}
+
+.settingsContainer .biographyContainer {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 20px;
+  padding: 0px 20px;
+}
+
+.settingsContainer .biographyContainer .mce-panel {
+  margin-bottom: 20px;
+}
+
+.settingsContainer .userContainer {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 20px;
+  padding: 0px 20px;
+  height: 200px;
+}
+
+.settingsContainer .userContainer input[type="text"], .settingsContainer .userContainer input[type="password"] {
+  width: 200px;
+  padding: 20px 0px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #435160;
+  outline: none;
+  color: #2E3740;
+  font-size: 16px;
+}
+.settingsContainer .userContainer input[type=checkbox] {
   display: none;
 }

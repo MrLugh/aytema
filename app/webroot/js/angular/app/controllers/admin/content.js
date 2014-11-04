@@ -779,11 +779,11 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
 	    height:300,
 	    width:'100%',
 	    plugins: [
-	        ["advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker"],
-	        ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking"],
+	        ["advlist autolink link image lists charmap preview hr anchor pagebreak"],
+	        ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking"],
 	        ["save table contextmenu directionality emoticons template paste "]
 	    ],
-	    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link  | print preview media",
+	    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link  | preview",
 	    relative_urls:false,
         file_browser_callback: function(field_name, url, type, win) {
         	console.log(field_name);

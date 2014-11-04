@@ -1,23 +1,42 @@
 <div class="settingsContainer">
 
-	<div class="profileImageContainer">
+	<div class="profileImageContainer settingsWidget">
 
-		<h3>Profile Image</h3>
+		<h4>Profile Image</h4>
 		
-		<div id="profileImage" ng-style="getProfileImageStyle()" class="left both"></div>
+		<div id="profileImage" ng-style="getProfileImageStyle()" class="both"></div>
 
 		<div class="left both">
 
-			<i ng-if="profileImages.length>1" class="fa fa-arrow-left left" ng-click="moveProfileImage(-1)" tooltip="Previous Image" tooltip-placement="right"></i>
-			<i ng-if="profileImages.length>1" class="fa fa-arrow-right left" ng-click="moveProfileImage(1)" tooltip="Next Image" tooltip-placement="right"></i>
-			<i ng-click="saveProfileImage()" class="fa fa-save left" tooltip="Save image" tooltip-placement="right"></i>
+			<i ng-if="profileImages.length>1" class="fa fa-arrow-left left" ng-click="moveProfileImage(-1)" tooltip="Previous Image" tooltip-placement="bottom"></i>
+			<i ng-if="profileImages.length>1" class="fa fa-arrow-right left" ng-click="moveProfileImage(1)" tooltip="Next Image" tooltip-placement="bottom"></i>
 			<div class="dropzone left" dropzone="dropzoneConfig" dropzone-instance="dropzoneProfile">
-				<i ng-click="showDropzone()" class="fa fa-cloud-upload" tooltip="Upload Image" tooltip-placement="right"></i>
+				<i ng-click="showDropzone()" class="fa fa-cloud-upload" tooltip="Upload Image" tooltip-placement="bottom"></i>
 			</div>
+			<i ng-click="saveProfileImage()" class="fa fa-save left" tooltip="Save image" tooltip-placement="bottom"></i>
 
 		</div>
 
 	</div>
 
+	<div class="biographyContainer settingsWidget">
+
+		<h4>Biography</h4>
+
+		<textarea ng-model="biography" class="tinymce" placeholder="post title" ng-required="true" ui-tinymce="tinymceOptions"></textarea>
+
+	</div>
+
+
+	<div class="userContainer settingsWidget">
+
+		<input type="text" name="email" ng-model="email" required placeholder="Email">
+		<input type="text" name="username" ng-model="username" required placeholder="Username">
+		<input type="text" name="firstname" ng-model="firstname" required placeholder="First name">
+		<input type="text" name="lastname" ng-model="lastname" required placeholder="Last name">
+		<input type="password" ng-model="password" name="password" required placeholder="Password">
+		<input type="password" ng-model="password_confirm" name="password_confirm" required placeholder="Confirm Password">
+
+	</div>
 
 </div>
