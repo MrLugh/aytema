@@ -3,8 +3,9 @@ function adminSettingsCo($scope,appSv,userSv) {
 	$scope.profileImages= [];
 	$scope.currentImage = 0;
 
-	$scope.user = userSv.getUser();
-	console.log($scope.user);
+	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
+		$scope.user = data.users[0]['User'];
+	});
 
 	$scope.biography = "<p><strong>Biography</strong> test</p>";
 

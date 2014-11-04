@@ -75,8 +75,11 @@
   margin-left: 20px;
   margin-top: 20px;
   padding: 0px 20px;
-  height: 430px;
   width: 50%;
+}
+
+.settingsContainer .biographyContainer .mce-tinymce {
+  margin-bottom: 20px;
 }
 
 .settingsContainer .userContainer {
@@ -98,6 +101,14 @@
   outline: none;
   font-size: 16px;
 }
-.settingsContainer .userContainer input[type=checkbox] {
-  display: none;
+
+.settingsContainer input::-moz-placeholder {
+  color: #DCEE5C;
+  opacity: 1;
+}
+.settingsContainer input:-ms-input-placeholder {
+  color: #DCEE5C;
+}
+.settingsContainer input::-webkit-input-placeholder {
+  color: #DCEE5C;
 }

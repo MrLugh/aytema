@@ -51,9 +51,12 @@ body {
 a {
   cursor: pointer;
 }
-.form-control::-moz-placeholder {
+.form-control::-moz-placeholder, .form-control::-webkit-input-placeholder {
     color: #a8a8a8!important;
 }
+
+
+
 .form-control:focus {
     border-color: #252328;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 075) inset, 0 0 8px rgba(37, 35, 40, 0.6);
