@@ -1,34 +1,41 @@
 .settingsContainer {
 	position: relative;
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
-	padding: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
 }
 
 .settingsContainer .settingsWidget {
   color: #adafae;
-  background-color: #252328;
   text-align: center;
-  border-radius: 4px;
   float: left;
+  margin: 20px;
+  height: 430px;
+}
+
+.settingsContainer .settingsWidget .settingsWidgetContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 5px 20px;
+  background-color: #252328;
+  border-radius: 4px;
 }
 
 .settingsContainer .profileImageContainer {
   position: relative;
-  margin-left: 20px;
-  margin-top: 20px;
-  padding: 0px 20px;
-  height: 200px;
-  width: 25%;
+  width: calc(25% - 40px);
 }
 
 .settingsContainer #profileImage {
   width: 100%;
-  height: 120px;
+  height: 343px;
   margin: 0;
   background-size: contain;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   border-radius: 4px;
   -webkit-transition: background 0.5s ease-in-out 0s;
@@ -70,30 +77,54 @@
   display: none;
 }
 
-.settingsContainer .biographyContainer {
+.settingsContainer .wysiwygContainer {
   position: relative;
-  margin-left: 20px;
-  margin-top: 20px;
-  padding: 0px 20px;
-  width: 50%;
+  width: calc(100% - 40px);
 }
 
-.settingsContainer .biographyContainer .mce-tinymce {
-  margin-bottom: 20px;
+.settingsContainer .mapContainer {
+  width: calc(50% - 40px);
 }
+
+.settingsContainer .mapContainerPhoto {
+  width: 100%;
+  height: calc(100% - 120px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 
 .settingsContainer .userContainer {
   position: relative;
-  margin-left: 20px;
-  margin-top: 20px;
-  padding: 0px 20px;
-  width: 25%;
-  height: 430px;
   text-align: center;
+  width: calc(25% - 40px);
 }
 
-.settingsContainer .userContainer input[type="text"], .settingsContainer .userContainer input[type="password"] {
-  width: 200px;
+
+/* TABS */
+
+.nav-tabs.nav-justified > li > a {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  text-decoration: line-through;
+}
+
+
+.settingsContainer .nav-tabs.nav-justified > .active > a,
+.settingsContainer .nav-tabs.nav-justified > .active > a:hover,
+.settingsContainer .nav-tabs.nav-justified > .active > a:focus {
+  color: #DCEE5C;
+  border: none;
+  background: transparent;
+  text-decoration: none;
+}
+
+
+.settingsContainer input[type="text"], .settingsContainer input[type="password"] {
+  width: 100%;
   padding: 20px 0px;
   background: transparent;
   border: 0;

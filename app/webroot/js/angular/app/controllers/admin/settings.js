@@ -3,11 +3,11 @@ function adminSettingsCo($scope,appSv,userSv) {
 	$scope.profileImages= [];
 	$scope.currentImage = 0;
 
+	$scope.biography 	= "<p><strong>Biography</strong> test</p>";
+
 	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
 		$scope.user = data.users[0]['User'];
 	});
-
-	$scope.biography = "<p><strong>Biography</strong> test</p>";
 
 	$scope.initProfileImages = function() {
 
@@ -121,5 +121,13 @@ function adminSettingsCo($scope,appSv,userSv) {
         // put logic here for keypress
         }
     };
+
+	$scope.getMapSrc = function() {
+		return "https://maps.googleapis.com/maps/api/staticmap?"+
+		"sensor=false"+
+		"&size=850x850"+
+		"&markers="+encodeURI($scope.address)+
+		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
+	}
 
 }
