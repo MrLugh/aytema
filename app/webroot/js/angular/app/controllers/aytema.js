@@ -96,11 +96,13 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 
 	}
 
-	$scope.wizard = function() {
+	$scope.manageTour = function() {
 
 		if ($scope.steps.accounts && $scope.steps.themes) {
-			return;
+			//return;
 		}
+
+		var timer = -1;
 
 		if ((!angular.isDefined($scope.user.theme) || $scope.user.theme == 'digest' )
 			&& userSv.getAccounts().length == 1) {
@@ -108,10 +110,10 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 			$scope.steps.accounts = true;
 			$scope.steps.themes = true;
 			$scope.showPage('themes');
-			var timer = setTimeout(function(){
+			timer = setTimeout(function(){
 				clearTimeout(timer);
 				$scope.showTour(5);
-			},500);			
+			},500);
 			return;
 		}
 
@@ -119,6 +121,10 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 		$scope.steps.themes = true;
 
 		$scope.showPage('accounts');
+		timer = setTimeout(function(){
+			clearTimeout(timer);
+			$scope.showTour(1);
+		},500);
 	}
 
 	$scope.$watch('userSv.getUser()',function(user){
@@ -130,7 +136,7 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 
 	$scope.$watch('userSv.getAccounts()', function(value) {
 		if (angular.isDefined(value) && value.length > 0) {
-			$scope.wizard();
+			$scope.manageTour();
 		}
 	});
 

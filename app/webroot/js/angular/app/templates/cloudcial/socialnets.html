@@ -29,16 +29,18 @@
 				</div>
 
 				<ul class="center">
+					<p class="{{account.network}}Account" style="float:none;clear:both;">{{account.login|unslug|capitalize}}</p>
 					<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
 						<i tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="top" ng-class="statIcon(key)"></i> {{stat}}
 					</li>
-					<p class="{{account.network}}Account" style="float:none;clear:both;">{{account.login|unslug|capitalize}}</p>
 				</ul>
 
 			</div>
 
 			<div class="accountLayerImage" style="background-image:url('{{account.profile_image || 'http://cloudcial.com/img/no-image.png'}}');">
-				<i class="{{account.network}}Account" ng-class="networkIcon(account.network)" style="padding:5px;line-height:15px;"></i>
+				<a href="/dashboard/#/socialnets/{{account.network}}/{{account.external_user_id}}" class="network_link">
+					<i  class="{{account.network}}Account" ng-class="networkIcon(account.network)" style="padding:5px;line-height:15px;"></i>
+				</a>
 			</div>
 
 		</li>

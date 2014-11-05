@@ -298,7 +298,7 @@ iframe,object,embed {
 #menuControl {
   position: absolute;
   z-index: 3;
-  right: 0;
+  right: 8px;
   font-size: 20px;
   padding: 10px;
   background-color: #252328;
@@ -384,7 +384,7 @@ iframe,object,embed {
 #container #header .menu {
   float: none;
   clear: both;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 #container #header .menu li {
