@@ -238,7 +238,7 @@
 				<ul class="pricing-table featured">
 				  <li class="title">Plan Gold</li>
 				  <li class="description">With advanced features</li>
-				  <li class="price">$19.99</li>
+				  <li class="price">$49.99</li>
 	  			  <a class="price-table-toggle">+ Show features</a>
 				  <ul class="price-table-features">
 					  <li class="bullet-item">All themes (No Ads)</li>
