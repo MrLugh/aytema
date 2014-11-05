@@ -7,8 +7,6 @@
 }
 
 .themesContainer .filterList {
-	top: 0;
-	right: 0;
 	color: #adafae;
 	position: fixed;
 	z-index: 3;
