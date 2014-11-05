@@ -25,6 +25,11 @@
   border-radius: 4px;
 }
 
+.settingsContainer .settingsWidget h4 {
+  color: #A52A2A;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+}
+
 .settingsContainer .profileImageContainer {
   position: relative;
   width: calc(25% - 40px);
@@ -79,7 +84,7 @@
 
 .settingsContainer .wysiwygContainer {
   position: relative;
-  width: calc(100% - 40px);
+  width: calc(50% - 40px);
 }
 
 .settingsContainer .mapContainer {
