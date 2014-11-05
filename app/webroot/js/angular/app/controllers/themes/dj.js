@@ -191,8 +191,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 						if (angular.isDefined($scope.page_intervals[concept])) {
 							clearTimeout($scope.page_intervals[concept]);
 						}
-						$scope.page_intervals[concept] = setTimeout(function(){
-							clearTimeout($scope.page_intervals[concept]);
+						//$scope.page_intervals[concept] = setTimeout(function(){
+							//clearTimeout($scope.page_intervals[concept]);
 							list = document.querySelector("#"+concept+"_list");
 							var to_top = ['post','photo','event'];
 							if (to_top.indexOf(concept) != -1) {
@@ -200,7 +200,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 									scrollTop: angular.element(list)[0].scrollHeight
 								},2500);
 							}
-						},1000);
+						//},1000);
 					}
 
 					window.addEventListener( 'DOMContentLoaded', $scope.loadingContent[concept] = false, false);

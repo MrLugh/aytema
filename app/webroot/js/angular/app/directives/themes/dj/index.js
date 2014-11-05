@@ -12,26 +12,26 @@ function(){
             var resizeTimer = -1;
             var scrollTimer = -1;
 
-            setTimeout(function(){
+            //setTimeout(function(){
                 $("#menu_init").show(500);
                 //$("body").css('overflow','auto');
                 //$("body").css('overflowX','hidden');
-            },2500);
+            //},2500);
 
             $( window ).resize(function() {
                 //$(".navbar-collapse").removeClass("in");
                 clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function(){
+                //resizeTimer = setTimeout(function(){
                     if (!scope.showingDetail) {
                         scope.scrollToSection(scope.current);
                     }
-                },500);
+                //},500);
             });
 
             $( window ).scroll(function() {
 
                 clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(function(){
+                //scrollTimer = setTimeout(function(){
 
                     var current = scope.current;
                     for (var x in scope.pages) {
@@ -46,7 +46,7 @@ function(){
                         }
                     }
                     scope.$apply(function(){scope.current = current;});
-                },1000);
+                //},1000);
             });
 
         }
