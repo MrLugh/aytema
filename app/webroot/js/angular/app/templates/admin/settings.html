@@ -31,34 +31,22 @@
 
 			<form action="/" method="POST" autocomplete="off">
 				<input type="text" name="email" ng-model="user.email" required placeholder="Email">
-				<ul ng-if="informationError.email.length">
-					<li ng-repeat="error in informationError.email">{{error}}</li>
-				</ul>
+				<i ng-if="informationError.email.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('email')}}"></i>
 
 				<input type="text" name="username" ng-model="user.username" required placeholder="Username">
-				<ul ng-if="informationError.username.length">
-					<li ng-repeat="error in informationError.username">{{error}}</li>
-				</ul>
+				<i ng-if="informationError.username.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('username')}}"></i>
 
 				<input type="text" name="firstname" ng-model="user.firstname" required placeholder="First name">
-				<ul ng-if="informationError.firstname.length">
-					<li ng-repeat="error in informationError.firstname">{{error}}</li>
-				</ul>
+				<i ng-if="informationError.firstname.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('firstname')}}"></i>
 
 				<input type="text" name="lastname" ng-model="user.lastname" required placeholder="Last name">
-				<ul ng-if="informationError.lastname.length">
-					<li ng-repeat="error in informationError.lastname">{{error}}</li>
-				</ul>
+				<i ng-if="informationError.lastname.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('lastname')}}"></i>
 
 				<input type="password" ng-model="user.password" name="password" required placeholder="Password">
-				<ul ng-if="informationError.password.length">
-					<li ng-repeat="error in informationError.password">{{error}}</li>
-				</ul>
+				<i ng-if="informationError.password.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('password')}}"></i>
 
 				<input type="password" ng-model="user.password_confirm" name="password_confirm" required placeholder="Confirm Password">
-				<ul ng-if="informationError.password_confirm.length">
-					<li ng-repeat="error in informationError.password_confirm">{{error}}</li>
-				</ul>
+				<i ng-if="informationError.password_confirm.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('password_confirm')}}"></i>
 			</form>
 
 			<div class="both">

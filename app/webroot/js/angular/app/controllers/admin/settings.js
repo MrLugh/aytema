@@ -1,4 +1,4 @@
-function adminSettingsCo($scope,appSv,userSv) {
+function adminSettingsCo($scope,$sce,appSv,userSv) {
 
 	$scope.profileImages= [];
 	$scope.currentImage = 0;
@@ -69,6 +69,16 @@ function adminSettingsCo($scope,appSv,userSv) {
 				console.log($scope.informationError);
 			}
 		);
+	}
+
+	$scope.getInformationError = function(field) {
+
+		var html="<ul>";
+		for (var x in $scope.informationError[field]) {
+			html+="<li>"+$scope.informationError[field][x]+"</li>";
+		}
+		html+="</ul>";
+		return $sce.trustAsHtml(html);
 	}
 
 	$scope.showDropzone = function() {
