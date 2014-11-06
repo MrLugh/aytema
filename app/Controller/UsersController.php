@@ -271,29 +271,26 @@ class UsersController extends AppController {
             $user = $this->request->data['user'];
             $this->User->id = $this->Auth->user('id');
 
-
-            try {
+            $this->User->set(array('User'=>$user));
+            if ($this->User->validates(array_keys($user))) {
+                $this->User->save();
                 foreach ($user as $key => $value) {
-                    $this->User->$key = $value;
-                    $this->User->saveField("{$key}", $value );
                     $this->Session->write("Auth.User.{$key}", $value);
                 }
-
                 $user = $this->User->findById($this->User->id);
                 unset($user['User']['password']);
 
                 $this->set(array(
                     'user' => $user['User'],
                     '_serialize' => array('user')
+                ));                    
+            } else {
+
+                $this->set(array(
+                    'error' => array($this->User->validationErrors),
+                    '_serialize' => array('error')
                 ));
-
-            } catch (Exception $e) {
-
-                if ($e->getCode() == '23000') {
-                    throw new Exception(__("Sorry, username and email already exists."), 1);
-                }
-
-                throw new Exception($e->getMessage(), 1);
+                $this->response->statusCode(401);
             }
 
         }
@@ -303,7 +300,6 @@ class UsersController extends AppController {
         }
 
     }
-
 
     public function usersInSocialnet() {
         $external_id= isset($this->request->data['external_user_id'])   ? $this->request->data['external_user_id']  : '';

@@ -27,9 +27,13 @@ function loginCo($scope,userSv) {
 
 		$scope.message = '';
 		userSv.login({username:$scope.username,password:$scope.password})
-		.then(function(d){
-			$scope.message = d.message.text;
-		});
+		.then(
+			function(d){$scope.message = '';},
+			function(d){
+				console.log(d);
+				$scope.message = d.message.text;
+			}
+		);
 		return false;
 	}
 

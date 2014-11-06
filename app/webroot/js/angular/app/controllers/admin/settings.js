@@ -3,6 +3,8 @@ function adminSettingsCo($scope,appSv,userSv) {
 	$scope.profileImages= [];
 	$scope.currentImage = 0;
 
+	$scope.informationError = {};
+
 	$scope.biography 	= "<p><strong>Biography</strong> test</p>";
 
 	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
@@ -58,7 +60,15 @@ function adminSettingsCo($scope,appSv,userSv) {
 	}
 
 	$scope.saveInformation = function() {
-		userSv.saveInformation($scope.user);
+		userSv.saveInformation($scope.user).then(
+			function(data){
+				$scope.informationError = {};
+			},
+			function(data) {
+				$scope.informationError = data.error[0];
+				console.log($scope.informationError);
+			}
+		);
 	}
 
 	$scope.showDropzone = function() {
@@ -78,7 +88,6 @@ function adminSettingsCo($scope,appSv,userSv) {
 
 	$scope.$watch('userSv.getUser()',function(user){
 		$scope.user = angular.copy(user);
-		console.log("SETTTINGS ",$scope.user);
 	},true);
 
 	$scope.dropzoneConfig = {

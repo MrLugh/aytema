@@ -8,7 +8,6 @@ function appCo($scope,appSv,userSv) {
 
 	$scope.$watch('userSv.getUser()', function(newValue, oldValue, scope) {
 		$scope.user = userSv.getUser();
-		console.log("APPCO ",$scope.user);
 	},true);
 
     $scope.$watchCollection('[winW,winH]',function(sizes){

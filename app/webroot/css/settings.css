@@ -110,6 +110,11 @@
   width: calc(25% - 40px);
 }
 
+.settingsContainer .userContainer ul li {
+  text-align: left;
+  color: #1FCE6D;
+}
+
 
 /* TABS */
 

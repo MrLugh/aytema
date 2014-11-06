@@ -33,7 +33,7 @@ Class User extends AppModel {
 		'password' => array(
 			'min' => array(
 				'rule' => array('minLength', 6),
-				'message' => 'Usernames must be at least 6 characters.'
+				'message' => 'Password must be at least 6 characters.'
 			),
 			'required' => array(
 				'rule' => 'notEmpty',

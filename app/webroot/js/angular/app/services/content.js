@@ -53,7 +53,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    }).
 	    error(function(data, status, headers, config) {
 	    	loading 	= false;
-	    	deferred.resolve(data);	    	
+	    	deferred.reject(data);	    	
 	    });
 
 	    return deferred.promise;		
@@ -294,7 +294,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    	deferred.resolve(data);
 	    }).
 	    error(function(data, status, headers, config) {
-	    	deferred.resolve(data);   	
+	    	deferred.reject(data);   	
 	    });
 
 	    return deferred.promise;		
@@ -323,7 +323,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    	deferred.resolve(data);
 	    }).
 	    error(function(data, status, headers, config) {
-	    	deferred.resolve(data);   	
+	    	deferred.reject(data);   	
 	    });
 
 	    return deferred.promise;		
@@ -374,7 +374,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    }).
 	    error(function(data, status, headers, config) {
 	    	loading 	= false;
-	    	deferred.resolve(data);
+	    	deferred.reject(data);
 	    });
 
 	    return deferred.promise;
@@ -423,7 +423,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    }).
 	    error(function(data, status, headers, config) {
 	    	loading 	= false;
-	    	deferred.resolve(data);
+	    	deferred.reject(data);
 	    });
 
 	    return deferred.promise;
@@ -1056,7 +1056,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    error(function(data, status, headers, config) {
 	    	console.log('error');
 	    	user = {};
-	    	deferred.resolve(data);
+	    	deferred.reject(data);
 	    });
 
 	    return deferred.promise;		
@@ -1077,7 +1077,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    }).
 	    error(function(data, status, headers, config) {
 	    	console.log('error');
-	    	deferred.resolve(data);
+	    	deferred.reject(data);
 	    });
 
 	    return deferred.promise;		
@@ -1095,7 +1095,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    error(function(data, status, headers, config) {
 	    	console.log('error');
 	    	user = {};
-	    	deferred.resolve(data);
+	    	deferred.reject(data);
 	    });
 
 	    return deferred.promise;		

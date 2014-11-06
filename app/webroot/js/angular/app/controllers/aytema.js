@@ -128,7 +128,6 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 
 	$scope.$watch('userSv.getUser()',function(user){
 		$scope.user = user;
-		console.log("AYTEMA ",$scope.user);
 		if ($scope.isLogged() && !userSv.getAccounts().length) {
 			userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 		}
