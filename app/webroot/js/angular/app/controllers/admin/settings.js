@@ -66,7 +66,6 @@ function adminSettingsCo($scope,$sce,appSv,userSv) {
 			},
 			function(data) {
 				$scope.informationError = data.error[0];
-				console.log($scope.informationError);
 			}
 		);
 	}
