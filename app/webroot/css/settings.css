@@ -130,7 +130,7 @@
 
 .settingsContainer input[type="text"], .settingsContainer input[type="password"] {
   width: 100%;
-  padding: 20px 0px;
+  padding: 15px 0px;
   background: transparent;
   border: 0;
   border-bottom: 1px solid #435160;
