@@ -57,6 +57,10 @@ function adminSettingsCo($scope,appSv,userSv) {
 		userSv.saveProfileimage($scope.profileImages[$scope.currentImage]);
 	}
 
+	$scope.saveInformation = function() {
+		userSv.saveInformation($scope.user);
+	}
+
 	$scope.showDropzone = function() {
 		document.querySelector(".profileImageContainer .dropzone").click();
 	}
@@ -73,8 +77,9 @@ function adminSettingsCo($scope,appSv,userSv) {
 	});
 
 	$scope.$watch('userSv.getUser()',function(user){
-		$scope.user = user;
-	});
+		$scope.user = angular.copy(user);
+		console.log("SETTTINGS ",$scope.user);
+	},true);
 
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor

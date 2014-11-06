@@ -1,6 +1,5 @@
 function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 
-	$scope.user = userSv.getUser();
 	$scope.userSearch= '';
 	$scope.usersList = [];
 	$scope.showMenu  = false;
@@ -129,10 +128,11 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 
 	$scope.$watch('userSv.getUser()',function(user){
 		$scope.user = user;
+		console.log("AYTEMA ",$scope.user);
 		if ($scope.isLogged() && !userSv.getAccounts().length) {
 			userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 		}
-	});
+	},true);
 
 	$scope.$watch('userSv.getAccounts()', function(value) {
 		if (angular.isDefined(value) && value.length > 0) {

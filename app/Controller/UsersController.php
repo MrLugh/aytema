@@ -15,7 +15,8 @@ class UsersController extends AppController {
             'index',
             'view',
             'setProfileImage',
-            'usersInSocialnet'
+            'usersInSocialnet',
+            'setInformation'
         );
         $this->loadModel('Theme');
         $this->loadModel('Socialnet');
@@ -66,6 +67,10 @@ class UsersController extends AppController {
     }
 
     public function index() {
+
+        if (!$this->request->is('post')) {
+            $this->redirect("/dashboard/#/users");
+        }
 
         $search = isset($this->request->data['search']) ? $this->request->data['search'] : '';
         isset($this->request->data['offset']) ? $offset= $this->request->data['offset']   : $offset   = 0;
@@ -230,12 +235,14 @@ class UsersController extends AppController {
 
 
         if (!$this->Auth->user('id')) {
-            throw new Exception("Error Processing Request", 1);
+            throw new Exception(__("Error Processing Request"), 1);
         }
 
-        $path = $this->request->data['path'];
+        $path = "";
         
         if ($this->request->is('post')) {
+            $path = $this->request->data['path'];
+
             $this->User->id = $this->Auth->user('id');
             $this->User->profile_image = $path;
             $this->User->saveField('profile_image', $path );
@@ -247,6 +254,53 @@ class UsersController extends AppController {
             'path' => $path,
             '_serialize' => array('path')
         ));
+
+    }
+
+    public function setInformation(){
+
+
+        if (!$this->Auth->user('id')) {
+            throw new Exception(__("Error Processing Request"), 1);
+        }
+
+        $this->layout = 'anonymous';
+        $user = "";
+        
+        if ($this->request->is('post')) {
+            $user = $this->request->data['user'];
+            $this->User->id = $this->Auth->user('id');
+
+
+            try {
+                foreach ($user as $key => $value) {
+                    $this->User->$key = $value;
+                    $this->User->saveField("{$key}", $value );
+                    $this->Session->write("Auth.User.{$key}", $value);
+                }
+
+                $user = $this->User->findById($this->User->id);
+                unset($user['User']['password']);
+
+                $this->set(array(
+                    'user' => $user['User'],
+                    '_serialize' => array('user')
+                ));
+
+            } catch (Exception $e) {
+
+                if ($e->getCode() == '23000') {
+                    throw new Exception(__("Sorry, username and email already exists."), 1);
+                }
+
+                throw new Exception($e->getMessage(), 1);
+            }
+
+        }
+
+        if (!$this->request->is('post')) {
+            $this->redirect("/dashboard");
+        }
 
     }
 

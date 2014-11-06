@@ -45,7 +45,46 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    });
 
 	    return deferred.promise;
-	}	
+	}
+
+	var saveProfileimage = function(path) {
+		var deferred = $q.defer();
+
+		var url = '/users/setProfileImage.json';
+
+		var params = {'path':path}
+
+	    $http({method: 'POST', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	user.profile_image = path;
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	deferred.resolve(data);
+	    });
+
+	    return deferred.promise;
+	}
+
+	var saveInformation = function(user) {
+		var deferred = $q.defer();
+
+		var url = '/users/setInformation.json';
+
+		var params = {'user':user}
+
+	    $http({method: 'POST', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	console.log(data.user);
+	    	setUser(data.user);
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	deferred.resolve(data);
+	    });
+
+	    return deferred.promise;
+	}
 
 	var addFollow = function(url,params) {
 
@@ -187,7 +226,6 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 	}
 
-
 	var saveThemeConfig = function() {
 
 		var deferred = $q.defer();
@@ -205,25 +243,6 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 	    return deferred.promise;
 
-	}
-
-	var saveProfileimage = function(path) {
-		var deferred = $q.defer();
-
-		var url = '/users/setProfileImage.json';
-
-		var params = {'path':path}
-
-	    $http({method: 'POST', url: url,data:params}).
-	    success(function(data, status, headers, config) {
-	    	user.profile_image = path;
-	    	deferred.resolve(data);
-	    }).
-	    error(function(data, status, headers, config) {
-	    	deferred.resolve(data);
-	    });
-
-	    return deferred.promise;
 	}
 
 	var restoreConfig = function() {
@@ -299,6 +318,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		register:register,
 		setUser:setUser,
 		saveProfileimage:saveProfileimage,
+		saveInformation:saveInformation,
 		search:search,
 		addFollow:addFollow,
 		loadAccounts:loadAccounts,
