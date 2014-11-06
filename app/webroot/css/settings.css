@@ -28,7 +28,6 @@
 .settingsContainer .settingsWidget .settingsWidgetContainer i {
   font-size: 15px;
   padding: 10px;
-  position: relative;
 }
 
 .settingsContainer .settingsWidget h4 {
@@ -85,6 +84,11 @@
 .settingsContainer .wysiwygContainer {
   position: relative;
   width: calc(50% - 40px);
+}
+
+.settingsContainer .wysiwygContainer i {
+  font-size: initial!important;
+  padding: initial!important;
 }
 
 .settingsContainer .mapContainer {

@@ -6,6 +6,8 @@
 
 			<h4>Profile Image</h4>
 			
+			<div id="profileImage" ng-style="getProfileImageStyle()" class="both"></div>
+
 			<div class="both">
 
 				<i ng-if="profileImages.length>1" class="fa fa-arrow-left" ng-click="moveProfileImage(-1)" tooltip="Previous Image" tooltip-placement="bottom"></i>
@@ -16,8 +18,6 @@
 				<i ng-click="saveProfileImage()" class="fa fa-save" tooltip="Save image" tooltip-placement="bottom"></i>
 
 			</div>
-
-			<div id="profileImage" ng-style="getProfileImageStyle()" class="both"></div>
 
 		</div>
 
@@ -35,6 +35,12 @@
 			<input type="text" name="lastname" ng-model="user.lastname" required placeholder="Last name">
 			<input type="password" ng-model="user.password" name="password" required placeholder="Password">
 			<input type="password" ng-model="user.password_confirm" name="password_confirm" required placeholder="Confirm Password">
+
+			<div class="both">
+
+				<i ng-click="saveInformation()" class="fa fa-save" tooltip="Save information" tooltip-placement="bottom"></i>
+
+			</div>
 
 		</div>
 

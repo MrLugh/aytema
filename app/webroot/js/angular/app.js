@@ -25,7 +25,7 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
     	templateUrl: getPath('tpl')+'/admin/dashboard.html',
     	controller: appCo,
     	reloadOnSearch: false
-    });	
+    });
 
     /*
     $routeProvider.when('/dashboard', {

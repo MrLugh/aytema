@@ -6,7 +6,7 @@ function adminSettingsCo($scope,appSv,userSv) {
 	$scope.biography 	= "<p><strong>Biography</strong> test</p>";
 
 	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
-		$scope.user = data.users[0]['User'];
+		userSv.setUser(data.users[0]['User']);
 	});
 
 	$scope.initProfileImages = function() {
@@ -70,6 +70,10 @@ function adminSettingsCo($scope,appSv,userSv) {
 	$scope.$watch('currentImage', function(value) {
 		$scope.currentImage = value;
 		$scope.getProfileImageStyle();
+	});
+
+	$scope.$watch('userSv.getUser()',function(user){
+		$scope.user = user;
 	});
 
 	$scope.dropzoneConfig = {
