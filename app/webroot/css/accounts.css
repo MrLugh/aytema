@@ -18,44 +18,49 @@
 }
 
 .accountsContainer .addList, .accountsContainer .filterList {
-  color: #adafae;
+  color: #b0c19c;
   position: fixed;
   z-index: 4;
   font-size: 20px;
   padding: 10px;
   margin: 0 auto;
-  background-color: #252328;
+  background-color: #2a3137;
 }
 
 .accountsContainer .addList {
   top:0;
-  -webkit-box-shadow: 0px 5px 5px 0px rgba(37, 35, 40, 0.5);
+  /*-webkit-box-shadow: 0px 5px 5px 0px rgba(37, 35, 40, 0.5);
   -moz-box-shadow:    0px 5px 5px 0px rgba(37, 35, 40, 0.5);
-  box-shadow:         0px 5px 5px 0px rgba(37, 35, 40, 0.5);  
+  box-shadow:         0px 5px 5px 0px rgba(37, 35, 40, 0.5);*/  
 }
 
 .accountsContainer .filterList {
   bottom: 0;
-  -webkit-box-shadow: 0px -5px 5px 0px rgba(37, 35, 40, 0.5);
+  /*-webkit-box-shadow: 0px -5px 5px 0px rgba(37, 35, 40, 0.5);
   -moz-box-shadow:    0px -5px 5px 0px rgba(37, 35, 40, 0.5);
-  box-shadow:         0px -5px 5px 0px rgba(37, 35, 40, 0.5);
+  box-shadow:         0px -5px 5px 0px rgba(37, 35, 40, 0.5);*/
 }
 
 .accountsContainer .filterList li {
-  color: #adafae;
-  opacity: 0.3;
+  color: #b0c19c;
+  /*opacity: 0.3;*/
 }
 
 .accountsContainer .filterList li.active {
-  color: #DCEE5C;
+  color: #b0c19c;
   opacity: 1;
+}
+.accountsContainer .filterList li input {
+    background: none repeat scroll 0 0 #22272b;
+    border: medium none;
+    color: #a8a8a8 !important;
 }
 
 .accountsContainer .addList li, .accountsContainer .filterList li {
   display: inline-block;
   text-align: center;
   padding-right: 10px;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  /*text-shadow: rgb(3, 3, 3) 4px 4px 4px;*/
 }
 
 .accountsContainer .filterList li span {
@@ -63,14 +68,14 @@
 }
 
 .accountsContainer .addList li.active {
-  color: #DCEE5C;
+  color: #b0c19c;
 }
 
 .accountsContainer .addList .dropdown-menu {
   display: block;
   margin: 0 auto;
   padding: 10px;  
-  color: #adafae;
+  color: #b0c19c;
   background-color: #252328;
 }
 
@@ -80,7 +85,7 @@
 }
 
 .accountsContainer .addList .dropdown-menu .networkBrand {
-  color:#DCEE5C;
+  color:#b0c19c;
   font-weight: bold;
   text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
@@ -90,7 +95,7 @@
   margin: 0 auto;
   padding: 10px 0px;
   text-align: left;
-  color: #adafae;
+  color: #b0c19c;
 }
 
 .accountsContainer .addList .dropdown-menu ul li i {
@@ -103,7 +108,7 @@
 }
 
 .accountsContainer .addList .dropdown-menu ul li:hover i {
-  color: #DCEE5C;
+  color: #b0c19c;
 }
 
 .accountsContainer .profileImage {
@@ -125,7 +130,7 @@
   border-width: 85px;
 
   border-color: #B7C0C4 #C1C5C7 #C1C5C7 #B7C0C4;
-  border-color: #252328 #19151F;
+  border-color: #b0c19c #2a3137;
   border-style: solid;
 
   border-radius: 100%;
@@ -136,9 +141,9 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(37,35,40,0.8);
+  /*-webkit-box-shadow: 0px 0px 20px 0px rgba(37,35,40,0.8);
   -moz-box-shadow:    0px 0px 20px 0px rgba(37,35,40,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(37,35,40,0.8);
+  box-shadow:         0px 0px 20px 0px rgba(37,35,40,0.8);*/
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -164,13 +169,13 @@
   border-width: 25px;
 
   border-color: #695C83 #C87A61 #EDC42C #84BE88;
-  border-color: #19151F #252328;
+  border-color: #2a3137 #b0c19c;
   border-style: dotted;
   border-style: solid;
 
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+  /*-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
   -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
+  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);*/
 
   z-index: 2;
 
@@ -277,7 +282,7 @@
 }
 
 .accountsContainer .accountLayerInfo .controls i:hover {
-  color:#DCEE5C;
+  color:#b0c19c;
 
   -webkit-transform: scale(1);
   -moz-transform: scale(1); 
@@ -315,12 +320,12 @@
   width: 100%;
   height: 100%;
   /*background-color: #383131;*/
-  /*color: #adafae;*/
+  /*color: #b0c19c;*/
 }
 
 .accountPageHeader {
   background-color: #252328;  
-  color: #adafae;
+  color: #b0c19c;
   display: block;
   padding:0px;
   overflow: hidden;
@@ -338,7 +343,7 @@
   font-size: 20px;
   padding: 0;
   margin: 0 auto;
-  color: #adafae;
+  color: #b0c19c;
   background-color: #252328;
 }
 
@@ -468,24 +473,24 @@
 }
 
 .cloudcialAccount {
-  background-color: #2D2E26;
-  color:#889191;
-  border-color: #393B30 #2D2E26;
+  background-color: #38424b;
+  color:#83bd40;
+  border-color: #46515b #38424b;
 }
 
 .cloudcialAccountRgba {
   background-color: rgba(45, 46, 38, 0.7);
-  color:#889191;
-  border-color: #393B30 #2D2E26;
+  color:#83bd40;
+  border-color: #9aa48d #fff;
 }
 
 .cloudcialAccountPageHeader {
   border-bottom: 4px solid;
-  border-color: #393B30 #2D2E26;
+  border-color: #9aa48d #fff;
 }
 
 .cloudcialAccount a {
-  color:#889191;
+  color:#83bd40;
 }
 
 .facebookAccount {

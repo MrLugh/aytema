@@ -16,7 +16,7 @@
 
 			<ul class="statList">
 
-				<li ng-repeat="(stat,value) in stats" ng-if="value" class="center inline statItem" style="{{!$last ? 'border-right:1px solid #f5f5f5;':''}}">
+				<li ng-repeat="(stat,value) in stats" ng-if="value" class="center inline statItem" style="{{!$last ? 'border-right:1px solid #4a4f53;':''}}">
 
 					<p class="center">
 						<strong count-up="{{value|statValueFormat:{ significantFigures: 2, autoFormatDecimals:true } }}">{{value|statValueFormat:{ significantFigures: 2, autoFormatDecimals:true } }}</strong>

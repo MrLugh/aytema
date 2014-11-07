@@ -10,7 +10,7 @@
 
 .settingsContainer .settingsWidget {
   color: #adafae;
-  text-align: center;
+  text-align: left;
   float: left;
   margin: 20px;
   height: 430px;
@@ -21,7 +21,7 @@
   width: 100%;
   height: 100%;
   padding: 5px 20px;
-  background-color: #252328;
+  background-color: #2a3137;
   border-radius: 4px;
 }
 
@@ -31,8 +31,9 @@
 }
 
 .settingsContainer .settingsWidget h4 {
-  color: #A52A2A;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  color: #83bd40;
+  /*text-shadow: rgb(3, 3, 3) 4px 4px 4px;*/
+  text-transform: uppercase;
 }
 
 .settingsContainer .profileImageContainer {
@@ -106,7 +107,7 @@
 
 .settingsContainer .userContainer {
   position: relative;
-  text-align: center;
+  text-align: left;
   width: calc(50% - 40px);
 }
 
@@ -134,7 +135,7 @@
 .settingsContainer .nav-tabs.nav-justified > .active > a,
 .settingsContainer .nav-tabs.nav-justified > .active > a:hover,
 .settingsContainer .nav-tabs.nav-justified > .active > a:focus {
-  color: #DCEE5C;
+  color: #b0c19c;
   border: none;
   background: transparent;
   text-decoration: none;
@@ -146,18 +147,18 @@
   padding: 15px 0px;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #435160;
+  border-bottom: 1px solid #4A4F53;
   outline: none;
   font-size: 16px;
 }
 
 .settingsContainer input::-moz-placeholder {
-  color: #DCEE5C;
+  color: #adafae;
   opacity: 1;
 }
 .settingsContainer input:-ms-input-placeholder {
-  color: #DCEE5C;
+  color: #adafae;
 }
 .settingsContainer input::-webkit-input-placeholder {
-  color: #DCEE5C;
+  color: #adafae;
 }

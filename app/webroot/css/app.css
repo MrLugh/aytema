@@ -1,7 +1,7 @@
 body {
-  font-family: "Josefin Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 13px;
-  background-color: rgba(0, 0, 0, 0.58);
+  background-color: #151a1e;
 }
 
 .ng-enter {
@@ -59,7 +59,7 @@ a {
 
 .form-control:focus {
     border-color: #252328;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 075) inset, 0 0 8px rgba(37, 35, 40, 0.6);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 075) inset, 0 0 8px rgba(37, 35, 40, 0.1);
     outline: 0 none;
 }
 
@@ -130,7 +130,7 @@ i, *.active i {
 }
 
 *.active i {
-  text-shadow: rgb(3, 3, 3) 2px 2px 2px;
+  /*text-shadow: rgb(3, 3, 3) 2px 2px 2px;*/
 }
 
 i:hover,*.active i:hover {
@@ -183,7 +183,7 @@ iframe,object,embed {
   top:0;
   left:0;
   z-index:3;
-  background-color:rgba(255,255,255,0.8);
+  background-color:rgba(42,49,55,0.8);
   text-align:center;
   overflow: hidden;
 }
@@ -212,7 +212,7 @@ iframe,object,embed {
   position:absolute;
   width:100%;
   height:100%;
-  background-image:url(http://cloudcial.com/img/cloudcial-horizontal.png);
+  background-image:url(http://cloudcial.com/img/cloudcial-horizontal-white.png);
   background-position:center;
   background-repeat:no-repeat;
 }
@@ -292,7 +292,7 @@ iframe,object,embed {
 }
 
 .cloudcial_logo img {
-	max-width:100px;
+	max-width:140px;
 }
 
 #menuControl {
@@ -301,12 +301,12 @@ iframe,object,embed {
   right: 8px;
   font-size: 20px;
   padding: 10px;
-  background-color: #252328;
+  background-color: #2a3137;
   /*border-bottom: 1px solid #353338;*/
 }
 
 #menuControl i {
-  color: #adafae;
+  color: #b0c19c;
 }
 
 #container #header {
@@ -315,12 +315,12 @@ iframe,object,embed {
   height: 100%;
   position: fixed;
   z-index: 2;
-  background-color: #252328;
-  -webkit-box-shadow: 5px 0px 5px 0px rgba(37, 35, 40, 0.8);
+  background-color: #2a3137;
+  /*-webkit-box-shadow: 5px 0px 5px 0px rgba(37, 35, 40, 0.8);
   -moz-box-shadow:    5px 0px 5px 0px rgba(37, 35, 40, 0.8);
-  box-shadow:         5px 0px 5px 0px rgba(37, 35, 40, 0.8);  
+  box-shadow:         5px 0px 5px 0px rgba(37, 35, 40, 0.8);*/  
 
-  font-family: "Sofia", cursive;
+  font-family: 'Oswald', sans-serif;
 
   -webkit-transition:none!important;
   -moz-transition:none!important;
@@ -388,7 +388,7 @@ iframe,object,embed {
 }
 
 #container #header .menu li {
-  background-color: #252328;
+  background-color: #2a3137;
   color: #fff;
   display: block;
   font-size: 15px;
@@ -398,7 +398,7 @@ iframe,object,embed {
 }
 
 #container #header .menu li a {
-  color:#fff;
+  color:#b0c19c;
   padding-left: 20px;
   -webkit-transition:all 0.5s ease-in-out 0s;
   -moz-transition:all 0.5s ease-in-out 0s;
@@ -407,7 +407,7 @@ iframe,object,embed {
 }
 
 #container #header .menu li i {
-  color:#adafae;
+  color:#b0c19c;
 
   /*
   -webkit-transition:all 0.5s ease-in-out 0s;
@@ -418,30 +418,32 @@ iframe,object,embed {
 }
 
 #container #header .menu li:hover i {
-  color:#DCEE5C;
+  color:#2A3137;
 }
 
 #container #header .menu li.active i {
-  color:#A52A2A;
+  color:#2A3137;
 }
 
 #container #header .menu li:hover, #container #header .menu li.active {
-  border-left: 4px solid #38353D;
+  border-left: 4px solid #b0c19c;
   transition: border 0.1s ease 0s;
-  text-shadow: rgb(3, 3, 3) 2px 2px 2px;
+  /*text-shadow: rgb(3, 3, 3) 2px 2px 2px;*/
+  background-color: #b0c19c;
 }
 
 #container #header .menu li.active {
-  border-left: 4px solid #A52A2A
+  border-left: 4px solid #83bd40;
+  background-color: #83bd40;
 }
 
 #container #header .menu li:hover a, #container #header .menu li.active a {
-  color:#A52A2A;
+  color:#2A3137;
   padding-left: 25px;
 }
 
 #container #header .menu li.active a {
-  color:#DCEE5C;
+  color:#2A3137;
   padding-left: 25px;
 }
 
@@ -466,12 +468,15 @@ iframe,object,embed {
 
 .headerClosed .menu li.active {
   border: none!important;
-  border-right: 2px solid #A52A2A!important;
+  border-right: 2px solid #83bd40;
 }
 
 .headerClosed .menu li:hover {
   border: none!important;
-  border-right: 2px solid #38353D!important;
+  border-right: 2px solid #b0c19c!important;
+}
+.headerClosed .menu li.active:hover {
+  border-right: 2px solid #83bd40!important;
 }
 
 .headerClosed .menu li a {
@@ -503,6 +508,7 @@ iframe,object,embed {
 .navbar-brand {
      line-height: 19px;
     color: #fff;
+    background-color: #38424b;
 }
 .navbar-brand:hover {
     color: #fff;
@@ -536,7 +542,7 @@ iframe,object,embed {
     width: 100%;
 }
 .navbar-form input {
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+  background: none repeat scroll 0 0 #22272b;
   border: none;
   color: #a8a8a8 !important;
 }
@@ -549,26 +555,36 @@ iframe,object,embed {
 
 .widgetuser {
   width: 350px;
+  padding: 25px;
   position: absolute;
-  top: 10%;
+  top: 17%;
   left: 50%;
   margin-left: -175px;
   -webkit-transition:all 0.5s ease-in-out 0s;
   -moz-transition:all 0.5s ease-in-out 0s;
   -o-transition:all 0.5s ease-in-out 0s;
   transition:all 0.5s ease-in-out 0s;
+  background-color: #2a3137;
 }
 
 .widgetuser * {
   margin: 0;
   padding: 0;
-  font-family: "Sofia", cursive;
+  font-family: 'Oswald', sans-serif;
+}
+.widgetuser .cloudcial_logo {
+    left: 59px;
+    top: -20%;
+    bottom: auto;
+}
+.widgetuser .cloudcial_logo img {
+    max-width: 240px;
 }
 
 .widgetuser h2 {
-  color: #a52a2a;
+  color: #fff;
   font-size: 15px;
-  font-weight: bold;
+  /*font-weight: bold;*/
   font-size: 3.5em;
   text-align: center;
   margin-bottom: 20px;
@@ -576,7 +592,7 @@ iframe,object,embed {
 }
 
 .widgetuser h2.active {
-  color: #435160;
+  color: #83bd40;
   text-decoration: none;
 }
 
@@ -586,13 +602,13 @@ iframe,object,embed {
 }
 
 .widgetuser input[type="text"], .widgetuser input[type="password"] {
-  width: 350px;
+  width: 100%;
   padding: 20px 0px;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #435160;
+  border-bottom: 1px solid #4a4f53;
   outline: none;
-  color: #2E3740;
+  color: #adafae;
   font-size: 16px;
 }
 .widgetuser input[type=checkbox] {
@@ -613,7 +629,7 @@ iframe,object,embed {
   -o-transition:all 0.3s ease-in-out;
   transition:all 0.3s ease-in-out;
   cursor: pointer;
-  border: 3px solid #435160;
+  border: 3px solid #4a4f53;
 }
 .widgetuser #remember strong, .widgetuser #conditions strong {
   font-size: 1em;
@@ -621,17 +637,17 @@ iframe,object,embed {
 
 
 .widgetuser #remember:checked ~ label[for=remember], .widgetuser #conditions:checked ~ label[for=conditions] {
-  background: #435160;
+  background: #4a4f53;
 }
 
 .widgetuser input[type="submit"] {
-  background: #435160;
+  background: #83bd40;
   border: 0;
-  width: 350px;
+  width: 100%;
   height: 40px;
   border-radius: 3px;
   color: #fff;
-  font-size: 12px;
+  font-size: 19px;
   cursor: pointer;
   -webkit-transition:all 0.3s ease-in-out;
   -moz-transition:all 0.3s ease-in-out;
@@ -666,6 +682,7 @@ iframe,object,embed {
   font-size: 12px;
   text-indent: 25px;
   line-height: 15px;
+  color: #adafae;
 }
 
 .widgetuser .widgetuser_error {
@@ -694,4 +711,48 @@ iframe,object,embed {
   20%, 40%, 60%, 80% {
     transform: translateX(10px);
   }
+}
+
+/* help */
+
+.popover {
+	 background-color: #495257;
+	 border: 1px solid #38424b;
+     color: #adafae;
+}
+.popover.right > .arrow, .popover.right > .arrow:after {
+	 border-right-color: #495257;
+}
+.popover.bottom > .arrow, .popover.bottom > .arrow:after {
+	 border-bottom-color: #495257;
+}
+.popover.top > .arrow, .popover.top > .arrow:after {
+	 border-top-color: #495257;
+}
+.btn-default.disabled, .btn-default[disabled], fieldset[disabled] .btn-default, .btn-default.disabled:hover, .btn-default[disabled]:hover, fieldset[disabled] .btn-default:hover, .btn-default.disabled:focus, .btn-default[disabled]:focus, fieldset[disabled] .btn-default:focus, .btn-default.disabled:active, .btn-default[disabled]:active, fieldset[disabled] .btn-default:active, .btn-default.disabled.active, .btn-default.active[disabled], fieldset[disabled] .btn-default.active {
+	background-color: #151A1E;
+    color: #a8a8a8;
+    border-color: #22272b;
+}
+
+.popover-title {
+	background-color: #38424b;
+	border-bottom: 1px solid #38424b;
+}
+.popover-title strong {
+    color: #b0c19c;
+}
+
+.popover-content {
+    color: #adafae;
+}
+.popover-navigation button {
+	background-color: #151A1E;
+    color: #a8a8a8;
+    border-color: #22272b;
+}
+.popover-navigation button:hover {
+	background-color: #22272b;
+    border-color: #151A1E;
+    color: #a8a8a8;
 }
