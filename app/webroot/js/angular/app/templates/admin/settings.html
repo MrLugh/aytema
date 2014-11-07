@@ -53,7 +53,7 @@
 
 			<h4>Address & Map</h4>
 			<input type="text" ng-model="user.address" placeholder="Address > Country, City, Street Name Street Number" ng-required="true" />
-			<div ng-if="address.length>0" class="mapContainerPhoto" style="background-image:url({{getMapSrc()}});background-size:cover;"></div>
+			<div ng-show="user.address.length>0" class="mapContainerPhoto" style="background-image:url({{getMapSrc()}});background-size:cover;"></div>
 			<div class="both pull-right">
 				<i ng-click="saveAddress()" class="fa fa-save" tooltip="Save Address" tooltip-placement="bottom"></i>
 			</div>

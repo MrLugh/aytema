@@ -167,7 +167,7 @@ function adminSettingsCo($scope,$sce,appSv,userSv) {
 		return "https://maps.googleapis.com/maps/api/staticmap?"+
 		"sensor=false"+
 		"&size=850x850"+
-		"&markers="+encodeURI($scope.address)+
+		"&markers="+encodeURI($scope.user.address)+
 		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
 	}
 
