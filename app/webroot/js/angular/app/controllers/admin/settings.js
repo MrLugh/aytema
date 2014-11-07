@@ -96,6 +96,14 @@ function adminSettingsCo($scope,$sce,appSv,userSv) {
 		}
 	});
 
+	$scope.saveBiography = function() {
+		userSv.saveInformation({biography:$scope.user.biography});
+	}
+
+	$scope.saveAddress = function() {
+		userSv.saveInformation({address:$scope.user.address});
+	}	
+
 	$scope.$watch('currentImage', function(value) {
 		$scope.currentImage = value;
 		$scope.getProfileImageStyle();

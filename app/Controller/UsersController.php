@@ -259,7 +259,6 @@ class UsersController extends AppController {
 
     public function setInformation(){
 
-
         if (!$this->Auth->user('id')) {
             throw new Exception(__("Error Processing Request"), 1);
         }

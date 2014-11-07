@@ -3,9 +3,12 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.appSv 	= appSv;
 	$scope.contentSv= contentSv;
 	$scope.userSv	= userSv;
-	$scope.user 	= userSv.getUser();
 	$scope.networks = appSv.getNetworks();
 	delete $scope.networks['twitter'];
+
+	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
+		$scope.user = data.users[0]['User'];
+	});	
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
@@ -20,7 +23,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.contents	= {};
 	$scope.current	= 'page_profile';
 	$scope.content	= {};
-
 
 	$scope.loadingContent = {};
 
@@ -250,6 +252,11 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.getDescription = function(content) {
 
 		return $sce.trustAsHtml(contentSv.getDescription(content));
+	};
+
+	$scope.getBiography = function() {
+
+		return $sce.trustAsHtml($scope.user.biography);
 	};
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
