@@ -1,0 +1,20 @@
+@media (max-width: 768px) {
+
+	.settingsContainer .profileImageContainer {
+	  position: relative;
+	  width: calc(100% - 40px);
+	}
+
+	.settingsContainer .wysiwygContainer {
+	  width: calc(100% - 40px);
+	}
+
+	.settingsContainer .mapContainer {
+	  width: calc(100% - 40px);
+	}
+
+	.settingsContainer .userContainer {
+		width: calc(100% - 40px);
+	}
+
+}

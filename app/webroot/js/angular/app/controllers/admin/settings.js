@@ -70,12 +70,18 @@ function adminSettingsCo($scope,$sce,appSv,userSv) {
 		);
 	}
 
-	$scope.getInformationError = function(field) {
+	$scope.hasInformationError = function() {
+		return !angular.equals($scope.informationError,{});
+	}
 
-		var html="<ul>";
-		for (var x in $scope.informationError[field]) {
-			html+="<li>"+$scope.informationError[field][x]+"</li>";
-		}
+	$scope.getInformationError = function() {
+
+		var html = "<ul>";
+		angular.forEach($scope.informationError, function(value,key) {
+			for (var x in value) {
+				html+="<li>"+value[x]+"</li>";
+			}
+		});
 		html+="</ul>";
 		return $sce.trustAsHtml(html);
 	}

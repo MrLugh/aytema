@@ -27,37 +27,22 @@
 
 		<div class="settingsWidgetContainer">
 
-			<h4>Personal Information</h4>
+			<h4>Information</h4>
 
-			<form action="/" method="POST" autocomplete="off">
+			<!--<form action="/" method="POST" autocomplete="off">-->
+			<form action="/" method="POST">
 				<input type="text" name="email" ng-model="user.email" required placeholder="Email">
-				<i ng-if="informationError.email.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('email')}}"></i>
-
 				<input type="text" name="username" ng-model="user.username" required placeholder="Username">
-				<i ng-if="informationError.username.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('username')}}"></i>
-
 				<input type="text" name="firstname" ng-model="user.firstname" required placeholder="First name">
-				<i ng-if="informationError.firstname.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('firstname')}}"></i>
-
 				<input type="text" name="lastname" ng-model="user.lastname" required placeholder="Last name">
-				<i ng-if="informationError.lastname.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('lastname')}}"></i>
-
 				<input type="password" ng-model="user.password" name="password" required placeholder="Password">
-				<i ng-if="informationError.password.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('password')}}"></i>
-
 				<input type="password" ng-model="user.password_confirm" name="password_confirm" required placeholder="Confirm Password">
-				<i ng-if="informationError.password_confirm.length" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError('password_confirm')}}"></i>
 			</form>
 
 			<div class="both">
-
 				<i ng-click="saveInformation()" class="fa fa-save" tooltip="Save information" tooltip-placement="bottom"></i>
-
+				<i ng-if="hasInformationError()" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError()}}"></i>
 			</div>
-
-			<ul ng-if="informationError.length" class="error">
-				<li ng-repeat="error in informationError">{{error}}<li>
-			</ul>
 
 		</div>
 
