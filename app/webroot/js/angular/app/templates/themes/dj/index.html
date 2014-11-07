@@ -306,7 +306,9 @@
 			Latest {{page}}
 		</h1>
 
-	</div>	
+	</div>
+
+	<div ng-if="user.address.length" style="height:{{appSv.getHeight()/2}}px;background-image:url({{getMapSrc()}});" class="page cover"></div>
 
 	<div id="page_footer" class="page" style="height:{{appSv.getHeight()}}px;">
 		<div class="row content">
@@ -395,7 +397,6 @@
 			</div>
 
 		</div>
-
 
 	</div>
 

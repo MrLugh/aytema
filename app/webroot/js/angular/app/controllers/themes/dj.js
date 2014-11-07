@@ -8,6 +8,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
 		$scope.user = data.users[0]['User'];
+		console.log($scope.user);
 	});	
 
 	$scope.accounts	= {};
@@ -258,6 +259,14 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 		return $sce.trustAsHtml($scope.user.biography);
 	};
+
+	$scope.getMapSrc = function() {
+		return "https://maps.googleapis.com/maps/api/staticmap?"+
+		"sensor=false"+
+		"&size=850x850"+
+		"&markers="+encodeURI($scope.user.address)+
+		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
+	}
 
 	$scope.$watch("userSv.getAccounts()",function(accounts){
 
