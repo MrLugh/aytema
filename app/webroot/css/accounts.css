@@ -77,7 +77,7 @@
   margin: 0 auto;
   padding: 10px;  
   color: #b0c19c;
-  background-color: #252328;
+  background-color: #2a3137;
 }
 
 .accountsContainer .addList .dropdown-menu form {
@@ -334,7 +334,7 @@
 }
 
 .accountPageHeader {
-  background-color: #252328;  
+  background-color: #2a3137;  
   color: #b0c19c;
   display: block;
   padding:0px;
@@ -354,7 +354,7 @@
   padding: 0;
   margin: 0 auto;
   color: #b0c19c;
-  background-color: #252328;
+  background-color: #2a3137;
 }
 
 .accountPageHeader .controls i {

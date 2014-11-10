@@ -7,7 +7,7 @@
 }
 
 .themesContainer .filterList {
-	color: #adafae;
+	color: #b0c19c;
 	position: fixed;
 	z-index: 3;
 	font-size: 20px;
@@ -152,7 +152,6 @@
 	top: 0;
 	position: absolute;
 	overflow: hidden;
-	background-color: white;
 	-webkit-transition:all 0.56s ease-in-out 0s;
 	-moz-transition:all 0.56s ease-in-out 0s;
 	-o-transition:all 0.56s ease-in-out 0s;
@@ -197,13 +196,12 @@
 	border: none;
 	position: relative;
 	width: 100%;
-	height: calc(100% - 40px);
+	height: calc(100% - 70px);
 	z-index: 2;
 }
 
 .themesContainer .themeNavigation {
-	background-color: #2a3137;
-	color: #adafae;
+	color: #fff;
 	z-index: 3;
 	font-size: 20px;
 	margin: 0 auto;
@@ -211,16 +209,16 @@
 	background-color: #2a3137;
 	position: relative;
 	width: 100%;
-	height: 40px;
+	height: 70px;
 	-webkit-box-shadow: 0px 5px 6px 0px rgba(50, 50, 50, 1);
 	-moz-box-shadow:    0px 5px 6px 0px rgba(50, 50, 50, 1);
 	box-shadow:         0px 5px 6px 0px rgba(50, 50, 50, 1);
-	border-bottom: 2px solid #A52A2A;
+	border-bottom: 2px solid #9aa48d;
 }
 
 .themesContainer .themeNavigation .themeControlThumbnail {
 	width: 150px;
-	height: 40px;
+	height: 70px;
 	position: absolute;	
 	top:0px;
 	text-align: center;
@@ -260,11 +258,15 @@
 	font-size: 14px;
 }
 
+.themesContainer .themeNavigation .currentTheme {
+	color: #83bd40;
+}
+
 .themesContainer .themeNavigation i {
 	font-size: 20px;
-	color: #adafae;
+	color:#fff;
 }
 
 .themesContainer .themeNavigation i:hover, .themesContainer .themeNavigation strong:hover {
-	color:#DCEE5C;
+	color: #83bd40;
 }
