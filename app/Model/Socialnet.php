@@ -78,4 +78,16 @@ Class Socialnet extends AppModel {
 
 	}
 
+	public function setProfileImage($user_id,$path) {
+
+		$net = ClassRegistry::init('Socialnet');
+
+        $socialnet = $net->find('first',array(
+            'conditions'=> array('Socialnet.user_id'=>$user_id,'Socialnet.network'=>'cloudcial'),
+        ));
+
+        $socialnet['Socialnet']['profile_image'] = $path;
+        $net->save($socialnet['Socialnet']);
+	}
+
 }

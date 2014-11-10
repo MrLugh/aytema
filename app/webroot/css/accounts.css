@@ -43,7 +43,7 @@
 
 .accountsContainer .filterList li {
   color: #b0c19c;
-  /*opacity: 0.3;*/
+  opacity: 0.3;
 }
 
 .accountsContainer .filterList li.active {
@@ -68,7 +68,8 @@
 }
 
 .accountsContainer .addList li.active {
-  color: #b0c19c;
+  color: #83bd40;
+  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
 .accountsContainer .addList .dropdown-menu {

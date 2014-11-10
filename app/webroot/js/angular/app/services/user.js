@@ -57,6 +57,14 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 	    $http({method: 'POST', url: url,data:params}).
 	    success(function(data, status, headers, config) {
 	    	user.profile_image = path;
+
+	    	for (var x in accounts) {
+	    		if (accounts[x].Socialnet.network == 'cloudcial') {
+	    			accounts[x].Socialnet.profile_image = path;
+	    			break;
+	    		}
+	    	}
+
 	    	deferred.resolve(data);
 	    }).
 	    error(function(data, status, headers, config) {

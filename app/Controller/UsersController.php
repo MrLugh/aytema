@@ -247,6 +247,8 @@ class UsersController extends AppController {
             $this->User->profile_image = $path;
             $this->User->saveField('profile_image', $path );
             $this->Session->write('Auth.User.profile_image', $path);
+
+            Socialnet::setProfileImage($this->Auth->user('id'),$path);
         }
 
         $this->layout = 'anonymous';
