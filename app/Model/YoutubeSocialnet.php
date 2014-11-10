@@ -26,8 +26,8 @@ Class YoutubeSocialnet {
 
 	//Esto va al config!
 	const APP_KEY 			= "AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8";
-	const APP_ID 			= "177548082876.apps.googleusercontent.com";
-	const APP_SECRET 		= "_O3NeoH2eltGwBTmYh8Ol5hm";
+	const APP_ID 			= "679197995961-ci1cei1vtn3cpek92u1g7ogg1cmlk790.apps.googleusercontent.com";
+	const APP_SECRET 		= "zp9fV3AYAapJtHMjdnv1U1x7";
 	const APP_PERMS 		= "https://www.googleapis.com/auth/youtube.readonly,https://www.googleapis.com/auth/youtube,https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/userinfo.profile,https://www.googleapis.com/auth/yt-analytics.readonly";
 	const APP_CALLBACK 		= "http://cloudcial.com/youtube/addAccount";
 
