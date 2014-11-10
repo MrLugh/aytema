@@ -193,7 +193,7 @@
   -o-transition:all 0.5s ease-in-out 0s;
   transition:all 0.5s ease-in-out 0s;
 
-  border: none!important;
+  border-width: 0px!important;
   background: transparent;
 }
 
@@ -282,7 +282,12 @@
 }
 
 .accountsContainer .accountLayerInfo .accountUsername {
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  width: 100%;
+  text-shadow: none;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  z-index: 1;
 }
 
 .accountsContainer .accountLayerInfo .controls i:hover {
