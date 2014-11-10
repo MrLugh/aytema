@@ -71,11 +71,12 @@
 						</div>
 
 						<ul class="center">
-							<p class="{{account.network}}Account" style="float:none;clear:both;">{{account.login|unslug|capitalize}}</p>
+							<p class="{{account.network}}Account" style="float:none;clear:both;"><strong>{{account.login|unslug|capitalize}}</strong></p>
 							<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
 								<i tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="top" ng-class="statIcon(key)"></i>{{stat}}
 							</li>
 						</ul>
+
 
 					</div>
 
