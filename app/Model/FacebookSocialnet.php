@@ -8,8 +8,8 @@ Class FacebookSocialnet {
 	const ACCESS_TOKEN_HOST	= "https://graph.facebook.com/oauth/access_token";
 
 	//Esto va al config!
-	const APP_ID 			= "211895592326072";
-	const APP_SECRET 		= "ac6e4892f759a43cb5a7247244c86767";
+	const APP_ID 			= "798764866832784";
+	const APP_SECRET 		= "bcd9845622eacd63d5ed522e0586f246";
 	const APP_PERMS 		= "publish_stream,offline_access,manage_pages,user_photos";
 	const APP_CALLBACK 		= "http://cloudcial.com/facebook/addAccount";
 
