@@ -53,7 +53,7 @@
 
 		<ul id="accountPageList" class="masonry" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.adminContent'}" style="padding-top:{{getMenuHeight()}}px;">
 
-			<li ng-repeat="content in list" class="adminContent" ng-class="getContentClass(content)" ng-style="getContentStyle(content)" ng-switch="content.concept" masonry-item>
+			<li ng-repeat="content in list" class="adminContent {{content.network}}Account" ng-class="getContentClass(content)" ng-style="getContentStyle(content)" ng-switch="content.concept" masonry-item>
 
 			    <admin-content-video ng-switch-when='video'></admin-content-video>
 			    <admin-content-photo ng-switch-when='photo'></admin-content-photo>
