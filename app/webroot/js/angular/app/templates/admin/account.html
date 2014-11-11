@@ -55,6 +55,15 @@
 
 			<li ng-repeat="content in list" class="adminContent" ng-class="getContentClass(content)" ng-style="getContentStyle(content)" ng-switch="content.concept" masonry-item>
 
+			    <admin-content-video ng-switch-when='video'></admin-content-video>
+			    <admin-content-photo ng-switch-when='photo'></admin-content-photo>
+			    <admin-content-track ng-switch-when='track'></admin-content-track>
+			    <admin-content-post  ng-switch-when='post' ></admin-content-post>
+			    <admin-content-quote ng-switch-when='quote'></admin-content-quote>
+			    <admin-content-chat  ng-switch-when='chat' ></admin-content-chat>
+			    <admin-content-link  ng-switch-when='link' ></admin-content-link>
+			    <admin-content-event ng-switch-when='event'></admin-content-event>
+
 				<div class="stats left {{content.network}}Account">
 					<ul>
 						<li>
@@ -68,15 +77,6 @@
 						</li>
 					</ul>
 				</div>
-
-			    <admin-content-video ng-switch-when='video'></admin-content-video>
-			    <admin-content-photo ng-switch-when='photo'></admin-content-photo>
-			    <admin-content-track ng-switch-when='track'></admin-content-track>
-			    <admin-content-post  ng-switch-when='post' ></admin-content-post>
-			    <admin-content-quote ng-switch-when='quote'></admin-content-quote>
-			    <admin-content-chat  ng-switch-when='chat' ></admin-content-chat>
-			    <admin-content-link  ng-switch-when='link' ></admin-content-link>
-			    <admin-content-event ng-switch-when='event'></admin-content-event>
 
 			</li>
 
