@@ -101,6 +101,13 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 			//return;
 		}
 
+		if (userSv.getAccounts().length > 1) {
+			$scope.steps.accounts = true;
+			$scope.steps.themes = true;
+			$scope.showPage('accounts');
+			return;
+		}
+
 		var timer = -1;
 
 		if ((!angular.isDefined($scope.user.theme) || $scope.user.theme == 'digest' )
