@@ -104,7 +104,7 @@ function aytemaCo($scope,$location,userSv,appSv,contentSv) {
 		if (userSv.getAccounts().length > 1) {
 			$scope.steps.accounts = true;
 			$scope.steps.themes = true;
-			$scope.showPage('accounts');
+			$scope.showPage('themes');
 			return;
 		}
 
