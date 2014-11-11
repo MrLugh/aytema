@@ -458,10 +458,18 @@
   text-overflow: ellipsis;
 }
 
-.adminContent p {
+.adminContent p, .adminContent p * {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.adminContent p * {
+  border: none;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
 }
 
 /* Masonry */
