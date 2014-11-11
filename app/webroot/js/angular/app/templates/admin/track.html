@@ -5,5 +5,5 @@
 	<div ng-if="canShowPlayer()" class="track_embed player" ng-bind-html="getPlayer()"></div>
 	<div ng-if="isEmpty()">EMPTY</div>
 	<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
-	<p ng-bind-html="getDescription()"></p>
+	<p ng-if="contentSv.getDescription(content).length>0" ng-bind-html="getDescription()"></p>	
 </div>

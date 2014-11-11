@@ -448,7 +448,7 @@
   -webkit-transition:none;
   -moz-transition:none;
   -o-transition:none;
-  transition:none;    
+  transition:none;
 }
 
 .adminContent h2 {
@@ -506,7 +506,7 @@
 }
 
 .cloudcialAccountRgba {
-  background-color: rgba(45, 46, 38, 0.3);
+  background-color: rgba(45, 46, 38, 0.7);
   color:#83bd40;
   border-color: #9aa48d #fff;
 }
@@ -527,7 +527,7 @@
 }
 
 .facebookAccountRgba {
-  background-color: rgba(59, 89, 152, 0.3);
+  background-color: rgba(59, 89, 152, 0.7);
   color:#000;
   border-color: #4E6DAD #3b5998;
 }
@@ -554,7 +554,7 @@
 }
 
 .soundcloudAccountRgba {
-  background-color: rgba(255, 85, 0, 0.3);
+  background-color: rgba(255, 85, 0, 0.7);
   color:#000;
   border-color: #FA6E28 #ff5500;
 }
@@ -575,7 +575,7 @@
 }
 
 .tumblrAccountRgba {
-  background-color: rgba(72, 87, 109, 0.3);
+  background-color: rgba(72, 87, 109, 0.7);
   color:#fff;
   border-color: #62728A #48576d;
 }
@@ -596,7 +596,7 @@
 }
 
 .twitterAccountRgba {
-  background-color: rgba(42, 169, 224, 0.3);
+  background-color: rgba(42, 169, 224, 0.7);
   color:#fff;
   border-color: #31BCF7 #2aa9e0;
 }
@@ -617,7 +617,7 @@
 }
 
 .youtubeAccountRgba {
-  background-color: rgba(244, 0, 28, 0.3);
+  background-color: rgba(244, 0, 28, 0.7);
   color:#fff;
   border-color: #FC2B43 #f4001c;
 }
@@ -638,7 +638,7 @@
 }
 
 .vimeoAccountRgba {
-  background-color: rgba(61, 61, 61, 0.3);
+  background-color: rgba(61, 61, 61, 0.7);
   color:#fff;
   border-color: #fff #3d3d3d;
 }
@@ -659,7 +659,7 @@
 }
 
 .mixcloudAccountRgba {
-  background-color: rgba(109, 110, 113, 0.3);
+  background-color: rgba(109, 110, 113, 0.7);
   color:#fff;
   border-color: #4D4A4A #6d6e71;
 }  

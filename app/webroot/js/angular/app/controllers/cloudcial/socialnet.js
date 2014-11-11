@@ -1,5 +1,7 @@
 function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$window,$timeout) {
 
+	$('html, body').animate({scrollTop: 0}, 0);
+
 	$scope.appSv 	= appSv;
 	$scope.contentSv= contentSv;
 	$scope.$location = $location;
@@ -304,6 +306,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 	}
 
 	$scope.moveSocialnet = function(direction) {
+
 		var list = appSv.getSocialnets();
 		var current = -1;
 

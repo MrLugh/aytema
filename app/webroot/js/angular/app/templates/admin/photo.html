@@ -14,6 +14,6 @@
 	<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''" thumbnail="content" />
 
 	<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
-	<p ng-bind-html="getDescription()"></p>
+	<p ng-if="contentSv.getDescription(content).length>0" ng-bind-html="getDescription()"></p>	
 
 </div>
