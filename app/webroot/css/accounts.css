@@ -123,6 +123,7 @@
   overflow: hidden;
   text-shadow: rgb(3, 3, 3) 4px 4px 4px;
   margin-top: 10px;
+  padding: 10px;
   text-align: center;
   position: relative;
   display: inline-block;
@@ -434,7 +435,7 @@
 .adminContent {
   float: left;
   margin: 15px;
-  padding: 0px 0px 10px 0px;
+  padding: 0px;
   z-index: 1;
 
   -webkit-border-radius: 3px;
@@ -452,6 +453,12 @@
 
 .adminContent h2 {
   font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adminContent p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -481,6 +488,7 @@
 
 .adminContent iframe, .adminContent object, .adminContent embed, .adminContent video, .adminContent audio {
   width: 100%;
+  border: none!important;
 }
 
 .cloudcialAccount {
