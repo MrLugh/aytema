@@ -10,8 +10,8 @@
 	<form autocomplete="off">
 		<div class="widgetuser_panel login" ng-show="mode=='login'">
 			<input type="hidden" name="_method" value="POST"/>
-			<input type="text" name="username" ng-model="username" required placeholder="Username">
-			<input type="password" ng-model="password" name="password" required placeholder="Password">
+			<input type="text" name="username" ng-model="username" placeholder="Username">
+			<input type="password" ng-model="password" name="password" placeholder="Password">
 			<div class="remember">
 				<input id="remember" ng-model="remember" name="remember" type="checkbox">
 				<label for="remember"></label><strong>Remember me</strong>
@@ -22,12 +22,12 @@
 
 		<div class="widgetuser_panel register" ng-show="mode=='register'">
 			<input type="hidden" name="_method" value="POST"/>
-			<input type="text" name="email" ng-model="email" required placeholder="Email">
-			<input type="text" name="username" ng-model="username" required placeholder="Username">
-			<input type="text" name="firstname" ng-model="firstname" required placeholder="First name">
-			<input type="text" name="lastname" ng-model="lastname" required placeholder="Last name">
-			<input type="password" ng-model="password" name="password" required placeholder="Password">
-			<input type="password" ng-model="password_confirm" name="password_confirm" required placeholder="Confirm Password">
+			<input type="text" name="email" ng-model="email" placeholder="Email">
+			<input type="text" name="username" ng-model="username" placeholder="Username">
+			<input type="text" name="firstname" ng-model="firstname" placeholder="First name">
+			<input type="text" name="lastname" ng-model="lastname" placeholder="Last name">
+			<input type="password" ng-model="password" name="password" placeholder="Password">
+			<input type="password" ng-model="password_confirm" name="password_confirm" placeholder="Confirm Password">
 			<div class="conditions">
 				<input id="conditions" ng-model="conditions" name="conditions" type="checkbox">
 				<label for="conditions"></label><strong>Terms & Conditions</strong>

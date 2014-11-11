@@ -129,7 +129,6 @@
   top:0;
   left: 0;
   z-index: 1;
-  color:white;
   border-width: 105px;
 
   border-color: #151a1e #2a3137;
@@ -155,10 +154,10 @@
   -ms-user-select: none;
   user-select: none;
 
-  -webkit-transition:all 0.5s ease-in-out 0s;
-  -moz-transition:all 0.5s ease-in-out 0s;
-  -o-transition:all 0.5s ease-in-out 0s;
-  transition:all 0.5s ease-in-out 0s;
+  -webkit-transition:all 0.75s ease-in-out 0s;
+  -moz-transition:all 0.75s ease-in-out 0s;
+  -o-transition:all 0.75s ease-in-out 0s;
+  transition:all 0.75s ease-in-out 0s;
 
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9); 
@@ -187,11 +186,6 @@
   -moz-transform: scale(1); 
   -o-transform: scale(1);
   -ms-transform: scale(1);  
-
-  -webkit-transition:all 0.5s ease-in-out 0s;
-  -moz-transition:all 0.5s ease-in-out 0s;
-  -o-transition:all 0.5s ease-in-out 0s;
-  transition:all 0.5s ease-in-out 0s;
 
   border-width: 0px!important;
   background: transparent;
@@ -264,7 +258,6 @@
 }
 
 .accountsContainer .accountLayerInfo .controls i {
-  color:#fff;
 
   padding: 0px 20px;
   margin-top: 15px;
@@ -289,6 +282,16 @@
   bottom: 0;
   text-align: center;
   z-index: 1;
+  opacity: 0;
+  -webkit-transition:all 0.56s ease-in-out 0s;
+  -moz-transition:all 0.56s ease-in-out 0s;
+  -o-transition:all 0.56s ease-in-out 0s;
+  transition:all 0.56s ease-in-out 0s;
+  padding: 5px;
+}
+
+.accountsContainer .account:hover .accountLayerInfo .accountUsername {
+  opacity: 1;
 }
 
 .accountsContainer .accountLayerInfo .controls i:hover {
@@ -304,13 +307,12 @@
   margin-left: 5px;
   text-align: justify;
   display: inline-block;  
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  text-shadow: none;
  }
 
 .accountsContainer .account i {
   line-height: 42px;
   margin: 0 auto;
-  color: #fff;
   font-size: 20px;
 }
 

@@ -63,7 +63,7 @@
 
 				<li ng-repeat="account in list" id="account_{{$index}}" class="account {{account.network}}Account">
 
-					<div class="accountLayerInfo">
+					<div class="accountLayerInfo {{account.network}}AccountRgba">
 
 						<div class="controls">
 							<i ng-click="delete($index)" class="{{account.network!='cloudcial' ? 'fa  fa-trash-o':'fa fa-exclamation-circle'}}" tooltip="{{account.network!='cloudcial' ? 'Delete account':'Can\'t Delete'}}" tooltip-placement="bottom"></i>
@@ -76,7 +76,7 @@
 							</li>
 						</ul>
 
-						<p class="{{account.network}}Account accountUsername" style="float:none;clear:both;"><strong>{{account.login|unslug|capitalize}}</strong></p>
+						<h3 class="{{account.network}}Account accountUsername" style="float:none;clear:both;"><strong>{{account.login|unslug|capitalize}}</strong></h3>
 
 					</div>
 
