@@ -4,10 +4,6 @@
 
 		<div class="settingsWidgetContainer">
 
-			<h4>Profile Image</h4>
-			
-			<div id="profileImage" ng-style="getProfileImageStyle()" class="both"></div>
-
 			<div class="both pull-right">
 
 				<i ng-if="profileImages.length>1" class="fa fa-arrow-left" ng-click="moveProfileImage(-1)" tooltip="Previous Image" tooltip-placement="top"></i>
@@ -19,6 +15,10 @@
 
 			</div>
 
+			<h4>Profile Image</h4>
+			
+			<div id="profileImage" ng-style="getProfileImageStyle()" class="both"></div>
+
 		</div>
 
 	</div>
@@ -26,6 +26,11 @@
 	<div class="userContainer settingsWidget">
 
 		<div class="settingsWidgetContainer">
+
+			<div class="both pull-right">
+				<i ng-click="saveInformation()" class="fa fa-save" tooltip="Save information" tooltip-placement="top"></i>
+				<i ng-if="hasInformationError()" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError()}}"></i>
+			</div>
 
 			<h4>Information</h4>
 
@@ -38,10 +43,21 @@
 				<input type="password" ng-model="user.password_confirm" name="password_confirm" required placeholder="Confirm Password">
 			</form>
 
+		</div>
+
+	</div>
+
+	<div class="wysiwygContainer settingsWidget">
+
+		<div class="settingsWidgetContainer">
+
 			<div class="both pull-right">
-				<i ng-click="saveInformation()" class="fa fa-save" tooltip="Save information" tooltip-placement="top"></i>
-				<i ng-if="hasInformationError()" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError()}}"></i>
+				<i ng-click="saveBiography()" class="fa fa-save" tooltip="Save Biography" tooltip-placement="top"></i>
 			</div>
+
+			<h4>Biography</h4>
+
+			<textarea ng-model="user.biography" class="tinymce" placeholder="post title" ng-required="true" ui-tinymce="tinymceOptions"></textarea>
 
 		</div>
 
@@ -51,30 +67,17 @@
 
 		<div class="settingsWidgetContainer">
 
-			<h4>Address & Map</h4>
-			<input type="text" ng-model="user.address" placeholder="Address > Country, City, Street Name Street Number" ng-required="true" />
-			<div ng-show="user.address.length>0" class="mapContainerPhoto" style="background-image:url({{getMapSrc()}});background-size:cover;"></div>
 			<div class="both pull-right">
 				<i ng-click="saveAddress()" class="fa fa-save" tooltip="Save Address" tooltip-placement="top"></i>
 			</div>
 
+			<h4>Address & Map</h4>
+
+			<input type="text" ng-model="user.address" placeholder="Address > Country, City, Street Name Street Number" ng-required="true" />
+			
+			<div ng-show="user.address.length>0" class="mapContainerPhoto" style="background-image:url({{getMapSrc()}});background-size:cover;"></div>
 		</div>
 
 	</div>
-
-	<div class="wysiwygContainer settingsWidget">
-
-		<div class="settingsWidgetContainer">
-
-			<h4>Biography</h4>
-			<textarea ng-model="user.biography" class="tinymce" placeholder="post title" ng-required="true" ui-tinymce="tinymceOptions"></textarea>
-
-			<div class="both pull-right">
-				<i ng-click="saveBiography()" class="fa fa-save" tooltip="Save Biography" tooltip-placement="top"></i>
-			</div>
-
-		</div>
-
-	</div>	
 
 </div>
