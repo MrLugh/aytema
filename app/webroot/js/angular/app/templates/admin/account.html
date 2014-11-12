@@ -36,16 +36,18 @@
 
 		</div>
 
-		<ul class="stats">
+		<div class="accountInfo">
+			<img ng-src="{{account.profile_image}}" class="profileImage img-circle" />
+			<strong class="accountUsername">{{account.login}}</strong>
+		</div>
+
+		<ul class="stats both right">
 			<li ng-repeat="(key,stat) in account.stats" class="stat">
 				<div ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="right">
 					<i ng-class="statIcon(key)"></i> {{stat}}
 				</div>
 			</li>
 		</ul>
-
-		<img ng-src="{{account.profile_image}}" class="profileImage img-circle inline right" />
-		<strong class="right inline">{{account.login}}</strong>
 
 	</div>
 

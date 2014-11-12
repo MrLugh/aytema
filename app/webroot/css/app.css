@@ -196,26 +196,30 @@ iframe,object,embed {
 }
 
 #cloudcial_loading .loading_bg {
-  position:absolute;
-  width:100%;
-  height:100%;
-  background-image:url(../img/admin/loading.png);
-  background-size:contain;
-  background-position:center;
-  background-repeat:no-repeat;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-image: url(../img/admin/loading.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   animation: 1.5s linear 0s normal none infinite hoverup;
   -webkit-animation: 1.5s linear 0s normal none infinite hoverup;
   -moz-animation: 1.5s linear 0s normal none infinite hoverup;
-  -o-animation: 1.5s linear 0s normal none infinite hoverup;  
+  -o-animation: 1.5s linear 0s normal none infinite hoverup;
+  bottom: 20px;
+  right: 20px;
 }
 
 #cloudcial_loading .loading_img {
-  position:absolute;
-  width:100%;
-  height:100%;
-  background-image:url(../img/cloudcial-horizontal-white.png);
-  background-position:center;
-  background-repeat:no-repeat;
+  position: absolute;
+  width: 280px;
+  height: 80px;
+  background-image: url(../img/cloud.png);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  bottom: 58px;
+  right: 51px;
 }
 
 @keyframes hoverup {

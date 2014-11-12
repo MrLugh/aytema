@@ -363,6 +363,16 @@
   z-index: 3;
 }
 
+.accountPageHeader .accountUsername {
+  line-height: 60px;
+  font-size: 20px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.accountPageHeader .accountInfo {
+  float: right;    
+}
 
 .accountPageHeader .controls {
   float: left;
@@ -405,15 +415,12 @@
   width: auto;
   height: auto;
   position: relative;
-  left: 100px;
-  margin: 10px;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
 .accountPageHeader .stats li {
   float: left;
-  margin-right: 10px;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+  margin: 0px 10px 10px;
+  font-size: 14px;
 }
 
 #accountPageList {
