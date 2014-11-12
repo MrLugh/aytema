@@ -478,7 +478,7 @@
   margin: 0px 0px 10px 8px;
 }
 
-.adminContent a {
+.adminContent a, .adminContent p a {
   color: #b0c19c!important;
   text-decoration: underline;
 }
