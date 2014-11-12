@@ -60,7 +60,6 @@
   display: inline-block;
   text-align: center;
   padding-right: 10px;
-  /*text-shadow: rgb(3, 3, 3) 4px 4px 4px;*/
 }
 
 .accountsContainer .filterList li span {
@@ -69,7 +68,6 @@
 
 .accountsContainer .addList li.active {
   color: #83bd40;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
 }
 
 .accountsContainer .addList .dropdown-menu {
@@ -86,9 +84,20 @@
 }
 
 .accountsContainer .addList .dropdown-menu .networkBrand {
-  color:#b0c19c;
+  color:#fff;
   font-weight: bold;
-  text-shadow: rgb(3, 3, 3) 4px 4px 4px;
+}
+
+.accountsContainer .addList .dropdown-menu .networkButton {
+  background-color: #6d7781;
+  margin-top: 10px;
+  float: right;
+  color: #fff;
+  width: 100%;
+}
+
+.accountsContainer .addList .dropdown-menu .networkButton:hover {
+  background-color: #83bd40;
 }
 
 .accountsContainer .addList .dropdown-menu ul li {
@@ -96,7 +105,7 @@
   margin: 0 auto;
   padding: 10px 0px;
   text-align: left;
-  color: #b0c19c;
+  color: #adafae;
 }
 
 .accountsContainer .addList .dropdown-menu ul li i {
@@ -106,10 +115,6 @@
   transition:all 0.5s ease-in-out 0s;
   color: #fff;
   font-size: 20px;
-}
-
-.accountsContainer .addList .dropdown-menu ul li:hover i {
-  color: #b0c19c;
 }
 
 .accountsContainer .profileImage {
@@ -439,26 +444,31 @@
 
 #accountPageList .stats li {
   margin-left:4px;
-  float: left;
+  float: right;
 }
 
 .adminContent {
   float: left;
   margin: 15px;
-  padding: 0px;
+  padding: 10px;
   z-index: 1;
 
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  background-color: #2a3137;
 
-  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
   width: 50%;
 
   -webkit-transition:none;
   -moz-transition:none;
   -o-transition:none;
   transition:none;
+}
+
+.adminContent .controls i {
+  margin: 0px 0px 10px 8px;
 }
 
 .adminContent h2 {

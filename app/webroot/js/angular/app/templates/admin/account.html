@@ -55,6 +55,15 @@
 
 			<li ng-repeat="content in list" class="adminContent" ng-class="getContentClass(content)" ng-style="getContentStyle(content)" ng-switch="content.concept" masonry-item>
 
+				<ul class="both right controls">
+					<li class="left">
+						<i ng-click="delete($index)" class="fa fa-trash-o" tooltip="Hide content"></i>
+					</li>
+					<li ng-if="content.network == 'cloudcial'" class="left">
+						<i ng-click="showEditContent($index)" class="fa fa-pencil" tooltip="Edit content"></i>
+					</li>
+				</ul>
+
 			    <admin-content-video ng-switch-when='video'></admin-content-video>
 			    <admin-content-photo ng-switch-when='photo'></admin-content-photo>
 			    <admin-content-track ng-switch-when='track'></admin-content-track>
@@ -64,14 +73,8 @@
 			    <admin-content-link  ng-switch-when='link' ></admin-content-link>
 			    <admin-content-event ng-switch-when='event'></admin-content-event>
 
-				<div class="stats left {{content.network}}Account">
+				<div class="stats right">
 					<ul>
-						<li>
-							<i ng-click="delete($index)" class="fa fa-trash-o" tooltip="Hide content"></i>
-						<li>
-						<li ng-if="content.network == 'cloudcial'">
-							<i ng-click="showEditContent($index)" class="fa fa-pencil" tooltip="Edit content"></i>
-						<li>
 						<li ng-repeat="(key,stat) in content.stats" ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="right">
 							<i ng-class="statIcon(key)"></i> {{stat}}
 						</li>
