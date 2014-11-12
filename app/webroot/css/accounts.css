@@ -452,7 +452,7 @@
   margin: 15px;
   padding: 10px;
   z-index: 1;
-
+  text-align: left!important;
   background-color: #2a3137;
 
   -webkit-border-radius: 5px;
@@ -471,17 +471,33 @@
   margin: 0px 0px 10px 8px;
 }
 
+.adminContent a {
+  color: #b0c19c!important;
+  text-decoration: underline;
+}
+
 .adminContent h2 {
-  font-size: 20px;
+  font-size: 20px!important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #fff!important;
+  text-align: left!important;
 }
 
 .adminContent p, .adminContent p * {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 14px!important;
+  text-align: left!important;
+  line-height: 20px!important;
+  padding: 0!important;
+  margin: 0!important;
+  color: #adafae!important;
+  text-decoration: none!important;
+  font-family: 'Oswald', sans-serif!important;
+  font-weight: normal!important;
 }
 
 .adminContent p * {
@@ -491,6 +507,7 @@
   padding: 0;
   margin: 0;
 }
+
 
 /* Masonry */
 
