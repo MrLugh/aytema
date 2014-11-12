@@ -5,6 +5,6 @@
 	<p>{{content.data.date}} @ {{content.data.place}}</p>
 	<span ng-if="time.length > 0">{{content.data.time}}</span>
 	<span ng-if="door.length > 0">{{content.data.door}}</span>
-	<a ng-href="{{content.data.ticket}}" target="_blank">Buy Tickets</a>
+	<a ng-if="content.data.ticket.length" href="{{content.data.ticket}}" target="_blank">Buy Tickets</a>
 
 </div>
