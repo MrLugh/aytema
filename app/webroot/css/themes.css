@@ -147,17 +147,19 @@
 
 .themesContainer .preview {
 	margin: 0 auto;
+	text-align: center;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	position: absolute;
-	overflow: hidden;
+	overflow: auto;
 	-webkit-transition:all 0.56s ease-in-out 0s;
 	-moz-transition:all 0.56s ease-in-out 0s;
 	-o-transition:all 0.56s ease-in-out 0s;
 	transition:all 0.56s ease-in-out 0s;
 	z-index: 3;
 	opacity: 1;
+	background-color: #151a1e;
 }
 
 .themesContainer .preview.ng-enter {
@@ -198,6 +200,8 @@
 	width: 100%;
 	height: calc(100% - 70px);
 	z-index: 2;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .themesContainer .themeNavigation {
@@ -269,4 +273,16 @@
 
 .themesContainer .themeNavigation i:hover, .themesContainer .themeNavigation strong:hover {
 	color: #83bd40;
+}
+
+.themesContainer .preview ul.devices li i {
+	color: rgba(255, 255, 255, 0.3);
+	-webkit-transition:all 0.56s ease-in-out 0s;
+	-moz-transition:all 0.56s ease-in-out 0s;
+	-o-transition:all 0.56s ease-in-out 0s;
+	transition:all 0.56s ease-in-out 0s;
+}
+
+.themesContainer .preview ul.devices li.active i {
+	color: rgba(255, 255, 255, 1);
 }

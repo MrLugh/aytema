@@ -12,7 +12,7 @@
 
 	</div>
 
-	<ul class="list" ng-style="getContainerStyle()">
+	<ul ng-show="!showPreview" class="list" ng-style="getContainerStyle()">
 
 		<li ng-repeat="theme in list" ng-class="getThemeClass($index)" id="theme_{{$index}}" ng-style="getThemeStyle()">
 
@@ -48,13 +48,35 @@
 				</a>
 				<span class="currentTheme">{{list[current].name}}</span>
 				<i class="fa fa-times-circle-o" ng-click="closePreview()" tooltip="Close preview" tooltip-placement="bottom"></i>
+
+				<ul class="devices">
+					<li ng-click="setDeviceSize(false,false)" class="inline {{isActiveDevice(false,false) ? 'active':''}}">
+						<i class="fa fa-desktop" tooltip="Default" ></i>
+					</li>
+					<li ng-click="setDeviceSize(240,320)" class="inline {{isActiveDevice(240,320) ? 'active':''}}">
+						<i class="fa fa-mobile" tooltip="Small Phone 240x320" ></i>
+					</li>
+					<li ng-click="setDeviceSize(320,480)" class="inline {{isActiveDevice(320,480) ? 'active':''}}">
+						<i class="fa fa-mobile" tooltip="iPhone 320x480" ></i>
+					</li>
+					<li ng-click="setDeviceSize(480,640)" class="inline {{isActiveDevice(480,640) ? 'active':''}}">
+						<i class="fa fa-tablet" tooltip="Small Tablet 480x640" ></i>
+					</li>
+					<li ng-click="setDeviceSize(768,1024)" class="inline {{isActiveDevice(768,1024) ? 'active':''}}">
+						<i class="fa fa-tablet" tooltip="iPad Portrait 768x1024" ></i>
+					</li>
+					<li ng-click="setDeviceSize(1024,768)" class="inline {{isActiveDevice(1024,768) ? 'active':''}}">
+						<i class="fa fa-tablet" tooltip="iPad Landscape 1024x768" ></i>
+					</li>
+				</ul>
+
 			</p>
 
 			<div class="themeControlThumbnail right" ng-click="move(1)" ng-style="getNextStyle()">
 				<strong class="right">{{getNextThemeName()}}</strong>	
 			</div>
 		</div>
-		<iframe ng-src="{{src}}"></iframe>
+		<iframe ng-src="{{src}}" ng-style="getDeviceStyle()"></iframe>
 	</div>
 
 

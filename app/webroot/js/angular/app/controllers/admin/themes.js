@@ -9,6 +9,8 @@ function adminThemesCo($scope,appSv,userSv) {
 
 	$scope.search 		= '';
 
+	$scope.device		= {width:false,height:false};
+
 	$scope.scrollCurrent = function() {
 
 		var current = $scope.current;
@@ -38,6 +40,24 @@ function adminThemesCo($scope,appSv,userSv) {
 		$scope.src = "http://cloudcial.com/themes?type="+$scope.list[$scope.current].key+"&username="+$scope.user.username;
 		$scope.showPreview = true;
 		$scope.scrollToTop();
+	}
+
+	$scope.setDeviceSize = function(width,height) {
+		$scope.device 	= {width:width,height:height};
+	}
+
+	$scope.getDeviceStyle = function() {
+		if ($scope.device.width && $scope.device.height) {
+			return {width:$scope.device.width+'px',height:$scope.device.height+'px'};
+		}
+		return {};
+	}
+
+	$scope.isActiveDevice = function(width,height) {
+		console.log($scope.device);
+		console.log({width:width,height:height});
+		console.log(angular.equals($scope.device,{width:width,height:height}));
+		return angular.equals($scope.device,{width:width,height:height});
 	}
 
 	$scope.getContainerStyle = function() {
