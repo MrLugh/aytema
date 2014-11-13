@@ -199,6 +199,8 @@ iframe,object,embed {
   position: absolute;
   width: 150px;
   height: 150px;
+  top: calc(50% - 75px);
+  left: calc(50% - 75px);
   background-image: url(../img/admin/loading.png);
   background-size: contain;
   background-position: center;
@@ -207,19 +209,17 @@ iframe,object,embed {
   -webkit-animation: 1.5s linear 0s normal none infinite hoverup;
   -moz-animation: 1.5s linear 0s normal none infinite hoverup;
   -o-animation: 1.5s linear 0s normal none infinite hoverup;
-  bottom: 20px;
-  right: 20px;
 }
 
 #cloudcial_loading .loading_img {
   position: absolute;
-  width: 280px;
-  height: 80px;
+  width: 91px;
+  height: 79px;
+  top: calc(50% - 45px);
+  left: calc(50% - 45px);
   background-image: url(../img/cloud.png);
   background-position: bottom right;
   background-repeat: no-repeat;
-  bottom: 58px;
-  right: 51px;
 }
 
 @keyframes hoverup {
