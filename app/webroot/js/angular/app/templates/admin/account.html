@@ -59,9 +59,12 @@
 
 				<ul class="both right controls">
 					<li class="left">
+						<i ng-class="conceptIcon(content.concept)" tooltip="{{content.concept}}" tooltip-placement="bottom"></i>
+					</li>
+					<li class="right">
 						<i ng-click="delete($index)" class="fa fa-trash-o" tooltip="Hide content" tooltip-placement="bottom"></i>
 					</li>
-					<li ng-if="content.network == 'cloudcial'" class="left">
+					<li ng-if="content.network == 'cloudcial'" class="right">
 						<i ng-click="showEditContent($index)" class="fa fa-pencil" tooltip="Edit content" tooltip-placement="bottom"></i>
 					</li>
 				</ul>

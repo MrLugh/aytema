@@ -474,6 +474,10 @@
   transition:none;
 }
 
+.adminContent .controls {
+  width: 100%;
+}
+
 .adminContent .controls i {
   margin: 0px 0px 10px 8px;
 }
