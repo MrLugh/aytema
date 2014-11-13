@@ -59,10 +59,10 @@
 
 				<ul class="both right controls">
 					<li class="left">
-						<i ng-click="delete($index)" class="fa fa-trash-o" tooltip="Hide content"></i>
+						<i ng-click="delete($index)" class="fa fa-trash-o" tooltip="Hide content" tooltip-placement="bottom"></i>
 					</li>
 					<li ng-if="content.network == 'cloudcial'" class="left">
-						<i ng-click="showEditContent($index)" class="fa fa-pencil" tooltip="Edit content"></i>
+						<i ng-click="showEditContent($index)" class="fa fa-pencil" tooltip="Edit content" tooltip-placement="bottom"></i>
 					</li>
 				</ul>
 
@@ -77,7 +77,7 @@
 
 				<div class="stats right">
 					<ul>
-						<li ng-repeat="(key,stat) in content.stats" ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="right">
+						<li ng-repeat="(key,stat) in content.stats" ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom">
 							<i ng-class="statIcon(key)"></i> {{stat}}
 						</li>
 					</ul>
