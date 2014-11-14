@@ -313,15 +313,14 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.diff = Math.abs($scope.pages.indexOf(angular.copy(section).replace("page_","")) -
 			$scope.pages.indexOf(angular.copy($scope.current).replace("page_","")));
 		
-		var time = 2000;
+		var time = 1000;
 		if ($scope.diff >= $scope.pages.length / 2) {
-			time = 4500;
+			time = 2500;
 		}
 
 		if (section != 'page_detail') {
 			$scope.current = section;	
-		}
-		
+		}		
 
 		$scope.scrollTo(element, time);
 	};
