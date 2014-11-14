@@ -107,6 +107,7 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
                 plotShadow: false,
                 backgroundColor:'transparent'
             },
+            colors: ["#0db8ff", "#fd3489", "#33dab8", "#b557fe", "#a9a9a9", "#eeff2b", "#647300", "#3581ff", "#ff802c", "#fc4040"],
 			credits: {
 				enabled: false
 			},            
