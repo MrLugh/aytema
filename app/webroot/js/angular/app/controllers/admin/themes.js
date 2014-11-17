@@ -54,9 +54,6 @@ function adminThemesCo($scope,appSv,userSv) {
 	}
 
 	$scope.isActiveDevice = function(width,height) {
-		console.log($scope.device);
-		console.log({width:width,height:height});
-		console.log(angular.equals($scope.device,{width:width,height:height}));
 		return angular.equals($scope.device,{width:width,height:height});
 	}
 
