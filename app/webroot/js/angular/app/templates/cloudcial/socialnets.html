@@ -20,7 +20,7 @@
 
 		<li ng-repeat="account in socialnets" id="account_{{$index}}" class="account {{account.network}}Account">
 
-			<div class="accountLayerInfo">
+			<div class="accountLayerInfo {{account.network}}AccountRgba">
 
 				<div class="controls">
 					<a href="/dashboard/#/socialnets/{{account.network}}/{{account.external_user_id}}" class="network_link">
