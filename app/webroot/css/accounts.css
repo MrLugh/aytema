@@ -833,7 +833,7 @@
 }
 
 .addContent .dropzone .dz-default.dz-message {
-  background-image: none;
+  background: transparent;
   position: relative;
   width: 100%;
   height: 100%;
@@ -844,7 +844,7 @@
 }
 
 .addContent .dropzone .dz-preview {
-  display: inline-block;
+  display: none;
 }
 
 .addContent form {
@@ -855,4 +855,9 @@
   background: transparent;
   display: block;
   border: none;
+}
+
+.addContent video, .addContent audio {
+  width: 100%;
+  height: 100%;
 }
