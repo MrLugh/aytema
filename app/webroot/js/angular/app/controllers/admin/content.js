@@ -99,6 +99,7 @@ function adminContentPhotoCo($scope,contentSv) {
 
 	$scope.setCurrent = function() {
 		$scope.current = $scope.photolist[$scope.currentPos];
+		console.log($scope.currentPos);
 	}
 
 	$scope.setList = function() {
@@ -147,8 +148,6 @@ function adminContentPhotoCo($scope,contentSv) {
 
 	$scope.move = function(direction) {
 
-		//console.log("content move");
-
 		var currentPos = $scope.currentPos;
 
         if (direction > 0) {currentPos++;} else {currentPos--;}
@@ -157,16 +156,17 @@ function adminContentPhotoCo($scope,contentSv) {
             currentPos = $scope.photolist.length - 1;
         }
 
-        if (currentPos == $scope.photolist.length ) {
+        if (currentPos >= $scope.photolist.length ) {
             currentPos = 0;
         }
 
         $scope.currentPos = currentPos;
+
 	}
 
 	$scope.$watch("currentPos",function(){
 		$scope.setCurrent();
-	});
+	},true);
 
 	$scope.setList();
 	$scope.setCurrent();
