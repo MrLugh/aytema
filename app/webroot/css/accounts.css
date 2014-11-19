@@ -830,6 +830,9 @@
 .addContent #video-dropzone {
   width: auto;
   height: auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .addContent .dropzone .dz-default.dz-message {
@@ -860,4 +863,7 @@
 .addContent video, .addContent audio {
   width: 100%;
   height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
