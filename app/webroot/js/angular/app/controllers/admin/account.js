@@ -5,7 +5,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.appSv	= appSv;
 
 	$scope.list		= [];
-	$scope.concepts	= [];
 	$scope.loading 	= false;
 
 	$scope.masonryLoading = false;
@@ -37,6 +36,8 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			concept = $scope.networks[$scope.account.network]['concepts'][x];
 			concepts.push(concept);
 		}
+
+		// Meto custom concept
 
 		$scope.concepts = concepts;
 	}
