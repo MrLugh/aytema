@@ -42,8 +42,8 @@
 		</div>
 
 		<ul class="stats both right">
-			<li ng-repeat="(key,stat) in account.stats" class="stat">
-				<div ng-if="canShowStat(stat)" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="right">
+			<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
+				<div tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="right">
 					<i ng-class="statIcon(key)"></i> {{stat}}
 				</div>
 			</li>
