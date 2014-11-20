@@ -2,13 +2,13 @@
 
 	<div ng-if="moreThanOne()" style="position: absolute;top: 10px;left:10px;" class="left">
 		<a href="#/" skip-default ng-click="move(-1)">
-			<i class="fa fa-chevron-left"></i>
+			<i class="fa fa-chevron-left" style="color:#fff;"></i>
 	 	</a>
 	</div>
 
 	<div ng-if="moreThanOne()" style="position: absolute;top: 10px;right:10px;" class="right">
 		<a href="#/" skip-default ng-click="move(1)">
-			<i class="fa fa-chevron-right"></i>
+			<i class="fa fa-chevron-right" style="color:#fff;"></i>
 		</a>
 	</div>
 	<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''"  />

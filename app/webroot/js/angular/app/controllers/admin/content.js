@@ -99,7 +99,6 @@ function adminContentPhotoCo($scope,contentSv) {
 
 	$scope.setCurrent = function() {
 		$scope.current = $scope.photolist[$scope.currentPos];
-		console.log($scope.currentPos);
 	}
 
 	$scope.setList = function() {
