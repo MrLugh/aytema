@@ -105,6 +105,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			params['offset']	= $scope.offset;
 			params['limit']		= $scope.limit;
 			params['accounts']	= [];
+			params['status']	= 'enabled';
 
 			params['username']	= $scope.user.username;
 			if (angular.isDefined($scope.user['id'])) {

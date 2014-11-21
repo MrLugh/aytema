@@ -474,6 +474,14 @@
   transition:none;
 }
 
+.adminContent.active {
+  opacity: 1;
+}
+
+.adminContent.inactive {
+  opacity: 0.3;
+}
+
 .adminContent .controls {
   width: 100%;
 }

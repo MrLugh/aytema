@@ -1,4 +1,4 @@
-ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
+ayTemaSs.factory('userSv',['$q', '$http','$rootScope',function($q,$http,$rootScope){
 
 	var user 		= {};
 	var accounts 	= [];
@@ -27,6 +27,24 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 
 	    return deferred.promise;
 	}
+
+	var logout = function() {
+		var deferred = $q.defer();
+
+		var url = '/users/logout.json';
+
+	    $http({method: 'POST', url: url}).
+	    success(function(data, status, headers, config) {
+	    	setUser({});
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	setUser({});
+	    	deferred.reject(data);
+	    });
+
+	    return deferred.promise;
+	}	
 
 	var register = function(params) {
 		var deferred = $q.defer();
@@ -324,6 +342,7 @@ ayTemaSs.factory('userSv',['$q', '$http',function($q,$http){
 		restoreConfig:restoreConfig,
 		login:login,
 		register:register,
+		logout:logout,
 		setUser:setUser,
 		saveProfileimage:saveProfileimage,
 		saveInformation:saveInformation,

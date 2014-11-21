@@ -85,6 +85,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 					if (contents.length) {
 						for (var x in contents) {
 							content = contents[x].Content;
+							console.log(content);
 							if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
 								$scope.list.push(content);
 							}
@@ -149,23 +150,9 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		return (parseInt(stat) != 0) ? true : false;
 	}	
 
-	$scope.getContentStyle = function(content) {
-		return {
-			'opacity':(contentSv.isContentEnabled(content)) ? '1' : '0.3',
-			'border-color':(contentSv.isContentEnabled(content)) ? 'none' : 'black'
-		};
+	$scope.manageAction = function(index) {
 
-	}
-
-	$scope.getContentClass = function(content) {
-
-		/*
-		if ( content.concept == 'post' && (content.network == 'facebook' || content.network == 'twitter') ) {
-			return 'large';
-		}
-		*/
-
-		return 'medium';
+		$scope.list[index].status == 'disabled' ? $scope.activate(index) : $scope.delete(index);
 	}
 
 	$scope.delete = function(index) {
@@ -174,6 +161,17 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		then(function(data){
 			if (data.message == "Deleted") {
 				$scope.list[index].status = "disabled";
+			}
+		});
+
+	}
+
+	$scope.activate = function(index) {
+
+		contentSv.activateContent($scope.list[index].id).
+		then(function(data){
+			if (data.message == "Activated") {
+				$scope.list[index].status = "enabled";
 			}
 		});
 

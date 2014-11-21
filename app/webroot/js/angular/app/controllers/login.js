@@ -1,4 +1,4 @@
-function loginCo($scope,userSv) {
+function loginCo($scope,userSv,$rootScope) {
 
 	$scope.email			= '';
 	$scope.username 		= '';
@@ -12,6 +12,10 @@ function loginCo($scope,userSv) {
 	$scope.mode		= 'login';
 
 	$scope.message = '';
+
+	$rootScope.$on("unauthorized",function(){
+		userSv.setUser({});
+	});
 
 	$scope.login = function() {
 

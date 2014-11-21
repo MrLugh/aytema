@@ -44,6 +44,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		params['offset']	= $scope.content[type].offset;
 		params['limit']		= $scope.limit;
 		params['accounts']	= [];
+		params['status']	= 'enabled';
 
 		params['username']	= $scope.user.username;
 		if (angular.isDefined($scope.user['id'])) {

@@ -153,8 +153,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		    icon_class= "fa fa-calendar";
 		}
 
-		if (icon_class.length == 0) console.log(stat_name);
-
 		return icon_class;
 	};
 
@@ -289,7 +287,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			url +="?"+vars.join("&");
 		}
 
-	    $http({method: 'GET', url: url,data:params}).
+	    $http({method: 'POST', url: url,data:params}).
 	    success(function(data, status, headers, config) {
 	    	deferred.resolve(data);
 	    }).
@@ -332,13 +330,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var getContentsByFilters = function(params) {
 
 		var deferred= $q.defer();
-
-		/*
-		if (loading) {
-			deferred.resolve({});
-			return;
-		}
-		*/
 
 		loading = true;
 

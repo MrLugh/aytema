@@ -26,7 +26,9 @@
     echo $this->Html->css('themes');
     echo $this->Html->css('themes-responsive');
     echo $this->Html->css('stats');
-    echo $this->Html->css('stats-responsive');    
+    echo $this->Html->css('stats-responsive');
+    echo $this->Html->css('share');
+    echo $this->Html->css('share-responsive');
     echo $this->Html->css('users');
     echo $this->Html->css('users-responsive');
     echo $this->Html->css('socialnets');
@@ -85,13 +87,13 @@
     echo $this->Html->script('angular/app/controllers/controllers.js');
     echo $this->Html->script('angular/app/controllers/app.js');
     echo $this->Html->script('angular/app/controllers/login.js');
-    echo $this->Html->script('angular/app/controllers/aytema.js');
     echo $this->Html->script('angular/app/controllers/admin/settings.js');
     echo $this->Html->script('angular/app/controllers/admin/accounts.js');
     echo $this->Html->script('angular/app/controllers/admin/account.js');
     echo $this->Html->script('angular/app/controllers/admin/content.js');
     echo $this->Html->script('angular/app/controllers/admin/themes.js');
     echo $this->Html->script('angular/app/controllers/admin/stats.js');
+    echo $this->Html->script('angular/app/controllers/admin/share.js');
     echo $this->Html->script('angular/app/controllers/themes.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/cloudcial.js');
     echo $this->Html->script('angular/app/controllers/cloudcial/users.js');
@@ -119,13 +121,13 @@
     <?php
     echo $this->Html->script('angular/app/directives/directives.js');
     echo $this->Html->script('angular/app/directives/login.js');
-    echo $this->Html->script('angular/app/directives/aytema.js');
     echo $this->Html->script('angular/app/directives/admin/settings.js');
     echo $this->Html->script('angular/app/directives/admin/accounts.js');
     echo $this->Html->script('angular/app/directives/admin/account.js');
     echo $this->Html->script('angular/app/directives/admin/content.js');
     echo $this->Html->script('angular/app/directives/admin/themes.js');
     echo $this->Html->script('angular/app/directives/admin/stats.js');
+    echo $this->Html->script('angular/app/directives/admin/share.js');
     echo $this->Html->script('angular/app/directives/cloudcial/content.js');
     ?>
 
@@ -144,8 +146,107 @@
 
 <body>
 
-    <div data-ng-app="ayTemaApp" user='<?php echo !empty($user) ? json_encode($user) : "{}"; ?>' controller='appCo' resize>
-        <ng-view></ng-view>
+    <div id="container" data-ng-app="ayTemaApp" user='<?php echo !empty($user) ? json_encode($user) : "{}"; ?>' ng-controller='appCo' resize>
+
+        <div ng-show="userSv.isLogged()">
+
+            <div id="cloudcial_loading">
+
+                <div>
+
+                    <div class="loading_bg"></div>
+                    <div class="loading_img"></div>
+
+                </div>
+
+            </div>
+
+            <div id="header" ng-style="getHeaderStyle()" ng-class="getHeaderClass()" get-menu-width>
+
+                <div id="menuControl">
+                    <i class="fa fa-align-justify" tooltip="Menu" tooltip-placement="bottom" ng-click="manageControl()"></i>
+                </div>
+
+                <div class="container" ng-style="getMenuContainerStyle()">
+
+                    <a href="#" class="navbar-brand">{{user.username}}</a>
+
+                    <ul class="menu">
+
+                        <li id="menu_settings" ng-click="showPage('settings')" class="{{currentPage == 'settings' ? 'active':''}}" tooltip="Settings" tooltip-placement="right">
+                            <i class="fa fa-cogs"></i>
+                            <a href="#/settings" skip-default>Settings</a>
+                        </li>
+
+                        <li id="menu_accounts" ng-if="steps.accounts" ng-click="showPage('accounts')" class="{{currentPage == 'accounts' ? 'active':''}}" tooltip="Accounts" tooltip-placement="right">
+                            <i class="fa fa-users"></i>
+                            <a href="#/accounts" skip-default>Accounts</a>
+                        </li>
+
+                        <li id="menu_themes" ng-if="steps.themes" ng-click="showPage('themes')" class="{{currentPage == 'themes' ? 'active':''}}" tooltip="Themes" tooltip-placement="right">
+                            <i class="fa fa-files-o"></i>
+                            <a href="#/themes" skip-default>Themes</a>
+                        </li>
+
+                        <li id="menu_stats" ng-if="steps.accounts && steps.themes" ng-click="showPage('stats')" class="{{currentPage == 'stats' ? 'active':''}}" tooltip="Stats" tooltip-placement="right">
+                            <i class="fa fa-bar-chart-o"></i>
+                            <a href="#/stats" skip-default>Stats</a>
+                        </li>
+
+                        <li id="menu_share" ng-if="steps.accounts && steps.themes" ng-click="showPage('share')" class="{{currentPage == 'share' ? 'active':''}}" tooltip="Share" tooltip-placement="right">
+                            <i class="fa fa-share-alt"></i>
+                            <a href="#/share" skip-default>Share</a>
+                        </li>
+
+                        <li id="menu_help" ng-click="showTour()" tooltip="Start tour" tooltip-placement="right">
+                            <i class="fa fa-life-ring"></i>
+                            <a href="#/share" skip-default>Help</a>
+                        </li>
+
+                        <li ng-click="userSv.logout()" tooltip="Logout" tooltip-placement="right">
+                            <i class="fa fa-sign-out"></i>
+                            <a href="#/" ng-click="userSv.logout()" skip-default>LogOut</a>
+                        </li>
+
+                    </ul>
+
+                    <form class="navbar-form navbar-left" role="search" style="position:relative;">
+                        <div class="">
+                            <input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
+                        </div>
+                        <div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
+                            <ul class="nav navbar-nav usersSearch">
+                                <li class="dropdown active open">
+                                    <ul class="dropdown-menu">
+                                        <li ng-repeat="userFind in usersList" class="userFind">
+                                            <a href="/users/{{userFind.username}}" tabindex="-1" class="ajax">{{userFind.username}}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+                    <a class="cloudcial_logo" href="http://cloudcial.com">
+                        <img ng-show="showMenu" src="/img/cloudcial-horizontal-white.png" />
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div id="content"  ng-style="getContentStyle()">
+
+                <ng-view></ng-view>
+
+            </div>
+
+            <div id="footer"></div>
+
+        </div>
+
+        <login ng-show="!userSv.isLogged()"></login>
+
     </div>
 
     <?php echo $this->element('sql_dump'); ?>

@@ -53,14 +53,9 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 		}
 
 		$scope.filters = filters;
+	}
 
-	}
 	$scope.initFilters();
-	if (!userSv.getAccounts().length) {
-		if (userSv.isLogged()) {
-			userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
-		}		
-	}
 
 	$scope.setList = function() {
 

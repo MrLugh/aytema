@@ -12,12 +12,14 @@ class UsersController extends AppController {
         $this->Auth->allow(
             'register',
             'login',
+            'logout',
             'index',
             'view',
             'setProfileImage',
             'usersInSocialnet',
             'setInformation'
         );
+
         $this->loadModel('Theme');
         $this->loadModel('Socialnet');
 
@@ -119,8 +121,18 @@ class UsersController extends AppController {
     }
 
     public function logout() {
+        if (!$this->request->is('post')) {
+            $this->redirect($this->Auth->logout());
+        } else {
+            $this->Auth->logout();
+            $this->set(array(
+                'message' => array(
+                    'text' => __('Logout'),
+                ),
+                '_serialize' => array('message')
+            ));            
+        }
 
-        $this->redirect($this->Auth->logout());
     }
 
     public function register() {
@@ -233,22 +245,23 @@ class UsersController extends AppController {
 
     public function setProfileImage(){
 
-
         if (!$this->Auth->user('id')) {
-            throw new Exception(__("Error Processing Request"), 1);
-        }
+            $this->response->statusCode(401);
+        } else {
 
-        $path = "";
-        
-        if ($this->request->is('post')) {
-            $path = $this->request->data['path'];
+            $path = "";
+            
+            if ($this->request->is('post')) {
+                $path = $this->request->data['path'];
 
-            $this->User->id = $this->Auth->user('id');
-            $this->User->profile_image = $path;
-            $this->User->saveField('profile_image', $path );
-            $this->Session->write('Auth.User.profile_image', $path);
+                $this->User->id = $this->Auth->user('id');
+                $this->User->profile_image = $path;
+                $this->User->saveField('profile_image', $path );
+                $this->Session->write('Auth.User.profile_image', $path);
 
-            Socialnet::setProfileImage($this->Auth->user('id'),$path);
+                Socialnet::setProfileImage($this->Auth->user('id'),$path);
+            }
+
         }
 
         $this->layout = 'anonymous';
@@ -262,7 +275,7 @@ class UsersController extends AppController {
     public function setInformation(){
 
         if (!$this->Auth->user('id')) {
-            throw new Exception(__("Error Processing Request"), 1);
+            $this->response->statusCode(401);
         }
 
         $this->layout = 'anonymous';

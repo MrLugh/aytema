@@ -161,7 +161,7 @@ iframe,object,embed {
   clear: both;
 }
 
-.hide {
+.hide, .none {
   display: none;
 }
 
@@ -175,6 +175,10 @@ iframe,object,embed {
 
 .inline {
   display: inline-block;
+}
+
+.block {
+  display: block;
 }
 
 #cloudcial_loading {

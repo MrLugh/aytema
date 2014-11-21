@@ -1,5 +1,18 @@
 var ayTemaDs = angular.module('ayTema.directives',[]);
 
+ayTemaDs.directive('user',['userSv',
+function(userSv) {
+    return function(scope, elm, attrs) {
+
+        scope.$watch('attrs.user',function(){
+            var user = eval("(function(){return " + attrs.user + ";})()");
+            if (!angular.equals(user,{})) {
+                userSv.setUser(user);
+            }
+        });
+    }
+}]);
+
 ayTemaDs.directive('resize',['$window',
 function ($window) {
     return function (scope,element) {

@@ -8,7 +8,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 
 	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
 		$scope.user = data.users[0]['User'];
-		console.log($scope.user);
 	});	
 
 	$scope.accounts	= {};
@@ -170,6 +169,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 		params['offset']	= $scope.contents[concept].offset;
 		params['limit']		= $scope.limit[concept];
 		params['accounts']	= accounts;
+		params['status']	= 'enabled';
 
 		contentSv.getContentsByFilters(params).then(
 			function(data) {

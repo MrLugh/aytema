@@ -55,14 +55,14 @@
 
 		<ul id="accountPageList" class="masonry" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.adminContent'}" style="padding-top:{{getMenuHeight()}}px;">
 
-			<li ng-repeat="content in list" class="adminContent" ng-class="getContentClass(content)" ng-style="getContentStyle(content)" ng-switch="content.concept" masonry-item>
+			<li ng-repeat="content in list" class="adminContent {{contentSv.isContentEnabled(content) ? 'active' : 'inactive'}} medium " ng-class="getContentClass(content)" ng-switch="content.concept" masonry-item>
 
 				<ul class="both right controls">
 					<li class="left">
 						<i ng-class="conceptIcon(content.concept)" tooltip="{{content.concept}}" tooltip-placement="bottom"></i>
 					</li>
 					<li class="right">
-						<i ng-click="delete($index)" class="fa fa-trash-o" tooltip="Hide content" tooltip-placement="bottom"></i>
+						<i ng-click="manageAction($index)" class="{{contentSv.isContentEnabled(content) ? 'fa fa-toggle-off' : 'fa fa-toggle-on'}}" tooltip="{{contentSv.isContentEnabled(content) ? 'Hide':'Show' }} content" tooltip-placement="bottom"></i>
 					</li>
 					<li ng-if="content.network == 'cloudcial'" class="right">
 						<i ng-click="showEditContent($index)" class="fa fa-pencil" tooltip="Edit content" tooltip-placement="bottom"></i>

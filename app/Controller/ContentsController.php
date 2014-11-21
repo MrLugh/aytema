@@ -12,7 +12,7 @@ class ContentsController extends AppController {
 
     public function beforeFilter() {
 
-        $this->Auth->allow('index','view','relateds','addFile');
+        $this->Auth->allow('index','view','relateds','delete','activate','addFile');
         $this->loadModel('Socialnet');
         $this->loadModel('User');
     }
@@ -27,10 +27,13 @@ class ContentsController extends AppController {
         isset($this->request->query['offset']) ? $offset= $this->request->query['offset']   : $offset   = 0;
         isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
         isset($this->request->query['username']) ? $username = $this->request->query['username'] : $username = null;
+        isset($this->request->query['status']) ? $status = $this->request->query['status'] : $status = null;
 
         $findUser = $this->User->findByUsername($username);
 
-        $params['Content.status'] = 'enabled';
+        if (!empty($status) && in_array($status, array('disabled','enabled'))) {
+            $params['Content.status'] = $status;
+        }
 
         if (!empty($accounts)) {
 
@@ -87,44 +90,67 @@ class ContentsController extends AppController {
 
         isset($this->request->query['id']) ? $id = $this->request->query['id'] : $id = null;
 
-        $content = $this->Content->findById($id);
-
-        if (is_array($content) && isset($content['Content'])) {
-            $save = $content['Content'];
-            $save['status'] = 'disabled';
-            $content = new Content();
-            $content = $content->save($save);            
-            $message = 'Deleted';
+        if (!$this->Auth->user('id')) {
+            $this->set(array(
+                'message' => array(
+                    'text' => __('Need Login'),
+                    'type' => 'error'
+                ),
+                '_serialize' => array('message')
+            ));
+            $this->response->statusCode(401);
         } else {
-            $message = 'Error';
+            $content = $this->Content->findById($id);
+
+            if (is_array($content) && isset($content['Content'])) {
+                $save = $content['Content'];
+                $save['status'] = 'disabled';
+                $content = new Content();
+                $content = $content->save($save);            
+                $message = 'Deleted';
+            } else {
+                $message = 'Error';
+            }
+
+            $this->set(array(
+                'message' => $message,
+                '_serialize' => array('message')
+            ));
         }
 
-        $this->set(array(
-            'message' => $message,
-            '_serialize' => array('message')
-        ));
     }
 
     public function activate() {
 
         isset($this->request->query['id']) ? $id = $this->request->query['id'] : $id = null;
 
-        $content = $this->Content->findById($id);
-
-        if (is_array($content) && isset($content['Content'])) {
-            $save = $content['Content'];
-            $save['status'] = 'enabled';
-            $content = new Content();
-            $content = $content->save($save);            
-            $message = 'Activated';
+        if (!$this->Auth->user('id')) {
+            $this->set(array(
+                'message' => array(
+                    'text' => __('Need Login'),
+                    'type' => 'error'
+                ),
+                '_serialize' => array('message')
+            ));
+            $this->response->statusCode(401);
         } else {
-            $message = 'Error';
-        }
+            $content = $this->Content->findById($id);
 
-        $this->set(array(
-            'message' => $message,
-            '_serialize' => array('message')
-        ));
+            if (is_array($content) && isset($content['Content'])) {
+                $save = $content['Content'];
+                $save['status'] = 'enabled';
+                $content = new Content();
+                $content = $content->save($save);            
+                $message = 'Activated';
+            } else {
+                $message = 'Error';
+            }
+
+            $this->set(array(
+                'message' => $message,
+                '_serialize' => array('message')
+            ));
+        }
     }        
 
     public function collect() {
@@ -269,10 +295,8 @@ class ContentsController extends AppController {
                 '_serialize'=> array('content')
             ));
         } else {
-            throw new Exception("Error Processing Request", 1);
-        }
-
-        
+            $this->response->statusCode(401);
+        }        
 
     }
 

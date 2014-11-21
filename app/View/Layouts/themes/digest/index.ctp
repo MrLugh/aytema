@@ -92,7 +92,6 @@
     echo $this->Html->script('angular/app/controllers/controllers');
     echo $this->Html->script('angular/app/controllers/app');
     echo $this->Html->script('angular/app/controllers/login');
-    echo $this->Html->script('angular/app/controllers/aytema');
     echo $this->Html->script('angular/app/controllers/admin/pagefilter');
     echo $this->Html->script('angular/app/controllers/admin/contentsize');
     echo $this->Html->script('angular/app/controllers/admin/colors');
@@ -121,7 +120,6 @@
     <?php
     echo $this->Html->script('angular/app/directives/directives');
     echo $this->Html->script('angular/app/directives/login');
-    echo $this->Html->script('angular/app/directives/aytema');
     echo $this->Html->script('angular/app/directives/admin/pagefilter');
     echo $this->Html->script('angular/app/directives/admin/contentsize');
     echo $this->Html->script('angular/app/directives/admin/colors');

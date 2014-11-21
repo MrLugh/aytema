@@ -7,10 +7,6 @@ function adminSettingsCo($scope,$sce,appSv,userSv) {
 
 	$scope.biography 	= "<p><strong>Biography</strong> test</p>";
 
-	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
-		userSv.setUser(data.users[0]['User']);
-	});
-
 	$scope.initProfileImages = function() {
 
 		$scope.profileImages = [];
@@ -65,7 +61,8 @@ function adminSettingsCo($scope,$sce,appSv,userSv) {
 				$scope.informationError = {};
 			},
 			function(data) {
-				$scope.informationError = data.error[0];
+				console.log(data);
+				//$scope.informationError = data.error[0];
 			}
 		);
 	}
@@ -111,6 +108,11 @@ function adminSettingsCo($scope,$sce,appSv,userSv) {
 
 	$scope.$watch('userSv.getUser()',function(user){
 		$scope.user = angular.copy(user);
+		if (userSv.isLogged()) {
+			userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
+				userSv.setUser(data.users[0]['User']);
+			});
+		}
 	},true);
 
 	$scope.dropzoneConfig = {

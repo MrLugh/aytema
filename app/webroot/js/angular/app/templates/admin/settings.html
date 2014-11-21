@@ -6,12 +6,12 @@
 
 			<div class="both pull-right">
 
-				<i ng-if="profileImages.length>1" class="fa fa-arrow-left" ng-click="moveProfileImage(-1)" tooltip="Previous Image" tooltip-placement="top"></i>
-				<i ng-if="profileImages.length>1" class="fa fa-arrow-right" ng-click="moveProfileImage(1)" tooltip="Next Image" tooltip-placement="top"></i>
+				<i ng-if="profileImages.length>1" class="fa fa-arrow-left" ng-click="moveProfileImage(-1)" tooltip="Previous Image" tooltip-placement="bottom"></i>
+				<i ng-if="profileImages.length>1" class="fa fa-arrow-right" ng-click="moveProfileImage(1)" tooltip="Next Image" tooltip-placement="bottom"></i>
 				<div class="dropzone" dropzone="dropzoneConfig" dropzone-instance="dropzoneProfile">
-					<i ng-click="showDropzone()" class="fa fa-cloud-upload" tooltip="Upload Image" tooltip-placement="top"></i>
+					<i ng-click="showDropzone()" class="fa fa-cloud-upload" tooltip="Upload Image" tooltip-placement="bottom"></i>
 				</div>
-				<i ng-click="saveProfileImage()" class="fa fa-save" tooltip="Save image" tooltip-placement="top"></i>
+				<i ng-click="saveProfileImage()" class="fa fa-save" tooltip="Save image" tooltip-placement="bottom"></i>
 
 			</div>
 
@@ -28,7 +28,7 @@
 		<div class="settingsWidgetContainer">
 
 			<div class="both pull-right">
-				<i ng-click="saveInformation()" class="fa fa-save" tooltip="Save information" tooltip-placement="top"></i>
+				<i ng-click="saveInformation()" class="fa fa-save" tooltip="Save information" tooltip-placement="bottom"></i>
 				<i ng-if="hasInformationError()" class="fa fa-warning" tooltip-html-unsafe="{{getInformationError()}}"></i>
 			</div>
 
@@ -52,7 +52,7 @@
 		<div class="settingsWidgetContainer">
 
 			<div class="both pull-right">
-				<i ng-click="saveBiography()" class="fa fa-save" tooltip="Save Biography" tooltip-placement="top"></i>
+				<i ng-click="saveBiography()" class="fa fa-save" tooltip="Save Biography" tooltip-placement="bottom"></i>
 			</div>
 
 			<h4>Biography</h4>
@@ -68,7 +68,7 @@
 		<div class="settingsWidgetContainer">
 
 			<div class="both pull-right">
-				<i ng-click="saveAddress()" class="fa fa-save" tooltip="Save Address" tooltip-placement="top"></i>
+				<i ng-click="saveAddress()" class="fa fa-save" tooltip="Save Address" tooltip-placement="bottom"></i>
 			</div>
 
 			<h4>Address & Map</h4>
