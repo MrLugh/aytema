@@ -4,7 +4,7 @@
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script src="http://platform.tumblr.com/v1/share.js"></script>
 
-	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme"  tooltip-placement="right">
+	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme" tooltip-placement="right">
 		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
 
 		<tabset ng-if="showConfig">
@@ -22,46 +22,76 @@
 
 	</div>
 
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation" get-menu-height ng-style="getMenuStyle()">
-	  
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<img ng-src="{{user.profile_image}}" class="profileImage img-circle"/>
-			<a class="navbar-brand" href="#/" ng-style="getMenuStyle()">{{user.username|uppercase}}</a>
+	<div id="menu" get-menu-height ng-style="getMenuStyle()">
+  
+		<div ng-if="user.profile_image.length" class="profileImage" style="background-image:url('{{user.profile_image}}')">
 		</div>
 
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
+		<h1 ng-style="getBrandStyle()" class="menu-brand">
+			{{user.username|uppercase}}
+			<span ng-show="!isSearch"> #<strong count-up="{{current + 1}}">{{current + 1}}</strong></span>
+		</h1>
+				
 
-				<li ng-repeat="network in filters.networks" class="inline menu-item" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)">
-					<p class="navbar-text navbar-right">
-						<a href="#" class="navbar-link" skip-default>
-							<img ng-src="{{networkIcon(network)}}" class="socialIcon" />
-						</a>
-					</p>
-				</li>
+		<a href="#/" class="search" skip-default ng-click="showSearch()" ng-style="getControlsButtonStyle()" tooltip="{{isSearch ? 'Close':'Filters'}}" tooltip-placement="bottom">
+			<i class="{{isSearch ? 'fa fa-close':'fa fa-search'}}"></i>
+		</a>
 
-				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterConceptStyle(concept)" class="inline menu-item">
-					<p class="navbar-text navbar-right">
-						<a href="#" class="navbar-link" skip-default>
-							<i ng-class="conceptIcon(concept)" ng-style="getMenuStyle()"></i>
-						</a>
-					</p>
+		<a ng-if="isSearch" href="#/" class="search" skip-default ng-click="moreContent()" ng-style="getControlsButtonStyle()" tooltip="More content" tooltip-placement="bottom">
+			<i class="fa fa-plus" ng-click="moreContent()"></i>
+		</a>		
+
+		<div class="filterPage {{isSearch ? 'searching' : ''}}" ng-style="getStyle()">
+
+			<ul class="filterPageList">
+
+				<h1>
+					#<strong count-up="{{list.length}}">{{list.length}}</strong>
+				</h1>
+
+				<h1> > Networks</h1>
+
+				<li ng-repeat="network in filters.networks" class="inline menu-item {{isNetWorkActive(network) ? 'active':''}} {{counters[network] ? 'dotted':''}}" ng-click="filterNetwork(network)" tooltip="{{isNetWorkActive(network) ? 'Hide':'Show'}} {{counters[network]}} from {{network|networkBrand}}">
+					<i ng-class="contentSv.getNetworkIcon(network)"></i>
+					<p count-up="{{counters[network]}}">{{counters[network]}}</p>
 				</li>
 
 			</ul>
+
+			<ul class="filterPageList">
+
+				<h1> > Concepts</h1>
+
+				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" class="inline menu-item {{isConceptActive(concept) ? 'active':''}} {{counters[concept] ? 'dotted':''}}" tooltip="{{isConceptActive(concept) ? 'Hide':'Show'}} {{counters[concept]}} {{getPluralizedConcepts(concept)}}">
+					<i ng-class="conceptIcon(concept)"></i>
+					<p count-up="{{counters[concept]}}">{{counters[concept]}}</p>
+				</li>
+
+			</ul>
+
 		</div>
 
-	</nav>
+		<div ng-show="!isSearch" class="controls" ng-style="getControlsStyle()">
+
+			<a href="#/" class="prev" skip-default ng-click="move(-1)" tooltip="Previous content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
+				<i class="fa fa-arrow-circle-up"></i>
+			</a>
+			<a href="#/" class="next" skip-default ng-click="move(1)" tooltip="Next content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
+				<i class="fa fa-arrow-circle-down"></i>
+			</a>
+
+			<a href="#/" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()|capitalize}}" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
+				<i ng-class="getModeIconClass()"></i>
+			</a>
+
+
+		</div>
+
+	</div>
 
 	<div id="container">
 
-		<ul id="list" ng-style="getStyle()" ng-class="getListClass()">
+		<ul ng-show="!isSearch" id="list" ng-style="getStyle()" ng-class="getListClass()">
 
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="getContentClass($index)" id="content_{{$index}}" ng-style="getContentStyle()">
 
@@ -111,22 +141,6 @@
 
 		</ul>
 
-		<div class="controls" ng-style="getControlsStyle()">
-
-			<a href="#/" class="prev" skip-default ng-click="move(-1)" tooltip="Previous content" ng-style="getControlsButtonStyle()">
-				<i class="fa fa-arrow-circle-up"></i>
-			</a>
-			<a href="#/" class="next" skip-default ng-click="move(1)" tooltip="Next content" ng-style="getControlsButtonStyle()">
-				<i class="fa fa-arrow-circle-down"></i>
-			</a>
-
-			<a href="#/" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()|capitalize}}" ng-style="getControlsButtonStyle()">
-				<i ng-class="getModeIconClass()"></i>
-			</a>
-
-
-		</div>
-
 		<div ng-style="getCommentsStyle()" ng-if="isComments" class="overlay_comments">
 			<fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true" data-colorscheme="{{getCommentsColor()}}" class="comments_container"></fb-comments>
 		</div>
@@ -134,7 +148,7 @@
 
 	</div>
 
-	<div class="footer" ng-style="getFooterStyle()" get-footer-height>
+	<div ng-show="!isSearch" class="footer" ng-style="getFooterStyle()" get-footer-height>
 
 		<a href="#/" class="footercontrol" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>
 			<i class="fa fa-play-circle" ng-style="getFooterContrastStyle()"></i>

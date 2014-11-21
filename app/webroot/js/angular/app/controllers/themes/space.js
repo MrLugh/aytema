@@ -7,6 +7,8 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
+	$scope.counters = {};
+
 	$scope.limit 	= 10;
 	$scope.offset	= 0;
 	$scope.list 	= [];
@@ -17,6 +19,8 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.content	= {};
 	$scope.controlHover = false;
 	$scope.mode 	= false;
+
+	$scope.isSearch = false;
 
 	$scope.indexComments= 0;
 	$scope.isComments	= false; 
@@ -51,6 +55,10 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 			if (filters['networks'].indexOf(account.network) == -1){
 				filters['networks'].push(account.network);
 			}
+			if (!angular.isDefined($scope.counters[account.network])) {
+				$scope.counters[account.network] = 0;
+			}
+			$scope.counters[account.network] = 0;
 
 			var concepts = networks[account.network]['concepts'];
 
@@ -59,6 +67,9 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 				if (filters['concepts'].indexOf(concept) == -1){
 					filters['concepts'].push(concept);
 				}
+				if (!angular.isDefined($scope.counters[concept])) {
+					$scope.counters[concept] = 0;
+				}				
 			}
 		}
 
@@ -79,8 +90,16 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		for (var x in $scope.networks) {
 			var network = $scope.networks[x];
 			var concepts = networks[network]['concepts'];
+			if (!angular.isDefined($scope.counters[content.network])) {
+				$scope.counters[content.network] = 0;
+			}
+			$scope.counters[content.network] = 0;
 			for (var y in concepts){
 				var concept = concepts[y];
+				if (!angular.isDefined($scope.counters[content.concept])) {
+					$scope.counters[content.concept] = 0;
+				}
+				$scope.counters[content.concept] = 0;
 				if (newConcepts.indexOf(concept) == -1){
 					newConcepts.push(concept);
 				}
@@ -104,6 +123,9 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 			if ($scope.offset == 0) {
 				$scope.content = {};
 				$scope.current = 0;
+			    angular.forEach($scope.counters, function(value, index) {
+			    	$scope.counters[index] = 0;
+			    });
 			}
 
 			if ($scope.concepts.length == 0) {
@@ -135,6 +157,8 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 					if (data.contents.length) {
 						for (var x in contents) {
 							content = contents[x].Content;
+							$scope.counters[content.concept]++;
+							$scope.counters[content.network]++;
 							$scope.list.push(content);
 						}
 						$scope.offset += $scope.limit;
@@ -314,6 +338,11 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.indexComments= index;
 	}
 
+	$scope.showSearch = function(index) {
+		$scope.isSearch	= !$scope.isSearch;
+	}
+
+
     $scope.getContentCommentsHash = function() {
     	var c = $scope.list[$scope.indexComments];
     	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
@@ -331,26 +360,14 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		return contentSv.getConceptIcon(concept);
 	}
 
-	$scope.filterNetworkStyle = function(network) {
+	$scope.isNetWorkActive = function(network) {
 
-		var style = {'opacity':1};
-
-		if ($scope.networks.indexOf(network) == -1) {
-			style['opacity'] = '0.3';
-		}
-
-		return style;
+		return $scope.networks.indexOf(network) != -1;
 	}
 
-	$scope.filterConceptStyle = function(concept) {
+	$scope.isConceptActive = function(concept) {
 
-		var style = {'opacity':1};
-
-		if ($scope.concepts.indexOf(concept) == -1) {
-			style['opacity'] = '0.3';
-		}
-
-		return style;
+		return $scope.concepts.indexOf(concept) != -1;
 	}
 
 	$scope.filterNetwork = function(network) {
@@ -400,10 +417,9 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     		return {};
     	}
 
-
 		appSv.setMyWH(appSv.getHeight() - $scope.menuHeight);
 		return {
-			'min-height':appSv.getHeight() - $scope.menuHeight + 'px',
+			'height':appSv.getHeight() - $scope.menuHeight + 'px',
 			'opacity': ($scope.isComments) ? '0':'1',
 			'margin-top': $scope.menuHeight + 'px',
 			//'background-color': $scope.config.custom.colors.background.value
@@ -526,6 +542,10 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		return $scope.mode ? 'fa fa-text-height' : 'fa fa-picture-o';
 	}
 
+	$scope.getPluralizedConcepts = function(concept) {
+		return appSv.getPluralizedConcepts()[concept];
+	}
+
 	$scope.getListClass = function() {
 		return $scope.mode ? 'list_full' : 'list_text';
 	}
@@ -622,6 +642,20 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		};
     }
 
+    $scope.getBrandStyle = function() {
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return {};
+    	}
+
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
+
+    	return {
+    		'background-color':rgbString,
+    		'color':$scope.config.custom.colors.contentText.value
+		};
+    }
+
     $scope.getProfileStyle = function() {
 
     	if (!angular.isDefined($scope.config.custom)) {
@@ -711,6 +745,5 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var element = angular.element(document.querySelector('body'));
 		$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
-
 	}
 }

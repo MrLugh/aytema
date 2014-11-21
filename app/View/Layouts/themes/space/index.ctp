@@ -50,6 +50,7 @@
     echo $this->Html->script('minicolors');
     echo $this->Html->script('imagesloaded.pkgd');    
     echo $this->Html->script('carouFredSel');
+    echo $this->Html->script('countUp');
     echo $this->Html->script('touchSwipe.min');
     echo $this->Html->script('dropzone');
     ?>

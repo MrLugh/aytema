@@ -292,8 +292,9 @@ function () {
                 scope.countUp = new countUp(element[0], 0, value, 0, 2.5, options);
                 scope.countUp.start();
                 var countTimer = setTimeout(function(){
+                    clearTimeout(countTimer);
                     element[0].innerHTML = attrs.countUp;
-                },2550);
+                },2500);
             }
         });
 
