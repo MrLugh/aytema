@@ -49,9 +49,16 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var filters	= {'concepts':[],'networks':[]};
 		var networks= appSv.getNetworks();
+		delete networks['twitter'];
 
 		for (var x in $scope.accounts) {
+
 			var account = $scope.accounts[x]['Socialnet'];
+
+			if (account.network == 'twitter') {
+				continue;
+			}
+
 			if (filters['networks'].indexOf(account.network) == -1){
 				filters['networks'].push(account.network);
 			}
@@ -86,6 +93,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var newConcepts = [];
 		var networks= appSv.getNetworks();
+		delete networks['twitter'];
 
 		for (var x in $scope.networks) {
 			var network = $scope.networks[x];
