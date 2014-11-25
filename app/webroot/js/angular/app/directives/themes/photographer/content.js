@@ -1,7 +1,7 @@
 ayTemaDs.directive('contentVideo',[
 function(){
     return {
-        templateUrl : getPath('tpl')+'/themes/dj/video.html',
+        templateUrl : getPath('tpl')+'/themes/photographer/video.html',
         restrict : 'E',
         replace : true,
         controller:'contentVideoCo',
@@ -16,7 +16,7 @@ function(){
 ayTemaDs.directive('contentPhoto',[
 function(){
     return {
-        templateUrl : getPath('tpl')+'/themes/dj/photo.html',
+        templateUrl : getPath('tpl')+'/themes/photographer/photo.html',
         restrict : 'E',
         replace : true,
         controller:'contentPhotoCo',
@@ -43,10 +43,10 @@ function(){
 
 }]);
 
-ayTemaDs.directive('contentTrack',[
-function(){    
+ayTemaDs.directive('contentTrack',[function(){
+    
     return {
-        templateUrl : getPath('tpl')+'/themes/dj/track.html',
+        templateUrl : getPath('tpl')+'/themes/photographer/track.html',
         restrict : 'E',
         replace : true,
         controller:'contentTrackCo',
@@ -55,10 +55,10 @@ function(){
 
 }]);
 
-ayTemaDs.directive('contentChat',[
-function(){    
+ayTemaDs.directive('contentChat',[function(){
+    
     return {
-        templateUrl : getPath('tpl')+'/themes/dj/chat.html',
+        templateUrl : getPath('tpl')+'/themes/photographer/chat.html',
         restrict : 'E',
         replace : true,
         controller:'contentChatCo',
@@ -67,10 +67,10 @@ function(){
 
 }]);
 
-ayTemaDs.directive('contentQuote',[
-function(){    
+ayTemaDs.directive('contentQuote',[function(){
+    
     return {
-        templateUrl : getPath('tpl')+'/themes/dj/quote.html',
+        templateUrl : getPath('tpl')+'/themes/photographer/quote.html',
         restrict : 'E',
         replace : true,
         controller:'contentQuoteCo',
@@ -79,10 +79,10 @@ function(){
 
 }]);
 
-ayTemaDs.directive('contentPost',[
-function(){
+ayTemaDs.directive('contentPost',['$FB','$timeout',
+function($FB,$timeout){    
     return {
-        templateUrl : getPath('tpl')+'/themes/dj/post.html',
+        templateUrl : getPath('tpl')+'/themes/photographer/post.html',
         restrict : 'E',
         replace : true,
         controller:'contentPostCo',
@@ -94,10 +94,11 @@ function(){
 
 }]);
 
-ayTemaDs.directive('contentLink',[
-function(){    
+ayTemaDs.directive('contentLink',['appSv','$window',
+function(appSv,$window){
+    
     return {
-        templateUrl : getPath('tpl')+'/themes/dj/link.html',
+        templateUrl : getPath('tpl')+'/themes/photographer/link.html',
         restrict : 'E',
         replace : true,
         controller:'contentLinkCo',
@@ -106,10 +107,11 @@ function(){
 
 }]);
 
-ayTemaDs.directive('contentEvent',[
-function(){    
+ayTemaDs.directive('contentEvent',['appSv','$window',
+function(appSv,$window){
+    
     return {
-        templateUrl : getPath('tpl')+'/themes/dj/event.html',
+        templateUrl : getPath('tpl')+'/themes/photographer/event.html',
         restrict : 'E',
         replace : true,
         controller:'contentEventCo',

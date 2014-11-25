@@ -168,6 +168,13 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 				getPath('img')+'/themes/dj/dj_theme_06.png',
 			]
 		},
+		{
+			'name'		: 'Photographer',
+			'key'		: 'photographer',
+			'thumbnails': [
+				getPath('img')+'/themes/photographer/photographer_theme_01.png',
+			]
+		},
 	];
 
 	return {

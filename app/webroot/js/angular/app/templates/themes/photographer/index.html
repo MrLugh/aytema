@@ -1,0 +1,139 @@
+<div class="app">
+
+	<fb app-id='211895592326072'></fb>
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<script src="http://platform.tumblr.com/v1/share.js"></script>
+
+	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme"  tooltip-placement="right">
+		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
+
+		<tabset ng-if="showConfig">
+
+			<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+				<div ng-switch="tab.key" class="inside">
+					<admin-background ng-switch-when='background'></admin-background>
+					<admin-colors ng-switch-when='colors'></admin-colors>
+					<admin-width ng-switch-when='width'></admin-width>
+				</div>
+			</tab>
+
+		</tabset>
+
+	</div>
+
+    <ul class="cb-slideshow">
+    	<li ng-repeat="photo in contents.photo.list|limitTo:6">
+    		<span style="background-image:url('{{contentSv.getThumbnail(photo)}}')">{{contentSv.getTitle(photo)}}</span>
+    	</li>
+    </ul>
+
+    <a href="#/" id="trigger-overlay" class="bt showT viewed" skip-deault>
+        <span class="bg"></span>
+        <span class="lines"><span></span><span></span><span></span></span>
+    </a>
+
+	<!-- open/close -->
+	<div class="overlay overlay-door"></div>
+
+    <div id="wrap">
+
+		<a title="Mike Murphy" href="#/" id="logo"  skip-deault>
+			<span class="logo">{{user.username}}</span>
+			<span class="logo-tagline">Photographer</span>
+		</a>
+
+		<div class="container-fluid contenedor-gral contenedor-home">
+			<div class="row">
+				<nav>
+					<div class="panel-group in" id="menu">
+						<div class="panel">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#menu" href="#photos" skip-deault>Photos</a>
+								</h4>
+                    		</div>
+                    		<div id="photos" class="panel-collapse collapse">
+                      			<div class="panel-body">
+			              			<div ng-if="contents.photo.list.length" id="owl-photos" class="owl-carousel gallery" owl-carousel-photos="{'autoPlay':3000,'items':4,'lazyLoad':true,'video':false,'navigation':false}">
+			                			<div ng-repeat="photo in contents.photo.list" class="item">
+											<a data-title="{{contentSv.getTitle(photo)}}" data-gallery="multiimages" data-toggle="lightbox" href="{{contentSv.getThumbnail(photo)}}" skip-deault>
+			                					<img class="lazyOwl" src="{{contentSv.getThumbnail(photo)}}" data-src="{{contentSv.getThumbnail(photo)}}" alt="{{contentSv.getTitle(photo)}}">
+			                				</a>
+			                			</div>
+			              			</div>
+			              		</div>
+			              	</div>
+			            </div>
+			            <div class="panel">
+		                    <div class="panel-heading">
+		                      <h4 class="panel-title">
+		                        <a data-toggle="collapse" class="video-menu" data-parent="#menu" href="#videos">
+		                          Videos
+		                        </a>
+		                      </h4>
+		                    </div>
+							<div id="videos" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div id="owl-videos" class="owl-carousel" owl-carousel="{'items':1,'merge':true,'loop':true,'margin':10,'video':true,'lazyLoad':true,'center':true,'responsive':{480:{'items':2},600:{'items':4}}}">
+									    <div ng-repeat="video in contents.video.list" class="item-video" data-merge="3">
+									    	<a class="owl-video" href="http://vimeo.com/23924346"></a>
+									    </div>
+									</div>
+								</div>
+							</div>
+                  		</div>
+						<div class="panel">
+							<div class="panel-heading">
+							  <h4 class="panel-title">
+							    <a data-toggle="collapse" data-parent="#menu" href="#about">
+							      About
+							    </a>
+							  </h4>
+							</div>
+							<div id="about" class="panel-collapse collapse">
+							  <div class="panel-body">
+							  	<div class="presentacion col-md-6" ng-bind-html="getBiography()"></div>
+							  	<div class="profile col-md-6">
+							  		<img ng-src="{{user.profile_image}}" alt="{{user.username}} Profile Image" class="img-thumbnail">
+							    </div>
+							  </div>
+							</div>
+						</div>
+
+						<div class="panel">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#menu" href="#contact">Contact</a>
+								</h4>
+							</div>
+							<div id="contact" class="panel-collapse collapse">
+								<div class="panel-body">
+									<address>
+										<ul class="list-inline">
+											<li>Phone: <span>(123) 456-7890</span></li>
+											<li>Email: <a href="mailto:#">{{user.email}}</a></li>
+										</ul>
+									</address>
+                      			</div>
+                      		</div>
+                    	</div>
+                    </div><!-- /menu -->
+                </nav>
+            </div><!--/row -->
+        </div> <!-- /container-fluid -->
+   	</div> <!-- /wrap -->
+
+   	<!-- Start Footer  -->
+   	<footer>
+   		<div class="content-footer">
+
+			<a ng-repeat="account in accounts" ng-if="account.Socialnet.token.length" href="/dashboard/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.login}}">
+				<i class="{{networkIcon(account.Socialnet.network)}} fa-3"></i>
+			</a>
+
+	   </div> 
+  </footer>
+  <!-- End Footer  -->
+
+
+</div>
