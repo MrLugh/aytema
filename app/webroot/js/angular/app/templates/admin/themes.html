@@ -50,9 +50,6 @@
 				<i class="fa fa-times-circle-o" ng-click="closePreview()" tooltip="Close preview" tooltip-placement="bottom"></i>
 
 				<ul class="devices">
-					<li ng-click="setDeviceSize(false,false)" class="inline {{isActiveDevice(false,false) ? 'active':''}}">
-						<i class="fa fa-desktop" tooltip="Default" ></i>
-					</li>
 					<li ng-click="setDeviceSize(240,320)" class="inline {{isActiveDevice(240,320) ? 'active':''}}">
 						<i class="fa fa-mobile" tooltip="Small Phone 240x320" ></i>
 					</li>
@@ -67,6 +64,9 @@
 					</li>
 					<li ng-click="setDeviceSize(1024,768)" class="inline {{isActiveDevice(1024,768) ? 'active':''}}">
 						<i class="fa fa-tablet" tooltip="iPad Landscape 1024x768" ></i>
+					</li>
+					<li ng-click="setDeviceSize(false,false)" class="inline {{isActiveDevice(false,false) ? 'active':''}}">
+						<i class="fa fa-desktop" tooltip="Default" ></i>
 					</li>
 				</ul>
 
