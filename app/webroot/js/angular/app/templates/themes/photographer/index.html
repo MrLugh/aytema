@@ -23,7 +23,7 @@
 
     <ul class="cb-slideshow">
     	<li ng-repeat="photo in contents.photo.list|limitTo:6">
-    		<span style="background-image:url('{{contentSv.getThumbnail(photo)}}')">{{contentSv.getTitle(photo)}}</span>
+    		<span thumbnail="photo" style="background-image:url('{{contentSv.getThumbnail(photo)}}')">{{contentSv.getTitle(photo)}}</span>
     	</li>
     </ul>
 
@@ -57,7 +57,7 @@
 			              			<div ng-if="contents.photo.list.length" id="owl-photos" class="owl-carousel gallery" owl-carousel-photos="{'autoPlay':3000,'items':4,'lazyLoad':true,'video':false,'navigation':false}">
 			                			<div ng-repeat="photo in contents.photo.list" class="item">
 											<a data-title="{{contentSv.getTitle(photo)}}" data-gallery="multiimages" data-toggle="lightbox" href="{{contentSv.getThumbnail(photo)}}" skip-deault>
-			                					<img class="lazyOwl" src="{{contentSv.getThumbnail(photo)}}" data-src="{{contentSv.getThumbnail(photo)}}" alt="{{contentSv.getTitle(photo)}}">
+			                					<img thumbnail="photo" class="lazyOwl" data-src="{{contentSv.getThumbnail(photo)}}" alt="{{contentSv.getTitle(photo)}}">
 			                				</a>
 			                			</div>
 			              			</div>
@@ -66,17 +66,15 @@
 			            </div>
 			            <div class="panel">
 		                    <div class="panel-heading">
-		                      <h4 class="panel-title">
-		                        <a data-toggle="collapse" class="video-menu" data-parent="#menu" href="#videos">
-		                          Videos
-		                        </a>
-		                      </h4>
+		                    	<h4 class="panel-title">
+		                    		<a data-toggle="collapse" class="video-menu" data-parent="#menu" href="#videos">Videos</a>
+		                    	</h4>
 		                    </div>
 							<div id="videos" class="panel-collapse collapse">
 								<div class="panel-body">
-									<div id="owl-videos" class="owl-carousel" owl-carousel="{'items':1,'merge':true,'loop':true,'margin':10,'video':true,'lazyLoad':true,'center':true,'responsive':{480:{'items':2},600:{'items':4}}}">
+									<div ng-if="contents.video.list.length" id="owl-videos" class="owl-carousel" owl-carousel="{'items':1,'merge':true,'loop':true,'margin':10,'video':true,'lazyLoad':true,'center':true,'responsive':{480:{'items':2},600:{'items':4}}}">
 									    <div ng-repeat="video in contents.video.list" class="item-video" data-merge="3">
-									    	<a class="owl-video" href="http://vimeo.com/23924346"></a>
+									    	<a class="owl-video" href="{{contentSv.getVideoUrl(video)}}" thumb=" {{contentSv.getThumbnail(video)}} " embed=" {{contentSv.getPlayer(video)}} "></a>
 									    </div>
 									</div>
 								</div>
@@ -84,19 +82,17 @@
                   		</div>
 						<div class="panel">
 							<div class="panel-heading">
-							  <h4 class="panel-title">
-							    <a data-toggle="collapse" data-parent="#menu" href="#about">
-							      About
-							    </a>
-							  </h4>
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#menu" href="#about">About</a>
+								</h4>
 							</div>
 							<div id="about" class="panel-collapse collapse">
-							  <div class="panel-body">
-							  	<div class="presentacion col-md-6" ng-bind-html="getBiography()"></div>
-							  	<div class="profile col-md-6">
-							  		<img ng-src="{{user.profile_image}}" alt="{{user.username}} Profile Image" class="img-thumbnail">
-							    </div>
-							  </div>
+								<div class="panel-body">
+									<div class="presentacion col-md-6" ng-bind-html="getBiography()"></div>
+							  		<div class="profile col-md-6">
+							  			<img ng-src="{{user.profile_image}}" alt="{{user.username}} Profile Image" class="img-thumbnail">
+							    	</div>
+							  	</div>
 							</div>
 						</div>
 

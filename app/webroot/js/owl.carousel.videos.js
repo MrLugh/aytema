@@ -2115,37 +2115,23 @@
 	};
 
 	/**
-	 * Gets the video ID and the type (YouTube/Vimeo only).
 	 * @protected
 	 * @param {jQuery} target - The target containing the video data.
 	 * @param {jQuery} item - The item containing the video.
 	 */
 	Video.prototype.fetch = function(target, item) {
 
-		var type = target.attr('data-vimeo-id') ? 'vimeo' : 'youtube',
-			id = target.attr('data-vimeo-id') || target.attr('data-youtube-id'),
+		var type = target.attr('type') ? 'vimeo' : 'youtube',
 			width = target.attr('data-width') || this._core.settings.videoWidth,
 			height = target.attr('data-height') || this._core.settings.videoHeight,
 			url = target.attr('href');
 
-		if (url) {
-			id = url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
-
-			if (id[3].indexOf('youtu') > -1) {
-				type = 'youtube';
-			} else if (id[3].indexOf('vimeo') > -1) {
-				type = 'vimeo';
-			} else {
-				throw new Error('Video URL not supported.');
-			}
-			id = id[6];
-		} else {
+		if (!url) {
 			throw new Error('Missing video URL.');
 		}
 
 		this._videos[url] = {
 			type: type,
-			id: id,
 			width: width,
 			height: height
 		};
@@ -2199,21 +2185,9 @@
 			return false;
 		}
 
-		if (video.type === 'youtube') {
-			path = "http://img.youtube.com/vi/" + video.id + "/hqdefault.jpg";
-			create(path);
-		} else if (video.type === 'vimeo') {
-			$.ajax({
-				type: 'GET',
-				url: 'http://vimeo.com/api/v2/video/' + video.id + '.json',
-				jsonp: 'callback',
-				dataType: 'jsonp',
-				success: function(data) {
-					path = data[0].thumbnail_large;
-					create(path);
-				}
-			});
-		}
+		path = target.attr('thumb');
+		create(path);
+
 	};
 
 	/**
@@ -2246,14 +2220,9 @@
 			height = video.height || this._core.$stage.height(),
 			html, wrap;
 
-		if (video.type === 'youtube') {
-			html = '<iframe width="' + width + '" height="' + height + '" src="http://www.youtube.com/embed/'
-				+ video.id + '?autoplay=1&v=' + video.id + '" frameborder="0" allowfullscreen></iframe>';
-		} else if (video.type === 'vimeo') {
-			html = '<iframe src="http://player.vimeo.com/video/' + video.id + '?autoplay=1" width="' + width
-				+ '" height="' + height
-				+ '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-		}
+		html = target.attr('embed');
+		console.log(target);
+		console.log(html);
 
 		item.addClass('owl-video-playing');
 		this._playing = item;

@@ -490,8 +490,8 @@ function ($timeout) {
 }]);
 
 
-ayTemaDs.directive('owlCarousel',['$timeout',
-function ($timeout) {
+ayTemaDs.directive('owlCarousel',['$timeout','$window',
+function ($timeout,$window) {
     return function (scope, element, attrs) {
 
         var options = scope.$eval(attrs.owlCarousel);
@@ -521,11 +521,17 @@ function ($timeout) {
                 $(element[0]).owlCarousel(options);
             },0);
         });
+
+        angular.element($window).bind('resize', function(){
+            $timeout(function(){
+                $(element[0]).owlCarousel(options);
+            },0);
+        });
     }
 }]);
 
-ayTemaDs.directive('owlCarouselPhotos',['$timeout',
-function ($timeout) {
+ayTemaDs.directive('owlCarouselPhotos',['$timeout','$window',
+function ($timeout,$window) {
     return function (scope, element, attrs) {
 
         var options = scope.$eval(attrs.owlCarouselPhotos);
@@ -541,6 +547,12 @@ function ($timeout) {
         }
 
         element.ready(function(){
+            $timeout(function(){
+                $(element[0]).owlCarouselPhotos(options);
+            },0);
+        });
+
+        angular.element($window).bind('resize', function(){
             $timeout(function(){
                 $(element[0]).owlCarouselPhotos(options);
             },0);

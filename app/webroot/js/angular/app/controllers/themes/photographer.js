@@ -14,18 +14,14 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accountsLoaded = false;
 
 	$scope.limit 	= {
-		'photo':8,
-		'video':10,
-		'track':10,
-		'event':4,
-		'post':8,
+		'photo':20,
+		'video':20,
+		'track':20,
+		'event':20,
+		'post':20,
 	};
 	$scope.contents	= {};
-	$scope.current	= 'page_profile';
-	$scope.content	= {};
-
 	$scope.loadingContent = {};
-
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -165,25 +161,6 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 		return appSv.getPluralizedConcepts()[concept];
 	};
 
-	$scope.getPluralizedPage = function(page) {
-		if (page == 'profile') {
-			return 'profiles';
-		}
-		if (page == 'about') {
-			return 'about';
-		}
-		if (page == 'contact') {
-			return 'contact';
-		}
-		if (page == 'detail') {
-			return 'detail';
-		}
-		if (page == 'footer') {
-			return 'footer';
-		}
-		return appSv.getPluralizedConcepts()[page];		
-	};
-
 	$scope.getPlayer = function(content) {
 
 		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
@@ -232,42 +209,9 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
         appSv.setHeight(sizes[1]);
     });
 
-	$scope.scrollTo = function(element,time) {
-		$('html, body').animate({
-			scrollTop: element[0].offsetTop
-		}, time);
-	};
-
-	$scope.scrollToSection = function(section) {
-		var element = angular.element(document.querySelector("#"+section));
-
-		var concept = $scope.pages.indexOf(angular.copy(section).replace("page_",""));
-		var current = $scope.pages.indexOf(angular.copy($scope.current).replace("page_",""));
-		
-		$scope.diff = Math.abs($scope.pages.indexOf(angular.copy(section).replace("page_","")) -
-			$scope.pages.indexOf(angular.copy($scope.current).replace("page_","")));
-		
-		var time = 1000;
-		if ($scope.diff >= $scope.pages.length / 2) {
-			time = 2500;
-		}
-
-		if (section != 'page_detail') {
-			$scope.current = section;	
-		}		
-
-		$scope.scrollTo(element, time);
-	};
-
 	$scope.resetIframes = function(index) {
 
-	    angular.forEach(document.querySelectorAll("#content"+index+" iframe"), function(iframe, index) {
-	    	iframe.src = iframe.src;
-	    });
-	    angular.forEach(document.querySelectorAll("#content"+index+" video"), function(iframe, index) {
-	    	iframe.src = iframe.src;
-	    });
-	    angular.forEach(document.querySelectorAll("#content"+index+" audio"), function(iframe, index) {
+	    angular.forEach(document.querySelectorAll("iframe"), function(iframe, index) {
 	    	iframe.src = iframe.src;
 	    });
 	};
@@ -283,10 +227,6 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
     $scope.adminTheme = function() {
     	$scope.showConfig = !$scope.showConfig;
-    };
-
-    $scope.footer = function() {
-    	$scope.showFooter = !$scope.showFooter;
     };
 
     $scope.getConfigStyle = function() {
