@@ -415,6 +415,7 @@
   width: auto;
   height: auto;
   position: relative;
+  color: #fff;
 }
 
 .accountPageHeader .stats li {
