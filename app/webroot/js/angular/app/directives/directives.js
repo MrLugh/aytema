@@ -489,6 +489,78 @@ function ($timeout) {
     }
 }]);
 
+
+ayTemaDs.directive('owlCarousel',['$timeout','$window',
+function ($timeout,$window) {
+    return function (scope, element, attrs) {
+
+        var options = scope.$eval(attrs.owlCarousel);
+
+        if (!angular.isDefined(options)) {
+            options = {
+                items:1,
+                merge:true,
+                loop:true,
+                margin:10,
+                video:true,
+                lazyLoad:true,
+                center:true,
+                responsive:{
+                    480:{
+                        items:2
+                    },
+                    600:{
+                        items:4
+                    }
+                }
+            };
+        }
+
+        element.ready(function(){
+            $timeout(function(){
+                $(element[0]).owlCarousel(options);
+            },0);
+        });
+
+        angular.element($window).bind('resize', function(){
+            $timeout(function(){
+                $(element[0]).owlCarousel(options);
+            },0);
+        });
+    }
+}]);
+
+ayTemaDs.directive('owlCarouselPhotos',['$timeout','$window',
+function ($timeout,$window) {
+    return function (scope, element, attrs) {
+
+        var options = scope.$eval(attrs.owlCarouselPhotos);
+
+        if (!angular.isDefined(options)) {
+            options = {
+                autoPlay: 3000,
+                items : 4,
+                lazyLoad : true,
+                video:false,
+                navigation : false
+            };
+        }
+
+        element.ready(function(){
+            $timeout(function(){
+                $(element[0]).owlCarouselPhotos(options);
+            },0);
+        });
+
+        angular.element($window).bind('resize', function(){
+            $timeout(function(){
+                $(element[0]).owlCarouselPhotos(options);
+            },0);
+        });
+    }
+}]);
+
+
 ayTemaDs.directive('shareTwitter',['contentSv',
 function (contentSv) {
     return function(scope,element,attrs) {

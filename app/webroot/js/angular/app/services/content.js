@@ -1014,9 +1014,47 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			source = content.data['url'];
 		}
 
+		if (content.network == 'cloudcial') {
+			source = content.data['path'];
+		}
+
 		return source;
 
 	}
+
+	var getVideoUrl = function(content) {
+
+		var source = '';
+
+		if (!angular.isDefined(content)) {
+			return source;
+		}
+
+
+		if (content.network == 'tumblr') {
+			if (angular.isDefined(content.data['source_url'])) {
+				source = content.data['source_url'];
+			}
+			if (angular.isDefined(content.data['permalink_url'])) {
+				source = content.data['permalink_url'];
+			}
+		}
+
+		if (content.network == 'youtube') {
+			source = content.data['permalink_url'];
+		}
+
+		if (content.network == 'vimeo') {
+			source = "https://vimeo.com/" + content.data['id'];
+		}
+
+		if (content.network == 'cloudcial') {
+			source = content.data['path'];
+		}
+
+		return source;
+
+	}	
 
 	var addToQueue = function(content) {
 
@@ -1139,6 +1177,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		getQuoteText:getQuoteText,
 		getQuoteSource:getQuoteSource,
 		getTrackUrl:getTrackUrl,
+		getVideoUrl:getVideoUrl,
 
 		getRelatedContent:getRelatedContent,
 

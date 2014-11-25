@@ -152,7 +152,8 @@
 	height: 100%;
 	top: 0;
 	position: absolute;
-	overflow: auto;
+	/*overflow: auto;*/
+	overflow: hidden;
 	-webkit-transition:all 0.56s ease-in-out 0s;
 	-moz-transition:all 0.56s ease-in-out 0s;
 	-o-transition:all 0.56s ease-in-out 0s;

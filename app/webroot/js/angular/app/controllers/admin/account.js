@@ -85,7 +85,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 					if (contents.length) {
 						for (var x in contents) {
 							content = contents[x].Content;
-							console.log(content);
 							if ($scope.filters.concepts.indexOf(content.concept) != -1)	{
 								$scope.list.push(content);
 							}

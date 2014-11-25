@@ -1,0 +1,75 @@
+@media (max-width: 991px) {
+
+    #logo .logo {
+        font-size: 70px;
+        font-size: 8.2vw;
+    }
+    
+}
+
+@media (max-width: 767px) {
+
+    nav {
+    	padding-left: 10%;
+    	padding-right: 10%;
+    }
+    #logo .logo {
+        font-size: 54px;
+        font-size: 8.2vw;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    #logo .logo {
+        font-size: 30px;
+        font-size: 8.2vw;
+    }
+    nav ul li {
+    	min-height: 34px;
+    }
+    address {
+        font-size: 24px;
+    }
+    address span, nav address li a {
+        padding: 5px 2px;
+    }
+    nav {
+        font-size: 16px;
+    }
+    .modal-title {
+        font-size: 25px;
+        line-height: 27px;
+    }
+
+}
+
+@media (max-width: 320px) {
+
+    #logo .logo-tagline {
+        font-size: 16px;
+    }
+    address {
+        font-size: 22px;
+    }
+    address span, nav address li a {
+        font-size: 14px;
+    }
+    .modal-title {
+        font-size: 20px;
+        line-height: 22px;
+    }
+
+}
+
+@media screen and (max-height: 30.5em) {
+
+	nav {
+		height: 70%;
+	}
+	nav ul li {
+		min-height: 34px;
+	}
+
+}
