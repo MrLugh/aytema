@@ -806,7 +806,7 @@ iframe, object, embed, audio, video {
 
 
 /* Override ekko styles */
-.ekko-lightbox a:hover {
+.ekko-lightbox a, .ekko-lightbox a:hover {
     padding: 10px!important;
     top:0!important;
 }
