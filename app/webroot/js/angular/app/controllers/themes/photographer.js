@@ -15,10 +15,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.limit 	= {
 		'photo':20,
-		'video':20,
-		'track':20,
-		'event':20,
-		'post':20,
+		'video':40,
 	};
 	$scope.contents	= {};
 	$scope.loadingContent = {};
@@ -39,41 +36,14 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.generatePagesList = function() {
 
-		$scope.contents 	= {};
+		$scope.contents	= {};
+		$scope.concepts = ['video','photo'];
+	
+		$scope.contents['video'] = {'offset':0,'list':[],'current':0};
+		$scope.getContent('video');
 
-		var concepts = [];
-
-		for (var y in $scope.accounts) {
-			var account = $scope.accounts[y]['Socialnet'];
-			if (!angular.isDefined($scope.networks[account.network])) {
-				continue;
-			}
-			for (var x in $scope.networks[account.network]['concepts']){
-				concept = $scope.networks[account.network]['concepts'][x];
-				if (concepts.indexOf(concept) == -1) {
-					concepts.push(concept);
-				}	
-			}
-		}
-		$scope.concepts = concepts;
-
-		$scope.pages 	= ['detail','profile'];
-		$scope.contents  = {};
-		for (var x in $scope.concepts) {
-
-			var concept = $scope.concepts[x];
-
-			$scope.pages.push(concept);
-
-			if (!angular.isDefined($scope.contents[concept])) {
-				$scope.contents[concept] = {'offset':0,'list':[],'current':0};
-				$scope.getContent(concept);
-			}
-		}
-
-		$scope.pages.push('contact');
-		$scope.pages.push('about');
-		$scope.pages.push('footer');
+		$scope.contents['photo'] = {'offset':0,'list':[],'current':0};
+		$scope.getContent('photo');
 	};
 
 	$scope.getContent = function(concept) {
@@ -122,25 +92,6 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
 					}
 					$scope.contents[concept].offset = $scope.contents[concept].list.length;
-					//contentSv.setPageList(concept,$scope.contents[concept]);
-					
-					var list = document.querySelector("#"+concept+"_list");
-					if (list) {
-						if (angular.isDefined($scope.page_intervals[concept])) {
-							clearTimeout($scope.page_intervals[concept]);
-						}
-						//$scope.page_intervals[concept] = setTimeout(function(){
-							//clearTimeout($scope.page_intervals[concept]);
-							list = document.querySelector("#"+concept+"_list");
-							var to_top = ['post','photo','event'];
-							if (to_top.indexOf(concept) != -1) {
-								$(list).animate({
-									scrollTop: angular.element(list)[0].scrollHeight
-								},2500);
-							}
-						//},1000);
-					}
-
 					window.addEventListener( 'DOMContentLoaded', $scope.loadingContent[concept] = false, false);
 
 				} else {

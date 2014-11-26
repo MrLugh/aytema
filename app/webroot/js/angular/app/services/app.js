@@ -173,6 +173,12 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			'key'		: 'photographer',
 			'thumbnails': [
 				getPath('img')+'/themes/photographer/photographer_theme_01.png',
+				getPath('img')+'/themes/photographer/photographer_theme_02.png',
+				getPath('img')+'/themes/photographer/photographer_theme_03.png',
+				getPath('img')+'/themes/photographer/photographer_theme_04.png',
+				getPath('img')+'/themes/photographer/photographer_theme_05.png',
+				getPath('img')+'/themes/photographer/photographer_theme_06.png',
+				getPath('img')+'/themes/photographer/photographer_theme_07.png',
 			]
 		},
 	];

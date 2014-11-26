@@ -799,3 +799,15 @@ iframe, object, embed, audio, video {
   margin: 0 auto!important;
   padding: 0!important;
 }
+
+.owl-video-tn {
+    background-size: cover;
+}
+
+
+/* Override ekko styles */
+.ekko-lightbox a:hover {
+    padding: 10px!important;
+    top:0!important;
+}
+

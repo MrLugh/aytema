@@ -535,6 +535,7 @@ function ($timeout,$window) {
     return function (scope, element, attrs) {
 
         var options = scope.$eval(attrs.owlCarouselPhotos);
+        var time = -1;
 
         if (!angular.isDefined(options)) {
             options = {
@@ -547,15 +548,17 @@ function ($timeout,$window) {
         }
 
         element.ready(function(){
-            $timeout(function(){
+            time = $timeout(function(){
+                $timeout.cancel(time);
                 $(element[0]).owlCarouselPhotos(options);
-            },0);
+            },500);
         });
 
         angular.element($window).bind('resize', function(){
-            $timeout(function(){
+            time = $timeout(function(){
+                $timeout.cancel(time);
                 $(element[0]).owlCarouselPhotos(options);
-            },0);
+            },500);
         });
     }
 }]);

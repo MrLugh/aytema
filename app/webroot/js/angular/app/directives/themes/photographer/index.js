@@ -68,7 +68,7 @@ function(){
                     e.preventDefault();
                     var evt = document.createEvent('UIEvents');
                     evt.initUIEvent('resize', true, false,window,0);
-                    window.dispatchEvent(evt); 
+                    window.dispatchEvent(evt);
                 });
 
                 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
