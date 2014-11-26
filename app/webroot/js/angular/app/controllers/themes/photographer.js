@@ -19,6 +19,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	};
 	$scope.contents	= {};
 	$scope.loadingContent = {};
+	$scope.photolist	= [];
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -83,13 +84,9 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 					for (var x in contents) {
 						content = contents[x].Content;
 						$scope.contents[concept].list.push(content);
-
-						if (content.concept == 'event' &&
-							angular.equals({}, $scope.currentEvent)
-							) {
-								$scope.setCurrentEvent(content);
-						}
-
+					}
+					if (concept == 'photo') {
+						$scope.setPhotoList();
 					}
 					$scope.contents[concept].offset = $scope.contents[concept].list.length;
 					window.addEventListener( 'DOMContentLoaded', $scope.loadingContent[concept] = false, false);
@@ -107,6 +104,32 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 		);
 
 	};
+
+	$scope.setPhotoList = function() {
+
+		angular.forEach($scope.contents.photo.list, function(content, index) {
+
+			if (content.network == 'tumblr') {
+				for(x in content.data.photos) {
+					var element = content.data.photos[x];
+					var photo = {
+						src 	: element.original_size.url,
+						title	: contentSv.getTitle($scope.content),
+					};
+
+					$scope.photolist.push(photo);
+				}
+			} else {
+				var element = content.data;
+				var photo = {
+					src 	: contentSv.getThumbnail($scope.content),
+					title	: contentSv.getTitle($scope.content),
+				};
+
+				$scope.photolist.push(photo);
+			}
+		});
+	}
 
 	$scope.getPluralizedConcepts = function(concept) {
 		return appSv.getPluralizedConcepts()[concept];

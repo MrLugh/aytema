@@ -120,7 +120,7 @@ function adminContentPhotoCo($scope,contentSv) {
 				description : contentSv.getDescription($scope.content),
 			};
 
-			$scope.photolist.push(photo);			
+			$scope.photolist.push(photo);
 		}
 
 

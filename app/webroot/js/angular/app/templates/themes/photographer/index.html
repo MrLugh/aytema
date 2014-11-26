@@ -22,8 +22,8 @@
 	</div>
 
     <ul class="cb-slideshow">
-    	<li ng-repeat="photo in contents.photo.list|limitTo:6">
-    		<span thumbnail="photo" style="background-image:url('{{contentSv.getThumbnail(photo)}}')">{{contentSv.getTitle(photo)}}</span>
+    	<li ng-repeat="content in contents.photo.list|limitTo:6">
+    		<span style="background-image:url('{{contentSv.getThumbnail(content)}}')">{{contentSv.getTitle(content)}}</span>
     	</li>
     </ul>
 
@@ -46,6 +46,7 @@
 			<div class="row">
 				<nav>
 					<div class="panel-group in" id="menu">
+
 						<div class="panel">
 							<div class="panel-heading">
 								<h4 class="panel-title">
@@ -54,16 +55,17 @@
                     		</div>
                     		<div id="photos" class="panel-collapse collapse">
                       			<div class="panel-body">
-			              			<div ng-if="contents.photo.list.length" id="owl-photos" class="owl-carousel gallery" owl-carousel-photos="{'autoPlay':3000,'items':4,'lazyLoad':true,'video':false,'navigation':false}">
-			                			<div ng-repeat="photo in contents.photo.list" class="item">
-											<a data-title="{{contentSv.getTitle(photo)}}" data-gallery="multiimages" data-toggle="lightbox" href="{{contentSv.getThumbnail(photo)}}" skip-deault>
-			                					<img thumbnail="photo" class="lazyOwl" data-src="{{contentSv.getThumbnail(photo)}}" alt="{{contentSv.getTitle(photo)}}">
+			              			<div ng-if="photolist.length" id="owl-photos" class="owl-carousel gallery" owl-carousel-photos="{'autoPlay':3000,'items':4,'lazyLoad':true,'video':false,'navigation':false}">
+			                			<div ng-repeat="photo in photolist" class="item">
+											<a data-title="{{photo.title}}" data-gallery="multiimages" data-toggle="lightbox" href="{{photo.src}}" skip-deault>
+			                					<img class="lazyOwl" data-src="{{photo.src}}" alt="{{photo.title}}">
 			                				</a>
 			                			</div>
 			              			</div>
 			              		</div>
 			              	</div>
 			            </div>
+
 			            <div class="panel">
 		                    <div class="panel-heading">
 		                    	<h4 class="panel-title">
@@ -80,6 +82,7 @@
 								</div>
 							</div>
                   		</div>
+
 						<div class="panel">
 							<div class="panel-heading">
 								<h4 class="panel-title">
@@ -113,6 +116,7 @@
                       			</div>
                       		</div>
                     	</div>
+
                     </div><!-- /menu -->
                 </nav>
             </div><!--/row -->
