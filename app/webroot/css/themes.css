@@ -97,6 +97,9 @@
 	color: #83bd40;
 	font-size: 50px;
 	/*text-shadow: rgb(3, 3, 3) 4px 4px 4px;*/
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 
 .themesContainer .theme .themeInfo i {
