@@ -551,14 +551,14 @@ function ($timeout,$window) {
             time = $timeout(function(){
                 $timeout.cancel(time);
                 $(element[0]).owlCarouselPhotos(options);
-            },500);
+            },0);
         });
 
         angular.element($window).bind('resize', function(){
             time = $timeout(function(){
                 $timeout.cancel(time);
                 $(element[0]).owlCarouselPhotos(options);
-            },500);
+            },0);
         });
     }
 }]);
