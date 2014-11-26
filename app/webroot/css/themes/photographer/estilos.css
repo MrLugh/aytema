@@ -788,3 +788,14 @@ button.close {
 .ekko-lightbox-nav-overlay a {
 	font-size: 60px;
 }
+
+/* Override owl styles */
+
+iframe, object, embed, audio, video {
+  width: 100%!important;
+  height: 100%!important;
+  max-width: 100%!important;
+  max-height: 100%!important;
+  margin: 0 auto!important;
+  padding: 0!important;
+}

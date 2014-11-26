@@ -2121,19 +2121,19 @@
 	 */
 	Video.prototype.fetch = function(target, item) {
 
-		var type = target.attr('type') ? 'vimeo' : 'youtube',
-			width = target.attr('data-width') || this._core.settings.videoWidth,
+		var width = target.attr('data-width') || this._core.settings.videoWidth,
 			height = target.attr('data-height') || this._core.settings.videoHeight,
 			url = target.attr('href');
 
 		if (!url) {
+			return;
 			throw new Error('Missing video URL.');
 		}
 
 		this._videos[url] = {
-			type: type,
 			width: width,
-			height: height
+			height: height,
+			embed: target.attr('embed')
 		};
 
 		item.attr('data-video', url);
@@ -2216,20 +2216,22 @@
 		var target = $(ev.target || ev.srcElement),
 			item = target.closest('.' + this._core.settings.itemClass),
 			video = this._videos[item.attr('data-video')],
-			width = video.width || '100%',
-			height = video.height || this._core.$stage.height(),
+			width = String(video.width || '100%'),
+			height = String(video.height || this._core.$stage.height()),
 			html, wrap;
 
-		html = target.attr('embed');
-		console.log(target);
-		console.log(html);
+		height.search("%") == -1 ? height+='px' : '';
+		width.search("%") == -1 ? width+='px' : '';
+
+		html = video.embed;
 
 		item.addClass('owl-video-playing');
 		this._playing = item;
 
-		wrap = $('<div style="height:' + height + 'px; width:' + width + 'px" class="owl-video-frame">'
+		wrap = $('<div style="height:' + height + '; width:' + width + '" class="owl-video-frame">'
 			+ html + '</div>');
 		target.after(wrap);
+
 	};
 
 	/**

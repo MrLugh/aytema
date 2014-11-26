@@ -61,7 +61,6 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 	var cleanSource = function(source) {
 
-
 		source = source.replace(/style="(.*?)"/g,'');
 		source = source.replace(/style='(.*?)'/g,'');
 
@@ -1030,8 +1029,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			return source;
 		}
 
-
 		if (content.network == 'tumblr') {
+			if (angular.isDefined(content.data['video_url'])) {
+				source = content.data['video_url'];
+			}
 			if (angular.isDefined(content.data['source_url'])) {
 				source = content.data['source_url'];
 			}
@@ -1050,6 +1051,11 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 
 		if (content.network == 'cloudcial') {
 			source = content.data['path'];
+		}
+
+		if (source == '') {
+			console.log(content);
+			console.log(source);
 		}
 
 		return source;

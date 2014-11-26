@@ -74,7 +74,7 @@
 								<div class="panel-body">
 									<div ng-if="contents.video.list.length" id="owl-videos" class="owl-carousel" owl-carousel="{'items':1,'merge':true,'loop':true,'margin':10,'video':true,'lazyLoad':true,'center':true,'responsive':{480:{'items':2},600:{'items':4}}}">
 									    <div ng-repeat="video in contents.video.list" class="item-video" data-merge="3">
-									    	<a class="owl-video" href="{{contentSv.getVideoUrl(video)}}" thumb=" {{contentSv.getThumbnail(video)}} " embed=" {{contentSv.getPlayer(video)}} "></a>
+									    	<a class="owl-video" href="{{contentSv.getVideoUrl(video)}}" thumb="{{contentSv.getThumbnail(video)}}" embed="{{contentSv.getPlayer(video)}}"></a>
 									    </div>
 									</div>
 								</div>
