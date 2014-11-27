@@ -50,6 +50,16 @@ function(){
                     e.preventDefault();
                 });
 
+				//adding a class to the open accordion
+				    $('.panel').on('show.bs.collapse', function () {
+				         $(this).find(".panel-title").addClass('active');
+				    });
+
+				    $('.panel').on('hide.bs.collapse', function () {
+				         $(this).find(".panel-title").removeClass('active');
+				    });
+                
+
                 transEndEventNames = {
                     'WebkitTransition': 'webkitTransitionEnd',
                     'MozTransition': 'transitionend',
