@@ -61,12 +61,11 @@ a#logo {
     position: absolute;
     top: 0px;
     left: 0px;
-    color: transparent;
     background-size: cover;
     background-position: 50% 50%;
-    background-repeat: none;
+    background-repeat: no-repeat;
     opacity: 0;
-    z-index: 0;
+    z-index: 1;
 	-webkit-backface-visibility: hidden;
     -webkit-animation: imageAnimation 36s linear infinite 0s;
     -moz-animation: imageAnimation 36s linear infinite 0s;
@@ -74,6 +73,23 @@ a#logo {
     -ms-animation: imageAnimation 36s linear infinite 0s;
     animation: imageAnimation 36s linear infinite 0s; 
 }
+
+.cb-slideshow li span * {
+    width: 100%;
+    position: relative;
+    color: #f7690d;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    padding: 2px 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 .cb-slideshow li div { 
     z-index: 1000;
     position: absolute;

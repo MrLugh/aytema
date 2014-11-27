@@ -23,7 +23,9 @@
 
     <ul class="cb-slideshow">
     	<li ng-repeat="content in contents.photo.list|limitTo:6">
-    		<span style="background-image:url('{{contentSv.getThumbnail(content)}}')">{{contentSv.getTitle(content)}}</span>
+    		<span style="background-image:url('{{contentSv.getThumbnail(content)}}')">
+    			<p ng-if="contentSv.getTitle(content).length">{{contentSv.getTitle(content)}}</p>
+    		</span>
     	</li>
     </ul>
 
