@@ -14,8 +14,8 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accountsLoaded = false;
 
 	$scope.limit 	= {
-		'photo':20,
-		'video':40,
+		'photo':6,
+		'video':6,
 	};
 	$scope.contents	= {};
 	$scope.loadingContent = {};
@@ -27,6 +27,8 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.tabs = [
 		{ title:"Background", key:"background", active: true },
 	];
+
+	$scope.current = false;
 
 	userSv.loadThemeConfig('photographer');
 	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
@@ -216,5 +218,15 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 	   	return {'left':'0'};
     };
+
+    $scope.manageCurrent = function(current) {
+
+    	if ($scope.current == current) {
+    		$scope.current = false;
+    		return false;
+    	}
+    	$scope.current = current;
+
+    }
 
 }

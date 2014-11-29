@@ -18,10 +18,6 @@
     <?php
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('normalize');
-    echo $this->Html->css('owl.carousel');
-    echo $this->Html->css('owl.theme');
-    echo $this->Html->css('owl.carousel.videos');
-    echo $this->Html->css('ekko-lightbox');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('dropzone');
     echo $this->Html->css('admin');
@@ -35,12 +31,9 @@
     echo $this->Html->script('jquery');
     echo $this->Html->script('bootstrap');
     echo $this->Html->script('modernizr.min');
-    echo $this->Html->script('owl.carousel');
-    echo $this->Html->script('owl.carousel.videos');
     
     echo $this->Html->script('dropzone');
     echo $this->Html->script('countUp');
-    echo $this->Html->script('ekko-lightbox');
     echo $this->Html->script('holder');
 
     ?>

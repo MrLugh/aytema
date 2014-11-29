@@ -1054,8 +1054,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		}
 
 		if (source == '') {
-			console.log(content);
-			console.log(source);
+			//console.log(content);
+			//console.log(source);
 		}
 
 		return source;
