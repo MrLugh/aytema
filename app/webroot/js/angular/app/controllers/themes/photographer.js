@@ -28,7 +28,9 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 		{ title:"Background", key:"background", active: true },
 	];
 
-	$scope.current = false;
+	$scope.current 	= false;
+	$scope.detail 	= {};
+	$scope.isDetail = false;
 
 	userSv.loadThemeConfig('photographer');
 	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
@@ -243,6 +245,16 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
     	}
     	$scope.current = current;
 
-    }
+    };
+
+    $scope.showDetail = function(content) {
+    	$scope.isDetail = true;
+    	$scope.detail = content;
+    };
+
+    $scope.closeDetail = function() {
+    	$scope.isDetail = false;
+    	$scope.detail = {};
+    };    
 
 }

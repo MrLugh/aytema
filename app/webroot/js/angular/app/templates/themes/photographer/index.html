@@ -50,15 +50,15 @@
 	    <div class="bt-overlay">
 	    	
     		<div class="overlay-panel" infinite-scroll="getContent('photo')" ng-if="current == 'photos' && photolist.length" id="photos" masonry>
-    			<div ng-repeat="photo in photolist" class="masonry-brick">
-   					<img src="{{photo.src}}" alt="{{photo.title}}">
+    			<div ng-repeat="photo in contents.photo.list" class="masonry-brick" ng-click="showDetail(photo)">
+   					<img thumbnail="photo" alt="{{contentSv.getTitle(photo)}}">
     			</div>
           	</div>
 
 			<div class="overlay-panel" infinite-scroll="getContent('video')" ng-if="current == 'videos' && contents.video.list.length" id="videos" masonry>
-			    <div ng-repeat="video in contents.video.list|withThumbnail" class="masonry-brick">
+			    <div ng-repeat="video in contents.video.list" class="masonry-brick" ng-click="showDetail(video)">
 		    		<img thumbnail="video" alt="{{contentSv.getTitle(video)}}">
-		    		<h4 ng-if="contentSv.getTitle(video).length>0">{{contentSv.getTitle(video)}}</h4>
+		    		<h4 ng-if="contentSv.getTitle(video).length>0" class="title">{{contentSv.getTitle(video)}}</h4>
 			    </div>
 			</div>
 
@@ -78,6 +78,9 @@
 				</address>
       		</div>
 
+	    </div>
+	    <div ng-if="isDetail" class="detail">
+	    	<i class="fa fa-close right" ng-click="closeDetail()"></i>
 	    </div>
 	</nav>
 
