@@ -40,17 +40,17 @@
 	    <div class="bt-overlay">
 	    	
     		<div class="overlay-panel" infinite-scroll="getContent('photo')" ng-if="current == 'photos' && photolist.length" id="photos" masonry>
-    			<div ng-repeat="photo in photolist" class="item masonry-brick">
+    			<div ng-repeat="photo in photolist" class="masonry-brick">
    					<img src="{{photo.src}}" alt="{{photo.title}}">
     			</div>
-    			<a href="#/" ng-click="getContent('photo')" class="more" skip-default>Load more <i class="{{contentSv.getConceptIcon('photo')}}"></i></a>
+    			<a href="#/" ng-click="getContent('photo')" class="more" skip-default>More <i class="{{contentSv.getConceptIcon('photo')}}"></i></a>
           	</div>
 
-			<div class="overlay-panel" infinite-scroll="getContent('video')" ng-if="current == 'videos' && contents.video.list.length" id="videos">
-			    <div ng-repeat="video in contents.video.list|withThumbnail" class="item-video" data-merge="3">
+			<div class="overlay-panel" infinite-scroll="getContent('video')" ng-if="current == 'videos' && contents.video.list.length" id="videos" masonry>
+			    <div ng-repeat="video in contents.video.list|withThumbnail" class="masonry-brick">
 		    		<img thumbnail="video" alt="{{contentSv.getTitle(video)}}">
 			    </div>
-			    <a href="#/" ng-click="getContent('video')" class="more" skip-default>Load more <i class="{{contentSv.getConceptIcon('photo')}}"></i></a>
+			    <a href="#/" ng-click="getContent('video')" class="more" skip-default>More <i class="{{contentSv.getConceptIcon('video')}}"></i></a>
 			</div>
 
 			<div ng-if="current == 'about'" id="about">
