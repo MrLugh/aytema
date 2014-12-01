@@ -80,9 +80,9 @@
 
 	    </div>
 	    <div class="detail {{isDetail ? 'active':'inactive'}}">
-	    	<i class="fa fa-arrow-right right" ng-click="moveDetail(1)"></i>
-	    	<i class="fa fa-close right" ng-click="closeDetail()"></i>
-	    	<i class="fa fa-arrow-left right" ng-click="moveDetail(-1)"></i>
+	    	<i class="fa fa-arrow-left left" ng-click="moveDetail(-1)"></i>
+	    	<i class="fa fa-close left" ng-click="closeDetail()"></i>
+	    	<i class="fa fa-arrow-right left" ng-click="moveDetail(1)"></i>
 	    	<div ng-if="isDetail">
 
 		    	<h4 ng-if="contentSv.getTitle(detail).length>0" class="title">{{contentSv.getTitle(detail)}}</h4>
