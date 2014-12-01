@@ -34,11 +34,11 @@
 	    <ul>
 	        <li class="{{current == 'photos' ? 'active':''}}">
 	        	<a ng-if="contents.photo.list.length" ng-click="manageCurrent('photos')" href="#" class="bt-icon fa fa-camera-retro" skip-default>Photos</a>
-	        	<a ng-if="current == 'photos' && contents.photo.list.length" href="#/" ng-click="getContent('photo')" class="more" skip-default>More <i class="fa fa-plus-circle"></i> <p> #{{contents.photo.list.length}}</p></a>
+	        	<a ng-if="current == 'photos' && contents.photo.list.length" href="#/" ng-click="getContent('photo')" class="more" skip-default><i class="fa fa-plus-circle"></i> #{{contents.photo.list.length}}</a>
 	        </li>
 	        <li class="{{current == 'videos' ? 'active':''}}">
 	        	<a ng-if="contents.video.list.length" ng-click="manageCurrent('videos')" href="#" class="bt-icon fa fa-video-camera" skip-default>Videos</a>
-	        	<a ng-if="current == 'videos' && contents.video.list.length" href="#/" ng-click="getContent('video')" class="more" skip-default>More <i class="fa fa-plus-circle"></i> <p> #{{contents.video.list.length}}</p></a>
+	        	<a ng-if="current == 'videos' && contents.video.list.length" href="#/" ng-click="getContent('video')" class="more" skip-default><i class="fa fa-plus-circle"></i> #{{contents.video.list.length}}</a>
 	        </li>
 	        <li class="{{current == 'about' ? 'active':''}}">
 	        	<a ng-click="manageCurrent('about')" href="#" class="bt-icon fa fa-user" skip-default>About</a>
@@ -79,8 +79,18 @@
       		</div>
 
 	    </div>
-	    <div ng-if="isDetail" class="detail">
+	    <div class="detail {{isDetail ? 'active':'inactive'}}">
+	    	<i class="fa fa-arrow-right right" ng-click="moveDetail(1)"></i>
 	    	<i class="fa fa-close right" ng-click="closeDetail()"></i>
+	    	<i class="fa fa-arrow-left right" ng-click="moveDetail(-1)"></i>
+	    	<div ng-if="isDetail">
+
+		    	<h4 ng-if="contentSv.getTitle(detail).length>0" class="title">{{contentSv.getTitle(detail)}}</h4>
+		    	<p ng-if="contentSv.getDescription(detail).length>0" class="description" ng-bind-html="contentSv.getDescription(detail)"></p>
+		    	<p ng-if="contentSv.getPlayer(detail).length" class="player" ng-bind-html="getPlayer(detail)"></p>
+		    	<img ng-if="!contentSv.getPlayer(detail).length && contentSv.getThumbnail(detail).length" thumbnail="detail" class="thumbnail" src="{{contentSv.getThumbnail(detail)}}">
+
+	    	</div>
 	    </div>
 	</nav>
 

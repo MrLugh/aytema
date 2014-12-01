@@ -935,11 +935,20 @@ footer i:hover {
     position: fixed;
     overflow: hidden;
     overflow-y: auto;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.9);
     top:0;
-    left:90px;
+    left:100%;
     z-index: 10000;
     padding: 25px;
     margin: 0;
+    -webkit-transition:all 0.5s ease-in-out 0s;
+    -moz-transition:all 0.5s ease-in-out 0s;
+    -o-transition:all 0.5s ease-in-out 0s;
+    transition:all 0.5s ease-in-out 0s;
+}
+
+.detail.active {
+    top:0;
+    left:90px;
 }
 

@@ -255,6 +255,27 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.closeDetail = function() {
     	$scope.isDetail = false;
     	$scope.detail = {};
-    };    
+    };
+
+    $scope.moveDetail = function(direction) {
+
+    	var type = $scope.detail.concept;
+
+		var currentPos = $scope.contents[type].list.indexOf($scope.detail);
+
+        if (direction > 0) {currentPos++;} else {currentPos--;}
+
+        if (currentPos < 0 ) {
+            currentPos = $scope.contents[type].list.length - 1;
+        }
+
+        if (currentPos == $scope.contents[type].list.length ) {
+            currentPos = 0;
+        }
+
+        $scope.showDetail($scope.contents[type].list[currentPos]);
+
+    };
+
 
 }
