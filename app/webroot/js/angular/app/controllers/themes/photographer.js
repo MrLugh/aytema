@@ -107,6 +107,15 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
 	};
 
+	$scope.canAddPhoto = function(photo) {
+		for (var x in $scope.photolist) {
+			if ($scope.photolist[x].src == photo.src) {
+				return false;
+			}
+		}
+		return true;
+	};
+
 	$scope.setPhotoList = function() {
 
 		angular.forEach($scope.contents.photo.list, function(content, index) {
@@ -119,7 +128,10 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 						title	: contentSv.getTitle($scope.content),
 					};
 
-					$scope.photolist.push(photo);
+					if ($scope.canAddPhoto(photo)) {
+						$scope.photolist.push(photo);
+					}
+					
 				}
 			} else {
 				var element = content.data;
@@ -128,7 +140,9 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 					title	: contentSv.getTitle($scope.content),
 				};
 
-				$scope.photolist.push(photo);
+				if ($scope.canAddPhoto(photo)) {
+					$scope.photolist.push(photo);
+				}
 			}
 		});
 	}
