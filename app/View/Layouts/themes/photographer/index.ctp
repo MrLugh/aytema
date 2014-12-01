@@ -31,7 +31,7 @@
     echo $this->Html->script('jquery');
     echo $this->Html->script('bootstrap');
     echo $this->Html->script('modernizr.min');
-    
+    echo $this->Html->script('freewall');
     echo $this->Html->script('dropzone');
     echo $this->Html->script('countUp');
     echo $this->Html->script('holder');
