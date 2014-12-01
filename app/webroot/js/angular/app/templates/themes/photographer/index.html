@@ -39,13 +39,13 @@
 	    </ul>
 	    <div class="bt-overlay">
 	    	
-    		<div class="overlay-panel" infinite-scroll="getContent('photo')" ng-show="current == 'photos' && photolist.length" id="photos" masonry>
+    		<div class="overlay-panel" infinite-scroll="getContent('photo')" ng-if="current == 'photos' && photolist.length" id="photos" masonry>
     			<div ng-repeat="photo in photolist" class="item masonry-brick">
    					<img src="{{photo.src}}" alt="{{photo.title}}">
     			</div>
           	</div>
 
-			<div class="overlay-panel" infinite-scroll="getContent('video')" ng-show="current == 'videos' && contents.video.list.length" id="videos">
+			<div class="overlay-panel" infinite-scroll="getContent('video')" ng-if="current == 'videos' && contents.video.list.length" id="videos">
 			    <div ng-repeat="video in contents.video.list|withThumbnail" class="item-video" data-merge="3">
 		    		<img thumbnail="video" alt="{{contentSv.getTitle(video)}}">
 			    </div>
