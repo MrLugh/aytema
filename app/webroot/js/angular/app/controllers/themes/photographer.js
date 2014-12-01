@@ -126,6 +126,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 					var photo = {
 						src 	: element.original_size.url,
 						title	: contentSv.getTitle($scope.content),
+						width 	: 200 +  200 * Math.random() << 0
 					};
 
 					if ($scope.canAddPhoto(photo)) {
@@ -138,6 +139,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 				var photo = {
 					src 	: contentSv.getThumbnail($scope.content),
 					title	: contentSv.getTitle($scope.content),
+					width 	: 200 +  200 * Math.random() << 0
 				};
 
 				if ($scope.canAddPhoto(photo)) {

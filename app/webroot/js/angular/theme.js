@@ -12,6 +12,7 @@ var ayTemaThemeApp = angular.module('ayTemaThemeApp',[
 	'ngTouch',
 	'ngCookies',
 	'ui.bootstrap',
+	'wu.masonry'
 ]);
 
 ayTemaThemeApp.config(['$routeProvider','$httpProvider', function($routeProvider,$httpProvider) {

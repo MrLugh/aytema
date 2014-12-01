@@ -31,7 +31,8 @@
     echo $this->Html->script('jquery');
     echo $this->Html->script('bootstrap');
     echo $this->Html->script('modernizr.min');
-    echo $this->Html->script('freewall');
+    echo $this->Html->script('masonry.pkgd');
+    echo $this->Html->script('imagesloaded.pkgd');
     echo $this->Html->script('dropzone');
     echo $this->Html->script('countUp');
     echo $this->Html->script('holder');
@@ -88,6 +89,7 @@
     <?php
     echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap');
     echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap-tpls');
+    echo $this->Html->script('angular/plugins/angular-masonry/angular-masonry');
     ?>
 
     <!-- Apps -->
