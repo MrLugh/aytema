@@ -34,11 +34,11 @@
 	    <ul>
 	        <li class="{{current == 'photos' ? 'active':''}}">
 	        	<a ng-if="contents.photo.list.length" ng-click="manageCurrent('photos')" href="#" class="bt-icon fa fa-camera-retro" skip-default>Photos</a>
-	        	<a ng-if="current == 'photos' && contents.photo.list.length" href="#/" ng-click="getContent('photo')" class="more" skip-default>More <i class="fa fa-plus-circle"></i></a>
+	        	<a ng-if="current == 'photos' && contents.photo.list.length" href="#/" ng-click="getContent('photo')" class="more" skip-default>More <i class="fa fa-plus-circle"></i> <p> #{{contents.photo.list.length}}</p></a>
 	        </li>
 	        <li class="{{current == 'videos' ? 'active':''}}">
 	        	<a ng-if="contents.video.list.length" ng-click="manageCurrent('videos')" href="#" class="bt-icon fa fa-video-camera" skip-default>Videos</a>
-	        	<a ng-if="current == 'videos' && contents.video.list.length" href="#/" ng-click="getContent('video')" class="more" skip-default>More <i class="fa fa-plus-circle"></i></a>
+	        	<a ng-if="current == 'videos' && contents.video.list.length" href="#/" ng-click="getContent('video')" class="more" skip-default>More <i class="fa fa-plus-circle"></i> <p> #{{contents.video.list.length}}</p></a>
 	        </li>
 	        <li class="{{current == 'about' ? 'active':''}}">
 	        	<a ng-click="manageCurrent('about')" href="#" class="bt-icon fa fa-user" skip-default>About</a>
