@@ -35,8 +35,6 @@
     echo $this->Html->script('imagesloaded.pkgd');
     echo $this->Html->script('dropzone');
     echo $this->Html->script('countUp');
-    echo $this->Html->script('holder');
-
     ?>
 
     <!-- Config -->
