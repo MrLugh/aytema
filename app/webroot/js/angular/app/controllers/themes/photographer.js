@@ -103,7 +103,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 						},1500);
 						
 					});
-					//window.addEventListener( 'DOMContentLoaded', $scope.loadingContent[concept] = false, false);
+					window.addEventListener( 'DOMContentLoaded', $scope.loadingContent[concept] = false, false);
 
 				} else {
 					$scope.loadingContent[concept] = true;
