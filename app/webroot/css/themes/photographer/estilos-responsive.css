@@ -20,6 +20,9 @@
         font-size: 54px;
         font-size: 8.2vw;
     }
+    .masonry-brick {
+        width: 50%;
+    }
 
 }
 
@@ -62,6 +65,9 @@
     .modal-title {
         font-size: 20px;
         line-height: 22px;
+    }
+    .masonry-brick {
+        width: 100%;
     }
 
 }

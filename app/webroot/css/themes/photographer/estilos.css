@@ -11,6 +11,62 @@ body {
     box-sizing: border-box;
 }
 
+* {
+    outline: none;
+}
+
+*[ ng-click ] {
+  cursor: pointer ;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,a:hover,a:active,a:focus,
+img,img:hover,img:active,img:focus {
+    outline: none;
+}
+
+a,a:hover,a:active,a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.app {
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.both {
+  clear: both;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 .container {
     padding: 80px;
 }
@@ -31,26 +87,26 @@ body {
 .bt-menu.bt-menu-open {
     height: 100%;
     border-left-width: 90px;
+    border-width: 0px 0px 0px 90px;
     transition: border-width 0.3s, background-color 0.3s;
 }
 
 .bt-overlay {
     position: absolute;
     width: 100%;
+    overflow: hidden;
 }
 
 .bt-menu-open .bt-overlay {
-    height: 100%;
+    width: 100%!important;
+    height: 100%!important;
     background-color: rgba(0,0,0,0.9);
-    padding:30px;
-    overflow-y: auto;
-	overflow-x: hidden;
 }
 
 .overlay-panel {
-	width:100%;
-	height:100%;
-    overflow-y: auto;
+    width: 100%!important;
+    height: 100%!important;
+    overflow-y: scroll;
 	overflow-x: hidden;	
 }
 
@@ -840,66 +896,62 @@ footer i:hover {
 }
 
 
-
-/* photos */
-
-/*modal*/
-
-
-.modal-dialog {
-  width: 100%;
-  max-width: 100%!important;
-  height: 100%;
-  padding: 0;
-  margin:0;
+/* photos, videos */
+.more {
+    color: #fff!important;
+    font-size: 14px!important;    
+    z-index:2;
+    background-color: rgba(0,0,0,0.8);
 }
 
-.modal-dialog img {
- margin: 0 auto;
-}
-.modal-header {
-	border: none;
+.masonry-brick {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    visibility: hidden;
+    width: 25%;
 }
 
-.modal-content {
-  height: 100%;
-  border-radius: 0;
-  color:white;
-  overflow:auto;
-  background-color: #000000;
+.masonry-brick.loaded {
+    visibility: visible;
 }
-.modal-title {
-  font-size: 35px;
-  font-weight: 300;
-  margin: 10px 0 20px;
-  text-align: center;
-  line-height: 35px;
+
+.masonry-brick .title {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;    
 }
-button.close {
-    color: rgba(255, 255, 255, 0.4);
-    background: none repeat scroll 0 0 #f7690d;
-    height: 60px;
-    line-height: 51px;
+
+.masonry-brick img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;    
+}
+
+/* Detail */
+
+.detail {
+    width: calc(100% - 90px);
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: rgba(0,0,0,0.9);
+    top:0;
+    left:100%;
+    z-index: 10000;
+    padding: 25px;
     margin: 0;
-    padding: 0 0 8px;
-    width: 60px;
-    font-weight: 300;
-    opacity: 1;
-    font-size: 51px;
-    opacity: 1;
-}
-.close:hover, .close:focus {
-    color: rgba(255, 255, 255, 0.4);
-    opacity: 0.8;
+    -webkit-transition:all 0.5s ease-in-out 0s;
+    -moz-transition:all 0.5s ease-in-out 0s;
+    -o-transition:all 0.5s ease-in-out 0s;
+    transition:all 0.5s ease-in-out 0s;
 }
 
-.ekko-lightbox-nav-overlay a {
-	font-size: 60px;
-}
-
-/* Override ekko styles */
-.ekko-lightbox a, .ekko-lightbox a:hover {
-    padding: 10px!important;
-    top:0!important;
+.detail.active {
+    top:0;
+    left:90px;
 }
 

@@ -8,7 +8,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
 	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
 		$scope.user = data.users[0]['User'];
-	});	
+	});
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
@@ -28,7 +28,9 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 		{ title:"Background", key:"background", active: true },
 	];
 
-	$scope.current = false;
+	$scope.current 	= false;
+	$scope.detail 	= {};
+	$scope.isDetail = false;
 
 	userSv.loadThemeConfig('photographer');
 	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
@@ -107,6 +109,16 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
 	};
 
+	$scope.canAddPhoto = function(photo) {
+		for (var x in $scope.photolist) {
+			if ($scope.photolist[x].src == photo.src) {
+				console.log($scope.photolist[x].src == photo.src);
+				return false;
+			}
+		}
+		return true;
+	};
+
 	$scope.setPhotoList = function() {
 
 		angular.forEach($scope.contents.photo.list, function(content, index) {
@@ -117,18 +129,25 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 					var photo = {
 						src 	: element.original_size.url,
 						title	: contentSv.getTitle($scope.content),
+						width 	: 200 +  200 * Math.random() << 0
 					};
 
-					$scope.photolist.push(photo);
+					if ($scope.canAddPhoto(photo)) {
+						$scope.photolist.push(photo);
+					}
+					
 				}
 			} else {
 				var element = content.data;
 				var photo = {
 					src 	: contentSv.getThumbnail($scope.content),
 					title	: contentSv.getTitle($scope.content),
+					width 	: 200 +  200 * Math.random() << 0
 				};
 
-				$scope.photolist.push(photo);
+				if ($scope.canAddPhoto(photo)) {
+					$scope.photolist.push(photo);
+				}
 			}
 		});
 	}
@@ -227,6 +246,37 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
     	}
     	$scope.current = current;
 
-    }
+    };
+
+    $scope.showDetail = function(content) {
+    	$scope.isDetail = true;
+    	$scope.detail = content;
+    };
+
+    $scope.closeDetail = function() {
+    	$scope.isDetail = false;
+    	$scope.detail = {};
+    };
+
+    $scope.moveDetail = function(direction) {
+
+    	var type = $scope.detail.concept;
+
+		var currentPos = $scope.contents[type].list.indexOf($scope.detail);
+
+        if (direction > 0) {currentPos++;} else {currentPos--;}
+
+        if (currentPos < 0 ) {
+            currentPos = $scope.contents[type].list.length - 1;
+        }
+
+        if (currentPos == $scope.contents[type].list.length ) {
+            currentPos = 0;
+        }
+
+        $scope.showDetail($scope.contents[type].list[currentPos]);
+
+    };
+
 
 }
