@@ -101,6 +101,7 @@
     <?php
     echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap');
     echo $this->Html->script('angular/plugins/ui-bootstrap/ui-bootstrap-tpls');
+    echo $this->Html->script('angular/plugins/angular-masonry/angular-masonry');
     ?>
 
     <!-- Apps -->
