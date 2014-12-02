@@ -971,7 +971,7 @@ footer i:hover {
 
 .masonry-brick {
     text-align: center;
-    margin: 20px;
+    margin: 10px;
     padding: 0px;
     overflow: hidden;
     background-image: url(../../../img/themes/photographer/AjaxLoader.gif) no-repeat center center;
@@ -984,36 +984,36 @@ footer i:hover {
 }
 
 .small {
-    width: calc(25% - 40px);
-    height: calc(25% - 40px);
+    width: calc(25% - 20px);
+    height: calc(25% - 20px);
 }
 
 .medium {
-    width: calc(50% - 40px);
-    height: calc(25% - 40px);
+    width: calc(50% - 20px);
+    height: calc(25% - 20px);
 }
 
 .large {
-    width: calc(25% - 40px);
-    height: calc(50% - 40px);
+    width: calc(25% - 20px);
+    height: calc(50% - 20px);
 }
 
 .xlarge {
-    width: calc(50% - 40px);
-    height: calc(50% - 40px);
+    width: calc(50% - 20px);
+    height: calc(50% - 20px);
     /*
     background-attachment: fixed;
     */
 }
 
 .half {
-    width: calc(50% - 40px);
-    height: calc(100% - 40px);
+    width: calc(50% - 20px);
+    height: calc(100% - 20px);
 }
 
 .full {
-    width: calc(100% - 40px);
-    height: calc(50% - 40px);
+    width: calc(100% - 20px);
+    height: calc(50% - 20px);
 }
 
 .masonry-brick.loaded {

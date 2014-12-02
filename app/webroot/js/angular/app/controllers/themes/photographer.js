@@ -101,6 +101,13 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 						setTimeout(function(){
 							$scope.loadingContent[concept] = false;
 							$scope.$broadcast('masonry.reload');
+							var selector = "#"+$scope.getPluralizedConcepts(concept);
+							if (angular.isDefined($(selector)[0])) {
+								var list = document.querySelector(selector);
+								$(list).animate({
+									scrollTop: angular.element(list)[0].scrollHeight
+								},2500);
+							}							
 						},1500);
 						
 					});
