@@ -14,8 +14,8 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accountsLoaded = false;
 
 	$scope.limit 	= {
-		'photo':6,
-		'video':6,
+		'photo':8,
+		'video':4,
 	};
 	$scope.contents	= {};
 	$scope.loadingContent = {};
@@ -52,6 +52,10 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	};
 
 	$scope.getContent = function(concept) {
+
+		if ($scope.loadingContent[concept]) {
+			return false;
+		}
 
 		var params = [];
 
@@ -93,7 +97,13 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 						$scope.setPhotoList();
 					}
 					$scope.contents[concept].offset = $scope.contents[concept].list.length;
-					window.addEventListener( 'DOMContentLoaded', $scope.loadingContent[concept] = false, false);
+					imagesLoaded($('body'),function(){
+						setTimeout(function(){
+							$scope.loadingContent[concept] = false;
+						},1500);
+						
+					});
+					//window.addEventListener( 'DOMContentLoaded', $scope.loadingContent[concept] = false, false);
 
 				} else {
 					$scope.loadingContent[concept] = true;
@@ -277,6 +287,16 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
         $scope.showDetail($scope.contents[type].list[currentPos]);
 
     };
+
+    $scope.sizes = [
+    	'xlarge','small','small','small','small',
+    	'large','large','xlarge',
+    	'xlarge','medium','medium',
+    ];
+    $scope.getPhotoClass = function(index) {
+    	var x = index % $scope.sizes.length;
+     	return angular.copy($scope.sizes)[x];
+    }
 
 
 }

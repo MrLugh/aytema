@@ -63,6 +63,7 @@ function() {
                 scope.scroll = raw.scrollTop + raw.offsetHeight;
                 scope.$apply(attr.infiniteScroll);
             }
+            
         });
     };
 }]);
