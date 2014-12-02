@@ -92,7 +92,7 @@
 
 		    	<h4 ng-if="contentSv.getTitle(detail).length>0" class="title">{{contentSv.getTitle(detail)}}</h4>
 		    	<p ng-if="contentSv.getPlayer(detail).length" class="player" ng-bind-html="getPlayer(detail)"></p>
-		    	<img ng-if="!contentSv.getPlayer(detail).length && contentSv.getThumbnail(detail).length" thumbnail="detail" class="thumbnail" src="{{contentSv.getThumbnail(detail)}}">
+		    	<img ng-if="!contentSv.getPlayer(detail).length && contentSv.getThumbnail(detail).length" thumbnail="detail" src="{{contentSv.getThumbnail(detail)}}">
 		    	<p ng-if="contentSv.getDescription(detail).length>0" class="description" ng-bind-html="contentSv.getDescription(detail)"></p>
 
 

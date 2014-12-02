@@ -914,9 +914,10 @@ footer i:hover {
     text-align: center;
     margin: 0px;
     padding: 0px;
-    opacity: 0;
     overflow: hidden;
     background-image: url(../../../img/themes/photographer/AjaxLoader.gif) no-repeat center center;
+    visibility: hidden;
+    float: left;
 }
 
 .small {
@@ -943,8 +944,7 @@ footer i:hover {
 }
 
 .masonry-brick.loaded {
-    float: left;
-    opacity: 1;
+    visibility: visible;
 }
 
 .masonry-brick .title {
@@ -964,13 +964,13 @@ footer i:hover {
 /* Detail */
 
 .detail {
-    width: 100%;
+    width: calc(100% - 90px);
     height: 100%;
     position: fixed;
     overflow: hidden;
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.9);
     top:0;
-    left:0;
+    left: 90px;
     z-index: 10000;
     padding: 25px;
     margin: 0;
@@ -988,7 +988,6 @@ footer i:hover {
 
 .detail.active {
     opacity: 1;
-    top:0;
     overflow-y: scroll;
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
