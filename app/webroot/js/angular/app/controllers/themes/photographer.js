@@ -100,6 +100,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 					imagesLoaded($('body'),function(){
 						setTimeout(function(){
 							$scope.loadingContent[concept] = false;
+							$scope.$broadcast('masonry.reload');
 						},1500);
 						
 					});
