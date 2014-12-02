@@ -106,8 +106,8 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 								var list = document.querySelector(selector);
 								$(list).animate({
 									scrollTop: angular.element(list)[0].scrollHeight
-								},2500);
-							}							
+								},5000);
+							}
 						},1500);
 						
 					});
