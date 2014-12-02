@@ -123,7 +123,6 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.canAddPhoto = function(photo) {
 		for (var x in $scope.photolist) {
 			if ($scope.photolist[x].src == photo.src) {
-				console.log($scope.photolist[x].src == photo.src);
 				return false;
 			}
 		}
@@ -290,9 +289,14 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
     };
 
     $scope.sizes = [
+    	'half','xlarge','xlarge',
+    	'large','large','small','small','medium',
+
+    	'xlarge','xlarge','half',
     	'xlarge','small','small','small','small',
-    	'large','large','xlarge',
+
     	'xlarge','medium','medium',
+    	'full','xlarge','medium','small','small'
     ];
     $scope.getPhotoClass = function(index) {
     	var x = index % $scope.sizes.length;
