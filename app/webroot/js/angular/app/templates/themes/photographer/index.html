@@ -67,14 +67,14 @@
 	    </ul>
 	    <div class="bt-overlay">
 	    	
-    		<div class="overlay-panel" ng-if="current == 'photos' && photolist.length" id="photos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.masonry-brick'}">
+    		<div class="overlay-panel" ng-if="current == 'photos' && photolist.length" id="photos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':true,'itemSelector':'.masonry-brick'}">
     			<div thumbnail="photo" ng-repeat="photo in contents.photo.list" class="masonry-brick cover {{getPhotoClass($index)}}" ng-click="showDetail(photo)" style="background-image:url({{contentSv.getThumbnail(photo)}})"></div>
 	        	<a ng-if="current == 'photos' && contents.photo.list.length" href="#/" ng-click="getContent('photo')" class="more pull-left" skip-default>
 	        		More <i class="fa fa-plus-circle"></i> #{{contents.photo.list.length}}
 	        	</a>
           	</div>
 
-			<div class="overlay-panel" ng-if="current == 'videos' && contents.video.list.length" id="videos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.masonry-brick'}">
+			<div class="overlay-panel" ng-if="current == 'videos' && contents.video.list.length" id="videos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':true,'itemSelector':'.masonry-brick'}">
 			    <div ng-repeat="video in contents.video.list" class="masonry-brick" ng-click="showDetail(video)">
 		    		<img thumbnail="video" alt="{{contentSv.getTitle(video)}}">
 		    		<!--
