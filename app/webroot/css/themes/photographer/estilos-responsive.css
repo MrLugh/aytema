@@ -21,9 +21,7 @@
         font-size: 8.2vw;
     }
     .masonry-brick {
-        margin: 20px;
-        display: none;
-        width: calc(50% - 40px);
+        width: 50%;
     }
 
 }
@@ -69,9 +67,7 @@
         line-height: 22px;
     }
     .masonry-brick {
-        margin: 10px;
-        display: none;
-        width: calc(100% - 20px);
+        width: 100%;
     }
 
 }

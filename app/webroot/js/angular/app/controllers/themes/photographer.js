@@ -8,7 +8,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
 	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
 		$scope.user = data.users[0]['User'];
-	});	
+	});
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
@@ -112,6 +112,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.canAddPhoto = function(photo) {
 		for (var x in $scope.photolist) {
 			if ($scope.photolist[x].src == photo.src) {
+				console.log($scope.photolist[x].src == photo.src);
 				return false;
 			}
 		}

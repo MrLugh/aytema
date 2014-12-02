@@ -105,7 +105,7 @@ a,a:hover,a:active,a:focus {
 .overlay-panel {
     width: 100%!important;
     height: 100%!important;
-    overflow-y: auto;
+    overflow-y: scroll;
 	overflow-x: hidden;	
 }
 
@@ -904,13 +904,15 @@ footer i:hover {
 }
 
 .masonry-brick {
-    margin: 20px;
-    display: none;
-    width: calc(25% - 40px);
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    visibility: hidden;
+    width: 25%;
 }
 
 .masonry-brick.loaded {
-    display: block;
+    visibility: visible;
 }
 
 .masonry-brick .title {
@@ -934,7 +936,7 @@ footer i:hover {
     height: 100%;
     position: fixed;
     overflow: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
     background-color: rgba(0,0,0,0.9);
     top:0;
     left:100%;
