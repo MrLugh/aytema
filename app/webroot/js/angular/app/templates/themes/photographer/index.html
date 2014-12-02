@@ -33,18 +33,38 @@
 	    <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
 	    <ul>
 	        <li class="{{current == 'photos' ? 'active':''}}">
-	        	<a ng-if="contents.photo.list.length" ng-click="manageCurrent('photos')" href="#" class="bt-icon fa fa-camera-retro" skip-default>Photos</a>
-	        	<a ng-if="current == 'photos' && contents.photo.list.length" href="#/" ng-click="getContent('photo')" class="more" skip-default><i class="fa fa-plus-circle"></i> #{{contents.photo.list.length}}</a>
+	        	<a ng-if="contents.photo.list.length" ng-click="manageCurrent('photos')" href="#" class="bt-icon" skip-default>
+	        	    <i class="fa fa-camera-retro"></i>
+		        	<div class="nav-label">
+						<span>Photos</span>
+					</div>
+		        </a>
+	        	<a ng-if="current == 'photos' && contents.photo.list.length" href="#/" ng-click="getContent('photo')" class="more pull-left" skip-default><i class="fa fa-plus-circle"></i> #{{contents.photo.list.length}}</a>
 	        </li>
 	        <li class="{{current == 'videos' ? 'active':''}}">
-	        	<a ng-if="contents.video.list.length" ng-click="manageCurrent('videos')" href="#" class="bt-icon fa fa-video-camera" skip-default>Videos</a>
-	        	<a ng-if="current == 'videos' && contents.video.list.length" href="#/" ng-click="getContent('video')" class="more" skip-default><i class="fa fa-plus-circle"></i> #{{contents.video.list.length}}</a>
+	        	<a ng-if="contents.video.list.length" ng-click="manageCurrent('videos')" href="#" class="bt-icon" skip-default>
+	        	    <i class="fa fa-video-camera"></i>
+		        	<div class="nav-label">
+						<span>Videos</span>
+					</div>
+	        	</a>
+	        	<a ng-if="current == 'videos' && contents.video.list.length" href="#/" ng-click="getContent('video')" class="more pull-left" skip-default><i class="fa fa-plus-circle"></i> #{{contents.video.list.length}}</a>
 	        </li>
 	        <li class="{{current == 'about' ? 'active':''}}">
-	        	<a ng-click="manageCurrent('about')" href="#" class="bt-icon fa fa-user" skip-default>About</a>
+	        	<a ng-click="manageCurrent('about')" href="#" class="bt-icon" skip-default>
+	        	    <i class="fa fa-user"></i>
+		        	<div class="nav-label">
+						<span>About</span>
+					</div>
+	        	</a>
 	        </li>
 	        <li class="{{current == 'contact' ? 'active':''}}">
-	        	<a ng-click="manageCurrent('contact')" href="#" class="bt-icon fa fa-envelope" skip-default>Contact</a>
+	        	<a ng-click="manageCurrent('contact')" href="#" class="bt-icon" skip-default>
+	        	    <i class="fa fa-envelope"></i>
+		        	<div class="nav-label">
+						<span>Contact</span>
+					</div>
+				</a>
 	        </li>
 	    </ul>
 	    <div class="bt-overlay">
