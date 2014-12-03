@@ -222,7 +222,7 @@ a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focu
     backface-visibility: hidden;
     z-index: 1;
     position: absolute;
-    top: 50%;
+    top: 30%;
     transform: translateY(-50%);
     height: auto;
 }
