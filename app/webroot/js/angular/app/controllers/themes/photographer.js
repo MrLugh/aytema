@@ -15,7 +15,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.limit 	= {
 		'photo':8,
-		'video':4,
+		'video':8,
 	};
 	$scope.contents	= {};
 	$scope.loadingContent = {};
@@ -98,9 +98,11 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 					}
 					$scope.contents[concept].offset = $scope.contents[concept].list.length;
 					imagesLoaded($('body'),function(){
-						setTimeout(function(){
+						var timeScroll = setTimeout(function(){
+							clearTimeout(timeScroll);
 							$scope.loadingContent[concept] = false;
 							$scope.$broadcast('masonry.reload');
+							/*
 							var selector = "#"+$scope.getPluralizedConcepts(concept);
 							if (angular.isDefined($(selector)[0])) {
 								var list = document.querySelector(selector);
@@ -108,6 +110,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 									scrollTop: angular.element(list)[0].scrollHeight
 								},5000);
 							}
+							*/
 						},1500);
 						
 					});
@@ -233,7 +236,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	};
 
     $scope.getContentCommentsHash = function() {
-    	var c = $scope.content;
+    	var c = $scope.detail;
     	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
     };	
 
@@ -257,6 +260,8 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
     $scope.manageCurrent = function(current) {
 
+    	$scope.closeDetail();
+
     	if ($scope.current == current) {
     		$scope.current = false;
     		return false;
@@ -268,11 +273,13 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.showDetail = function(content) {
     	$scope.isDetail = true;
     	$scope.detail = content;
+    	$scope.detaillist = [content];
     };
 
     $scope.closeDetail = function() {
     	$scope.isDetail = false;
     	$scope.detail = {};
+    	$scope.detaillist = [];
     };
 
     $scope.moveDetail = function(direction) {
@@ -295,7 +302,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
     };
 
-    $scope.sizes = [
+    $scope.photosizes = [
     	'half','xlarge','xlarge',
     	'large','large','small','small','medium',
 
@@ -305,9 +312,25 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
     	'xlarge','medium','medium',
     	'full','xlarge','medium','small','small'
     ];
+
     $scope.getPhotoClass = function(index) {
-    	var x = index % $scope.sizes.length;
-     	return angular.copy($scope.sizes)[x];
+    	var x = index % $scope.photosizes.length;
+     	return angular.copy($scope.photosizes)[x];
+    }
+
+    $scope.videosizes = [
+    	'xlarge','xlarge','half',
+    	'xlarge','small','small','small','small',
+
+    	'xlarge','medium','medium',
+    	'full','xlarge','medium','small','small'
+    ];
+
+
+
+    $scope.getVideoClass = function(index) {
+    	var x = index % $scope.videosizes.length;
+     	return angular.copy($scope.videosizes)[x];
     }
 
 

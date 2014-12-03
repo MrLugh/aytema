@@ -39,6 +39,7 @@ function(){
 		            ev.preventDefault();
 		             
 		            if( $(menu).hasClass('bt-menu-open') ) {
+                        scope.closeDetail();
 		                resetMenu();
 		            }
 		            else {
@@ -46,7 +47,7 @@ function(){
 		                $(menu).addClass('bt-menu-open');
 		                //overlay.addEventListener( eventtype, closeClickFn );
 		            }
-		        });                
+		        });
 
             });
 
@@ -63,6 +64,8 @@ function($FB,$timeout){
         restrict : 'E',
         replace : true,
         link: function(scope,element,attrs) {
+
+            scope.showComments = false;
 
             element.ready(function(){
                 $timeout(function(){

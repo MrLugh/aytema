@@ -33,6 +33,47 @@ a,a:hover,a:active,a:focus {
   text-decoration: none;
 }
 
+a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focus-inner {
+  outline: 0;
+  border: 0;
+}
+
+.ng-enter, .ng-leave.ng-leave-active, .ng-hide-add.ng-hide-add-active, .ng-hide-add, .ng-hide-remove {
+  -webkit-transition:all 0.5s ease-in-out 0s;
+  -moz-transition:all 0.5s ease-in-out 0s;
+  -o-transition:all 0.5s ease-in-out 0s;
+  transition:all 0.5s ease-in-out 0s; 
+}
+
+.ng-enter, .ng-leave.ng-leave-active, .ng-hide-add.ng-hide-add-active, .ng-hide-remove {
+  opacity: 0;
+  filter: alpha(opacity=0);
+
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);  
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);  
+}
+
+.ng-enter.ng-enter-active, .ng-leave, .ng-hide-add, .ng-hide-remove.ng-hide-remove-active  {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
 .app {
   text-align:center;
   margin-left:auto;
@@ -989,36 +1030,36 @@ footer i:hover {
 }
 
 .small {
-    width: calc(25% - 20px);
-    height: calc(25% - 20px);
+    width: calc(25% - 30px);
+    height: calc(25% - 30px);
 }
 
 .medium {
-    width: calc(50% - 20px);
-    height: calc(25% - 20px);
+    width: calc(50% - 30px);
+    height: calc(25% - 30px);
 }
 
 .large {
-    width: calc(25% - 20px);
-    height: calc(50% - 20px);
+    width: calc(25% - 30px);
+    height: calc(50% - 30px);
 }
 
 .xlarge {
-    width: calc(50% - 20px);
-    height: calc(50% - 20px);
+    width: calc(50% - 30px);
+    height: calc(50% - 30px);
     /*
     background-attachment: fixed;
     */
 }
 
 .half {
-    width: calc(50% - 20px);
-    height: calc(100% - 20px);
+    width: calc(50% - 30px);
+    height: calc(100% - 30px);
 }
 
 .full {
-    width: calc(100% - 20px);
-    height: calc(50% - 20px);
+    width: calc(100% - 30px);
+    height: calc(50% - 30px);
 }
 
 .masonry-brick.loaded {
@@ -1046,7 +1087,7 @@ footer i:hover {
     height: 100%;
     position: fixed;
     overflow: hidden;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,1);
     top:0;
     left: 60px;
     z-index: 10000;
@@ -1076,3 +1117,38 @@ footer i:hover {
     left:60px;
 }
 
+.detail .stats {
+  min-height: 50px;
+}
+
+.detail .stat {
+  font-size:40px;
+  margin-left: 25px;
+  display: inline-block;
+}
+
+.detail iframe,
+.detail object,
+.detail embed,
+.detail video,
+.detail audio {
+  position: relative;
+  top:0;
+  left: 0;
+  min-height: 400px;
+  width: 100%;
+  background-color: #131313;
+  display: inline-block;
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+.detail .player {
+  background-color: #f3f3f3;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}

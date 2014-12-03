@@ -3,6 +3,7 @@
 	<fb app-id='211895592326072'></fb>
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script src="http://platform.tumblr.com/v1/share.js"></script>
+	<script async="" defer="" src="//platform.instagram.com/en_US/embeds.js"></script>
 
 	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme"  tooltip-placement="right">
 		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
@@ -74,21 +75,15 @@
 	    </ul>
 	    <div class="bt-overlay">
 	    	
-    		<div class="overlay-panel" ng-if="current == 'photos' && photolist.length" id="photos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':true,'itemSelector':'.masonry-brick'}">
+    		<div class="overlay-panel" ng-if="current == 'photos' && photolist.length" id="photos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.masonry-brick'}">
     			<div thumbnail="photo" ng-repeat="photo in contents.photo.list" class="masonry-brick cover {{getPhotoClass($index)}}" ng-click="showDetail(photo)" style="background-image:url({{contentSv.getThumbnail(photo)}})"></div>
 	        	<a ng-if="current == 'photos' && contents.photo.list.length" href="#/" ng-click="getContent('photo')" class="more pull-left" skip-default>
 	        		More <i class="fa fa-plus-circle"></i> #{{contents.photo.list.length}}
 	        	</a>
           	</div>
 
-			<div class="overlay-panel" ng-if="current == 'videos' && contents.video.list.length" id="videos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':true,'itemSelector':'.masonry-brick'}">
-			    <div ng-repeat="video in contents.video.list" class="masonry-brick" ng-click="showDetail(video)">
-		    		<img thumbnail="video" alt="{{contentSv.getTitle(video)}}">
-		    		<!--
-		    		<h4 ng-if="contentSv.getTitle(video).length>0" class="title">{{contentSv.getTitle(
-		    		video)}}</h4>
-		    		-->
-			    </div>
+			<div class="overlay-panel" ng-if="current == 'videos' && contents.video.list.length" id="videos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.masonry-brick'}">
+    			<div thumbnail="video" ng-repeat="video in contents.video.list" class="masonry-brick cover {{getVideoClass($index)}}" ng-click="showDetail(video)" style="background-image:url({{contentSv.getThumbnail(video)}})"></div>
 	        	<a ng-if="current == 'videos' && contents.video.list.length" href="#/" ng-click="getContent('video')" class="more pull-left" skip-default>
 	        		More <i class="fa fa-plus-circle"></i> #{{contents.video.list.length}}
 	        	</a>
@@ -117,14 +112,25 @@
 		    	<i class="fa fa-close inline" ng-click="closeDetail()"></i>
 		    	<i class="fa fa-arrow-right inline" ng-click="moveDetail(1)"></i>
 		    </div>
-	    	<div ng-if="isDetail">
+	    	<div ng-show="isDetail" ng-repeat="detail in detaillist">
+		  		<div class="profile col-md-6">
+		    		<p ng-if="contentSv.getPlayer(detail).length" class="player" ng-bind-html="getPlayer(detail)"></p>
+		    		<img ng-if="!contentSv.getPlayer(detail).length && contentSv.getThumbnail(detail).length" thumbnail="detail" src="{{contentSv.getThumbnail(detail)}}" class="thumbnail">
+		    	</div>
+		    	<div class="presentacion col-md-6">
+			    	<h4 ng-if="contentSv.getTitle(detail).length>0" class="title">{{contentSv.getTitle(detail)}}</h4>
 
-		    	<h4 ng-if="contentSv.getTitle(detail).length>0" class="title">{{contentSv.getTitle(detail)}}</h4>
-		    	<p ng-if="contentSv.getPlayer(detail).length" class="player" ng-bind-html="getPlayer(detail)"></p>
-		    	<img ng-if="!contentSv.getPlayer(detail).length && contentSv.getThumbnail(detail).length" thumbnail="detail" src="{{contentSv.getThumbnail(detail)}}">
-		    	<p ng-if="contentSv.getDescription(detail).length>0" class="description" ng-bind-html="contentSv.getDescription(detail)"></p>
+					<ul class="stats both">
+						<li ng-repeat="(key,stat) in detail.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat">
+							<div>
+								<i ng-class="contentSv.getStatIcon(key)"></i> 
+								<span count-up="{{stat}}">{{stat}}</span>
+							</div>
+						</li>
+					</ul>
 
-
+					<fb-comments ng-if="isDetail" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
+		    	</div>
 	    	</div>
 	    </div>
 	</nav>

@@ -1,238 +1,239 @@
 <div class="app" ng-style="getAppStyle()" ng-class="getAppClass()">
 
-<fb app-id='211895592326072'></fb>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script src="http://platform.tumblr.com/v1/share.js"></script>
+	<fb app-id='211895592326072'></fb>
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<script src="http://platform.tumblr.com/v1/share.js"></script>
+	<script async="" defer="" src="//platform.instagram.com/en_US/embeds.js"></script>
 
-<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme" tooltip-placement="right">
-	<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
+	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme" tooltip-placement="right">
+		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
 
-	<tabset ng-if="showConfig">
+		<tabset ng-if="showConfig">
 
-		<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
-			<div ng-switch="tab.key" class="inside">
-				<admin-pagefilter ng-switch-when='pagefilter'></admin-pagefilter>
-				<admin-contentsize ng-switch-when='contentsize'></admin-contentsize>
-				<admin-colors ng-switch-when='colors'></admin-colors>
-				<admin-fonts ng-switch-when='fonts'></admin-fonts>
-				<admin-width ng-switch-when='width'></admin-width>
-				<admin-background ng-switch-when='background'></admin-background>
-			</div>
-		</tab>
-
-	</tabset>
-
-
-</div>
-
-<div class="navbar navbar-default both" get-menu-height>
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<h1>
-				<img ng-src="{{user.profile_image}}" class="profileImage img-circle"/>
-				<a class="navbar-brand" href="#/">{{user.username|uppercase}}</a>
-			</h1>
-		</div>
-		<div class="navbar-collapse collapse">
-
-			<ul ng-if="configLoaded" class="nav navbar-nav">
-				<li ng-repeat="page in pages" ng-class="getMenuItemClass('{{page}}')">
-					<a href="#/" ng-click="setCurrent('{{page}}')" skip-default>{{page}}</a>
-				</li>
-			</ul>
-
-		</div>
-	</div>
-</div>
-
-<div style="position:relative;">
-
-	<div ng-if="showingContent" class="modalContent">
-
-		<div class="content_detalle" ng-style="getStyle()">
-
-			<div class="left-column">
-
-				<div class="section content well" ng-style="getContentStyle(content)" ng-repeat="content in contentModal" ng-switch="content.concept">
-
-					<div class="both">
-						<div class="close-detalle" ng-click="closeContent()">&nbsp;</div>
-						<div ng-if="isLogged()">{{content.status}}</div>
-					</div>
-
-					<content-detail-video ng-switch-when='video'></content-detail-video>
-					<content-detail-photo ng-switch-when='photo'></content-detail-photo>
-					<content-detail-track ng-switch-when='track'></content-detail-track>
-					<content-detail-post  ng-switch-when='post' ></content-detail-post>
-					<content-detail-quote ng-switch-when='quote'></content-detail-quote>
-					<content-detail-chat  ng-switch-when='chat' ></content-detail-chat>
-					<content-detail-link  ng-switch-when='link' ></content-detail-link>
-					<content-detail-event ng-switch-when='event'></content-detail-event>
+			<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+				<div ng-switch="tab.key" class="inside">
+					<admin-pagefilter ng-switch-when='pagefilter'></admin-pagefilter>
+					<admin-contentsize ng-switch-when='contentsize'></admin-contentsize>
+					<admin-colors ng-switch-when='colors'></admin-colors>
+					<admin-fonts ng-switch-when='fonts'></admin-fonts>
+					<admin-width ng-switch-when='width'></admin-width>
+					<admin-background ng-switch-when='background'></admin-background>
 				</div>
-			</div>
+			</tab>
 
-			<div class="right-column well" ng-style="getContentStyle(content)" ng-repeat="content in contentModal">
+		</tabset>
 
-				<span class="user_info">
-					<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
-						<img class="profile" ng-src="{{getProfileImg()}}" alt="Go to profile">
-					</a>
-					<div>
-						<h3> {{getCurrentProperty('external_user_name')}}</h3>
-						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
-							<img alt="" ng-src="http://cloudcial.com/img/themes/digest/{{getCurrentProperty('network')}}.png">
-							<p> / {{getCurrentProperty('external_user_name')}}</p>
-						</a>
-					</div>
-
-
-					<div>
-						<ul>
-							<li class="left inline">
-			                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
-			                		<img src="http://cloudcial.com/img/themes/digest/twitter.png" alt="Twitter">
-			                	</a>
-			                </li>
-			                <li class="left inline">
-			                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-			                		<img src="http://cloudcial.com/img/themes/digest/facebook.png" alt="Facebook">
-			                	</a>
-			                </li>
-			                <li class="left inline">
-			                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
-			                		<img src="http://cloudcial.com/img/themes/digest/tumblr.png" alt="Tumblr">
-			                	</a>
-			                </li>
-			            </ul>
-				    </div>
-
-				</span>
-
-
-				<div ng-if="relateds.length>0" class="more_user_info">
-					<h3>More about {{getCurrentProperty('external_user_name')}}</h3>
-
-					<div class="wrapper">
-						<div class="list_carousel" ng-if="relateds.length>0">
-							<a id="prev2" class="prev" href="#/"><img alt="" src="http://cloudcial.com/img/themes/digest/arrow-left.png"></a>
-							<a id="next2" class="next" href="#/"><img alt="" src="http://cloudcial.com/img/themes/digest/arrow-right.png"></a>
-							<div class="carousel_container">
-								<ul id="carousel" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-									<li ng-repeat="related in relateds">
-										<a href="#/" ng-click="showRelated($index)" skip-default >
-											<i ng-hide="getRelatedThumbnail($index).length>0" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
-											<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">
-										</a>
-									</li>
-								</ul>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-
-			    <fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true"></fb-comments>
-
-			</div>
-
-		</div>
-
-		<a href="#/" ng-click="move(-1)" tooltip="{{getNavigatorTitle(-1)|capitalize}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)" ng-style="getStyle()">
-			<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
-			<div class="more-user" ng-show="getNavigatorThumbnail(-1).length>0">
-				<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
-			</div>
-			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="">
-			<img class="social-media" ng-src="http://cloudcial.com/img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
-		</a>
-
-		<a href="#/" ng-click="move(1)" tooltip="{{getNavigatorTitle(1)|capitalize}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)" ng-style="getStyle()">
-			<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
-			<div class="more-user" ng-show="getNavigatorThumbnail(1).length>0">
-				<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
-			</div>
-			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="">
-			<img class="social-media" ng-src="http://cloudcial.com/img/themes/digest/{{getNavigatorNetwork(1)}}-big.png" alt="">
-		</a>
 
 	</div>
 
+	<div class="navbar navbar-default both" get-menu-height>
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<h1>
+					<img ng-src="{{user.profile_image}}" class="profileImage img-circle"/>
+					<a class="navbar-brand" href="#/">{{user.username|uppercase}}</a>
+				</h1>
+			</div>
+			<div class="navbar-collapse collapse">
 
-
-	<div class="arrows arrows_home arrow_left" ng-style="getStyle()" tooltip="{{getPageArrowTitle(-1)}}|capitalize" tooltip-placement="right">
-	 	<a href="#/" skip-default ng-click="movePage(-1)">
-	 		<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="Previous page">
-	 	</a>
-	 </div>
-
-	<ul id="container" infinite-scroll="moreContent()" ng-style="getMasonryStyle()" masonry="{'columnWidth':1,'gutter':1,'isAnimated':true,'itemSelector':'.content'}" class="masonry">
-
-		<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow ng-style="getContentStyle(content)">
-
-			<div ng-if="isLogged()" class="left">{{content.status}}</div>
-			<i ng-if="isLogged()" ng-click="manageContent($index)" class="right" ng-class="getManageContentIconClass($index)"></i>
-
-			<div class="stats both">
-				<ul>
-					<li ng-repeat="(key,stat) in content.stats" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom">
-						<div ng-if="canShowStat(stat)" >
-							<i ng-class="statIcon(key)"></i> {{stat}}
-						</div>
+				<ul ng-if="configLoaded" class="nav navbar-nav">
+					<li ng-repeat="page in pages" ng-class="getMenuItemClass('{{page}}')">
+						<a href="#/" ng-click="setCurrent('{{page}}')" skip-default>{{page}}</a>
 					</li>
 				</ul>
-			</div>
-
-			<div class="both">
-
-			    <content-video ng-switch-when='video'></content-video>
-			    <content-photo ng-switch-when='photo'></content-photo>
-			    <content-track ng-switch-when='track'></content-track>
-			    <content-post  ng-switch-when='post' ></content-post>
-			    <content-quote ng-switch-when='quote'></content-quote>
-			    <content-chat  ng-switch-when='chat' ></content-chat>
-			    <content-link  ng-switch-when='link' ></content-link>
-			    <content-event ng-switch-when='event'></content-event>
-
-				<span class="user_info">
-					<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
-						<img ng-src="http://cloudcial.com/img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon">
-						<p> / {{content.external_user_name}}</p>
-					</a>
-				</span>
 
 			</div>
-
-			<strong ng-click="showContent($index)">View</strong>
-
-		</li>
-
-	</ul>
-
-	<div class="arrows arrows_home arrow_right" ng-style="getStyle()" tooltip="{{getPageArrowTitle(1)|capitalize}}" tooltip-placement="left">
-		<a href="#/" skip-default ng-click="movePage(1)">
-			<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="Next page">
-		</a>
+		</div>
 	</div>
 
-	<div class="footer" ng-hide="showingContent" ng-style="getFooterStyle()" get-footer-height>
+	<div style="position:relative;">
 
-		<a href="#/" ng-show="showUp" ng-click="scrollToTop()" class="scrollToTop right" skip-default>
-			<img src="http://cloudcial.com/img/themes/digest/scrollTop.png" />
-		</a>
+		<div ng-if="showingContent" class="modalContent">
 
-		<div class="left user_message" ng-show="userMessage.length > 0" >
-			<img alt="loading" class="loading" ng-src="http://cloudcial.com/img/themes/digest/ajax-loader.gif">
-			<span class="text_message">{{userMessage}}</span>	
-		</div>		
+			<div class="content_detalle" ng-style="getStyle()">
+
+				<div class="left-column">
+
+					<div class="section content well" ng-style="getContentStyle(content)" ng-repeat="content in contentModal" ng-switch="content.concept">
+
+						<div class="both">
+							<div class="close-detalle" ng-click="closeContent()">&nbsp;</div>
+							<div ng-if="isLogged()">{{content.status}}</div>
+						</div>
+
+						<content-detail-video ng-switch-when='video'></content-detail-video>
+						<content-detail-photo ng-switch-when='photo'></content-detail-photo>
+						<content-detail-track ng-switch-when='track'></content-detail-track>
+						<content-detail-post  ng-switch-when='post' ></content-detail-post>
+						<content-detail-quote ng-switch-when='quote'></content-detail-quote>
+						<content-detail-chat  ng-switch-when='chat' ></content-detail-chat>
+						<content-detail-link  ng-switch-when='link' ></content-detail-link>
+						<content-detail-event ng-switch-when='event'></content-detail-event>
+					</div>
+				</div>
+
+				<div class="right-column well" ng-style="getContentStyle(content)" ng-repeat="content in contentModal">
+
+					<span class="user_info">
+						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
+							<img class="profile" ng-src="{{getProfileImg()}}" alt="Go to profile">
+						</a>
+						<div>
+							<h3> {{getCurrentProperty('external_user_name')}}</h3>
+							<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
+								<img alt="" ng-src="http://cloudcial.com/img/themes/digest/{{getCurrentProperty('network')}}.png">
+								<p> / {{getCurrentProperty('external_user_name')}}</p>
+							</a>
+						</div>
+
+
+						<div>
+							<ul>
+								<li class="left inline">
+				                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
+				                		<img src="http://cloudcial.com/img/themes/digest/twitter.png" alt="Twitter">
+				                	</a>
+				                </li>
+				                <li class="left inline">
+				                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
+				                		<img src="http://cloudcial.com/img/themes/digest/facebook.png" alt="Facebook">
+				                	</a>
+				                </li>
+				                <li class="left inline">
+				                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
+				                		<img src="http://cloudcial.com/img/themes/digest/tumblr.png" alt="Tumblr">
+				                	</a>
+				                </li>
+				            </ul>
+					    </div>
+
+					</span>
+
+
+					<div ng-if="relateds.length>0" class="more_user_info">
+						<h3>More about {{getCurrentProperty('external_user_name')}}</h3>
+
+						<div class="wrapper">
+							<div class="list_carousel" ng-if="relateds.length>0">
+								<a id="prev2" class="prev" href="#/"><img alt="" src="http://cloudcial.com/img/themes/digest/arrow-left.png"></a>
+								<a id="next2" class="next" href="#/"><img alt="" src="http://cloudcial.com/img/themes/digest/arrow-right.png"></a>
+								<div class="carousel_container">
+									<ul id="carousel" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
+										<li ng-repeat="related in relateds">
+											<a href="#/" ng-click="showRelated($index)" skip-default >
+												<i ng-hide="getRelatedThumbnail($index).length>0" ng-class="contentSv.getConceptIcon(related.concept)" style="maring:auto 0;top:45%;left:45%;position:relative;"></i>
+												<img alt="" ng-src="{{getRelatedThumbnail($index)}}" restrictsize="109">
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+
+				    <fb-comments data-href="{{getContentCommentsHash()}}" data-notify="true"></fb-comments>
+
+				</div>
+
+			</div>
+
+			<a href="#/" ng-click="move(-1)" tooltip="{{getNavigatorTitle(-1)|capitalize}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_left" ng-class="getNavigatorClass(-1)" ng-style="getStyle()">
+				<i class="social-icon" ng-class="getNavigatorConceptIcon(-1)"></i>
+				<div class="more-user" ng-show="getNavigatorThumbnail(-1).length>0">
+					<img ng-src="{{getNavigatorThumbnail(-1)}}" alt="" restrictsize="120" >
+				</div>
+				<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="">
+				<img class="social-media" ng-src="http://cloudcial.com/img/themes/digest/{{getNavigatorNetwork(-1)}}-big.png" alt="">
+			</a>
+
+			<a href="#/" ng-click="move(1)" tooltip="{{getNavigatorTitle(1)|capitalize}}" tooltip-placement="bottom" skip-default class="arrows arrows_detalle arrow_right" ng-class="getNavigatorClass(1)" ng-style="getStyle()">
+				<i class="social-icon" ng-class="getNavigatorConceptIcon(1)"></i>
+				<div class="more-user" ng-show="getNavigatorThumbnail(1).length>0">
+					<img ng-src="{{getNavigatorThumbnail(1)}}" alt="" restrictsize="120" >
+				</div>
+				<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="">
+				<img class="social-media" ng-src="http://cloudcial.com/img/themes/digest/{{getNavigatorNetwork(1)}}-big.png" alt="">
+			</a>
+
+		</div>
+
+
+
+		<div class="arrows arrows_home arrow_left" ng-style="getStyle()" tooltip="{{getPageArrowTitle(-1)}}|capitalize" tooltip-placement="right">
+		 	<a href="#/" skip-default ng-click="movePage(-1)">
+		 		<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-left.png" alt="Previous page">
+		 	</a>
+		 </div>
+
+		<ul id="container" infinite-scroll="moreContent()" ng-style="getMasonryStyle()" masonry="{'columnWidth':1,'gutter':1,'isAnimated':true,'itemSelector':'.content'}" class="masonry">
+
+			<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow ng-style="getContentStyle(content)">
+
+				<div ng-if="isLogged()" class="left">{{content.status}}</div>
+				<i ng-if="isLogged()" ng-click="manageContent($index)" class="right" ng-class="getManageContentIconClass($index)"></i>
+
+				<div class="stats both">
+					<ul>
+						<li ng-repeat="(key,stat) in content.stats" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom">
+							<div ng-if="canShowStat(stat)" >
+								<i ng-class="statIcon(key)"></i> {{stat}}
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="both">
+
+				    <content-video ng-switch-when='video'></content-video>
+				    <content-photo ng-switch-when='photo'></content-photo>
+				    <content-track ng-switch-when='track'></content-track>
+				    <content-post  ng-switch-when='post' ></content-post>
+				    <content-quote ng-switch-when='quote'></content-quote>
+				    <content-chat  ng-switch-when='chat' ></content-chat>
+				    <content-link  ng-switch-when='link' ></content-link>
+				    <content-event ng-switch-when='event'></content-event>
+
+					<span class="user_info">
+						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
+							<img ng-src="http://cloudcial.com/img/themes/digest/{{content.network}}.png" alt="Go to {{content.network}} profile" class="socialIcon">
+							<p> / {{content.external_user_name}}</p>
+						</a>
+					</span>
+
+				</div>
+
+				<strong ng-click="showContent($index)">View</strong>
+
+			</li>
+
+		</ul>
+
+		<div class="arrows arrows_home arrow_right" ng-style="getStyle()" tooltip="{{getPageArrowTitle(1)|capitalize}}" tooltip-placement="left">
+			<a href="#/" skip-default ng-click="movePage(1)">
+				<img class="arrow" src="http://cloudcial.com/img/themes/digest/arrow-right.png" alt="Next page">
+			</a>
+		</div>
+
+		<div class="footer" ng-hide="showingContent" ng-style="getFooterStyle()" get-footer-height>
+
+			<a href="#/" ng-show="showUp" ng-click="scrollToTop()" class="scrollToTop right" skip-default>
+				<img src="http://cloudcial.com/img/themes/digest/scrollTop.png" />
+			</a>
+
+			<div class="left user_message" ng-show="userMessage.length > 0" >
+				<img alt="loading" class="loading" ng-src="http://cloudcial.com/img/themes/digest/ajax-loader.gif">
+				<span class="text_message">{{userMessage}}</span>	
+			</div>		
+
+		</div>
 
 	</div>
-
-</div>
 
 
 </div>

@@ -1,6 +1,9 @@
-<div>
-    Comments (<div class="fb-comments-count inline" data-href="{{getContentCommentsHash()}}">0</div>)
-    <div class="comments">
-        <div class="fb-comments" data-href="{{commentsUrl}}" data-numposts="{{commentsNumposts}}" data-colorscheme="light"></div>
+<div style="margin-top:10px;">
+    <div class="pull-left" ng-click="showComments = !showComments">
+    	Comments (<div class="fb-comments-count inline" data-href="{{getContentCommentsHash()}}">0</div>)
+    </div>
+    <div class="clearfix"></div>
+    <div class="comments" ng-show="showComments">
+		<div class="fb-comments" data-href="{{commentsUrl}}" data-numposts="{{commentsNumposts}}" data-colorscheme="{{commentsColor}}"></div>
     </div>
 </div>
