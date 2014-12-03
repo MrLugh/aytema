@@ -107,12 +107,18 @@
 
 	    </div>
 	    <div class="detail {{isDetail ? 'active':'inactive'}}">
-	    	<div class="both">
-		    	<i class="fa fa-arrow-left inline" ng-click="moveDetail(-1)"></i>
+	    	<div ng-show="isDetail" class="controls">
+
+		    	<i class="fa fa-chevron-left inline" ng-click="moveDetail(-1)"></i>
 		    	<i class="fa fa-close inline" ng-click="closeDetail()"></i>
-		    	<i class="fa fa-arrow-right inline" ng-click="moveDetail(1)"></i>
+		    	<i class="fa fa-chevron-right inline" ng-click="moveDetail(1)"></i>
+
+				<span ng-repeat="detail in detaillist" class="right">{{detail.external_user_name}}</span>		    	
+				<img ng-repeat="detail in detaillist" ng-src="{{userSv.getNetworkProfileImage(detail.network,detail.external_user_id)}}" class="account_profile cover right"/>
+
+
 		    </div>
-	    	<div ng-show="isDetail" ng-repeat="detail in detaillist">
+	    	<div ng-show="isDetail" class="detail_container" ng-repeat="detail in detaillist">
 		  		<div class="profile col-md-6">
 		    		<p ng-if="contentSv.getPlayer(detail).length" class="player" ng-bind-html="getPlayer(detail)"></p>
 		    		<img ng-if="!contentSv.getPlayer(detail).length && contentSv.getThumbnail(detail).length" thumbnail="detail" src="{{contentSv.getThumbnail(detail)}}" class="thumbnail">

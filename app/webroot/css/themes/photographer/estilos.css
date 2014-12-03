@@ -159,7 +159,7 @@ a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focu
 
 .bt-menu-trigger {
     position: fixed;
-    top: 53px;
+    top: 10px;
     left: 10px;
     display: block;
     width: 40px;
@@ -1089,16 +1089,15 @@ footer i:hover {
     overflow: hidden;
     background-color: rgba(0,0,0,1);
     top:0;
-    left: 60px;
-    z-index: 10000;
-    padding: 25px;
+    left:60px;
+    z-index: -1;
     margin: 0;
     opacity: 0;
-    -moz-transform: scale(0);
-    -webkit-transform: scale(0);
-    -o-transform: scale(0);
-    -ms-transform: scale(0);
-    transform: scale(0);
+    -moz-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
     -webkit-transition:all 0.85s ease-in-out 0s;
     -moz-transition:all 0.85s ease-in-out 0s;
     -o-transition:all 0.85s ease-in-out 0s;
@@ -1106,6 +1105,7 @@ footer i:hover {
 }
 
 .detail.active {
+    z-index: 10000;
     opacity: 1;
     overflow-y: scroll;
     -moz-transform: scale(1);
@@ -1113,8 +1113,10 @@ footer i:hover {
     -o-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
-    top:0;
-    left:60px;
+}
+
+.detail_container {
+    padding: 25px;
 }
 
 .detail .stats {
@@ -1151,4 +1153,22 @@ footer i:hover {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+}
+
+.detail .controls {
+    padding: 20px;
+    width: 100%;
+    height: 60px;
+    font-size: 30px;
+    text-align: left;
+}
+
+.detail .controls .account_profile {
+    height: 60px;
+    max-width: 100%;
+    border-radius:50%!important;
+    border-width: 2px!important;
+    border-style: solid!important;
+    border-color:#ffc229!important;
+    margin-bottom: 15px!important;
 }
