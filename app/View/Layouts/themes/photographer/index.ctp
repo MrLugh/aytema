@@ -24,6 +24,7 @@
     echo $this->Html->css('themes/photographer/estilos');
     echo $this->Html->css('themes/photographer/estilos-responsive');
     echo $this->Html->css('themes/photographer/animate');
+    echo $this->Html->css('themes/photographer/fontello');
     ?>
 
     <!-- Js -->

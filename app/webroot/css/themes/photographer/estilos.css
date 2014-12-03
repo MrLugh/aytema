@@ -997,11 +997,10 @@ footer .content-footer {
 }
 footer i {
     color: #333333;
-    opacity: 0.8;
     margin: 0 2px;
 }
 footer i:hover {
-    opacity: 1;
+    color: #ea5946;
 }
 
 
