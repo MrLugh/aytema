@@ -126,7 +126,7 @@ a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focu
     height: 0;
     border-width: 0px;
     border-style: solid;
-    border-color: #1d2123;
+    border-color: #232323;
     background-color: rgba(0,0,0,0);
     transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
 }
@@ -147,7 +147,8 @@ a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focu
 .bt-menu-open .bt-overlay {
     width: 100%!important;
     height: 100%!important;
-    background-color: rgba(0,0,0,0.9);
+	background-image: url("../../../img/themes/photographer/bg_pattern.png");
+	opacity: 0.98;
 }
 
 .overlay-panel {
@@ -276,21 +277,21 @@ a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focu
     position: relative;
     transition: all 0.4s ease 0.3s;
     width: 60px;
-    color: #3a454c;
+    color: #ffffff;
     font-size: 18px;
     line-height: inherit;
     text-transform: uppercase;
 }
 .bt-menu > ul li a:hover, .bt-menu > ul li.active a {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: #fff;
     transition: all 0.4s ease 0s;
-    color: #3a454c;
+    color: #333333;
 }
 .bt-menu > ul li a i {
     font-size: 25px;
 }
 .bt-menu > ul li a .nav-label {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.95);
+    background: none repeat scroll 0 0 #fff;
     display: block;
     height: 50px;
     line-height: 18px;
@@ -312,7 +313,7 @@ a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focu
     top: 15px;
     visibility: hidden;
     z-index: -1;
-    color: #f7690d;
+    color: #ff6347;
 }
 .bt-menu > ul li a:hover .nav-label,
 .bt-menu > ul li a:hover .nav-label span {
@@ -324,7 +325,7 @@ a:hover, a:active, a:focus, iframe, object, embed, audio, video input::-moz-focu
 
 
 .bt-menu > ul li a:before {
-    color: #04a466;
+    color: #fff;
     font-size: 48px;
     transition: color 0.2s;
 }
@@ -409,7 +410,7 @@ a#logo {
 .cb-slideshow li span * {
     max-width: 240px;
     position: relative;
-    color: #3a454c;
+    color: #333333;
     text-align: center;
     font-size: 24px;
     font-weight: 300;
@@ -753,7 +754,7 @@ nav .panel.active {
   color: #ffffff;
 }
 nav .panel.active h4 {
-  background-color: #f7690d;
+  background-color: #FF6347;
 }
 nav .panel-heading {
     padding: 5px 15px;
@@ -828,7 +829,7 @@ nav .panel-group .panel {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #f7690d;
+    background: #FF6347;
     z-index: 1;
     display: block;
     -webkit-transition: all 1s cubic-bezier(0.86,  0,  0.07,  1);
@@ -838,7 +839,7 @@ nav .panel-group .panel {
     transition: all 1s cubic-bezier(0.86,  0,  0.07,  1);
 }
 .bt:hover>.bg {
-    background: #f7690d;
+    background: #FF6347;
     opacity: 0.8;
 }
 #trigger-overlay {
@@ -928,10 +929,11 @@ body.show-nav #trigger-overlay .lines span:nth-child(3) {
     line-height: 1;
     text-transform: uppercase;
     display: block;
+    padding: 0 5px 1px;
 }
 #logo .logo-tagline {
     background-color: rgba(255, 255, 255, 0.95);
-    color: #f7690d;
+    color: #ff6347;
     display: inline-block;
     float: right;
     font-size: 24px;
@@ -941,6 +943,7 @@ body.show-nav #trigger-overlay .lines span:nth-child(3) {
     text-align: right;
     text-shadow: none !important;
     text-transform: uppercase;
+    margin: 0 10px 0 0;
 }
 
 /* about */
@@ -955,7 +958,7 @@ address {
     font-weight: 300;
 }
 address span, nav address li a {
-    color: #f7690d;
+    color: #FF6347;
     background-color: rgba(0,0,0,0.8);
     padding: 5px 15px;
     font-size: 20px;
@@ -965,7 +968,7 @@ address span, nav address li a {
 
 }
 nav address li a:hover {
-    color: #f7690d;
+    color: #FF6347;
 }
 
 /* footer styles
@@ -993,7 +996,7 @@ footer .content-footer {
     text-align: right;
 }
 footer i {
-    color: #3a454c;
+    color: #333333;
     opacity: 0.8;
     margin: 0 2px;
 }
@@ -1087,7 +1090,7 @@ footer i:hover {
     height: 100%;
     position: fixed;
     overflow: hidden;
-    background-color: rgba(0,0,0,1);
+    background-image: url("../../../img/themes/photographer/bg_pattern.png");
     top:0;
     left:60px;
     z-index: -1;
@@ -1113,6 +1116,8 @@ footer i:hover {
     -o-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
+   	background-image: url("../../../img/themes/photographer/bg_pattern.png");
+
 }
 
 .detail_container {
@@ -1171,4 +1176,11 @@ footer i:hover {
     border-style: solid!important;
     border-color:#ffc229!important;
     margin-bottom: 15px!important;
+}
+
+/* thumbnails */
+
+.thumbnail {
+    background-color: #383d40;
+    border: 1px solid #383d40;
 }
