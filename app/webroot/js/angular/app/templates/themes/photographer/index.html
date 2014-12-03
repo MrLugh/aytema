@@ -113,9 +113,8 @@
 		    	<i class="fa fa-close inline" ng-click="closeDetail()"></i>
 		    	<i class="fa fa-chevron-right inline" ng-click="moveDetail(1)"></i>
 
-				<span ng-repeat="detail in detaillist" class="right">{{detail.external_user_name}}</span>		    	
 				<img ng-repeat="detail in detaillist" ng-src="{{userSv.getNetworkProfileImage(detail.network,detail.external_user_id)}}" class="account_profile cover right"/>
-
+				<span ng-repeat="detail in detaillist" class="right">{{detail.external_user_name}}</span>
 
 		    </div>
 	    	<div ng-show="isDetail" class="detail_container" ng-repeat="detail in detaillist">
