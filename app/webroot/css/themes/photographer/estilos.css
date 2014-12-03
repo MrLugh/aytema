@@ -1032,36 +1032,36 @@ footer i:hover {
 }
 
 .small {
-    width: calc(25% - 30px);
-    height: calc(25% - 30px);
+    width: calc(25% - 22px);
+    height: calc(25% - 22px);
 }
 
 .medium {
-    width: calc(50% - 30px);
-    height: calc(25% - 30px);
+    width: calc(50% - 22px);
+    height: calc(25% - 22px);
 }
 
 .large {
-    width: calc(25% - 30px);
-    height: calc(50% - 30px);
+    width: calc(25% - 22px);
+    height: calc(50% - 22px);
 }
 
 .xlarge {
-    width: calc(50% - 30px);
-    height: calc(50% - 30px);
+    width: calc(50% - 22px);
+    height: calc(50% - 22px);
     /*
     background-attachment: fixed;
     */
 }
 
 .half {
-    width: calc(50% - 30px);
-    height: calc(100% - 30px);
+    width: calc(50% - 22px);
+    height: calc(100% - 22px);
 }
 
 .full {
-    width: calc(100% - 30px);
-    height: calc(50% - 30px);
+    width: calc(100% - 22px);
+    height: calc(50% - 22px);
 }
 
 .masonry-brick.loaded {
