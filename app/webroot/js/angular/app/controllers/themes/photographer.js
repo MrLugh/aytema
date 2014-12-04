@@ -286,16 +286,16 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce,$interval) {
 
     $scope.getConfigStyle = function() {
 	   	if ($scope.showConfig == true) {
-	   		return {'left':'0'};
+	   		return {'right':'0'};
     	}
-	   	return {'left':'0'};
+	   	return {'right':'0'};
     };
 
     $scope.getConfigButtonStyle = function() {
 	   	if ($scope.showConfig == true) {
-	   		return {'left':'100%'};
+	   		return {'right':'100%'};
     	}
-	   	return {'left':'0'};
+	   	return {'right':'0'};
     };
 
     $scope.manageCurrent = function(current) {
