@@ -122,20 +122,20 @@
 		    	</div>
 
     	  		<div ng-repeat="photo in detailPhotoList" class="photo col-md-12" ng-if="detailPhotoCurrent == $index && !contentSv.getPlayer(content).length && contentSv.getThumbnail(content).length" style="background-image:url('{{photo.src}}')">
+			    	<div class="presentacion caption-wrap">
+				    	<h4 ng-if="contentSv.getTitle(content).length>0" class="title">{{contentSv.getTitle(content)}}</h4>
+						<ul class="stats both">
+							<li ng-repeat="(key,stat) in content.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat">
+								<div>
+									<i ng-class="contentSv.getStatIcon(key)"></i> 
+									<span count-up="{{stat}}">{{stat}}</span>
+								</div>
+							</li>
+						</ul>
+						<fb-comments ng-if="isDetail" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
+		 	     	</div>
     	  		</div>
 
-		    	<div class="presentacion caption-wrap">
-			    	<h4 ng-if="contentSv.getTitle(content).length>0" class="title">{{contentSv.getTitle(content)}}</h4>
-					<ul class="stats both">
-						<li ng-repeat="(key,stat) in content.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat">
-							<div>
-								<i ng-class="contentSv.getStatIcon(key)"></i> 
-								<span count-up="{{stat}}">{{stat}}</span>
-							</div>
-						</li>
-					</ul>
-					<fb-comments ng-if="isDetail" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
-	 	     	    </div>
 	
 	    	</div>
 	    </div>
