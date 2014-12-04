@@ -217,7 +217,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce,$interval) {
 	};
 
 	$scope.getPlayer = function(content) {
-
+		return $sce.trustAsHtml(contentSv.getPlayer(content));
 		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
 	};
 
