@@ -1085,13 +1085,13 @@ footer i:hover {
 /* Detail */
 
 .detail {
-    width: 100%;
+    width: calc(100% - 60px);
     height: 100%;
     position: fixed;
     overflow: hidden;
     background-image: url("../../../img/themes/photographer/bg_pattern.png");
     top:0;
-    left:0px;
+    left:60px;
     z-index: -1;
     margin: 0;
     opacity: 0;
@@ -1116,11 +1116,39 @@ footer i:hover {
     -ms-transform: scale(1);
     transform: scale(1);
    	background-image: url("../../../img/themes/photographer/bg_pattern.png");
-
+    height:919px;
+    overflow: hidden;
 }
 
+.detail .caption-wrap {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 50%;
+    z-index: 100;
+}
+.detail .caption-wrap h4, .detail .caption-wrap li, .detail .caption-wrap .comments_container .title {
+    background-color: #ffffff;
+    color: #333333;
+    margin: 0;
+    padding: 10px;
+    display: inline-block;
+}
 .detail_container {
-    padding: 25px;
+    padding: 0px;
+}
+.detail .profile {
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;	
+    height: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+	animation: 12s ease-in 0.6s normal forwards 1 running imagezoom;        
 }
 
 .detail .stats {
@@ -1160,12 +1188,22 @@ footer i:hover {
 }
 
 .detail .controls {
-    padding: 20px;
-    width: 100%;
+    bottom: 180px;
     font-size: 30px;
-    text-align: left;
+    left: 40%;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    width: auto;
+    z-index: 1;
 }
 
+
+.detail .controls i {
+    bottom: 0;
+    height: 100%;
+    width: 50px;
+}
 .detail .controls .account_profile {
     height: 60px;
     max-width: 100%;
