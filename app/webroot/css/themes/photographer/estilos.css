@@ -1172,7 +1172,6 @@ footer i:hover {
     -ms-transform: scale(1);
     transform: scale(1);
    	background-image: url("../../../img/themes/photographer/bg_pattern.png");
-    height:919px;
     overflow: hidden;
 }
 
@@ -1245,7 +1244,7 @@ footer i:hover {
 }
 
 .detail .controls {
-    bottom: 180px;
+    bottom: 20px;
     font-size: 30px;
     left: 40%;
     padding: 0px;
@@ -1254,7 +1253,6 @@ footer i:hover {
     width: auto;
     z-index: 1;
 }
-
 
 .detail .controls i {
     bottom: 0;
