@@ -107,32 +107,26 @@
 
 	    </div>
 	    <div class="detail {{isDetail ? 'active':'inactive'}}">
+
 	    	<div ng-show="isDetail" class="controls">
 
 		    	<i class="fa fa-chevron-left inline" ng-click="moveDetail(-1)"></i>
 		    	<i class="fa fa-close inline" ng-click="closeDetail()"></i>
 		    	<i class="fa fa-chevron-right inline" ng-click="moveDetail(1)"></i>
 
-<!--
-				<img ng-repeat="detail in detaillist" ng-src="{{userSv.getNetworkProfileImage(detail.network,detail.external_user_id)}}" class="account_profile cover"/>
-				<span ng-repeat="detail in detaillist" class="account_name">{{detail.external_user_name}}</span>
--->
 		    </div>
 	    	<div ng-show="isDetail" class="detail_container" ng-repeat="detail in detaillist" style="height:{{appSv.getHeight()}}px;">
 
-<!--
-    	  		<div class="profile col-md-6">
-		    		<p ng-if="contentSv.getPlayer(detail).length" class="player" ng-bind-html="getPlayer(detail)"></p>
-		    		<img ng-if="!contentSv.getPlayer(detail).length && contentSv.getThumbnail(detail).length" thumbnail="detail" src="{{contentSv.getThumbnail(detail)}}" class="thumbnail">
+    	  		<div ng-if="contentSv.getPlayer(content).length" class="col-md-12">
+		    		<p class="player" ng-bind-html="getPlayer(content)" style="height:{{appSv.getHeight()}}px;"></p>
 		    	</div>
--->
-    	  		<div class="profile col-md-12" ng-if="!contentSv.getPlayer(detail).length && contentSv.getThumbnail(detail).length" thumbnail="detail" style="background-image:url('{{contentSv.getThumbnail(detail)}}')">
-		    		<p ng-if="contentSv.getPlayer(detail).length" class="player" ng-bind-html="getPlayer(detail)"></p>
-		    	</div>
+
+    	  		<div class="photo col-md-12" ng-if="!contentSv.getPlayer(content).length && contentSv.getThumbnail(content).length" thumbnail="content" style="background-image:url('{{contentSv.getThumbnail(content)}}')"></div>
+
 		    	<div class="presentacion caption-wrap">
-			    	<h4 ng-if="contentSv.getTitle(detail).length>0" class="title">{{contentSv.getTitle(detail)}}</h4>
+			    	<h4 ng-if="contentSv.getTitle(content).length>0" class="title">{{contentSv.getTitle(content)}}</h4>
 					<ul class="stats both">
-						<li ng-repeat="(key,stat) in detail.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat">
+						<li ng-repeat="(key,stat) in content.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat">
 							<div>
 								<i ng-class="contentSv.getStatIcon(key)"></i> 
 								<span count-up="{{stat}}">{{stat}}</span>

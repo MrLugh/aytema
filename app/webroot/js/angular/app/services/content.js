@@ -676,8 +676,9 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'cloudcial') {
-				var thumb = this.getThumbnail(content);
-				source = '<video controls poster="'+thumb+'"><source src="'+content.data.path+'" type='+content.data.mime+' /></video>';
+				//var thumb = this.getThumbnail(content);
+				//source = '<video controls poster="'+thumb+'"><source src="'+content.data.path+'" type='+content.data.mime+' /></video>';
+				source = '<video controls><source src="'+content.data.path+'" type='+content.data.mime+' /></video>';
 			}
 
 		}

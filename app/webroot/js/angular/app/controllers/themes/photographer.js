@@ -29,7 +29,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	];
 
 	$scope.current 	= false;
-	$scope.detail 	= {};
+	$scope.content 	= {};
 	$scope.isDetail = false;
 
 	userSv.loadThemeConfig('photographer');
@@ -236,7 +236,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	};
 
     $scope.getContentCommentsHash = function() {
-    	var c = $scope.detail;
+    	var c = $scope.content;
     	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
     };	
 
@@ -272,21 +272,21 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 
     $scope.showDetail = function(content) {
     	$scope.isDetail = true;
-    	$scope.detail = content;
+    	$scope.content = content;
     	$scope.detaillist = [content];
     };
 
     $scope.closeDetail = function() {
     	$scope.isDetail = false;
-    	$scope.detail = {};
+    	$scope.content = {};
     	$scope.detaillist = [];
     };
 
     $scope.moveDetail = function(direction) {
 
-    	var type = $scope.detail.concept;
+    	var type = $scope.content.concept;
 
-		var currentPos = $scope.contents[type].list.indexOf($scope.detail);
+		var currentPos = $scope.contents[type].list.indexOf($scope.content);
 
         if (direction > 0) {currentPos++;} else {currentPos--;}
 

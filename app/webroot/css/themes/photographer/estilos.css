@@ -1009,8 +1009,7 @@ footer i:hover {
     position: fixed;
     z-index: 2;
     bottom: 20px;
-    right: 20px;
-    margin-right: 20px;
+    right: 40px;
     padding: 20px;
     color: #fff!important;
     font-size: 20px!important;
@@ -1138,7 +1137,7 @@ footer i:hover {
 .detail_container {
     padding: 0px;
 }
-.detail .profile {
+.detail .photo {
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1169,7 +1168,7 @@ footer i:hover {
   position: relative;
   top:0;
   left: 0;
-  min-height: 400px;
+  height: 100%;
   width: 100%;
   background-color: #131313;
   display: inline-block;
