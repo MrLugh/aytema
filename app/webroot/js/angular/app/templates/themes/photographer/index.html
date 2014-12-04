@@ -121,7 +121,8 @@
 		    		<p class="player" ng-bind-html="getPlayer(content)" style="height:{{appSv.getHeight()}}px;"></p>
 		    	</div>
 
-    	  		<div class="photo col-md-12" ng-if="!contentSv.getPlayer(content).length && contentSv.getThumbnail(content).length" thumbnail="content" style="background-image:url('{{contentSv.getThumbnail(content)}}')"></div>
+    	  		<div ng-repeat="photo in detailPhotoList" class="photo col-md-12" ng-if="detailPhotoCurrent == $index && !contentSv.getPlayer(content).length && contentSv.getThumbnail(content).length" style="background-image:url('{{photo.src}}')">
+    	  		</div>
 
 		    	<div class="presentacion caption-wrap">
 			    	<h4 ng-if="contentSv.getTitle(content).length>0" class="title">{{contentSv.getTitle(content)}}</h4>

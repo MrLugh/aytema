@@ -1,4 +1,4 @@
-function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
+function themePhotographerCo($scope,appSv,userSv,contentSv,$sce,$interval) {
 
 	$scope.appSv 	= appSv;
 	$scope.contentSv= contentSv;
@@ -31,6 +31,9 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.current 	= false;
 	$scope.content 	= {};
 	$scope.isDetail = false;
+	$scope.detailPhotoList = [];
+	$scope.detailPhotoTimer = -1;
+	$scope.detailPhotoCurrent = 0;
 
 	userSv.loadThemeConfig('photographer');
 	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
@@ -148,7 +151,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 					var element = content.data.photos[x];
 					var photo = {
 						src 	: element.original_size.url,
-						title	: contentSv.getTitle($scope.content),
+						title	: contentSv.getTitle(content),
 						width 	: 200 +  200 * Math.random() << 0
 					};
 
@@ -160,7 +163,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 			} else {
 				var element = content.data;
 				var photo = {
-					src 	: contentSv.getThumbnail($scope.content),
+					src 	: contentSv.getThumbnail(content),
 					title	: contentSv.getTitle($scope.content),
 					width 	: 200 +  200 * Math.random() << 0
 				};
@@ -170,6 +173,43 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
 				}
 			}
 		});
+	}
+
+	$scope.setDetailPhotoList = function() {
+
+		$scope.detailPhotoList = [];
+		$interval.cancel($scope.detailPhotoTimer);
+
+		if ($scope.content.network == 'tumblr') {
+			for(x in $scope.content.data.photos) {
+				var element = $scope.content.data.photos[x];
+				var photo = {
+					src 	: element.original_size.url,
+					title	: contentSv.getTitle($scope.content),
+					width 	: 200 +  200 * Math.random() << 0
+				};
+
+				$scope.detailPhotoList.push(photo);
+				
+			}
+		} else {
+			var element = $scope.content.data;
+			var photo = {
+				src 	: contentSv.getThumbnail($scope.content),
+				title	: contentSv.getTitle($scope.content),
+				width 	: 200 +  200 * Math.random() << 0
+			};
+
+			$scope.detailPhotoList.push(photo);
+		}
+
+		$scope.detailPhotoCurrent = 0;
+		if ($scope.detailPhotoList.length > 1) {
+			$scope.detailPhotoTimer = $interval(function(){
+				$scope.moveDetailPhotoCurrent();
+			},5000);	
+		}
+
 	}
 
 	$scope.getPluralizedConcepts = function(concept) {
@@ -274,12 +314,17 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
     	$scope.isDetail = true;
     	$scope.content = content;
     	$scope.detaillist = [content];
+    	$scope.setDetailPhotoList();
     };
 
     $scope.closeDetail = function() {
     	$scope.isDetail = false;
     	$scope.content = {};
     	$scope.detaillist = [];
+    	$interval.cancel($scope.detailPhotoTimer);
+		$scope.detailPhotoList = [];
+		$scope.detailPhotoTimer = -1;
+		$scope.detailPhotoCurrent = 0;
     };
 
     $scope.moveDetail = function(direction) {
@@ -301,6 +346,30 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce) {
         $scope.showDetail($scope.contents[type].list[currentPos]);
 
     };
+
+    $scope.moveDetailPhotoCurrent = function() {
+
+    	if ($scope.detailPhotoList.length == 1) {
+    		return;
+    	}
+
+		var currentPos = $scope.detailPhotoCurrent;
+
+        currentPos++;
+
+        if (currentPos < 0 ) {
+            currentPos = $scope.detailPhotoList.length - 1;
+        }
+
+        if (currentPos == $scope.detailPhotoList.length ) {
+            currentPos = 0;
+        }
+
+        $scope.detailPhotoCurrent = currentPos;
+
+    };    
+
+$scope.detailPhotoCurrent    
 
     $scope.photosizes = [
     	'half','xlarge','xlarge',
