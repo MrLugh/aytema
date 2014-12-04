@@ -6,7 +6,7 @@
 	<script async="" defer="" src="//platform.instagram.com/en_US/embeds.js"></script>
 
 	<div ng-if="isLogged()" id="config" ng-style="getConfigStyle()" tooltip="Edit theme"  tooltip-placement="right">
-		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa fa-cogs"></i></a>
+		<a href="#/" class="configcontrol" ng-click="adminTheme()" ng-style="getConfigButtonStyle()" skip-default><i class="fa icon-cog-outline"></i></a>
 
 		<tabset ng-if="showConfig">
 
@@ -78,14 +78,14 @@
     		<div class="overlay-panel" ng-if="current == 'photos' && photolist.length" id="photos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.masonry-brick'}">
     			<div thumbnail="photo" ng-repeat="photo in contents.photo.list" class="masonry-brick cover {{getPhotoClass($index)}}" ng-click="showDetail(photo)" style="background-image:url({{contentSv.getThumbnail(photo)}})"></div>
 	        	<a ng-if="current == 'photos' && contents.photo.list.length" href="#/" ng-click="getContent('photo')" class="more pull-left" skip-default>
-	        		More <i class="fa fa-plus-circle"></i> #{{contents.photo.list.length}}
+	        		More <i class="fa icon-plus"></i> #{{contents.photo.list.length}}
 	        	</a>
           	</div>
 
 			<div class="overlay-panel" ng-if="current == 'videos' && contents.video.list.length" id="videos" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.masonry-brick'}">
     			<div thumbnail="video" ng-repeat="video in contents.video.list" class="masonry-brick cover {{getVideoClass($index)}}" ng-click="showDetail(video)" style="background-image:url({{contentSv.getThumbnail(video)}})"></div>
 	        	<a ng-if="current == 'videos' && contents.video.list.length" href="#/" ng-click="getContent('video')" class="more pull-left" skip-default>
-	        		More <i class="fa fa-plus-circle"></i> #{{contents.video.list.length}}
+	        		More <i class="fa icon-plus"></i> #{{contents.video.list.length}}
 	        	</a>
 			</div>
 
@@ -110,9 +110,9 @@
 
 	    	<div ng-show="isDetail" class="controls">
 
-		    	<i class="fa fa-chevron-left inline" ng-click="moveDetail(-1)"></i>
-		    	<i class="fa fa-close inline" ng-click="closeDetail()"></i>
-		    	<i class="fa fa-chevron-right inline" ng-click="moveDetail(1)"></i>
+		    	<i class="fa icon-left-open-big inline" ng-click="moveDetail(-1)"></i>
+		    	<i class="fa icon-cancel inline" ng-click="closeDetail()"></i>
+		    	<i class="fa icon-right-open-big inline" ng-click="moveDetail(1)"></i>
 
 		    </div>
 	    	<div ng-show="isDetail" class="detail_container" ng-repeat="detail in detaillist" style="height:{{appSv.getHeight()}}px;">

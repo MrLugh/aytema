@@ -649,6 +649,37 @@ img {
 /* Home
 -------------------------------------------------- */
 
+/* Config
+-------------------------------------------------- */
+#config, #config .configcontrol {
+	background-color: rgba(255, 255, 255, 0.9)!important;
+	color: #333!important;
+}
+#config .configcontrol i {
+	color: #333!important;
+}
+#config ul > li, #config .nav > li > a, #config .nav > li > a:hover, #config .nav > li.active > a, #config .nav > li.active > a:hover {
+	background: none repeat scroll 0 0 transparent !important;
+	color: #333!important;
+}
+#config .nav > li.active > a, #config .nav > li.active > a:hover, #config .nav > li.active > a, #config .nav > li.active > a:hover {
+	background: none repeat scroll 0 0 rgba(255, 255, 255, 0) !important;
+	padding: 0!important;
+}
+#config .inside {
+	background: none repeat scroll 0 0 transparent !important;
+}
+#config select, #config .config-actions {
+	background: none repeat scroll 0 0 transparent !important;
+}
+#config select {
+	border: 1px solid rgba(35,35,35,0.25);
+}
+
+#config .config-actions a {
+	background: none repeat scroll 0 0 rgba(35, 35, 35, 0.9) !important;
+}
+
 
 /* Overlay style */
 .overlay {
@@ -1011,9 +1042,9 @@ footer i:hover {
     bottom: 20px;
     right: 40px;
     padding: 20px;
-    color: #fff!important;
+    color: #333!important;
     font-size: 20px!important;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(255,255,255,0.9);
 }
 
 .masonry-brick {
@@ -1189,7 +1220,7 @@ footer i:hover {
     bottom: 180px;
     font-size: 30px;
     left: 40%;
-    padding: 20px;
+    padding: 0px;
     position: absolute;
     text-align: center;
     width: auto;
@@ -1201,6 +1232,10 @@ footer i:hover {
     bottom: 0;
     height: 100%;
     width: 50px;
+    color: #333;
+    padding: 5px;
+    background-color: #fff;
+
 }
 .detail .controls .account_profile {
     height: 60px;
