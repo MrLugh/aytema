@@ -205,9 +205,17 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce,$interval) {
 
 		$scope.detailPhotoCurrent = 0;
 		if ($scope.detailPhotoList.length > 1) {
+			$scope.timerCounter = 0;
+			$scope.timerProgress = 0;
 			$scope.detailPhotoTimer = $interval(function(){
-				$scope.moveDetailPhotoCurrent();
-			},5000);	
+				$scope.timerCounter++;
+				$scope.timerProgress = 	Math.ceil(($scope.timerCounter * 100) / 1500);
+				if ($scope.timerCounter == 2000) {
+					$scope.moveDetailPhotoCurrent();
+					$scope.timerCounter = 0;
+					$scope.timerProgress = 0;
+				}
+			},1);
 		}
 
 	}

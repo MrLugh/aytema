@@ -122,6 +122,13 @@
 		    	</div>
 
     	  		<div ng-repeat="photo in detailPhotoList" class="photo col-md-12" ng-if="detailPhotoCurrent == $index && !contentSv.getPlayer(content).length && contentSv.getThumbnail(content).length" style="background-image:url('{{photo.src}}')">
+
+    	  			<div ng-if="detailPhotoList.length>1" class="progress" style="position:fixed;top:0;left:0;width:100%;z-index:1;">
+    	  				<div class="progress-bar" role="progressbar" aria-valuenow="{{timerProgress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{timerProgress}}%;">
+    	  					<span class="sr-only">{{timerProgress}}% Complete</span>
+    	  				</div>
+    	  			</div>
+
 			    	<div class="presentacion caption-wrap">
 				    	<h4 ng-if="contentSv.getTitle(content).length>0" class="title">{{contentSv.getTitle(content)}}</h4>
 						<ul class="stats both">
