@@ -1151,11 +1151,11 @@ footer i:hover {
     z-index: -1;
     margin: 0;
     opacity: 0;
-    -moz-transform: scale(0.5);
-    -webkit-transform: scale(0.5);
-    -o-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
     -webkit-transition:all 0.85s ease-in-out 0s;
     -moz-transition:all 0.85s ease-in-out 0s;
     -o-transition:all 0.85s ease-in-out 0s;
