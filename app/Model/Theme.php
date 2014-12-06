@@ -21,11 +21,13 @@ Class Theme extends AppModel {
 	            )
 	        );
 
+            $class = "Theme{$theme}";
+
 	        if (empty($config)) {
-                $class = "Theme{$theme}";
 	        	$config = $class::$config;
 	        } else {
-                $config = unserialize($config[0]['Theme']['data']);
+                //$config = unserialize($config[0]['Theme']['data']);
+                $config = array_merge($class::$config,unserialize($config[0]['Theme']['data']));
             }
 
             $config['user'] = $user_id;
