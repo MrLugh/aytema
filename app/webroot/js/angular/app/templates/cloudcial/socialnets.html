@@ -37,7 +37,7 @@
 
 			</div>
 
-			<div class="accountLayerImage" style="background-image:url('{{account.profile_image || 'http://cloudcial.com/img/no-image.png'}}');">
+			<div class="accountLayerImage" style="background-image:url('{{account.profile_image}}');">
 				<a href="/dashboard/#/socialnets/{{account.network}}/{{account.external_user_id}}" class="network_link">
 					<i  class="{{account.network}}Account" ng-class="networkIcon(account.network)" style="padding:5px;line-height:15px;"></i>
 				</a>

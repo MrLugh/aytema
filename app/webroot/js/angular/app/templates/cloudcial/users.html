@@ -8,7 +8,7 @@
 
 	<li ng-repeat="user in users" class="user">
 
-		<div style="background-image:url('{{user.profile_image || 'http://cloudcial.com/img/no-image.png'}}');" class="overlay_cover"></div>
+		<div style="background-image:url('{{user.profile_image}}');" class="overlay_cover"></div>
 
 		<div class="username">
 			<strong>{{user.username | capitalize}}</strong>

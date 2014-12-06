@@ -58,7 +58,7 @@
 					</a>
 					<div class="carousel_container left">
 						<ul id="carousel" caroufredsel="{'selector':'#carousel', 'auto':false,'prev':'#prev2','next':'#next2','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-							<li ng-repeat="user in users" style="background-image:url('{{user.profile_image || 'http://cloudcial.com/img/no-image.png'}}');" class="user">
+							<li ng-repeat="user in users" style="background-image:url('{{user.profile_image}}');" class="user">
 								<div class="username">
 									<strong>{{user.username | capitalize}}</strong>
 								</div>

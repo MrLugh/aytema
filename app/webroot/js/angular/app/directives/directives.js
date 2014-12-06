@@ -560,7 +560,7 @@ function (contentSv) {
             scope.contentSv = contentSv;
 
             scope.errorSrc = [
-                'http://cloudcial.com/img/no-image.png',
+                //'http://cloudcial.com/img/no-image.png',
                 'http://cloudcial.com/img/no_thumb.png'
             ];
 
