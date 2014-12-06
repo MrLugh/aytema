@@ -1236,11 +1236,11 @@ footer i:hover {
 }
 
 .detail .player {
-  background-color: #f3f3f3;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  text-align: center;
 }
 
 .detail .controls {
