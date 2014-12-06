@@ -25,7 +25,7 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce,$interval) {
 	$scope.configLoaded = false;
     $scope.showConfig = false;
 	$scope.tabs = [
-		{ title:"Background", key:"background", active: true },
+		{ title:"Texts", key:"text", active: true },
 	];
 
 	$scope.current 	= false;

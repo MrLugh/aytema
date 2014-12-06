@@ -3,21 +3,10 @@
 Class Themephotographer {
 
     static $config = array(
-        'colors' => array(
-            'background' => array(
-                'value' => '#131313',
-                'label' => 'Body background',
-            ),
-            'contentBackground' => array(
-                'value' => '#f3f3f3',
-                'label' => 'Content background',
-            ),
-            'contentText' => array(
-                'value' => '#080808',
-                'label' => 'Content text',
-            ),
+        'text' => array(
+            'headline' => "Photographer",
+            'Phone' => "(123) 456-7890"
         ),
-        'width' => '100%',
     );
 
 

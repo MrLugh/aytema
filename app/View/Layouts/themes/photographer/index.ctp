@@ -73,10 +73,7 @@
     echo $this->Html->script('angular/app/controllers/controllers');
     echo $this->Html->script('angular/app/controllers/app');
     echo $this->Html->script('angular/app/controllers/login');
-    echo $this->Html->script('angular/app/controllers/admin/colors');
-    echo $this->Html->script('angular/app/controllers/admin/fonts');
-    echo $this->Html->script('angular/app/controllers/admin/width');
-    echo $this->Html->script('angular/app/controllers/admin/background');
+    echo $this->Html->script('angular/app/controllers/themes/photographer/admin/text');
 
         // Themes
         echo $this->Html->script('angular/app/controllers/themes');
@@ -100,10 +97,7 @@
     <?php
     echo $this->Html->script('angular/app/directives/directives');
     echo $this->Html->script('angular/app/directives/login');
-    echo $this->Html->script('angular/app/directives/admin/colors');
-    echo $this->Html->script('angular/app/directives/admin/fonts');
-    echo $this->Html->script('angular/app/directives/admin/width');
-    echo $this->Html->script('angular/app/directives/admin/background');
+    echo $this->Html->script('angular/app/directives/themes/photographer/admin/text');
         // Themes
         echo $this->Html->script('angular/app/directives/themes/photographer/index');
         echo $this->Html->script('angular/app/directives/themes/photographer/content');

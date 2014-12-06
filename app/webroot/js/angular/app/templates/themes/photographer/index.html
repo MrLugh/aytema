@@ -12,9 +12,7 @@
 
 			<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
 				<div ng-switch="tab.key" class="inside">
-					<admin-background ng-switch-when='background'></admin-background>
-					<admin-colors ng-switch-when='colors'></admin-colors>
-					<admin-width ng-switch-when='width'></admin-width>
+					<admin-text ng-switch-when='text'></admin-text>
 				</div>
 			</tab>
 
@@ -99,7 +97,7 @@
 			<div ng-if="current == 'contact'" id="contact">
 				<address>
 					<ul class="list-inline">
-						<li>Phone: <span>(123) 456-7890</span></li>
+						<li>Phone: <span>{{config.custom.text.phone}}</span></li>
 						<li>Email: <a href="mailto:#">{{user.email}}</a></li>
 					</ul>
 				</address>
@@ -154,7 +152,7 @@
 
 		<a title="{{user.username}}" href="#/" id="logo"  skip-default>
 			<span class="logo">{{user.username}}</span>
-			<span class="logo-tagline">Photographer</span>
+			<span class="logo-tagline">{{config.custom.text.headline}}</span>
 		</a>
 
    	</div> <!-- /wrap -->
