@@ -8,10 +8,7 @@
 
 .pagePhotos {
     opacity: 1;
-    -webkit-transition: all 0.56s ease-in-out 0s;
-    -moz-transition: all 0.56s ease-in-out 0s;
-    -o-transition: all 0.56s ease-in-out 0s;
-    transition: all 0.56s ease-in-out 0s;
+
 }
 
 .pagePhotos ul {
@@ -54,10 +51,7 @@
     max-width: 100%;
     margin: 0 auto;
     opacity: 1;    
-    -webkit-transition: all 0.56s ease-in-out 0s;
-    -moz-transition: all 0.56s ease-in-out 0s;
-    -o-transition: all 0.56s ease-in-out 0s;
-    transition: all 0.56s ease-in-out 0s;
+
 
     -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
     -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
@@ -158,10 +152,6 @@
 
     text-shadow: 1px 0 3px #000;
 
-    -webkit-transition: all 0.56s ease-in-out 0s;
-    -moz-transition: all 0.56s ease-in-out 0s;
-    -o-transition: all 0.56s ease-in-out 0s;
-    transition: all 0.56s ease-in-out 0s;
 }
 
 

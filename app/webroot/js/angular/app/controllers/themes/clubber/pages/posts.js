@@ -3,7 +3,7 @@ function PostsCo($scope,appSv,contentSv,$sce) {
 	$scope.contentSv= contentSv;
 	$scope.postlist= [];
 	$scope.loading 	= false;
-	$scope.limit 	= 10;
+	$scope.limit 	= 6;
 	$scope.offset 	= 0;
 
 	$scope.setList = function() {

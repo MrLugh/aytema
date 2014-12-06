@@ -24,7 +24,7 @@ function ($window) {
 
                 var scrollPercent = Math.round(100*bottom/height);
                 if(!scope.show && !scope.loading && scrollPercent > 95) {
-                    scope.$apply(scope.loadMore());
+                    //scope.$apply(scope.loadMore());
                 }
             }
 
@@ -68,7 +68,7 @@ function ($window) {
 
                 var scrollPercent = Math.round(100*bottom/height);
                 if(!scope.show && !scope.loading && scrollPercent > 95) {
-                    scope.$apply(scope.loadMore());
+                    //scope.$apply(scope.loadMore());
                 }
             }
 
@@ -111,7 +111,7 @@ function ($window) {
 
                 var scrollPercent = Math.round(100*bottom/height);
                 if(!scope.show && !scope.loading && scrollPercent > 95) {
-                    scope.$apply(scope.loadMore());
+                    //scope.$apply(scope.loadMore());
                 }
             }
 
@@ -144,7 +144,7 @@ function ($window) {
 
                 var scrollPercent = Math.round(100*bottom/height);
                 if(!scope.show && !scope.loading && scrollPercent > 95) {
-                    scope.$apply(scope.loadMore());
+                    //scope.$apply(scope.loadMore());
                 }
             }
 
@@ -177,7 +177,7 @@ function ($window) {
 
                 var scrollPercent = Math.round(100*bottom/height);
                 if(!scope.show && !scope.loading && scrollPercent > 95) {
-                    scope.$apply(scope.loadMore());
+                    //scope.$apply(scope.loadMore());
                 }
             }
 
