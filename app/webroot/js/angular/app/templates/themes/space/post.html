@@ -5,8 +5,7 @@
 	</div>
 	<div ng-if="!isFromNetwork('twitter')" ng-style="getDescriptionStyle()">
 
-		<div thumbnail="content" ng-style="getBgImage()" class="overlay_cover"></div>
-		<div ng-style="getBgImage()" class="overlay_photo">
+		<div thumbnail="content" style="background-image:url('{{contentSv.getThumbnail(content)}}');" class="overlay_photo"></div>
 
 		<div class="content_caption" ng-style="getDescriptionStyle()"> 
 			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>

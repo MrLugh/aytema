@@ -24,6 +24,29 @@
 	</div>
 
 	<div id="menu" get-menu-height ng-style="getMenuStyle()">
+
+		<div class="controls" ng-style="getControlsStyle()">
+
+			<a href="#/" class="prev" skip-default ng-click="move(-1)" tooltip="Previous content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
+				<i class="icon-up-open"></i>
+			</a>
+			<a href="#/" class="next" skip-default ng-click="move(1)" tooltip="Next content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
+				<i class="icon-down-open"></i>
+			</a>
+
+			<a href="#/" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()|capitalize}}" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
+				<i ng-class="getModeIconClass()"></i>
+			</a>
+
+			<a href="#/" class="search" skip-default ng-click="showSearch()" ng-style="getControlsButtonStyle()" tooltip="{{isSearch ? 'Close':'Filters'}}" tooltip-placement="bottom">
+				<i class="{{isSearch ? 'icon-cancel':'icon-search'}}"></i>
+			</a>
+
+			<a ng-if="isSearch" href="#/" class="search" skip-default ng-click="moreContent()" ng-style="getControlsButtonStyle()" tooltip="More content" tooltip-placement="bottom">
+				<i class="icon-plus" ng-click="moreContent()"></i>
+			</a>
+
+		</div>
   
 		<div ng-if="user.profile_image.length" class="profileImage" style="background-image:url('{{user.profile_image}}')">
 		</div>
@@ -33,15 +56,6 @@
 			<span ng-show="!isSearch"> #<strong count-up="{{current + 1}}">{{current + 1}}</strong></span>
 		</h1>
 				
-
-		<a href="#/" class="search" skip-default ng-click="showSearch()" ng-style="getControlsButtonStyle()" tooltip="{{isSearch ? 'Close':'Filters'}}" tooltip-placement="bottom">
-			<i class="{{isSearch ? 'icon-cancel':'icon-search'}}"></i>
-		</a>
-
-		<a ng-if="isSearch" href="#/" class="search" skip-default ng-click="moreContent()" ng-style="getControlsButtonStyle()" tooltip="More content" tooltip-placement="bottom">
-			<i class="icon-plus" ng-click="moreContent()"></i>
-		</a>		
-
 		<div class="filterPage {{isSearch ? 'searching' : ''}}" ng-style="getStyle()">
 
 			<ul class="filterPageList">
@@ -55,7 +69,7 @@
 				<li ng-repeat="network in filters.networks" class="inline menu-item {{isNetWorkActive(network) ? 'active':''}} {{counters[network] ? 'dotted':''}}" ng-click="filterNetwork(network)" tooltip="{{isNetWorkActive(network) ? 'Hide':'Show'}} {{counters[network]}} from {{network|networkBrand}}">
 					<i ng-class="networkIcon(network)"></i>
 					<p count-up="{{counters[network]}}">{{counters[network]}}</p>
-				</li>
+				</li>				
 
 			</ul>
 
@@ -69,22 +83,6 @@
 				</li>
 
 			</ul>
-
-		</div>
-
-		<div ng-show="!isSearch" class="controls" ng-style="getControlsStyle()">
-
-			<a href="#/" class="prev" skip-default ng-click="move(-1)" tooltip="Previous content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
-				<i class="icon-up-open"></i>
-			</a>
-			<a href="#/" class="next" skip-default ng-click="move(1)" tooltip="Next content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
-				<i class="icon-down-open"></i>
-			</a>
-
-			<a href="#/" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()|capitalize}}" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
-				<i ng-class="getModeIconClass()"></i>
-			</a>
-
 
 		</div>
 
