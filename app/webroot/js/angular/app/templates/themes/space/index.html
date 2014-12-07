@@ -102,7 +102,7 @@
 						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}" ng-style="getFooterContrastStyle()">
 							<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" ng-style="getProfileStyle()" />
 							{{content.external_user_name}}
-							<img alt="{{content.network}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
+							<i class="{{networkIcon(content.network)}}"></i>
 						</a>
 						<a href="#/" ng-click="showComments($index)" class="both link_comments" skip-default>
 							<span ng-if="isComments">Hide comments</span>

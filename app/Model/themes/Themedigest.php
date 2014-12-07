@@ -98,6 +98,7 @@ Class Themedigest {
         'background' => array(
             'selected'   => '/img/themes/digest/bg.png',
             'list' => array(
+                'none'  => '',
                 'dot'   => "/img/themes/digest/bg-dot.png",
                 'mask'  => "/img/themes/digest/bg.png",
                 'grey'  => "/img/themes/digest/bg.jpg"

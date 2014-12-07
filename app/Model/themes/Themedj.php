@@ -21,7 +21,8 @@ Class Themedj {
         'background' => array(
             'selected'   => '/img/themes/dj/bg_header.jpg',
             'list' => array(
-                'header'   => "/img/themes/dj/bg_header.jpg",
+                'none'      => '',
+                'header'    => "/img/themes/dj/bg_header.jpg",
             ),
         )
     );

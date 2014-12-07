@@ -37,8 +37,9 @@ Class Themespace {
         ),
         'width' => '100%',
         'background' => array(
-            'selected'   => '/img/themes/space/bg.jpg',
+            'selected'   => '',
             'list' => array(
+                'none'      => '',
                 'dot'       => "img/themes/space/bg-dot.png",
                 'mask'      => "img/themes/space/bg.png",
                 'grey'      => "img/themes/space/bg.jpg"
