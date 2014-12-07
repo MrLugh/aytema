@@ -317,6 +317,8 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.move = function(direction) {
 
+		$scope.isComments = false;
+
 		$scope.resetIframes($scope.current);
 
 		if (direction > 0) {
@@ -487,7 +489,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.getCommentsStyle = function() {
 		var style = {
 			'height':appSv.getHeight() - $scope.menuHeight + 'px',
-			'top':$scope.menuHeight + 'px',
 			'left':($scope.isComments) ? '0':'-100%',
 			'background-color':$scope.config.custom.colors.background.value,
 			'color':$scope.config.custom.colors.contentText.value
@@ -740,7 +741,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
     	var style = {
 			//'background-color':$scope.config.custom.colors.contentBackground.value,
-			'color':$scope.config.custom.colors.contentText.value,    		
+			'color':$scope.config.custom.colors.contentText.value,
     	}
 
 		if ($scope.config.custom.width != "100%") {
@@ -760,7 +761,10 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
 		var color = $scope.config.custom.colors.contentBackground.value.replace("#","");
-		return {'color':contentSv.getContrast50(color)}
+		//return {'color':contentSv.getContrast50(color)}
+		return {
+			'color':$scope.config.custom.colors.contentText.value,
+		}
     }
 
     $scope.getContentClass = function(index) {
