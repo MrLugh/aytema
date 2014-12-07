@@ -39,6 +39,7 @@
     echo $this->Html->css('dropzone');
     echo $this->Html->css('themes/space/estilos');
     echo $this->Html->css('themes/space/estilos-responsive');
+    echo $this->Html->css('themes/space/fontello');
     ?>
 
     <!-- Js -->

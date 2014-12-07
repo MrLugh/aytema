@@ -35,11 +35,11 @@
 				
 
 		<a href="#/" class="search" skip-default ng-click="showSearch()" ng-style="getControlsButtonStyle()" tooltip="{{isSearch ? 'Close':'Filters'}}" tooltip-placement="bottom">
-			<i class="{{isSearch ? 'fa fa-close':'fa fa-search'}}"></i>
+			<i class="{{isSearch ? 'icon-cancel':'icon-search'}}"></i>
 		</a>
 
 		<a ng-if="isSearch" href="#/" class="search" skip-default ng-click="moreContent()" ng-style="getControlsButtonStyle()" tooltip="More content" tooltip-placement="bottom">
-			<i class="fa fa-plus" ng-click="moreContent()"></i>
+			<i class="icon-plus" ng-click="moreContent()"></i>
 		</a>		
 
 		<div class="filterPage {{isSearch ? 'searching' : ''}}" ng-style="getStyle()">
@@ -53,7 +53,7 @@
 				<h1> > Networks</h1>
 
 				<li ng-repeat="network in filters.networks" class="inline menu-item {{isNetWorkActive(network) ? 'active':''}} {{counters[network] ? 'dotted':''}}" ng-click="filterNetwork(network)" tooltip="{{isNetWorkActive(network) ? 'Hide':'Show'}} {{counters[network]}} from {{network|networkBrand}}">
-					<i ng-class="contentSv.getNetworkIcon(network)"></i>
+					<i ng-class="networkIcon(network)"></i>
 					<p count-up="{{counters[network]}}">{{counters[network]}}</p>
 				</li>
 
@@ -75,10 +75,10 @@
 		<div ng-show="!isSearch" class="controls" ng-style="getControlsStyle()">
 
 			<a href="#/" class="prev" skip-default ng-click="move(-1)" tooltip="Previous content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
-				<i class="fa fa-arrow-circle-up"></i>
+				<i class="icon-up-open"></i>
 			</a>
 			<a href="#/" class="next" skip-default ng-click="move(1)" tooltip="Next content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
-				<i class="fa fa-arrow-circle-down"></i>
+				<i class="icon-down-open"></i>
 			</a>
 
 			<a href="#/" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()|capitalize}}" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
@@ -118,7 +118,7 @@
 			            </li>
 			            <li class="left inline">
 			            	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-			            		<i class="icon-facebook" ng-style="getFooterContrastStyle()"></i>
+			            		<i class="fa fa-facebook" ng-style="getFooterContrastStyle()"></i>
 			            	</a>
 			            </li>
 			            <li class="left inline">
@@ -152,13 +152,13 @@
 	<div ng-show="!isSearch" class="footer" ng-style="getFooterStyle()" get-footer-height>
 
 		<a href="#/" class="footercontrol" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>
-			<i class="fa fa-play-circle" ng-style="getFooterContrastStyle()"></i>
+			<i class="icon-play" ng-style="getFooterContrastStyle()"></i>
 		</a>
 
 		<div ng-show="showFooter" class="queued">
 			<ul ng-style="getQueueStyle()">
 				<li ng-repeat="content in contentSv.getQueue()" class="{{content.network}}_{{content.concept}}" style="position:relative;">
-					<i class="fa fa-times-circle both" ng-click="contentSv.deleteFromQueue(content)"></i>
+					<i class="icon-cancel both" ng-click="contentSv.deleteFromQueue(content)"></i>
 					<div class="player both" ng-bind-html="getPlayer($index)"></div>
 				</li>
 			</ul>

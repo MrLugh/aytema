@@ -358,7 +358,27 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     }	
 
 	$scope.networkIcon = function(network) {
-		return "http://cloudcial.com/img/socialnet/icons/ce_"+network+".png";
+
+		var icon_class = "";
+
+        if (network == "cloudcial") {
+            icon_class = "icon-cloud";
+        } else if (network == "facebook") {
+            icon_class = "fa fa-facebook";
+        } else if (network == "twitter") {
+            icon_class = "icon-twitter";
+        } else if (network == "youtube") {
+            icon_class = "fa fa-youtube";            
+        } else if (network == "vimeo") {
+            icon_class = "icon-vimeo";
+        } else if (network == "tumblr") {
+            icon_class = "icon-tumblr";
+        } else if (network == "mixcloud") {
+            icon_class = "icon-renren";
+        } else if (network == "soundcloud") {
+            icon_class = "icon-soundcloud";
+        }
+		return icon_class;		
 	}
 
 	$scope.statIcon = function(stat_name) {
@@ -366,7 +386,27 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.conceptIcon = function(concept) {
-		return contentSv.getConceptIcon(concept);
+		var icon_class = "";
+
+        if (concept == 'video' || concept == 'videos') {
+        	icon_class= "icon-video";
+        } else if (concept == 'track' || concept == 'tracks') {
+        	icon_class= "icon-note";
+        } else if (concept == 'photo' || concept == 'photos') {
+        	icon_class= "icon-camera";
+        } else if (concept == 'post' || concept == 'posts') {
+        	icon_class= "icon-doc-text-inv";
+        } else if (concept == 'quote' || concept == 'quotes') {
+        	icon_class= "icon-quote";
+        } else if (concept == 'chat' || concept == 'chats') {
+        	icon_class= "icon-chat";
+        } else if (concept == 'link' || concept == 'links') {
+        	icon_class = "icon-link";
+        } else if (concept == 'event' || concept == 'events') {
+        	icon_class = "icon-calendar";
+        }
+
+		return icon_class;
 	}
 
 	$scope.isNetWorkActive = function(network) {
@@ -548,7 +588,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.getModeIconClass = function() {
-		return $scope.mode ? 'fa fa-text-height' : 'fa fa-picture-o';
+		return $scope.mode ? 'icon-doc-text' : 'icon-picture';
 	}
 
 	$scope.getPluralizedConcepts = function(concept) {

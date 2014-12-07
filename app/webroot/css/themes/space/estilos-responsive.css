@@ -19,9 +19,18 @@
 }
 
 @media (max-width: 768px) {
+	
 	.content {
 		width: 100%;
 		float:none;
+	}
+
+	.content_caption {
+		left:0%;
+	}
+
+	.overlay_photo {
+		width:100%;
 	}
 	
 
