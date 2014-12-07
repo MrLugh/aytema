@@ -61,7 +61,7 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 
     	return {
     		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
+			'color':userSv.getThemeConfig().custom.colors.contentBackground.value
 		}
 
 	}
@@ -193,7 +193,7 @@ function contentPhotoCo($scope,contentSv,userSv) {
 
     	return {
     		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
+			'color':userSv.getThemeConfig().custom.colors.contentBackground.value
 		}
 
 	}
@@ -296,7 +296,7 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 
     	return {
     		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
+			'color':userSv.getThemeConfig().custom.colors.contentBackground.value
 		}
 
 	}
@@ -401,7 +401,7 @@ function contentPostCo($scope,contentSv,$sce,userSv) {
 
     	return {
     		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
+			'color':userSv.getThemeConfig().custom.colors.contentBackground.value
 		}
 
 	}	
@@ -502,7 +502,7 @@ function contentEventCo($scope,contentSv,$sce,userSv) {
 
     	return {
     		'background-color':rgbString,
-			'color':userSv.getThemeConfig().custom.colors.contentText.value
+			'color':userSv.getThemeConfig().custom.colors.contentBackground.value
 		}
 
 	}

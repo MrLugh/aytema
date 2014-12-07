@@ -5,15 +5,15 @@ Class Themespace {
     static $config = array(
         'colors' => array(
             'background' => array(
-                'value' => '#A69E9E',
+                'value' => '#ffffff',
                 'label' => 'Body background',
             ),
             'contentBackground' => array(
-                'value' => '#3B3232',
+                'value' => '#191719',
                 'label' => 'Content background',
             ),
             'contentText' => array(
-                'value' => '#F7F1E6',
+                'value' => '#B59E5C',
                 'label' => 'Content text',
             ),
         ),

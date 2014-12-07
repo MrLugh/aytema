@@ -2,7 +2,6 @@ body {
   text-align: center;
   margin: 0 auto;
   overflow: hidden;
-  background-image: url(http://cloudcial.com/img/themes/space/bg.jpg);
 }
 
 .ng-enter {
@@ -97,7 +96,9 @@ input::-moz-focus-inner {
 }
 
 i {
+	/*
   text-shadow: 2px 2px 2px #000;
+  */
 }
 
 blockquote {
@@ -150,9 +151,6 @@ ul {
   left:0;
   width: 100%;
   height: 80px;
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
   border: none;
   z-index: 4;
 }
@@ -160,13 +158,15 @@ ul {
 .menu-brand {
   float: left;
   position: relative;
+  margin-top:30px;
 }
 
 #menu .profileImage {
-  width: 150px;
-  height:60px;
+  width: 80px;
+  height:80px;
   float: left;
   margin: 10px;
+  border-radius:50%;
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -174,7 +174,7 @@ ul {
 
 #menu .search {
   float: right;
-  margin-right: 10px;
+  padding: 10px;
 }
 
 #menu .filterPage {
@@ -339,6 +339,11 @@ body::-webkit-scrollbar-thumb {
   padding: 10px;
 }
 
+.controls .search {
+  float: left;
+  padding: 10px;
+}
+
 .controls i {
   display: block;
 }
@@ -346,17 +351,20 @@ body::-webkit-scrollbar-thumb {
 .next , .prev, .mode, .search {
   font-size: 35px;
   position: relative;
-  z-index: 4;
+  z-index: 6;
+  border-right:1px solid #333333;
 }
 
 .photo .next {
   float: right;
   right: 60px;
+  font-size:80px;
 }
 
 .photo .prev {
   float: left;
   left: 60px;
+  font-size:80px;
 }
 
 .content {
@@ -709,14 +717,7 @@ iframe,object,embed {
 .footercontrol {
   display: block;
   position: absolute;
-  padding: 10px 20px;
   text-align: center;
-  -webkit-border-top-left-radius: 20px;
-  -webkit-border-top-right-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  -moz-border-radius-topright: 20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
 }
 
 .footercontrol i {

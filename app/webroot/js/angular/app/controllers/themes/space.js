@@ -470,7 +470,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		return {
 			'height':appSv.getHeight() - $scope.menuHeight + 'px',
 			'opacity': ($scope.isComments) ? '0':'1',
-			'margin-top': $scope.menuHeight + 'px',
 			//'background-color': $scope.config.custom.colors.background.value
 		};
 	}
@@ -606,7 +605,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
     	return {
     		'top':$scope.menuHeight + 'px',
-    		'background-color':$scope.config.custom.colors.contentBackground.value
     	}
 	}
 
@@ -615,8 +613,12 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     		return {};
     	}
 
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentText.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.1)";
+
 		return {
-			'color':$scope.config.custom.colors.contentText.value,
+			'color':$scope.config.custom.colors.background.value,
+			'background':$scope.config.custom.colors.contentBackground.value,
 		};		
 	}
 
@@ -672,10 +674,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     		return style;
     	}
 
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-
-    	style['background-color'] = rgbString;
+    	style['background-color'] = $scope.config.custom.colors.contentBackground.value;
 	   	return style;
     };	    
 
@@ -686,7 +685,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
 		return {
-			'background-color':$scope.config.custom.colors.contentBackground.value,
 			'color':$scope.config.custom.colors.contentText.value,
 		};
     }
@@ -700,8 +698,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
 
     	return {
-    		'background-color':rgbString,
-    		'color':$scope.config.custom.colors.contentText.value
+    		'color':$scope.config.custom.colors.background.value
 		};
     }
 
@@ -747,7 +744,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     		style['width']	= '90%';
 		}
 
-		style['height'] = appSv.getHeight() - $scope.menuHeight + 'px';
+		style['height'] = appSv.getHeight() + 'px';
 		
     	return style;
 
@@ -793,6 +790,6 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.setBackground = function() {
 
 		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
+		//$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
 	}
 }
