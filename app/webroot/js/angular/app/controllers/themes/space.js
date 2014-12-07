@@ -566,6 +566,9 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		var element = angular.element(document.querySelector('#list'));
 		//$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+
 		var element = angular.element(document.querySelector('.link_comments'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
 
