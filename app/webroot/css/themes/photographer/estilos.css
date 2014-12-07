@@ -1250,6 +1250,14 @@ footer i:hover {
   text-align: center;
 }
 
+.player iframe,
+.player object,
+.player embed,
+.player video,
+.player audio {
+	height:100%;
+}
+
 .detail .controls {
     bottom: 20px;
     font-size: 30px;

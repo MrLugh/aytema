@@ -18,6 +18,15 @@
   
 }
 
+@media (max-width: 768px) {
+	.content {
+		width: 100%;
+		float:none;
+	}
+	
+
+}
+
 @media (max-height: 480px) {
 
   .footer {
