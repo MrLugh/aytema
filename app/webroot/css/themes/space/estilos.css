@@ -314,6 +314,10 @@ body::-webkit-scrollbar-thumb {
 
 .controls {
   float: right;
+  -webkit-transition:all 0.66s ease-in-out 0s;
+  -moz-transition:all 0.66s ease-in-out 0s;
+  -o-transition:all 0.66s ease-in-out 0s;
+  transition:all 0.66s ease-in-out 0s;
 }
 
 .controls .next {
@@ -345,6 +349,17 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   z-index: 6;
   border-right:1px solid #333333;
+}
+
+.photo .controls {
+  position:absolute;
+  top:calc(50% - 50px);
+  left:0;
+  width:50%;
+}
+
+.list_full .photo .controls {
+  width: 100%;
 }
 
 .photo .next {
@@ -387,24 +402,6 @@ body::-webkit-scrollbar-thumb {
   height: auto!important;
 }
 
-.content .overlay_cover {
-  -webkit-transition:all 0.66s ease-in-out 0s;
-  -moz-transition:all 0.66s ease-in-out 0s;
-  -o-transition:all 0.66s ease-in-out 0s;
-  transition:all 0.66s ease-in-out 0s;
-  position:absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.8;
-  filter: alpha(opacity=80);
-  z-index: 1;
-  background-size:cover;
-  background-position: center;
-  display:none;
-}
-
 .content .overlay_photo {
   -webkit-transition:all 0.66s ease-in-out 0s;
   -moz-transition:all 0.66s ease-in-out 0s;
@@ -421,6 +418,10 @@ body::-webkit-scrollbar-thumb {
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.list_full .content .overlay_photo {
+  width: 100%;
 }
 
 .socialIcon {
@@ -457,6 +458,10 @@ iframe,object,embed {
   -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
   box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);  
   */
+}
+
+.list_full .content .content_caption {
+  left: 100%;
 }
 
 .content_hover {
