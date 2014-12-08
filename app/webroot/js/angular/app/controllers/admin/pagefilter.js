@@ -48,7 +48,6 @@ function adminPagefilterCo($scope,userSv,appSv,contentSv) {
 
 		var concepts= [];
 		var config 	= $scope.config.custom.filters[$scope.current];
-		console.log(config);
 		for (var x in $scope.filters.concepts) {
 			var concept = $scope.filters.concepts[x];
 			if (config.concepts.indexOf(concept) != -1 || config.concepts.length == 1 && config.concepts[0]=='all') {
