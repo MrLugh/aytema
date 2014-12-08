@@ -13,7 +13,7 @@ Class Themespace {
                 'label' => 'Content background',
             ),
             'contentText' => array(
-                'value' => '#B59E5C',
+                'value' => '#262520',
                 'label' => 'Content text',
             ),
         ),
