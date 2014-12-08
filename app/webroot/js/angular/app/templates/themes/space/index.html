@@ -105,22 +105,22 @@
 					</span>
 
 					<ul class="share">
-						<li class="left inline">
+						<li class="left inline" tooltip="Show Comments">
 			            	<a href="#/" ng-click="showComments($index)" skip-default>
-			            		<i class="{{!isComments ? 'icon-comment' : 'icon-close' }}" ng-style="getFooterContrastStyle()"></i>
+			            		<i class="{{!isComments ? 'icon-chat' : 'icon-close' }}" ng-style="getFooterContrastStyle()"></i>
 			            	</a>
 			            </li>					
-						<li class="left inline">
+						<li class="left inline" tooltip="Share on Twitter">
 			            	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
 			            		<i class="icon-twitter" ng-style="getFooterContrastStyle()"></i>
 			            	</a>
 			            </li>
-			            <li class="left inline">
+			            <li class="left inline" tooltip="Share on FaceBook">
 			            	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
 			            		<i class="fa fa-facebook" ng-style="getFooterContrastStyle()"></i>
 			            	</a>
 			            </li>
-			            <li class="left inline">
+			            <li class="left inline" tooltip="Share on Tumblr">
 			            	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
 			            		<i class="icon-tumblr" ng-style="getFooterContrastStyle()"></i>
 			            	</a>

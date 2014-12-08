@@ -356,7 +356,7 @@ body::-webkit-scrollbar-thumb {
 
 .photo .prev {
   float: left;
-  left:60px;
+  left: 0px;
   font-size:80px;
   border: none;
 }

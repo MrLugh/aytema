@@ -401,7 +401,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
         } else if (concept == 'quote' || concept == 'quotes') {
         	icon_class= "icon-quote";
         } else if (concept == 'chat' || concept == 'chats') {
-        	icon_class= "icon-chat";
+        	icon_class= "icon-comment";
         } else if (concept == 'link' || concept == 'links') {
         	icon_class = "icon-link";
         } else if (concept == 'event' || concept == 'events') {
