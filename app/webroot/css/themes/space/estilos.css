@@ -577,6 +577,10 @@ iframe,object,embed {
   left:50%;
 }
 
+.list_full .content .content_bar {
+  left: 100%;
+}
+
 .content_hover .content_bar {
   -webkit-transition:all 0.66s ease-in-out 0s;
   -moz-transition:all 0.66s ease-in-out 0s;
