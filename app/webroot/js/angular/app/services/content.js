@@ -249,21 +249,21 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		var icon_class = "";
 
         if (network == "cloudcial") {
-            icon_class = "icon-cloud";
+            icon_class = "fa fa-cloud";
         } else if (network == "facebook") {
-            icon_class = "icon-facebook";
+            icon_class = "fa fa-facebook";
         } else if (network == "twitter") {
-            icon_class = "icon-twitter";
+            icon_class = "fa fa-twitter";
         } else if (network == "youtube") {
-            icon_class = "icon-youtube";            
+            icon_class = "fa fa-youtube";            
         } else if (network == "vimeo") {
-            icon_class = "icon-vimeo";
+            icon_class = "fa fa-vimeo";
         } else if (network == "tumblr") {
-            icon_class = "icon-tumblr";
+            icon_class = "fa fa-tumblr";
         } else if (network == "mixcloud") {
             icon_class = "fa fa-renren";
         } else if (network == "soundcloud") {
-            icon_class = "icon-soundcloud";
+            icon_class = "fa fa-soundcloud";
         }
 		return icon_class;        
 	}
