@@ -1,4 +1,4 @@
-function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
+function themeDjCo($scope,appSv,userSv,contentSv,$sce,$filter) {
 
 	$scope.appSv 	= appSv;
 	$scope.contentSv= contentSv;
@@ -40,6 +40,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.showConfig = false;
 	$scope.tabs = [
 		{ title:"Background", key:"background", active: true },
+		{ title:"Texts", key:"text"},
 	];
 
 	userSv.loadThemeConfig('dj');
@@ -401,6 +402,16 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce) {
 			return width/2 - 6;
 		}
 		return width;
+	}
+
+	$scope.canShowRecent = function(page) {
+
+		if (!angular.isDefined($scope.contents[page])) {
+			return false;
+		}
+
+		var list = $filter('withThumbnail')($scope.contents[page].list);
+		return list.length;
 	}
 
 }

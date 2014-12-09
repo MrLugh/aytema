@@ -723,6 +723,7 @@ img.users-photo  {
 /*contact*/
 #page_contact {
   overflow: hidden;
+  color: #fff;
 }
 #page_contact form {
   max-width: 80%;

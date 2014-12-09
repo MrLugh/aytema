@@ -13,8 +13,7 @@
 			<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
 				<div ng-switch="tab.key" class="inside">
 					<admin-background ng-switch-when='background'></admin-background>
-					<admin-colors ng-switch-when='colors'></admin-colors>
-					<admin-width ng-switch-when='width'></admin-width>
+					<admin-text ng-switch-when='text'></admin-text>
 				</div>
 			</tab>
 
@@ -282,6 +281,7 @@
 		        <textarea placeholder="Mensaje" rows="5" class="form-control"></textarea>
 		         </div>
 		        <button class="btn btn-default pull-right" type="submit">enviar</button>
+		        <p ng-if="config.custom.text.phone.length">Phone: {{config.custom.text.phone}}</p>
 		  </form>
 		</div>
 
@@ -318,7 +318,7 @@
 				<ul>
 					<li ng-click="scrollToSection('page_profile')" class="item profile {{current == 'page_profile' ? 'active':''}}">{{user.username|uppercase}}</li>
 				</ul>		
-                <span>"Lorem fistrum a peich está la cosa muy malar"</span>
+                <span ng-if="config.custom.text.headline.length">"{{config.custom.text.headline}}"</span>
             </div>
             <div class="content-section">
                 <h4>Links</h4>
@@ -337,10 +337,10 @@
             <div class="content-section">
             	<h4>Recent</h4>
             	<ul class="social">
-	            	<li ng-repeat="page in validPages" class="recent">
+	            	<li ng-repeat="page in validPages" ng-if="canShowRecent(page)" class="recent">
 		                <div class="clearfix"></div>
-		                <h5 ng-if="contents[page].list.length">{{getPluralizedConcepts(page)|capitalize}}</h5>
-						<div ng-if="contents[page].list.length" class="recent-content">
+		                <h5>{{getPluralizedConcepts(page)|capitalize}}</h5>
+						<div class="recent-content">
 							<a href="#/" ng-repeat="content in contents[page].list|withThumbnail|limitTo:3" ng-click="showDetail(content)" skip-default>
 		                     	<img style="margin:0 auto;max-width:100%;" ng-src="{{contentSv.getThumbnail(content)}}"/>
 		                    </a>
