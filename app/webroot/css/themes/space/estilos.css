@@ -224,22 +224,19 @@ ul {
   text-align: center;
   cursor: pointer;
   padding: 10px;
-  border: 10px solid #2a3137;
-  color: #2a3137;
+  border: 4px solid #ffffff;
+  color: #ffffff;
+  background-color: #2a3137;
   border-radius: 50%;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  opacity: 0.3;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
+  opacity: 0.1;
 }
 
 #menu .menu-item.dotted {
-  border-style: dotted;
+  border-style: dashed;
 }
 
 #menu .menu-item:hover {
@@ -247,6 +244,7 @@ ul {
   border-color: #2a3137;
   background-color: #83bd40;
   color: #2a3137;
+  border-style: dotted;
   -webkit-transform: rotate(360deg);
   -moz-transform: rotate(360deg);
   -o-transform: rotate(360deg);
@@ -258,10 +256,6 @@ ul {
   border-color: #adafae;
   background-color: #2a3137;
   color: #83bd40;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
   -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
   -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
   box-shadow: 0 1px 3px rgba(34,25,25,0.4);
@@ -271,10 +265,6 @@ ul {
   opacity: 1;
   border-color: #fff;
   color: #fff;
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  transform: rotate(360deg);
 }
 
 #menu .menu-item i {

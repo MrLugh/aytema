@@ -27,14 +27,15 @@
 
 		<div class="controls" ng-style="getControlsStyle()">
 
-			<a href="#/" class="prev" skip-default ng-click="move(-1)" tooltip="Previous content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
+			<a href="#/" ng-if="!isSearch" class="prev" skip-default ng-click="move(-1)" tooltip="Previous content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
 				<i class="icon-up-open"></i>
 			</a>
-			<a href="#/" class="next" skip-default ng-click="move(1)" tooltip="Next content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
+
+			<a href="#/" ng-if="!isSearch" class="next" skip-default ng-click="move(1)" tooltip="Next content" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
 				<i class="icon-down-open"></i>
 			</a>
 
-			<a href="#/" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()|capitalize}}" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
+			<a href="#/" ng-if="!isSearch" class="mode" skip-default ng-click="changeMode()" tooltip="{{getModeTitle()|capitalize}}" tooltip-placement="bottom" ng-style="getControlsButtonStyle()">
 				<i ng-class="getModeIconClass()"></i>
 			</a>
 
@@ -64,7 +65,7 @@
 
 				<h1> > Networks</h1>
 
-				<li ng-repeat="network in filters.networks" class="inline menu-item {{isNetWorkActive(network) ? 'active':''}} {{counters[network] ? 'dotted':''}}" ng-click="filterNetwork(network)" tooltip="{{isNetWorkActive(network) ? 'Hide':'Show'}} {{counters[network]}} from {{network|networkBrand}}">
+				<li ng-repeat="network in filters.networks" class="inline menu-item {{isNetWorkActive(network) ? 'active':''}} {{counters[network] ? 'dotted':''}}" ng-click="filterNetwork(network)" tooltip="{{isNetWorkActive(network) ? 'Hide':'Show'}} {{counters[network] ? counters[network]:'' }} from {{network|networkBrand}}">
 					<i ng-class="networkIcon(network)"></i>
 					<p count-up="{{counters[network]}}">{{counters[network]}}</p>
 				</li>				
@@ -75,7 +76,7 @@
 
 				<h1> > Concepts</h1>
 
-				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" class="inline menu-item {{isConceptActive(concept) ? 'active':''}} {{counters[concept] ? 'dotted':''}}" tooltip="{{isConceptActive(concept) ? 'Hide':'Show'}} {{counters[concept]}} {{getPluralizedConcepts(concept)}}">
+				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" class="inline menu-item {{isConceptActive(concept) ? 'active':''}} {{counters[concept] ? 'dotted':''}}" tooltip="{{isConceptActive(concept) ? 'Hide':'Show'}} {{counters[concept] ? counters[concept]:''}} {{getPluralizedConcepts(concept)}}">
 					<i ng-class="conceptIcon(concept)"></i>
 					<p count-up="{{counters[concept]}}">{{counters[concept]}}</p>
 				</li>
