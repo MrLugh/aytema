@@ -590,6 +590,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				}
 			}
 
+			if (content.network == 'cloudcial') {
+				source = content.data.path;
+			}
+
 		}
 
 		if (content.concept == 'event')	{

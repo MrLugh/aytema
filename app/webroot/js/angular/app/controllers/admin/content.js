@@ -778,42 +778,79 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
 	    height:300,
 	    width:'100%',
 	    plugins: [
-	        ["advlist autolink link image lists charmap preview hr anchor pagebreak"],
+	        ["advlist autolink link lists charmap preview hr anchor pagebreak"],
 	        ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking"],
 	        ["save table contextmenu directionality emoticons template paste "]
 	    ],
 	    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link  | preview",
 	    relative_urls:false,
-        file_browser_callback: function(field_name, url, type, win) {
-        	console.log(field_name);
-        	console.log(url);
-        	console.log(type);
-        	console.log(win);
-            if(type=='image') angular.element(document.getElementById('my_form input')).click();
-        },
-        handle_event_callback: function (e) {
-        // put logic here for keypress
-        }
     };
 
-	if (angular.equals($scope.content,{})) {
+	$scope.save = function() {
+		contentSv.saveContent($scope.post).then(function(data){
+			$scope.post = data.content['Content'];
+		});
+	}
+
+	$scope.dropzoneConfig = {
+		'options': { // passed into the Dropzone constructor
+			'url': '/contents/addFile.json',
+			'acceptedFiles': 'image/gif,image/jpeg,image/png',
+		},
+		'eventHandlers': {
+			'success': function (file, response) {
+
+				var oldPath = $scope.post.data['path'] ? $scope.post.data['path']:false;
+
+				angular.forEach(response.data, function(value,key) {
+					$scope.post.data[key] = value;
+				});
+
+				if ($scope.isEdit()) {
+					if (oldPath && oldPath != $scope.post.data.path) {
+						contentSv.deleteFile(oldPath);
+					}
+					$scope.dropzone.removeAllFiles(true);
+				}
+
+				$scope.save();
+			},
+			'error': function (file, response) {
+				console.log("error");
+				console.log(response);
+			},
+		}
+	};
+
+	$scope.isEdit = function() {
+		return !angular.equals($scope.content,{});
+	}
+
+	if ($scope.isEdit()) {
+
+		$scope.dropzoneConfig.options.maxFiles = 1;
+		
+		$scope.dropzoneConfig.options.init = function() {
+			this.on("maxfilesexceeded", function(file){
+				$scope.alert = "Just one file please!";
+			});
+		}
+
+		$scope.post = angular.copy($scope.content);
+		console.log(contentSv.getThumbnail($scope.post));
+		console.log($scope.post);
+
+	} else {
+
 		$scope.post = {
 			'network'	: 'cloudcial',
 			'concept'	: 'post',
 			'data'		: {
 				'title'			: '',
 				'description'	: '',
-				'thumbnail'		: ''
+				'path'			: ''
 			}
 		}
-	} else {
-		$scope.post = angular.copy($scope.content);
-	}
-
-	$scope.save = function() {
-		contentSv.saveContent($scope.post).then(function(data){
-			$scope.post = data.content['Content'];
-		});
 	}
 
 }
