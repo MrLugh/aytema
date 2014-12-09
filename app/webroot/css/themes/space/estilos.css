@@ -514,7 +514,6 @@ iframe,object,embed {
 }
 
 .content_caption p a {
-  color: #fff;
   font-style: italic;
 }
 .content_caption p {
@@ -527,9 +526,6 @@ iframe,object,embed {
 
 
 
-}
-.content_caption blockquote small {
-  color: #fff;
 }
 
 .profile {
