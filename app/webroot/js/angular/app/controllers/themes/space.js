@@ -220,6 +220,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		if (angular.isDefined(colors)) {
 			$scope.config.custom.colors = colors;
 			$scope.setColor();
+			$scope.getBrandStyle();
 		}		
 	},true);
 
@@ -339,6 +340,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
 		if (angular.isDefined($scope.list[$scope.current])) {
 			$scope.content = $scope.list[$scope.current];
+			$scope.getBrandStyle();
 			$scope.scrollCurrent();
 		}
 
@@ -615,6 +617,19 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 	}
 
+	$scope.getUserStyle = function() {
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return {};
+    	}
+
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.1)";
+
+		return {
+			'background':rgbString
+		}
+	}
+
 	$scope.getControlsButtonStyle = function() {
     	if (!angular.isDefined($scope.config.custom)) {
     		return {};
@@ -626,7 +641,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 		return {
 			'color':$scope.config.custom.colors.background.value,
 			'background':$scope.config.custom.colors.contentBackground.value,
-		};		
+		}
 	}
 
     $scope.getConfigStyle = function() {
@@ -697,15 +712,19 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     }
 
     $scope.getBrandStyle = function() {
+
     	if (!angular.isDefined($scope.config.custom)) {
     		return {};
     	}
 
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
+    	var color = $scope.config.custom.colors.background.value;
+
+    	if ($scope.current % 2) {
+    		color = $scope.config.custom.colors.contentText.value;
+    	}
 
     	return {
-    		'color':$scope.config.custom.colors.background.value
+    		'color':color
 		};
     }
 

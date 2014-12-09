@@ -188,7 +188,7 @@ ul {
 }
 
 #menu .filterPage.searching {
-  left: 0%;
+  left: 0px;
   opacity: 1;
   -webkit-transition:all 0.66s ease-in-out 0s;
   -moz-transition:all 0.66s ease-in-out 0s;
@@ -420,8 +420,14 @@ body::-webkit-scrollbar-thumb {
   background-repeat: no-repeat;
 }
 
+.content.odd .overlay_photo {
+  left: 50%;
+}
+
+
 .list_full .content .overlay_photo {
   width: 100%;
+  left: 0;
 }
 
 .socialIcon {
@@ -462,8 +468,16 @@ iframe,object,embed {
   */
 }
 
+.content.odd .content_caption {
+  left: 0;
+}
+
 .list_full .content .content_caption {
   left: 100%;
+}
+
+.list_full .content.odd .content_caption {
+  left: -100%;
 }
 
 .content_hover {
@@ -568,8 +582,16 @@ iframe,object,embed {
   left:50%;
 }
 
+.content.odd .content_bar {
+  left: 0;
+}
+
 .list_full .content .content_bar {
   left: 100%;
+}
+
+.list_full .content.odd .content_bar {
+  left: -100%;
 }
 
 .content_hover .content_bar {
