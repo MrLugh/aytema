@@ -1083,7 +1083,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	}
 
 	var deleteFromQueue = function(content) {
-		delete queue[queue.indexOf(content)];
+		queue.splice(queue.indexOf(content), 1);
 	}
 
 	var saveContent = function(content) {

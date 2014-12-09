@@ -796,10 +796,8 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     		return {};
     	}
 
-		var color = $scope.config.custom.colors.contentBackground.value.replace("#","");
-		//return {'color':contentSv.getContrast50(color)}
 		return {
-			'color':$scope.config.custom.colors.contentText.value,
+			'color':$scope.config.custom.colors.background.value,
 		}
     }
 
