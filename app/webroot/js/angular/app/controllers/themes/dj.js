@@ -142,8 +142,6 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce,$filter) {
 	};
 	$scope.getContent = function(concept) {
 
-
-
 		var params = [];
 
 		$scope.loadingContent[concept] = true;
@@ -178,6 +176,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce,$filter) {
 				if (data.contents.length) {
 					for (var x in contents) {
 						content = contents[x].Content;
+
 						$scope.contents[concept].list.push(content);
 
 						if (content.concept == 'event' &&
