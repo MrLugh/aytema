@@ -168,7 +168,10 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 							content = contents[x].Content;
 							$scope.counters[content.concept]++;
 							$scope.counters[content.network]++;
-							$scope.list.push(content);
+							if (contentSv.getThumbnail(content).length) {
+								$scope.list.push(content);
+							}
+							
 						}
 						$scope.offset += $scope.limit;
 						if (angular.isDefined($scope.list[$scope.current])) {
