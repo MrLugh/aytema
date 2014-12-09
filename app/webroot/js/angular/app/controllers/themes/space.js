@@ -711,6 +711,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
     	style['background-color'] = $scope.config.custom.colors.contentBackground.value;
+    	style['color'] = $scope.config.custom.colors.background.value;
 	   	return style;
     };	    
 
@@ -797,7 +798,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
 		return {
-			'color':$scope.config.custom.colors.background.value,
+			'color':$scope.config.custom.colors.contentText.value,
 		}
     }
 
