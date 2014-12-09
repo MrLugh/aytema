@@ -7,7 +7,7 @@
 
 		<div thumbnail="content" style="background-image:url('{{contentSv.getThumbnail(content)}}');" class="overlay_photo"></div>
 
-		<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0" ng-style="
+		<div class="content_caption" ng-if="getTitle().length>0 || getDescription().length>0" ng-style="getDescriptionStyle()">
 			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 			<p ng-bind-html="getDescription()"></p>
 		</div>
