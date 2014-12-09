@@ -445,7 +445,8 @@ iframe,object,embed {
   text-align: left;
   position: relative;
   z-index: 3;
-  padding:20px;
+  padding:0px;
+  margin:0px;
   font-size: 15px!important;
   opacity: 0;
   top:-100%;
