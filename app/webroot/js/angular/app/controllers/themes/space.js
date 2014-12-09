@@ -473,12 +473,26 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
     		return {};
     	}
 
-		appSv.setMyWH(appSv.getHeight() - $scope.menuHeight);
+		appSv.setMyWH(appSv.getHeight());
 		return {
-			'height':appSv.getHeight() - $scope.menuHeight + 'px',
+			'height':appSv.getHeight() + 'px',
 			'opacity': ($scope.isComments) ? '0':'1',
 			//'background-color': $scope.config.custom.colors.background.value
 		};
+	}
+
+	$scope.getSearchStyle = function() {
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return {};
+    	}
+
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
+
+		return {
+			'height':appSv.getHeight() + 'px',
+			'background':rgbString
+		}
 	}
 
 	$scope.getCommentsColor = function() {
@@ -493,7 +507,7 @@ function themeSpaceCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.getCommentsStyle = function() {
 		var style = {
-			'height':appSv.getHeight() - $scope.menuHeight + 'px',
+			'height':appSv.getHeight() + 'px',
 			'left':($scope.isComments) ? '0':'-100%',
 			'background-color':$scope.config.custom.colors.background.value,
 			'color':$scope.config.custom.colors.contentText.value
