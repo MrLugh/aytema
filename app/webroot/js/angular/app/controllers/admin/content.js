@@ -570,9 +570,6 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 		'eventHandlers': {
 			'success': function (file, response) {
 
-				console.log("thumbnail track");
-				console.log(response);
-
 				var oldPath = $scope.track.data['thumbnail'] ? $scope.track.data['thumbnail']:false;
 
 				$scope.track.data['thumbnail'] = response.data.path;
@@ -603,9 +600,6 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
-
-				console.log("track");
-				console.log(response);
 
 				var oldPath = $scope.track.data['path'] ? $scope.track.data['path']:false;
 
@@ -681,9 +675,6 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 		'eventHandlers': {
 			'success': function (file, response) {
 
-				console.log("thumbnail video");
-				console.log(response);
-
 				var oldPath = $scope.video.data['thumbnail'] ? $scope.video.data['thumbnail']:false;
 
 				$scope.video.data['thumbnail'] = response.data.path;
@@ -715,9 +706,6 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 		'eventHandlers': {
 			'success': function (file, response) {
 
-				console.log("video");
-				console.log(response);
-
 				var oldPath = $scope.video.data['path'] ? $scope.video.data['path']:false;
 
 				angular.forEach(response.data, function(value,key) {
@@ -736,7 +724,6 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 			},
 			'error': function (file, response) {
 				console.log("error");
-				console.log(file);
 				console.log(response);
 			},
 		}
@@ -792,7 +779,7 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
 		});
 	}
 
-	$scope.dropzoneConfig = {
+	$scope.dropzoneThumbnailConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
 			'acceptedFiles': 'image/gif,image/jpeg,image/png',
@@ -828,17 +815,15 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
 
 	if ($scope.isEdit()) {
 
-		$scope.dropzoneConfig.options.maxFiles = 1;
+		$scope.dropzoneThumbnailConfig.options.maxFiles = 1;
 		
-		$scope.dropzoneConfig.options.init = function() {
+		$scope.dropzoneThumbnailConfig.options.init = function() {
 			this.on("maxfilesexceeded", function(file){
 				$scope.alert = "Just one file please!";
 			});
 		}
 
 		$scope.post = angular.copy($scope.content);
-		console.log(contentSv.getThumbnail($scope.post));
-		console.log($scope.post);
 
 	} else {
 
