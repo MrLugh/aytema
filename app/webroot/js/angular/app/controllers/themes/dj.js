@@ -15,8 +15,8 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce,$filter) {
 
 	$scope.limit 	= {
 		'photo':8,
-		'video':10,
-		'track':10,
+		'video':30,
+		'track':30,
 		'event':4,
 		'post':8,
 	};
