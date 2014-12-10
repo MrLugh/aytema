@@ -343,7 +343,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .next , .prev, .mode, .search {
-  font-size: 35px;
+  font-size: 25px;
   position: relative;
   z-index: 6;
   border-right:1px solid #333333;
