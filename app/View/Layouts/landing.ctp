@@ -13,6 +13,7 @@
     <!-- Css -->
     <?php
 	echo $this->Html->css('landing/normalize.css');
+    echo $this->Html->css('font-awesome.min');
 	echo $this->Html->css('landing/foundation.min.css');
 	echo $this->Html->css('landing/style.css');
 	echo $this->Html->css('landing/ie.css');
@@ -94,7 +95,7 @@
 			<div class="large-12 columns text-center">
 			    <div class="caption-header">
 					<h1>Be CloudCial</h1>
-					<span class="subheading">Your page with social networking integration.</span>
+					<span class="subheading">Create your profile with social network integration.</span>
 			        <img class="img-header" src="http://cloudcial.com/img/landing/header-img-01.png" alt="">
 			        <a class="try-btn" href="/dashboard/">Try</a>
 		        </div>
@@ -107,8 +108,11 @@
 		<div class="row hi-icon-wrap hi-icon-effect-3 hi-icon-effect-3b">
 			<div class="large-4 columns feature">
 				<span class="icon icon-browser hi-icon"></span>
-				<h3>Step 1: Manage your Content</h3>
-				<p>Upload your <strong>photos</strong>, <strong>videos</strong> and <strong>tracks</strong>. Create <strong>events</strong> and <strong>posts</strong>. Connect some social accounts to import their content.</p>
+				<h3>
+					Step 1: Manage your Content
+				</h3>
+				<p>Connect your social accounts to import their content.
+				Upload your <strong>photos</strong>, <strong>videos</strong> and <strong>tracks</strong>. Create <strong>events</strong> and <strong>posts.</strong></p>
 			</div>
 			<div class="large-4 columns feature">
 				<span class="icon icon-tools hi-icon"></span>
