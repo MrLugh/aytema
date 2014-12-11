@@ -356,8 +356,13 @@ body::-webkit-scrollbar-thumb {
   width:50%;
 }
 
+.content.odd .photo .controls {
+  left:50%;
+}
+
 .list_full .photo .controls {
   width: 100%;
+  left: 0!important;
 }
 
 .photo .next {
