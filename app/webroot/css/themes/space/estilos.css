@@ -63,6 +63,12 @@ a,a:hover,a:active,a:focus {
   outline: none;
   text-decoration: none;
 }
+a {
+   color: #888888;		
+}
+a:hover,a:active,a:focus {
+   color: #666666;		
+}
 
 input::-moz-focus-inner { 
   border: 0; 
@@ -365,6 +371,7 @@ body::-webkit-scrollbar-thumb {
   right: 0px;
   font-size:80px;
   border: none;
+  z-index: 3;
 }
 
 .photo .prev {
@@ -372,6 +379,7 @@ body::-webkit-scrollbar-thumb {
   left: 0px;
   font-size:80px;
   border: none;
+  z-index: 3;
 }
 
 .content {
@@ -449,16 +457,17 @@ iframe,object,embed {
   text-align: left;
   position: relative;
   z-index: 3;
-  padding:0px;
+  padding: 0 20px;
   margin:0px;
   font-size: 15px!important;
   opacity: 0;
   top:-100%;
   filter: alpha(opacity=0);
   text-align: center;
-  width:50%;
+  width:calc(50% - 40px);
   height:calc(100% - 200px);
   left:50%;
+
   /*
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
   -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
@@ -543,10 +552,10 @@ iframe,object,embed {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  height: 60px !important;
+  height: 50px !important;
   margin: 0 auto;
   right: 0;
-  width: 60px !important;
+  width: 50px !important;
 }
 
 .content .user_info {
@@ -566,9 +575,6 @@ iframe,object,embed {
 
 .content .content_bar {
   margin: 0;
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
   padding:5px 20px;
   position: fixed;
   z-index: 3;
@@ -603,7 +609,7 @@ iframe,object,embed {
 }
 
 .content .share li a i {
-  font-size: 39px;
+  font-size: 20px;
   margin: 0 15px;
   line-height: 59px;
 }
