@@ -257,7 +257,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
         } else if (network == "youtube") {
             icon_class = "fa fa-youtube";            
         } else if (network == "vimeo") {
-            icon_class = "fa fa-vimeo";
+            icon_class = "fa fa-vimeo-square";
         } else if (network == "tumblr") {
             icon_class = "fa fa-tumblr";
         } else if (network == "mixcloud") {
