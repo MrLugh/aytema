@@ -9,7 +9,20 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
 
     if (userSv.isLogged() && !userSv.getAccounts().length) {
         userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
-    }	
+    }
+
+    $scope.initFilters = function() {
+
+        var filters = {'networks':[]};
+
+        for (x in $scope.networks){
+            network = $scope.networks[x];
+            filters['networks'].push(x);
+        }
+
+        $scope.filters = filters;
+    }
+    $scope.initFilters();
 
 	$scope.networksGraphData = function() {
 		$scope.totalNetworks = {};
@@ -19,6 +32,11 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
 
 		for (var x in $scope.accounts) {
 			var account = $scope.accounts[x]['Socialnet'];
+
+            if ($scope.filters.networks.indexOf(account.network) == -1) {
+                continue;
+            }
+
 			var brand 	= $scope.networks[account.network]['brand'];
 
 			if (!angular.isDefined($scope.totalNetworks[account.network])) {
@@ -148,5 +166,52 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
 		}
 	},true);
 
+    $scope.manageFilters = function() {
+        $scope.showFilters = !$scope.showFilters;
+    }
+
+    $scope.filter = function(index) {
+
+        var account = $scope.networks[index];
+        var networks= $scope.networks;
+
+        var ixNetwork = $scope.filters.networks.indexOf(account.network);
+
+        if (ixNetwork != -1) {
+            delete $scope.filters.networks[ixNetwork];
+        } else {
+            $scope.filters.networks.push(account.network);
+        }
+
+        $scope.networksGraphData();
+    }
+
+    $scope.filterClass = function(network) {
+        console.log(network);
+        var ixNetwork = $scope.filters.networks.indexOf(network);
+        if (ixNetwork == -1 ) {
+            return "";
+        }
+        return "active";
+    }
+
+    $scope.matchBySearch = function(account) {
+
+        if (!$scope.search.length) {
+            return true;
+        }
+
+        var search = $scope.search.toLowerCase();
+
+        if (account.login.toLowerCase().indexOf(search) != -1 || 
+            account.external_user_id.toLowerCase().indexOf(search) != -1 || 
+            account.type.toLowerCase().indexOf(search) != -1
+            ) {
+
+            return true;
+        }
+
+        return false;
+    }    
 
 }

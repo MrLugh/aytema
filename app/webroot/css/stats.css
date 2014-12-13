@@ -5,6 +5,56 @@
   margin: 0 auto
 }
 
+
+.statsContainer .addList ul, .statsContainer .filterList ul {
+  display: inline-block;
+}
+
+.statsContainer .addList, .statsContainer .filterList {
+  color: #b0c19c;
+  position: fixed;
+  z-index: 4;
+  font-size: 20px;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: #2a3137;
+}
+
+.statsContainer .addList {
+  top:0;
+  /*-webkit-box-shadow: 0px 5px 5px 0px rgba(37, 35, 40, 0.5);
+  -moz-box-shadow:    0px 5px 5px 0px rgba(37, 35, 40, 0.5);
+  box-shadow:         0px 5px 5px 0px rgba(37, 35, 40, 0.5);*/  
+}
+
+.statsContainer .filterList {
+  bottom: 0;
+  /*-webkit-box-shadow: 0px -5px 5px 0px rgba(37, 35, 40, 0.5);
+  -moz-box-shadow:    0px -5px 5px 0px rgba(37, 35, 40, 0.5);
+  box-shadow:         0px -5px 5px 0px rgba(37, 35, 40, 0.5);*/
+}
+
+.statsContainer .filterList li {
+  color: #b0c19c;
+  opacity: 0.3;
+}
+
+.statsContainer .filterList li.active {
+  color: #b0c19c;
+  opacity: 1;
+}
+.statsContainer .filterList li input {
+    background: none repeat scroll 0 0 #22272b;
+    border: medium none;
+    color: #a8a8a8 !important;
+}
+
+.statsContainer .addList li, .statsContainer .filterList li {
+  display: inline-block;
+  text-align: center;
+  margin-left: 20px;
+}
+
 .statsContainer i {
 	/*text-shadow: none;*/
 }

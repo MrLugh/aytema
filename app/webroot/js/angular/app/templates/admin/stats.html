@@ -1,5 +1,21 @@
 <div class="statsContainer">
 
+	<div class="filterList">
+
+		<i id="filter_account" class="fa fa-search filtersControl" ng-click="manageFilters()" tooltip="Filter"></i>
+
+		<ul ng-show="showFilters">
+			<li ng-repeat="(key,network) in networks" ng-click="filter(key)" ng-class="filterClass(key)"  tooltip="On/Off {{network.network|networkBrand}}" class="btn-group">
+				<i ng-class="contentSv.getNetworkIcon(network.network)"></i>
+				<span>{{countByNetwork(network.network)}}</span>
+			</li>
+			<li>
+				<input type="text" ng-model="search" placeholder="Search" class="form-control inline"/>
+			</li>
+		</ul>
+
+	</div>
+
 	<div id="networkStats" class="left"></div>
 
 	<div id="accountStats" class="right"></div>
