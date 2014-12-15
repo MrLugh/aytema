@@ -370,6 +370,50 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    return deferred.promise;
 	};
 
+	var getStatsByFilters = function(params) {
+
+		var deferred= $q.defer();
+
+		loading = true;
+
+		if (!angular.isDefined(params)) {
+			var params = [];
+		}
+
+
+		var vars = [];
+		for (var x in params) {
+
+			var param = params[x];
+
+			if (!angular.isArray(param)) {
+				vars.push(x+"="+params[x]);	
+			} else {
+				for (var y in param) {
+					vars.push(x+"[]="+param[y]);
+				}
+			}
+			
+		}
+
+		var url = '/contents/stats.json';
+		if (vars.length) {
+			url +="?"+vars.join("&");
+		}
+
+	    $http({method: 'GET', url: url,data:params}).
+	    success(function(data, status, headers, config) {
+	    	loading 	= false;
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    	loading 	= false;
+	    	deferred.reject(data);
+	    });
+
+	    return deferred.promise;
+	};	
+
 	var getRelatedContent = function(params) {
 
 		var deferred= $q.defer();
@@ -1165,6 +1209,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		isBadImage:isBadImage,
 		
 		getContentsByFilters:getContentsByFilters,
+		getStatsByFilters:getStatsByFilters,
 		
 		getStatIcon:getStatIcon,
 		getConceptIcon:getConceptIcon,

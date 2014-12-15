@@ -12,7 +12,7 @@ class ContentsController extends AppController {
 
     public function beforeFilter() {
 
-        $this->Auth->allow('index','view','relateds','delete','activate','addFile');
+        $this->Auth->allow('index','view','relateds','delete','activate','addFile','stats');
         $this->loadModel('Socialnet');
         $this->loadModel('User');
     }
@@ -55,16 +55,9 @@ class ContentsController extends AppController {
             $params['Content.network'] = $selected_networks;
         }
 
-        //TEST
-        //$params['Content.network'] = array('youtube'=>'youtube');
-
         if (count($selected_types)) {
             $params['Content.concept'] = $selected_types;
         }
-
-        //TEST
-        //$params['Content.concept'] = array('photo'=>'photo');
-
 
         $contents = $this->Content->find('all', array(
             'conditions'=> $params,
@@ -427,6 +420,89 @@ class ContentsController extends AppController {
             'status'  => "ok",
             '_serialize'=> array('status')
         ));    
+    }
+
+    public function stats() {
+
+        $params = array();
+
+        isset($this->request->query['accounts']) ? $accounts = $this->request->query['accounts'] : $accounts = null;
+        isset($this->request->query['networks']) ? $selected_networks = $this->request->query['networks'] : $selected_networks = null;
+        isset($this->request->query['concepts']) ? $selected_types = $this->request->query['concepts'] : $selected_types = null;
+        isset($this->request->query['username']) ? $username = $this->request->query['username'] : $username = null;
+        isset($this->request->query['status']) ? $status = $this->request->query['status'] : $status = null;
+
+        $findUser = $this->User->findByUsername($username);
+
+        $params[] = 'YEAR(Content.creation_date) = '.date("Y");
+
+        if (!empty($status) && in_array($status, array('disabled','enabled'))) {
+            $params['Content.status'] = $status;
+        }
+
+        if (!empty($accounts)) {
+
+            $conditions = array('Socialnet.id'=>$accounts);
+            if (!empty($findUser)) {
+                $conditions['Socialnet.user_id'] = $findUser['User']['id'];
+            }
+
+            $socialnets = $this->Socialnet->find('all', array('conditions'=> $conditions));
+            foreach ($socialnets as $key => $account) {
+                $params['OR'][] = array(
+                    'Content.network'=>$account['Socialnet']['network'],
+                    'Content.external_user_id'=> $account['Socialnet']['external_user_id']
+                );
+            }
+        }
+
+        if (count($selected_networks)) {
+            $params['Content.network'] = $selected_networks;
+        }
+
+        if (count($selected_types)) {
+            $params['Content.concept'] = $selected_types;
+        }
+
+        $contents = $this->Content->find('all', array(
+            'fields'    => array(
+                'count(Content.id) AS count',
+                'Content.concept',
+                'MONTH(Content.creation_date) AS time_range'
+            ),
+            'conditions'=> $params,
+            'order'     => array('Content.creation_date' => 'desc'),
+            'group'     => array('Content.concept','time_range')
+            )
+        );
+
+        $results    = array();
+        $begin      = new DateTime( 'NOW -1 YEAR' );
+        $end        = new DateTime( 'NOW' );
+        $interval   = DateInterval::createFromDateString('1 month');
+
+        $period = new DatePeriod($begin, $interval, $end);
+
+        if (!empty($contents)) {
+            foreach ($contents as $key => $data) {
+
+                foreach($period as $dt) {
+                    if (!isset($results[$data['Content']['concept']][(int)$dt->format("m")])) {
+                        $results[$data['Content']['concept']][(int)$dt->format("m")] = 0;
+                    }
+                }
+                ksort($results[$data['Content']['concept']]);                
+                $results[$data['Content']['concept']][(int)$data[0]['time_range']] += $data[0]['count'];
+
+            }
+        }
+
+        $this->set(array(
+            'stats'  => $results,
+            '_serialize'=> array('stats')
+        ));
+
+
     }
 
 }
