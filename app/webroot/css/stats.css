@@ -69,6 +69,13 @@
 	height:350px;
 }
 
+.statsContainer #contentStats {
+  width:100%;
+  height:500px;
+  clear: both;
+  float: none;
+}
+
 .statsContainer #byNetworksStats .networkStatContainer {
 	margin:20px;
 	border-radius:6px;

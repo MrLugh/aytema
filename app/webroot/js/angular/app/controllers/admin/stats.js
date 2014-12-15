@@ -203,7 +203,6 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
     Highcharts.setOptions(Highcharts.theme);
 
 
-
     $scope.initFilters = function() {
 
         var filters = {'networks':[]};
@@ -400,12 +399,12 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
                 categories: months,
                 tickmarkPlacement: 'on',
                 title: {
-                    text: 'Last year by month'
+                    text: 'LAST YEAR IN MONTHS'
                 }
             },
             yAxis: {
                 title: {
-                    text: 'Total by concept'
+                    text: 'TOTALS'
                 }
             },
             tooltip: {
