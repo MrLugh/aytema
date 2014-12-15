@@ -743,6 +743,11 @@ ul {
 
 /* latest posts */
 
+.latest .carousel-control{
+  display: none;
+}
+
+
 #rufous-sandbox {
   display: none!important;
 }

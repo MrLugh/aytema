@@ -1,14 +1,10 @@
-<div class="latestPhotos" style="position:relative;">
+<div class="latest latestPhotos" style="position:relative;">
 	<div class="center" style="position:relative;">
 
-		<carousel interval="-8000">
+		<carousel interval="8000">
 			<slide ng-repeat="photo in photolist">
 
 				<div style="background-image:url('{{photo.src}}');" class="photo">
-
-					<!--
-					<div style="background-image:url('{{photo.src}}');" class="photo_contain"></div>
-					-->
 
 					<div class="text_container">
 						<h3 ng-if="photo.title.length>0" class="title" ng-style="getTitleStyle()">{{photo.title}}</h3>
@@ -17,10 +13,6 @@
 					</div>
 
 				</div>
-
-				<!--
-				<img ng-src="{{photo.src}}" class="photo" style="position:relative;top:0;left:0;z-index:2;">
-				-->
 
 			</slide>
 		</carousel>
