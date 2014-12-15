@@ -97,7 +97,11 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
                 text: 'Social Networks'
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+                backgroundColor: 'rgba(0, 0, 0, 0.85)',
+                style: {
+                 color: '#F0F0F0'
+                }                
             },
             plotOptions: {
                 pie: {
@@ -133,7 +137,11 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
                 text: 'Social Stats'
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+                backgroundColor: 'rgba(0, 0, 0, 0.85)',
+                style: {
+                 color: '#F0F0F0'
+                }
             },
             plotOptions: {
                 pie: {
