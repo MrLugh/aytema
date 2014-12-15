@@ -195,7 +195,6 @@ function adminStatsCo($scope,userSv,appSv,contentSv) {
     }
 
     $scope.filterClass = function(network) {
-        console.log(network);
         var ixNetwork = $scope.filters.networks.indexOf(network);
         if (ixNetwork == -1 ) {
             return "";
