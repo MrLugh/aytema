@@ -50,12 +50,12 @@
     -o-transition: all 0.56s ease-in-out 0s;
     transition: all 0.56s ease-in-out 0s;
 
-    -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+/*    -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
     -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
     box-shadow: 0 1px 3px rgba(34,25,25,0.4);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    border-radius: 10px;
+    border-radius: 10px;*/
 
 }
 .pageVideos ul li .pageVideoContainer .overlay {
@@ -68,14 +68,15 @@
     left:0;
     z-index: 2;
     opacity: 0;
-    background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
+    /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
+    background: none repeat scroll 0 0 #13aeef;
     -webkit-transition: all 1.4s ease-in-out 0s;
     -moz-transition: all 1.4s ease-in-out 0s;
     -o-transition: all 1.4s ease-in-out 0s;
     transition: all 1.4s ease-in-out 0s;
-    -webkit-border-radius: 10px;
+    /*-webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    border-radius: 10px;    
+    border-radius: 10px;    */
 }
 
 .pageVideos ul li .pageVideoContainer .overlay i {
@@ -85,6 +86,7 @@
     font-size: 45px;
     cursor: pointer;
     z-index: 3;
+    color: #fff!important;
 }
 
 .pageVideos ul li .pageVideoContainer .overlay .overlay-inner {
@@ -109,7 +111,7 @@
     margin: 0;
     font-weight: 900;
     font-size: 1.2em;
-    text-shadow: 1px 0 3px #000;
+    /*text-shadow: 1px 0 3px #000;*/
 }
 .pageVideos ul li .pageVideoContainer .overlay .overlay-inner p {
     display: block;
@@ -127,7 +129,7 @@
     margin: 0;
     font-weight: 300;
     font-size: 1.0em;
-    text-shadow: 1px 0 2px #000;    
+    /*text-shadow: 1px 0 2px #000;*/    
 }
 .pageVideos ul li .pageVideoContainer:hover .overlay {
     opacity: 1;
@@ -231,11 +233,11 @@
     min-height: 450px;
     width: 100%;
 
-    -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+/*    -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
     -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    box-shadow: 0 1px 3px rgba(34,25,25,0.4);*/
 
-    text-shadow: 1px 0 3px #000;
+    /*text-shadow: 1px 0 3px #000;*/
 
     -webkit-transition: all 0.56s ease-in-out 0s;
     -moz-transition: all 0.56s ease-in-out 0s;

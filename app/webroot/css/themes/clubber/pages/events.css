@@ -35,12 +35,12 @@
     -o-transition: all 0.56s ease-in-out 0s;
     transition: all 0.56s ease-in-out 0s;
 
-    -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    /*-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
     -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
     box-shadow: 0 1px 3px rgba(34,25,25,0.4);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    border-radius: 10px;
+    border-radius: 10px;*/
 
 }
 .pageEvents ul li .pageEventContainer .overlay {
@@ -82,7 +82,7 @@
     margin: 0;
     font-weight: 900;
     font-size: 1.2em;
-    text-shadow: 1px 0 3px #000;
+    /*text-shadow: 1px 0 3px #000;*/
 }
 .pageEvents ul li .pageEventContainer .overlay .overlay-inner p {
     display: block;
@@ -100,7 +100,7 @@
     margin: 0;
     font-weight: 300;
     font-size: 1.0em;
-    text-shadow: 1px 0 2px #000;    
+    /*text-shadow: 1px 0 2px #000;*/    
 }
 .pageEvents ul li .pageEventContainer:hover .overlay {
     top: 0;

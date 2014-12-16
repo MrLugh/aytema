@@ -24,15 +24,15 @@ Class Themeclubber {
         ),
         'colors' => array(
             'background' => array(
-                'value' => '#101010',
+                'value' => '#ffffff',
                 'label' => 'Body background',
             ),
             'contentBackground' => array(
-                'value' => '#00D5FF',
+                'value' => '#ffffff',
                 'label' => 'Content background',
             ),
             'contentText' => array(
-                'value' => '#ffffff',
+                'value' => '#13aeef',
                 'label' => 'Content text',
             ),
         ),

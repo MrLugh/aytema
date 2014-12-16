@@ -150,7 +150,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 			style['background-color']	= $scope.config.custom.colors.contentBackground.value;
 			style['color']				= $scope.config.custom.colors.contentText.value;
 		} else {
-			style['color']				= $scope.config.custom.colors.contentBackground.value;
+			style['color']				= $scope.config.custom.colors.contentText.value;
 		}
 
 		return style;
@@ -380,8 +380,8 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	var style = {
     		'width':width,
     		//'background-color':rgbString,
-    		'background-color':$scope.config.custom.colors.background.value,
-    		'color':$scope.config.custom.colors.contentText.value
+    		'background-color':$scope.config.custom.colors.contentText.value,
+    		'color':$scope.config.custom.colors.background.value
     	};
 
 	   	return style;

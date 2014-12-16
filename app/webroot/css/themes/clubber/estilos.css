@@ -3,6 +3,8 @@ body {
   margin: 0 auto;
   font-size: 17px;
   overflow-x: hidden;
+  background-color: #fff;
+  background-image: none!important;
 }
 
 img {
@@ -18,6 +20,15 @@ a,a:hover,a:active,a:focus {
   outline: none;
   text-decoration: none;
 }
+a {
+ color: #13aeef;
+}
+a:hover {
+ color: #13aeef;	
+}
+p {
+    color: #999;
+} 
 
 input::-moz-focus-inner {
   border: 0;
@@ -72,21 +83,25 @@ blockquote {
 
 i, *.active i {
   padding: 5px;
-  text-shadow: rgb(3, 3, 3) 1px 1px 1px;
+  /*text-shadow: rgb(3, 3, 3) 1px 1px 1px;*/
   -webkit-transition:all 0.5s ease-in-out 0s;
   -moz-transition:all 0.5s ease-in-out 0s;
   -o-transition:all 0.5s ease-in-out 0s;
   transition:all 0.5s ease-in-out 0s;  
 }
 
+
 *.active i {
-  text-shadow: rgb(3, 3, 3) 1px 1px 1px;
+  /*text-shadow: rgb(3, 3, 3) 1px 1px 1px;*/
 }
 
 i:hover,*.active i:hover {
   transition: border 0.1s ease 0s;
-  text-shadow: rgb(3, 3, 3) 1px 1px 1px;
+  /*text-shadow: rgb(3, 3, 3) 1px 1px 1px;*/
 }
+.page i {
+	color: #13aeef !important;
+} 
 
 ul {
   list-style-type: none;
@@ -99,13 +114,16 @@ ul {
 
 .navbar {
   /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 4px 0px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 4px 0px rgba(0,0,0,0.3);
   border: none;
   z-index: 4;
   margin:0px auto 20px auto;
   border-radius: 0;
+}
+.navbar-nav i {
+  color: #999!important;
 }
 
 .navbar h1 {
@@ -115,11 +133,12 @@ ul {
 .navbar-brand {
   font-size: 40px;
   font-weight: 900;  
-  text-shadow: 0 0 3px #000;
+  padding-left: 25px;
+  /*text-shadow: 0 0 3px #000;*/
 }
 
 .navbar .profileImage {
-  height: 70px;
+  height: 50px;
   float: left;
 }
 
@@ -176,9 +195,9 @@ ul {
   margin-bottom: 25px;
   display: block;  
   overflow: hidden;
-  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  /*-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
   -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  box-shadow: 0 1px 3px rgba(34,25,25,0.4);*/
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -394,12 +413,15 @@ ul {
   font-weight: 900;
   margin-top: 0;
   font-size: 18px;
-  text-shadow: 1px 0 3px #000;
+  /*text-shadow: 1px 0 3px #000;*/
   overflow: hidden;
+}
+.title span {
+	color: #13aeef!important;
 }
 
 .caption {
-  text-align: left;
+  text-align: center;
   margin: 10px;
   white-space: nowrap;
   overflow: hidden;
@@ -407,9 +429,14 @@ ul {
 }
 
 .content_caption {
-  text-align: left;
+  text-align: center;
   margin: 10px;
+  color: #999!important;
 }
+.content_caption a {
+  color: #13aeef!important;
+}
+
 
 .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
   height: 250px;
@@ -509,7 +536,7 @@ ul {
   margin: 0;
   font-weight: 900;
   font-size: 2.1em;
-  text-shadow: 1px 0 3px #000;
+  /*text-shadow: 1px 0 3px #000;*/
 }
 
 .latestPhotos .title, .latestPhotos .caption {
@@ -528,14 +555,15 @@ ul {
   margin: 0;
   font-weight: 600;
   font-size: 1.15em;
-  text-shadow: 1px 0 2px #000;
+  /*text-shadow: 1px 0 2px #000;*/
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;    
+  text-overflow: ellipsis;   
+  color: #999!important; 
 }
 
 .carousel-control i {
-  text-shadow: 2px 2px 2px #000;
+  /*text-shadow: 2px 2px 2px #000;*/
   position: absolute;
   top: 46%;
   font-size: 25px;
@@ -756,8 +784,10 @@ ul {
   clear: both;
   display: block;
   padding: 15px;
-  text-shadow: 1px 0 3px #000;
+  /*text-shadow: 1px 0 3px #000;*/
   font-size: 16px;
+  background-color: #999!important;
+  color: #fff!important;
 }
 
 .navbar-default .navbar-toggle {

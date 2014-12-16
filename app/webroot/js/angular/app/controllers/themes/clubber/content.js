@@ -176,7 +176,7 @@ function contentPhotoCo($scope,userSv,contentSv) {
 
 		var color = userSv.getThemeConfig().custom.colors.background.value.replace("#","");
 
-		var contrast = "#000000";
+		var contrast = "#999";
 		if (contentSv.getContrast50(color) == 'white') {
 			contrast = "#ffffff";
 		}
