@@ -132,7 +132,7 @@ ul {
 }
 
 .container {
-  max-width: 100% !important;
+  width: 100% !important;
   margin: 0 auto;
   margin-top: 10px;
   padding: 7px;

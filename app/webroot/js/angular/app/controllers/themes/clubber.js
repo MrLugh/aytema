@@ -352,8 +352,15 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     		return {};
     	}
 
+		var color = $scope.config.custom.colors.contentBackground.value.replace("#","");
+		if (contentSv.getContrast50(color) == 'white') {
+			color = '#ffffff';
+		} else {
+			color = '#000000'
+		}
+
 		return {
-			'background-color': $scope.config.custom.colors.contentBackground.value
+			'background-color': color
 		}
 	}
 

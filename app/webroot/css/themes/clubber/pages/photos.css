@@ -21,6 +21,7 @@
     float: left;
     margin: 0;
     padding: 0;
+    border: none;
     width: 49%;
 }
 
@@ -48,7 +49,7 @@
     display: block;
     vertical-align: middle;
     height: auto;
-    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
     opacity: 1;    
 
