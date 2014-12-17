@@ -68,8 +68,9 @@
     left:0;
     z-index: 2;
     opacity: 0;
-    /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
+    /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");
     background: none repeat scroll 0 0 #13aeef;
+    */
     -webkit-transition: all 1.4s ease-in-out 0s;
     -moz-transition: all 1.4s ease-in-out 0s;
     -o-transition: all 1.4s ease-in-out 0s;
@@ -86,7 +87,6 @@
     font-size: 45px;
     cursor: pointer;
     z-index: 3;
-    color: #fff!important;
 }
 
 .pageVideos ul li .pageVideoContainer .overlay .overlay-inner {

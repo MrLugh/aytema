@@ -5,7 +5,7 @@
 		<div ng-repeat="content in contents">
 		
 			<a href="#" skip-default ng-click="move(-1)" class="track_prev" ng-style="getPlayerStyle()">
-				<i class="fa fa-chevron-circle-left"></i>
+				<i class="fa fa-chevron-left"></i>
 			</a>
 
 			<a href="#" skip-default ng-click="close()" class="close_player" ng-style="getPlayerStyle()">
@@ -13,7 +13,7 @@
 			</a>
 
 			<a href="#" skip-default ng-click="move(1)" class="track_next" ng-style="getPlayerStyle()">
-				<i class="fa fa-chevron-circle-right"></i>
+				<i class="fa fa-chevron-right"></i>
 			</a>
 
 			<div class="track_full_player player" ng-bind-html="player"></div>
@@ -36,6 +36,6 @@
 
 	</ul>
 
-	<a href="#" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getTitleStyle()"><i class="fa fa-icon-plus"></i> Tracks ({{offset}} of {{contentSv.getPageList('tracks').list.length}}) </a>
+	<a href="#" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getHighlightStyle()"><i class="fa fa-icon-plus"></i> Tracks ({{offset}} of {{contentSv.getPageList('tracks').list.length}}) </a>
 
 </div>

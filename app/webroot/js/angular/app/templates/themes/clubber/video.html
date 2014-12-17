@@ -6,7 +6,7 @@
 	      <div class="overlay-inner">
 	        <h2 ng-if="getTitle().length>0" ng-style="getTitleStyle()">{{getTitle()}}</h2>
 	      </div>
-	      <i class="fa fa-play-circle" ng-click="showVideo()"></i>
+	      <i class="fa fa-play-circle" ng-click="showVideo()" ng-style="getHighlightStyle()"></i>
 	    </div>
 
 		<img thumbnail="content" ng-src="{{getThumbnail()}}" class="video_thumbnail" />

@@ -153,7 +153,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 			style['background-color']	= $scope.config.custom.colors.contentBackground.value;
 			style['color']				= $scope.config.custom.colors.contentText.value;
 		} else {
-			style['color']				= $scope.config.custom.colors.contentText.value;
+			style['color']				= $scope.config.custom.colors.contentBackground.value.replace("#","");
 		}
 
 		return style;
@@ -233,6 +233,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.$watch("userSv.getThemeConfig().custom.background",function(background){
 		if (angular.isDefined(background)) {
+			console.log(background);
 			$scope.config.custom.background = background;
 			$scope.setBackground();
 		}		
@@ -293,28 +294,21 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var element = angular.element(document.querySelector('body'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 		var element = angular.element(document.querySelector('.navbar-brand'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
-
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
-		var element = angular.element(document.querySelector('#container'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-		//$(element[0]).css('background-color',rgbString);
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-
-		var element = angular.element(document.querySelector('.navbar'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-		//$(element[0]).css('background-color',rgbString);
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-		$(element[0]).css('border-bottom','4px solid '+$scope.config.custom.colors.contentBackground.value);
-
-		var element = angular.element(document.querySelector('.navbar-nav li.active a'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
-
 		var element = angular.element(document.querySelector('.loadMore'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
 
+
+		var element = angular.element(document.querySelector('.navbar'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+
+		var element = angular.element(document.querySelector('#container'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
+		$(element[0]).css('border-bottom','4px solid '+$scope.config.custom.colors.contentBackground.value);
+		var element = angular.element(document.querySelector('.navbar-nav li.active a'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
 
 	}
 
@@ -378,13 +372,12 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
 		var rgb = contentSv.hexToRgb($scope.config.custom.colors.background.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
 
     	var style = {
     		'width':width,
-    		//'background-color':rgbString,
-    		'background-color':$scope.config.custom.colors.contentText.value,
-    		'color':$scope.config.custom.colors.background.value
+    		'background-color':rgbString,
+    		'color':$scope.config.custom.colors.contentBackground.value
     	};
 
 	   	return style;
@@ -408,7 +401,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 
 		return {
-			'color' : $scope.config.custom.colors.contentBackground.value
+			'color' : $scope.config.custom.colors.contentText.value
 		};
 	}
 
@@ -425,4 +418,12 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 	   	return {'left':'0'};
     };
+
+	$scope.getTitleStyle = function() {
+
+		return {
+			'background-color': $scope.config.custom.colors.contentBackground.value,
+			'color': $scope.config.custom.colors.contentText.value
+		}
+	};
 }

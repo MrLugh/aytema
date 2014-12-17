@@ -222,7 +222,7 @@ function contentPhotoCo($scope,userSv,contentSv) {
 
 function contentTrackCo($scope,$sce,contentSv) {
 
-	console.log($scope.content);
+	//console.log($scope.content);
 	$scope.player	= "";
 	$scope.thumbnail= "";
 

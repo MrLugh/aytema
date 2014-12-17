@@ -3,8 +3,6 @@ body {
   margin: 0 auto;
   font-size: 17px;
   overflow-x: hidden;
-  background-color: #fff;
-  background-image: none!important;
 }
 
 img {
@@ -19,12 +17,6 @@ img,img:hover,img:active,img:focus {
 a,a:hover,a:active,a:focus {
   outline: none;
   text-decoration: none;
-}
-a {
- color: #13aeef;
-}
-a:hover {
- color: #13aeef;	
 }
 p {
     color: #999;
@@ -100,7 +92,6 @@ i:hover,*.active i:hover {
   /*text-shadow: rgb(3, 3, 3) 1px 1px 1px;*/
 }
 .page i {
-	color: #13aeef !important;
 } 
 
 ul {
@@ -113,7 +104,6 @@ ul {
 }
 
 .navbar {
-  /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
   -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.3);
   -moz-box-shadow:    0px 0px 4px 0px rgba(0,0,0,0.3);
   box-shadow:         0px 0px 4px 0px rgba(0,0,0,0.3);
@@ -185,7 +175,6 @@ ul {
 
 
 #container {
-  /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
   display: block;
   text-align: center;
   margin: 0 auto;
@@ -195,9 +184,6 @@ ul {
   margin-bottom: 25px;
   display: block;  
   overflow: hidden;
-  /*-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-  box-shadow: 0 1px 3px rgba(34,25,25,0.4);*/
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -284,7 +270,6 @@ ul {
 
 
 #footer {
-  /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
   margin:0 auto;
   clear: both;
   position: relative;
@@ -413,11 +398,11 @@ ul {
   font-weight: 900;
   margin-top: 0;
   font-size: 18px;
-  /*text-shadow: 1px 0 3px #000;*/
+  text-shadow: 1px 0 3px #000;
   overflow: hidden;
 }
 .title span {
-	color: #13aeef!important;
+	
 }
 
 .caption {
@@ -434,7 +419,7 @@ ul {
   color: #999!important;
 }
 .content_caption a {
-  color: #13aeef!important;
+
 }
 
 .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
@@ -671,8 +656,6 @@ ul {
 /* latest events */
 
 .latestEvents {
-  /*/*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/*/
-  /*outline: 1px solid red;*/
 }
 
 .latestEvents, .latestEvents .events {
@@ -758,11 +741,8 @@ ul {
 }
 
 .latestPosts .post {
-  /*/*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/*/
   width: 100%;
   margin-bottom: 20px;
-
-  /*outline: 1px solid;*/
 }
 
 .latestPosts .post iframe, .latestPosts .post object, .latestPosts .post embed {
@@ -786,10 +766,8 @@ ul {
   clear: both;
   display: block;
   padding: 15px;
-  /*text-shadow: 1px 0 3px #000;*/
+  text-shadow: 1px 0 3px #000;
   font-size: 16px;
-  background-color: #999!important;
-  color: #fff!important;
 }
 
 .navbar-default .navbar-toggle {
@@ -854,4 +832,180 @@ ul {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Accounts */
+
+.cloudcialAccount {
+  background-color: #38424b;
+  color:#83bd40;
+  border-color: #46515b #38424b;
+}
+
+.cloudcialAccountRgba {
+  background-color: rgba(45, 46, 38, 0.7);
+  color:#83bd40;
+  border-color: #9aa48d #fff;
+}
+
+.cloudcialAccountPageHeader {
+  border-bottom: 4px solid;
+  border-color: #9aa48d #fff;
+}
+
+.cloudcialAccount a {
+  color:#83bd40;
+}
+
+.facebookAccount {
+  background-color: #3b5998;
+  color:#000;
+  border-color: #4E6DAD #3b5998;
+}
+
+.facebookAccountRgba {
+  background-color: rgba(59, 89, 152, 0.7);
+  color:#000;
+  border-color: #4E6DAD #3b5998;
+}
+
+.facebookAccountPageHeader {
+  border-bottom: 4px solid;
+  border-color: #4E6DAD #3b5998;
+}
+
+.facebookAccount a {
+  color:#000;
+}
+
+.soundcloudAccount {
+  background-color: #ff5500;
+  color:#000;
+  border-color: #FA6E28 #ff5500;
+
+  /*
+  background-color: #f50;
+  background-image: -webkit-linear-gradient(top,#f70 0%,#f30 100%);
+  background-image: linear-gradient(to bottom,#f70 0%,#f30 100%);
+  */
+}
+
+.soundcloudAccountRgba {
+  background-color: rgba(255, 85, 0, 0.7);
+  color:#000;
+  border-color: #FA6E28 #ff5500;
+}
+
+.soundcloudAccountPageHeader {
+  border-bottom: 4px solid;
+  border-color: #FA6E28 #ff5500;
+}
+
+.soundcloudAccount a {
+  color:#000;
+}
+
+.tumblrAccount {
+  background-color: #36465d;
+  color:#fff;
+  border-color: #62728A #36465d;
+}
+
+.tumblrAccountRgba {
+  background-color: rgba(72, 87, 109, 0.7);
+  color:#fff;
+  border-color: #62728A #36465d;
+}
+
+.tumblrAccountPageHeader {
+  border-bottom: 4px solid;
+  border-color: #62728A #36465d;
+}
+
+.tumblrAccount a {
+  color:#fff;
+}
+
+.twitterAccount {
+  background-color: #2aa9e0;
+  color:#fff;
+  border-color: #31BCF7 #2aa9e0;
+}
+
+.twitterAccountRgba {
+  background-color: rgba(42, 169, 224, 0.7);
+  color:#fff;
+  border-color: #31BCF7 #2aa9e0;
+}
+
+.twitterAccountPageHeader {
+  border-bottom: 4px solid;
+  border-color: #31BCF7 #2aa9e0;
+}
+
+.twitterAccount a {
+  color:#fff;  
+}
+
+.youtubeAccount {
+  background-color: #f4001c;
+  color:#fff;
+  border-color: #FC2B43 #f4001c;
+}
+
+.youtubeAccountRgba {
+  background-color: rgba(244, 0, 28, 0.7);
+  color:#fff;
+  border-color: #FC2B43 #f4001c;
+}
+
+.youtubeAccountPageHeader {
+  border-bottom: 4px solid;
+  border-color: #FC2B43 #f4001c;
+}
+
+.youtubeAccount a {
+  color:#fff;
+}
+
+.vimeoAccount {
+  background-color: #3d3d3d;
+  color:#fff;
+  border-color: #fff #3d3d3d;
+}
+
+.vimeoAccountRgba {
+  background-color: rgba(61, 61, 61, 0.7);
+  color:#fff;
+  border-color: #fff #3d3d3d;
+}
+
+.vimeoAccountPageHeader {
+  border-bottom: 4px solid;
+  border-color: #fff #3d3d3d;
+}
+
+.vimeoAccount a {
+  color:#fff;
+}
+
+.mixcloudAccount {
+  background-color: #6d6e71;
+  color:#fff;
+  border-color: #4D4A4A #6d6e71;
+}
+
+.mixcloudAccountRgba {
+  background-color: rgba(109, 110, 113, 0.7);
+  color:#fff;
+  border-color: #4D4A4A #6d6e71;
+}  
+
+.mixcloudAccountPageHeader {
+  border-bottom: 4px solid;
+  border-color: #4D4A4A #6d6e71;
+}
+
+.mixcloudAccount a {
+  color:#fff;
 }
