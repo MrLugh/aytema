@@ -140,4 +140,20 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
     	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
     }
 
+    $scope.photosizes = [
+    	'half','xlarge','xlarge',
+    	'large','large','small','small','medium',
+
+    	'xlarge','xlarge','half',
+    	'xlarge','small','small','small','small',
+
+    	'xlarge','medium','medium',
+    	'full','xlarge','medium','small','small'
+    ];
+
+    $scope.getPhotoClass = function(index) {
+    	var x = index % $scope.photosizes.length;
+     	return angular.copy($scope.photosizes)[x];
+    }
+
 }
