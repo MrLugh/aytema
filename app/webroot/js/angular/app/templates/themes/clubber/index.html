@@ -64,21 +64,14 @@
 
 	<div class="container_wrap">
 
-		<div id="container">
+		<ul class="{{getPageClass('home')}}" ng-if="isActive('home')">
+			<li class="{{getHomepageSize('photos')}}" ng-if="hasContent('photos')" >
+				<latest-photos limit="5" config="config"></latest-photos>
+			</li>
+		</ul>
 
-			<ul class="page block {{getPageClass('home')}}" ng-if="isActive('home')">
-				<li class="section section_photos {{getHomepageSize('photos')}}" ng-if="hasContent('photos')" >
-					<h3 class="title">Latest <span ng-style="getHighlightStyle()">Photos</span></h3>
-					<div>
-						<latest-photos limit="5" config="config"></latest-photos>
-					</div>
-					<div class="both">
-						<a href="#/photos" skip-default ng-click="setCurrent('photos')" ng-style="getMoreStyle()" class="loadMore">
-							<i class="fa fa-plus"></i> Photos
-						</a>
-					</div>
-				</li>
-			</ul>
+
+		<div id="container">
 
 			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')" masonry-simple="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.section'}">
 
@@ -95,7 +88,7 @@
 
 					<div class="both">
 						<a href="#/{{page}}" skip-default ng-click="setCurrent(page)" ng-style="getMoreStyle()" class="loadMore">
-							<i class="fa fa-plus"></i> {{page}}
+							More <i class="fa {{contentSv.getConceptIcon(page)}}"></i>
 						</a>
 					</div>
 
@@ -123,7 +116,6 @@
 
 				<div ng-style="getDividerStyle()" class="divider">&nbsp;</div>
 
-
 				<ul class="social-links">
 
 					<h3 class="title">Follow me <span ng-style="getHighlightStyle()">on:</span></h3>
@@ -137,7 +129,9 @@
 
 				</ul>
 
-			</div>			
+			</div>
+
+			<div ng-style="getDividerStyle()" class="divider">&nbsp;</div>
 
 		</div>
 

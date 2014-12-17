@@ -5,6 +5,7 @@
 	    <div class="overlay">
 	      <div class="overlay-inner">
 	        <h2 ng-if="getTitle().length>0" ng-style="getTitleStyle()">{{getTitle()}}</h2>
+	        <p ng-if="contentSv.getDescription(content).length" class="content_caption" ng-bind-html="getDescription()"></p>
 	      </div>
 	      <i class="fa fa-play-circle" ng-click="showVideo()" ng-style="getHighlightStyle()"></i>
 	    </div>

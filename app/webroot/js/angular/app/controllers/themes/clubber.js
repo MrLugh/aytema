@@ -147,13 +147,12 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     		return {};
     	}
 
-
 		var style = {};
 		if ($scope.isActive(page)) {
-			style['background-color']	= $scope.config.custom.colors.contentBackground.value;
-			style['color']				= $scope.config.custom.colors.contentText.value;
+			style['border-color']	= $scope.config.custom.colors.contentText.value;
+			style['color']			= $scope.config.custom.colors.background.value;
 		} else {
-			style['color']				= $scope.config.custom.colors.contentBackground.value.replace("#","");
+			style['color']			= $scope.config.custom.colors.contentText.value;
 		}
 
 		return style;
@@ -300,13 +299,8 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		var element = angular.element(document.querySelector('.loadMore'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
 
-
 		var element = angular.element(document.querySelector('.navbar'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-
-		var element = angular.element(document.querySelector('#container'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
-		$(element[0]).css('border-bottom','4px solid '+$scope.config.custom.colors.contentBackground.value);
 		var element = angular.element(document.querySelector('.navbar-nav li.active a'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
 
@@ -371,7 +365,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     		width = $scope.config.custom.width;
     	}
 
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.background.value);
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
 		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
 
     	var style = {
@@ -391,7 +385,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 		return {
 			'border-color' : $scope.config.custom.colors.contentBackground.value
-		};		
+		};
 	}
 
 	$scope.getHighlightStyle = function() {

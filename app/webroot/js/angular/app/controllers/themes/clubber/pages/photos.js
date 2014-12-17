@@ -45,7 +45,7 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 
 	$scope.getTitleStyle = function() {
 		return {
-			'background-color': $scope.config.custom.colors.contentBackground.value,
+			'background-color': $scope.config.custom.colors.background.value,
 			'color': $scope.config.custom.colors.contentText.value
 		}
 	}
