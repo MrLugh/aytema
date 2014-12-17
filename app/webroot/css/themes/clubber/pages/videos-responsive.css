@@ -1,7 +1,7 @@
 @media (min-width: 1024px) {
 
 	.pageVideos ul li {
-	    width: calc(33% - 1px);
+	    width: calc(25% - 1px);
 	}
 
 	.pageVideos .video_full_player iframe, .pageVideos .video_full_player video, .pageVideos .video_full_player embed {

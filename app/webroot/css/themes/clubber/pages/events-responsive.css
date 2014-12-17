@@ -1,7 +1,7 @@
 @media (min-width: 1025px) {
 
 	.pageEvents ul li {
-	    width: calc(33% - 1px);
+	    width: calc(25% - 1px);
 	}
 
 }

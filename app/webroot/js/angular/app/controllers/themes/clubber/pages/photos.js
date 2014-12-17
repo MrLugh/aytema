@@ -3,7 +3,7 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 	$scope.contentSv= contentSv;
 	$scope.photolist= [];
 	$scope.loading 	= false;
-	$scope.limit 	= 6;
+	$scope.limit 	= 8;
 	$scope.offset 	= 0;
 	$scope.show 	= false;
 	$scope.content 	= false;

@@ -377,8 +377,6 @@ function themePhotographerCo($scope,appSv,userSv,contentSv,$sce,$interval) {
 
     };    
 
-$scope.detailPhotoCurrent    
-
     $scope.photosizes = [
     	'half','xlarge','xlarge',
     	'large','large','small','small','medium',

@@ -1,7 +1,7 @@
 @media (min-width: 1024px) {
 
 	.pageTracks ul li {
-	    width: calc(33% - 1px);
+	    width: calc(25% - 1px);
 	}
 
 	.pageTracks .track_full_player iframe, .pageTracks .track_full_player track, .pageTracks .track_full_player embed {	

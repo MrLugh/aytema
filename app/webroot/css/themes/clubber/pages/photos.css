@@ -35,9 +35,6 @@
     position: relative;
     text-decoration: none;
     z-index: 1;
-/*    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;*/
 }
 
 .pagePhotos ul li .content_photo_hide {
@@ -48,14 +45,9 @@
     display: block;
     vertical-align: middle;
     height: auto;
-    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
-    opacity: 1;    
-
-
-   /* -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    box-shadow: 0 1px 3px rgba(34,25,25,0.4);*/
+    opacity: 1;
 }
 
 .pagePhotosItem {

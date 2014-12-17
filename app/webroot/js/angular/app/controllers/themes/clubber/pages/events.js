@@ -3,7 +3,7 @@ function EventsCo($scope,appSv,contentSv,$sce) {
 	$scope.contentSv= contentSv;
 	$scope.eventlist= [];
 	$scope.loading 	= false;
-	$scope.limit 	= 6;
+	$scope.limit 	= 8;
 	$scope.offset 	= 0;
 
 	$scope.setList = function() {

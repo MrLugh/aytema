@@ -368,6 +368,21 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 	}
 
+	$scope.getPageMoreStyle = function() {
+
+    	if (angular.equals({},$scope.config)) {
+    		return {};
+    	}		
+
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
+
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value,
+			'background-color':rgbString
+		}
+	}	
+
 	$scope.setFont = function() {
 
 		var element = angular.element(document.querySelector('body'));
