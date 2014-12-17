@@ -149,10 +149,10 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var style = {};
 		if ($scope.isActive(page)) {
-			style['border-color']	= $scope.config.custom.colors.contentText.value;
-			style['color']			= $scope.config.custom.colors.background.value;
-		} else {
+			style['border-color']	= $scope.config.custom.colors.background.value;
 			style['color']			= $scope.config.custom.colors.contentText.value;
+		} else {
+			style['color']			= $scope.config.custom.colors.background.value;
 		}
 
 		return style;
@@ -292,24 +292,38 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.setColor = function() {
 
 		var color = $scope.config.custom.colors.background.value.replace("#","");
-
 		if (contentSv.getContrast50(color) == 'white') {
 			color = '#ffffff';
 		} else {
-			color = '#000000';
+			color = '#000000'
 		}
 		var element = angular.element(document.querySelector('body'));
 		$(element[0]).css('color',color);
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+		
+		color = $scope.config.custom.colors.contentText.value.replace("#","");
+		if (contentSv.getContrast50(color) == 'white') {
+			color = '#ffffff';
+		} else {
+			color = '#000000'
+		}
 		var element = angular.element(document.querySelector('.navbar-brand'));
-		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
+		$(element[0]).css('color',color);
+		
 		var element = angular.element(document.querySelector('.loadMore'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
 
 		var element = angular.element(document.querySelector('.navbar'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
+
+		color = $scope.config.custom.colors.contentBackground.value.replace("#","");
+		if (contentSv.getContrast50(color) == 'white') {
+			color = '#ffffff';
+		} else {
+			color = '#000000';
+		}
 		var element = angular.element(document.querySelector('.navbar-nav li.active a'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
+		$(element[0]).css('background-color',color);
 
 	}
 
