@@ -128,13 +128,7 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 	}	
 
 	$scope.loadMore = function() {
-		if ($scope.loading) {
-			return false;
-		}
-		$scope.loading = true;
-		if ($scope.offset + $scope.limit * 3 > contentSv.getPageList('photos').list.length ) {
-			$scope.$parent.$parent.getContent("photos");
-		}
+		$scope.$parent.$parent.getContent("photos");
 		$scope.setList();
 	}
 

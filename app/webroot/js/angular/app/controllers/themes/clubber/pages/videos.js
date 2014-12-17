@@ -129,13 +129,7 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 	}
 
 	$scope.loadMore = function() {
-		if ($scope.loading) {
-			return false;
-		}
-		$scope.loading = true;
-		if ($scope.offset + $scope.limit * 3 > contentSv.getPageList('videos').list.length ) {
-			$scope.$parent.$parent.getContent("videos");
-		}
+		$scope.$parent.$parent.getContent("videos");
 		$scope.setList();
 	}
 

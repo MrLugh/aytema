@@ -49,13 +49,7 @@ function EventsCo($scope,appSv,contentSv,$sce) {
 	}	
 
 	$scope.loadMore = function() {
-		if ($scope.loading) {
-			return false;
-		}
-		$scope.loading = true;
-		if ($scope.offset + $scope.limit * 3 > contentSv.getPageList('events').list.length ) {
-			$scope.$parent.$parent.getContent("events");
-		}
+		$scope.$parent.$parent.getContent("events");
 		$scope.setList();
 	}
 

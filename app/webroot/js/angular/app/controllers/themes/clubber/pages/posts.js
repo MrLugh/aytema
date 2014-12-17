@@ -49,13 +49,7 @@ function PostsCo($scope,appSv,contentSv,$sce) {
 	}	
 
 	$scope.loadMore = function() {
-		if ($scope.loading) {
-			return false;
-		}
-		$scope.loading = true;
-		if ($scope.offset + $scope.limit * 3 > contentSv.getPageList('posts').list.length ) {
-			$scope.$parent.$parent.getContent("posts");
-		}
+		$scope.$parent.$parent.getContent("posts");
 		$scope.setList();
 	}
 

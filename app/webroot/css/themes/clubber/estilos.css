@@ -437,7 +437,6 @@ ul {
   color: #13aeef!important;
 }
 
-
 .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
   height: 250px;
   width: 100%;
@@ -448,6 +447,7 @@ ul {
 .carousel-indicators {
   display: none;
  }
+
 
 /* latest photos */
 
@@ -605,12 +605,11 @@ ul {
 }
 
 .latestVideos .video {
-  /*/*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/*/
   display: block;
-  width: 100%;
   margin: 0 auto;
-
-  /*outline: 1px solid;*/
+  position: absolute;
+  width: 100%;
+  height: 350px;
 }
 
 .latestVideos .video .player iframe, .latestVideos .video .player object, .latestVideos .video .player video {
@@ -645,11 +644,12 @@ ul {
   text-align: center;
 }
 
-.latestTracks .track {  
-  /*/*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/*/
+.latestTracks .track {
   display: block;
   margin: 0 auto;
-  /*outline: 1px solid;*/
+  position: absolute;
+  width: 100%;
+  height: 350px;
 }
 
 .latestTracks .track iframe, .latestTracks .track object, .latestTracks .track embed, .latestTracks audio {
@@ -769,12 +769,14 @@ ul {
   width: 100%;
 }
 
-/* latest posts */
-
-.latest .carousel-control{
-  display: none;
+.latestPosts .post .content_caption {
+  height: 150px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;  
 }
 
+/* latest posts */
 
 #rufous-sandbox {
   display: none!important;

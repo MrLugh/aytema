@@ -2,7 +2,9 @@
 	<div class="center" style="position:relative;">
 		<carousel interval="8000">
 			<slide ng-repeat="content in list">
-				<div class="player" ng-bind-html="getPlayer($index)"></div>
+				<div thumbnail="content" class="track cover" style="background-image:url('{{contentSv.getThumbnail(content)}}')">
+					<h2 ng-if="contentSv.getTitle(content).length>0" ng-style="getTitleStyle()">{{contentSv.getTitle(content)}}</h2>
+				</div>
 			</slide>
 		</carousel>
 	</div>

@@ -130,13 +130,7 @@ function TracksCo($scope,appSv,contentSv,$sce) {
 	}
 
 	$scope.loadMore = function() {
-		if ($scope.loading) {
-			return false;
-		}
-		$scope.loading = true;
-		if ($scope.offset + $scope.limit * 3 > contentSv.getPageList('tracks').list.length ) {
-			$scope.$parent.$parent.getContent("tracks");
-		}
+		$scope.$parent.$parent.getContent("tracks");
 		$scope.setList();
 	}
 
