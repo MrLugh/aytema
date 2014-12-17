@@ -751,6 +751,7 @@ ul {
   display: block;
   padding: 15px;
   font-size: 16px;
+  text-align: right;
 }
 
 .navbar-default .navbar-toggle {
