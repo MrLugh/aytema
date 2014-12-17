@@ -301,7 +301,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('color',color);
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 		
-		color = $scope.config.custom.colors.contentText.value.replace("#","");
+		color = $scope.config.custom.colors.contentBackground.value.replace("#","");
 		if (contentSv.getContrast50(color) == 'white') {
 			color = '#ffffff';
 		} else {
