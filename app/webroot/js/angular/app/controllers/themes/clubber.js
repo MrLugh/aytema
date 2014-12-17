@@ -291,8 +291,15 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.setColor = function() {
 
+		var color = $scope.config.custom.colors.background.value.replace("#","");
+
+		if (contentSv.getContrast50(color) == 'white') {
+			color = '#ffffff';
+		} else {
+			color = '#000000';
+		}
 		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
+		$(element[0]).css('color',color);
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 		var element = angular.element(document.querySelector('.navbar-brand'));
 		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
