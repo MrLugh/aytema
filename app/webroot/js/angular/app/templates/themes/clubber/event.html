@@ -1,7 +1,10 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="event {{content.network}}_{{content.concept}}">
 
 	<div class="event-date-container">
-		<p class="event-date-day" ng-style="getDayStyle()">{{content.data.date|date:'dd'}}</p>
+		<p class="event-date-day" ng-style="getDayStyle()">
+			<i class="{{contentSv.getConceptIcon('event')}}"></i>
+			{{content.data.date|date:'dd'}}
+		</p>
 		<p class="event-date-month">{{content.data.date|date:'MMMM'}}</p>
 	</div>
 

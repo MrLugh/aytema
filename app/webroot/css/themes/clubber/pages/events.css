@@ -142,10 +142,10 @@
 }
 .pageEvents .event-date-container .event-date-day {
     text-transform: uppercase;
-    font-size: 70px;
+    font-size: 50px;
     font-weight: 900;
     margin: 0;
-    line-height: 70px;
+    line-height: 50px;
     text-align: center;
     display: inline-block;
 }
@@ -165,10 +165,12 @@
     max-width: 100%;
 }
 .pageEvents .event-info-container {
-    width: 43%;
+    width: 100%;
     margin-left: 2%;
     text-align: left;
     float: left;
+    position: relative;
+    top: -50%;
 }
 .pageEvents .event-info-container h2 {
     font-size: 16px;
