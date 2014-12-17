@@ -384,7 +384,7 @@ ul {
 .section {
   text-align: left;
   margin: 0 0 45px;
-  padding: 0 15px;
+  padding: 30px;
   min-height: 250px;
   -webkit-transition:none;
   -moz-transition:none;
@@ -668,10 +668,10 @@ ul {
 
 .latestEvents .event-date-container .event-date-day {
   text-transform: uppercase;
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 900;
   margin: 0;
-  line-height: 70px;
+  line-height: 50px;
   text-align: center;
 }
 

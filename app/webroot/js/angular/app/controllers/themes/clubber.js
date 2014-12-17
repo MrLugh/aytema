@@ -315,6 +315,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var element = angular.element(document.querySelector('.navbar'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
+		$(element[0]).css('border-bottom', '3px solid ' + color);
 
 		color = $scope.config.custom.colors.contentBackground.value.replace("#","");
 		if (contentSv.getContrast50(color) == 'white') {
@@ -377,8 +378,15 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
 		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
 
+		var color = $scope.config.custom.colors.contentBackground.value.replace("#","");
+		if (contentSv.getContrast50(color) == 'white') {
+			color = '#ffffff';
+		} else {
+			color = '#000000'
+		}
+
 		return {
-			'color': $scope.config.custom.colors.contentBackground.value,
+			'color': color,
 			'background-color':rgbString
 		}
 	}	
