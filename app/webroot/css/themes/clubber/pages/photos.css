@@ -20,8 +20,8 @@
     height: auto;
     float: left;
     margin: 0;
-    padding: 15px;
-    width: calc(50% - 5px);
+    padding: 0;
+    width: 49%;
 }
 
 .pagePhotos ul li .photo {

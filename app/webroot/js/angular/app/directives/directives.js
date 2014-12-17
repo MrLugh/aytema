@@ -163,7 +163,7 @@ function ($timeout) {
             }
         }
 
-        scope.timer = setInterval(function(){scope.layout();},3000);
+        scope.timer = setInterval(function(){scope.masonry.layout();},3000);
 
         var destroy = function() {
             element.unbind('$destroy',destroy);

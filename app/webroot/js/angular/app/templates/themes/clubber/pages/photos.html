@@ -30,7 +30,7 @@
 
 	</div>
 
-	<ul masonry-simple="{'gutter':6,'isAnimated':false,'itemSelector':'.pagePhotosItem'}" ng-class="pagePhotosWithplayerClass()">
+	<ul masonry-simple="{'gutter':1,'isAnimated':false,'itemSelector':'.pagePhotosItem'}" ng-class="pagePhotosWithplayerClass()">
 
 		<li ng-repeat="content in photolist" class="pagePhotosItem {{current == $index ? 'current':''}}" masonry-simple-item id="page_photos_{{$index}}">
 			<content-photo></content-photo>
