@@ -11,8 +11,6 @@ function(){
 
             var raw = $('body');
             scope.showUp = false;
-            scope.scrolling = false;
-            var timer = -1;
 
             scope.scrollToTop = function() {
                 if (scope.scrolling) {
@@ -27,12 +25,19 @@ function(){
 
             $(window).scroll(function() {
                 scope.$apply(function() {
-                    $('body').addClass('scrolling');
+
                     scope.showUp = ($(window).scrollTop() > $(window).height()) ? true : false;
-                    clearTimeout(timer);
-                    timer = setTimeout(function(){
-                        $('body').removeClass('scrolling');
-                    },500);
+
+
+                        if ( $(window).scrollTop() <= $(window).height() ) {
+                            $('nav').removeClass('navbar-fixed-top');
+                            $('nav').addClass('navbar-default');
+                        } else {
+                            $('nav').removeClass('navbar-default');
+                            $('nav').addClass('navbar-fixed-top');
+                        }
+
+
                 });
             });
 

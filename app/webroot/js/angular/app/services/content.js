@@ -524,7 +524,9 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'cloudcial') {
-				source = content.data.thumbnail;
+				if (content.data.thumbnail.length>0) {
+					source = content.data.thumbnail;
+				}				
 			}
 
 		}
@@ -573,14 +575,18 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'cloudcial') {
-				source = content.data.thumbnail;
+				if (content.data.thumbnail.length>0) {
+					source = content.data.thumbnail;
+				}
 			}
 		}
 
 		if (content.concept == 'photo')	{
 
 			if (content.network == 'cloudcial') {
-				source = content.data.path;
+				if (content.data.path.length>0) {
+					source = content.data.path;
+				}
 			}
 
 			if (content.network == 'tumblr') {
@@ -635,7 +641,9 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'cloudcial') {
-				source = content.data.path;
+				if (content.data.path.length>0) {
+					source = content.data.path;
+				}				
 			}
 
 		}
@@ -653,7 +661,9 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				}
 
 				if (content.data.thumbnail.length>0) {
-					source = content.data.thumbnail;
+					if (content.data.thumbnail.length>0) {
+						source = content.data.thumbnail;
+					}
 				}
 
 			}
