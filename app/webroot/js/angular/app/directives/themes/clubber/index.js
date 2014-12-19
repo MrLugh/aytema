@@ -12,6 +12,8 @@ function(){
             var raw = $('body');
             scope.showUp = false;
 
+            console.log(scope);
+
             scope.scrollToTop = function() {
                 if (scope.scrolling) {
                     return false;
@@ -29,7 +31,7 @@ function(){
                     scope.showUp = ($(window).scrollTop() > $(window).height()) ? true : false;
 
 
-                        if ( $(window).scrollTop() <= $(window).height() ) {
+                        if ( $(window).scrollTop() <= scope.getMenuHeight() ) {
                             $('nav').removeClass('navbar-fixed-top');
                             $('nav').addClass('navbar-default');
                         } else {
