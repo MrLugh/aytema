@@ -139,6 +139,11 @@ ul {
   padding: 7px;
 }
 
+.navbar-fixed-top .container {
+  width: auto !important;
+  float: right;
+}
+
 .navbar .menu-item {
   margin-left: 5px;
   padding:0;
@@ -165,6 +170,9 @@ ul {
 .navbar-fixed-top {
   background: transparent!important;
   border: none!important;
+  right: 20px!important;
+  left: initial!important;
+  display: inline-block!important;
   -webkit-box-shadow: none;
   -moz-box-shadow:    none;
   box-shadow:         none;
@@ -231,7 +239,7 @@ ul {
   display: block;
   text-align: center;
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
   display: block;  
   overflow: hidden;
   min-height: 480px;

@@ -28,6 +28,8 @@ function(){
             $(window).scroll(function() {
                 scope.$apply(function() {
 
+                    $('nav').hide();
+
                     if (scope.scrolling) {
                         return false;
                     }
@@ -36,6 +38,7 @@ function(){
                     scope.showUp = ($(window).scrollTop() > $(window).height()) ? true : false;
                 });
 
+                clearTimeout(timer);
                 timer = setTimeout(function(){
                     if ( $(window).scrollTop() == 0 ) {
                         $('nav').removeClass('navbar-fixed-top');
@@ -47,7 +50,8 @@ function(){
                         scope.$apply(scope.fixed = true);
                     }
                     scope.$apply(scope.scrolling = false);
-                },500);                
+                    $('nav').show();
+                },500);
             });
 
         }
