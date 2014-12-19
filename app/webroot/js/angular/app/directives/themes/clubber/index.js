@@ -10,37 +10,44 @@ function(){
         link: function(scope,element,attrs) {
 
             var raw = $('body');
+            var scrolling = false;
+            var timer = -1;
+            scope.scrolling = false;
             scope.showUp = false;
-
-            console.log(scope);
+            scope.fixed = false;
 
             scope.scrollToTop = function() {
                 if (scope.scrolling) {
                     return false;
                 }
-                scope.scrolling = true;
                 scope.showUp = false;
                 $('body').animate({scrollTop: $('body').offset().top}, "slow");
-                scope.scrolling = false;
 
             }
 
             $(window).scroll(function() {
                 scope.$apply(function() {
 
+                    if (scope.scrolling) {
+                        return false;
+                    }
+                    scope.scrolling = true;
+
                     scope.showUp = ($(window).scrollTop() > $(window).height()) ? true : false;
-
-
-                        if ( $(window).scrollTop() <= scope.getMenuHeight() ) {
-                            $('nav').removeClass('navbar-fixed-top');
-                            $('nav').addClass('navbar-default');
-                        } else {
-                            $('nav').removeClass('navbar-default');
-                            $('nav').addClass('navbar-fixed-top');
-                        }
-
-
                 });
+
+                timer = setTimeout(function(){
+                    if ( $(window).scrollTop() == 0 ) {
+                        $('nav').removeClass('navbar-fixed-top');
+                        $('nav').addClass('navbar-default');
+                        scope.$apply(scope.fixed = false);
+                    } else {
+                        $('nav').removeClass('navbar-default');
+                        $('nav').addClass('navbar-fixed-top');
+                        scope.$apply(scope.fixed = true);
+                    }
+                    scope.$apply(scope.scrolling = false);
+                },500);                
             });
 
         }

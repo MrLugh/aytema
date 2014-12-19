@@ -36,23 +36,23 @@
 					<span class="icon-bar" ng-style="getCollapseMenuItemStyle()"></span>
 				</button>
 
-				<h1>
+				<h1 ng-if="!fixed" class="username">
 					<img ng-src="{{user.profile_image}}" class="profileImage img-circle"/>
 					<a class="navbar-brand" href="#/">{{user.username|uppercase}}</a>
 				</h1>
 				
 			</div>
 
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<div class="right collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 				<ul ng-if="configLoaded" class="nav navbar-nav right">
 
 					<li ng-class="getMenuItemClass('home')" class="menu-item active" ng-style="getMenuItemStyle('home')">
-						<a href="#/" ng-click="setCurrent('home')" ng-style="getMenuItemStyle('home')" skip-default> <i class="fa fa-home"></i> Home</a>
+						<a href="#/" ng-click="setCurrent('home')" ng-style="getMenuItemStyle('home')" skip-default> <i class="fa fa-home"></i> <strong>Home</strong></a>
 					</li>
 
 					<li ng-repeat="page in pages" ng-class="getMenuItemClass(page)" class="menu-item" ng-if="hasContent(page)" ng-style="getMenuItemStyle(page)">
-						<a href="#/" ng-click="setCurrent(page)" ng-style="getMenuItemStyle(page)" skip-default> <i ng-class="getMenuItemIconClass(page)"></i> {{page}}</a>
+						<a href="#/" ng-click="setCurrent(page)" ng-style="getMenuItemStyle(page)" skip-default> <i ng-class="getMenuItemIconClass(page)"></i> <strong>{{page}}</strong></a>
 					</li>
 
 				</ul>

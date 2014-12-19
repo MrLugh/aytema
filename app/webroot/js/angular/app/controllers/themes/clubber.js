@@ -148,12 +148,29 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
 		var style = {};
-		if ($scope.isActive(page)) {
-			style['border-color']	= $scope.config.custom.colors.background.value;
-			style['color']			= $scope.config.custom.colors.contentText.value;
+
+		if (!$scope.fixed) {
+
+			if ($scope.isActive(page)) {
+				style['border-color']	= $scope.config.custom.colors.background.value;
+				style['color']			= $scope.config.custom.colors.contentText.value;
+			} else {
+				style['color']			= $scope.config.custom.colors.background.value;
+			}
+
 		} else {
-			style['color']			= $scope.config.custom.colors.background.value;
+
+			if ($scope.isActive(page)) {
+				style['background-color']	= $scope.config.custom.colors.contentBackground.value;
+				style['border-color']		= $scope.config.custom.colors.contentText.value;
+				style['color']				= $scope.config.custom.colors.contentText.value;
+			} else {
+				style['background-color']	= $scope.config.custom.colors.contentBackground.value;
+				style['color']				= $scope.config.custom.colors.background.value;
+			}
+
 		}
+
 
 		return style;
 	}
@@ -163,8 +180,11 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		if ($scope.isActive(page)) {
 			return;
 		}
-		$('body').animate({scrollTop: $('body').offset().top}, "fast");
+		
 		$scope.current = page;
+		setTimeout(function(){
+			$('body').animate({scrollTop: 0}, "slow");
+		},500);
 	}
 
 	$scope.getHomepageSize = function(page) {
