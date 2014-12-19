@@ -27,7 +27,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.current	= 'home';
 	$scope.pages 	= [];
 	$scope.content 	= {};
-	$scope.limit 	= 10;
+	$scope.limit 	= 8;
 
 	userSv.loadThemeConfig('clubber');
 	userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
