@@ -166,16 +166,19 @@ ul {
   border-bottom: 2px solid black;
 }
 
-
 .navbar-fixed-top {
   background: transparent!important;
   border: none!important;
-  right: 20px!important;
+  right: 10px!important;
   left: initial!important;
   display: inline-block!important;
   -webkit-box-shadow: none;
   -moz-box-shadow:    none;
   box-shadow:         none;
+}
+
+.navbar-fixed-top .navbar-toggle {
+  margin: 12px;
 }
 
 .navbar-fixed-top .menu-item strong {

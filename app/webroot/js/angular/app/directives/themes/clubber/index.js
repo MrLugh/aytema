@@ -51,7 +51,7 @@ function(){
                     }
                     scope.$apply(scope.scrolling = false);
                     $('nav').show();
-                },500);
+                },350);
             });
 
         }
