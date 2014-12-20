@@ -43,13 +43,6 @@ function VideosCo($scope,appSv,contentSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.videolist[index]));
 	}
 
-	$scope.getTitleStyle = function() {
-		return {
-			'background-color': $scope.config.custom.colors.contentBackground.value,
-			'color': $scope.config.custom.colors.contentText.value
-		}
-	}
-
 	$scope.getPlayerStyle = function() {
 		return {
 			'background-color': $scope.config.custom.colors.background.value,

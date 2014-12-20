@@ -5,7 +5,7 @@
 			<i class="{{contentSv.getConceptIcon('event')}}"></i>
 			{{content.data.date|date:'dd'}}
 		</p>
-		<p class="event-date-month">{{content.data.date|date:'MMMM'}}</p>
+		<p ng-style="getDescriptionStyle()" class="event-date-month">{{content.data.date|date:'MMMM'}}</p>
 	</div>
 
 	<div class="event-map-container">
@@ -13,8 +13,8 @@
 	</div>
 
 	<div class="event-info-container">
-		<h2>{{content.data.name}}</h2>
-		<p class="event-info-place">{{content.data.place}}</p>
+		<h2 ng-style="getTitleStyle()">{{content.data.name}}</h2>
+		<p ng-style="getDescriptionStyle()" class="event-info-place">{{content.data.place}}</p>
 		<a ng-if="content.data.ticket.length > 0" ng-href="{{content.data.ticket}}" target="_blank">Buy Tickets</a>
 	</div>
 

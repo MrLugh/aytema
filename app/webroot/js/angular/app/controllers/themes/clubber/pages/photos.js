@@ -43,20 +43,9 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 		return $sce.trustAsHtml($scope.photolist[index].description);
 	}
 
-	$scope.getTitleStyle = function() {
-
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
-		return {
-    		'background-color':rgbString,
-    		'color':$scope.config.custom.colors.contentBackground.value
-		}
-	}
-
 	$scope.getPlayerStyle = function() {
 		return {
-			'background-color': $scope.config.custom.colors.background.value,
-			'color': $scope.config.custom.colors.contentBackground.value
+			'color': '#ffffff'
 		}
 	}
 

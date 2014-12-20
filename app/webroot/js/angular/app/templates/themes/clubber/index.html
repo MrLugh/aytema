@@ -77,7 +77,7 @@
 
 				<li ng-repeat="page in pages" class="section section_{{page}} {{getHomepageSize(page)}}" ng-if="hasContent(page) && page != 'photos'" masonry-simple-item>
 
-					<h3 class="title">Latest <span ng-style="getHighlightStyle()">{{page}}</span></h3>
+					<h3 class="title" ng-style="getHighlightStyle()">Latest {{page}}</h3>
 
 					<div ng-switch="page">
 						<latest-videos ng-switch-when='videos' limit="5" config="config"></latest-videos>
@@ -87,7 +87,7 @@
 					</div>
 
 					<div class="both">
-						<a href="#/{{page}}" skip-default ng-click="setCurrent(page)" ng-style="getMoreStyle()" class="loadMore">
+						<a href="#/{{page}}" skip-default ng-click="setCurrent(page)" ng-style="getMoreStyle()" class="loadMore" >
 							More <i class="fa {{contentSv.getConceptIcon(page)}}"></i>
 						</a>
 					</div>
@@ -98,7 +98,7 @@
 
 			<div ng-repeat="page in pages" class="page {{getPageClass(page)}}" ng-if="isActive(page)" ng-switch="page">
 
-				<h3 class="title"><span ng-style="getHighlightStyle()">{{page}}</span></h3>
+				<h3 class="title" ng-style="getHighlightStyle()">{{page}}</h3>
 				
 				<photos ng-switch-when='photos'></photos>
 				<videos ng-switch-when='videos'></videos>
@@ -112,28 +112,27 @@
 				<i class="fa fa-arrow-circle-up"></i>
 			</a>
 
-			<div id="footer" class="block" ng-style="getFooterStyle()">
 
-				<div ng-style="getDividerStyle()" class="divider">&nbsp;</div>
+		</div>
 
-				<ul class="social-links">
-
-					<h3 class="title">Follow me <span ng-style="getHighlightStyle()">on:</span></h3>
-
-					<li ng-repeat="account in accounts" class="social-link inline">
-						<a href="/dashboard/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}">
-							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
-							<img alt="{{account.Socialnet.network}} profile" ng-src="{{networkIcon(account.Socialnet.network)}}" class="socialIcon" />					
-						</a>
-					</li>
-
-				</ul>
-
-			</div>
+		<div id="footer" class="block" ng-style="getFooterStyle()">
 
 			<div ng-style="getDividerStyle()" class="divider">&nbsp;</div>
 
-		</div>
+			<ul class="social-links">
+
+				<h3 class="title">Follow me on:</h3>
+
+				<li ng-repeat="account in accounts" class="social-link inline">
+					<a href="/dashboard/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}">
+						<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
+						<img alt="{{account.Socialnet.network}} profile" ng-src="{{networkIcon(account.Socialnet.network)}}" class="socialIcon" />					
+					</a>
+				</li>
+
+			</ul>
+
+		</div>		
 
 	</div>
 

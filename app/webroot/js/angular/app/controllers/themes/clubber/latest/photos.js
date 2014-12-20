@@ -49,28 +49,4 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.list[index]));
 	}
 
-	$scope.getTitleStyle = function() {
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.5)";
-		return {
-			'background-color': rgbString,
-			'color': $scope.config.custom.colors.contentText.value
-		}
-	}
-
-	$scope.getDescriptionStyle = function() {
-
-		var color = $scope.config.custom.colors.background.value.replace("#","");
-
-		var contrast = "#000000";
-		if (contentSv.getContrast50(color) == 'white') {
-			contrast = "#ffffff";
-		}
-
-		return {
-			'background-color': $scope.config.custom.colors.background.value,
-			'color': contrast
-		}
-	}
-
 }

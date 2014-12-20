@@ -41,13 +41,6 @@ function EventsCo($scope,appSv,contentSv,$sce) {
 		return $sce.trustAsHtml($scope.eventlist[index].description);
 	}
 
-	$scope.getTitleStyle = function() {
-		return {
-			'background-color': $scope.config.custom.colors.contentBackground.value,
-			'color': $scope.config.custom.colors.contentText.value
-		}
-	}	
-
 	$scope.loadMore = function() {
 		$scope.$parent.$parent.getContent("events");
 		$scope.setList();

@@ -5,7 +5,6 @@ function($FB,$timeout,appSv,$window){
         restrict : 'E',
         replace : true,
         controller:'contentVideoCo',
-        scope: true,
         link: function(scope,element,attrs) {
 
             if (scope.isFromNetwork('facebook')) {
@@ -37,7 +36,6 @@ function(appSv,$window,$timeout){
         restrict : 'E',
         replace : true,
         controller:'contentPhotoCo',
-        scope: true,
         link: function(scope,element,attrs) {
 
         }         
@@ -88,7 +86,6 @@ function($FB,$timeout){
         restrict : 'E',
         replace : true,
         controller:'contentPostCo',
-        scope: true,
         link: function(scope,element,attrs) {
 
             if (scope.isFromNetwork('facebook')) {

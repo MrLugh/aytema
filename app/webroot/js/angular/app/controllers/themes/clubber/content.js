@@ -92,7 +92,20 @@ function contentVideoCo($scope,$sce,contentSv) {
 
 		$scope.loadPlayer	= false;
 		$scope.loadThumbnail= false;
-	});	
+	});
+
+	$scope.getTitleStyle = function() {
+
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	};	
+
+	$scope.getDescriptionStyle = function() {
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	}
 
 }
 
@@ -167,25 +180,9 @@ function contentPhotoCo($scope,userSv,contentSv) {
 	$scope.getTitleStyle = function() {
 
 		return {
-			'background-color': userSv.getThemeConfig().custom.colors.contentBackground.value,
-			'color': userSv.getThemeConfig().custom.colors.contentText.value
+			'color': '#ffffff'
 		}
 	}	
-
-	$scope.getDescriptionStyle = function() {
-
-		var color = userSv.getThemeConfig().custom.colors.background.value.replace("#","");
-
-		var contrast = "#999";
-		if (contentSv.getContrast50(color) == 'white') {
-			contrast = "#ffffff";
-		}
-
-		return {
-			'background-color': userSv.getThemeConfig().custom.colors.background.value,
-			'color': contrast
-		}
-	}
 
 	$scope.showPhoto = function() {
 
@@ -217,6 +214,19 @@ function contentPhotoCo($scope,userSv,contentSv) {
 
 	$scope.setList();
 	$scope.setCurrent();
+
+	$scope.getTitleStyle = function() {
+
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	};
+
+	$scope.getDescriptionStyle = function() {
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	}
 
 }
 
@@ -307,6 +317,19 @@ function contentTrackCo($scope,$sce,contentSv) {
 		$scope.loadThumbnail= false;
 	});	
 
+	$scope.getTitleStyle = function() {
+
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	};	
+
+	$scope.getDescriptionStyle = function() {
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	}
+
 }
 
 function contentPostCo($scope,contentSv,$sce) {
@@ -365,6 +388,19 @@ function contentPostCo($scope,contentSv,$sce) {
 
 		$scope.loadThumbnail= false;
 	});
+
+	$scope.getTitleStyle = function() {
+
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	};
+
+	$scope.getDescriptionStyle = function() {
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	}
 
 
 }
@@ -431,6 +467,19 @@ function contentEventCo($scope,contentSv,$sce) {
 		return {
 			'color': $scope.config.custom.colors.contentBackground.value
 		}
-	}	
+	}
+
+	$scope.getTitleStyle = function() {
+
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	};
+
+	$scope.getDescriptionStyle = function() {
+		return {
+			'color': $scope.config.custom.colors.contentBackground.value
+		}
+	}
 
 }

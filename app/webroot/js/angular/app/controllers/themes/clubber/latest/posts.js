@@ -20,11 +20,4 @@ function latestPostsCo($scope,appSv,contentSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.list[index]));
 	}
 
-	$scope.getTitleStyle = function() {
-		return {
-			'background-color': $scope.config.custom.colors.contentBackground.value,
-			'color': $scope.config.custom.colors.contentText.value
-		}
-	}
-
 }

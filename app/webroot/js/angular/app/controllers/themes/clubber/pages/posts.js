@@ -41,13 +41,6 @@ function PostsCo($scope,appSv,contentSv,$sce) {
 		return $sce.trustAsHtml($scope.postlist[index].description);
 	}
 
-	$scope.getTitleStyle = function() {
-		return {
-			'background-color': $scope.config.custom.colors.contentBackground.value,
-			'color': $scope.config.custom.colors.contentText.value
-		}
-	}	
-
 	$scope.loadMore = function() {
 		$scope.$parent.$parent.getContent("posts");
 		$scope.setList();

@@ -3,6 +3,7 @@ body {
   margin: 0 auto;
   font-size: 17px;
   overflow-x: hidden;
+  color: #ffffff;
 }
 
 img {
@@ -17,10 +18,16 @@ img,img:hover,img:active,img:focus {
 a,a:hover,a:active,a:focus {
   outline: none;
   text-decoration: none;
+  color: #ffffff;
+  font-style: italic;
 }
 p {
 
-} 
+}
+
+a, h1, h2, h3, h4, h5, h6 {
+	color: #ffffff;
+}
 
 input::-moz-focus-inner {
   border: 0;
@@ -75,10 +82,6 @@ blockquote {
 
 i, *.active i {
   padding: 5px;
-  -webkit-transition:all 0.5s ease-in-out 0s;
-  -moz-transition:all 0.5s ease-in-out 0s;
-  -o-transition:all 0.5s ease-in-out 0s;
-  transition:all 0.5s ease-in-out 0s;  
 }
 
 
@@ -162,10 +165,6 @@ ul {
   transition:color 0.56s ease-in-out 0s;  
 }
 
-.navbar .menu-item.active {
-  border-bottom: 2px solid black;
-}
-
 .navbar-fixed-top {
   background: transparent!important;
   border: none!important;
@@ -218,7 +217,7 @@ ul {
 }
 
 .navbar-fixed-top .menu-item.active {
-  border: 2px solid black;
+
 }
 
 .boxed {
@@ -816,6 +815,14 @@ ul {
   margin-bottom: 25px;
   float: right;
 }
+
+.loadMore {
+  padding: 7px;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  float:right;
+} 
 
 .navbar-default .navbar-toggle {
   border: none;
