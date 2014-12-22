@@ -47,6 +47,13 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 	$scope.getDescription = function(index) {
 
 		return $sce.trustAsHtml(contentSv.getDescription($scope.list[index]));
-	}
+	};
+
+	$scope.getTitleStyle = function() {
+
+		return {
+			'background-color': $scope.config.custom.colors.contentBackground.value
+		}
+	};
 
 }
