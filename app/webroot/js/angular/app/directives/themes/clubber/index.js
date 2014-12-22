@@ -27,15 +27,9 @@ function(){
 
             $(window).scroll(function() {
                 scope.$apply(function() {
-
-                    $('nav').hide();
-
-                    if (scope.scrolling) {
-                        return false;
-                    }
                     scope.scrolling = true;
-
-                    scope.showUp = ( $(window).scrollTop() + $(window).height() > element[0].offsetHeight / 2 ) ? true : false;
+                    $('nav').hide();
+                    scope.showUp = ( $(window).scrollTop() + $(window).height() >= element[0].offsetHeight / 2 ) ? true : false;
                 });
 
                 clearTimeout(timer);
