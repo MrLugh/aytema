@@ -583,7 +583,7 @@ ul {
 }
 
 .latestPhotos .text_container {
-  position: relative;
+  position: absolute;
   margin:0 auto;
   padding:1em;
   float: left;
