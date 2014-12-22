@@ -35,7 +35,7 @@ function(){
                     }
                     scope.scrolling = true;
 
-                    scope.showUp = ($(window).scrollTop() > $(window).height()) ? true : false;
+                    scope.showUp = ( $(window).scrollTop() + $(window).height() > element[0].offsetHeight / 2 ) ? true : false;
                 });
 
                 clearTimeout(timer);
