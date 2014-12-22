@@ -65,7 +65,7 @@
 	<div class="container_wrap">
 
 		<div class="{{getPageClass('home')}} {{getHomepageSize('photos')}}" ng-if="isActive('home') && hasContent('photos')" style="height:{{getSliderHeight()}}px;">
-			<latest-photos limit="5" config="config"></latest-photos>
+			<latest-photos limit="8" config="config"></latest-photos>
 		</div>
 
 
@@ -78,10 +78,10 @@
 					<h3 class="title" ng-style="getHighlightStyle()">Latest {{page}}</h3>
 
 					<div ng-switch="page">
-						<latest-videos ng-switch-when='videos' limit="5" config="config"></latest-videos>
-						<latest-tracks ng-switch-when='tracks' limit="5" config="config"></latest-tracks>
-						<latest-events ng-switch-when='events' limit="3" config="config"></latest-events>
-						<latest-posts  ng-switch-when='posts'  limit="1" config="config"></latest-posts>
+						<latest-videos ng-switch-when='videos' limit="8" config="config"></latest-videos>
+						<latest-tracks ng-switch-when='tracks' limit="8" config="config"></latest-tracks>
+						<latest-events ng-switch-when='events' limit="8" config="config"></latest-events>
+						<latest-posts  ng-switch-when='posts'  limit="8" config="config"></latest-posts>
 					</div>
 
 					<div class="both">
