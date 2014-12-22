@@ -6,6 +6,28 @@ body {
   color: #ffffff;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(206, 214, 214, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(206, 214, 214,0.4); 
+}
+
 img {
   max-width: 100%;
 }
@@ -308,7 +330,8 @@ ul {
   -moz-transition:all 0.36s ease-in-out 0s;
   -o-transition:all 0.36s ease-in-out 0s;
   transition:all 0.36s ease-in-out 0s;
-  font-size: 45px;
+  font-size: 35px;
+  z-index: 4;
 }
 
 .scrollToTop.ng-enter {
@@ -330,6 +353,7 @@ ul {
 
 #footer {
   margin:0 auto;
+  text-align: left;
   clear: both;
   position: relative;
   z-index: 3;
@@ -340,9 +364,10 @@ ul {
 }
 
 #footer .social-links {
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 30px;
+  text-align: left;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 30px;
 }
 
 #footer .social-links .social-link {
@@ -357,6 +382,27 @@ ul {
   margin-top: 50%;
   height: 15px;
 }
+
+#footer .content-section {
+  width: calc(50% - 50px);
+  display: inline-block;
+  margin: 24px;
+  border-radius: 20px;
+  padding: 25px;
+  height: 270px;
+  overflow-y: auto;
+  -webkit-transition:all 0.56s ease 0s;
+  -moz-transition:all 0.56s ease 0s;
+  -o-transition:all 0.56s ease 0s;
+  transition:all 0.56s ease 0s;
+}
+
+#footer .content-section:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+
+
+/* Accounts */
 
 .cloudcial_bg {
   background-color: #2D2E26;
@@ -493,9 +539,13 @@ ul {
 
 /* latest photos */
 
+.latestPhotos .carousel, .latestPhotos .carousel-inner, .latestPhotos .carousel-inner > .item {
+  height: 100%;
+}
+
 .latestPhotos .photo {
   position: relative;
-  height: 430px;
+  height: 100%;
   width: 100%;
   margin: 0;
   float: left;
@@ -552,9 +602,6 @@ ul {
   transition:opacity 0.76s ease-in-out 0s;      
 }
 
-.latestPhotos .carousel-inner {
-  height: 430px;
-}
 
 .latestPhotos .carousel-inner .active .text_container {
   opacity: 1;

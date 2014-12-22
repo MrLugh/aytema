@@ -9,6 +9,11 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.networks.tumblr.concepts = ['video','track'];
 	$scope.networks.facebook.concepts = ['photo','video'];
 	*/
+	delete $scope.networks['twitter'];
+
+	userSv.search({search:userSv.getUser().username,limit:1}).then(function(data){
+		$scope.user = data.users[0]['User'];
+	});
 
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
@@ -260,13 +265,10 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 	},true);
 
-	/*
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
-        //$scope.getStyle();
     });
-	*/
 
 	$scope.networkIcon = function(network) {
 		return "http://cloudcial.com/img/socialnet/icons/ce_"+network+".png";
@@ -320,14 +322,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	}
 
-	/*
-	setInterval(function(){
-		$scope.$apply(function(){
-			$scope.setColor();
-		});
-	},500);
-	*/
-
 	$scope.setBackground = function() {
 
 		var element = angular.element(document.querySelector('body'));
@@ -342,7 +336,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
 		return {
-			'color': $scope.config.custom.colors.contentBackground.value,
+			'color': $scope.config.custom.colors.contentText.value,
 		}		
 	}
 
@@ -413,7 +407,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	var style = {
     		'width':width,
     		'background-color':$scope.config.custom.colors.contentBackground.value,
-    		'color':$scope.config.custom.colors.contentBackground.value
     	};
 
 	   	return style;
@@ -460,5 +453,21 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		return {
 			'color': $scope.config.custom.colors.contentBackground.value
 		}
+	};
+
+	$scope.getBiography = function() {
+		return $sce.trustAsHtml($scope.user.biography);
+	};
+
+	$scope.getMapSrc = function() {
+		return "https://maps.googleapis.com/maps/api/staticmap?"+
+		"sensor=false"+
+		"&size=850x850"+
+		"&markers="+encodeURI($scope.user.address)+
+		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
+	};
+
+	$scope.getSliderHeight = function() {
+		return appSv.getHeight() - $scope.initMenuHeight;
 	};
 }

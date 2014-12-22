@@ -1,21 +1,17 @@
-<div class="latest latestPhotos" style="position:relative;">
-	<div class="center" style="position:relative;">
+<div class="latest latestPhotos" style="position:relative;height:100%;">
+	<carousel interval="-8000">
+		<slide ng-repeat="photo in photolist">
 
-		<carousel interval="8000">
-			<slide ng-repeat="photo in photolist">
+			<div style="background-image:url('{{photo.src}}');" class="photo">
 
-				<div style="background-image:url('{{photo.src}}');" class="photo">
+				<div class="text_container">
+					<h3 ng-if="photo.title.length>0" class="title" ng-style="getTitleStyle()">{{photo.title}}</h3>
 
-					<div class="text_container">
-						<h3 ng-if="photo.title.length>0" class="title" ng-style="getTitleStyle()">{{photo.title}}</h3>
-
-						<div ng-if="contentSv.getDescription(list[$index]).length>0" ng-bind-html="getDescription($index)" class="caption" ng-style="getDescriptionStyle()"></div>
-					</div>
-
+					<div ng-if="contentSv.getDescription(list[$index]).length>0" ng-bind-html="getDescription($index)" class="caption" ng-style="getDescriptionStyle()"></div>
 				</div>
 
-			</slide>
-		</carousel>
+			</div>
 
-	</div>
+		</slide>
+	</carousel>
 </div>

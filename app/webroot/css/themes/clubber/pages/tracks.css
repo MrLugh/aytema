@@ -70,9 +70,9 @@
 
 .pageTracks ul li .pageTrackContainer .overlay i {
     position: absolute;
-    top: calc(50% - 28px);
-    left: calc(50% - 28px);
-    font-size: 45px;
+    bottom: 5px;
+    right: 5px;
+    font-size: 35px;
     cursor: pointer;
     z-index: 3;
 }

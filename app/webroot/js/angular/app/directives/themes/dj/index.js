@@ -41,7 +41,7 @@ function(){
                         }
 
                         var page = angular.element(document.querySelector("#page_"+scope.pages[x]));
-                        if ($(window).scrollTop() + 50 > page[0].offsetTop) {
+                        if (angular.isDefined(page) && $(window).scrollTop() + 50 > page[0].offsetTop) {
                             current = 'page_'+scope.pages[x];
                         }
                     }
