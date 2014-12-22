@@ -21,7 +21,7 @@ function(){
                     return false;
                 }
                 scope.showUp = false;
-                $('body').animate({scrollTop: $('body').offset().top}, "slow");
+                $('body').animate({scrollTop: 0}, "slow");
 
             }
 
