@@ -215,6 +215,8 @@ ul {
   height: 35px;
   float: right;
   clear: both;
+  border-style:solid;
+  border-width: 2px;
 }
 
 .navbar-fixed-top .navbar-collapse {

@@ -165,10 +165,20 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		} else {
 
 			if ($scope.isActive(page)) {
-				style['color'] = $scope.config.custom.colors.contentText.value;
-				style['background-color'] = $scope.config.custom.colors.contentBackground.value;
+				style['color'] 				= $scope.config.custom.colors.contentText.value;
+				style['background-color'] 	= $scope.config.custom.colors.contentBackground.value;
+				style['border-color']		= $scope.config.custom.colors.background.value;
 			} else {
-				style['color'] = $scope.config.custom.colors.contentBackground.value
+
+			var color = $scope.config.custom.colors.contentBackground.value.replace("#","");
+			if (contentSv.getContrast50(color) == 'white') {
+				color = '#ffffff';
+			} else {
+				color = '#000000'
+			}
+
+				style['color']			= color;
+				style['border-color']	= $scope.config.custom.colors.background.value;
 			}
 
 		}
