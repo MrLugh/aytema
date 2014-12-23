@@ -201,6 +201,16 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		},500);
 	}
 
+	$scope.scrollToElement = function(selector) {
+
+		var element = angular.element(document.querySelector(selector));
+		console.log(selector,element[0]);
+
+		$('#footer-modules').animate({
+			scrollLeft: element[0].offsetLeft
+		}, 500);
+	}
+
 	$scope.getHomepageSize = function(page) {
 
 		if (page == 'photos') {
@@ -421,6 +431,19 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	   	return style;
     }
+
+    $scope.getFooterModulesStyle = function() {
+
+    	if (angular.equals({},$scope.config)) {
+    		return {};
+    	}
+
+    	var style = {
+    		'width':appSv.getWidth() + 'px'
+    	};
+
+	   	return style;
+    }    
 
 	$scope.getDividerStyle = function() {
 

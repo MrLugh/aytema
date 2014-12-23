@@ -50,7 +50,7 @@ p {
 
 }
 
-a, h1, h2, h3, h4, h5, h6 {
+a, h1, h2, h3, h4, h5, h6, input, textarea {
 	color: #ffffff!important;
 }
 
@@ -413,14 +413,13 @@ ul {
   padding: 25px;
   height: 270px;
   overflow-y: auto;
+  display: inline-block;
+  white-space: normal;
+  background-color: rgba(0,0,0,0.2);
   -webkit-transition:all 0.56s ease 0s;
   -moz-transition:all 0.56s ease 0s;
   -o-transition:all 0.56s ease 0s;
   transition:all 0.56s ease 0s;
-}
-
-#footer .content-section:hover {
-  background-color: rgba(0,0,0,0.2);
 }
 
 #footer input {
@@ -438,6 +437,13 @@ ul {
   border: none!important;
   background: transparent!important;
   color: #747474!important;
+}
+
+
+#footer .modules {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 330px;
 }
 
 
