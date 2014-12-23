@@ -201,16 +201,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		},500);
 	}
 
-	$scope.scrollToElement = function(selector) {
-
-		var element = angular.element(document.querySelector(selector));
-		console.log(selector,element[0]);
-
-		$('#footer-modules').animate({
-			scrollLeft: element[0].offsetLeft
-		}, 500);
-	}
-
 	$scope.getHomepageSize = function(page) {
 
 		if (page == 'photos') {
