@@ -1,8 +1,8 @@
-<div class="latest latestPhotos" style="position:relative;height:100%;">
+<div class="latest latestPhotos" ng-style="{{getStyle()}}">
 	<carousel interval="-8000">
 		<slide ng-repeat="photo in photolist">
 
-			<div style="background-image:url('{{photo.src}}');" class="photo" parallax-background parallax-ratio="0.7">
+			<div style="background-image:url('{{photo.src}}');" class="photo" parallax-background parallax-ratio="0.1">
 
 				<div class="text_container">
 					<h3 ng-if="photo.title.length>0" class="title" ng-style="getTitleStyle()">{{photo.title}}</h3>

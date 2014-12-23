@@ -57,7 +57,7 @@
     <?php
     echo $this->Html->script('jquery');
     echo $this->Html->script('bootstrap');
-    echo $this->Html->script('modernizr.min');
+    //echo $this->Html->script('modernizr.min');
     echo $this->Html->script('underscore.min');
     echo $this->Html->script('minicolors');
     echo $this->Html->script('masonry.pkgd');

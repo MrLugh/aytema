@@ -1,4 +1,4 @@
-<div class="app" ng-style="getAppStyle()" ng-class="getAppClass()">
+<div class="app" ng-class="getAppClass()">
 
 	<fb app-id='211895592326072'></fb>
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -38,7 +38,7 @@
 
 				<h1 ng-show="!fixed" class="username">
 					<img ng-src="{{user.profile_image}}" class="profileImage img-circle"/>
-					<a class="navbar-brand" href="#/">{{user.username|uppercase}}</a>
+					<a href="#/" ng-click="setCurrent('home')" class="navbar-brand" skip-default>{{user.username|uppercase}}</a>
 				</h1>
 				
 			</div>
@@ -68,7 +68,6 @@
 			<latest-photos limit="8" config="config"></latest-photos>
 		</div>
 
-
 		<div id="container">
 
 			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')" masonry-simple="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.section'}">
@@ -96,8 +95,6 @@
 
 			<div ng-repeat="page in pages" class="page {{getPageClass(page)}}" ng-if="isActive(page)" ng-switch="page">
 
-				<h3 class="title" ng-style="getHighlightStyle()">{{page}}</h3>
-				
 				<photos ng-switch-when='photos'></photos>
 				<videos ng-switch-when='videos'></videos>
 				<tracks ng-switch-when='tracks'></tracks>
@@ -113,46 +110,47 @@
 
 		</div>
 
-		<div id="footer" class="block" ng-style="getFooterStyle()">
-
-			<div ng-style="getDividerStyle()" class="divider">&nbsp;</div>
-
-            <div ng-if="accounts.length" class="content-section">
-                <h3 class="title">Follow me on:</h3>
-				<ul class="social social-links">
-					<li ng-repeat="account in accounts" class="social-link inline">
-						<a href="/dashboard/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.login}}">
-							<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
-						</a>
-					</li>
-				</ul>
-            </div>
-
-            <div ng-if="user.biography.length" class="content-section cover" style="background-image:url({{user.profile_image}})">
-                <h3 class="title">About Me:</h3>
-                <div ng-bind-html="getBiography()"></div>
-            </div>
-
-            <div ng-if="user.address.length" class="content-section cover" style="background-image:url({{getMapSrc()}})"></div>
-
-            <div ng-if="user.biography.length" class="content-section">
-                <h3 class="title">Contact:</h3>
-            	<form role="form" class="bs-example">
-				    <div class="form-group pull-left">
-				    	<input type="text" placeholder="Name" id="exampleInputNombre" class="form-control">
-				    </div>
-				    <div class="form-group  pull-right">
-				    	<input type="email" placeholder="Email" id="exampleInputEmail" class="form-control">
-				    </div>
-				    <div class="form-group">
-				    	<textarea placeholder="Message" rows="3" class="form-control"></textarea>
-				    </div>
-            		<button class="btn btn-default" type="submit">Contact</button>
-				</form>
-            </div>
-            
-		</div>
-
 	</div>
+
+	<div id="footer" class="block" ng-style="getFooterStyle()">
+
+		<div ng-style="getDividerStyle()" class="divider">&nbsp;</div>
+
+        <div ng-if="accounts.length" class="content-section">
+            <h3 class="title">Follow me on:</h3>
+			<ul class="social social-links">
+				<li ng-repeat="account in accounts" class="social-link inline">
+					<a href="/dashboard/#/socialnets/{{account.Socialnet.network}}/{{account.Socialnet.external_user_id}}" tooltip="{{account.Socialnet.login}}">
+						<img ng-src="{{account.Socialnet.profile_image}}" class="profileImage img-circle"/>
+					</a>
+				</li>
+			</ul>
+        </div>
+
+        <div ng-if="user.biography.length" class="content-section">
+            <h3 class="title">Contact:</h3>
+        	<form role="form" class="bs-example">
+			    <div class="form-group pull-left">
+			    	<input type="text" placeholder="Name" id="exampleInputNombre" class="form-control">
+			    </div>
+			    <div class="form-group  pull-right">
+			    	<input type="email" placeholder="Email" id="exampleInputEmail" class="form-control">
+			    </div>
+			    <div class="form-group">
+			    	<textarea placeholder="Message" rows="3" class="form-control"></textarea>
+			    </div>
+        		<button class="btn btn-default" type="submit">Contact</button>
+			</form>
+        </div>
+
+        <div ng-if="user.address.length" class="content-section cover" style="background-image:url({{getMapSrc()}})"></div>
+
+        <div ng-if="user.biography.length" class="content-section cover" style="background-image:url({{user.profile_image}})">
+            <h3 class="title">About Me:</h3>
+            <div ng-bind-html="getBiography()"></div>
+        </div>
+        
+	</div>
+
 
 </div>

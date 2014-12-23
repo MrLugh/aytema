@@ -22,7 +22,7 @@
     margin: 0;
     padding: 0;
     border: none;
-    width: 49%;
+    width: calc(50% - 1px);
 }
 
 .pagePhotos ul li .photo {

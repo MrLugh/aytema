@@ -1,7 +1,7 @@
 @media (min-width: 1024px) {
 
 	.pagePhotos ul li {
-	    width: calc(33% - 1px);
+	    width: calc(33.33% - 1px);
 	}
 
 }

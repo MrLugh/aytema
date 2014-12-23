@@ -51,9 +51,30 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 
 	$scope.getTitleStyle = function() {
 
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentText.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.8)";
+
 		return {
-			'background-color': $scope.config.custom.colors.contentBackground.value
+			'background-color': rgbString
 		}
 	};
+
+	$scope.getStyle = function() {
+
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.8)";
+
+		return {
+			'background-color': rgbString,
+			'height':'100%',
+			'position':'relative'
+		}
+	};
+
+	$scope.$watch("config.custom.colors",function(colors){
+		if (angular.isDefined(colors)) {
+			$scope.getStyle();
+		}		
+	},true);
 
 }

@@ -41,14 +41,17 @@ a,a:hover,a:active,a:focus {
   outline: none;
   text-decoration: none;
   color: #ffffff;
+  /*
   font-style: italic;
+  */
 }
+
 p {
 
 }
 
 a, h1, h2, h3, h4, h5, h6 {
-	color: #ffffff;
+	color: #ffffff!important;
 }
 
 input::-moz-focus-inner {
@@ -134,8 +137,9 @@ ul {
   box-shadow:         0px 0px 4px 0px rgba(0,0,0,0.3);
   border: none;
   z-index: 4;
-  margin:0px auto;
   border-radius: 0;
+  padding: 30px;
+  margin: 0;
 }
 
 .navbar h1 {
@@ -159,7 +163,7 @@ ul {
 }
 
 .container {
-  width: 100% !important;
+  max-width: 980px !important;
   margin: 0 auto;
   padding: 7px;
 }
@@ -167,6 +171,19 @@ ul {
 .navbar-fixed-top .container {
   width: auto !important;
   float: right;
+}
+
+.navbar-fixed-top {
+  background: transparent!important;
+  border: none!important;
+  right: 10px!important;
+  left: initial!important;
+  display: inline-block!important;
+  padding: 0;
+  margin: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow:    none;
+  box-shadow:         none;
 }
 
 .navbar .menu-item {
@@ -179,23 +196,21 @@ ul {
 
 .navbar .menu-item a {
   text-transform: uppercase; 
-  padding:8px 15px 8px 15px;
-  background: none!important;
+  padding: 8px 15px 8px 15px;
+  font-size: 17px;
   -webkit-transition:color 0.56s ease-in-out 0s;
   -moz-transition:color 0.56s ease-in-out 0s;
   -o-transition:color 0.56s ease-in-out 0s;
   transition:color 0.56s ease-in-out 0s;  
 }
 
-.navbar-fixed-top {
-  background: transparent!important;
-  border: none!important;
-  right: 10px!important;
-  left: initial!important;
-  display: inline-block!important;
-  -webkit-box-shadow: none;
-  -moz-box-shadow:    none;
-  box-shadow:         none;
+.navbar .menu-item a i {
+  display: none;
+
+}
+
+.navbar-fixed-top .menu-item a i {
+  display: block;
 }
 
 .navbar-fixed-top .navbar-toggle {
@@ -238,6 +253,7 @@ ul {
   margin: 0 auto;
   line-height: 34px;
   font-size: 18px;
+  background: none!important;
 }
 
 .navbar-fixed-top .menu-item.active {
@@ -265,12 +281,15 @@ ul {
   display: block;
   text-align: center;
   margin: 0 auto;
-  width: 80%;
-  display: block;  
+  max-width: 980px;
+  display: block;
   overflow: hidden;
   min-height: 480px;
+  margin-top: 40px;
+}
+
+.boxed #container {
   margin-top: 20px;
-  padding-top: 20px;
 }
 
 #container .page {
@@ -355,6 +374,7 @@ ul {
 
 #footer {
   margin:0 auto;
+  margin-top: 40px;
   text-align: left;
   clear: both;
   position: relative;
@@ -401,6 +421,23 @@ ul {
 
 #footer .content-section:hover {
   background-color: rgba(0,0,0,0.2);
+}
+
+#footer input {
+  border: none!important;
+  border-bottom: 1px solid #8e8e8e!important;
+  background: transparent!important;
+  color: #747474!important;
+  border-radius: 0!important;
+  height: auto!important;
+}
+
+
+#footer textarea {
+  width: 100%!important;
+  border: none!important;
+  background: transparent!important;
+  color: #747474!important;
 }
 
 
@@ -523,9 +560,11 @@ ul {
   text-align: center;
   margin: 10px;
 }
-.content_caption a {
 
+.caption img, .content_caption img {
+  display: none;
 }
+
 
 .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
   height: 250px;
@@ -541,8 +580,19 @@ ul {
 
 /* latest photos */
 
+.latestPhotos {
+  background: none;
+}
+
 .latestPhotos .carousel, .latestPhotos .carousel-inner, .latestPhotos .carousel-inner > .item {
   height: 100%;
+}
+
+.boxed .latestPhotos {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 40px;
 }
 
 .latestPhotos .photo {
@@ -559,9 +609,11 @@ ul {
   transition:all 0.96s ease-in-out 0s;  
 
   background-size:cover;
-  background-position:center center;
+  background-position:top center;
   background-repeat: no-repeat;
+  /*
   background-attachment: fixed;
+  */
 }
 
 
@@ -596,7 +648,7 @@ ul {
   z-index: 3;
 
   max-height: 100%;
-  max-width: 100%;
+  max-width: 80%;
   overflow: hidden;
 
   -webkit-transition:opacity 0.76s ease-in-out 0s;
@@ -613,7 +665,6 @@ ul {
 .latestPhotos .title {
   position:relative;
   z-index:3;
-  max-width:100%;
   padding: .6em 1em;
   opacity: 0.85;
   margin: 0;
@@ -627,11 +678,9 @@ ul {
   text-overflow: ellipsis;  
 }
 
-.latestPhotos .caption,
-.overlay-inner p {
+.latestPhotos .caption, .overlay-inner p {
   position:relative;
   z-index:3;
-  max-width:100%;
   padding:.7em .5em .4em;
   opacity: 0.85;
   margin: 0;

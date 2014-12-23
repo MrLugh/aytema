@@ -24,15 +24,15 @@ Class Themeclubber {
         ),
         'colors' => array(
             'background' => array(
-                'value' => '#AD9E97',
+                'value' => '#3D3737',
                 'label' => 'Body background',
             ),
             'contentBackground' => array(
-                'value' => '#292D2E',
+                'value' => '#111111',
                 'label' => 'Content background',
             ),
             'contentText' => array(
-                'value' => '#14A664',
+                'value' => '#02C0F8',
                 'label' => 'Content text',
             ),
         ),
@@ -54,7 +54,7 @@ Class Themeclubber {
                 'Junge' => "'Junge', serif"
             ),
         ),
-        'width' => '100%',
+        'width' => '80%',
         'background' => array(
             'selected'   => '/img/themes/clubber/bg.png',
             'list' => array(
