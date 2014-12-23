@@ -28,7 +28,7 @@
 
 	</div>
 
-	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pageVideosItem'}" ng-class="pageVideosWithplayerClass()">
+	<ul ng-show="!show" masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pageVideosItem'}" ng-class="pageVideosWithplayerClass()">
 
 		<li ng-repeat="content in videolist" class="pageVideosItem {{current == $index ? 'current':''}}" masonry-simple-item id="page_videos_{{$index}}">
 			<content-video></content-video>
@@ -36,6 +36,6 @@
 
 	</ul>
 
-	<a href="#" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getPageMoreStyle()"><i class="fa fa-plus"></i> Videos</a>
+	<a ng-show="!show" href="#" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getPageMoreStyle()"><i class="fa fa-plus"></i> Videos</a>
 
 </div>

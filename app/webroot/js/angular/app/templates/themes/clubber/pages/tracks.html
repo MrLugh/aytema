@@ -28,7 +28,7 @@
 
 	</div>
 
-	<ul masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pageTracksItem'}" ng-class="pageTracksWithplayerClass()">
+	<ul ng-show="!show" masonry-simple="{'gutter':0,'isAnimated':false,'itemSelector':'.pageTracksItem'}" ng-class="pageTracksWithplayerClass()">
 
 		<li ng-repeat="content in tracklist" class="pageTracksItem {{current == $index ? 'current':''}}" masonry-simple-item id="page_tracks_{{$index}}">
 			<content-track></content-track>
@@ -36,6 +36,6 @@
 
 	</ul>
 
-	<a href="#" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getPageMoreStyle()"><i class="fa fa-plus"></i> Tracks</a>
+	<a ng-show="!show" href="#" ng-click="loadMore()" skip-default class="loadMorePageContent" ng-style="getPageMoreStyle()"><i class="fa fa-plus"></i> Tracks</a>
 
 </div>
