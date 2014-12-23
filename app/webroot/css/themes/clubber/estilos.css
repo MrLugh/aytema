@@ -397,6 +397,7 @@ ul {
   -moz-transition:all 0.56s ease 0s;
   -o-transition:all 0.56s ease 0s;
   transition:all 0.56s ease 0s;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 #footer .content-section:hover {
@@ -1112,4 +1113,44 @@ ul {
 
 .mixcloudAccount a {
   color:#fff;
+}
+
+/* contact*/
+form input.form-control, form textarea.form-control {
+background: rgba(0,0,0,0.15);
+border-color: rgba(255,255,255,0.15);
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+color: #fff!important;
+height: 34px;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+-webkit-transition: all 0.4s;
+transition: all 0.4s;
+height: 54px;
+}
+form textarea.form-control {
+    height: 125px;
+}
+form input.form-control:focus, form textarea.form-control:focus {
+color: #000!important;
+background: #fff;
+border-color: rgba(255,255,255,0.15);
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
+form button {
+    background: rgba(0,0,0,0.15);
+    border-color: rgba(255,255,255,0.15)!important;;
+    color: #fff;
+    border-radius: 0!important;
+    padding: 10px 26px!important;
+    height: 54px;
+}
+form button:hover {
+    color: #000;
+    background: #fff;
 }

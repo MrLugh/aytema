@@ -138,16 +138,22 @@
             <div ng-if="user.biography.length" class="content-section">
                 <h3 class="title">Contact:</h3>
             	<form role="form" class="bs-example">
-				    <div class="form-group pull-left">
+            	   <div class="col-md-6">
+				    <div class="form-group">
 				    	<input type="text" placeholder="Name" id="exampleInputNombre" class="form-control">
 				    </div>
-				    <div class="form-group  pull-right">
+				    <div class="form-group">
 				    	<input type="email" placeholder="Email" id="exampleInputEmail" class="form-control">
 				    </div>
+				   </div>
+				   <div class="col-md-6"> 
 				    <div class="form-group">
-				    	<textarea placeholder="Message" rows="3" class="form-control"></textarea>
+				    	<textarea placeholder="Message" class="form-control" name="message"></textarea>
 				    </div>
-            		<button class="btn btn-default" type="submit">Contact</button>
+				    <div class="form-group">
+            		<button class="btn pull-right" type="submit">Contact</button>
+            		</div> 
+            	  </div>
 				</form>
             </div>
             
