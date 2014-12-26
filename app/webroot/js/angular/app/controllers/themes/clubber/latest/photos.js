@@ -52,7 +52,7 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 	$scope.getTitleStyle = function() {
 
 		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentText.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.8)";
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
 
 		return {
 			'background-color': rgbString
@@ -62,7 +62,7 @@ function latestPhotosCo($scope,appSv,contentSv,$sce) {
 	$scope.getStyle = function() {
 
 		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.8)";
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
 
 		return {
 			'background-color': rgbString,
