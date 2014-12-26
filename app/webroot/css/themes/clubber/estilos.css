@@ -415,12 +415,16 @@ ul {
   overflow-y: auto;
   display: inline-block;
   white-space: normal;
-  background-color: rgba(0,0,0,0.2);
+  background-color: transparent;
   -webkit-transition:all 0.56s ease 0s;
   -moz-transition:all 0.56s ease 0s;
   -o-transition:all 0.56s ease 0s;
   transition:all 0.56s ease 0s;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+#footer .content-section:hover {
+  background-color: rgba(0,0,0,0.2);
 }
 
 /* contact*/
