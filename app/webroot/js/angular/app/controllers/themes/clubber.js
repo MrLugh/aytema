@@ -190,9 +190,9 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 					color = '#000000'
 				}
 
-				style['color']			= color;
-				style['border-color']	= $scope.config.custom.colors.background.value;
-				
+				style['color']				= color;
+				style['border-color']		= $scope.config.custom.colors.background.value;
+				style['background-color'] 	= '';
 			}
 
 		}

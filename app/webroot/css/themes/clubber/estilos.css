@@ -225,14 +225,17 @@ ul {
 .navbar-fixed-top .menu-item {
   padding: 0;
   margin: 0;
-  margin-top: 5px;
+  margin: 5px;
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  float: right;
-  clear: both;
+  float: left;
   border-style:solid;
   border-width: 2px;
+}
+
+.boxed .navbar-fixed-top .menu-item {
+  clear: both;
 }
 
 .navbar-fixed-top .navbar-collapse {
@@ -252,9 +255,9 @@ ul {
 .navbar-fixed-top .menu-item a {
   padding: 0;
   margin: 0 auto;
-  line-height: 34px;
-  font-size: 18px;
-  background: none!important;
+  line-height: 100%;
+  font-size: 17px;
+  background: none!important
 }
 
 .navbar-fixed-top .menu-item.active {
@@ -286,7 +289,7 @@ ul {
   display: block;
   overflow: hidden;
   min-height: 480px;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .boxed #container {
