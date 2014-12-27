@@ -219,6 +219,14 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 			return 'xlarge';
 		}
 
+		if (page == 'events') {
+			return 'small';
+		}
+
+		if (page == 'videos') {
+			return 'large';
+		}
+
 		return 'medium';
 	}	
 
