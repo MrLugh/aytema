@@ -288,16 +288,13 @@
 
 				<form method="post" action="#" id="contactform">
 					<div>
-						<label for="name">Enter your name</label>
-						<input type="text" class="input-field" id="name" name="name" value="">
+						<input type="text" class="input-field" id="name" name="name" value="" placeholder="Enter your name">
 					</div>
 					<div>
-						<label for="email">Enter your e-mail</label>
-						<input type="text" class="input-field" id="email" name="email" value="">
+						<input type="text" class="input-field" id="email" name="email" value="" placeholder="Enter your e-mail">
 					</div>
 					<div>
-						<label>Type Your Message</label>
-						<textarea id="message" name="message"></textarea>
+						<textarea id="message" name="message" placeholder="Type Your Message"></textarea>
 					</div>
 					<a id="button-send" href="#" title="Send Email" class="button" style="width:100%;">Send E-Mail</a>
 					<div id="success">Your message has been successfully!</div>
