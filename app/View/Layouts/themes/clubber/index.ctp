@@ -38,6 +38,7 @@
     echo $this->Html->css('themes/clubber/pages/events-responsive');
     echo $this->Html->css('themes/clubber/pages/tracks-responsive');
     echo $this->Html->css('themes/clubber/pages/posts-responsive');
+    echo $this->Html->css('themes/clubber/fontello');
     ?>
 
     <!-- Js -->

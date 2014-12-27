@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2014 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="left-open" unicode="&#xe800;" d="m0 353l391 391q18 18 43 18 24 0 43-18 18-18 18-44t-18-43l-304-304 304-305q18-17 18-43t-18-43q-18-18-43-18t-43 18z" horiz-adv-x="495.1" />
+<glyph glyph-name="right-open" unicode="&#xe801;" d="m0 0q0 25 18 43l305 304-305 304q-18 18-18 44t18 43 44 18 43-18l390-391-390-391q-19-18-43-18t-44 18q-18 18-18 44z" horiz-adv-x="495.1" />
+<glyph glyph-name="down-open" unicode="&#xe802;" d="m0 533q0 25 18 43t44 18 42-18l305-303 304 303q18 18 43 18t43-18q18-18 18-43t-18-43l-390-391-391 391q-18 19-18 43z" horiz-adv-x="817.4" />
+<glyph glyph-name="up-open" unicode="&#xe803;" d="m0 167q0 26 18 43l391 391 390-391q17-17 17-43 0-26-17-44-18-17-44-17t-43 17l-303 305-305-305q-18-17-43-17t-43 17q-18 18-18 44z" horiz-adv-x="816.9" />
+<glyph glyph-name="up" unicode="&#xe804;" d="m0 354q0 26 18 44l391 390 390-390q18-18 18-44 0-26-18-43-18-18-43-18t-43 18l-243 243v-642q0-25-18-43t-43-18q-26 0-44 18t-17 43v642l-244-243q-18-18-43-18t-43 18q-18 17-18 43z" horiz-adv-x="817.4" />
+<glyph glyph-name="newspaper" unicode="&#xe805;" d="m0 64v572q0 39 28 67t67 27h558q40 0 68-27t28-67v-64h93q39 0 67-28t28-67v-413q0-39-28-67t-67-27h-747q-39 0-67 27t-28 67z m87 43q1-20 15-34t34-15h517q7 0 8 6v528q0 21-15 35t-36 15h-472q-21 0-35-14t-16-35v-486z m74 70q0 18 13 31t31 13h133q18 0 31-13t13-31-13-31-31-13h-133q-18 0-31 13t-13 31z m0 173q0 18 13 31t31 13h338q18 0 31-13t13-31q0-18-13-31t-31-13h-338q-18 0-31 13t-13 31z m0 173q0 18 13 31t31 13h338q18 0 31-13t13-31q0-18-13-31t-31-13h-338q-18 0-31 13t-13 31z m588-416q0-20 14-34t33-15h5q20 1 34 15t14 35v369q0 7-7 7h-93v-377z" horiz-adv-x="937.5" />
+<glyph glyph-name="calendar" unicode="&#xe806;" d="m0-31v761q0 37 26 62t62 26h762q36 0 61-26t26-62v-761q0-36-26-62t-61-26h-762q-36 0-62 26t-26 62z m88 0h762v527h-762v-527z m60 59v175h176v-175h-176z m0 234v176h176v-176h-176z m235-234v175h175v-175h-175z m0 234v176h175v-176h-175z m234-234v175h176v-175h-176z m0 234v176h176v-176h-176z" horiz-adv-x="937.5" />
+<glyph glyph-name="plus" unicode="&#xe807;" d="m0 291v119q0 20 14 35t35 14h281v281q0 20 15 35t35 14h119q20 0 34-14t15-35v-281h281q20 0 35-14t14-35v-119q0-21-14-35t-35-15h-281v-282q0-20-15-34t-34-15h-119q-21 0-35 15t-15 34v282h-281q-20 0-35 15t-14 35z" horiz-adv-x="878.9" />
+<glyph glyph-name="play" unicode="&#xe808;" d="m0 11v677q0 39 22 52t53-8l564-349q20-14 20-33 0-9-5-18t-10-12l-5-4-564-349q-31-20-53-7t-22 51z" horiz-adv-x="658.7" />
+<glyph glyph-name="cancel" unicode="&#xe809;" d="m0 90q0 36 26 62l195 195-195 196q-26 25-26 61t26 61 61 25 61-25l196-196 195 196q25 25 61 25t61-25 25-61-25-61l-195-196 195-195q25-26 25-62t-25-61q-25-25-61-25t-61 25l-195 195-196-195q-25-25-61-25t-61 25q-26 26-26 61z" horiz-adv-x="686.5" />
+</font>
+</defs>
+</svg>
