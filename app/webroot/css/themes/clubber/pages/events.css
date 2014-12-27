@@ -1,19 +1,4 @@
 /* Estilos galeria*/
-
-.pageEventsWithplayer {
-    filter: alpha(opacity=0);
-    opacity: 0;
-    height: 0px!important;
-}
-
-.pageEvents {
-    opacity: 1;
-    -webkit-transition: all 0.56s ease-in-out 0s;
-    -moz-transition: all 0.56s ease-in-out 0s;
-    -o-transition: all 0.56s ease-in-out 0s;
-    transition: all 0.56s ease-in-out 0s;
-}
-
 .pageEvents > ul {
    padding: 0px;
    width: 100%;
@@ -21,14 +6,28 @@
 
 .pageEvents > ul li {
     height: auto;
-    float: left;
-    margin: 0;
+    float: none;
+    margin: 0 auto;
     padding: 15px;
-    width: calc(50% - 1px);
+    /*width: calc(50% - 1px);*/
+    width: 100%;
+    overflow: hidden;
 }
 
-.pageEvents > ul li .Event {
+.pageEvents > ul li .event {
     position: relative;
+    margin: 20px;
+}
+
+.pageEvents > ul li .event .thumbnail {
+    max-height: 150px;
+    display: inline-block;
+    float: left;
+    background-color: transparent;
+}
+
+.pageEvents > ul li .event .content_caption {
+    display: inline-block;
 }
 
 .pageEvents > ul li .pageEventContainer {
@@ -39,51 +38,53 @@
     text-decoration: none;
     z-index: 1;
 }
-.pageEvents > ul li .Event_thumbnail {
+.pageEvents > ul li .content_event {
     display: block;
     vertical-align: middle;
     height: auto;
-    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     -webkit-transition: all 0.56s ease-in-out 0s;
     -moz-transition: all 0.56s ease-in-out 0s;
     -o-transition: all 0.56s ease-in-out 0s;
     transition: all 0.56s ease-in-out 0s;
-}
 
+/*    -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;*/
+
+}
 .pageEvents > ul li .pageEventContainer .overlay {
     display: block;
     padding: 10px;
     position: absolute;
-    width: 100%;
+    width: 100%;    
     height: 100%;
-    top:0;
-    left:0;
+    left: 100%;
+    top: 0;
     z-index: 2;
     opacity: 0;
-    -webkit-transition: all 1.4s ease-in-out 0s;
-    -moz-transition: all 1.4s ease-in-out 0s;
-    -o-transition: all 1.4s ease-in-out 0s;
-    transition: all 1.4s ease-in-out 0s;
-
-}
-
-.pageEvents > ul li .pageEventContainer .overlay i {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    font-size: 35px;
-    cursor: pointer;
-    z-index: 3;
+    /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    -o-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
 }
 
 .pageEvents > ul li .pageEventContainer .overlay .overlay-inner {
     padding: 0 0 20px;
     display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 100%;
 }
 .pageEvents > ul li .pageEventContainer .overlay .overlay-inner h2 {
     display: block;
-    font-size: .25rem;
+    font-size: 2.25rem;
     line-height: 1;
     padding: 5px;
     position: relative;
@@ -95,7 +96,7 @@
     z-index: 3;
     max-width: 100%;
     padding: .4em;
-    opacity: 1;
+    opacity: 0.7;
     margin: 0;
     font-weight: 900;
     font-size: 1.2em;
@@ -120,6 +121,8 @@
     /*text-shadow: 1px 0 2px #000;*/    
 }
 .pageEvents > ul li .pageEventContainer:hover .overlay {
+    top: 0;
+    left: 0;
     opacity: 1;
 }
 
@@ -138,23 +141,16 @@
   transition:none;    
 }
 
-.pageEventsItem.current {
-   outline: 2px dashed #555555;
-}
-
 /* controls */
 
-.pageEvents > ul li .Event_prev , .pageEvents > ul li .Event_next {
-    height: 100%;
-    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
-    filter: alpha(opacity=50);
+.pageEvents > ul li .event_prev , .pageEvents > ul li .event_next {
     opacity: 0.5;
+    filter: alpha(opacity=50);
+    position: absolute;
+    top:46%;
 }
 
-.pageEvents > ul li .Event_prev:hover , .pageEvents > ul li .Event_next:hover {
+.pageEvents > ul li .event_prev:hover , .pageEvents > ul li .event_next:hover {
     color: #ffffff;
     text-decoration: none;
     outline: none;
@@ -163,88 +159,25 @@
 }
 
 
-.pageEvents > ul li .Event_prev i {
-    float: left;
+.pageEvents > ul li .event_prev {
+    left: 5%;
 }
 
-.pageEvents > ul li .Event_next i {
-    float: right;
+.pageEvents > ul li .event_next {
+    right: 5%;
 }
 
-.pageEvents > ul li .Event_prev i , .pageEvents > ul li .Event_next i {
+.pageEvents > ul li .event_prev i , .pageEvents > ul li .event_next i {
     position: relative;
     font-size: 25px;
-}
-
-.pageEvents .Event_full_player_container {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100%;
-    z-index: 2;
-}
-
-.pageEvents .Event_full_player_container .close_player, .pageEvents .Event_full_player_container .Event_prev, .pageEvents .Event_full_player_container .Event_next {
-    z-index: 3;
-    font-size: 30px;
-}
-
-.pageEvents .Event_full_player_container .close_player {
-    left: calc(50% - 15px);
-}
-
-.pageEvents .Event_full_player_container .Event_prev {
-    left: 0;
-}
-
-.pageEvents .Event_full_player_container .Event_next {
-    right: 0;
+    top:50%;
+    color: white;
 }
 
 
-.pageEvents .Event_full_player iframe, .pageEvents .Event_full_player Event, .pageEvents .Event_full_player embed {
-    position: relative;
-    top:0;
-    left: 0;
-    height: 250px;
-    width: 100%;
-    margin: 0 auto;
-    -webkit-transition: all 0.56s ease-in-out 0s;
-    -moz-transition: all 0.56s ease-in-out 0s;
-    -o-transition: all 0.56s ease-in-out 0s;
-    transition: all 0.56s ease-in-out 0s;
-}
-
-.pageEvents .Event_full_player {
-    position: relative;
-    width: 100%;
-
-    /*-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    box-shadow: 0 1px 3px rgba(34,25,25,0.4);*/
-
-    text-shadow: 1px 0 3px #000;
-
-    -webkit-transition: all 0.56s ease-in-out 0s;
-    -moz-transition: all 0.56s ease-in-out 0s;
-    -o-transition: all 0.56s ease-in-out 0s;
-    transition: all 0.56s ease-in-out 0s;
-}
-
-
-.pageEvents .Event_full_player.ng-enter {
-  left:100%;
-}
-
-.pageEvents .Event_full_player.ng-enter.ng-enter-active {
-  left: 0;
-}
-
-.pageEvents .Event_full_player.ng-leave {
-  left: 0;
-}
-
-.pageEvents .Event_full_player.ng-leave.ng-leave-active {
-  left: -100%;
+.pageEvents iframe {
+    width: 100%!important;
+    margin: 0 auto!important;
+    text-align: center!important;
+    border:none!important;
 }
