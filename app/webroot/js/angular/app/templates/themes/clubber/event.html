@@ -3,9 +3,9 @@
 	<div class="event-date-container">
 		<p class="event-date-day" ng-style="getDayStyle()">
 			<i class="{{contentSv.getConceptIcon('event')}}"></i>
-			{{content.data.date|date:'dd'}}
+			{{content.data.date|date:'dd'}} {{content.data.date|date:'MMMM'}}
 		</p>
-		<p ng-style="getDescriptionStyle()" class="event-date-month">{{content.data.date|date:'MMMM'}}</p>
+		
 	</div>
 
 	<div class="event-map-container">
