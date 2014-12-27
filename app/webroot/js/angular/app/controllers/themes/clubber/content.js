@@ -464,7 +464,7 @@ function contentEventCo($scope,contentSv,$sce) {
 	$scope.getDayStyle = function() {
 		
 		return {
-			'color': $scope.config.custom.colors.contentBackground.value
+			'color': $scope.config.custom.colors.background.value
 		}
 	}
 
