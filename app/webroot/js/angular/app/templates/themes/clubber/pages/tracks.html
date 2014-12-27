@@ -1,18 +1,18 @@
 <div class="pageTracks">
 
-	<div ng-if="show" class="track_full_player_container" ng-style="getPlayerStyle()">
+	<div ng-if="show" class="track_full_player_container">
 
 		<div ng-repeat="content in contents">
 		
-			<a href="#" skip-default ng-click="move(-1)" class="track_prev" ng-style="getPlayerStyle()">
+			<a href="#" skip-default ng-click="move(-1)" class="track_prev">
 				<i class="fa fa-chevron-left"></i>
 			</a>
 
-			<a href="#" skip-default ng-click="close()" class="close_player" ng-style="getPlayerStyle()">
+			<a href="#" skip-default ng-click="close()" class="close_player">
 				<i class="fa fa-times-circle"></i>
 			</a>
 
-			<a href="#" skip-default ng-click="move(1)" class="track_next" ng-style="getPlayerStyle()">
+			<a href="#" skip-default ng-click="move(1)" class="track_next">
 				<i class="fa fa-chevron-right"></i>
 			</a>
 
