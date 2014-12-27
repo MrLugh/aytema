@@ -137,6 +137,19 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		return page == $scope.current;
 	}	
 
+	$scope.getMenuClass = function() {
+
+    	if (angular.equals({},$scope.config)) {
+    		return '';
+    	}
+
+    	if ($scope.config.custom.width != "100%") {
+    		return 'navbar-default';
+    	}
+
+    	return 'navbar-fixed-top';		
+	}
+
 	$scope.getMenuItemClass = function(page) {
 		return ($scope.isActive(page)) ? 'active':'';
 	}
@@ -497,9 +510,9 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		var minus = 0;
 
 		if ( angular.isDefined($scope.config.custom) && $scope.config.custom.width != "100%") {
-			minus = 50;
+			minus = $scope.initMenuHeight + 50;
 		}
 
-		return appSv.getHeight() - $scope.initMenuHeight - minus;
+		return appSv.getHeight() - minus;
 	};
 }
