@@ -81,12 +81,12 @@
 @media (min-width: 1024px) {
 
   .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
-    height: 350px;
+    height: 300px;
   }
 
   .latestVideos .carousel-inner,
   .latestTracks .carousel-inner {
-    height: 350px;
+    height: 300px;
   }
 
 }

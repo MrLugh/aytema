@@ -282,7 +282,7 @@ ul {
   display: block;
   text-align: center;
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 80%;
   display: block;
   overflow: hidden;
   min-height: 480px;
@@ -556,7 +556,7 @@ ul {
 
 .section {
   text-align: left;
-  margin: 0 0 45px;
+  margin: 0 auto;
   padding: 30px;
   min-height: 250px;
   -webkit-transition:none;
@@ -617,7 +617,7 @@ ul {
 }
 
 .boxed .latestPhotos {
-  max-width: 980px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 20px;
   margin-top: 40px;
@@ -741,7 +741,7 @@ ul {
 .latestVideos .carousel-inner,
 .latestTracks .carousel-inner {
   width: 100%;
-  height: 350px;
+  height: 300px;
 }
 
 /* latest videos */
@@ -765,7 +765,7 @@ ul {
   margin: 0 auto;
   position: absolute;
   width: 100%;
-  height: 350px;
+  height: 300px;
 }
 
 .latestVideos .video .player iframe, .latestVideos .video .player object, .latestVideos .video .player video {
@@ -805,7 +805,7 @@ ul {
   margin: 0 auto;
   position: absolute;
   width: 100%;
-  height: 350px;
+  height: 300px;
 }
 
 .latestTracks .track iframe, .latestTracks .track object, .latestTracks .track embed, .latestTracks audio {
@@ -870,7 +870,7 @@ ul {
 }
 
 .latestEvents .event-map-container {
-  width: 30%;
+  width: 50%;
   padding: 0px;
   float: left;
 }
@@ -880,7 +880,7 @@ ul {
 }
 
 .latestEvents .event-info-container {
-  width: 68%;
+  width: 48%;
   margin-left: 2%;
   text-align: left;
   float: left;
@@ -940,7 +940,7 @@ ul {
   font-size: 16px;
   margin-top: 25px;
   margin-bottom: 25px;
-  float: left;
+  float: right;
 }
 
 .loadMore {
@@ -948,7 +948,7 @@ ul {
   font-size: 16px;
   margin-top: 15px;
   margin-bottom: 15px;
-  float:right;
+  float:left;
 } 
 
 .navbar-default .navbar-toggle {
