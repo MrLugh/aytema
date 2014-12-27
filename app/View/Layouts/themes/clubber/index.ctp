@@ -52,6 +52,7 @@
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('touchSwipe.min');
     echo $this->Html->script('dropzone');
+    echo $this->Html->script('countUp');
     ?>
 
     <!-- Config -->

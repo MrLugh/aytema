@@ -18,6 +18,15 @@
 
 			<div class="video_full_player player" ng-bind-html="player"></div>
 
+			<ul class="stats both">
+				<li ng-repeat="(key,stat) in content.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="inline">
+					<div>
+						<i ng-class="contentSv.getStatIcon(key)"></i> 
+						<span count-up="{{stat}}">{{stat}}</span>
+					</div>
+				</li>
+			</ul>
+
 			<related-contents></related-contents>
 
 			<div class="comments">
