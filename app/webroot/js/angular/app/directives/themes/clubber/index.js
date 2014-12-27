@@ -39,6 +39,8 @@ function(){
                     return;
                 }
 
+				$('.section').addClass("animated flipInY");
+
                 $('nav').hide();
                 clearTimeout(timer);
                 timer = setTimeout(function(){
@@ -51,7 +53,7 @@ function(){
                         $('nav').addClass('navbar-fixed-top');
                         scope.$apply(scope.fixed = true);
                     }
-                    scope.$apply(scope.scrolling = false);
+					scope.$apply(scope.scrolling = false);
                     $('nav').show();
                 },350);
             });
