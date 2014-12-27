@@ -170,7 +170,7 @@ ul {
 }
 
 .navbar-fixed-top .container {
-  width: 100% !important;
+  width: auto !important;
   max-width: 100% !important;
   float: right;
 }
@@ -178,13 +178,23 @@ ul {
 .navbar-fixed-top {
   background: transparent!important;
   border: none!important;
-  left: 10px!important;
   display: inline-block!important;
   padding: 0;
   margin: 0;
   -webkit-box-shadow: none;
   -moz-box-shadow:    none;
   box-shadow:         none;
+}
+
+
+.full .navbar-fixed-top {
+  left: 10px!important;
+}
+
+.boxed .navbar-fixed-top {
+  left: initial!important;
+  width: 60px;
+  right: 0;
 }
 
 .navbar .menu-item {
@@ -290,6 +300,7 @@ ul {
   overflow: hidden;
   min-height: 480px;
   margin-top: 60px;
+  padding: 20px;
 }
 
 .boxed #container {

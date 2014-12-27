@@ -320,7 +320,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	if ($scope.config.custom.width != "100%") {
     		return 'boxed';
     	}
-    	return '';
+    	return 'full';
     }
 
 	$scope.setColor = function() {
