@@ -558,6 +558,7 @@ ul {
 }
 
 .section {
+  float: left;
   text-align: left;
   margin: 0 auto;
   padding: 30px;

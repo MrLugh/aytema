@@ -71,9 +71,9 @@
 
 		<div id="container">
 
-			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')" masonry-simple="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.section'}">
+			<ul id="masonry" class="page block masonry {{getPageClass('home')}}" ng-if="isActive('home')">
 
-				<li ng-repeat="page in pages" class="section section_{{page}} {{getHomepageSize(page)}}" ng-if="hasContent(page) && page != 'photos'" masonry-simple-item>
+				<li ng-repeat="page in pagesOrder" class="section section_{{page}} {{getHomepageSize(page)}}" ng-if="hasContent(page) && page != 'photos'">
 
 					<h3 class="title" ng-style="getHighlightStyle()">Latest {{page}}</h3>
 

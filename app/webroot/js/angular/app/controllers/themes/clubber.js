@@ -30,6 +30,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.current	= 'home';
 	$scope.pages 	= [];
+	$scope.pagesOrder = ['videos','tracks','posts','events'];
 	$scope.content 	= {};
 	$scope.limit 	= 8;
 
