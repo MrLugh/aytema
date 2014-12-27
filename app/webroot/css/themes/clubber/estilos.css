@@ -848,18 +848,18 @@ ul {
 
 
 .latestEvents .event-date-container {
-  width: 25%;
+  width: 100%;
   text-align: center;
   float: left;
 }
 
 .latestEvents .event-date-container .event-date-day {
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: 900;
   margin: 0;
-  line-height: 50px;
-  text-align: center;
+  line-height: 25px;
+  text-align: left;
 }
 
 .latestEvents .event-date-container .event-date-month {
@@ -880,7 +880,7 @@ ul {
 }
 
 .latestEvents .event-info-container {
-  width: 43%;
+  width: 68%;
   margin-left: 2%;
   text-align: left;
   float: left;
@@ -940,7 +940,7 @@ ul {
   font-size: 16px;
   margin-top: 25px;
   margin-bottom: 25px;
-  float: right;
+  float: left;
 }
 
 .loadMore {
