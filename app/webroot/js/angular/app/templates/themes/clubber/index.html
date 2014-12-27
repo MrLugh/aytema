@@ -63,6 +63,8 @@
 
 	<div class="container_wrap">
 
+		<h1 ng-if="!isActive('home')">{{current|uppercase}}</h1>
+
 		<div class="{{getPageClass('home')}} {{getHomepageSize('photos')}}" ng-if="isActive('home') && hasContent('photos')" style="height:{{getSliderHeight()}}px;">
 			<latest-photos limit="8" config="config"></latest-photos>
 		</div>
