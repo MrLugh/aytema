@@ -24,7 +24,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.tabs = [
 		{ title:"Colors", key:"colors", active: true },
 		{ title:"background Image", key:"background" },
-		{ title:"Fonts", key:"fonts" },
 		{ title:"Width", key:"width" },
 	];
 	$scope.activeAdminTab = 'colors';
@@ -250,13 +249,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		}		
 	},true);
 
-	$scope.$watch("userSv.getThemeConfig().custom.fonts",function(fonts){
-		if (angular.isDefined(fonts)) {
-			$scope.config.custom.fonts = fonts;
-			$scope.setFont();
-		}		
-	},true);
-
 	$scope.$watch("userSv.getThemeConfig().custom.width",function(width){
 		if (angular.isDefined(width)) {
 			$scope.config.custom.width = width;
@@ -331,11 +323,27 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.setBackground = function() {
 
-		console.log($scope.config.custom.background.selected);
+        var img = new Image();
 
-		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
+        img.onload = function() {
 
+			var element = angular.element(document.querySelector('body'));
+			$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
+
+        	var w = img.naturalWidth;
+        	var h = img.naturalHeight;
+
+        	if (w < 500 || h < 500) {
+        		$(element[0]).css('background-size','initial');
+        		$(element[0]).css('background-attachment','initial');
+        		return;
+        	}
+
+    		$(element[0]).css('background-size','cover');
+    		$(element[0]).css('background-attachment','fixed');
+        }
+
+        img.src = $scope.config.custom.background.selected;
 	}
 
 	$scope.getTopStyle = function() {
@@ -399,12 +407,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 	}	
 
-	$scope.setFont = function() {
-
-		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('font-family',$scope.config.custom.fonts.selected.family);
-		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
-	}
 
     $scope.getFooterStyle = function() {
 
