@@ -961,6 +961,12 @@ ul {
 
 
 /* Related Contents */
+.relateds {
+  float: none;
+  clear: both;
+  width: 100%;
+}
+
 .relateds .list_carousel {
   width: 100%;
   position: relative;

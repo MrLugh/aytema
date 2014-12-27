@@ -191,7 +191,6 @@ function contentPhotoCo($scope,userSv,contentSv) {
 
 	$scope.move = function(direction) {
 
-		//console.log("content move");
 
 		var currentPos = $scope.currentPos;
 

@@ -27,6 +27,9 @@
 				</li>
 			</ul>
 
+			<h2 ng-if="contentSv.getTitle(content).length>0">{{contentSv.getTitle(content)}}</h2>
+			<p ng-if="contentSv.getDescription(content).length>0" ng-bind-html="getDescription()"></p>
+
 			<related-contents></related-contents>
 
 			<div class="comments">

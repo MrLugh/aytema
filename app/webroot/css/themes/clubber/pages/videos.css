@@ -19,7 +19,7 @@
    width: 100%;
 }
 
-.pageVideos ul li {
+.pageVideos > ul li {
     height: auto;
     float: left;
     margin: 0;

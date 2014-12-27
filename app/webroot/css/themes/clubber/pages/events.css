@@ -1,10 +1,10 @@
 /* Estilos galeria*/
-.pageEvents ul {
+.pageEvents > ul {
    padding: 0px;
    width: 100%;
 }
 
-.pageEvents ul li {
+.pageEvents > ul li {
     height: 100%;
     float: none;
     margin: 0;
@@ -12,11 +12,11 @@
      width: calc(50% - 1px);
 }
 
-.pageEvents ul li .event {
+.pageEvents > ul li .event {
     position: relative;
 }
 
-.pageEvents ul li .pageEventContainer {
+.pageEvents > ul li .pageEventContainer {
     display: block;
     overflow: hidden;
     padding: 0;
@@ -24,7 +24,7 @@
     text-decoration: none;
     z-index: 1;
 }
-.pageEvents ul li .content_event {
+.pageEvents > ul li .content_event {
     display: block;
     vertical-align: middle;
     height: auto;
@@ -43,7 +43,7 @@
     border-radius: 10px;*/
 
 }
-.pageEvents ul li .pageEventContainer .overlay {
+.pageEvents > ul li .pageEventContainer .overlay {
     display: block;
     padding: 10px;
     position: absolute;
@@ -60,7 +60,7 @@
     transition: all 0.4s ease-in-out 0s;
 }
 
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner {
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner {
     padding: 0 0 20px;
     display: inline-block;
     white-space: nowrap;
@@ -68,7 +68,7 @@
     text-overflow: ellipsis;
     height: 100%;
 }
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner h2 {
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner h2 {
     display: block;
     font-size: 2.25rem;
     line-height: 1;
@@ -88,7 +88,7 @@
     font-size: 1.2em;
     /*text-shadow: 1px 0 3px #000;*/
 }
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner p {
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner p {
     display: block;
     margin-bottom: 0;
     position: relative;
@@ -106,17 +106,17 @@
     font-size: 1.0em;
     /*text-shadow: 1px 0 2px #000;*/    
 }
-.pageEvents ul li .pageEventContainer:hover .overlay {
+.pageEvents > ul li .pageEventContainer:hover .overlay {
     top: 0;
     left: 0;
     opacity: 1;
 }
 
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner p a {
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner p a {
     font-style: italic;
     text-decoration: underline;
 }
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner p a:hover {
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner p a:hover {
     text-decoration: none;
 }
 
@@ -126,13 +126,13 @@
   -o-transition:none;
   transition:none;    
 }
-.pageEvents , .pageEvents ul {
+.pageEvents , .pageEvents > ul {
     margin: 0 auto;
     padding: 0;
     text-align: center;
     min-height: 400px;
 }
-.pageEvents ul li {
+.pageEvents > ul li {
     height: auto;
     float: left;
     margin: 0;
@@ -185,14 +185,14 @@
 
 /* controls */
 
-.pageEvents ul li .event_prev , .pageEvents ul li .event_next {
+.pageEvents > ul li .event_prev , .pageEvents > ul li .event_next {
     opacity: 0.5;
     filter: alpha(opacity=50);
     position: absolute;
     top:46%;
 }
 
-.pageEvents ul li .event_prev:hover , .pageEvents ul li .event_next:hover {
+.pageEvents > ul li .event_prev:hover , .pageEvents > ul li .event_next:hover {
     color: #ffffff;
     text-decoration: none;
     outline: none;
@@ -201,15 +201,15 @@
 }
 
 
-.pageEvents ul li .event_prev {
+.pageEvents > ul li .event_prev {
     left: 5%;
 }
 
-.pageEvents ul li .event_next {
+.pageEvents > ul li .event_next {
     right: 5%;
 }
 
-.pageEvents ul li .event_prev i , .pageEvents ul li .event_next i {
+.pageEvents > ul li .event_prev i , .pageEvents > ul li .event_next i {
     position: relative;
     font-size: 25px;
     top:50%;

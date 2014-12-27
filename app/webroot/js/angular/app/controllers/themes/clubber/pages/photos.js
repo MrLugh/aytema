@@ -72,7 +72,7 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 		$scope.show 	= true;
 	}
 
-	$scope.move = function(direction) {
+	$scope.movePhoto = function(direction) {
 
 		var indexCurrent = $scope.photolist.indexOf($scope.content);
 
@@ -88,7 +88,7 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 		if (indexCurrent < 0) {		
 			indexCurrent = $scope.photolist.length - 1;
 		}
-
+		console.log($scope.photolist[indexCurrent]);
 		$scope.showPhoto($scope.photolist[indexCurrent]);
 	}
 
