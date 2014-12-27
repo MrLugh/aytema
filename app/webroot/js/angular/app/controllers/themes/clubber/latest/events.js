@@ -20,4 +20,17 @@ function latestEventsCo($scope,appSv,contentSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.list[index]));
 	}
 
+	$scope.getEventSize = function() {
+
+		if ($scope.list.length == 3) {
+			return '33%';
+		}
+
+		if ($scope.list.length == 2) {
+			return '50%';
+		}
+
+		return '100%';
+	}
+
 }

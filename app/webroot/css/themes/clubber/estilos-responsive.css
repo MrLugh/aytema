@@ -65,6 +65,14 @@
 
 }
 
+@media (max-width: 480px) {
+
+  .small, .medium, .large, .xlarge {
+    width: 100%;
+  }
+
+}
+
 @media (max-width: 768px) {
 
   .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
@@ -78,6 +86,30 @@
 
 }
 
+@media (max-width: 1024px) {
+  .small, .medium {
+    width: 50%;
+  }
+
+  .large, .xlarge {
+    width: 100%;
+  }
+
+  .latestEvents li.event {
+
+  }
+
+  .section_events {
+    width: 100%;
+  }
+
+  .latestEvents li.event  {
+    width: 100%;
+    clear: none;
+    float: left;
+  }
+}
+
 @media (min-width: 1024px) {
 
   .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
@@ -87,6 +119,10 @@
   .latestVideos .carousel-inner,
   .latestTracks .carousel-inner {
     height: 300px;
+  }
+
+  .latestEvents li.event  {
+    width: 100%!important;
   }
 
 }

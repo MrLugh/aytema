@@ -218,7 +218,6 @@
 
 .pageEvents .Event_full_player {
     position: relative;
-    min-height: 450px;
     width: 100%;
 
     /*-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);

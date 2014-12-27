@@ -307,6 +307,10 @@ ul {
   margin-top: 20px;
 }
 
+.full #container {
+  background: none!important;
+}
+
 #container .page {
   text-align: center;
   margin: 0 auto;
@@ -734,6 +738,11 @@ ul {
   text-overflow: ellipsis;   
 }
 
+
+.latestPhotos .overlay {
+  background: none;
+}
+
 .carousel-control i {
   position: absolute;
   top: 46%;
@@ -854,7 +863,7 @@ ul {
 
 }
 
-.latestEvents li.event {  
+.latestEvents li.event {
   width: 100%;
   clear: both;
   margin-bottom: 10px;
