@@ -917,17 +917,11 @@ ul {
 .latestPosts .post {
   width: 100%;
   margin-bottom: 20px;
+  float: left;
 }
 
 .latestPosts .post iframe, .latestPosts .post object, .latestPosts .post embed {
   width: 100%;
-}
-
-.latestPosts .post .content_caption {
-  height: 150px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;  
 }
 
 /* latest posts */

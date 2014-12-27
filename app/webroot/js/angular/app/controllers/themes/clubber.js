@@ -223,12 +223,12 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 			return 'small';
 		}
 
-		if (page == 'videos') {
+		if (page == 'posts') {
 			return 'large';
 		}
 
 		return 'medium';
-	}	
+	}
 
 	$scope.getPageClass = function(page) {
 
