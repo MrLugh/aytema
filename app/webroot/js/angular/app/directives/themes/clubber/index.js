@@ -28,10 +28,18 @@ function(){
             $(window).scroll(function() {
                 scope.$apply(function() {
                     scope.scrolling = true;
-                    $('nav').hide();
                     scope.showUp = ( $(window).scrollTop() + $(window).height() >= element[0].offsetHeight / 2 ) ? true : false;
                 });
 
+                if (angular.equals({},scope.config)) {
+                    return;
+                }
+
+                if (scope.config.custom.width == "100%") {
+                    return;
+                }
+
+                $('nav').hide();
                 clearTimeout(timer);
                 timer = setTimeout(function(){
                     if ( $(window).scrollTop() == 0 ) {

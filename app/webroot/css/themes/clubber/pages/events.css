@@ -1,22 +1,37 @@
 /* Estilos galeria*/
-.pageEvents ul {
+
+.pageEventsWithplayer {
+    filter: alpha(opacity=0);
+    opacity: 0;
+    height: 0px!important;
+}
+
+.pageEvents {
+    opacity: 1;
+    -webkit-transition: all 0.56s ease-in-out 0s;
+    -moz-transition: all 0.56s ease-in-out 0s;
+    -o-transition: all 0.56s ease-in-out 0s;
+    transition: all 0.56s ease-in-out 0s;
+}
+
+.pageEvents > ul {
    padding: 0px;
    width: 100%;
 }
 
-.pageEvents ul li {
-    height: 100%;
-    float: none;
+.pageEvents > ul li {
+    height: auto;
+    float: left;
     margin: 0;
     padding: 15px;
-     width: calc(50% - 1px);
+    width: calc(50% - 1px);
 }
 
-.pageEvents ul li .event {
+.pageEvents > ul li .Event {
     position: relative;
 }
 
-.pageEvents ul li .pageEventContainer {
+.pageEvents > ul li .pageEventContainer {
     display: block;
     overflow: hidden;
     padding: 0;
@@ -24,53 +39,51 @@
     text-decoration: none;
     z-index: 1;
 }
-.pageEvents ul li .content_event {
+.pageEvents > ul li .Event_thumbnail {
     display: block;
     vertical-align: middle;
     height: auto;
-    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
     -webkit-transition: all 0.56s ease-in-out 0s;
     -moz-transition: all 0.56s ease-in-out 0s;
     -o-transition: all 0.56s ease-in-out 0s;
     transition: all 0.56s ease-in-out 0s;
-
-    /*-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;*/
-
 }
-.pageEvents ul li .pageEventContainer .overlay {
+
+.pageEvents > ul li .pageEventContainer .overlay {
     display: block;
     padding: 10px;
     position: absolute;
-    width: 100%;    
+    width: 100%;
     height: 100%;
-    left: 100%;
-    top: 0;
+    top:0;
+    left:0;
     z-index: 2;
     opacity: 0;
-    /*background: url("http://cloudcial.com/img/themes/clubber/bg-dark.png");*/
-    -webkit-transition: all 0.4s ease-in-out 0s;
-    -moz-transition: all 0.4s ease-in-out 0s;
-    -o-transition: all 0.4s ease-in-out 0s;
-    transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 1.4s ease-in-out 0s;
+    -moz-transition: all 1.4s ease-in-out 0s;
+    -o-transition: all 1.4s ease-in-out 0s;
+    transition: all 1.4s ease-in-out 0s;
+
 }
 
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner {
+.pageEvents > ul li .pageEventContainer .overlay i {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner {
     padding: 0 0 20px;
     display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 100%;
 }
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner h2 {
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner h2 {
     display: block;
-    font-size: 2.25rem;
+    font-size: .25rem;
     line-height: 1;
     padding: 5px;
     position: relative;
@@ -82,13 +95,13 @@
     z-index: 3;
     max-width: 100%;
     padding: .4em;
-    opacity: 0.7;
+    opacity: 1;
     margin: 0;
     font-weight: 900;
     font-size: 1.2em;
     /*text-shadow: 1px 0 3px #000;*/
 }
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner p {
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner p {
     display: block;
     margin-bottom: 0;
     position: relative;
@@ -106,17 +119,15 @@
     font-size: 1.0em;
     /*text-shadow: 1px 0 2px #000;*/    
 }
-.pageEvents ul li .pageEventContainer:hover .overlay {
-    top: 0;
-    left: 0;
+.pageEvents > ul li .pageEventContainer:hover .overlay {
     opacity: 1;
 }
 
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner p a {
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner p a {
     font-style: italic;
     text-decoration: underline;
 }
-.pageEvents ul li .pageEventContainer .overlay .overlay-inner p a:hover {
+.pageEvents > ul li .pageEventContainer .overlay .overlay-inner p a:hover {
     text-decoration: none;
 }
 
@@ -126,73 +137,24 @@
   -o-transition:none;
   transition:none;    
 }
-.pageEvents , .pageEvents ul {
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-    min-height: 400px;
-}
-.pageEvents ul li {
-    height: auto;
-    float: left;
-    margin: 0;
-    padding: 15px;
-    width: calc(50% - 5px);
-}
-.pageEvents .event-date-container {
-    text-align: center;
-    float: left;
-    display: inline-block;
-}
-.pageEvents .event-date-container .event-date-day {
-    text-transform: uppercase;
-    font-size: 50px;
-    font-weight: 900;
-    margin: 0;
-    line-height: 50px;
-    text-align: center;
-    display: inline-block;
-}
-.pageEvents .event-date-container .event-date-month {
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0;
-    display: inline-block;
-}
-.pageEvents .event-map-container {
-    padding: 0px;
-    float: left;
-    display: inline-block;
-}
-.pageEvents .event-map-container .event_map {
-    max-width: 100%;
-}
-.pageEvents .event-info-container {
-    width: 100%;
-    margin-left: 2%;
-    text-align: left;
-    float: left;
-    position: relative;
-    top: -50%;
-}
-.pageEvents .event-info-container h2 {
-    font-size: 16px;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-top: 0;
+
+.pageEventsItem.current {
+   outline: 2px dashed #555555;
 }
 
 /* controls */
 
-.pageEvents ul li .event_prev , .pageEvents ul li .event_next {
-    opacity: 0.5;
+.pageEvents > ul li .Event_prev , .pageEvents > ul li .Event_next {
+    height: 100%;
+    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
     filter: alpha(opacity=50);
-    position: absolute;
-    top:46%;
+    opacity: 0.5;
 }
 
-.pageEvents ul li .event_prev:hover , .pageEvents ul li .event_next:hover {
+.pageEvents > ul li .Event_prev:hover , .pageEvents > ul li .Event_next:hover {
     color: #ffffff;
     text-decoration: none;
     outline: none;
@@ -201,18 +163,89 @@
 }
 
 
-.pageEvents ul li .event_prev {
-    left: 5%;
+.pageEvents > ul li .Event_prev i {
+    float: left;
 }
 
-.pageEvents ul li .event_next {
-    right: 5%;
+.pageEvents > ul li .Event_next i {
+    float: right;
 }
 
-.pageEvents ul li .event_prev i , .pageEvents ul li .event_next i {
+.pageEvents > ul li .Event_prev i , .pageEvents > ul li .Event_next i {
     position: relative;
     font-size: 25px;
-    top:50%;
-    color: white;
 }
 
+.pageEvents .Event_full_player_container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: 2;
+}
+
+.pageEvents .Event_full_player_container .close_player, .pageEvents .Event_full_player_container .Event_prev, .pageEvents .Event_full_player_container .Event_next {
+    z-index: 3;
+    font-size: 30px;
+}
+
+.pageEvents .Event_full_player_container .close_player {
+    left: calc(50% - 15px);
+}
+
+.pageEvents .Event_full_player_container .Event_prev {
+    left: 0;
+}
+
+.pageEvents .Event_full_player_container .Event_next {
+    right: 0;
+}
+
+
+.pageEvents .Event_full_player iframe, .pageEvents .Event_full_player Event, .pageEvents .Event_full_player embed {
+    position: relative;
+    top:0;
+    left: 0;
+    height: 250px;
+    width: 100%;
+    margin: 0 auto;
+    -webkit-transition: all 0.56s ease-in-out 0s;
+    -moz-transition: all 0.56s ease-in-out 0s;
+    -o-transition: all 0.56s ease-in-out 0s;
+    transition: all 0.56s ease-in-out 0s;
+}
+
+.pageEvents .Event_full_player {
+    position: relative;
+    min-height: 450px;
+    width: 100%;
+
+    /*-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    box-shadow: 0 1px 3px rgba(34,25,25,0.4);*/
+
+    text-shadow: 1px 0 3px #000;
+
+    -webkit-transition: all 0.56s ease-in-out 0s;
+    -moz-transition: all 0.56s ease-in-out 0s;
+    -o-transition: all 0.56s ease-in-out 0s;
+    transition: all 0.56s ease-in-out 0s;
+}
+
+
+.pageEvents .Event_full_player.ng-enter {
+  left:100%;
+}
+
+.pageEvents .Event_full_player.ng-enter.ng-enter-active {
+  left: 0;
+}
+
+.pageEvents .Event_full_player.ng-leave {
+  left: 0;
+}
+
+.pageEvents .Event_full_player.ng-leave.ng-leave-active {
+  left: -100%;
+}

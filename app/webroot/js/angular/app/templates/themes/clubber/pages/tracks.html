@@ -18,6 +18,18 @@
 
 			<div class="track_full_player player" ng-bind-html="player"></div>
 
+			<ul class="stats both">
+				<li ng-repeat="(key,stat) in content.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="inline">
+					<div>
+						<i ng-class="contentSv.getStatIcon(key)"></i> 
+						<span count-up="{{stat}}">{{stat}}</span>
+					</div>
+				</li>
+			</ul>
+
+			<h2 ng-if="contentSv.getTitle(content).length>0">{{contentSv.getTitle(content)}}</h2>
+			<p ng-if="contentSv.getDescription(content).length>0" ng-bind-html="getDescription()"></p>
+
 			<related-contents></related-contents>
 
 			<div class="comments">

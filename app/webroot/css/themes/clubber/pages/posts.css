@@ -1,10 +1,10 @@
 /* Estilos galeria*/
-.pagePosts ul {
+.pagePosts > ul {
    padding: 0px;
    width: 100%;
 }
 
-.pagePosts ul li {
+.pagePosts > ul li {
     height: auto;
     float: none;
     margin: 0 auto;
@@ -14,23 +14,23 @@
     overflow: hidden;
 }
 
-.pagePosts ul li .post {
+.pagePosts > ul li .post {
     position: relative;
     margin: 20px;
 }
 
-.pagePosts ul li .post .thumbnail {
+.pagePosts > ul li .post .thumbnail {
     max-height: 150px;
     display: inline-block;
     float: left;
     background-color: transparent;
 }
 
-.pagePosts ul li .post .content_caption {
+.pagePosts > ul li .post .content_caption {
     display: inline-block;
 }
 
-.pagePosts ul li .pagePostContainer {
+.pagePosts > ul li .pagePostContainer {
     display: block;
     overflow: hidden;
     padding: 0;
@@ -38,7 +38,7 @@
     text-decoration: none;
     z-index: 1;
 }
-.pagePosts ul li .content_post {
+.pagePosts > ul li .content_post {
     display: block;
     vertical-align: middle;
     height: auto;
@@ -57,7 +57,7 @@
     border-radius: 10px;*/
 
 }
-.pagePosts ul li .pagePostContainer .overlay {
+.pagePosts > ul li .pagePostContainer .overlay {
     display: block;
     padding: 10px;
     position: absolute;
@@ -74,7 +74,7 @@
     transition: all 0.4s ease-in-out 0s;
 }
 
-.pagePosts ul li .pagePostContainer .overlay .overlay-inner {
+.pagePosts > ul li .pagePostContainer .overlay .overlay-inner {
     padding: 0 0 20px;
     display: inline-block;
     white-space: nowrap;
@@ -82,7 +82,7 @@
     text-overflow: ellipsis;
     height: 100%;
 }
-.pagePosts ul li .pagePostContainer .overlay .overlay-inner h2 {
+.pagePosts > ul li .pagePostContainer .overlay .overlay-inner h2 {
     display: block;
     font-size: 2.25rem;
     line-height: 1;
@@ -102,7 +102,7 @@
     font-size: 1.2em;
     /*text-shadow: 1px 0 3px #000;*/
 }
-.pagePosts ul li .pagePostContainer .overlay .overlay-inner p {
+.pagePosts > ul li .pagePostContainer .overlay .overlay-inner p {
     display: block;
     margin-bottom: 0;
     position: relative;
@@ -120,17 +120,17 @@
     font-size: 1.0em;
     /*text-shadow: 1px 0 2px #000;*/    
 }
-.pagePosts ul li .pagePostContainer:hover .overlay {
+.pagePosts > ul li .pagePostContainer:hover .overlay {
     top: 0;
     left: 0;
     opacity: 1;
 }
 
-.pagePosts ul li .pagePostContainer .overlay .overlay-inner p a {
+.pagePosts > ul li .pagePostContainer .overlay .overlay-inner p a {
     font-style: italic;
     text-decoration: underline;
 }
-.pagePosts ul li .pagePostContainer .overlay .overlay-inner p a:hover {
+.pagePosts > ul li .pagePostContainer .overlay .overlay-inner p a:hover {
     text-decoration: none;
 }
 
@@ -143,14 +143,14 @@
 
 /* controls */
 
-.pagePosts ul li .post_prev , .pagePosts ul li .post_next {
+.pagePosts > ul li .post_prev , .pagePosts > ul li .post_next {
     opacity: 0.5;
     filter: alpha(opacity=50);
     position: absolute;
     top:46%;
 }
 
-.pagePosts ul li .post_prev:hover , .pagePosts ul li .post_next:hover {
+.pagePosts > ul li .post_prev:hover , .pagePosts > ul li .post_next:hover {
     color: #ffffff;
     text-decoration: none;
     outline: none;
@@ -159,15 +159,15 @@
 }
 
 
-.pagePosts ul li .post_prev {
+.pagePosts > ul li .post_prev {
     left: 5%;
 }
 
-.pagePosts ul li .post_next {
+.pagePosts > ul li .post_next {
     right: 5%;
 }
 
-.pagePosts ul li .post_prev i , .pagePosts ul li .post_next i {
+.pagePosts > ul li .post_prev i , .pagePosts > ul li .post_next i {
     position: relative;
     font-size: 25px;
     top:50%;

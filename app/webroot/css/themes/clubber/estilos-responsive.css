@@ -17,15 +17,6 @@
     height: auto;
   }
 
-  .latestEvents .event-date-container {
-    width: 25%;
-  }
-
-  .latestEvents .event-date-container .event-date-day {
-    font-size: 30px;
-    line-height: 30px;
-  }
-
   .latestEvents .event-date-container .event-date-month {
     font-size: 11px;
   }
@@ -90,12 +81,12 @@
 @media (min-width: 1024px) {
 
   .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
-    height: 350px;
+    height: 300px;
   }
 
   .latestVideos .carousel-inner,
   .latestTracks .carousel-inner {
-    height: 350px;
+    height: 300px;
   }
 
 }
@@ -119,15 +110,6 @@
     font-size: 22px!important;
     line-height: 18px!important;
   }  
-
-  .latestEvents .event-date-container {
-    width: 25%;
-  }
-
-  .latestEvents .event-date-container .event-date-day {
-    font-size: 30px;
-    line-height: 30px;
-  }
 
   .latestEvents .event-date-container .event-date-month {
     font-size: 12px;
@@ -153,15 +135,6 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-
-  .latestEvents .event-date-container {
-    width: 25%;
-  }
-
-  .latestEvents .event-date-container .event-date-day {
-    font-size: 55px;
-    line-height: 55px;
-  }
 
   .latestEvents .event-date-container .event-date-month {
     font-size: 14px;

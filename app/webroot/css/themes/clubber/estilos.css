@@ -164,21 +164,21 @@ ul {
 }
 
 .container {
-  max-width: 980px !important;
+  max-width: 80% !important;
   margin: 0 auto;
   padding: 7px;
 }
 
 .navbar-fixed-top .container {
-  width: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
   float: right;
 }
 
 .navbar-fixed-top {
   background: transparent!important;
   border: none!important;
-  right: 10px!important;
-  left: initial!important;
+  left: 10px!important;
   display: inline-block!important;
   padding: 0;
   margin: 0;
@@ -225,14 +225,17 @@ ul {
 .navbar-fixed-top .menu-item {
   padding: 0;
   margin: 0;
-  margin-top: 5px;
+  margin: 5px;
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  float: right;
-  clear: both;
+  float: left;
   border-style:solid;
   border-width: 2px;
+}
+
+.boxed .navbar-fixed-top .menu-item {
+  clear: both;
 }
 
 .navbar-fixed-top .navbar-collapse {
@@ -252,9 +255,9 @@ ul {
 .navbar-fixed-top .menu-item a {
   padding: 0;
   margin: 0 auto;
-  line-height: 34px;
-  font-size: 18px;
-  background: none!important;
+  line-height: 100%;
+  font-size: 17px;
+  background: none!important
 }
 
 .navbar-fixed-top .menu-item.active {
@@ -282,11 +285,11 @@ ul {
   display: block;
   text-align: center;
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 80%;
   display: block;
   overflow: hidden;
   min-height: 480px;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .boxed #container {
@@ -556,7 +559,7 @@ ul {
 
 .section {
   text-align: left;
-  margin: 0 0 45px;
+  margin: 0 auto;
   padding: 30px;
   min-height: 250px;
   -webkit-transition:none;
@@ -617,7 +620,7 @@ ul {
 }
 
 .boxed .latestPhotos {
-  max-width: 980px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 20px;
   margin-top: 40px;
@@ -741,7 +744,7 @@ ul {
 .latestVideos .carousel-inner,
 .latestTracks .carousel-inner {
   width: 100%;
-  height: 350px;
+  height: 300px;
 }
 
 /* latest videos */
@@ -765,7 +768,7 @@ ul {
   margin: 0 auto;
   position: absolute;
   width: 100%;
-  height: 350px;
+  height: 300px;
 }
 
 .latestVideos .video .player iframe, .latestVideos .video .player object, .latestVideos .video .player video {
@@ -805,7 +808,7 @@ ul {
   margin: 0 auto;
   position: absolute;
   width: 100%;
-  height: 350px;
+  height: 300px;
 }
 
 .latestTracks .track iframe, .latestTracks .track object, .latestTracks .track embed, .latestTracks audio {
@@ -848,18 +851,18 @@ ul {
 
 
 .latestEvents .event-date-container {
-  width: 25%;
+  width: 100%;
   text-align: center;
   float: left;
 }
 
 .latestEvents .event-date-container .event-date-day {
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: 900;
   margin: 0;
-  line-height: 50px;
-  text-align: center;
+  line-height: 25px;
+  text-align: left;
 }
 
 .latestEvents .event-date-container .event-date-month {
@@ -870,7 +873,7 @@ ul {
 }
 
 .latestEvents .event-map-container {
-  width: 30%;
+  width: 50%;
   padding: 0px;
   float: left;
 }
@@ -880,7 +883,7 @@ ul {
 }
 
 .latestEvents .event-info-container {
-  width: 43%;
+  width: 48%;
   margin-left: 2%;
   text-align: left;
   float: left;
@@ -948,7 +951,7 @@ ul {
   font-size: 16px;
   margin-top: 15px;
   margin-bottom: 15px;
-  float:right;
+  float:left;
 } 
 
 .navbar-default .navbar-toggle {
@@ -961,6 +964,12 @@ ul {
 
 
 /* Related Contents */
+.relateds {
+  float: none;
+  clear: both;
+  width: 100%;
+}
+
 .relateds .list_carousel {
   width: 100%;
   position: relative;

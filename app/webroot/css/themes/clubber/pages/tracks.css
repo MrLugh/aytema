@@ -14,12 +14,12 @@
     transition: all 0.56s ease-in-out 0s;
 }
 
-.pageTracks ul {
+.pageTracks > ul {
    padding: 0px;
    width: 100%;
 }
 
-.pageTracks ul li {
+.pageTracks > ul li {
     height: auto;
     float: left;
     margin: 0;
@@ -27,11 +27,11 @@
     width: calc(50% - 1px);
 }
 
-.pageTracks ul li .track {
+.pageTracks > ul li .track {
     position: relative;
 }
 
-.pageTracks ul li .pageTrackContainer {
+.pageTracks > ul li .pageTrackContainer {
     display: block;
     overflow: hidden;
     padding: 0;
@@ -39,7 +39,7 @@
     text-decoration: none;
     z-index: 1;
 }
-.pageTracks ul li .track_thumbnail {
+.pageTracks > ul li .track_thumbnail {
     display: block;
     vertical-align: middle;
     height: auto;
@@ -51,7 +51,7 @@
     transition: all 0.56s ease-in-out 0s;
 }
 
-.pageTracks ul li .pageTrackContainer .overlay {
+.pageTracks > ul li .pageTrackContainer .overlay {
     display: block;
     padding: 10px;
     position: absolute;
@@ -68,7 +68,7 @@
 
 }
 
-.pageTracks ul li .pageTrackContainer .overlay i {
+.pageTracks > ul li .pageTrackContainer .overlay i {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -77,11 +77,11 @@
     z-index: 3;
 }
 
-.pageTracks ul li .pageTrackContainer .overlay .overlay-inner {
+.pageTracks > ul li .pageTrackContainer .overlay .overlay-inner {
     padding: 0 0 20px;
     display: inline-block;
 }
-.pageTracks ul li .pageTrackContainer .overlay .overlay-inner h2 {
+.pageTracks > ul li .pageTrackContainer .overlay .overlay-inner h2 {
     display: block;
     font-size: .25rem;
     line-height: 1;
@@ -101,7 +101,7 @@
     font-size: 1.2em;
     /*text-shadow: 1px 0 3px #000;*/
 }
-.pageTracks ul li .pageTrackContainer .overlay .overlay-inner p {
+.pageTracks > ul li .pageTrackContainer .overlay .overlay-inner p {
     display: block;
     margin-bottom: 0;
     position: relative;
@@ -119,15 +119,15 @@
     font-size: 1.0em;
     /*text-shadow: 1px 0 2px #000;*/    
 }
-.pageTracks ul li .pageTrackContainer:hover .overlay {
+.pageTracks > ul li .pageTrackContainer:hover .overlay {
     opacity: 1;
 }
 
-.pageTracks ul li .pageTrackContainer .overlay .overlay-inner p a {
+.pageTracks > ul li .pageTrackContainer .overlay .overlay-inner p a {
     font-style: italic;
     text-decoration: underline;
 }
-.pageTracks ul li .pageTrackContainer .overlay .overlay-inner p a:hover {
+.pageTracks > ul li .pageTrackContainer .overlay .overlay-inner p a:hover {
     text-decoration: none;
 }
 
@@ -144,7 +144,7 @@
 
 /* controls */
 
-.pageTracks ul li .track_prev , .pageTracks ul li .track_next {
+.pageTracks > ul li .track_prev , .pageTracks > ul li .track_next {
     height: 100%;
     background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
@@ -154,7 +154,7 @@
     opacity: 0.5;
 }
 
-.pageTracks ul li .track_prev:hover , .pageTracks ul li .track_next:hover {
+.pageTracks > ul li .track_prev:hover , .pageTracks > ul li .track_next:hover {
     color: #ffffff;
     text-decoration: none;
     outline: none;
@@ -163,15 +163,15 @@
 }
 
 
-.pageTracks ul li .track_prev i {
+.pageTracks > ul li .track_prev i {
     float: left;
 }
 
-.pageTracks ul li .track_next i {
+.pageTracks > ul li .track_next i {
     float: right;
 }
 
-.pageTracks ul li .track_prev i , .pageTracks ul li .track_next i {
+.pageTracks > ul li .track_prev i , .pageTracks > ul li .track_next i {
     position: relative;
     font-size: 25px;
 }

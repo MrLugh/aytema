@@ -11,12 +11,12 @@
 
 }
 
-.pagePhotos ul {
+.pagePhotos > ul {
    padding: 0px;
    width: 100%;
 }
 
-.pagePhotos ul li {
+.pagePhotos > ul li {
     height: auto;
     float: left;
     margin: 0;
@@ -25,11 +25,11 @@
     width: calc(50% - 1px);
 }
 
-.pagePhotos ul li .photo {
+.pagePhotos > ul li .photo {
     position: relative;
 }
 
-.pagePhotos ul li .pagePhotoContainer {
+.pagePhotos > ul li .pagePhotoContainer {
     display: block;
     overflow: hidden;
     padding: 0;
@@ -41,11 +41,11 @@
     border-radius: 10px;*/
 }
 
-.pagePhotos ul li .content_photo_hide {
+.pagePhotos > ul li .content_photo_hide {
     opacity: 0;
 }
 
-.pagePhotos ul li .content_photo {
+.pagePhotos > ul li .content_photo {
     display: block;
     vertical-align: middle;
     height: auto;
@@ -76,14 +76,14 @@
 
 /* controls */
 
-.pagePhotos ul li .photo_prev , .pagePhotos ul li .photo_next, .pagePhotos .overlay i {
+.pagePhotos > ul li .photo_prev , .pagePhotos > ul li .photo_next, .pagePhotos .overlay i {
     opacity: 0.5;
     filter: alpha(opacity=50);
     position: absolute;
     top:20px;
 }
 
-.pagePhotos ul li .photo_prev:hover , .pagePhotos ul li .photo_next:hover, .pagePhotos .overlay i:hover {
+.pagePhotos > ul li .photo_prev:hover , .pagePhotos > ul li .photo_next:hover, .pagePhotos .overlay i:hover {
     color: #ffffff;
     text-decoration: none;
     outline: none;
@@ -92,15 +92,15 @@
 }
 
 
-.pagePhotos ul li .photo_prev {
+.pagePhotos > ul li .photo_prev {
     left: 5%;
 }
 
-.pagePhotos ul li .photo_next {
+.pagePhotos > ul li .photo_next {
     right: 5%;
 }
 
-.pagePhotos ul li .photo_prev i , .pagePhotos ul li .photo_next i, .pagePhotos .overlay i {
+.pagePhotos > ul li .photo_prev i , .pagePhotos > ul li .photo_next i, .pagePhotos .overlay i {
     /*text-shadow: 2px 2px 2px #000;*/
     position: relative;
     font-size: 25px;
