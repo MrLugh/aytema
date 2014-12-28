@@ -40,20 +40,24 @@ function(){
                 }
 
 				$('.section').addClass("animated flipInY");
+                $('.content_caption').addClass("animated shake");
+                $('.caption').addClass("animated shake");
 
                 $('nav').hide();
                 clearTimeout(timer);
                 timer = setTimeout(function(){
                     if ( $(window).scrollTop() == 0 ) {
-                        $('nav').removeClass('navbar-fixed-top animated fadeInDownBig');
+                        $('nav').removeClass('navbar-fixed-top animated fadeInRightBig');
                         $('nav').addClass('navbar-default animated fadeInUp');
                         scope.$apply(scope.fixed = false);
                     } else {
                         $('nav').removeClass('navbar-default animated fadeInUp');
-                        $('nav').addClass('navbar-fixed-top animated fadeInDownBig');
+                        $('nav').addClass('navbar-fixed-top animated fadeInRightBig');
                         scope.$apply(scope.fixed = true);
                     }
 					scope.$apply(scope.scrolling = false);
+                    $('.content_caption').removeClass("animated shake");
+                    $('.caption').removeClass("animated shake");
                     $('nav').show();
                 },350);
             });
