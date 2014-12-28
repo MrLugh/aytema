@@ -2,7 +2,7 @@
 
 	<ul ng-class="pagePostsWithplayerClass()">
 
-		<li ng-repeat="content in postlist" class="pagePostsItem">
+		<li ng-repeat="content in postlist" class="pagePostsItem animated {{$index%2 ? 'fadeInLeftBig':'fadeInRightBig'}}">
 			<content-post></content-post>
 			<ul class="stats both">
 				<li ng-repeat="(key,stat) in content.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="inline">
