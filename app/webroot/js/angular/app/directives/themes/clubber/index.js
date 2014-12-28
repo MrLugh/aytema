@@ -45,12 +45,12 @@ function(){
                 clearTimeout(timer);
                 timer = setTimeout(function(){
                     if ( $(window).scrollTop() == 0 ) {
-                        $('nav').removeClass('navbar-fixed-top');
-                        $('nav').addClass('navbar-default');
+                        $('nav').removeClass('navbar-fixed-top animated fadeInDownBig');
+                        $('nav').addClass('navbar-default animated fadeInUp');
                         scope.$apply(scope.fixed = false);
                     } else {
-                        $('nav').removeClass('navbar-default');
-                        $('nav').addClass('navbar-fixed-top');
+                        $('nav').removeClass('navbar-default animated fadeInUp');
+                        $('nav').addClass('navbar-fixed-top animated fadeInDownBig');
                         scope.$apply(scope.fixed = true);
                     }
 					scope.$apply(scope.scrolling = false);
