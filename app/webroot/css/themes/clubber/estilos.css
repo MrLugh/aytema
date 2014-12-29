@@ -471,7 +471,7 @@ ul {
   height: 54px;
 }
 #footer form textarea.form-control {
-    height: 125px;
+    height: auto;
 }
 #footer form input.form-control:focus, form textarea.form-control:focus {
   color: #000!important;
