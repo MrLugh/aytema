@@ -1,4 +1,4 @@
-<div class="app" ng-style="getAppStyle()" ng-class="getAppClass()">
+<div class="app" ng-class="getAppClass()">
 
 	<fb app-id='211895592326072'></fb>
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -12,11 +12,9 @@
 
 			<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
 				<div ng-switch="tab.key" class="inside">
-					<admin-pagefilter ng-switch-when='pagefilter'></admin-pagefilter>
-					<admin-contentsize ng-switch-when='contentsize'></admin-contentsize>
 					<admin-colors ng-switch-when='colors'></admin-colors>
 					<admin-fonts ng-switch-when='fonts'></admin-fonts>
-					<admin-width ng-switch-when='width'></admin-width>
+					<admin-background ng-switch-when='background'></admin-background>
 				</div>
 			</tab>
 
@@ -24,7 +22,7 @@
 
 	</div>
 
-	<nav class="navbar navbar-default" role="navigation" get-menu-height ng-style="getMenuStyle()">
+	<nav class="navbar navbar-fixed-top" role="navigation" get-menu-height ng-style="getMenuStyle()">
 	  
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -33,7 +31,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<img ng-src="{{user.profile_image}}" class="profileImage img-circle"/>
+			<!--<img ng-src="{{user.profile_image}}" class="profileImage img-circle"/>-->
 			<a class="navbar-brand" href="#/" ng-style="getMenuStyle()">{{user.username|uppercase}}</a>
 		</div>
 
@@ -42,16 +40,16 @@
 
 				<li ng-repeat="network in filters.networks" class="inline menu-item" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)" tooltip="On/Off {{network}}" tooltip-placement="bottom">
 					<p class="navbar-text navbar-right">
-						<a href="#" class="navbar-link" skip-default>
-							<img ng-src="{{networkIcon(network)}}" class="socialIcon" />
+						<a href="#" skip-default>
+							<i class="{{networkIcon(network)}}"></i>
 						</a>
 					</p>
 				</li>
 
 				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterConceptStyle(concept)" class="inline menu-item" tooltip="On/Off {{concept}}" tooltip-placement="bottom">
 					<p class="navbar-text navbar-right">
-						<a href="#" class="navbar-link" skip-default>
-							<i ng-class="conceptIcon(concept)" ng-style="getMenuStyle()"></i>
+						<a href="#" skip-default>
+							<i class="{{conceptIcon(concept)}}"></i>
 						</a>
 					</p>
 				</li>
@@ -61,83 +59,70 @@
 
 	</nav>
 
-	<div id="container">
+	<div id="container" ng-style="getStyle()">
 
-		<ul id="list" infinite-scroll="moreContent()" ng-style="getStyle()">
+		<ul id="list">
 
-			<li ng-repeat="content in list" ng-switch="content.concept" class="content well" ng-class="getContentClass($index)" id="content_{{$index}}" ng-style="getContentStyle()">
+			<li ng-repeat="content in list" ng-switch="content.concept" class="content left">
 
-				<content-video ng-switch-when='video'></content-video>
-				<content-photo ng-switch-when='photo'></content-photo>
-				<content-track ng-switch-when='track'></content-track>
-				<content-post  ng-switch-when='post' ></content-post>
-				<content-quote ng-switch-when='quote'></content-quote>
-				<content-chat  ng-switch-when='chat' ></content-chat>
-				<content-link  ng-switch-when='link' ></content-link>
-				<content-event ng-switch-when='event'></content-event>
+				<div class="left_column left">
+					<content-video ng-switch-when='video'></content-video>
+					<content-photo ng-switch-when='photo'></content-photo>
+					<content-track ng-switch-when='track'></content-track>
+					<content-post  ng-switch-when='post' ></content-post>
+					<content-quote ng-switch-when='quote'></content-quote>
+					<content-chat  ng-switch-when='chat' ></content-chat>
+					<content-link  ng-switch-when='link' ></content-link>
+					<content-event ng-switch-when='event'></content-event>
 
+					<ul class="stats both">
+						<li ng-repeat="(key,stat) in content.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat">
+							<div>
+								<i ng-class="contentSv.getStatIcon(key)"></i> 
+								<span count-up="{{stat}}">{{stat}}</span>
+							</div>
+						</li>
+					</ul>
 
-				<div>
+				</div>
+
+				<div class="right_column right">
 					<span class="user_info left">
 						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
-							<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile" />
+							<img class="profile well" ng-src="{{getProfileImg($index)}}" alt="Go to profile" />
 							{{content.external_user_name}}
-							<img alt="{{nework}} profile" ng-src="{{networkIcon(content.network)}}" class="socialIcon" />
+							<i class="{{networkIcon(content.network)}}"></i>
 						</a>
 					</span>
 
-					<ul class="share left well">
+					<ul class="share left both">
+						<h3>Share on:</h3>
 						<li class="left inline">
 		                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
-		                		<img src="http://cloudcial.com/img/themes/simple/twitter.png" alt="Twitter" />
+		                		<i class="{{networkIcon('twitter')}}"></i>
 		                	</a>
 		                </li>
 		                <li class="left inline">
 		                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-		                		<img src="http://cloudcial.com/img/themes/simple/facebook.png" alt="Facebook" />
+		                		<i class="{{networkIcon('facebook')}}"></i>
 		                	</a>
 		                </li>
 		                <li class="left inline">
 		                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
-		                		<img src="http://cloudcial.com/img/themes/simple/tumblr.png" alt="Tumblr" />
+		                		<i class="{{networkIcon('tumblr')}}"></i>
 		                	</a>
 		                </li>
 		            </ul>
-		        </div>
 
-				<fb-comments ng-if="$index == current" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
+					<!--		            
+		            <fb-comments ng-if="$index == current" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
+		            -->
+		        </div>
 
 			</li>
 
 		</ul>
 
 	</div>
-
-	<div class="footer" ng-style="getFooterStyle()" get-footer-height>
-
-		<a href="#/" class="footercontrol" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>
-			<i class="fa fa-play-circle" ng-style="getFooterButtonStyle()"></i>
-		</a>
-
-		<div ng-show="showFooter" class="queued">
-			<ul ng-style="getQueueStyle()">
-				<li ng-repeat="content in contentSv.getQueue()" class="{{content.network}}_{{content.concept}}" style="position:relative;" ng-if="hasPlayer($index)">
-					<i class="fa fa-times-circle both" ng-click="contentSv.deleteFromQueue(content)"></i>
-					<div class="player both" ng-bind-html="getPlayer($index)"></div>
-				</li>
-			</ul>
-		</div>
-
-	</div>
-
-	<a href="#/" thumbnail="getNavigatorContent(-1)" skip-default ng-click="move(-1)" ng-if="list.length>1" class="control control_prev {{getNavigatorNetwork(-1)}}AccountRgba left" control-hover="prev" style="top:{{menuHeight+4}}px;" ng-style="getControlStyle(-1)">
-		<img class="social-media right" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(-1)}}-big.png" alt="" tooltip="{{getNavigatorTitle(-1)|capitalize}}" tooltip-placement="right"/>
-		<i class="social-icon right" ng-class="getNavigatorConceptIcon(-1)"></i>
-	</a>
-
-	<a href="#/" thumbnail="getNavigatorContent(1)"  skip-default ng-click="move(1)" ng-if="list.length>1" class="control control_next {{getNavigatorNetwork(1)}}AccountRgba right" control-hover="next" style="top:{{menuHeight+4}}px;" ng-style="getControlStyle(1)">
-		<img class="social-media left" ng-src="http://cloudcial.com/img/themes/simple/{{getNavigatorNetwork(1)}}-big.png" alt="" tooltip="{{getNavigatorTitle(1)|capitalize}}" tooltip-placement="left"/>
-		<i class="social-icon left" ng-class="getNavigatorConceptIcon(1)"></i>
-	</a>
 
 </div>

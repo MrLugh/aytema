@@ -1,7 +1,9 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="event {{content.network}}_{{content.concept}}">
 
-	<h2 ng-style="getControlsStyle()">{{content.data.name}} {{content.data.date}} @ {{content.data.place}}</h2>
-	<a ng-if="content.data.ticket.length > 0" ng-href="{{content.data.ticket}}" target="_blank" class="right event_map">Buy Tickets</a>
-	<img alt="Google map on {{content.data.address}}" ng-src="{{contentSv.getThumbnail(content)}}" />
+	<img thumbnail="content" src="{{contentSv.getThumbnail(content)}}" />
+	<div class="content_caption" ng-style="getControlsStyle()" ng-if="getTitle().length>0 || getDescription().length>0">
+		<h2 ng-style="getControlsStyle()">{{content.data.name}} {{content.data.date}} @ {{content.data.place}}</h2>
+		<a ng-if="content.data.ticket.length > 0" ng-href="{{content.data.ticket}}" target="_blank" class="right event_map">Buy Tickets</a>
+	</div>
 
 </div>

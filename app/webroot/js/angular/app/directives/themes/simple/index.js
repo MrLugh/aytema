@@ -1,5 +1,5 @@
-ayTemaDs.directive('themeSimple',[
-function(){
+ayTemaDs.directive('themeSimple',['$window',
+function($window){
     
     return {
         templateUrl : getPath('tpl')+'/themes/simple/index.html',
@@ -9,52 +9,43 @@ function(){
         scope: true,
         link: function(scope,element,attrs) {
 
+            var scroll = function() {
+                var bottom = $(window).height() + $(window).scrollTop();
+                var height = $(document).height();
+
+                var scrollPercent = Math.round(100*bottom/height);
+                if(!scope.show && !scope.loading && scrollPercent > 99) {
+                    scope.$apply(scope.moreContent());
+                }
+            }
+
+            var destroy = function() {
+                element.unbind('$destroy',destroy);
+                angular.element($window).unbind('scroll',scroll);
+            }
+
+            angular.element($window).bind('scroll',scroll);
+            element.bind('$destroy',destroy);
+
         }
     }
 
 }]);
 
+ayTemaDs.directive('content',[
+function(){
+    
+    return {
+        restrict : 'C',
+        link: function(scope,element,attrs) {
 
-ayTemaDs.directive('controlHover',[
-function() {
-    return function(scope, elm, attr) {
-        var raw = elm[0];
+            imagesLoaded(element[0],function(){
+                element.addClass('animated fadeInUp');
+            });
 
-        var sufix = attr.controlHover;
+        }
+    }
 
-        elm.ready(function(){
-
-            elm.hover(
-                function(){
-
-                    scope.$apply(function(){
-                        scope.$parent.controlHover = true;
-                    });
-                    
-                    var prev = angular.element(document.querySelector(".control_prev"));
-                    $(prev[0]).addClass('control_prev_hover');
-                    var next = angular.element(document.querySelector(".control_next"));
-                    $(next[0]).addClass('control_next_hover');
-
-                    //$(elm[0]).addClass('control_'+sufix+'_hover');
-                },
-                function(){
-
-                    scope.$apply(function(){
-                        scope.$parent.controlHover = false;
-                    });
-
-                    var prev = angular.element(document.querySelector(".control_prev"));
-                    $(prev[0]).removeClass('control_prev_hover');
-                    var next = angular.element(document.querySelector(".control_next"));
-                    $(next[0]).removeClass('control_next_hover');
-
-                    //$(document.querySelector(".content_hover")).css('opacity','');
-                    //$(elm[0]).removeClass('control_'+sufix+'_hover');
-                }
-            );
-        });
-    };
 }]);
 
 ayTemaDs.directive('fbComments',['$FB','$timeout',

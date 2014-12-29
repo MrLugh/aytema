@@ -7,7 +7,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.accounts	= {};
 	$scope.accountsLoaded = false;
 
-	$scope.limit 	= 10;
+	$scope.limit 	= 1;
 	$scope.offset	= 0;
 	$scope.list 	= [];
 	$scope.filters	= {'concepts':[],'networks':[]};
@@ -20,9 +20,9 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.configLoaded = false;
     $scope.showConfig = false;
 	$scope.tabs = [
-		{ title:"Colors", key:"colors" },
+		{ title:"Colors", key:"colors", active: true },
+		{ title:"background Image", key:"background" },
 		{ title:"Fonts", key:"fonts" },
-		{ title:"Width", key:"width" },
 	];
 	$scope.activeAdminTab = 'colors';
 
@@ -180,10 +180,10 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		}		
 	},true);	
 
-	$scope.$watch("userSv.getThemeConfig().custom.width",function(width){
-		if (angular.isDefined(width)) {
-			$scope.config.custom.width = width;
-			$scope.getAppStyle();
+	$scope.$watch("userSv.getThemeConfig().custom.background",function(background){
+		if (angular.isDefined(background)) {
+			$scope.config.custom.background = background;
+			$scope.setBackground();
 		}		
 	},true);
 
@@ -191,34 +191,12 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		if (queue.length>0) {
 			$scope.showFooter = true;
 		}
-	},true);	
+	},true);
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
         appSv.setHeight(sizes[1]);
-        $scope.getStyle();
     });
-
-	$scope.$watchCollection("[showFooter]",function(values){
-		$scope.getFooterStyle();
-	});
-
-	$scope.$watchCollection("[controlHover,current]",function(values){
-		$scope.getNavigatorThumbnail(-1);
-		$scope.getNavigatorTitle(-1);
-		$scope.getNavigatorNetwork(-1);
-		$scope.getNavigatorContent(-1);
-
-
-		$scope.getNavigatorThumbnail(1);
-		$scope.getNavigatorTitle(1);
-		$scope.getNavigatorNetwork(1);
-		$scope.getNavigatorContent(1);
-
-
-		$scope.getContentStyle();
-		$scope.hideOnHover();
-	});
 
 	$scope.move = function(direction) {
 
@@ -246,7 +224,27 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     }	
 
 	$scope.networkIcon = function(network) {
-		return "http://cloudcial.com/img/socialnet/icons/ce_"+network+".png";
+
+		var icon_class = "";
+
+        if (network == "cloudcial") {
+            icon_class = "icon-cloud";
+        } else if (network == "facebook") {
+            icon_class = "fa fa-facebook";
+        } else if (network == "twitter") {
+            icon_class = "icon-twitter";
+        } else if (network == "youtube") {
+            icon_class = "fa fa-youtube";            
+        } else if (network == "vimeo") {
+            icon_class = "icon-vimeo";
+        } else if (network == "tumblr") {
+            icon_class = "icon-tumblr";
+        } else if (network == "mixcloud") {
+            icon_class = "icon-renren";
+        } else if (network == "soundcloud") {
+            icon_class = "icon-soundcloud";
+        }
+		return icon_class;
 	}
 
 	$scope.statIcon = function(stat_name) {
@@ -320,15 +318,61 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		$scope.setList();
 	}
 
-	$scope.getStyle = function() {
-		appSv.setMyWH(appSv.getHeight() - $scope.menuHeight);
-		return {'min-height':appSv.getHeight() - $scope.menuHeight + 'px'};
+    $scope.adminTheme = function() {
+    	$scope.showConfig = !$scope.showConfig;
+    };
+
+	$scope.setColor = function() {
+
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
+
+		var element = angular.element(document.querySelector('#list'));
+		//$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+
+		var element = angular.element(document.querySelector('.control'));
+		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 	}
 
-	$scope.getQueueStyle = function() {
-		return {'width':appSv.getWidth() + 'px'};
+	$scope.setFont = function() {
+
+		var element = angular.element(document.querySelector('body'));
+		$(element[0]).css('font-family',$scope.config.custom.fonts.selected.family);
+		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
 	}
 
+	$scope.setBackground = function() {
+
+		var element = angular.element(document.querySelector('body'));
+
+		if (!$scope.config.custom.background.selected.length) {
+			$(element[0]).css('background-image','');
+			return;
+		}
+
+
+        var img = new Image();
+
+        img.onload = function() {
+
+			$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
+
+        	var w = img.naturalWidth;
+        	var h = img.naturalHeight;
+
+        	if (w < 500 || h < 500) {
+        		$(element[0]).css('background-size','initial');
+        		$(element[0]).css('background-attachment','initial');
+        		return;
+        	}
+
+    		$(element[0]).css('background-size','cover');
+    		$(element[0]).css('background-attachment','fixed');
+        }
+
+        img.src = $scope.config.custom.background.selected;
+	}
 
 	$scope.getAccountLink = function(index,external_user_id) {
 		for (var x in $scope.accounts) {
@@ -353,60 +397,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		return '';
 	}
 
-	$scope.hideOnHover = function() {
-
-		if ($scope.controlHover) {
-			return {'display':'none'}
-		}
-		return {'display':'block'}
-	}
-
-    $scope.adminTheme = function() {
-    	$scope.showConfig = !$scope.showConfig;
-    };
-
-    $scope.footer = function() {
-    	$scope.showFooter = !$scope.showFooter;
-    };
-
-    $scope.getAppStyle = function() {
-    	var width = "100%";
-    	if (!angular.equals({},$scope.config)) {
-    		width = $scope.config.custom.width;
-    	}
-
-    	return {'width':width};
-    }
-
-    $scope.getAppClass = function() {
-
-    	if (angular.equals({},$scope.config)) {
-    		return '';
-    	}
-
-    	if ($scope.config.custom.width != "100%") {
-    		return 'boxed';
-    	}
-    	return '';
-    }
-
-	$scope.setColor = function() {
-
-		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-
-		var element = angular.element(document.querySelector('#list'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-
-		var element = angular.element(document.querySelector('.control'));
-		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-	}
-
-	$scope.setFont = function() {
-
-		var element = angular.element(document.querySelector('body'));
-		$(element[0]).css('font-family',$scope.config.custom.fonts.selected.family);
-		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
+	$scope.getStyle = function() {
+		return {'margin-top':$scope.getMenuHeight() + 'px'};
 	}
 
     $scope.getConfigStyle = function() {
@@ -423,19 +415,18 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	   	return {'left':'0'};
     };
 
+	$scope.getQueueStyle = function() {
+		return {'width':appSv.getWidth() + 'px'};
+	}
+
     $scope.getFooterStyle = function() {
 
-    	var width = "100%";
     	var style = {};
     	if (!angular.equals({},$scope.config)) {
-    		width = $scope.config.custom.width;
-
 			var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
 			var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
     		style['background-color'] = rgbString;
     	}
-
-    	style['width'] = width;
 
 	   	if ($scope.showFooter == true) {
 	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
@@ -477,44 +468,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		};
     }
 
-    $scope.getContentStyle = function() {
-
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-    	var style = {
-			//'background-color':$scope.config.custom.colors.contentBackground.value,
-			'color':$scope.config.custom.colors.contentText.value,
-			'min-height':appSv.getHeight() - $scope.menuHeight + 'px'
-    	}
-
-    	if ($scope.controlHover) {
-
-    		if ($scope.config.custom.width != "100%") {
-	    		style['width']	= '60%';
-	    		style['left']	= '20%';
-    		} else {
-	    		style['width']	= '50%';
-	    		style['left']	= '25%';
-    		}
-
-
-    	} else {
-
-    		if ($scope.config.custom.width != "100%") {
-	    		style['width']	= '90%';
-	    		style['left']	= '5%';
-    		} else {
-    			
-    		}
-
-    	}
-
-    	return style;
-
-    }
-
     $scope.getControlStyle = function(direction) {
 
     	if (!angular.isDefined($scope.config.custom)) {
@@ -528,205 +481,4 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		return style;
     }
 
-    $scope.getContentClass = function(index) {
-
-    	if ($scope.current != index) {
-    		return '';
-    	}
-    	var current = $scope.list[$scope.current];
-    	return 'content_hover '+current.network+'_color';
-    }
-
-	$scope.getNavigatorContent = function(direction) {
-
-		var current = $scope.current;
-
-		if (direction > 0) {
-			current++;
-		} else {
-			current--;
-		}
-
-		if (current == $scope.list.length) {
-			current = 0;
-		}
-		if (current < 0) {		
-			current = $scope.list.length - 1;
-		}
-
-		if (!angular.isDefined($scope.list[current])) {
-			return '';
-		}
-		var content = $scope.list[current];
-		return content;
-	}    
-
-    $scope.getNavigatorIndex = function(direction) {
-
-		var current = $scope.current;
-
-		if (direction > 0) {
-			current++;
-		} else {
-			current--;		
-		}
-
-		if (current == $scope.list.length) {
-			current = 0;
-		}
-		if (current < 0) {		
-			current = $scope.list.length - 1;
-		}
-
-		return current;
-    }
-
-	$scope.getNavigatorClass = function(direction) {
-
-		var current = $scope.current;
-
-		if (direction > 0) {
-			current++;
-		} else {
-			current--;		
-		}
-
-		if (current == $scope.list.length) {
-			current = 0;
-		}
-		if (current < 0) {		
-			current = $scope.list.length - 1;
-		}
-
-		if (!angular.isDefined($scope.list[current])) {
-			return '';
-		}
-		var content = $scope.list[current];
-		return content.network+"_bg "+content.network+"_color";
-	}
-
-	$scope.getNavigatorTitle = function(direction) {
-
-		var current = $scope.current;
-
-		if (direction > 0) {
-			current++;
-		} else {
-			current--;
-		}
-
-		if (current == $scope.list.length) {
-			current = 0;
-		}
-		if (current < 0) {		
-			current = $scope.list.length - 1;
-		}
-
-		if (!angular.isDefined($scope.list[current])) {
-			return '';
-		}
-		var content = $scope.list[current];
-		return content.network+" "+content.external_user_name+" "+content.concept;
-	}
-
-	$scope.getNavigatorNetwork = function(direction) {
-
-		var current = $scope.current;
-
-		if (direction > 0) {
-			current++;
-		} else {
-			current--;
-		}
-
-		if (current == $scope.list.length) {
-			current = 0;
-		}
-		if (current < 0) {		
-			current = $scope.list.length - 1;
-		}
-
-		if (!angular.isDefined($scope.list[current])) {
-			return '';
-		}
-		var content = $scope.list[current];
-		return content.network;
-	}
-
-	$scope.getNavigatorThumbnail = function(direction) {
-
-		var current = $scope.current;
-
-		if (direction > 0) {
-			current++;
-		} else {
-			current--;
-		}
-
-		if (current == $scope.list.length) {
-			current = 0;
-		}
-		if (current < 0) {		
-			current = $scope.list.length - 1;
-		}
-
-		if (!angular.isDefined($scope.list[current])) {
-			return '';
-		}
-
-		var content = $scope.list[current];
-
-		if (angular.isDefined(content)) {
-			return contentSv.getThumbnail(content);
-		}
-
-		return '';
-	}
-	$scope.getNavigatorConceptIcon = function(direction) {
-
-		var current = $scope.current;
-
-		if (direction > 0) {
-			current++;
-		} else {
-			current--;
-		}
-
-		if (current == $scope.list.length) {
-			current = 0;
-		}
-		if (current < 0) {		
-			current = $scope.list.length - 1;
-		}
-
-		if (!angular.isDefined($scope.list[current])) {
-			return '';
-		}
-
-		var content = $scope.list[current];
-
-		if (angular.isDefined(content)) {
-			return contentSv.getConceptIcon(content.concept);
-		}
-
-		return '';
-	}
-
-	$scope.hasPlayer = function(index) {
-
-		var content = contentSv.getQueue()[index];
-		if (!angular.isDefined(content)) {
-			return false;
-		}
-		return true;
-	}
-
-	$scope.getPlayer = function(index) {
-
-		var content = contentSv.getQueue()[index];
-		if (!angular.isDefined(content)) {
-			return $sce.trustAsHtml("");
-		}
-		return $sce.trustAsHtml(contentSv.cleanSource(contentSv.getPlayer(content)));
-	}
 }

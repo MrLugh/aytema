@@ -35,9 +35,12 @@
     echo $this->Html->css('bootstrap');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('minicolors');
+    echo $this->Html->css('dropzone');
     echo $this->Html->css('admin');
     echo $this->Html->css('themes/simple/estilos');
     echo $this->Html->css('themes/simple/estilos-responsive');
+    echo $this->Html->css('animate');
+    echo $this->Html->css('themes/simple/fontello');
     ?>
 
     <!-- Js -->
@@ -50,6 +53,8 @@
     echo $this->Html->script('imagesloaded.pkgd');    
     echo $this->Html->script('carouFredSel');
     echo $this->Html->script('touchSwipe.min');
+    echo $this->Html->script('dropzone');
+    echo $this->Html->script('countUp');
     ?>
 
     <!-- Config -->
@@ -89,7 +94,7 @@
     echo $this->Html->script('angular/app/controllers/login');
     echo $this->Html->script('angular/app/controllers/admin/colors');
     echo $this->Html->script('angular/app/controllers/admin/fonts');
-    echo $this->Html->script('angular/app/controllers/admin/width');
+    echo $this->Html->script('angular/app/controllers/admin/background');
 
         // Themes
         echo $this->Html->script('angular/app/controllers/themes');
@@ -115,7 +120,7 @@
     echo $this->Html->script('angular/app/directives/login');
     echo $this->Html->script('angular/app/directives/admin/colors');
     echo $this->Html->script('angular/app/directives/admin/fonts');
-    echo $this->Html->script('angular/app/directives/admin/width');
+    echo $this->Html->script('angular/app/directives/admin/background');
         // Themes
         echo $this->Html->script('angular/app/directives/themes/simple/index');
         echo $this->Html->script('angular/app/directives/themes/simple/content');

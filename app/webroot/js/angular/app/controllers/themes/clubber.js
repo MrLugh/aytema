@@ -328,11 +328,18 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.setBackground = function() {
 
+		var element = angular.element(document.querySelector('body'));
+
+		if (!$scope.config.custom.background.selected.length) {
+			$(element[0]).css('background-image','');
+			return;
+		}
+
+
         var img = new Image();
 
         img.onload = function() {
 
-			var element = angular.element(document.querySelector('body'));
 			$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
 
         	var w = img.naturalWidth;

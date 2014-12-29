@@ -35,7 +35,15 @@ Class Themesimple {
                 'Junge' => "'Junge', serif"
             ),
         ),
-        'width' => '100%'
+        'background' => array(
+            'selected'   => '/img/themes/simple/bg.png',
+            'list' => array(
+                'none'  => '',
+                'dot'   => '/img/themes/simple/bg-dot.png',
+                'mask'  => '/img/themes/simple/bg.png',
+                'grey'  => '/img/themes/simple/bg.jpg'
+            ),
+        )
     );
 
 
