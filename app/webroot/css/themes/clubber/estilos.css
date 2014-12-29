@@ -242,6 +242,17 @@ ul {
   float: left;
   border-style:solid;
   border-width: 2px;
+  -webkit-transition:all 0.56s ease-in-out 0s;
+  -moz-transition:all 0.56s ease-in-out 0s;
+  -o-transition:all 0.56s ease-in-out 0s;
+  transition:all 0.56s ease-in-out 0s;
+}
+
+.navbar-fixed-top .menu-item:hover {
+  border-style:dashed;
+  border-width: 2px;
+  border-color: #000000 #ffffff;
+  background-color: rgba(0,0,0,0.3);
 }
 
 .boxed .navbar-fixed-top .menu-item {
