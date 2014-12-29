@@ -167,35 +167,18 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 
     	var style = {};
 
-		if (!$scope.fixed) {
+		if ($scope.isActive(page)) {
+
+			var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentText.value);
+			var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
+			style['background-color'] = rgbString;
+		}
+
+		if ($scope.fixed) {
 
 			if ($scope.isActive(page)) {
-
-				var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentText.value);
-				var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
-				style['background-color'] = rgbString;
+				style['color'] = $scope.config.custom.colors.contentBackground.value;
 			}
-
-		} else {
-
-			if ($scope.isActive(page)) {
-				style['color'] 				= $scope.config.custom.colors.contentText.value;
-				style['background-color'] 	= $scope.config.custom.colors.contentBackground.value;
-				style['border-color']		= $scope.config.custom.colors.background.value;
-			} else {
-
-				var color = $scope.config.custom.colors.contentBackground.value.replace("#","");
-				if (contentSv.getContrast50(color) == 'white') {
-					color = '#ffffff';
-				} else {
-					color = '#000000'
-				}
-
-				style['color']				= color;
-				style['border-color']		= $scope.config.custom.colors.background.value;
-				style['background-color'] 	= '';
-			}
-
 		}
 
 
