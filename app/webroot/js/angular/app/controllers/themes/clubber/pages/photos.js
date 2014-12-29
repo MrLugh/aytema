@@ -88,7 +88,6 @@ function PhotosCo($scope,appSv,contentSv,$sce) {
 		if (indexCurrent < 0) {		
 			indexCurrent = $scope.photolist.length - 1;
 		}
-		console.log($scope.photolist[indexCurrent]);
 		$scope.showPhoto($scope.photolist[indexCurrent]);
 	}
 
