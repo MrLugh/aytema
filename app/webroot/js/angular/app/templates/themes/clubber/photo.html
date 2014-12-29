@@ -8,11 +8,11 @@
 	      <div class="overlay-inner">
 	        <h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 			
-			<a ng-if="moreThanOne()" class="left photo_prev" href="#/" skip-default ng-click="move(-1)">
+			<a ng-if="moreThanOne()" class="left photo_prev prev" href="#/" skip-default ng-click="move(-1)">
 				<i class="icon-left-open"></i>
 		 	</a>
 
-			<a ng-if="moreThanOne()" class="right photo_next" href="#/" skip-default ng-click="move(1)">
+			<a ng-if="moreThanOne()" class="right photo_next next" href="#/" skip-default ng-click="move(1)">
 				<i class="icon-right-open"></i>
 			</a>
 

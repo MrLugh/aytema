@@ -46,7 +46,7 @@
 
 				<ul ng-if="configLoaded" class="nav navbar-nav right">
 
-					<li ng-class="getMenuItemClass('home')" class="menu-item active" ng-style="getMenuItemStyle('home')">
+					<li ng-class="getMenuItemClass('home')" class="menu-item {{getMenuItemClass('home')}}" ng-style="getMenuItemStyle('home')">
 						<a href="#/" ng-click="setCurrent('home')" ng-style="getMenuItemStyle('home')" skip-default> <i class="fa fa-home"></i> <strong>Home</strong></a>
 					</li>
 

@@ -152,7 +152,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.getMenuItemClass = function(page) {
-		return ($scope.isActive(page)) ? 'active':'';
+		return ($scope.isActive(page)) ? 'active animated fadeInLeft':'';
 	}
 
 	$scope.getMenuItemIconClass = function(page) {

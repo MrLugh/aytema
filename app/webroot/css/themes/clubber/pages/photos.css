@@ -68,7 +68,7 @@
 
 }
 
-.pagePhotos > ul li .pagePhotoContainer .overlay i {
+.pagePhotos > ul li .pagePhotoContainer .overlay i.show {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -145,13 +145,22 @@
 /* controls */
 
 .pagePhotos > ul li .photo_prev , .pagePhotos > ul li .photo_next {
-    height: 100%;
+    position: absolute;
+    top:48%;
     background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
     filter: alpha(opacity=50);
     opacity: 0.5;
+}
+
+.pagePhotos > ul li .photo_prev {
+    left: 0;
+}
+
+.pagePhotos > ul li .photo_next {
+    right: 0;
 }
 
 .pagePhotos > ul li .photo_prev:hover , .pagePhotos > ul li .photo_next:hover {
