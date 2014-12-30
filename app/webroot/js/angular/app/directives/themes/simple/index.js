@@ -40,7 +40,10 @@ function(){
         link: function(scope,element,attrs) {
 
             imagesLoaded(element[0],function(){
-                element.addClass('animated fadeInUp');
+                var timer = setTimeout(function(){
+                    clearTimeout(timer);
+                    element.addClass('animated fadeInUp');
+                },350);                
             });
 
         }
