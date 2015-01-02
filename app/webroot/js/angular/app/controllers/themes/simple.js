@@ -102,7 +102,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 			$('html, body').animate({
 				scrollTop: $(document).height()
-			}, 1500);
+			}, 1000);
 
 
 			var params			= [];

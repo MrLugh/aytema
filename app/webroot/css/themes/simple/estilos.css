@@ -5,6 +5,7 @@ body {
 	-moz-transition:all 0.56s ease-in-out 0s;
 	-o-transition:all 0.56s ease-in-out 0s;
 	transition:all 0.56s ease-in-out 0s;
+  overflow-y: scroll;
   overflow-x: hidden;
 }
 
