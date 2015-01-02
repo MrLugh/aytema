@@ -9,24 +9,6 @@ function($window){
         scope: true,
         link: function(scope,element,attrs) {
 
-            var scroll = function() {
-                var bottom = $(window).height() + $(window).scrollTop();
-                var height = $(document).height();
-
-                var scrollPercent = Math.round(100*bottom/height);
-                if(!scope.show && !scope.loading && scrollPercent > 99) {
-                    scope.$apply(scope.moreContent());
-                }
-            }
-
-            var destroy = function() {
-                element.unbind('$destroy',destroy);
-                angular.element($window).unbind('scroll',scroll);
-            }
-
-            angular.element($window).bind('scroll',scroll);
-            element.bind('$destroy',destroy);
-
         }
     }
 

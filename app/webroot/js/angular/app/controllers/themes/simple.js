@@ -322,6 +322,24 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     	$scope.showConfig = !$scope.showConfig;
     };
 
+	$scope.getCollapseMenuItemStyle = function() {
+
+    	if (angular.equals({},$scope.config)) {
+    		return {};
+    	}
+
+		var color = $scope.config.custom.colors.contentBackground.value.replace("#","");
+		if (contentSv.getContrast50(color) == 'white') {
+			color = '#ffffff';
+		} else {
+			color = '#000000'
+		}
+
+		return {
+			'background-color': color
+		}
+	}
+
 	$scope.setColor = function() {
 
 		var element = angular.element(document.querySelector('body'));

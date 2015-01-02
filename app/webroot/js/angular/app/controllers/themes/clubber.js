@@ -417,7 +417,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 			'color': color,
 			//'background-color':$scope.config.custom.colors.contentBackground.value
 		}
-	}	
+	}
 
 
     $scope.getFooterStyle = function() {
