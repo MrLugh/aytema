@@ -100,6 +100,11 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 				return;
 			}
 
+			$('html, body').animate({
+				scrollTop: $(document).height()
+			}, 1500);
+
+
 			var params			= [];
 			params['concepts']	= JSON.parse(JSON.stringify($scope.concepts));
 			params['offset']	= $scope.offset;
