@@ -24,7 +24,7 @@ function(){
             imagesLoaded(element[0],function(){
                 var timer = setTimeout(function(){
                     clearTimeout(timer);
-                    element.addClass('animated fadeInUp');
+                    element.addClass('animated fadeIn');
                 },350);                
             });
 

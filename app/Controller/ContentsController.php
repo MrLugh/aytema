@@ -28,6 +28,7 @@ class ContentsController extends AppController {
         isset($this->request->query['limit'])  ? $limit = $this->request->query['limit']    : $limit    = 10;
         isset($this->request->query['username']) ? $username = $this->request->query['username'] : $username = null;
         isset($this->request->query['status']) ? $status = $this->request->query['status'] : $status = null;
+        isset($this->request->query['search']) ? $search = $this->request->query['search'] : $search = null;
 
         $findUser = $this->User->findByUsername($username);
 
@@ -57,6 +58,10 @@ class ContentsController extends AppController {
 
         if (count($selected_types)) {
             $params['Content.concept'] = $selected_types;
+        }
+
+        if (!empty($search)) {
+            $params['Content.data LIKE'] = $search;
         }
 
         $contents = $this->Content->find('all', array(
