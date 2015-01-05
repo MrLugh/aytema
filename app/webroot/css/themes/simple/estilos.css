@@ -161,3 +161,9 @@ ul {
   left:0;
   width:100%;
 }
+
+.stats .stat {
+  display: inline-block;
+  float: left;
+  margin-left: 10px;
+}
