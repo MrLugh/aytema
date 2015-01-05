@@ -15,6 +15,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.concepts = [];
 	$scope.current	= 0;
 	$scope.controlHover = false;
+	$scope.search	= '';
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -111,6 +112,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			params['limit']		= $scope.limit;
 			params['accounts']	= [];
 			params['status']	= 'enabled';
+			params['search']	= $scope.search;
 
 			params['username']	= $scope.user.username;
 			if (angular.isDefined($scope.user['id'])) {
@@ -170,6 +172,13 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			$scope.setList();			
 		}
 	});
+
+	$scope.$watch("search",function(){
+		if ($scope.configLoaded && $scope.accountsLoaded) {
+			$scope.initFilters();
+			$scope.setList();
+		}
+	},true);
 
 	$scope.$watch("userSv.getThemeConfig().custom.colors",function(colors){
 		if (angular.isDefined(colors)) {

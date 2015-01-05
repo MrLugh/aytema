@@ -61,7 +61,7 @@ class ContentsController extends AppController {
         }
 
         if (!empty($search)) {
-            $params['Content.data LIKE'] = $search;
+            $params['Content.data LIKE'] = "%{$search}%";
         }
 
         $contents = $this->Content->find('all', array(
