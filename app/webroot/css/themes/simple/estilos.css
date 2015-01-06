@@ -145,7 +145,6 @@ ul {
 
 #list .content .left_column {
   width: 70%;
-  text-align: left;
   position: relative;
 }
 
@@ -166,4 +165,8 @@ ul {
   display: inline-block;
   float: left;
   margin-left: 10px;
+}
+
+.content_caption {
+    text-align: left;
 }

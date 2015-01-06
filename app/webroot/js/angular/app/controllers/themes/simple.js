@@ -105,7 +105,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 				scrollTop: $(document).height()
 			}, 1000);
 
-
 			var params			= [];
 			params['concepts']	= JSON.parse(JSON.stringify($scope.concepts));
 			params['offset']	= $scope.offset;
