@@ -118,6 +118,10 @@ blockquote {
   max-width: 980px;
 }
 
+.well {
+  border: none;
+}
+
 ul {
 	list-style-type: none;
   margin: 0;

@@ -71,7 +71,7 @@
 
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content left">
 
-				<div class="left_column left">
+				<div class="left_column left well" ng-style="getContentStyle()">
 					<content-video ng-switch-when='video'></content-video>
 					<content-photo ng-switch-when='photo'></content-photo>
 					<content-track ng-switch-when='track'></content-track>
@@ -95,7 +95,7 @@
 				<div class="right_column right">
 					<span class="user_info left">
 						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
-							<img class="profile well" ng-src="{{getProfileImg($index)}}" alt="Go to profile" />
+							<img class="profile well" ng-src="{{getProfileImg($index)}}" alt="Go to profile" ng-style="getContentStyle()"/>
 							{{content.external_user_name}}
 							<i class="{{networkIcon(content.network)}}"></i>
 						</a>

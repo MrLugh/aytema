@@ -102,7 +102,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			}
 
 			$('html, body').animate({
-				scrollTop: $(document).height()
+				scrollTop: $(document).height() - 20
 			}, 1000);
 
 			var params			= [];
@@ -497,7 +497,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			'background-color':$scope.config.custom.colors.contentBackground.value,
 			'color':$scope.config.custom.colors.contentText.value,
 		};
-    }
+    };
 
     $scope.getControlStyle = function(direction) {
 
@@ -510,6 +510,18 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		style['color'] = $scope.config.custom.colors.contentText.value;
 
 		return style;
-    }
+    };
+
+    $scope.getContentStyle = function() {
+
+    	if (!angular.isDefined($scope.config.custom)) {
+    		return {};
+    	}
+
+		return {
+			'background-color':$scope.config.custom.colors.contentBackground.value,
+			'color':$scope.config.custom.colors.contentText.value,
+		};
+    };
 
 }
