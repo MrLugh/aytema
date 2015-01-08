@@ -101,10 +101,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 				return;
 			}
 
-			$('html, body').animate({
-				scrollTop: $(document).height() - 20
-			}, 1000);
-
 			var params			= [];
 			params['concepts']	= JSON.parse(JSON.stringify($scope.concepts));
 			params['offset']	= $scope.offset;
@@ -134,6 +130,13 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 							$scope.list.push(content);
 						}
 						$scope.offset += $scope.limit;
+
+						if ($scope.list.length > 1) {
+							$('html, body').animate({
+								scrollTop: $(document).height() - 40
+							}, 2000);
+						}
+
 					}
 				},
 				function(reason) {

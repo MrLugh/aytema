@@ -3,7 +3,7 @@
 	<a href="#/" add-to-queue="getPlayer()" skip-default class="right">
 		<i class="fa fa-play-circle" ng-style="getControlsStyle()"></i>
 	</a>
-	<img thumbnail="content" src="{{contentSv.getThumbnail(content)}}" />
+	<img thumbnail="content" src="{{contentSv.getThumbnail(content)}}" class="content_photo" />
 	<div class="content_caption" ng-style="getControlsStyle()" ng-if="getTitle().length>0 || getDescription().length>0">
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>	

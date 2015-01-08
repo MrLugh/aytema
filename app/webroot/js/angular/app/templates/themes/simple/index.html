@@ -34,7 +34,7 @@
 			<a class="navbar-brand" href="#/" ng-style="getMenuStyle()">{{user.username|uppercase}}</a>
 		</div>
 
-		<div id="bs-example-navbar-collapse-1">
+		<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 
 				<li ng-repeat="network in filters.networks" class="inline menu-item" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)" tooltip="On/Off {{network}}" tooltip-placement="bottom">
@@ -71,7 +71,7 @@
 
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content left">
 
-				<div class="left_column left well" ng-style="getContentStyle()">
+				<div class="left_column left rounded" ng-style="getContentStyle()">
 					<content-video ng-switch-when='video'></content-video>
 					<content-photo ng-switch-when='photo'></content-photo>
 					<content-track ng-switch-when='track'></content-track>
@@ -95,7 +95,7 @@
 				<div class="right_column right">
 					<span class="user_info left">
 						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
-							<img class="profile well" ng-src="{{getProfileImg($index)}}" alt="Go to profile" ng-style="getContentStyle()"/>
+							<img class="profile rounded" ng-src="{{getProfileImg($index)}}" alt="Go to profile" ng-style="getContentStyle()"/>
 							{{content.external_user_name}}
 							<i class="{{networkIcon(content.network)}}"></i>
 						</a>
@@ -129,7 +129,7 @@
 
 		</ul>
 
-		<a href="#" class="loadMore" ng-click="moreContent()" skip-default>More <i class="fa fa-plus"></i></a>
+		<a href="#" class="loadMore" ng-click="moreContent()" skip-default><i class="fa fa-plus-circle"></i></a>
 
 	</div>
 
