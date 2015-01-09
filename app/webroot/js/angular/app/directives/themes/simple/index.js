@@ -24,9 +24,10 @@ function(){
             imagesLoaded(element[0],function(){
                 var timer = setTimeout(function(){
                     clearTimeout(timer);
-                    element.addClass('animated fadeIn');
-                    element.find('.left_column').addClass('animated fadeIn');
-                    element.find('.right_column').addClass('animated fadeIn');
+                    element.addClass('animated bounceInDown');
+                    element.css('opacity','1');
+                    element.find('.left_column').addClass('animated bounceInDown');
+                    element.find('.right_column').addClass('animated bounceInDown');
                 },350);
             });
 
