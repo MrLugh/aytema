@@ -94,7 +94,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.setList = function() {
 
-		if (!contentSv.isLoading() && $scope.configLoaded) {
+		//if (!contentSv.isLoading() && $scope.configLoaded) {
+		if ($scope.configLoaded) {
 
 			if ($scope.concepts.length == 0) {
 				$scope.list = [];
@@ -177,7 +178,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.$watch("search",function(){
 		if ($scope.configLoaded && $scope.accountsLoaded) {
-			$scope.initFilters();
+			$scope.offset	= 0;
+			$scope.list 	= [];
 			$scope.setList();
 		}
 	},true);

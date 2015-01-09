@@ -25,8 +25,8 @@ function(){
                 var timer = setTimeout(function(){
                     clearTimeout(timer);
                     element.addClass('animated fadeIn');
-                    element.find('.left_column').addClass('animated fadeInLeft');
-                    element.find('.right_column').addClass('animated fadeInRight');
+                    element.find('.left_column').addClass('animated fadeIn');
+                    element.find('.right_column').addClass('animated fadeIn');
                 },350);
             });
 
