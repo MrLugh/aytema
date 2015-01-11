@@ -206,14 +206,18 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 	$scope.$watch("contentSv.getQueue()",function(newQueue,oldQueue){
 
+		if (!newQueue.length) {
+			$scope.showFooter = false;
+		}
+
 		if (newQueue.length>0 && newQueue.length > oldQueue.length) {
-			$scope.footer();
+			$scope.showFooter = true;
 
 			setTimeout(function(){
 				$('html, body').animate({
 					scrollTop: $(document).height() - 40
-				}, 1000);
-			},2500);
+				}, 500);
+			},750);
 
 		}
 	},true);
