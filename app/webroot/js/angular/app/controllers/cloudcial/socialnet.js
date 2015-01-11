@@ -232,7 +232,7 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 			}, 500);
 
     	},500);
-    }
+    };
 
     $scope.fullWidht = function(index) {
     	$scope.currentQueue = index;

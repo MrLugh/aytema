@@ -67,7 +67,7 @@
 
 	<div id="container" ng-style="getStyle()">
 
-		<ul id="list">
+		<ul id="list" ng-show="!showFooter" class="{{!showFooter ? 'animated fadeIn':''}}">
 
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content left">
 
@@ -84,7 +84,7 @@
 					<ul class="stats both">
 						<li ng-repeat="(key,stat) in content.stats" ng-if="stat != 0" tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="bottom" class="stat">
 							<div>
-								<i ng-class="contentSv.getStatIcon(key)"></i> 
+								<i ng-class="contentSv.getStatIcon(key)"></i>
 								<span count-up="{{stat}}">{{stat}}</span>
 							</div>
 						</li>
@@ -129,7 +129,24 @@
 
 		</ul>
 
-		<a href="#" class="loadMore" ng-click="moreContent()" skip-default><i class="fa fa-plus-circle"></i></a>
+		<a href="#" class="loadMore {{showFooter ? 'animated fadeOutRight':'animated fadeInRight'}}" ng-click="moreContent()" skip-default><i class="fa fa-plus-circle"></i></a>
+
+		<a ng-show="contentSv.getQueue().length" href="#/" class="footercontrol" ng-click="footer()" skip-default>
+			<i class="fa {{showFooter ? 'fa-times-circle-o':'fa-play-circle'}}"></i>
+		</a>
+
+		<div ng-show="showFooter" class="footer {{showFooter ? 'animated fadeInUp':''}}" ng-style="getFooterStyle()" get-footer-height>
+
+			<div class="queued">
+				<ul>
+					<li ng-repeat="content in contentSv.getQueue()" class="{{content.network}}_{{content.concept}}" id="content_{{$index}}" style="position:relative;">
+						<i class="icon-cancel both" ng-click="contentSv.deleteFromQueue(content)"></i>
+						<div class="player both" ng-bind-html="getPlayer($index)"></div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
 
 	</div>
 

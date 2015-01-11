@@ -13,8 +13,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.filters	= {'concepts':[],'networks':[]};
 	$scope.networks = [];
 	$scope.concepts = [];
-	$scope.current	= 0;
-	$scope.controlHover = false;
+	$scope.current	= -1;
 	$scope.search	= '';
 
 	$scope.config		= {};
@@ -205,9 +204,17 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		}		
 	},true);
 
-	$scope.$watch("contentSv.getQueue()",function(queue){
-		if (queue.length>0) {
-			$scope.showFooter = true;
+	$scope.$watch("contentSv.getQueue()",function(newQueue,oldQueue){
+
+		if (newQueue.length>0 && newQueue.length > oldQueue.length) {
+			$scope.footer();
+
+			setTimeout(function(){
+				$('html, body').animate({
+					scrollTop: $(document).height() - 40
+				}, 1000);
+			},2500);
+
 		}
 	},true);
 
@@ -240,6 +247,10 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     	var c = $scope.list[$scope.current];
     	return "http://cloudcial.com/comments/"+c.network + '_' + c.external_user_id + '_' + c.concept + '_' + c.external_id;
     }	
+
+    $scope.footer = function() {
+    	$scope.showFooter = !$scope.showFooter;
+    };
 
 	$scope.networkIcon = function(network) {
 
@@ -451,13 +462,10 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	   	return {'left':'0'};
     };
 
-	$scope.getQueueStyle = function() {
-		return {'width':appSv.getWidth() + 'px'};
-	}
-
     $scope.getFooterStyle = function() {
 
     	var style = {};
+
     	if (!angular.equals({},$scope.config)) {
 			var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
 			var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
@@ -465,7 +473,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
 	   	if ($scope.showFooter == true) {
-	   		style['top'] =  appSv.getHeight() - $scope.footerHeight + 'px';
+	   		style['top'] =  $scope.getMenuHeight() + 20 + 'px';
 	   		return style;	   		
     	}
     	style['top'] = '100%';
@@ -475,20 +483,18 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     $scope.getFooterButtonStyle = function() {
     	var style = {};
 
+    	/*
 	   	if ($scope.showFooter == true) {
 	   		style['bottom'] = '100%';
     	} else {
     		style['bottom'] = '0';
     	}
+    	*/
 
     	if (!angular.isDefined($scope.config.custom)) {
     		return style;
     	}
 
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-
-    	style['background-color'] = rgbString;
 	   	return style;
     };	    
 
@@ -528,5 +534,15 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			'color':$scope.config.custom.colors.contentText.value,
 		};
     };
+
+	$scope.getPlayer = function(index) {
+
+		var content = contentSv.getQueue()[index];
+		if (!angular.isDefined(content)) {
+			return $sce.trustAsHtml("");
+		}
+		return $sce.trustAsHtml(contentSv.getPlayer(content));
+	};
+
 
 }
