@@ -254,6 +254,13 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
     $scope.footer = function() {
     	$scope.showFooter = !$scope.showFooter;
+    	if (!$scope.showFooter) {
+			setTimeout(function(){
+				$('html, body').animate({
+					scrollTop: $(document).height() - 40
+				}, 500);
+			},750);
+    	}
     };
 
 	$scope.networkIcon = function(network) {
