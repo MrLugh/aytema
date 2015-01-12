@@ -154,6 +154,7 @@ ul {
 
 .stats {
   float: right;
+  margin: 10px;
 }
 
 .stats .stat {
@@ -176,7 +177,7 @@ ul {
   text-align: left;
   padding: 0px;
   margin-top: 20px;
-  border-top: 4px dashed grey;
+  border-top: 1px solid grey;
 }
 
 .share li {
@@ -242,7 +243,7 @@ ul {
 .queued ul li {
   padding: 10px;
   margin-bottom: 10px;  
-  border-bottom:5px dotted grey;
+  border-bottom:1px solid grey;
 }
 
 .queued ul li i {
