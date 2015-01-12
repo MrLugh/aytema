@@ -2,7 +2,7 @@
 
 	<img thumbnail="content" src="{{contentSv.getThumbnail(content)}}" class="content_photo" />
 	<div class="content_caption" ng-style="getControlsStyle()" ng-if="getTitle().length>0 || getDescription().length>0">
-		<h2 ng-style="getControlsStyle()">{{content.data.name}} {{content.data.date}} @ {{content.data.place}}</h2>
+		<h2 ng-style="getControlsStyle()" class="title">{{content.data.name}} {{content.data.date}} @ {{content.data.place}}</h2>
 		<a ng-if="content.data.ticket.length > 0" ng-href="{{content.data.ticket}}" target="_blank" class="right event_map">Buy Tickets</a>
 	</div>
 

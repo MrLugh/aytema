@@ -23,7 +23,7 @@
 	</div>
 
 	<nav class="navbar navbar-fixed-top" role="navigation" get-menu-height ng-style="getMenuStyle()">
-	  
+
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span>
@@ -39,17 +39,13 @@
 
 				<li ng-repeat="network in filters.networks" class="inline menu-item" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)" tooltip="On/Off {{network}}" tooltip-placement="bottom">
 					<p class="navbar-text navbar-right">
-						<a href="#" skip-default>
-							<i class="{{networkIcon(network)}}"></i>
-						</a>
+						<i class="{{networkIcon(network)}}"></i>
 					</p>
 				</li>
 
 				<li ng-repeat="concept in filters.concepts" ng-click="filterConcept(concept)" ng-style="filterConceptStyle(concept)" class="inline menu-item" tooltip="On/Off {{concept}}" tooltip-placement="bottom">
 					<p class="navbar-text navbar-right">
-						<a href="#" skip-default>
-							<i class="{{conceptIcon(concept)}}"></i>
-						</a>
+						<i class="{{conceptIcon(concept)}}"></i>
 					</p>
 				</li>
 
@@ -72,6 +68,10 @@
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content left">
 
 				<div class="left_column left rounded" ng-style="getContentStyle()">
+
+
+				<div ng-bind-html="customStyle()"></div>
+
 					<content-video ng-switch-when='video'></content-video>
 					<content-photo ng-switch-when='photo'></content-photo>
 					<content-track ng-switch-when='track'></content-track>
@@ -90,35 +90,35 @@
 						</li>
 					</ul>
 
+					<ul class="share both">
+						<h3 class="title">Share on:</h3>
+						<li class="inline">
+		                	<span ng-click="" href="http://twitter.com/share" share-twitter="{{content}}">
+		                		<i class="{{networkIcon('twitter')}}"></i>
+		                	</span>
+		                </li>
+		                <li class="inline">
+		                	<span ng-click="" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
+		                		<i class="{{networkIcon('facebook')}}"></i>
+		                	</span>
+		                </li>
+		                <li class="inline">
+		                	<span ng-click="" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
+		                		<i class="{{networkIcon('tumblr')}}"></i>
+		                	</span>
+		                </li>
+		            </ul>
+
 				</div>
 
 				<div class="right_column right">
-					<span class="user_info left">
+					<span class="user_info rounded" ng-style="getContentStyle()">
 						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
-							<img class="profile rounded" ng-src="{{getProfileImg($index)}}" alt="Go to profile" ng-style="getContentStyle()"/>
+							<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile"/>
 							{{content.external_user_name}}
 							<i class="{{networkIcon(content.network)}}"></i>
 						</a>
 					</span>
-
-					<ul class="share left both">
-						<h3>Share on:</h3>
-						<li class="left inline">
-		                	<a target="_blank" href="http://twitter.com/share" share-twitter="{{content}}">
-		                		<i class="{{networkIcon('twitter')}}"></i>
-		                	</a>
-		                </li>
-		                <li class="left inline">
-		                	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-		                		<i class="{{networkIcon('facebook')}}"></i>
-		                	</a>
-		                </li>
-		                <li class="left inline">
-		                	<a target="_blank" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
-		                		<i class="{{networkIcon('tumblr')}}"></i>
-		                	</a>
-		                </li>
-		            </ul>
 
 					<!--		            
 		            <fb-comments ng-if="$index == current" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
@@ -135,7 +135,7 @@
 			<i class="fa {{showFooter ? 'fa-times-circle-o':'fa-play-circle'}}"></i>
 		</a>
 
-		<div ng-show="showFooter" class="footer {{showFooter ? 'animated fadeInUp':''}}" ng-style="getFooterStyle()" get-footer-height>
+		<div ng-show="showFooter" class="footer rounded {{showFooter ? 'animated fadeInUp':''}}" ng-style="getFooterStyle()" get-footer-height>
 
 			<div class="queued">
 				<ul>

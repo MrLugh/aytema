@@ -6,7 +6,7 @@
 
 		<img ng-if="contentSv.getThumbnail(content).lenght" src="{{contentSv.getThumbnail(content)}}" class="content_photo" />
 		<div class="content_caption" ng-style="getControlsStyle()" ng-if="getTitle().length>0 || getDescription().length>0">
-			<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+			<h2 ng-if="getTitle().length>0" class="title">{{getTitle()}}</h2>
 			<p ng-bind-html="getDescription()"></p>	
 		</div>
 

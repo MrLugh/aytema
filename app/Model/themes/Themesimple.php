@@ -5,16 +5,20 @@ Class Themesimple {
     static $config = array(
         'colors' => array(
             'background' => array(
-                'value' => '#101010',
+                'value' => '#1A2536',
                 'label' => 'Body background',
             ),
             'contentBackground' => array(
-                'value' => '#303030',
+                'value' => '#36465d',
                 'label' => 'Content background',
             ),
             'contentText' => array(
                 'value' => '#ffffff',
                 'label' => 'Content text',
+            ),
+            'title' => array(
+                'value' => '#CC5425',
+                'label' => 'Title',
             ),
         ),
         'fonts' => array(

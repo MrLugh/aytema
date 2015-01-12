@@ -618,6 +618,7 @@ function(contentSv) {
         $(elm[0]).click(function(event) {
 
             scope.$apply(contentSv.addToQueue(scope.content));
+            scope.$emit("addToQueue");
 
         });
         

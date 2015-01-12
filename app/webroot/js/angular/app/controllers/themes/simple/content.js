@@ -50,16 +50,6 @@ function contentVideoCo($scope,$sce,contentSv,userSv) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
-	}	
-
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();
 		return $scope.thumbnail.length > 0;
@@ -156,16 +146,6 @@ function contentPhotoCo($scope,contentSv,userSv) {
 		return '';
 	}
 
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
-	}	
-
 	$scope.move = function(direction) {
 
 		//console.log("content move");
@@ -243,16 +223,6 @@ function contentTrackCo($scope,$sce,contentSv,userSv) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
-	}
-
 	$scope.hasThumbnail = function() {
 		$scope.getThumbnail();
 		return $scope.thumbnail.length > 0;
@@ -320,16 +290,6 @@ function contentPostCo($scope,contentSv,userSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
-	}	
-
 	$scope.getThumbnail = function() {
 
 		if ($scope.loadThumbnail) {
@@ -374,16 +334,6 @@ function contentChatCo($scope,contentSv,userSv) {
 		return contentSv.getDialogues($scope.content);
 	}
 
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
-	}
-
 }
 
 function contentQuoteCo($scope,contentSv,userSv) {
@@ -396,16 +346,6 @@ function contentQuoteCo($scope,contentSv,userSv) {
 	$scope.getQuoteSource = function() {
 
 		return contentSv.getQuoteSource($scope.content);
-	}
-
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
 	}
 
 }
@@ -424,15 +364,6 @@ function contentLinkCo($scope,contentSv,userSv,$sce) {
 		return $sce.trustAsHtml(contentSv.getDescription($scope.content));
 	}
 
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
-	}
 }
 
 function contentEventCo($scope,contentSv,userSv,$sce) {
@@ -445,16 +376,6 @@ function contentEventCo($scope,contentSv,userSv,$sce) {
 		"&size=850x850"+
 		"&markers="+encodeURI($scope.content.data.address)+
 		"&client_id="+encodeURI("AIzaSyDgE0KcEAKdRQl9IReB4E7ZBZpQOL2Cxz8");
-	}
-
-	$scope.getControlsStyle = function() {
-    	if (!angular.isDefined(userSv.getThemeConfig().custom)) {
-    		return {};
-    	}
-
-		return {
-			'color':userSv.getThemeConfig().custom.colors.contentText.value,
-		};		
 	}
 
 }

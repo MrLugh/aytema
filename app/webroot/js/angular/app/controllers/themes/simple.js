@@ -204,13 +204,16 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		}		
 	},true);
 
-	$scope.$watch("contentSv.getQueue()",function(newQueue,oldQueue){
+	$scope.$watch("contentSv.getQueue()",function(queue){
 
-		if (!newQueue.length) {
+		if (!queue.length) {
 			$scope.showFooter = false;
 		}
 
-		if (newQueue.length>0 && newQueue.length > oldQueue.length) {
+	},true);
+
+	$scope.$on('addToQueue',function(){
+		$scope.$apply(function(){
 			$scope.showFooter = true;
 
 			setTimeout(function(){
@@ -218,9 +221,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 					scrollTop: $(document).height() - 40
 				}, 500);
 			},750);
-
-		}
-	},true);
+		});
+	});
 
 	$scope.$watchCollection('[winW,winH]',function(sizes){
         appSv.setWidth(sizes[0]);
@@ -380,6 +382,10 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 	}
 
+	$scope.customStyle = function() {
+		return $sce.trustAsHtml("<style>a,a:hover {color:"+$scope.config.custom.colors.title.value+"!important;} .title {color:"+$scope.config.custom.colors.title.value+"!important;}</style>");
+	}
+
 	$scope.setColor = function() {
 
 		var element = angular.element(document.querySelector('body'));
@@ -517,21 +523,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 		return {
 			'background-color':$scope.config.custom.colors.contentBackground.value,
-			'color':$scope.config.custom.colors.contentText.value,
 		};
-    };
-
-    $scope.getControlStyle = function(direction) {
-
-    	if (!angular.isDefined($scope.config.custom)) {
-    		return {};
-    	}
-
-		var style = {};
-
-		style['color'] = $scope.config.custom.colors.contentText.value;
-
-		return style;
     };
 
     $scope.getContentStyle = function() {
@@ -540,9 +532,11 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     		return {};
     	}
 
+		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
+
 		return {
-			'background-color':$scope.config.custom.colors.contentBackground.value,
-			'color':$scope.config.custom.colors.contentText.value,
+			'background-color':rgbString,
 		};
     };
 
