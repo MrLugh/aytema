@@ -15,6 +15,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.concepts = [];
 	$scope.current	= -1;
 	$scope.search	= '';
+	$scope.noMore 	= false;
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -137,6 +138,15 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 							}, 2000);
 						}
 
+						$scope.noMore = false;
+
+					} else {
+						$scope.noMore = true;
+						if ($scope.list.length > 1) {
+							$('html, body').animate({
+								scrollTop: 0
+							}, 500);
+						}
 					}
 				},
 				function(reason) {
@@ -383,7 +393,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.customStyle = function() {
-		return $sce.trustAsHtml("<style>a,a:hover {color:"+$scope.config.custom.colors.title.value+"!important;} .title {color:"+$scope.config.custom.colors.title.value+"!important;}</style>");
+		return $sce.trustAsHtml("<style>a,a:hover {color:"+$scope.config.custom.colors.title.value+"!important;} .title,.title:hover {color:"+$scope.config.custom.colors.title.value+"!important;}</style>");
 	}
 
 	$scope.setColor = function() {

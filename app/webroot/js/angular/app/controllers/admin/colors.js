@@ -32,10 +32,10 @@ function adminColorsCo($scope,userSv,appSv,contentSv) {
 				if (!angular.isDefined(contentSv.getPalleteData(background))) {
 					contentSv.getPalleteFromImage(background).then(function(data){
 						$scope.colorsOnbackgroundImage = data.pallete.info.colors;
-						contentSv.setPalleteData(background,data);
+						contentSv.setPalleteData(background,data.pallete.info.colors);
 					});
 				} else {
-					$scope.colorsOnbackgroundImage = contentSv.getPalleteData(background).pallete.info.colors;
+					$scope.colorsOnbackgroundImage = contentSv.getPalleteData(background);
 				}
 
 			}

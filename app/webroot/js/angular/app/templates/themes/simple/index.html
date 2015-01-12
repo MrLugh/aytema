@@ -127,6 +127,12 @@
 
 			</li>
 
+			<li ng-show="noMore">
+				<img ng-src="{{user.profile_image}}" class="profileImage animated fadeInleft"/>
+				<h1 class="animated animated bounceIn">{{'Sorry!'|uppercase}}</h1>
+				<h3 class="animated animated bounceInUp">But there is not more content.</h3>
+			</li>
+
 		</ul>
 
 		<a href="#" class="loadMore {{showFooter ? 'animated fadeOutRight':'animated fadeInRight'}}" ng-click="moreContent()" skip-default><i class="fa fa-plus-circle"></i></a>
