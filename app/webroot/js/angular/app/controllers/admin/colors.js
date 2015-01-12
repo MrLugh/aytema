@@ -23,23 +23,21 @@ function adminColorsCo($scope,userSv,appSv,contentSv) {
 		userSv.restoreConfig();
 	}
 
-	if (angular.isDefined($scope.config.custom.background)) {
-		$scope.$watch("config.custom.background.selected",function(background){
-			$scope.colorsOnbackgroundImage = [];
+	$scope.$watch("config.custom.background.selected",function(background){
+		$scope.colorsOnbackgroundImage = [];
 
-			if (background.length>0) {
+		if (background.length>0) {
 
-				if (!angular.isDefined(contentSv.getPalleteData(background))) {
-					contentSv.getPalleteFromImage(background).then(function(data){
-						$scope.colorsOnbackgroundImage = data.pallete.info.colors;
-						contentSv.setPalleteData(background,data.pallete.info.colors);
-					});
-				} else {
-					$scope.colorsOnbackgroundImage = contentSv.getPalleteData(background);
-				}
-
+			if (!angular.isDefined(contentSv.getPalleteData(background))) {
+				contentSv.getPalleteFromImage(background).then(function(data){
+					$scope.colorsOnbackgroundImage = data.pallete.info.colors;
+					contentSv.setPalleteData(background,data.pallete.info.colors);
+				});
+			} else {
+				$scope.colorsOnbackgroundImage = contentSv.getPalleteData(background);
 			}
-		},true);
-	}
+
+		}
+	},true);
 	
 }
