@@ -14,6 +14,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	var badImages	= [];
 	var images 		= [];
 
+	var palletes 	= {};
+
 	var loadContent = function(params) {
 
 		if (loading) {
@@ -53,10 +55,10 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    }).
 	    error(function(data, status, headers, config) {
 	    	loading 	= false;
-	    	deferred.reject(data);	    	
+	    	deferred.reject(data);
 	    });
 
-	    return deferred.promise;		
+	    return deferred.promise;
 	};
 
 	var cleanSource = function(source) {
@@ -1197,6 +1199,26 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 	    return deferred.promise;		
 	}
 
+	var getPalleteFromImage = function(imageUrl) {
+
+		var deferred= $q.defer();
+
+		var params = {url:imageUrl};
+
+	    $http({method: 'GET', url: '/contents/getPalleteFromImage.json', params:params}).
+	    success(function(data, status, headers, config) {
+
+	    	deferred.resolve(data);
+	    }).
+	    error(function(data, status, headers, config) {
+
+	    	deferred.reject(data);
+	    });
+
+	    return deferred.promise;
+	};
+
+
 	return {
 		getDicContent: function() {
 			return dicContent;
@@ -1255,6 +1277,8 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		createFile:createFile,
 		deleteFile:deleteFile,
 
+		getPalleteFromImage:getPalleteFromImage,
+
 		addToQueue:addToQueue,
 		getQueue: function() {
 			return queue;
@@ -1304,6 +1328,15 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				images.push(src);
 			}
 		},
+		setPalleteData:function(key,data) {
+			palletes[key] = data;
+		},
+		getPalleteData:function(key) {
+			if (!angular.isDefined(palletes[key])) {
+				return undefined;
+			}
+			return palletes[key];
+		}
 	};
 
 }]);

@@ -12,7 +12,7 @@ class ContentsController extends AppController {
 
     public function beforeFilter() {
 
-        $this->Auth->allow('index','view','relateds','delete','activate','addFile','stats');
+        $this->Auth->allow('index','view','relateds','delete','activate','addFile','stats','getPalleteFromImage');
         $this->loadModel('Socialnet');
         $this->loadModel('User');
     }
@@ -507,6 +507,38 @@ class ContentsController extends AppController {
             '_serialize'=> array('stats')
         ));
 
+
+    }
+
+    public function getPalleteFromImage() {
+        $url =isset($this->request->query['url']) ? $url = $this->request->query['url'] : $url = null;
+
+        $ch = curl_init();
+        
+        if ($url[0] == '/') {
+            $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . $url;
+        }
+        $fields = array('image'=>file_get_contents($url));
+         
+        # Set some default CURL options
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+        curl_setopt($ch, CURLOPT_URL, 'http://pictaculous.com/api/1.0/');
+         
+        $response   = curl_exec($ch);
+        $errno      = curl_errno($ch);
+        $error      = curl_error($ch);
+        $info       = curl_getinfo($ch);
+
+        $this->set(array(
+            'pallete'  => json_decode($response,true),
+            '_serialize'=> array('pallete')
+        ));
 
     }
 

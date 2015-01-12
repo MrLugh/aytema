@@ -30,6 +30,7 @@ function adminBackgroundCo($scope,userSv,appSv,contentSv) {
 		bg[$scope.newBg.name] = $scope.newBg.img;
 		if (!angular.isDefined($scope.config.custom.background.list[bg])) {
 			$scope.config.custom.background.list[$scope.newBg.name] = $scope.newBg.img;
+			$scope.config.custom.background.selected = $scope.newBg.img;
 		}
 	}
 

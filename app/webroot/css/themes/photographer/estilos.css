@@ -1085,7 +1085,7 @@ footer i:hover {
     margin: 10px;
     padding: 0px;
     overflow: hidden;
-    background-image: url(../../../img/themes/photographer/AjaxLoader.gif) no-repeat center center;
+    background-image: url(../../../img/ajax-loader.gif) no-repeat center center;
     visibility: hidden;
     float: left;
     -webkit-transition: width 0.4s, height 0.4s;

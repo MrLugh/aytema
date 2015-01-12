@@ -24,16 +24,8 @@ a,a:hover,a:active,a:focus {
   font-style: italic;
 }
 
-p {
-
-}
-
-input {
-  background-color: transparent!important;
-}
-
-input::-moz-focus-inner { 
-  border: 0; 
+#search {
+  background-color:transparent;
 }
 
 blockquote {

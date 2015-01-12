@@ -70,7 +70,7 @@ Class FacebookSocialnet {
 
 		$hash = array();
 		if( ($errno == CURLE_OK) && ($info['http_code'] == 200)) {
-			parse_str($response, $hash);			
+			parse_str($response, $hash);
 		}
 
 		return $hash;

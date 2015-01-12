@@ -9,6 +9,15 @@
 		</li>
 	</ul>
 
+	<ul ng-if="config.custom.background.selected.length">
+		<p>Based on your background image:</p>
+		<li ng-repeat="color in colorsOnbackgroundImage" class="left">
+			<div style="width:18px;height:18px;background-color:#{{color}};margin-right:5px;" class="inline"></div>
+			{{color}}
+		</li>
+		<img ng-if="!colorsOnbackgroundImage.length" src="/img/ajax-loader.gif" />
+	</ul>
+
 	<div class="config-actions">
 		<a href="#/" ng-click="saveConfig()" skip-default>Save as my Theme!</a>
 		<a href="#/" ng-click="restoreConfig()" skip-default>Restore!</a>

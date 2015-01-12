@@ -397,6 +397,9 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var element = angular.element(document.querySelector('.control'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
+
+		var element = angular.element(document.querySelector('#search'));
+		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
 	}
 
 	$scope.setFont = function() {
@@ -415,7 +418,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			return;
 		}
 
-
         var img = new Image();
 
         img.onload = function() {
@@ -425,7 +427,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
         	var w = img.naturalWidth;
         	var h = img.naturalHeight;
 
-        	if (w < 500 || h < 500) {
+        	if (w < 300 || h < 300) {
         		$(element[0]).css('background-size','initial');
         		$(element[0]).css('background-attachment','initial');
         		return;
@@ -484,9 +486,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     	var style = {};
 
     	if (!angular.equals({},$scope.config)) {
-			var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-			var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.9)";
-    		style['background-color'] = rgbString;
+    		style['background-color'] = $scope.config.custom.colors.contentBackground.value;
     	}
 
 	   	if ($scope.showFooter == true) {
@@ -532,11 +532,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
     		return {};
     	}
 
-		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.7)";
-
 		return {
-			'background-color':rgbString,
+			'background-color':$scope.config.custom.colors.contentBackground.value,
 		};
     };
 

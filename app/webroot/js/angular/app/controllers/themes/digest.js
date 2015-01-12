@@ -700,6 +700,27 @@ function themeDigestCo($scope,appSv,userSv,contentSv) {
 		var element = angular.element(document.querySelector('body'));
 		$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
 
+        var img = new Image();
+
+        img.onload = function() {
+
+			$(element[0]).css('background-image','url("'+$scope.config.custom.background.selected+'")');
+
+        	var w = img.naturalWidth;
+        	var h = img.naturalHeight;
+
+        	if (w < 300 || h < 300) {
+        		$(element[0]).css('background-size','initial');
+        		$(element[0]).css('background-attachment','initial');
+        		return;
+        	}
+
+    		$(element[0]).css('background-size','cover');
+    		$(element[0]).css('background-attachment','fixed');
+        }
+
+        img.src = $scope.config.custom.background.selected;
+
 	}
 
     $scope.getAppClass = function() {
