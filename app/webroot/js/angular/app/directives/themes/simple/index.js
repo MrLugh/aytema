@@ -25,7 +25,6 @@ function(){
                 var timer = setTimeout(function(){
                     clearTimeout(timer);
                     element.addClass('animated fadeInDown');
-                    element.css('opacity','1');
                     element.find('.left_column').addClass('animated fadeInDown');
                     element.find('.right_column').addClass('animated fadeInDown');
                 },350);

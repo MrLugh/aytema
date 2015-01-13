@@ -115,10 +115,10 @@
 					<span class="user_info rounded" ng-style="getContentStyle()">
 						<a ng-href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
 							<img class="profile" ng-src="{{getProfileImg($index)}}" alt="Go to profile"/>
-							{{content.external_user_name}}
-							<i class="{{networkIcon(content.network)}}"></i>
 						</a>
 					</span>
+					{{content.external_user_name}}
+					<i class="{{networkIcon(content.network)}}"></i>
 
 					<!--		            
 		            <fb-comments ng-if="$index == current" data-href="{{getContentCommentsHash()}}" data-notify="true" class="both comments_container"></fb-comments>
