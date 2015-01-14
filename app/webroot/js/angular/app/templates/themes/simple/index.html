@@ -69,8 +69,7 @@
 
 				<div class="left_column left rounded" ng-style="getContentStyle()">
 
-
-				<div ng-bind-html="customStyle()"></div>
+					<div ng-if="!$index" ng-bind-html="customStyle()"></div>
 
 					<content-video ng-switch-when='video'></content-video>
 					<content-photo ng-switch-when='photo'></content-photo>
