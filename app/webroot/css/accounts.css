@@ -168,7 +168,8 @@
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9); 
   -o-transform: scale(0.9);
-  -ms-transform: scale(0.9);  
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
 
 }
 
@@ -192,6 +193,7 @@
   -moz-transform: scale(1); 
   -o-transform: scale(1);
   -ms-transform: scale(1);  
+  transform: scale(1);
 
   border-width: 0px!important;
   background: transparent;
@@ -284,6 +286,7 @@
   -moz-transform: scale(0.6); 
   -o-transform: scale(0.6);
   -ms-transform: scale(0.6);
+  transform: scale(0.6);
 
   color: #fff;
 
@@ -315,6 +318,7 @@
   -moz-transform: scale(1); 
   -o-transform: scale(1);
   -ms-transform: scale(1);  
+  transform: scale(1);
 }
 
 .accountsContainer .accountLayerInfo .stat {

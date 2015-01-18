@@ -15,6 +15,14 @@
 		line-height: 12px;
 	}
 
+	.pagePhotos > ul li .photo_prev i , .pagePhotos > ul li .photo_next i {
+	    font-size: 12px;
+	}
+
+	.pagePhotos > ul li .photo_prev , .pagePhotos > ul li .photo_next {
+	    top:calc(50% - 7px);
+	}
+
 }
 
 
@@ -36,5 +44,12 @@
 
 @media (max-width: 320px) {
    
+	.pagePhotos > ul li .photo_prev i , .pagePhotos > ul li .photo_next i {
+	    font-size: 12px;
+	}
+
+	.pagePhotos > ul li .photo_prev , .pagePhotos > ul li .photo_next {
+	    top:calc(50% - 7px);
+	}
 
 }
