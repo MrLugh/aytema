@@ -3,6 +3,7 @@ function appCo($scope,$rootScope,$location,appSv,userSv,contentSv) {
 	$scope.userSv = userSv;
 	$scope.userSearch= '';
 	$scope.usersList = [];
+	$scope.userChecked = false;
 	$scope.showMenu  = appSv.getDashboardMenuMode();
 
 	$scope.tour = false;
@@ -75,6 +76,7 @@ function appCo($scope,$rootScope,$location,appSv,userSv,contentSv) {
 	$scope.$watch('userSv.getUser()',function(user){
 		$scope.user = user;
 		if ($scope.isLogged() && !userSv.getAccounts().length) {
+			$scope.userChecked = true;
 			userSv.loadAccounts({username:userSv.getUser().username,status:'Allowed'});
 		}
 	},true);
