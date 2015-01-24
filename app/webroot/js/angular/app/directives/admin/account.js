@@ -34,7 +34,7 @@ function ($window) {
 
                 scope.showUp = $(window).scrollTop() > $(window).height() ? true : false;
                 
-                if (more) {
+                if (more && !scope.isAdding) {
                     scope.moreContent();
                 }
             }            

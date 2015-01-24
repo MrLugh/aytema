@@ -107,7 +107,7 @@ function appCo($scope,$rootScope,$location,appSv,userSv,contentSv) {
 		if (userSv.getAccounts().length > 1) {
 			$scope.steps.accounts = true;
 			$scope.steps.themes = true;
-			$scope.showPage('themes');
+			//$scope.showPage('themes');
 			return;
 		}
 
@@ -118,7 +118,7 @@ function appCo($scope,$rootScope,$location,appSv,userSv,contentSv) {
 
 			$scope.steps.accounts = true;
 			$scope.steps.themes = true;
-			$scope.showPage('themes');
+			//$scope.showPage('themes');
 			timer = setTimeout(function(){
 				clearTimeout(timer);
 				$scope.showTour(5);
@@ -129,7 +129,7 @@ function appCo($scope,$rootScope,$location,appSv,userSv,contentSv) {
 		$scope.steps.accounts = true;
 		$scope.steps.themes = true;
 
-		$scope.showPage('accounts');
+		//$scope.showPage('accounts');
 		timer = setTimeout(function(){
 			clearTimeout(timer);
 			$scope.showTour(1);

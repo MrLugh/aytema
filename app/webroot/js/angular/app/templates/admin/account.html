@@ -1,6 +1,6 @@
 <div class="accountPage {{account.network}}AccountPage">
 
-	<div ng-if="concepts.length > 1" class="filterList">
+	<div ng-show="!isAdding" ng-if="concepts.length > 1" class="filterList">
 		
 		<i class="fa fa-search filtersControl" ng-click="manageFilters()" tooltip="Filter"></i>
 
@@ -12,9 +12,11 @@
 
 	</div>
 
-	<div ng-if="account.network == 'cloudcial'" class="addList">
+	<div ng-if="account.network == 'cloudcial'" class="addList" style="position:{{!isAdding ? 'fixed':'relative'}}">
 		
-		<i class="fa fa-plus addControl" ng-click="manageAdd()" tooltip="Add content" tooltip-placement="right"></i>
+		<i ng-show="!isAdding" class="fa fa-plus addControl" ng-click="manageAdd()" tooltip="Add content" tooltip-placement="right"></i>
+		<i ng-show="isAdding" class="addControl fa fa-times" ng-click="hideAddContent()"></i>
+
 
 		<ul ng-show="showAdd">
 			<li ng-repeat="concept in concepts" tooltip="Add {{concept}}" tooltip-placement="bottom">
@@ -25,7 +27,7 @@
 	</div>
 
 
-	<div class="accountPageHeader {{account.network}}AccountPageHeader both" ng-style="getPageHeaderStyle()" get-menu-height>
+	<div ng-show="!isAdding" class="accountPageHeader {{account.network}}AccountPageHeader both" ng-style="getPageHeaderStyle()" get-menu-height>
 
 		<div class="controls">
 			<i class="fa fa-arrow-left left control-left" ng-click="move(-1)" tooltip="Previous Account" tooltip-placement="right"></i>
@@ -51,7 +53,7 @@
 
 	</div>
 
-	<div class="both">
+	<div ng-show="!isAdding" class="both">
 
 		<ul id="accountPageList" class="masonry" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.adminContent'}" style="padding-top:{{getMenuHeight()}}px;">
 
@@ -94,11 +96,8 @@
 
 	</div>
 
-	<div ng-if="isAdding" class="addContent well">
+	<div ng-if="isAdding" class="addContent">
 		<div ng-switch="toAdd">
-			<p class="right">
-				<i class="fa fa-times-circle" ng-click="hideAddContent()"></i>
-			</p>
 			<admin-add-event content="objAdd" ng-switch-when='event'></admin-add-event>
 		    <admin-add-video content="objAdd" ng-switch-when='video'></admin-add-video>
 		    <admin-add-photo content="objAdd" ng-switch-when='photo'></admin-add-photo>

@@ -342,19 +342,6 @@
   text-align: center;
 }
 
-.modalAccount {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  /*background-color: #383131;*/
-  /*color: #b0c19c;*/
-}
-
 .accountPageHeader {
   background-color: #2a3137;  
   color: #b0c19c;
@@ -813,19 +800,26 @@
 
 
 /* Add Content */
+
 .addContent {
-  position:fixed;
-  width:80%;
-  height:80%;
-  left:10%;
-  top:10%;
-  z-index:4;
-  background-color: #2D2E26;
-  color:#889191;
   text-align: left;
+  position: relative;
+  z-index:4;
+}
+
+.addContent h3 {
+  margin-left: 25px;
+}
+
+.addContent button, .addContent button:hover {
+  margin-left: 25px;
+  background: transparent;
+  border: 0;
+  color: #b0c19c;
 }
 
 .addContent .dropzone {
+  margin-left: 25px;
   width: 300px;
   height: 300px;
   min-height: initial;
@@ -867,10 +861,27 @@
   width: auto;
 }
 
-.addContent input, .addContent textarea {
+.addContent input {
+  width: 40%;
+  margin: 15px;
+  padding: 15px;
   background: transparent;
-  display: block;
-  border: none;
+  border: 0;
+  border-bottom: 1px solid #4A4F53;
+  outline: none;
+  font-size: 16px;
+  float: left;
+}
+
+.addContent input::-moz-placeholder {
+  color: #adafae;
+  opacity: 1;
+}
+.addContent input:-ms-input-placeholder {
+  color: #adafae;
+}
+.addContent input::-webkit-input-placeholder {
+  color: #adafae;
 }
 
 .addContent video, .addContent audio {

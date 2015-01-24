@@ -34,6 +34,7 @@
     echo $this->Html->css('socialnets');
     echo $this->Html->css('socialnets-responsive');
     echo $this->Html->css('dropzone');
+    echo $this->Html->css('animate');
     ?>
 
     <!-- Js -->

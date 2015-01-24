@@ -77,3 +77,9 @@
     width: calc(50% - 32px);
   }
 }
+
+@media (max-width: 480px) {
+  .addContent input {
+    width: 90%;
+  }
+}

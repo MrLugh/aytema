@@ -3,53 +3,35 @@
 
 	<div class="both">
 
-		<div class="dropzone right" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="event-dropzone" style="background-image:url({{event.data.thumbnail}});">
-			<span style="position:absolute;top:40%;width:100%;left:0;background:rgba(0,0,0,0.4);color:white;text-align:center;">Add/Change Image</span>
-		</div>
-
 	   	<form ng-submit="save()">
 
-	        <div class="col-md-6">
-	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.data.name" placeholder="Event name" ng-required="true"/>
-				</p>
-	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.data.place" placeholder="Event place" ng-required="true"/>
-				</p>				
-	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.data.address" placeholder="Address:Country, City, Street Name Street Number" ng-required="true" />
-				</p>
+			<input type="text" class="form-control" ng-model="event.data.name" placeholder="Event name" ng-required="true"/>
+
+			<input type="text" class="form-control" ng-model="event.data.place" placeholder="Event place" ng-required="true"/>
+
+			<input type="text" class="form-control" ng-model="event.data.address" placeholder="Address:Country, City, Street Name Street Number" ng-required="true" />
+
+        	<input type="text" class="form-control left" datepicker-popup="yyyy-MM-dd" ng-model="event.data.date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Event Date" />
+
+			<input type="text" class="form-control" ng-model="event.data.time" placeholder="Time" ng-required="true" />
+
+			<input type="text" class="form-control" ng-model="event.data.door" placeholder="Door time" ng-required="true" />
+
+			<input type="text" class="form-control" ng-model="event.data.ticket" placeholder="Tickets url" />
+
+			<div class="dropzone left both" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="event-dropzone" style="background-image:url({{event.data.thumbnail}});">
+				<span style="position:absolute;top:40%;left:25px;width:100%;background:rgba(0,0,0,0.4);color:white;text-align:center;">Add/Change Image</span>
 			</div>
 
-	        <div class="col-md-6">
-	            <p class="input-group">
-	            	<input type="text" class="form-control" datepicker-popup="yyyy-MM-dd" ng-model="event.data.date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Event Date" />
-	            	<span class="input-group-btn">
-	            		<button class="btn btn-default" ng-click="openDatePicker($event)">
-	            			<i class="glyphicon glyphicon-calendar"></i>
-	            		</button>
-	            	</span>
-	            </p>
-	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.data.time" placeholder="Time" ng-required="true" />
-				</p>
-	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.data.door" placeholder="Door time" ng-required="true" />
-				</p>
-	            <p class="input-group">
-					<input type="text" class="form-control" ng-model="event.data.ticket" placeholder="Tickets url" />
-				</p>
-
-           		<button type="submit" class="btn btn-primary">Save</button>
-
-	        </div>
+   			<button class="btn btn-primary left both" tooltip="Save" tooltip-placement="bottom">
+   				<i class="fa fa-save"></i>
+   			</button>
 
 	    </form>
 
 		<div ng-if="event.data.address.length > 0">
 			<img alt="Google map on {{address}}" ng-src="{{getMapSrc()}}" style="width:200px;height:200px;" />
 		</div>
-	
 
 	</div>
 
