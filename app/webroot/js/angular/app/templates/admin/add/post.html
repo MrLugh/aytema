@@ -3,27 +3,27 @@
 
 	<p>{{contentSv.getThumbnail(post)}}</p>	
 
-	<div thumbnail="post" style="background-image:url({{contentSv.getThumbnail(post)}});width:300px;height:300px;background-size:contain;background-repeat:no-repeat;background-position:center;" class="left">
+	<div thumbnail="post" style="background-image:url({{contentSv.getThumbnail(post)}});width:100%;height:300px;background-size:contain;background-repeat:no-repeat;background-position:center;" class="left">
 
 		<div class="dropzone left" dropzone="dropzoneThumbnailConfig" dropzone-instance="dropzoneThumbnail" id="thumbnail-dropzone" style="width:100%;height:80px;">
-			<span style="position:absolute;top:40%;width:100%;left:0;background:rgba(0,0,0,0.4);color:white;text-align:center;">Add/Change Thumbnail</span>
+			<span class="title">Select Thumbnail</span>
 		</div>
 
 	</div>
 
 	<div class="both">
 
-	    <div class="row">
-		   	<form ng-submit="save()">
+	   	<form ng-submit="save()">
 
-				<input type="text" class="form-control" ng-model="post.data.title" placeholder="post title" ng-required="true"/>												
+			<input type="text" class="form-control" ng-model="post.data.title" placeholder="post title" ng-required="true"/>												
 
-	           	<textarea ng-model="post.data.description" class="tinymce" placeholder="post title" ng-required="true" ui-tinymce="tinymceOptions"></textarea>
+           	<textarea ng-model="post.data.description" class="tinymce" placeholder="post title" ng-required="true" ui-tinymce="tinymceOptions"></textarea>
 
-	       		<button type="submit" class="btn btn-primary">Save</button>
+			<button class="btn btn-primary left both" tooltip="Save" tooltip-placement="bottom">
+				<i class="fa fa-save"></i>
+			</button>
 
-		    </form>
-		</div>
+	    </form>
 
 	</div>
 

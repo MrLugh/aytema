@@ -387,7 +387,7 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
-			'acceptedFiles': 'image/gif,image/jpeg,image/png',
+			'acceptedFiles': 'image/gif, image/jpeg, image/png',
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
@@ -491,7 +491,7 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
-			'acceptedFiles': 'image/gif,image/jpeg,image/png',
+			'acceptedFiles': 'image/gif, image/jpeg, image/png',
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
@@ -565,7 +565,7 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 	$scope.dropzoneThumbnailConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
-			'acceptedFiles': 'image/gif,image/jpeg,image/png',
+			'acceptedFiles': 'image/gif, image/jpeg, image/png',
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
@@ -596,7 +596,7 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
-			'acceptedFiles': 'audio/mpeg,audio/mp3,audio/mp4,audio/ogg,audio/wav,audio/webm,audio/aac'
+			'acceptedFiles': 'audio/mpeg, audio/mp3, audio/mp4, audio/ogg, audio/wav, audio/webm, audio/aac'
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
@@ -670,7 +670,7 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 	$scope.dropzoneThumbnailConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
-			'acceptedFiles': 'image/gif,image/jpeg,image/png',
+			'acceptedFiles': 'image/gif, image/jpeg, image/png',
 		},
 		'eventHandlers': {
 			'success': function (file, response) {
@@ -700,7 +700,7 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 	$scope.dropzoneConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
-			'acceptedFiles': "video/mp4,video/m4v,video/ogg,video/ogv,video/webm",
+			'acceptedFiles': "video/mp4, video/m4v, video/ogg, video/ogv, video/webm",
 			//'maxFilesize' : 100
 		},
 		'eventHandlers': {
@@ -782,7 +782,7 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
 	$scope.dropzoneThumbnailConfig = {
 		'options': { // passed into the Dropzone constructor
 			'url': '/contents/addFile.json',
-			'acceptedFiles': 'image/gif,image/jpeg,image/png',
+			'acceptedFiles': 'image/gif, image/jpeg, image/png',
 		},
 		'eventHandlers': {
 			'success': function (file, response) {

@@ -3,24 +3,23 @@
 	<div>
 		<h3>Videos</h3>
 
-		<span> Types: {{dropzoneConfig.options.acceptedFiles}}</span>
+		<span style="margin-left:25px;"> Types: {{dropzoneConfig.options.acceptedFiles}}</span>
 
 		<strong>{{alert}}</strong>
 	</div>
 
-	<div thumbnail="video" style="background-image:url({{contentSv.getThumbnail(video)}});width:300px;height:300px;background-size:contain;background-repeat:no-repeat;background-position:center;" class="left">
+	<div thumbnail="video" style="background-image:url({{contentSv.getThumbnail(video)}});width:100%;height:300px;background-size:contain;background-repeat:no-repeat;background-position:center;" class="left">
 
 		<div class="dropzone left" dropzone="dropzoneThumbnailConfig" dropzone-instance="dropzoneThumbnail" id="thumbnail-dropzone" style="width:100%;height:80px;">
-			<span style="position:absolute;top:40%;width:100%;left:0;background:rgba(0,0,0,0.4);color:white;text-align:center;">Add/Change Thumbnail</span>
+			<span class="title">Select Thumbnail</span>
 		</div>
 
 		<div class="dropzone left" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="video-dropzone"  style="width:100%;height:220px;">
-			<span style="position:absolute;top:40%;width:100%;left:0;background:rgba(0,0,0,0.4);color:white;text-align:center;">Add/Change video</span>
+			<span class="title">Select Video</span>
+			<div ng-bind-html="getPlayer()" style="position:relative;top:100%;" class="player"></div>
 		</div>
 
-	</div>
-
-	<div ng-bind-html="getPlayer()" style="width:300px;height:300px;" class="player left"></div>
+	</div>	
 
 	<form ng-show="isEdit()" ng-submit="save()" class="right navbar-form navbar-right">
 		<input type="text" name="title" ng-model="video.data.title" placeholder="Title" />
@@ -30,7 +29,9 @@
 		<input type="text" name="genre" ng-model="video.data.genre" placeholder="Genre" />
 		<input type="text" name="duration" ng-model="video.data.duration" placeholder="Duration hh:mm:ss" />
 		<textarea name="description" ng-model="video.data.description" placeholder="Description"></textarea>
-		<button type="submit" class="btn btn-primary">Save</button>
+		<button class="btn btn-primary left both" tooltip="Save" tooltip-placement="bottom">
+			<i class="fa fa-save"></i>
+		</button>
 	</form>
 	
 </div>

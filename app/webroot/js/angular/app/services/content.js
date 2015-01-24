@@ -586,7 +586,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 		if (content.concept == 'photo')	{
 
 			if (content.network == 'cloudcial') {
-				if (content.data.path.length>0) {
+				if (content.data.path && content.data.path.length>0) {
 					source = content.data.path;
 				}
 			}
