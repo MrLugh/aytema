@@ -439,7 +439,8 @@ class ContentsController extends AppController {
 
         $findUser = $this->User->findByUsername($username);
 
-        $params[] = 'YEAR(Content.creation_date) = '.date("Y");
+
+        $params[] = "Content.creation_date > '".date("Y-m-d H:i:s",strtotime('NOW -1 year'))."'";
 
         if (!empty($status) && in_array($status, array('disabled','enabled'))) {
             $params['Content.status'] = $status;
@@ -482,7 +483,7 @@ class ContentsController extends AppController {
         );
 
         $results    = array();
-        $begin      = new DateTime( 'NOW -1 YEAR' );
+        $begin      = new DateTime( 'NOW -1 year' );
         $end        = new DateTime( 'NOW' );
         $interval   = DateInterval::createFromDateString('1 month');
 
@@ -492,8 +493,8 @@ class ContentsController extends AppController {
             foreach ($contents as $key => $data) {
 
                 foreach($period as $dt) {
-                    if (!isset($results[$data['Content']['concept']][(int)$dt->format("m")])) {
-                        $results[$data['Content']['concept']][(int)$dt->format("m")] = 0;
+                    if (!isset($results[$data['Content']['concept']][(int)$data[0]['time_range']])) {
+                        $results[$data['Content']['concept']][(int)$data[0]['time_range']] = 0;
                     }
                 }
                 ksort($results[$data['Content']['concept']]);                
