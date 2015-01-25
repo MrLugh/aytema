@@ -366,6 +366,8 @@ function adminContentEventCo($scope,contentSv,$sce) {
 
 function adminAddEventCo($scope,contentSv,userSv,$sce) {
 
+	$scope.contentSv = contentSv;
+
 	$scope.datePicker = false;
 
 	$scope.user = userSv.getUser();
@@ -472,7 +474,11 @@ function adminAddEventCo($scope,contentSv,userSv,$sce) {
 		var day = date.getDate().toString();
 		day = day.length > 1 ? day : '0' + day;
 		return year + '-' + month + '-' + day;
-	}
+	};
+
+	$scope.activateDropzone = function(id) {
+		document.querySelector("#"+id).click();
+	};
 
 }
 
@@ -544,6 +550,10 @@ function adminAddPhotoCo($scope,contentSv,userSv,$sce) {
 			}
 		}		
 	}
+
+	$scope.activateDropzone = function(id) {
+		document.querySelector("#"+id).click();
+	};
 
 }
 
@@ -650,6 +660,10 @@ function adminAddTrackCo($scope,contentSv,userSv,$sce) {
 		}
 	}
 
+	$scope.activateDropzone = function(id) {
+		document.querySelector("#"+id).click();
+	};
+
 }
 
 function adminAddVideoCo($scope,contentSv,userSv,$sce) {
@@ -753,11 +767,18 @@ function adminAddVideoCo($scope,contentSv,userSv,$sce) {
 				'thumbnail'		: '',
 			}
 		}
-	}	
+	}
+
+
+	$scope.activateDropzone = function(id) {
+		document.querySelector("#"+id).click();
+	};
 
 }
 
 function adminAddPostCo($scope,contentSv,userSv,$sce) {
+
+	$scope.contentSv = contentSv;
 
 	$scope.tinymceOptions = {
     	selector : ".tinymce",
@@ -837,5 +858,9 @@ function adminAddPostCo($scope,contentSv,userSv,$sce) {
 			}
 		}
 	}
+
+	$scope.activateDropzone = function(id) {
+		document.querySelector("#"+id).click();
+	};
 
 }

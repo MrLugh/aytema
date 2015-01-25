@@ -807,6 +807,7 @@
   text-align: left;
   position: relative;
   z-index:4;
+  overflow-x:hidden;
 }
 
 .addContent h3 {
@@ -820,65 +821,14 @@
   color: #b0c19c;
 }
 
-.addContent .dropzone {
-  width: 100%;
-  height: 300px;
-  min-height: initial;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  background: none;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.addContent .dropzone .title {
-  position:absolute;
-  top:40%;
-  left:0px;
-  width:100%;
-  background:rgba(0,0,0,0.4);
-  color:white;
-  text-align:center;
-  font-size: 25px;
-  padding: 15px;
-}
-
-.addContent #thumbnail-dropzone,
-.addContent #track-dropzone,
-.addContent #video-dropzone {
-  width: auto;
-  height: auto;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.addContent .dropzone .dz-default.dz-message {
-  background: transparent;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  padding: 0;
-  margin: 0;
-}
-
-.addContent .dropzone .dz-preview {
-  display: none;
-}
-
 .addContent form {
   width: calc(100% - 50px);
   float: left;
   margin-left: 25px;
-  margin-right: 25px;
+  margin-right: 25px!important;
 }
 
-.addContent input {
-  width: 40%;
+.addContent input[type="text"], .addContent textarea {
   margin: 15px;
   margin-left: 0;
   padding: 15px;
@@ -889,6 +839,14 @@
   outline: none;
   font-size: 16px;
   float: left;
+}
+
+.addContent input[type="text"] {
+  width: 40%;
+}
+
+.addContent textarea {
+  width: 90%;
 }
 
 .addContent input::-moz-placeholder {
@@ -903,8 +861,6 @@
 }
 
 .addContent video, .addContent audio {
-  width: 100%;
-  height: 100%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

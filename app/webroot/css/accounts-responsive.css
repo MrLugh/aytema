@@ -79,7 +79,7 @@
 }
 
 @media (max-width: 480px) {
-  .addContent input {
+  .addContent input[type="text"] {
     width: 90%;
   }
 }

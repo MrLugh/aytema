@@ -9,8 +9,12 @@
 
 	</div>
 
-	<div class="dropzone left" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="photo-dropzone" style="background-image:url({{contentSv.getThumbnail(photo)}});">
-		<span class="title">Select Thumbnail</span>
+	<div thumbnail="photo" style="width:200px;height:200px;margin-left:25px;" class="contain">
+
+		<div class="hide dropzone" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="photo-dropzone"></div>
+
+		<span class="left both">Select Thumbnail <i class="{{contentSv.getConceptIcon('photo')}}" ng-click="activateDropzone('photo-dropzone')"></i></span>
+
 	</div>
 
 	<form ng-show="isEdit()" ng-submit="save()" class="left navbar-form navbar-left">

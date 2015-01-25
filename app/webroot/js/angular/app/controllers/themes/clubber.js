@@ -170,7 +170,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		if ($scope.isActive(page)) {
 
 			var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentText.value);
-			var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
+			var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.8)";
 			style['background-color'] = rgbString;
 		}
 
@@ -312,7 +312,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 
 		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.8)";
 
 		var element = angular.element(document.querySelector('nav'));
 		$(element[0]).css('background-color',rgbString);
@@ -419,7 +419,6 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 	}
 
-
     $scope.getFooterStyle = function() {
 
     	if (angular.equals({},$scope.config)) {
@@ -427,10 +426,11 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
     	}
 
 		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.8)";
 
     	var style = {
-    		'background-color':rgbString,
+    		//'background-color':rgbString,
+    		'background-color':$scope.config.custom.colors.contentBackground.value
     	};
 
 	   	return style;

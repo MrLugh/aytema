@@ -1,38 +1,38 @@
 <div>
 	<h3>Event Information</h3>
 
-	<div class="both">
+	<div thumbnail="event" style="width:200px;height:200px;margin-left:25px;" class="contain">
 
-	   	<form ng-submit="save()">
+		<div class="dropzone left none" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="event-dropzone"></div>
 
-			<input type="text" class="form-control" ng-model="event.data.name" placeholder="Event name" ng-required="true"/>
+		<span class="left both">Select Thumbnail <i class="{{contentSv.getConceptIcon('photo')}}" ng-click="activateDropzone('thumbnail-dropzone')"></i></span>
 
-			<input type="text" class="form-control" ng-model="event.data.place" placeholder="Event place" ng-required="true"/>
+	</div>
 
-			<input type="text" class="form-control" ng-model="event.data.address" placeholder="Address:Country, City, Street Name Street Number" ng-required="true" />
+   	<form ng-submit="save()">
 
-        	<input type="text" class="form-control left" datepicker-popup="yyyy-MM-dd" ng-model="event.data.date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Event Date" />
+		<input type="text" class="form-control" ng-model="event.data.name" placeholder="Event name" ng-required="true"/>
 
-			<input type="text" class="form-control" ng-model="event.data.time" placeholder="Time" ng-required="true" />
+		<input type="text" class="form-control" ng-model="event.data.place" placeholder="Event place" ng-required="true"/>
 
-			<input type="text" class="form-control" ng-model="event.data.door" placeholder="Door time" ng-required="true" />
+		<input type="text" class="form-control" ng-model="event.data.address" placeholder="Address:Country, City, Street Name Street Number" ng-required="true" />
 
-			<input type="text" class="form-control" ng-model="event.data.ticket" placeholder="Tickets url" />
+    	<input type="text" class="form-control left" datepicker-popup="yyyy-MM-dd" ng-model="event.data.date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Event Date" />
 
-			<div class="dropzone left both" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="event-dropzone" style="background-image:url({{event.data.thumbnail}});">
-				<span class="title">Select Thumbnail</span>
-			</div>
+		<input type="text" class="form-control" ng-model="event.data.time" placeholder="Time" ng-required="true" />
 
-   			<button class="btn btn-primary left both" tooltip="Save" tooltip-placement="bottom">
-   				<i class="fa fa-save"></i>
-   			</button>
+		<input type="text" class="form-control" ng-model="event.data.door" placeholder="Door time" ng-required="true" />
 
-	    </form>
+		<input type="text" class="form-control" ng-model="event.data.ticket" placeholder="Tickets url" />
 
-		<div ng-if="event.data.address.length > 0">
-			<img alt="Google map on {{address}}" ng-src="{{getMapSrc()}}" style="width:200px;height:200px;" />
-		</div>
+		<button class="btn btn-primary left" tooltip="Save" tooltip-placement="bottom">
+			<i class="fa fa-save"></i>
+		</button>
 
+    </form>
+
+	<div ng-if="event.data.address.length > 0">
+		<img alt="Google map on {{address}}" ng-src="{{getMapSrc()}}" style="width:200px;height:200px;" />
 	</div>
 
 </div>

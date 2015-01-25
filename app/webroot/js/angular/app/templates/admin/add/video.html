@@ -8,18 +8,19 @@
 		<strong>{{alert}}</strong>
 	</div>
 
-	<div thumbnail="video" style="background-image:url({{contentSv.getThumbnail(video)}});width:100%;height:300px;background-size:contain;background-repeat:no-repeat;background-position:center;" class="left">
+	<div thumbnail="video" style="width:200px;height:200px;margin-left:25px;" class="contain">
 
-		<div class="dropzone left" dropzone="dropzoneThumbnailConfig" dropzone-instance="dropzoneThumbnail" id="thumbnail-dropzone" style="width:100%;height:80px;">
-			<span class="title">Select Thumbnail</span>
-		</div>
+		<div class="hide dropzone" dropzone="dropzoneThumbnailConfig" dropzone-instance="dropzoneThumbnail" id="thumbnail-dropzone"></div>
 
-		<div class="dropzone left" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="video-dropzone"  style="width:100%;height:220px;">
-			<span class="title">Select Video</span>
-			<div ng-bind-html="getPlayer()" style="position:relative;top:100%;" class="player"></div>
-		</div>
+		<div class="hide dropzone" dropzone="dropzoneConfig" dropzone-instance="dropzone" id="video-dropzone"></div>
 
-	</div>	
+		<div ng-bind-html="getPlayer()" class="player"></div>
+
+	</div>
+
+	<span class="left both" style="margin-left:25px;">Select Thumbnail <i class="{{contentSv.getConceptIcon('photo')}}" ng-click="activateDropzone('thumbnail-dropzone')"></i></span>
+
+	<span class="left both" style="margin-left:25px;">Select Video <i class="{{contentSv.getConceptIcon('video')}}" ng-click="activateDropzone('video-dropzone')"></i></span>
 
 	<form ng-show="isEdit()" ng-submit="save()" class="right navbar-form navbar-right">
 		<input type="text" name="title" ng-model="video.data.title" placeholder="Title" />
@@ -33,5 +34,5 @@
 			<i class="fa fa-save"></i>
 		</button>
 	</form>
-	
+
 </div>
