@@ -40,8 +40,8 @@
 
 .themesContainer .theme {
 	position: relative;
-	width: 50%;
-	min-height: 50%;
+	width: 100%;
+	min-height: 75%;
 	text-align: left;
 	display: inline-block;
 	margin: 0;
