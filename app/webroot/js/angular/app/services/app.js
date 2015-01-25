@@ -139,6 +139,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 				getPath('img')+'/themes/space/space_theme_01.png',
 				getPath('img')+'/themes/space/space_theme_02.png',
 				getPath('img')+'/themes/space/space_theme_03.png',
+				getPath('img')+'/themes/space/space_theme_04.png',
 			]
 		},
 		{
