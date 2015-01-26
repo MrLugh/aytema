@@ -174,13 +174,11 @@ iframe,object,embed {
 
 .cover {
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
 }
 
 .contain {
   background-size: contain;
-  background-position: center;
   background-repeat: no-repeat;
 }
 
