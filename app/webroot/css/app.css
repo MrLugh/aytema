@@ -182,6 +182,10 @@ iframe,object,embed {
   background-repeat: no-repeat;
 }
 
+.img-circle {
+  border-radius: 50%;
+}
+
 #cloudcial_loading {
   width:100%;
   height:100%;
