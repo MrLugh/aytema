@@ -236,7 +236,7 @@
 
             </div>
 
-            <div id="content"  ng-style="getContentStyle()">
+            <div id="content" ng-style="getContentStyle()">
 
                 <ng-view></ng-view>
 

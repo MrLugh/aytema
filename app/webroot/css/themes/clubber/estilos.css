@@ -872,7 +872,7 @@ ul {
 
 .latestEvents li.event {
   width: 100%;
-  clear: both;
+  float: left;
   margin-bottom: 10px;
   overflow: hidden;
 }

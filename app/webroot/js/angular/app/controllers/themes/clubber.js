@@ -204,7 +204,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		}
 
 		if (page == 'events') {
-			return 'small';
+			return 'large';
 		}
 
 		if (page == 'posts') {

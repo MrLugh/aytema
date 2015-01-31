@@ -84,6 +84,11 @@
     height: 250px;
   }
 
+  .latestEvents li.event {
+    width: 100%!important;
+    clear: both;
+  }
+
 }
 
 @media (max-width: 1024px) {
@@ -93,10 +98,6 @@
 
   .large, .xlarge {
     width: 100%;
-  }
-
-  .latestEvents li.event {
-
   }
 
   .section_events {
@@ -122,7 +123,7 @@
   }
 
   .latestEvents li.event  {
-    width: 100%!important;
+    width: 100%;
   }
 
 }

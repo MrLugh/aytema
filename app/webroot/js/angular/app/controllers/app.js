@@ -153,9 +153,9 @@ function appCo($scope,$rootScope,$location,appSv,userSv,contentSv) {
 		$scope.tour.addStep({
 			element: "#menu_help",
 			placement: "right",
-			title: "<strong>Welcome to your dashboard</strong>",
+			title: "<strong>Welcome to your CloudCial dashboard</strong>",
 			content: ""
-				+"<p>This is a tour about its customization!</p>"
+				+"<p>Customization Wizard!</p>"
 				+"<p><strong>Step 1:</strong> Manage your content <i class='fa fa-users'></i></p>"
 				+"<p><strong>Step 2:</strong> Choose a theme <i class='fa fa-files-o'></i></p>"
 				+"<p><strong>Step 3:</strong> Share your profile <i class='fa fa-share-alt'></i></p>"
