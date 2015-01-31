@@ -3,6 +3,8 @@ body {
   font-size: 13px;
   background-color: #151a1e;
   color: #adafae;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .ng-enter {
