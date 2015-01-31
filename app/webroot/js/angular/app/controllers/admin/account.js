@@ -6,6 +6,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.list		= [];
 	$scope.loading 	= false;
+	$scope.noMore 	= false;
 
 	$scope.masonryLoading = false;
 
@@ -91,6 +92,8 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 							}
 						}
 						$scope.offset += $scope.limit;
+					} else {
+						$scope.noMore = true;
 					}
 				},
 				function(reason) {
@@ -106,6 +109,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.filter = function(concept) {
 
 		var ixConcept = $scope.filters.concepts.indexOf(concept);
+		$scope.noMore = false;
 
 		if (ixConcept != -1) {
 			var filters = [];
@@ -128,7 +132,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.moreContent = function() {
-		if (!contentSv.isLoading() && !$scope.loading) {
+		if (!$scope.noMore && !contentSv.isLoading() && !$scope.loading) {
 			$scope.loading 	= true;
 			$scope.setList();
 		}
@@ -190,6 +194,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.$watch('account', function(account) {
 		if (!angular.equals({},account)) {
+			$scope.noMore = false;
 			$scope.generateConceptsList();
 			$scope.initFilters();
 			$scope.offset = 0;
