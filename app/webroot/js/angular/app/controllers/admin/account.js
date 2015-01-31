@@ -16,6 +16,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 
 	$scope.showAdd 		= false;
 	$scope.showFilters 	= false;
+	$scope.toAdd 		= false;
 
 	$scope.manageAdd = function() {
 		$scope.showAdd = !$scope.showAdd;
@@ -229,6 +230,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	}
 
 	$scope.hideAddContent = function() {
+		$scope.toAdd 	= false;
 		$scope.isAdding = false;
 		$scope.offset	= 0;
 		$scope.reinitMasonry();

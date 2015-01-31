@@ -193,7 +193,7 @@ iframe,object,embed {
   top:0;
   left:0;
   z-index:3;
-  background-color:rgba(42,49,55,0.8);
+  /*background-color:rgba(42,49,55,0.8);*/
   text-align:center;
   overflow: hidden;
 }

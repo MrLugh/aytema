@@ -19,7 +19,7 @@
 
 
 		<ul ng-show="showAdd">
-			<li ng-repeat="concept in concepts" tooltip="Add {{concept}}" tooltip-placement="bottom">
+			<li ng-repeat="concept in concepts" tooltip="Add {{concept}}" tooltip-placement="bottom" style="opacity:{{!toAdd || toAdd == concept ? 1:0.3}}">
 				<i ng-class="conceptIcon(concept)" ng-click="showAddContent(concept)"></i> {{countByConcept(concept)}}
 			</li>
 		</ul>
