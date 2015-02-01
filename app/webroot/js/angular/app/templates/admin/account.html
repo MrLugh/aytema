@@ -55,9 +55,9 @@
 
 	<div ng-show="!isAdding" class="both">
 
-		<ul id="accountPageList" class="masonry" masonry="{'columnWidth':1,'gutter':1,'isAnimated':false,'itemSelector':'.adminContent'}" style="padding-top:{{getMenuHeight()}}px;">
+		<ul id="accountPageList" style="padding-top:{{getMenuHeight()}}px;">
 
-			<li ng-repeat="content in list" class="adminContent {{contentSv.isContentEnabled(content) ? 'active' : 'inactive'}} medium " ng-class="getContentClass(content)" ng-switch="content.concept" masonry-item>
+			<li ng-repeat="content in list" class="adminContent {{contentSv.isContentEnabled(content) ? 'active' : 'inactive'}}" ng-class="getContentClass(content)" ng-switch="content.concept">
 
 				<ul class="both right controls">
 					<li class="left">

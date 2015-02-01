@@ -1,6 +1,7 @@
-<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="link {{content.network}}_{{content.concept}}">
-	<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
-	<p ng-bind-html="getDescription()"></p>	
-	<p><a target="_blank" href="{{getUrl()}}">{{getUrl()}}</a></p>
-
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="content link {{content.network}}_{{content.concept}}">
+	<div class="content_caption {{content.network}}AccountRgba">
+		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+		<p ng-bind-html="getDescription()"></p>	
+		<p><a target="_blank" href="{{getUrl()}}">{{getUrl()}}</a></p>
+	</div>
 </div>

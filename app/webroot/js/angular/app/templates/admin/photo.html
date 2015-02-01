@@ -1,19 +1,16 @@
-<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="photo {{content.network}}_{{content.concept}}" style="position:relative;">
-
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="content cover photo {{content.network}}_{{content.concept}}" style="position:relative;background-image:url({{current.src}});">
 	<div ng-if="moreThanOne()" style="position: absolute;top:10px;left:0px;" class="left">
 		<a href="#/" skip-default ng-click="move(-1)">
 			<i class="fa fa-chevron-left" style="color:#fff;"></i>
 	 	</a>
 	</div>
-
 	<div ng-if="moreThanOne()" style="position: absolute;top:10px;right:0px;" class="right">
 		<a href="#/" skip-default ng-click="move(1)">
 			<i class="fa fa-chevron-right" style="color:#fff;"></i>
 		</a>
 	</div>
-	<img ng-repeat="photo in photolist" ng-show="$index == currentPos" ng-src="{{photo.src}}" ng-class="$index == currentPos ? 'content_photo':''"  />
-
-	<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
-	<p ng-if="contentSv.getDescription(content).length>0" ng-bind-html="getDescription()"></p>
-
+	<div ng-if="getTitle().length>0 || contentSv.getDescription(content).length>0" class="content_caption {{content.network}}AccountRgba">
+		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+		<p ng-if="contentSv.getDescription(content).length>0" ng-bind-html="getDescription()"></p>
+	</div>
 </div>

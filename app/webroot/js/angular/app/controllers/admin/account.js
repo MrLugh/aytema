@@ -8,8 +8,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.loading 	= false;
 	$scope.noMore 	= false;
 
-	$scope.masonryLoading = false;
-
 	$scope.offset 	= 0;
 	$scope.limit	= 10;
 	$scope.filters	= {'concepts':[],'networks':[$scope.account.network]};
@@ -128,7 +126,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		}
 
 		$scope.offset	= 0;
-		$scope.reinitMasonry();
 	}
 
 	$scope.moreContent = function() {
@@ -198,8 +195,9 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			$scope.generateConceptsList();
 			$scope.initFilters();
 			$scope.offset = 0;
-			$scope.reinitMasonry();
 			$scope.scrollToTop();
+			$scope.list = [];
+			$scope.moreContent();
 		}
 	});
 
@@ -212,21 +210,17 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		var minus = appSv.getDashboardMenuMode() ? 300 : 50;
 		var style = {'width':'calc(100% - '+minus+'px)'};
 		return style;
-	}	
+	};
 
 	$scope.conceptIcon = function(concept) {
 		return contentSv.getConceptIcon(concept);
-	}
-
-	$scope.enableMasonry = function() {
-		$scope.masonryLoading = false;
-	}
+	};
 
 	$scope.showAddContent = function(concept) {
 		$scope.isAdding = true;
 		$scope.toAdd	= concept;
 		$scope.objAdd	= {};
-	}
+	};
 
 	$scope.showEditContent = function(index) {
 		$scope.isAdding = true;
@@ -238,7 +232,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		$scope.toAdd 	= false;
 		$scope.isAdding = false;
 		$scope.offset	= 0;
-		$scope.reinitMasonry();
-	}
+	};
 	
 }

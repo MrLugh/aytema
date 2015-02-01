@@ -1,6 +1,8 @@
-<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="chat">
-	<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
-	<ul ng-repeat="dialogue in getDialogues()">
-		<li><strong>{{dialogue.label}}</strong> {{dialogue.phrase}}</li>
-	</ul>
+<div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="content chat {{content.network}}_{{content.concept}}" style="position:relative;">
+	<div class="content_caption {{content.network}}AccountRgba">
+		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
+		<ul ng-repeat="dialogue in getDialogues()">
+			<li><strong>{{dialogue.label}}</strong> {{dialogue.phrase}}</li>
+		</ul>
+	</div>
 </div>

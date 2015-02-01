@@ -450,7 +450,8 @@
 
 .adminContent {
   float: left;
-  margin: 15px;
+  margin-left: 15px;
+  margin-top: 15px;
   padding: 10px;
   z-index: 1;
   text-align: left!important;
@@ -461,6 +462,8 @@
   border-radius: 5px;
 
   width: 50%;
+  height: 420px;
+  overflow: hidden;
 
   -webkit-transition:none;
   -moz-transition:none;
@@ -474,6 +477,26 @@
 
 .adminContent.inactive {
   opacity: 0.3;
+}
+
+.adminContent .content {
+  height: 350px;
+  padding: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.adminContent .content.twitter_post {
+  padding: 0;
+  overflow:auto;
+}
+
+.adminContent .content .content_caption {
+  padding: 15px;
+  max-height: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .adminContent .controls {

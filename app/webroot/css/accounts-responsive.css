@@ -1,15 +1,6 @@
 @media (max-width: 768px) {
 
-  #accountPageList .small {
-    width: calc(100% - 32px);
-  }
-  #accountPageList .medium {
-    width: calc(100% - 32px);
-  }
-  #accountPageList .large {
-    width: calc(100% - 32px);
-  }
-  #accountPageList .xlarge {
+  #accountPageList .adminContent {
     width: calc(100% - 32px);
   }
 
@@ -27,55 +18,20 @@
 
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) {
 
-  #accountPageList .small {
-    width: calc(25% - 32px);
-  }
-  #accountPageList .medium {
-    width: calc(50% - 32px);
-  }
-  #accountPageList .large {
-    width: calc(75% - 32px);
-  }
-  #accountPageList .xlarge {
-    width: calc(100% - 32px);
+  #accountPageList .adminContent {
+    width: calc(50% - 23px);
   }
 
 }
 
-@media (min-width: 1025px) and (max-width: 1200px) {
+@media (min-width: 1025px) {
 
-  #accountPageList .small {
-    width: calc(25% - 32px);
-  }
-  #accountPageList .medium {
-    width: calc(50% - 32px);
-  }
-  #accountPageList .large {
-    width: calc(75% - 32px);
-  }
-  #accountPageList .xlarge {
-    width: calc(100% - 32px);
+  #accountPageList .adminContent {
+    width: calc(33% - 17px);
   }
 
-}
-
-@media all and (max-width: 2048px) and (min-width: 1201px) {
-
-  #accountPageList .small {
-    width: calc(20% - 32px);
-  }
-  #accountPageList .medium {
-    width: calc(25% - 32px);
-  }
-
-  #accountPageList .large {
-    width: calc(33% - 32px);
-  }
-  #accountPageList .xlarge {
-    width: calc(50% - 32px);
-  }
 }
 
 @media (max-width: 480px) {
