@@ -30,7 +30,7 @@ function ($window) {
                 var height = $(document).height();
 
                 var scrollPercent = Math.round(100*bottom/height);
-                var more = (!scope.loading && scrollPercent > 95) ? true : false; 
+                var more = (!scope.loading && scrollPercent > 99) ? true : false; 
 
                 scope.showUp = $(window).scrollTop() > $(window).height() ? true : false;
                 
