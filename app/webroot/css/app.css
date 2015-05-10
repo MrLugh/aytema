@@ -461,6 +461,10 @@ iframe,object,embed {
   padding-left: 25px;
 }
 
+.headerClosed .navbar-form {
+  display: none;
+}
+
 .headerClosed .container {
   padding: 0!important;
 }
