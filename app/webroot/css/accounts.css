@@ -137,10 +137,9 @@
   top:0;
   left: 0;
   z-index: 1;
-  border-width: 105px;
+  border-width: 17px;
 
   border-color: #151a1e #2a3137;
-  border-color: #b0c19c #2a3137;
   border-style: solid;
 
   border-radius: 100%;
@@ -209,19 +208,19 @@
 
 .accountsContainer .accountLayerImage {
   position: absolute;
-  top:5%;
-  left: 5%;
-  width: 90%;
-  height: 90%;
+  top:1%;
+  left: 1%;
+  width: 98%;
+  height: 98%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
   z-index: 1;
-  -webkit-transition:all 0.36s ease-in-out 0s;
-  -moz-transition:all 0.36s ease-in-out 0s;
-  -o-transition:all 0.36s ease-in-out 0s;
-  transition:all 0.36s ease-in-out 0s;  
+  -webkit-transition:all 0.25s ease-in-out 0s;
+  -moz-transition:all 0.25s ease-in-out 0s;
+  -o-transition:all 0.25s ease-in-out 0s;
+  transition:all 0.25s ease-in-out 0s;  
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -233,10 +232,6 @@
   left: 5%;
   width: 90%;
   height: 90%;
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  transform: rotate(360deg);
 }
 
 .accountsContainer .accountLayerInfo {
@@ -886,4 +881,8 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.addContent .mce-tinymce {
+  clear: both;
 }
