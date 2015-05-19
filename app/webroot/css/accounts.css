@@ -825,7 +825,6 @@
   text-align: left;
   position: relative;
   z-index:4;
-  overflow-x:hidden;
 }
 
 .addContent h3 {
