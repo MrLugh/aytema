@@ -57,7 +57,7 @@
 
 		<ul id="accountPageList" style="padding-top:{{getMenuHeight()}}px;">
 
-			<li ng-repeat="content in list" class="adminContent {{contentSv.isContentEnabled(content) ? 'active' : 'inactive'}}" ng-class="getContentClass(content)" ng-switch="content.concept">
+			<li ng-repeat="content in list" ng-show="isContentFiltered(content)" class="adminContent {{contentSv.isContentEnabled(content) ? 'active' : 'inactive'}}" ng-class="getContentClass(content)" ng-switch="content.concept">
 
 				<ul class="both right controls">
 					<li class="left">

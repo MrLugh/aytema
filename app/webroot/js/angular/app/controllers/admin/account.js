@@ -37,8 +37,6 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			concepts.push(concept);
 		}
 
-		// Meto custom concept
-
 		$scope.concepts = concepts;
 	}
 
@@ -125,7 +123,7 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 			$scope.filters.concepts.push(concept);
 		}
 
-		$scope.offset	= 0;
+		//$scope.offset	= 0;
 	}
 
 	$scope.moreContent = function() {
@@ -232,6 +230,10 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 		$scope.toAdd 	= false;
 		$scope.isAdding = false;
 		$scope.offset	= 0;
+	};
+
+	$scope.isContentFiltered = function(content) {
+		return $scope.filters.concepts.indexOf(content.concept) != -1 ? true : false;
 	};
 	
 }

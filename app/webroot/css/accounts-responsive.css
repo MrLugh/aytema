@@ -24,6 +24,10 @@
     width: calc(50% - 23px);
   }
 
+  .addContent input[type="text"] {
+    width: 80%;
+  }
+
 }
 
 @media (min-width: 1025px) {
@@ -36,6 +40,6 @@
 
 @media (max-width: 480px) {
   .addContent input[type="text"] {
-    width: 90%;
+    width: 100%;
   }
 }
