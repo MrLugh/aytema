@@ -477,8 +477,16 @@
 
 .adminContent .content {
   height: 350px;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
+ -webkit-transition:all 0.46s ease-in-out 0s;
+  -moz-transition:all 0.46s ease-in-out 0s;
+  -o-transition:all 0.46s ease-in-out 0s;
+  transition:all 0.46s ease-in-out 0s;
+}
+
+.adminContent:hover .content {
+  background-position: top center;
 }
 
 .adminContent .content.twitter_post {
@@ -495,7 +503,12 @@
 }
 
 .adminContent .controls {
+  display: none;
   width: 100%;
+}
+
+.adminContent:hover .controls {
+  display: block
 }
 
 .adminContent .controls i {

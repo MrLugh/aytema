@@ -1056,7 +1056,7 @@ textarea.form-control {
   filter: alpha(opacity=1);
 }
 
-.content_caption i {
+.content_caption i.view_detail {
   font-size: 40px;
   line-height: 23px;
   margin: 0 15px;
@@ -1090,7 +1090,6 @@ textarea.form-control {
 .content_caption p {
   margin: 0;
   font-size: 15px!important;
-  padding: 0 10px;
   font-style: italic;
   line-height: 21px;
   font-family: 'Open Sans', sans-serif;
@@ -1606,7 +1605,7 @@ textarea.form-control {
   color: #ffb740;
 }
 
-#page_post ul li i {
+#page_post ul li i.view_detail {
   bottom: 20px;
   position: absolute;
   left: 20px;
