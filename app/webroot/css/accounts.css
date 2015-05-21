@@ -451,7 +451,7 @@
   padding: 10px;
   z-index: 1;
   text-align: left!important;
-  background-color: #2a3137;
+  background-color: rgba(42, 49, 55, 0.3);
 
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -475,9 +475,25 @@
   opacity: 0.3;
 }
 
+.adminContent:hover {
+  background-color: rgba(42, 49, 55, 0.7);
+}
+
+.adminContent .stats, .adminContent .controls {
+  opacity: 0;
+ -webkit-transition:all 0.46s ease-in-out 0s;
+  -moz-transition:all 0.46s ease-in-out 0s;
+  -o-transition:all 0.46s ease-in-out 0s;
+  transition:all 0.46s ease-in-out 0s;
+}
+
+.adminContent:hover .stats, .adminContent:hover .controls {
+  opacity: 1;
+}
+
 .adminContent .content {
   height: 350px;
-  background-position: center center;
+  background-position: 0% 0%;
   background-repeat: no-repeat;
  -webkit-transition:all 0.46s ease-in-out 0s;
   -moz-transition:all 0.46s ease-in-out 0s;
@@ -486,7 +502,7 @@
 }
 
 .adminContent:hover .content {
-  background-position: top center;
+  background-position: 50% 50%;
 }
 
 .adminContent .content.twitter_post {
@@ -500,15 +516,25 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  opacity: 0;
+ -webkit-transition:all 0.76s ease-in-out 0s;
+  -moz-transition:all 0.76s ease-in-out 0s;
+  -o-transition:all 0.76s ease-in-out 0s;
+  transition:all 0.76s ease-in-out 0s;
+}
+
+.adminContent .content.post .content_caption,
+.adminContent .content.quote .content_caption {
+  opacity: 1!important;
+  background: transparent;
+}
+
+.adminContent .content:hover .content_caption {
+  opacity: 1;
 }
 
 .adminContent .controls {
-  display: none;
   width: 100%;
-}
-
-.adminContent:hover .controls {
-  display: block
 }
 
 .adminContent .controls i {
@@ -844,11 +870,11 @@
   margin-left: 25px;
 }
 
-.addContent button, .addContent button:hover {
+.addContent button.save, .addContent button.save:hover, .addContent button.save:focus {
   margin-left: 25px;
-  background: transparent;
+  background-color: #83bd40;
   border: 0;
-  color: #b0c19c;
+  color: #2A3137;
 }
 
 .addContent form {

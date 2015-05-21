@@ -229,7 +229,9 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.hideAddContent = function() {
 		$scope.toAdd 	= false;
 		$scope.isAdding = false;
-		$scope.offset	= 0;
+		$scope.offset = 0;
+		$scope.clearList();
+		$scope.setList();
 	};
 
 	$scope.isContentFiltered = function(content) {

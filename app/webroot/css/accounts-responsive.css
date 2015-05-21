@@ -4,18 +4,6 @@
     width: calc(100% - 32px);
   }
 
-  .accountPageHeader .accountInfo {
-      display: block;
-      width: 100%;
-      text-align: left;
-  }
-
-  .accountPageHeader .stats {
-    float: left;
-    text-align: left;
-    margin-top: 12px;
-  }
-
 }
 
 @media (min-width: 769px) {
@@ -42,4 +30,17 @@
   .addContent input[type="text"] {
     width: 100%;
   }
+
+  .accountPageHeader .accountInfo {
+      display: block;
+      width: 100%;
+      text-align: left;
+  }
+
+  .accountPageHeader .stats {
+    float: left;
+    text-align: left;
+    margin-top: 12px;
+  }
+
 }

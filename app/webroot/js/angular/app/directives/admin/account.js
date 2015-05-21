@@ -37,7 +37,7 @@ function ($window) {
                 if (more && !scope.isAdding) {
                     scope.moreContent();
                 }
-            }            
+            }
 
             var destroy = function() {
                 element.unbind('$destroy',destroy);

@@ -1,7 +1,6 @@
 <div>
 	<h3>Post Information</h3>
 
-	<p>{{contentSv.getThumbnail(post)}}</p>	
 
 	<div thumbnail="post" style="height:200px;margin-left:25px;" class="contain">
 
@@ -17,7 +16,7 @@
 
        	<textarea ng-model="post.data.description" class="tinymce" placeholder="post title" ng-required="true" ui-tinymce="tinymceOptions"></textarea>
 
-		<button class="btn btn-primary left both" tooltip="Save" tooltip-placement="bottom">
+		<button class="btn btn-primary left both save" tooltip="Save" tooltip-placement="bottom">
 			<i class="fa fa-save"></i>
 		</button>
 

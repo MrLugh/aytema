@@ -193,7 +193,7 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		
 		$scope.current = page;
 		setTimeout(function(){
-			$('body').animate({scrollTop: 0}, "slow");
+			$('body').animate({scrollTop: 20}, "slow");
 		},500);
 	}
 
@@ -312,10 +312,10 @@ function themeClubberCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
 
 		var rgb = contentSv.hexToRgb($scope.config.custom.colors.contentBackground.value);
-		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.8)";
+		var rgbString = "rgba("+rgb.r+","+rgb.g+","+rgb.b+",0.6)";
 
 		var element = angular.element(document.querySelector('nav'));
-		$(element[0]).css('background-color',rgbString);
+		$(element[0]).css('background-color',$scope.config.custom.colors.contentBackground.value);
 		var element = angular.element(document.querySelector('#container'));
 		$(element[0]).css('background-color',rgbString);
 		var element = angular.element(document.querySelector('.latestPhotos'));
