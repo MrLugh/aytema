@@ -451,7 +451,7 @@
   padding: 10px;
   z-index: 1;
   text-align: left!important;
-  background-color: rgba(42, 49, 55, 0.3);
+  background-color: transparent;
 
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -476,7 +476,7 @@
 }
 
 .adminContent:hover {
-  background-color: rgba(42, 49, 55, 0.7);
+  background-color: rgba(42, 49, 55, 0.3);
 }
 
 .adminContent .stats, .adminContent .controls {
@@ -495,10 +495,10 @@
   height: 350px;
   background-position: 0% 0%;
   background-repeat: no-repeat;
- -webkit-transition:all 0.46s ease-in-out 0s;
-  -moz-transition:all 0.46s ease-in-out 0s;
-  -o-transition:all 0.46s ease-in-out 0s;
-  transition:all 0.46s ease-in-out 0s;
+ -webkit-transition:all 0.76s ease-in-out 0s;
+  -moz-transition:all 0.76s ease-in-out 0s;
+  -o-transition:all 0.76s ease-in-out 0s;
+  transition:all 0.76s ease-in-out 0s;
 }
 
 .adminContent:hover .content {
