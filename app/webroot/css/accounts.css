@@ -451,7 +451,7 @@
   padding: 10px;
   z-index: 1;
   text-align: left!important;
-  background-color: transparent;
+  background-color: rgba(42, 49, 55, 0.3);
 
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -476,7 +476,7 @@
 }
 
 .adminContent:hover {
-  background-color: rgba(42, 49, 55, 0.3);
+  background-color: rgba(42, 49, 55, 0.7);
 }
 
 .adminContent .stats, .adminContent .controls {

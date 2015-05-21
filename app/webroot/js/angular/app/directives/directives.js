@@ -133,7 +133,7 @@ function ($timeout) {
 
             if (items.length == 0) {
                 scope.masonryLoading = false;
-                scope.setList();
+                setTimeout(scope.setList,750);
                 return;
             }
 

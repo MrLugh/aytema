@@ -65,7 +65,6 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
         reloadOnSearch: false
     });    
 
-    /*
     $routeProvider.when('/users', {
         templateUrl: getPath('tpl')+'/cloudcial/users.html',
         controller: usersCo,
@@ -83,7 +82,6 @@ function($routeProvider,$httpProvider,$sceDelegateProvider) {
         controller: socialnetsCo,
         reloadOnSearch: false
     });
-	*/
 
     
     $routeProvider.otherwise({redirectTo: '/'});

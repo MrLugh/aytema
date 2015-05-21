@@ -41,6 +41,7 @@
     echo $this->Html->css('themes/digest/estilos-responsive');
     echo $this->Html->css('themes/digest/detalle');
     echo $this->Html->css('themes/digest/detalle-responsive');
+    echo $this->Html->css('animate');
     ?>
 
     <!-- Js -->

@@ -40,8 +40,8 @@ function(){
                             continue;
                         }
 
-                        var page = angular.element(document.querySelector("#page_"+scope.pages[x]));
-                        if (angular.isDefined(page) && $(window).scrollTop() + 50 > page[0].offsetTop) {
+                        var page = document.querySelector("#page_"+scope.pages[x]);
+                        if (angular.isDefined(page) && $(window).scrollTop() + 50 > angular.element(page).offsetTop) {
                             current = 'page_'+scope.pages[x];
                         }
                     }
