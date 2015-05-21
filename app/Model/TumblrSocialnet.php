@@ -12,8 +12,8 @@ Class TumblrSocialnet {
 	const USER_DATA				= "http://api.tumblr.com/v2/blog/*.tumblr.com/info";
 
 	//Esto va al config!
-	const APP_ID 			= "TyJKAYXQm61AsADJ8vpgGLoPcwxpme8LzWaOfRvYGLJeRQ31Az";
-	const APP_SECRET 		= "hYkvNmO4UqMMq2lvja7OdoDJsQJEm4VNrpmszt6A9O1hnAzWr4";
+	const APP_ID 			= "BhFUWD8jlJAULdqmO6ekimCLOEohadEfYKIIuAIJTotPH4XjuG";
+	const APP_SECRET 		= "OqZnW1bXyGrvSfQeViqbfEsbRxkAt0vEDdmOxrRoP5dINS8CWF";
 	const APP_CALLBACK 		= "http://cloudcial.com/tumblr/addAccount";
 
 	static $content_types	= array('photo','track','video','quote'/*,'post','link','chat'*/);
