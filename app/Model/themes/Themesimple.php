@@ -50,5 +50,9 @@ Class Themesimple {
         )
     );
 
+    public function getConfig() {
+        return self::$config;
+    }
+
 
 }

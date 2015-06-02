@@ -47,5 +47,8 @@ Class Themespace {
         )
     );
 
+    public function getConfig() {
+        return self::$config;
+    }
 
 }

@@ -105,4 +105,9 @@ Class Themedigest {
             ),
         )
     );	
+
+    public function getConfig() {
+        return self::$config;
+    }
+
 }

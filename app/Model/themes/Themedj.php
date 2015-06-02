@@ -16,5 +16,9 @@ Class Themedj {
         )
     );
 
+    public function getConfig() {
+        return self::$config;
+    }    
+
 
 }

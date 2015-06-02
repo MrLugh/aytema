@@ -30,8 +30,8 @@ Class Socialnet extends AppModel {
 		try {
 
 			$class = $network."socialnet";
-			$object= new $class();
-			return $object::$content_types;
+			$object= new $class;
+			return $object->$content_types;
 
 		} catch(Exeption $e) {
 
