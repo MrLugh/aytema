@@ -2,7 +2,7 @@
 
 Class Themeclubber {
 
-    static $config = array(
+    public $config = array(
         'filters' => array(
             'photos'    => array(
                 'concepts'  => array('photo'),

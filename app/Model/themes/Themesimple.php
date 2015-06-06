@@ -2,7 +2,7 @@
 
 Class Themesimple {
 
-    static $config = array(
+    public $config = array(
         'colors' => array(
             'background' => array(
                 'value' => '#1A2536',

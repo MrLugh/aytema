@@ -2,7 +2,7 @@
 
 Class Themedigest {
 
-    static $config = array(
+    public $config = array(
         'filters' => array(
             'home'      => array(
                 'concepts'  => array('all'),

@@ -2,7 +2,7 @@
 
 Class Themedj {
 
-    static $config = array(
+    public $config = array(
         'text' => array(
             'headline' => "Progressive House Music",
             'phone' => "(123) 456-7890"
