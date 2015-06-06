@@ -9,8 +9,6 @@ Class Themephotographer {
         ),
     );
 
-    public function getConfig() {
-        return self::$config;
-    }
+
 
 }

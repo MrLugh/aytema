@@ -66,9 +66,7 @@ Class Themeclubber {
         )
     );
 
-    public function getConfig() {
-        return self::$config;
-    }
+
 
 
 }

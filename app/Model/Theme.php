@@ -25,10 +25,10 @@ Class Theme extends AppModel {
             $model = new $class;
 
 	        if (empty($config)) {
-	        	$config = $model->getConfig();
+	        	$config = $model->config;
 	        } else {
                 //$config = unserialize($config[0]['Theme']['data']);
-                $config = array_merge($model->getConfig(),unserialize($config[0]['Theme']['data']));
+                $config = array_merge($model->config,unserialize($config[0]['Theme']['data']));
             }
 
             $config['user'] = $user_id;
