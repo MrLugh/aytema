@@ -34,7 +34,7 @@ class UsersController extends AppController {
         $this->layout = 'anonymous';
 
         if ($this->request->is('post')) {
-            $this->request->data['User'] = $this->request->data ;
+            $this->request->data['User'] = $this->request->data;
             if ($this->Auth->login()) {
                 $this->User->id = $this->Auth->user('id');
                 $this->User->saveField('last_login', date('Y-m-d H:i:s') );
