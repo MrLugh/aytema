@@ -119,7 +119,7 @@
 	}
 
 	.content_thumbnail {
-		background-size:contain!important;	
+		background-size:100%!important;	
 	}
 
 	#page_about .content p {
