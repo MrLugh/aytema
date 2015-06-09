@@ -397,7 +397,7 @@ function themeDjCo($scope,appSv,userSv,contentSv,$sce,$filter) {
 		var element = angular.element(document.querySelector("#page_"+page +" .content"));
 		var width   = element[0].clientWidth;
 
-		if (width > 480) {
+		if (width > 780) {
 			return width/2 - 6;
 		}
 		return width;

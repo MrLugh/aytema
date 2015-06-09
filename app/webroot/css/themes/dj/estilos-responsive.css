@@ -56,6 +56,22 @@
 		float: none;
 	}
 
+	.detail_container .comments {
+		display: none;
+	}
+
+	#page_event .event_menu {
+		width: 100%;
+	}
+
+	#page_event .event_menu ul {
+		width: 100%;
+	}
+
+	#page_event .event_container {
+		display: none;
+	}
+
 	#page_event .content {
 	    overflow: hidden;
 	    height: auto;
@@ -98,8 +114,14 @@
 	}
 
 	#page_photo ul li {
-		width: 50%;
+		width: 100%!important;
+		height: 50%!important;
 	}
+
+	.content_thumbnail {
+		background-size:contain!important;	
+	}
+
 	#page_about .content p {
 	    font-size: 14px;
 	    line-height: 23px;
@@ -131,21 +153,6 @@
 		max-width: 100%;
 	}
 
-	#page_photo ul li {
-		width: 100%;
-	}
-
-	#page_event .event_menu {
-		width: 100%;
-	}
-
-	#page_event .event_menu ul {
-		width: 100%;
-	}
-
-	#page_event .event_container {
-		display: none;
-	}
 	#page_about .content p {
 	    font-size: 12px;
 	    line-height: 21px;

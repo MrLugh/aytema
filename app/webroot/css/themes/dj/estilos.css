@@ -282,7 +282,7 @@ p {
 }
 
 .latest_page_cover {
-  background-size: cover;
+  background-size:cover;
   background-attachment:fixed;
   background-position: center center!important;
   background-repeat: no-repeat;
@@ -357,6 +357,8 @@ p {
 .navbar-toggle i {
   position: relative;
   z-index: 2;
+  font-weight: bold;
+  padding: 10px;  
 }
 
 #menu { 
@@ -415,10 +417,7 @@ p {
 
 /*header*/
 #page_profile {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-size:cover;
   background-position: center top;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -793,7 +792,6 @@ textarea.form-control {
   background-image:url("../../../img/admin/bg_dark_mosaic.png");
   background-color:rgba(16, 16, 16, 0.9);
   background-attachment: fixed;
-  overflow-y: auto;
   overflow-x:hidden;
 }
 
@@ -802,9 +800,6 @@ textarea.form-control {
     display: inline-block;
     padding: 10px 0;
     text-align: left !important;
-}
-#page_footer li span {
-    padding: 0;
 }
 
 #page_footer span:hover {
@@ -907,9 +902,9 @@ textarea.form-control {
 }
 
 #page_footer .content-section {
-  width: calc(50% - 50px);
+  width: 50%;
   float: left;
-  margin: 25px;
+  margin-top: 25px;
   border-radius: 20px;
   border-left: 1px dashed cyan;
   border-color: #19151F #ffc229;
@@ -946,9 +941,9 @@ textarea.form-control {
 #page_detail i.controlNext,
 #page_detail i.controlPrev,
 #page_detail i.controlClose {
-  padding: 15px;
+  padding: 20px;
   color:#f3f3f3;
-  font-size: 20px;
+  font-size: 25px;
   -webkit-transition: all 0.2s ease 0s;
   -moz-transition: all 0.2s ease 0s;
   -o-transition: all 0.2s ease 0s;
@@ -982,7 +977,7 @@ textarea.form-control {
 }
 
 .detail_container .stat {
-  font-size:40px;
+  font-size:25px;
   margin-left: 25px;
   display: inline-block;
 }
@@ -1028,7 +1023,7 @@ textarea.form-control {
 .detail_container .player {
   width: 70%;
   background-color: #f3f3f3;
-  background-size: cover;
+  background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
@@ -1079,7 +1074,6 @@ textarea.form-control {
   display: block!important;
   letter-spacing: 0.1em;
   font-family: 'Oswald', sans-serif;
-  padding: 0 10px;
 }
 
 .content_caption p a {
@@ -1116,6 +1110,8 @@ textarea.form-control {
   font-family: "Oswald",sans-serif;
   position: relative;
   z-index: 2;
+  padding: 2px;
+  font-size: 20px;
 }
 
 
@@ -1149,7 +1145,7 @@ textarea.form-control {
   display: block;
   float: left;
   height: auto;
-  background-size: cover;
+  background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
@@ -1261,10 +1257,7 @@ textarea.form-control {
 
 #page_track {
   background: url("../../../img/themes/dj/bg_music.jpg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-size:cover;
   background-color: #f3f3f3;
 }
 
@@ -1285,10 +1278,7 @@ textarea.form-control {
 }
 
 #page_track .content_thumbnail {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;  
+  background-size:cover;  
 }
 
 #page_track .more {
@@ -1318,10 +1308,7 @@ textarea.form-control {
 #page_video {
   /*background: url("../../../img/themes/dj/bg_footer.jpg") no-repeat center center fixed;*/
   background-color: #f3f3f3;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-size:cover;
   position: relative;
 }
 
@@ -1342,10 +1329,7 @@ textarea.form-control {
 }
 
 #page_video .content_thumbnail {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;  
+  background-size:cover;  
 }
 
 #page_video .more {
@@ -1375,10 +1359,7 @@ textarea.form-control {
 
 #page_photo { 
   background: url("../../../img/themes/dj/bg_gallery.jpg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-size:cover;
   position: relative;
 }
 
@@ -1405,6 +1386,7 @@ textarea.form-control {
 
 #page_photo .content_thumbnail {
   width: 100%;
+  background-size: cover;
 }
 
 #page_photo .pageContentContainer:hover .content_thumbnail {
@@ -1468,7 +1450,7 @@ textarea.form-control {
   height: 120px;
   overflow: hidden;
   background-image: none;
-  background-size: cover;
+  background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.4;
@@ -1559,10 +1541,10 @@ textarea.form-control {
 #page_post ul li {
   position: relative;
   width: 100%;
-  height: calc(50% - 20px);
+  height: 50%;
   display: block;
   overflow: hidden;
-  margin: 10px;
+  padding: 10px;
   background-color: rgba(0,0,0,0.7);
 }
 
@@ -1625,10 +1607,7 @@ textarea.form-control {
 /* Generics */
 
 .cover {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-size:cover;
   background-position: center;
   background-repeat: no-repeat;  
 }

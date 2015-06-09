@@ -354,6 +354,7 @@ iframe,object,embed {
   height: 100%;
   margin: 0;
   padding: 0px 50px 10px 10px;
+  overflow-y:auto;
 }
 
 #container #header .dropdown-menu {

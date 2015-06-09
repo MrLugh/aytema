@@ -84,7 +84,7 @@
 
 			<div class="content post_container">
 				<ul id="{{page}}_list" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;">
-					<li ng-repeat="post in contents.post.list" ng-if="canShowPost(post)" class="{{$index%2 ? 'odd':''}}">
+					<li ng-repeat="post in contents.post.list" ng-if="canShowPost(post)" ng-click="showDetail(post)" class="{{$index%2 ? 'odd':''}}">
 
 						<div class="pageContentContainer">
 
@@ -114,7 +114,7 @@
 					<a id="next_track" class="next" href="#/" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;"></a>
 					<div class="carousel_container left" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;">
 						<ul id="{{page}}_list" caroufredsel="{'selector':'#{{page}}_list','auto':false,'prev':'#prev_track','next':'#next_track','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-							<li ng-repeat="track in contents.track.list|withThumbnail" class="{{$index % 2 ? 'odd':''}}" style="height:100%;width:{{getCarouselItemWidth(page)}}px;">
+							<li ng-repeat="track in contents.track.list|withThumbnail" ng-click="showDetail(track)" class="{{$index % 2 ? 'odd':''}}" style="height:100%;width:{{getCarouselItemWidth(page)}}px;">
 
 								<div class="pageContentContainer">
 
@@ -159,7 +159,7 @@
 					<a id="next_video" class="next" href="#/" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;"></a>
 					<div class="carousel_container left" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;">
 						<ul id="{{page}}_list" caroufredsel="{'selector':'#{{page}}_list','auto':false,'prev':'#prev_video','next':'#next_video','mousewheel':true,'swipe':{'onMouse':true,'onTouch':true}}">
-							<li ng-repeat="video in contents.video.list|withThumbnail" class="{{$index % 2 ? 'odd':''}}" style="height:100%;width:{{getCarouselItemWidth(page)}}px;">
+							<li ng-repeat="video in contents.video.list|withThumbnail" ng-click="showDetail(video)" class="{{$index % 2 ? 'odd':''}}" style="height:100%;width:{{getCarouselItemWidth(page)}}px;">
 
 								<div class="pageContentContainer">
 
@@ -200,7 +200,7 @@
 
 			<div class="content">
 				<ul id="{{page}}_list" style="height:{{appSv.getHeight() - 150 - menuHeight}}px;">
-					<li ng-repeat="photo in contents.photo.list" ng-show="contentSv.getThumbnail(photo).length" class="{{$index % 2 ? 'odd':''}}" style="height:50%">
+					<li ng-repeat="photo in contents.photo.list" ng-show="contentSv.getThumbnail(photo).length" ng-click="showDetail(photo)" class="{{$index % 2 ? 'odd':''}}" style="height:50%">
 
 						<div class="pageContentContainer">
 
@@ -211,7 +211,7 @@
 						      </div>
 						    </div>
 
-							<div style="background-image:url({{contentSv.getThumbnail(photo)}});" class="content_thumbnail cover"></div>
+							<div style="background-image:url({{contentSv.getThumbnail(photo)}});" class="content_thumbnail"></div>
 
 						</div>
 

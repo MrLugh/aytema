@@ -9,45 +9,7 @@ function(){
         scope: true,
         link: function(scope,element,attrs) {
 
-            var resizeTimer = -1;
-            var scrollTimer = -1;
-
-            //setTimeout(function(){
-                $("#menu_init").show(500);
-                //$("body").css('overflow','auto');
-                //$("body").css('overflowX','hidden');
-            //},2500);
-
-            $( window ).resize(function() {
-                //$(".navbar-collapse").removeClass("in");
-                clearTimeout(resizeTimer);
-                //resizeTimer = setTimeout(function(){
-                    if (!scope.showingDetail) {
-                        scope.scrollToSection(scope.current);
-                    }
-                //},500);
-            });
-
-            $( window ).scroll(function() {
-
-                clearTimeout(scrollTimer);
-                //scrollTimer = setTimeout(function(){
-
-                    var current = scope.current;
-                    for (var x in scope.pages) {
-
-                        if (scope.showingDetail) {
-                            continue;
-                        }
-
-                        var page = document.querySelector("#page_"+scope.pages[x]);
-                        if (angular.isDefined(page) && $(window).scrollTop() + 50 > angular.element(page).offsetTop) {
-                            current = 'page_'+scope.pages[x];
-                        }
-                    }
-                    scope.$apply(function(){scope.current = current;});
-                //},1000);
-            });
+            $("#menu_init").show(500);
 
         }
     }
