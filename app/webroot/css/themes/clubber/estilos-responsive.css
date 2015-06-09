@@ -1,5 +1,16 @@
 @media (max-width: 480px) {
 
+  .latestVideos h1, .latestTracks h1,
+  .latestVideos h2, .latestTracks h2,
+  .latestVideos h3, .latestTracks h3,
+  .latestVideos h4, .latestTracks h4,
+  .latestVideos h5, .latestTracks h5,
+  .latestVideos h6, .latestTracks h6 {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+
   #container {
     width: 100%;
   }
@@ -42,16 +53,16 @@
     width: 100%;
   }
 
+  .navbar {
+      padding: 15px;
+  }
+
   .latestPhotos .photo {
     width: 100%;
   }
 
   .latestPhotos .photo .text_container {
     display: none;
-  }
-
-  .latestPhotos .carousel-control i  {
-    font-size: 25px;
   }
 
   .small, .medium, .large, .xlarge {
@@ -63,12 +74,8 @@
     line-height: 18px!important;
   }  
 
-}
-
-@media (max-width: 480px) {
-
-  .small, .medium, .large, .xlarge {
-    width: 100%;
+  .comments {
+    display: none;
   }
 
 }
@@ -87,6 +94,15 @@
   .latestEvents li.event {
     width: 100%!important;
     clear: both;
+  }
+
+  #container, .container, .boxed .latestPhotos  {
+    max-width: 90%;
+  }
+
+  #footer .content-section {
+    width: calc(100% - 50px);
+    height: auto;
   }
 
 }
@@ -128,7 +144,7 @@
 
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (max-width: 768px) {
 
   .player > iframe, .player > object, .player > embed, .player > audio, .player > video {
     height: 250px;
@@ -171,7 +187,7 @@
 
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
 
   .latestEvents .event-date-container .event-date-month {
     font-size: 14px;
