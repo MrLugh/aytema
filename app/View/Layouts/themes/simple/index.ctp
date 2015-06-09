@@ -9,7 +9,7 @@
     <meta property="og:title" content="Cloud Cial"/>
     <meta property="og:type" content="article"/>
     <meta property="og:site_name" content="CloudCial.com"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
 
