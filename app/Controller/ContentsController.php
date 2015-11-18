@@ -176,6 +176,9 @@ class ContentsController extends AppController {
             if ($value['network'] == 'soundcloud' && $value['data']['sharing'] != 'public') {
                 $status = 'disabled';
             }
+            if ($value['network'] == 'tumblr' && $value['concept'] == 'video' && $value['data']['video_type'] == 'unknown') {
+                $status = 'inconsistent';
+            }
 
             $value['status']= $status;
             $value['data']  = serialize($value['data']);

@@ -237,5 +237,9 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 	$scope.isContentFiltered = function(content) {
 		return $scope.filters.concepts.indexOf(content.concept) != -1 ? true : false;
 	};
+
+	$scope.canShowContent = function(content) {
+		return content.status != "inconsistent";
+	};
 	
 }

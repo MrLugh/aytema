@@ -54,7 +54,7 @@ ayTemaSs.factory('appSv',['$q', '$http',function($q,$http) {
 			network : 'mixcloud',
 			brand	:'MixCloud',
 			concepts: ['track'],
-			oauth	: false,
+			oauth	: true,
 			follow	: true,
 			color	: '#6d6e71'
 		},

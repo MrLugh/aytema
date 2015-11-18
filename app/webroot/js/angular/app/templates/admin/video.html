@@ -1,5 +1,5 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="content cover video {{content.network}}_{{content.concept}}" style="background-image:url({{contentSv.getThumbnail(content)}});">
-	<div ng-if="getTitle().length>0 || contentSv.getDescription(content).length>0" class="content_caption {{content.network}}AccountRgba">
+	<div ng-if="getTitle().length>0 || contentSv.getDescription(content).length>0" class="content_caption {{content.network}}AccountRgba" style="{{!contentSv.getThumbnail(content).length?'opacity:1;max-height:100%;':''}}">
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-if="contentSv.getDescription(content).length>0" ng-bind-html="getDescription()"></p>
 	</div>

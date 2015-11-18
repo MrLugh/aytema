@@ -9,7 +9,7 @@
 			<i class="fa fa-chevron-right" style="color:#fff;"></i>
 		</a>
 	</div>
-	<div ng-if="getTitle().length>0 || contentSv.getDescription(content).length>0" class="content_caption {{content.network}}AccountRgba">
+	<div ng-if="getTitle().length>0 || contentSv.getDescription(content).length>0" class="content_caption {{content.network}}AccountRgba" style="{{!current.src.length?'opacity:1;max-height:100%;':''}}">
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-if="contentSv.getDescription(content).length>0" ng-bind-html="getDescription()"></p>
 	</div>

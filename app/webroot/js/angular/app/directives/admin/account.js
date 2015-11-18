@@ -13,6 +13,7 @@ function ($window) {
             var raw = $('body');
             scope.showUp = false;
             scope.scrolling = false;
+            scope.scrollTop = 0;
 
             scope.scrollToTop = function() {
                 if (scope.scrolling) {
@@ -28,6 +29,10 @@ function ($window) {
 
                 var bottom = $(window).height() + $(window).scrollTop();
                 var height = $(document).height();
+
+                scope.$apply(function(){
+                    scope.scrollTop = $(window).scrollTop();
+                });                
 
                 var scrollPercent = Math.round(100*bottom/height);
                 var more = (!scope.loading && scrollPercent > 99) ? true : false; 

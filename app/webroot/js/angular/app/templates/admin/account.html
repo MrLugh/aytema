@@ -17,7 +17,6 @@
 		<i ng-show="!isAdding" class="fa fa-plus addControl" ng-click="manageAdd()" tooltip="Add content" tooltip-placement="right"></i>
 		<i ng-show="isAdding" class="addControl fa fa-times" ng-click="hideAddContent()"></i>
 
-
 		<ul ng-show="showAdd">
 			<li ng-repeat="concept in concepts" tooltip="Add {{concept}}" tooltip-placement="bottom" style="opacity:{{!toAdd || toAdd == concept ? 1:0.3}}">
 				<i ng-class="conceptIcon(concept)" ng-click="showAddContent(concept)"></i> {{countByConcept(concept)}}
@@ -30,11 +29,11 @@
 	<div ng-show="!isAdding" class="accountPageHeader {{account.network}}AccountPageHeader both" ng-style="getPageHeaderStyle()" get-menu-height>
 
 		<div class="controls">
-			<i class="fa fa-arrow-left left control-left" ng-click="move(-1)" tooltip="Previous Account" tooltip-placement="right"></i>
-			<i class="fa fa-arrow-right left control-right" ng-click="move(1)" tooltip="Next Account" tooltip-placement="right"></i>
+			<i ng-show="userSv.getAccounts().length>1" class="fa fa-arrow-left left control-left" ng-click="move(-1)" tooltip="Previous Account" tooltip-placement="bottom"></i>
+			<i ng-show="userSv.getAccounts().length>1" class="fa fa-arrow-right left control-right" ng-click="move(1)" tooltip="Next Account" tooltip-placement="bottom"></i>
 
-			<i class="fa fa-plus-circle left control-more" ng-click="moreContent()" tooltip="More Content" tooltip-placement="right"></i>
-			<i class="fa fa-times-circle-o left control-close" ng-click="closeAccount()" tooltip="Close Account" tooltip-placement="right"></i>
+			<i class="fa fa-plus-circle left control-more" ng-click="moreContent()" tooltip="More Content" tooltip-placement="bottom"></i>
+			<i class="fa fa-times-circle-o left control-close" ng-click="closeAccount()" tooltip="Close Account" tooltip-placement="bottom"></i>
 
 		</div>
 
@@ -43,7 +42,7 @@
 			<strong class="accountUsername">{{account.login}}</strong>
 		</div>
 
-		<ul class="stats both right">
+		<ul ng-if="!scrollTop" class="stats both right animated fadeIn">
 			<li ng-repeat="(key,stat) in account.stats" ng-if="canShowStat(stat)" class="stat">
 				<div tooltip="{{key|capitalize}}: {{stat}}" tooltip-placement="right">
 					<i ng-class="statIcon(key)"></i> {{stat}}
@@ -57,11 +56,11 @@
 
 		<ul id="accountPageList" style="padding-top:{{getMenuHeight()}}px;">
 
-			<li ng-repeat="content in list" ng-show="isContentFiltered(content)" class="adminContent {{contentSv.isContentEnabled(content) ? 'active' : 'inactive'}}" ng-class="getContentClass(content)" ng-switch="content.concept">
+			<li ng-repeat="content in list" ng-show="isContentFiltered(content) && canShowContent(content)" class="adminContent {{contentSv.isContentEnabled(content) ? 'active' : 'inactive'}}" ng-class="getContentClass(content)" ng-switch="content.concept">
 
 				<ul class="both right controls">
 					<li class="left">
-						<i ng-class="conceptIcon(content.concept)" tooltip="{{content.concept}}" tooltip-placement="bottom"></i>
+						<i ng-class="conceptIcon(content.concept)" tooltip="{{content.concept}}" tooltip-placement="bottom"></i> {{content.concept}}
 					</li>
 					<li class="right">
 						<i ng-click="manageAction($index)" class="{{contentSv.isContentEnabled(content) ? 'fa fa-toggle-off' : 'fa fa-toggle-on'}}" tooltip="{{contentSv.isContentEnabled(content) ? 'Hide':'Show' }} content" tooltip-placement="bottom"></i>
@@ -94,7 +93,19 @@
 
 		</ul>
 
-		<h3 ng-show="noMore" class="both center animated fadeInDown" style="margin:20px;"><strong>No more content!</strong></h3>
+		<h3 ng-show="noMore" class="noMore {{account.network}}Account both center animated fadeInDown">
+			<strong>No more content!</strong>
+		</h3>
+
+		<div ng-if="account.network == 'cloudcial' && noMore" class="animated fadeInDown">
+			<h3>Try adding yours:</h3>
+			<ul>
+				<li ng-repeat="concept in concepts" class="cloudcialAccount" style="opacity:{{!toAdd || toAdd == concept ? 1:0.3}};padding:20px 40px;;margin:20px;display:inline-block;border-radius:4px;color:inherit;" ng-click="showAddContent(concept)">
+					<i ng-class="conceptIcon(concept)" style="font-size:40px;"></i>
+					<p style="font-size:20px;">{{concept}}</p>
+				</li>
+			</ul>
+		</div>
 
 	</div>
 
