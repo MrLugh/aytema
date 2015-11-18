@@ -3,6 +3,7 @@ body {
   font-size: 13px;
   background-color: #151a1e;
   color: #adafae;
+  box-sizing: border-box;
 }
 
 .ng-enter {

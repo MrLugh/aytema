@@ -48,7 +48,7 @@
 									<button type="text" class="btn btn-sm networkButton" ng-click="addFollow(network.network)">Add</button>
 								</form>
 								<i ng-if="addError" class="fa fa-warning"></i>
-								<p ng-if="addError">{{addErrorMsg}}</p>								
+								<p ng-if="addError" ng-bind-html="addErrorMsg"></p>
 							</li>
 						</ul>
 

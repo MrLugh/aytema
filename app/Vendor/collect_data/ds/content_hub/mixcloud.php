@@ -10,18 +10,27 @@ class MixcloudContentHubDs extends AbstractContentHubDs {
 
 	protected function get_last_concept_for_network( $external_user_id, $concept ) {
 
-		/*		
-		$sort	= array("content.creation_date"=>-1);
+		$params = array(
+			'Content.network'			=> self::$network,
+			'Content.concept'			=> $concept,
+			'Content.external_user_id'	=> $external_user_id,
+		);
 
-		$socialnet	= $this->get_socialnet();
-		$records	= $this->get_mo_contenthub()->get_records_by_network_userid_concept($user_id,$socialnet->get_user_id(), $concept, $creation_date, $other_where, $fields)->sort($sort)->limit(1);
-		if ($records->count())
-		{
-			$item = $records->getNext();
-			return $item["content"];
-		}
-		*/
-		return array('creation_date'=> date("Y-m-d H:i:s",strtotime("now ".self::COLLECT_INTERVAL)));
+		$content = new Content();
+
+        $contents = $content->find('all', array(
+            'conditions'=> $params,
+            'order'     => array('Content.creation_date' => 'desc'),
+            'limit'     => '1',
+            )
+        );
+
+        if (count($contents)) {
+        	$content = array_shift($contents);
+        	return $content['Content'];
+        }
+
+		return null;
 	}	
 
 	protected function processFetchParams ( $params ) {
@@ -71,13 +80,11 @@ class MixcloudContentHubDs extends AbstractContentHubDs {
 		$data 	= array();
 		$concept= 'track';
 
-		/*
 		if (!isset($params['since']))
 		{
 			$last_concept= $this->get_last_concept_for_network($account['external_user_id'],$concept);
 			(!is_null($last_concept)) ? $params['since'] = $last_concept["creation_date"] : null;
 		}
-		*/
 
 		$mo_socialnet = Socialnet::Factory(self::$network);
 		$tracks	= $mo_socialnet->getTracks($account,$params);

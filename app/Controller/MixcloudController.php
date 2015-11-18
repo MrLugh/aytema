@@ -25,6 +25,117 @@ class MixcloudController extends AppController {
 
 	public function addAccount() {
 
+		$view = new View($this, false);
+       	$this->view 	= '/Elements/Socialnets/ajax/add_account';
+		$this->layout 	= 'anonymous';
+       	$response_data	= array();
+
+		$network 	= self::$network;
+		$action 	= isset($this->request->query['action'])	? $this->request->query['action']	: null;
+		$code		= isset($this->request->query['code'])		? $this->request->query['code']		: null;
+
+		$this->set('network', $network);
+
+		$user_id = $this->Auth->user('id');
+		$mo_socialnet = $this->Socialnet->Factory($network);
+
+		if ( $action && $action == "start" ) {
+			return $this->redirect($mo_socialnet->getAuthorizeUrl());
+		} else if ($code) {
+
+			try {
+
+				$token_data = $mo_socialnet->allowAccessToken($code);
+
+				$network_data = $mo_socialnet->profile($token_data['access_token']);
+
+				if (!$network_data) {
+					$msg = $view->element('flash/error', array('message'=>__('There is not MixCloud me information')));
+					$response_data = array(
+						'status'	=> 'error',
+						'status_msg'=> $msg,
+					);
+					$this->set("response_data",$response_data);
+					$this->render();
+				}
+
+				$msg 	= 'The account was added';
+
+				$save = array(
+					'user_id'			=> $user_id,
+					'login'				=> $network_data['username'],
+					'network'			=> self::$network,
+					'status'			=> 'Allowed',
+					'token'				=> $token_data['access_token'],
+					'secret'			=> '',
+					'external_user_id'	=> $network_data['username'],
+					'created'			=> date('Y-m-d H:i:s'),
+					'profile_url'		=> $network_data['url'],
+					'profile_image'		=> $network_data['pictures']['extra_large'],
+					'stats'				=> json_encode($mo_socialnet->stats($token_data['access_token'])),
+				);
+
+				//Check if already exists an account by $network_data['username'],
+				$accounts = $this->Socialnet->find('all', array(
+	       			'conditions' => array(
+	       				'Socialnet.user_id'			=> $user_id,
+	       				'Socialnet.network'			=> self::$network,
+	       				'Socialnet.status'			=> "Allowed",
+	       				'Socialnet.external_user_id'=> $network_data['username'],
+	       				)
+	    			)
+	    		);
+
+	    		if (count($accounts)) {
+	    			$msg = $view->element('flash/success', array('message'=>__('You already have synced this account')));
+	    			$account = array_shift($accounts);
+	    			$save['id'] = $account['Socialnet']['id'];
+
+	    		} else {
+					
+					$account = $this->Socialnet->find('all', array(
+		       			'conditions' => array(
+		       				'Socialnet.token'	=> $token_data['access_token'],
+		       				'Socialnet.user_id'	=> $user_id,
+		       				'Socialnet.network'	=> self::$network,
+		       				)
+		    			)
+		    		);
+
+		    		if (count($account)) {
+		    			$msg = $view->element('flash/success', array('message'=>__('You already have synced this account')));
+	    				$account = array_shift($accounts);
+	    				$save['id'] = $account['Socialnet']['id'];
+	    			}
+	    		}
+
+				if (!$this->Socialnet->save($save)) {
+					$msg = $view->element('flash/error', array('message'=>__('There was an error adding the account')));
+					$status = 'error';
+				} else {
+					$msg = $view->element('flash/success', array('message'=>__('The account was added')));
+					$status = 'success';					
+				}
+
+				$response_data = array(
+					'status'	=> $status,
+					'status_msg'=> $msg,
+				);
+				$this->set("response_data",$response_data);
+				$this->render();
+
+			} catch (Exception $e) {
+
+				$msg = $view->element('flash/error', array('message'=>__('There was an error adding the account')));
+				$response_data = array(
+					'status'	=> 'error',
+					'status_msg'=> $msg,
+				);
+				$this->set("response_data",$response_data);
+				$this->render();
+
+			}
+		}
 	}
 
 	public function addFollow() {
@@ -43,7 +154,7 @@ class MixcloudController extends AppController {
 
 		try {
 
-			$network_data = $mo_socialnet->profile($username);
+			$network_data = $mo_socialnet->profileByUsername($username);
 			if (!$network_data) {
 				$msg = $view->element('flash/error', array('message'=>__('There is not MixCloud information')));
 				$response_data = array(
@@ -51,11 +162,6 @@ class MixcloudController extends AppController {
 					'status_msg'=> $msg,
 				);
 				die(json_encode($response_data));
-			}
-
-			$picture_url = "";
-			if (isset($network_data['pictures']['extra_large'])) {
-				$picture_url = $network_data['pictures']['extra_large'];
 			}
 
 			$msg 	= 'The account was added';
@@ -70,8 +176,8 @@ class MixcloudController extends AppController {
 				'external_user_id'	=> $network_data['username'],
 				'created'			=> date('Y-m-d H:i:s'),
 				'profile_url'		=> $network_data['url'],
-				'profile_image'		=> $picture_url,
-				'stats'				=> json_encode($mo_socialnet->stats($username)),
+				'profile_image'		=> $network_data['pictures']['extra_large'],
+				'stats'				=> json_encode($mo_socialnet->statsByUsername($username)),
 			);
 
 			//Check if already exists an account by $network_data['username'],

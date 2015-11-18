@@ -135,6 +135,4 @@ Class SoundcloudSocialnet {
 		return $user;
 	}
 
-
-
 }

@@ -734,9 +734,7 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 			}
 
 			if (content.network == 'cloudcial') {
-				//var thumb = this.getThumbnail(content);
-				//source = '<video controls poster="'+thumb+'"><source src="'+content.data.path+'" type='+content.data.mime+' /></video>';
-				source = '<video controls><source src="'+content.data.path+'" type='+content.data.mime+' /></video>';
+				source = '<video><source src="'+content.data.path+'" type='+content.data.mime+' /></video>';
 			}
 
 		}
@@ -767,6 +765,13 @@ ayTemaSs.factory('contentSv',['$q', '$http', 'userSv','appSv',function($q,$http,
 				source = '<audio controls><source src="'+content.data.path+'"><p>Your browser does not support audio playback</p></audio>';
 			}
 		}
+
+		if (source.search('<video') > -1 && source.search('controls') == -1) {
+			source = source.replace('<video','<video controls ');
+			source = source.replace("preload=\"none\"","preload=\"auto\"");
+			source = source.replace('preload=\'none\'','preload=\'auto\'');
+		}
+
 
 		return source;
 	}

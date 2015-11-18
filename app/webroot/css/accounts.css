@@ -436,8 +436,9 @@
 }
 
 .noMore {
-  padding: 20px;
-  margin: 0px;
+  padding: 10px;
+  margin: 0px 15px;
+  margin-bottom: 20px;
   /*
   color: #2a3137;
   background-color: #83bd40;
@@ -523,7 +524,9 @@
 
 .adminContent .content .content_caption {
   padding: 15px;
-  max-height: 200px;
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -935,6 +938,7 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  max-height: 200px;
 }
 
 .addContent .mce-tinymce {

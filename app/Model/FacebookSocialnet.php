@@ -10,7 +10,7 @@ Class FacebookSocialnet {
 	//Esto va al config!
 	const APP_ID 			= "798764866832784";
 	const APP_SECRET 		= "bcd9845622eacd63d5ed522e0586f246";
-	const APP_PERMS 		= "publish_stream,offline_access,manage_pages,user_photos";
+	const APP_PERMS 		= "publish_pages,manage_pages,user_photos,user_posts,user_videos,user_about_me,read_insights";
 	const APP_CALLBACK 		= "http://cloudcial.com/facebook/addAccount";
 
 	static $content_types	= array('photo','video','post');

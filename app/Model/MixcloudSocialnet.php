@@ -6,7 +6,7 @@ Class MixcloudSocialnet {
 
 	const AUTHORIZE_HOST	= "https://www.mixcloud.com/oauth/authorize";
 	const ACCESS_TOKEN_HOST	= "https://www.mixcloud.com/oauth/access_token";
-	const API_URL			= "http://api.mixcloud.com";
+	const API_URL			= "https://api.mixcloud.com";
 
 	//Esto va al config!
 	const APP_ID 			= "XvjV23U8zawTxMp368";
@@ -76,9 +76,31 @@ Class MixcloudSocialnet {
 
 	/* NON OAUTH METHODS */
 
-	public function stats($username) {
+	public function statsByUsername($username) {
 
-		$user = $this->profile($username);
+		$user = $this->profileByUsername($username);
+		$stats= array();
+		if (isset($user['cloudcast_count'])) {
+			$stats['cloudcasts'] = $user['cloudcast_count'];
+		}
+		if (isset($user['listen_count'])) {
+			$stats['listen'] = $user['listen_count'];
+		}
+		if (isset($user['followers_count'])) {
+			$stats['followers'] = $user['followers_count'];
+		}
+		if (isset($user['follower_count'])) {
+			$stats['followers'] = $user['follower_count'];
+		}
+		if (isset($user['favorite_count'])) {
+			$stats['favorites'] = $user['favorite_count'];
+		}
+		return $stats;
+	}
+
+	public function stats($token) {
+
+		$user = $this->profile($token);
 		$stats= array();
 		if (isset($user['cloudcast_count'])) {
 			$stats['cloudcasts'] = $user['cloudcast_count'];
@@ -104,7 +126,17 @@ Class MixcloudSocialnet {
 		return $this->getEmbed($url);
 	}
 
-	public function profile($username) {
+	public function profile($token,$username='me') {
+
+		$crawler = new Crawler(self::API_URL."/{$username}/?metadata=1&access_token=".$token);
+
+		if ($crawler->call_url() && $crawler->get_header_response() == '200') {
+			return json_decode($crawler->get_response(), true);
+		}
+		return false;
+	}
+
+	public function profileByUsername($username) {
 
 		$crawler = new Crawler(self::API_URL."/{$username}/?metadata=1");
 
@@ -116,7 +148,7 @@ Class MixcloudSocialnet {
 
 	public function getEmbed($url) {
 
-		$url = "http://www.mixcloud.com/oembed/?url=".urlencode($url)."&format=json";
+		$url = "https://www.mixcloud.com/oembed/?url=".urlencode($url)."&format=json";
 		$crawler = new Crawler($url);
 
 		if ($crawler->call_url() && $crawler->get_header_response() == '200') {
@@ -125,9 +157,14 @@ Class MixcloudSocialnet {
 		return false;
 	}	
 
-	public function getTracks($account) {
+	public function getTracks($account,$params = array()) {
 
-		$crawler = new Crawler(self::API_URL."/{$account['external_user_id']}/cloudcasts/");
+		$url = self::API_URL."/{$account['external_user_id']}/cloudcasts";
+		if (!empty($account['token'])) {
+			$url.="?access_token=".$account['token'];
+		}
+
+		$crawler = new Crawler($url);
 
 		if ($crawler->call_url() && $crawler->get_header_response() == '200') {
 			return json_decode($crawler->get_response(), true);

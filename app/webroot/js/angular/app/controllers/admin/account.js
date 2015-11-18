@@ -88,7 +88,8 @@ function adminAccountCo($scope,userSv,appSv,contentSv) {
 							}
 						}
 						$scope.offset += $scope.limit;
-					} else {
+					}
+					if (contents.length < $scope.limit) {
 						$scope.noMore = true;
 					}
 				},
