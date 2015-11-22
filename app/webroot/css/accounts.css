@@ -444,7 +444,10 @@
   background-color: #83bd40;
   */
 }
-  
+
+.noMoreActions {
+  margin-bottom: 50px; 
+}
  
 /* stats */
 #accountPageList .stats {

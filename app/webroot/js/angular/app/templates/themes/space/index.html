@@ -49,12 +49,6 @@
 
 		</div>
   
-		<div ng-if="user.profile_image.length" class="profileImage" style="background-image:url('{{user.profile_image}}')"></div>
-		<h1 ng-style="getBrandStyle()" class="menu-brand">
-			{{user.username|uppercase}}
-			<span ng-show="!isSearch"> #<strong count-up="{{current + 1}}">{{current + 1}}</strong></span>
-		</h1>
-				
 		<div class="filterPage {{isSearch ? 'searching' : ''}}" ng-style="getSearchStyle()">
 
 			<ul class="filterPageList">
