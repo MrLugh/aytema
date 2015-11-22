@@ -100,7 +100,7 @@
 		<div ng-if="account.network == 'cloudcial' && noMore" class="noMoreActions animated fadeInDown">
 			<h4>Try adding yours:</h4>
 			<ul>
-				<li ng-repeat="concept in concepts" class="cloudcialAccount" style="opacity:{{!toAdd || toAdd == concept ? 1:0.3}};padding:10px 20px;;margin:10px;display:inline-block;border-radius:14px;color:inherit;" ng-click="showAddContent(concept)">
+				<li ng-repeat="concept in concepts" class="cloudcialAccount" style="opacity:{{!toAdd || toAdd == concept ? 1:0.3}};" ng-click="showAddContent(concept)">
 					<i ng-class="conceptIcon(concept)" style="font-size:40px;"></i>
 					<p style="font-size:20px;">{{concept}}</p>
 				</li>

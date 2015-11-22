@@ -448,7 +448,28 @@
 .noMoreActions {
   margin-bottom: 50px; 
 }
+
+.noMoreActions .cloudcialAccount {
+  padding:10px 20px;
+  margin:10px;
+  display:inline-block;
+  border-radius:14px;
+  color:inherit;
+  -webkit-transition:all 0.35s ease-in-out 0s;
+  -moz-transition:all 0.35s ease-in-out 0s;
+  -o-transition:all 0.35s ease-in-out 0s;
+  transition:all 0.35s ease-in-out 0s;
+  -webkit-box-shadow: 10px 10px 68px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 68px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 68px 0px rgba(0,0,0,0.75);
+}
  
+.noMoreActions .cloudcialAccount:hover {
+  opacity: 0.8;
+  -webkit-box-shadow: 0px 0px 26px 3px #83bd40;
+  -moz-box-shadow: 0px 0px 26px 3px #83bd40;
+  box-shadow: 0px 0px 26px 3px #83bd40;
+}
 /* stats */
 #accountPageList .stats {
   width: 100%;
