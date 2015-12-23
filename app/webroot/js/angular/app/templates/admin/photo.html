@@ -1,12 +1,12 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="content cover photo {{content.network}}_{{content.concept}}" style="position:relative;background-image:url({{current.src}});">
-	<div ng-if="moreThanOne()" class="more left">
+	<div ng-if="moreThanOne()" class="more left" tooltip="Previous photo" tooltip-placement="bottom">
 		<a href="#/" skip-default ng-click="move(-1)">
-			<i class="fa fa-chevron-left" style="color:#fff;"></i>
+			<i class="fa fa-chevron-left"></i>
 	 	</a>
 	</div>
-	<div ng-if="moreThanOne()" class="more right">
+	<div ng-if="moreThanOne()" class="more right" tooltip="Next photo" tooltip-placement="bottom">
 		<a href="#/" skip-default ng-click="move(1)">
-			<i class="fa fa-chevron-right" style="color:#fff;"></i>
+			<i class="fa fa-chevron-right"></i>
 		</a>
 	</div>
 	<div ng-if="getTitle().length>0 || contentSv.getDescription(content).length>0" class="content_caption {{content.network}}AccountRgba" style="{{!current.src.length?'opacity:1;max-height:100%;':''}}">

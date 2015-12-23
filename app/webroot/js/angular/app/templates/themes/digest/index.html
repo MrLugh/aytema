@@ -173,7 +173,7 @@
 
 		<ul id="container" infinite-scroll="moreContent()" ng-style="getMasonryStyle()" masonry="{'columnWidth':1,'gutter':1,'isAnimated':true,'itemSelector':'.content'}" class="masonry">
 
-			<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow ng-style="getContentStyle(content)">
+			<li ng-repeat="content in list" class="content" ng-class="getContentSize($index)" ng-switch="content.concept" masonry-item hover-shadow="{active:'content_shadow',}" ng-style="getContentStyle(content)">
 
 				<div ng-if="isLogged()" class="left">{{content.status}}</div>
 				<i ng-if="isLogged()" ng-click="manageContent($index)" class="right" ng-class="getManageContentIconClass($index)"></i>

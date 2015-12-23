@@ -433,16 +433,6 @@
   overflow: hidden;
 }
 
-
-#accountPageList .stats {
-  width: auto;
-  height: auto;
-}
-
-#accountPageList .stats li {
-  margin:4px;
-}
-
 .noMore {
   padding: 10px;
   margin: 0px 15px;
@@ -478,9 +468,12 @@
   -moz-box-shadow: 0px 0px 26px 3px #83bd40;
   box-shadow: 0px 0px 26px 3px #83bd40;
 }
+
 /* stats */
+
 #accountPageList .stats {
   width: 100%;
+  font-size: 14px;
 }
 
 #accountPageList .stats li {
@@ -581,21 +574,23 @@
 
 .adminContent .content .more {
   position: absolute;
-  font-size: 40px;
-  top:40%;
+  font-size: 15px;
+  top: -27px;
   z-index: 1;
+  color: #adafae;
 }
 
 .adminContent .content .more.left {
-  left: 0;
+  left: 35%;
 }
 
 .adminContent .content .more.right {
-  right: 0;
+  right: 35%;
 }
 
 .adminContent .controls {
   width: 100%;
+  font-size: 16px;
 }
 
 .adminContent .controls i {
