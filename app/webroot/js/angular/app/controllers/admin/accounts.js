@@ -13,6 +13,7 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 	$scope.account			= {};
 	$scope.current			= false;
 	$scope.scrollTop 		= 0;
+	$scope.active			= -1;
 
 	$scope.networkAdd	= '';
 
@@ -239,5 +240,5 @@ function adminAccountsCo($scope,userSv,appSv,contentSv) {
 			$scope.current = $scope.list.length - 1;
 		}
 		$scope.showAccount($scope.current);
-	}
+	};
 }

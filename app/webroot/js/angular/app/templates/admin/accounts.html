@@ -79,7 +79,12 @@
 							</li>
 						</ul>
 
-						<p class="cloudcialAccount accountUsername" style="float:none;clear:both;"><strong>{{account.login|unslug|capitalize}}</strong></p>
+						<p class="cloudcialAccount accountUsername" style="float:none;clear:both;">
+							<strong>
+								<i ng-click="showAccount($index)" ng-class="networkIcon(account.network)"></i>
+								{{account.login|unslug|capitalize}}
+							</strong>
+						</p>
 
 					</div>
 
