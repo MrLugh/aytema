@@ -571,6 +571,21 @@
   opacity: 1;
 }
 
+.adminContent .content .more {
+  position: absolute;
+  font-size: 40px;
+  top:40%;
+  z-index: 1;
+}
+
+.adminContent .content .more.left {
+  left: 0;
+}
+
+.adminContent .content .more.right {
+  right: 0;
+}
+
 .adminContent .controls {
   width: 100%;
 }

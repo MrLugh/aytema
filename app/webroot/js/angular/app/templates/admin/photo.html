@@ -1,10 +1,10 @@
 <div id="{{content.network}}_{{content.concept}}_{{content.external_id}}" class="content cover photo {{content.network}}_{{content.concept}}" style="position:relative;background-image:url({{current.src}});">
-	<div ng-if="moreThanOne()" style="position: absolute;top:10px;left:0px;" class="left">
+	<div ng-if="moreThanOne()" class="more left">
 		<a href="#/" skip-default ng-click="move(-1)">
 			<i class="fa fa-chevron-left" style="color:#fff;"></i>
 	 	</a>
 	</div>
-	<div ng-if="moreThanOne()" style="position: absolute;top:10px;right:0px;" class="right">
+	<div ng-if="moreThanOne()" class="more right">
 		<a href="#/" skip-default ng-click="move(1)">
 			<i class="fa fa-chevron-right" style="color:#fff;"></i>
 		</a>
