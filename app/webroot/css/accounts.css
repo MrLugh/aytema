@@ -140,9 +140,10 @@
   top:0;
   left: 0;
   z-index: 1;
-  border-width: 7px;
+  border-width: 30px;
 
-  border-color: #151a1e #2a3137;
+  border-left-color: #2a3137;
+  border-right-color: #2a3137;
   border-style: solid;
 
   border-radius: 100%;
@@ -153,9 +154,9 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 
-  /*-webkit-box-shadow: 0px 0px 20px 0px rgba(37,35,40,0.8);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(37,35,40,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(37,35,40,0.8);*/
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
+  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -163,6 +164,11 @@
   -moz-user-select: -moz-none;
   -ms-user-select: none;
   user-select: none;
+
+  -webkit-transition:all 0.75s ease-in-out 0s;
+  -moz-transition:all 0.75s ease-in-out 0s;
+  -o-transition:all 0.75s ease-in-out 0s;
+  transition:all 0.75s ease-in-out 0s;
 
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9); 
@@ -176,12 +182,11 @@
 
   border-color: #695C83 #C87A61 #EDC42C #84BE88;
   border-color: #2a3137 #b0c19c;
+  border-left-color: #84BE88;
+  border-right-color: #84BE88;
+
   border-style: dotted;
   border-style: solid;
-
-  /*-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
-  -moz-box-shadow:    0px 0px 20px 0px rgba(0,0,0,0.8);
-  box-shadow:         0px 0px 20px 0px rgba(0,0,0,0.8);*/
 
   z-index: 2;
 
@@ -194,14 +199,7 @@
   -ms-transform: scale(1);  
   transform: scale(1);
 
-  border-width: 0px!important;
   background: transparent;
-
-  -webkit-transition:all 0.75s ease-in-out 0s;
-  -moz-transition:all 0.75s ease-in-out 0s;
-  -o-transition:all 0.75s ease-in-out 0s;
-  transition:all 0.75s ease-in-out 0s;
-
 }
 
 .accountsContainer .account i {
@@ -240,28 +238,36 @@
 
 .accountsContainer .accountLayerInfo {
   position: absolute;
-  top:10%;
-  left:10%;
-  width: 80%;
-  height: 80%;
+  top:5%;
+  left:5%;
+  width: 90%;
+  height: 90%;
   text-align: left;
   border-radius: 50%; 
   z-index: 2;
   opacity:0;
   filter: alpha(opacity=0);
+
+  -webkit-transform: translateY(-105%);
+  -moz-transform: translateY(-105%); 
+  -o-transform: translateY(-105%);
+  -ms-transform: translateY(-105%);  
+  transform: translateY(-105%);
 }
 
 .accountsContainer .account:hover .accountLayerInfo {
-  top:5%;
-  left: 5%;
-  width: 90%;
-  height: 90%;  
   opacity:1;
   filter: alpha(opacity=100);
-  -webkit-transition:all 0.36s ease-in-out 0s;
-  -moz-transition:all 0.36s ease-in-out 0s;
-  -o-transition:all 0.36s ease-in-out 0s;
-  transition:all 0.36s ease-in-out 0s;
+  -webkit-transition:all 0.13s ease-in-out 0s;
+  -moz-transition:all 0.13s ease-in-out 0s;
+  -o-transition:all 0.13s ease-in-out 0s;
+  transition:all 0.13s ease-in-out 0s;
+
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%); 
+  -o-transform: translateY(0%);
+  -ms-transform: translateY(0%);  
+  transform: translateY(0%);
 }
 
 .accountsContainer .accountLayerInfo .controls {
@@ -840,7 +846,7 @@
 
 .accountsContainer .account.ng-enter.ng-enter-active {
   opacity:1;
-  filter: alpha(opacity=100);  
+  filter: alpha(opacity=100);
 }
 
 .accountsContainer .account.ng-leave {
