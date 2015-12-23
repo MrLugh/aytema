@@ -474,6 +474,7 @@
 #accountPageList .stats {
   width: 100%;
   font-size: 14px;
+  margin-top: 5px;
 }
 
 #accountPageList .stats li {
@@ -495,7 +496,7 @@
   border-radius: 5px;
 
   width: 50%;
-  height: 420px;
+  height: 425px;
   overflow: hidden;
 
   -webkit-transition:none;
