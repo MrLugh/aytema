@@ -124,6 +124,7 @@
 
 .accountsContainer .profileImage {
   height:40px;
+  width: 40px;
   margin: 10px;
 }
 
@@ -438,6 +439,7 @@
   padding: 10px;
   margin: 0px 15px;
   margin-bottom: 20px;
+  background-color: transparent!important;
   /*
   color: #2a3137;
   background-color: #83bd40;
