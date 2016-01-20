@@ -39,7 +39,7 @@
 
 				<li ng-repeat="network in filters.networks" class="inline menu-item" ng-click="filterNetwork(network)" ng-style="filterNetworkStyle(network)" tooltip="On/Off {{network}}" tooltip-placement="bottom">
 					<p class="navbar-text navbar-right">
-						<i class="{{networkIcon(network)}}"></i>
+						<i class="{{contentSv.getNetworkIcon(network)}}"></i>
 					</p>
 				</li>
 
@@ -61,9 +61,16 @@
 
 	</nav>
 
-	<div id="container" ng-style="getStyle()">
+	<div ng-if="user.profile_image.length" class="cover coverImg" ng-style="getCoverStyle()">
+		<div class="userCircle">
+			<img ng-src="{{user.profile_image}}"/>
+			<h1>{{user.username|uppercase}}</h1>
+		</div>
+	</div>
 
-		<ul id="list" ng-show="!showFooter" class="{{!showFooter ? 'animated fadeIn':''}}">
+	<div id="container">
+
+		<ul id="list" ng-show="!showFooter">
 
 			<li ng-repeat="content in list" ng-switch="content.concept" class="content left">
 
@@ -93,17 +100,17 @@
 						<h3 class="title">Share on:</h3>
 						<li class="inline">
 		                	<span ng-click="" href="http://twitter.com/share" share-twitter="{{content}}">
-		                		<i class="{{networkIcon('twitter')}}"></i>
+		                		<i class="{{contentSv.getNetworkIcon('twitter')}}"></i>
 		                	</span>
 		                </li>
 		                <li class="inline">
 		                	<span ng-click="" href="http://www.facebook.com/sharer/sharer.php" share-facebook="{{content}}">
-		                		<i class="{{networkIcon('facebook')}}"></i>
+		                		<i class="{{contentSv.getNetworkIcon('facebook')}}"></i>
 		                	</span>
 		                </li>
 		                <li class="inline">
 		                	<span ng-click="" href="http://www.tumblr.com/share" share-tumblr="{{content}}">
-		                		<i class="{{networkIcon('tumblr')}}"></i>
+		                		<i class="{{contentSv.getNetworkIcon('tumblr')}}"></i>
 		                	</span>
 		                </li>
 		            </ul>
@@ -118,7 +125,7 @@
 					</span>
 					<a href="/dashboard/#/socialnets/{{content.network}}/{{content.external_user_id}}">
 						{{content.external_user_name}}
-						<i class="{{networkIcon(content.network)}}"></i>
+						<i class="{{contentSv.getNetworkIcon(content.network)}}"></i>
 					</a>
 
 					<!--

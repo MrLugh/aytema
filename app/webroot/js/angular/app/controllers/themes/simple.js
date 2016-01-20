@@ -16,6 +16,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.current	= -1;
 	$scope.search	= '';
 	$scope.noMore 	= false;
+	$scope.firstMore = true;
 
 	$scope.config		= {};
 	$scope.configLoaded = false;
@@ -86,6 +87,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	}
 
 	$scope.moreContent = function() {
+		$scope.firstMore = false;
 		if (!contentSv.isLoading()) {
 			$scope.setList();
 		}
@@ -122,6 +124,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 				}
 			}
 
+			var lastHeight = $(document).height() - 40;
+
 			contentSv.getContentsByFilters(params).then(
 				function(data) {
 					var contents = data.contents;
@@ -134,8 +138,8 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 						if ($scope.list.length > 1) {
 							$('html, body').animate({
-								scrollTop: $(document).height() - 40
-							}, 2000);
+								scrollTop: lastHeight
+							}, 1500);
 						}
 
 						$scope.noMore = false;
@@ -210,7 +214,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 	$scope.$watch("userSv.getThemeConfig().custom.background",function(background){
 		if (angular.isDefined(background)) {
 			$scope.config.custom.background = background;
-			$scope.setBackground();
+			//$scope.setBackground();
 		}		
 	},true);
 
@@ -274,30 +278,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			},750);
     	}
     };
-
-	$scope.networkIcon = function(network) {
-
-		var icon_class = "";
-
-        if (network == "cloudcial") {
-            icon_class = "icon-cloud";
-        } else if (network == "facebook") {
-            icon_class = "fa fa-facebook";
-        } else if (network == "twitter") {
-            icon_class = "icon-twitter";
-        } else if (network == "youtube") {
-            icon_class = "fa fa-youtube";            
-        } else if (network == "vimeo") {
-            icon_class = "icon-vimeo";
-        } else if (network == "tumblr") {
-            icon_class = "icon-tumblr";
-        } else if (network == "mixcloud") {
-            icon_class = "icon-renren";
-        } else if (network == "soundcloud") {
-            icon_class = "icon-soundcloud";
-        }
-		return icon_class;
-	}
 
 	$scope.statIcon = function(stat_name) {
 		return contentSv.getStatIcon(stat_name);
@@ -400,7 +380,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
 		var element = angular.element(document.querySelector('body'));
 		$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
-		$(element[0]).css('color',$scope.config.custom.colors.contentText.value);
+		$(element[0]).css('color',$scope.config.custom.colors.title.value);
 
 		var element = angular.element(document.querySelector('#list'));
 		//$(element[0]).css('background-color',$scope.config.custom.colors.background.value);
@@ -419,6 +399,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		$(element[0]).css('font-size',$scope.config.custom.fonts.selected.size);
 	}
 
+	/*
 	$scope.setBackground = function() {
 
 		var element = angular.element(document.querySelector('body'));
@@ -449,6 +430,7 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 
         img.src = $scope.config.custom.background.selected;
 	}
+	*/
 
 	$scope.getAccountLink = function(index,external_user_id) {
 		for (var x in $scope.accounts) {
@@ -471,10 +453,6 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 			}
 		}
 		return '';
-	}
-
-	$scope.getStyle = function() {
-		return {'margin-top':$scope.getMenuHeight() + 'px'};
 	}
 
     $scope.getConfigStyle = function() {
@@ -545,6 +523,18 @@ function themeSimpleCo($scope,appSv,userSv,contentSv,$sce) {
 		return {
 			'background-color':$scope.config.custom.colors.contentBackground.value,
 		};
+    };
+
+    $scope.getCoverStyle = function() {
+
+		if (!$scope.configLoaded || !angular.isDefined($scope.config)) {
+			return {};
+		}
+
+    	return {
+    		'background-image':'url("'+$scope.config.custom.background.selected+'")',
+    		'height': (window.innerHeight * 0.7) +'px'
+    	}
     };
 
 	$scope.getPlayer = function(index) {
