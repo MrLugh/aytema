@@ -103,7 +103,7 @@ function appCo($scope,$rootScope,$location,appSv,userSv,contentSv) {
 	$scope.manageTour = function() {
 
 		if ($scope.steps.accounts && $scope.steps.themes) {
-			//return;
+			return;
 		}
 
 		if (userSv.getAccounts().length > 1) {
