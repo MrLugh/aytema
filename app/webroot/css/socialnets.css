@@ -53,6 +53,7 @@
 .socialnet .profileLink, .socialnet .profileLink h1 {
 	font-size:80px;
 	background:none;
+  text-shadow: 4px 2px 2px rgba(150, 150, 150, 0.7);
 }
 
 .socialnet .stats {
@@ -160,11 +161,11 @@
 }
 
 .socialnetSlide .next {
-	right: 0;
+	right: 10px;
 }
 
 .socialnetSlide .prev {
-	left: 0;
+	left: 10px;
 }
 
 .socialnetSlide .contents {
@@ -345,10 +346,10 @@
   -moz-border-radius-topright: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-
 }
 
 .socialnet .footercontrol i {
+  color:#b0c19c!important;
   font-size: 52px;
   line-height: 69px;
   margin: 0 auto;
