@@ -234,25 +234,13 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
     	},500);
     };
 
-    $scope.fullWidht = function(index) {
-    	$scope.currentQueue = index;
+    $scope.fullWidth = function(index) {
+    	$scope.currentQueue = index || -1;
     	$scope.isFullWidth = !$scope.isFullWidth;
-    	if ($scope.isFullWidth) {
+    	if ($scope.isFullWidth && $scope.currentQueue != -1) {
     		$scope.scrollToQueue('queue_'+index);
     	}
     };
-
-    $scope.getFooterStyle = function() {
-
-    	var style = {};
-	   	if ($scope.showFooter == true) {
-	   		style['bottom'] =  0;
-	   		return style;
-    	}
-    	style['bottom'] = -$scope.footerHeight + 'px';
-
-	   	return style;
-    }
 
     $scope.getFooterButtonStyle = function() {
 
@@ -355,12 +343,12 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 			$scope.currentQueue = queue.length - 1;
 			$scope.scrollToQueue('queue_'+$scope.currentQueue);
 			$scope.showFooter = true;
+		} else {
+			if ($scope.isFullWidth) {
+				$scope.fullWidth();
+			}
 		}
 	},true);
-
-	$scope.$watchCollection("[showFooter]",function(values){
-		$scope.getFooterStyle();
-	});
 
 	var scrollTimer = -1;
 
