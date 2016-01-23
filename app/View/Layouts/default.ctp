@@ -214,6 +214,7 @@
                     <form class="navbar-form navbar-left" role="search" style="position:relative;">
                         <div class="">
                             <input type="text" ng-model="userSearch" name="userSearch" placeholder="Search users" class="form-control">
+                            <h5><a href="#/users/" skip-default>All Users</a></h5>
                         </div>
                         <div ng-if="usersList.length > 0" style="position:absolute;height:100%;z-index:10;">
                             <ul class="nav navbar-nav usersSearch">
