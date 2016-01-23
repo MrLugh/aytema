@@ -99,13 +99,13 @@
 		</ul>
 	</div>
 
-	<div class="footer {{isFullWidth ? 'footerFull':''}} {{account.network}}Account">
+	<div class="footer {{isFullWidth ? 'footerFull':''}} cloudcialAccount">
 
-		<a href="#/" class="footercontrol {{account.network}}Account" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>
+		<a href="#/" class="footercontrol cloudcialAccount" ng-click="footer()" ng-style="getFooterButtonStyle()" skip-default>
 			<i class="fa fa-play-circle" ng-style="getFooterContrastStyle()"></i>
 		</a>
 
-		<div ng-show="showFooter" class="queued {{account.network}}Account">
+		<div ng-show="showFooter" class="queued cloudcialAccount">
 			<ul ng-style="getQueueStyle()" class="queuedList">
 				<li ng-repeat="content in contentSv.getQueue()" id="queue_{{$index}}" class="{{content.network}}_{{content.concept}}" style="position:relative;" ng-if="hasPlayer($index)">
 					<i class="fa fa-times-circle" ng-click="contentSv.deleteFromQueue(content)" tooltip="Delete from queue" tooltip-placement="left"></i>

@@ -347,6 +347,9 @@ function socialnetCo($scope,$routeParams,$location,appSv,userSv,contentSv,$sce,$
 			if ($scope.isFullWidth) {
 				$scope.fullWidth();
 			}
+			if ($scope.showFooter) {
+				$scope.footer();
+			}
 		}
 	},true);
 
