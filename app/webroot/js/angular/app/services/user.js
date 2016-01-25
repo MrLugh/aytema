@@ -239,7 +239,7 @@ ayTemaSs.factory('userSv',['$q', '$http','$rootScope',function($q,$http,$rootSco
 
 	    $http({method: 'GET', url: '/themes/view/'+theme+'/'+user.username+'.json'}).
 	    success(function(data, status, headers, config) {
-
+	    	console.log(data);
 	    	themeConfig = {'default':data.config,'custom':JSON.parse(JSON.stringify(data.config))};
 	    	deferred.reject(data);
 	    }).

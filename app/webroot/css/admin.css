@@ -178,7 +178,7 @@
 }
 
 #config input {
-  color: black;
+  color: red;
 }
 ::-webkit-input-placeholder { /* Safari, Chrome and Opera */
   color: red;
