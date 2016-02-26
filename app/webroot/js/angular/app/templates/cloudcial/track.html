@@ -3,7 +3,7 @@
 	<div ng-style="getBgImage()" class="overlay_cover"></div>
 	<div thumbnail="content" ng-style="getBgImage()" class="overlay_photo">
 		
-		<div style="font-size:70px;position: absolute;top: calc(50% - 35px);margin: 0 auto;left: calc(50% - 35px);}">
+		<div style="font-size:70px;position: absolute;top: calc(50% - 35px);margin: 0 auto;left: calc(50% - 35px);">
 			<a href="#/" add-to-queue="getPlayer()" skip-default>
 				<i class="fa fa-play-circle {{content.network}}Account"></i>
 			</a>
@@ -11,7 +11,10 @@
 
 	</div>
 
-	<div ng-show="appSv.getNavigationMode()" class="content_caption {{content.network}}AccountRgba"> 
+	<div ng-show="appSv.getNavigationMode() && (getTitle().length || contentSv.getDescription(content).length)"  class="content_caption {{content.network}}AccountRgba"> 
+		<a href="#/" style="font-size:35px;" add-to-queue="getPlayer()" skip-default>
+			<i class="fa fa-play-circle {{content.network}}Account"></i>
+		</a>
 		<h2 ng-if="getTitle().length>0">{{getTitle()}}</h2>
 		<p ng-bind-html="getDescription()"></p>
 	</div>	

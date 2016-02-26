@@ -270,7 +270,6 @@
   z-index: 3;
   padding:20px;
   font-size: 15px!important;
-  text-align: center;
   -webkit-transition:all 0.5s ease-in-out 0s;
   -moz-transition:all 0.5s ease-in-out 0s;
   -o-transition:all 0.5s ease-in-out 0s;
@@ -279,6 +278,12 @@
   filter: alpha(opacity=1);
 }
 
+.socialnetSlide .content .content_caption a {
+  color:#b0c19c;
+  font-style: italic;
+}
+
+/*
 .socialnetSlide .content .content_caption i {
   font-size: 40px;
   line-height: 23px;
@@ -316,6 +321,7 @@
 .socialnetSlide .content .content_caption blockquote small {
   color: #fff;
 }
+*/
 
 .socialnetSlide .content .track {
   width: 100%;
